@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20121201222626) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "creator_id"
+    t.integer  "owner_id"
+    t.string   "status"
+    t.string   "dataset_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
