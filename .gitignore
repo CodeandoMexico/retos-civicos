@@ -16,3 +16,6 @@
 
 /config/database.yml
 .DS_Store
+
+/config/environment_variables.yml
+
