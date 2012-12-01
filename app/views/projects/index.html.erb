@@ -1,0 +1,10 @@
+<h1>Proyectos</h1>
+<% @projects.each do |project| %>
+	<p>
+		<%= link_to project.title, project_path(project) %> <br />
+		<%= project.description %> <br />
+		Status: <%= project.status %> <br  />
+		<%= link_to 'Edit', edit_project_path(project) %>
+	</p>
+<% end %>
+<%= link_to 'Nuevo proyecto', new_project_path %>

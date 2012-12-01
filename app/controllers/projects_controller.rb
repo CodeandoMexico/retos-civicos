@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+	def index
+		@projects = Project.all
+	end
+
   def new
   	@project = Project.new
   end
@@ -13,12 +17,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-	@project = Project.new(params[:project]) 
-	if @project.save
-	  redirect_to @project
-	else
-	  render :new
-	end
+		@project = Project.new(params[:project]) 
+		if @project.save
+		  redirect_to @project
+		else
+		  render :new
+		end
   end
 
   def update
@@ -30,5 +34,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def cancel
+  	@project = Project.find(params[:project_id])
+  	@project.cancel!
+  	redirect_to projects_url
+  end
 
 end

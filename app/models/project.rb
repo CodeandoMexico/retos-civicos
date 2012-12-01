@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :creator_id, :dataset_url, :description, :owner_id, :status, :title
+  attr_accessible :dataset_url, :description, :owner_id, :status, :title
 
   # Relations
   #resources
