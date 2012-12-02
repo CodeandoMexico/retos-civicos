@@ -71,6 +71,10 @@ GEM
     json (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    linkedin (0.3.7)
+      hashie (~> 1.2)
+      multi_json (~> 1.0)
+      oauth (~> 0.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -174,6 +178,7 @@ DEPENDENCIES
   compass-rails
   debugger
   jquery-rails
+  linkedin
   omniauth-github
   omniauth-linkedin
   omniauth-twitter
