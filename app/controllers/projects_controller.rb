@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def edit
   	@project = current_user.created_projects.find(params[:id])
+    @activity = @project.activities.build
   end
 
   def create
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    debugger
   	@project = current_user.created_projects.find(params[:id])
     if @project.update_attributes(params[:project])
       redirect_to @project

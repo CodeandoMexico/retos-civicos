@@ -31,5 +31,10 @@
 	<%= f.label :thrid_spec, 'Especificación 3' %>
 	<%= f.text_area :third_spec %>
 	<br />
+  <%= f.fields_for :activities do |a| %>
+    <%= a.label :text, 'Actividad' %>
+    <%= a.text_area :text, rows: 2 %>
+  <% end %>
+	<br />
 	<%= f.submit 'Guardar' %>
 <% end %>

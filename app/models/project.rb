@@ -1,19 +1,21 @@
 class Project < ActiveRecord::Base
 
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-                  :first_spec, :second_spec, :third_spec, :pitch, :avatar
+                  :first_spec, :second_spec, :third_spec, :pitch, :avatar, :activities_attributes
 
   mount_uploader :avatar, ProjectAvatarUploader
 
   # Relations
 	has_many :collaborations, foreign_key: 'project_id'
 	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
+  has_many :activities
 
 	belongs_to :creator, class_name: "User"
 	# Validations
 	validates :description, :title, :status, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }
 
+  accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
 	# Additionals
 	acts_as_voteable
