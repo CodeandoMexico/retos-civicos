@@ -181,6 +181,24 @@ section#projects {
 .content {
   padding: 30px;
 }
+.buttons {
+  float: left;
+  color: $white;
+  display: block;
+  text-align: center;
+  background-color: darken($green, 15%);
+  height: 45px;
+  padding: 0 30px;
+  line-height: 45px;
+  text-transform: uppercase;
+  @include border-radius(4px);
+  margin-left: 25px;
+  font-weight: bold;
+
+  &:hover{
+  background-color: darken($green, 20%);
+  }
+}
 
 /***************************************************
 **  Project Show
@@ -200,22 +218,7 @@ section#projects {
       float: right;
 
       a {
-        float: left;
-        color: $white;
-        display: block;
-        text-align: center;
-        background-color: darken($green, 15%);
-        height: 45px;
-        padding: 0 30px;
-        line-height: 45px;
-        text-transform: uppercase;
-        @include border-radius(4px);
-        margin-left: 25px;
-        font-weight: bold;
-
-        &:hover{
-        background-color: darken($green, 20%);
-        }
+        @extend .buttons;
       }
       .like i {
         margin-right: 15px;
@@ -407,19 +410,11 @@ section#projects {
       line-height: 45px;
     }
     .comment {
+      @extend .buttons;
       float: right;
-      color: $white;
-      display: block;
-      text-align: center;
       background-color: lighten($gray4, 15%);
       height: 45px;
-      padding: 0 30px;
       line-height: 45px;
-      text-transform: uppercase;
-      @include border-radius(4px);
-      margin-left: 25px;
-      font-weight: bold;
-
       &:hover{
       background-color: lighten($gray4, 20%);
       }
@@ -625,26 +620,89 @@ section#projects {
     height: 75px;
 
     a {
-      float: left;
-      color: $white;
-      display: block;
-      text-align: center;
-      background-color: darken($green, 15%);
-      height: 45px;
-      padding: 0 30px;
-      line-height: 45px;
-      text-transform: uppercase;
-      @include border-radius(4px);
-      margin-left: 25px;
-      font-weight: bold;
-
-      &:hover{
-      background-color: darken($green, 20%);
-      }
+      @extend .buttons;
     }
     .like i {
       margin-right: 15px;
       font-size: ms(1);
+    }
+  }
+}
+
+
+/***************************************************
+**  PROJECT FORM
+***************************************************/
+
+.form_container {
+
+  .form_main, .form_needs, .form_resources, .form_activities {
+    background-color: $white;
+
+    section {
+      padding: 30px;  
+    }
+    .left {
+      width: 350px;
+    }
+    .right {
+      width: 540px;
+    }
+    textarea {
+      height: 160px;
+    }
+    input, textarea, select {
+      margin: 0
+    }
+    select {
+      width: 200px;
+    }
+    .row {
+      margin-bottom:20px;
+    }
+    label {
+      font-size: ms(1);
+      color: $black;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 25px;
+    }
+
+    header {
+      background-color: $gray4;
+      padding: 30px;
+
+      h2 {
+        color: $white;
+        margin: 0;
+      }
+    }
+  }
+
+  .form_needs {
+    .left {
+      width: 440px;
+    }
+    .right {
+      width: 450px;
+    }
+  }
+
+  .form_save {
+    background-color: $green;
+    padding: 30px;
+
+    input {
+      float: none;
+      margin: 0 auto;
+      border: 0;
+      @extend .buttons;
+      background-color: darken($green, 15%);
+      font-size: ms(1);
+      font-weight: normal;
     }
   }
 }

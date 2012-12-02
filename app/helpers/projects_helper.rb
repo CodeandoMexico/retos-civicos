@@ -18,7 +18,7 @@ module ProjectsHelper
 			'Votado'
 		elsif signed_in?
 			link_to like_project_path(project), method: :post, class: "like" do
-        "<i class=\"icon-hand-right\"></i>".html_safe+project.likes_counter.to_s
+        "<i class=\"icon-thumbs-up\"></i>".html_safe+project.likes_counter.to_s
       end
 		else
       link_to I18n.t("project.like"), like_project_path(project), method: :post, class: "like"
@@ -27,7 +27,7 @@ module ProjectsHelper
 
   def collaborate_section(project)
   	if current_user == project.creator
-      link_to I18n.t("project.myproject"), "", class: "colaborate"
+      link_to "Editar", edit_project_path(@project)
 		elsif signed_in? and current_user.collaborating_in?(project)
 			link_to I18n.t("project.colaborating"), "", class: "colaborate"
 		elsif signed_in?
