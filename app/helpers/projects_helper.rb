@@ -24,7 +24,9 @@ module ProjectsHelper
   end
 
   def collaborate_section(project)
-		if signed_in? and current_user.collaborating_in?(project)
+  	if current_user == project.creator
+  		'Proyecto tuyo'
+		elsif signed_in? and current_user.collaborating_in?(project)
 			'Estás colaborando!'
 		elsif signed_in?
 			link_to 'Colaborar', collaborate_project_path(project), method: :post

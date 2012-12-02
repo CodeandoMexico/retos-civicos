@@ -5,7 +5,7 @@
 <% end %>
 <% @comments.each do |comment| %>
 	<p>
-		<% if signed_in? and !current_user.voted_on?(comment) %>
+		<% if signed_in? and !current_user.voted_on?(comment) and comment.user != current_user %>
 			<%= link_to 'Up', like_project_comment_path(@project, comment, like: true), method: :post %> |
 			<%= link_to 'Down', like_project_comment_path(@project, comment), method: :post %>
 		<% end %>
