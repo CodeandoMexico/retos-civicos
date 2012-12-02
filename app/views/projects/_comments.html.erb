@@ -12,7 +12,7 @@
       <% if signed_in? and current_user.collaborating_in?(@project) %>
         <%= form_for [@project, Comment.new] do |f| %>
           <div class="column left info">
-            <%= image_tag "https://secure.gravatar.com/avatar/0b343626d51c6f147021209edbcb2c02?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-112e2e92d74b7344b8be3630bbccc5da.png" %>
+            <%= image_tag current_user.avatar %>
             <span class="name"><%= current_user.name %></span>
             <time><%= Time.now %></time>
             <span class="clock">12:30 pm</span>
@@ -31,7 +31,7 @@
     <% @comments.each do |comment| %>
       <div class="row">
         <div class="column left info">
-          <%= image_tag "https://secure.gravatar.com/avatar/0b343626d51c6f147021209edbcb2c02?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-112e2e92d74b7344b8be3630bbccc5da.png" %>
+          <%= image_tag comment.user.avatar %>
           <span class="name"><%= comment.user.name %></span>
           <time><%= comment.created_at %></time>
           <span class="clock">12:30 pm</span>
