@@ -1,15 +1,9 @@
 <h1><%= @project.title %></h1>
-<% if current_user.collaborating_in?(@project) %>
-	<h4>Estás colaborando!</h4>
-<% else %>
-	<h4><%= link_to 'Colaborar', collaborate_project_path(@project), method: :post %></h4>
-<% end %>
+
+<%= collaborate_section(@project) %> <br />
 <%= @project.likes_counter %>
-<% if current_user.voted_for?(@project) %>
-	Votado
-<% else %>
-	<%= link_to 'Like', like_project_path(@project), method: :post %>
-<% end %>
+<%= like_section(@project) %>
+
 <h4>Status: <%= @project.status %></h4>
 <h4>Creado por: Alguien<%#= @project.creator %></h4>
 <h4>Soportado por: Alguien Mas<%#= @project.owner %></h4>
