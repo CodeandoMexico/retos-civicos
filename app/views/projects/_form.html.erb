@@ -1,40 +1,128 @@
+<div class="form_container">
 <%= form_for @project do |f| %>
-	<%= f.label :title, 'Título' %>
-	<%= f.text_field :title %>
-	<br />
-	<%= f.label :pitch, 'Pitch' %>
-	<%= f.text_field :pitch %>
-	<br />
+	<section id="form_main" class="form_main">
 
-  <%= f.label :avatar, 'Avatar' %>
-  <%= f.file_field :avatar %>
-	<br />
+		<section>
+		<div class="unit row">
+			<div class="column left">
+				<%= f.label :title, 'Título del proyecto' %>
+			</div>
+			<div class="column right">
+				<%= f.text_field :title %>
+			</div>
+		</div>
 
-	<%= f.label :description, 'Descripción' %>
-	<%= f.text_area :description %>
-	<br />
-	<%= f.label :additional_links, 'Links adicionales' %>
-	<%= f.text_area :additional_links, placeholder: 'Separados por coma', rows: 3 %>
-	<br />
-	<%= f.label :status, 'Status' %>
-	<%= f.select(:status, status_for_project) %>
-	<br />
-	<%= f.label :dataset_url, 'URL API' %>
-	<%= f.text_field :dataset_url %>
-	<br />
-	<%= f.label :first_spec, 'Especificación 1' %>
-	<%= f.text_area :first_spec %>
-	<br />
-	<%= f.label :second_spec, 'Especificación 2' %>
-	<%= f.text_area :second_spec %>
-	<br />
-	<%= f.label :thrid_spec, 'Especificación 3' %>
-	<%= f.text_area :third_spec %>
-	<br />
-  <%= f.fields_for :activities do |a| %>
-    <%= a.label :text, 'Actividad' %>
-    <%= a.text_area :text, rows: 2 %>
-  <% end %>
-	<br />
-	<%= f.submit 'Guardar' %>
+		<div class="unit row">
+			<div class="column left">
+				<%= f.label :pitch, 'Invitación' %>
+				<p>Escribe en un solo enunciado una frase para motivar a que las personas participen en el proyecto. Ej. "Hagamos conciencia para tener un México limpio"</p>
+			</div>
+			<div class="column right" style="padding-top:30px;">
+				<%= f.text_field :pitch %>
+			</div>
+		</div>
+
+		<div class="unit row">
+			<div class="column left">
+				<%= f.label :avatar, 'Imagen' %>
+				<p>Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.</p>
+			</div>
+			<div class="column right" style="padding-top:50px;">
+				<%= f.file_field :avatar %>
+			</div>
+		</div>
+
+		<div class="unit row">
+			<div class="column left">
+				<%= f.label :about, 'Sobre la organización' %>
+				<p>Describe brevemente que hace tu organización y que los motiva a mejorar al pais.</p>
+			</div>
+			<div class="column right">
+				<%= f.text_area :about %>
+			</div>
+		</div>
+
+		<div class="unit row">
+			<div class="column left">
+				<%= f.label :status, 'Estado actual del proyecto' %>
+			</div>
+			<div class="column right">
+				<%= f.select(:status, status_for_project)%>
+			</div>
+		</div>
+		</section>
+	</section>
+
+
+	<section id="form_needs" class="form_needs">
+		<header>
+	    <h2><%= I18n.t("project.titles.needs") %></h2>
+	  </header>
+	  <section>
+			<div class="unit row">
+				<div class="column left">
+					<%= f.label :description, '¿Cual es el problema a enfrentar?' %>
+					<p>Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.</p>
+					<%= f.text_area :description %>
+				</div>
+				<div class="column right">
+					<label>Puntos Clave:</label>
+					<p>En base a la redacción del problema mencionado, escribe los puntos claves o enfoques de tus necesidades. Se muy breve.</p>
+					Punto 1 (Opcional)
+					<%= f.text_field :first_spec %>
+					<br />
+					Punto 2 (Opcional)
+					<%= f.text_field :second_spec %>
+					<br />
+					Punto 3 (Opcional)
+					<%= f.text_field :third_spec %>
+					<br />
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<section id="form_resources" class="form_resources">
+		<header>
+	    <h2><%= I18n.t("project.titles.resources") %></h2>
+	  </header>
+		<section>
+			<div class="unit row">
+				<div class="column left">
+					<%= f.label :additional_links, 'Referencias adicionales' %>
+					<p>Comparte algunas ligas a paginas que tengan soluciones similares a tu problema, algun recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del proyecto. Nota: recuerda separar las ligas con comas.</p>
+				</div>
+				<div class="column right">
+					<%= f.text_area :additional_links, placeholder: 'Separados por coma', rows: 3 %>
+				</div>
+			</div>
+
+			<div class="unit row">
+				<div class="column left">
+					<%= f.label :dataset_url, 'URL API' %>
+				</div>
+				<div class="column right">
+					<%= f.text_field :dataset_url %>
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<section id="form_activities" class="form_activities">
+		<header>
+			<h2><%= I18n.t("project.titles.activities") %></h2>
+		</header>
+		<section>
+			<%= f.fields_for :activities do |a| %>
+		    <%= a.label :text, 'Actividades y Notas' %>
+		    <%= a.text_area :text, rows: 2 %>
+		  <% end %>
+		</section>
+	</section>
+
+	<section id="form_save" class="form_save">
+		<%= f.submit 'Guardar' %>
+	</section>
+
 <% end %>
+</div>

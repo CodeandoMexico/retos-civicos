@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-                  :first_spec, :second_spec, :third_spec, :pitch, :avatar, :activities_attributes
+                  :first_spec, :second_spec, :third_spec, :pitch, :avatar, :about, :activities_attributes
 
   mount_uploader :avatar, ProjectAvatarUploader
 
@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
 
 	belongs_to :creator, class_name: "User"
 	# Validations
-	validates :description, :title, :status, :pitch, presence: true
+	validates :description, :title, :status, :about, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
