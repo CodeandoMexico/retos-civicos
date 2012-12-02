@@ -19,6 +19,9 @@ class AuthenticationsController < ApplicationController
     redirect_to root_url, notice: "Signed out successfully."
   end
 
+  def failure
+    redirect_to root_path, notice: "Authentication not authorized"
+  end
 
   private
 
