@@ -18,11 +18,11 @@ $green:       #77d433;
 
 // Colors Settings - Foundation
 
- $mainColor: #2ba6cb;
+ $mainColor: $green;
  $secondaryColor: #e9e9e9;
  $alertColor: #c60f13;
  $successColor: #5da423;
- $txtColor: #222;
+ $txtColor: $gray4;
  $highlightColor: #ffff99;
  $black: #000;
  $white: #fff;
@@ -35,10 +35,10 @@ $green:       #77d433;
 
 // Grid Settings
 
- $rowWidth: 1000px;
+ $rowWidth: 960px;
  $columnGutter: 30px;
  $totalColumns: 12;
- $mobileTotalColumns: 4;
+// $mobileTotalColumns: 4;
 
 // Button Settings
 
@@ -73,9 +73,9 @@ $green:       #77d433;
 
 // Modular Scale
 
-// $ratio: $golden;
-// $baseFontSize: 14px;
-// $importantModNum: 44px;
+ $ratio: $golden;
+ $baseFontSize: 14px;
+ $importantModNum: 44px;
 
 // Tooltip Settings
 
