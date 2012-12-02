@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  creator_id: 1
+  owner_id: 1
+  status: MyString
+  dataset_url: MyString
+
+two:
+  title: MyString
+  description: MyText
+  creator_id: 1
+  owner_id: 1
+  status: MyString
+  dataset_url: MyString

@@ -1,0 +1,18 @@
+<%= form_for @project do |f| %>
+	<%= f.label :title, 'Título' %>
+	<%= f.text_field :title %>
+	<br />
+	<%= f.label :description, 'Descripción' %>
+	<%= f.text_area :description %>
+	<br />
+	<%= f.label :owner_id, 'Owner' %>
+	<%= f.text_field :owner_id %>
+	<br />
+	<%= f.label :status, 'Status' %>
+	<%= f.select(:status, status_for_project) %>
+	<br />
+	<%= f.label :dataset_url, 'URL API' %>
+	<%= f.text_field :dataset_url %>
+	<br />
+	<%= f.submit 'Guardar' %>
+<% end %>
