@@ -9,7 +9,7 @@ module ProjectsHelper
 	end
 
   def can_edit_project?(project)
-    project.owner == current_user or project.creator == current_user
+    project.creator == current_user
   end
 
 end
