@@ -17,7 +17,7 @@
           <% if current_user %>
           <li>Welcome <%= current_user.to_s %>! <%= link_to "Sign Out", signout_path %></li>
           <% else %>
-          <li><%= link_to "#" do %>
+          <li><%= link_to sign_up_path do %>
             Sign up / Log in <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
           <% end %>  
           </li>
