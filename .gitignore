@@ -13,7 +13,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+*.swo
+*.swp
 
 /config/database.yml
 .DS_Store
 /config/environment_variables.yml
+*.DS_Store
+.sass-cache
+bin
+*.dat
+.powder
+tags

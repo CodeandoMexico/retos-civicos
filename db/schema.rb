@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(:version => 20121201222626) do
     t.text     "description"
     t.integer  "creator_id"
     t.integer  "owner_id"
-    t.string   "status"
+    t.string   "status",      :default => "open"
     t.string   "dataset_url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|
