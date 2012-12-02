@@ -11,6 +11,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
 gem 'github_api'
+gem 'gravatar-ultimate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

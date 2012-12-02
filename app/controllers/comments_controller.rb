@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@project = Project.find(params[:project_id])
-		@comment = Comment.build_from(@project, current_user, params[:comment][:body])
+		@comment = Comment.build_from(@project, current_user.id, params[:comment][:body])
 		if @comment.save
 			redirect_to @project, notice: "Gracias por tus comentarios"
 		else
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 
 	def reply
 		@project = Project.find(params[:project_id])
-		@reply = Comment.build_from(@project, current_user, params[:comment][:body])
+		@reply = Comment.build_from(@project, current_user.id, params[:comment][:body])
 		parent_comment = Comment.find(params[:parent])
 		if @reply.save
 			@reply.move_to_child_of(parent_comment)
