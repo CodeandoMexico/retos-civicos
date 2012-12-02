@@ -2,16 +2,18 @@
 
 <%= collaborate_section(@project) %> <br />
 <%= @project.likes_counter %>
-<%= like_section(@project) %>
+<%= like_section(@project) %> <br />
 
-<h4>Status: <%= @project.status %></h4>
-<h4>Creado por: Alguien<%#= @project.creator %></h4>
-<h4>Soportado por: Alguien Mas<%#= @project.owner %></h4>
-
+Status: <%= @project.status %> <br />
+Creado por: <%= @project.creator %> -
+<i>"<%= @project.creator.bio %>"</i>
+<h3><%= @project.pitch %></h3>
 <h2>Descripción</h2>
-<h4><%= @project.description %></h4>
-<h2>DataSet</h2>
-<h4><%= @project.dataset_url %></h4>
+<%= @project.description %>
+<h2>Puntos</h2>
+<%= @project.first_spec %><br />
+<%= @project.second_spec %><br />
+<%= @project.third_spec %><br />
 <h2>Colaboradores</h2>
 <% if @project.collaborators.blank? %>
 	Anímate. Sé el primero en colaborar en este proyecto
@@ -23,5 +25,7 @@
 		</p>
 	<% end %>
 <% end %>
+<h2>DataSet</h2>
+<%= @project.dataset_url %>
 <h2>Discusión</h2>
-<h4>Randoms</h4>
+<%= render 'comments' %>

@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title
+  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :first_spec, :second_spec, :third_spec, :pitch
 
   # Relations
   #resources
@@ -11,10 +11,12 @@ class Project < ActiveRecord::Base
 	belongs_to :creator, class_name: "User"
 
 	# Validations
-	validates :description, :title, :status, presence: true
+	validates :description, :title, :status, :pitch, presence: true
+	validates :pitch, length: { maximum: 140 }
 
 	# Additionals
 	acts_as_voteable
+	acts_as_commentable
 
 	STATUS = [:open, :working_on, :cancelled, :finished]
 

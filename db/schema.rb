@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202043719) do
+ActiveRecord::Schema.define(:version => 20121202151106) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(:version => 20121202043719) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id",   :default => 0
+    t.string   "commentable_type", :default => ""
+    t.text     "body",             :default => ""
+    t.integer  "user_id",          :default => 0,  :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "votes_counter",    :default => 0
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -37,6 +53,10 @@ ActiveRecord::Schema.define(:version => 20121202043719) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "likes_counter", :default => 0
+    t.text     "first_spec"
+    t.text     "second_spec"
+    t.text     "third_spec"
+    t.string   "pitch"
   end
 
   create_table "skills", :force => true do |t|
@@ -52,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20121202043719) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "nickname"
+    t.string   "bio"
   end
 
   create_table "userskills", :force => true do |t|
