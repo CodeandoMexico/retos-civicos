@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :first_spec, :second_spec, :third_spec, :pitch
 
   # Relations
@@ -9,7 +10,6 @@ class Project < ActiveRecord::Base
 	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
 
 	belongs_to :creator, class_name: "User"
-
 	# Validations
 	validates :description, :title, :status, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }
@@ -17,6 +17,15 @@ class Project < ActiveRecord::Base
 	# Additionals
 	acts_as_voteable
 	acts_as_commentable
+
+  # Embeddables
+  auto_html_for :description do
+    youtube      :width => 400, :height => 250, :wmode => "transparent"
+    vimeo        :width => 400, :height => 250
+    link :target => "_blank", :rel => "nofollow"
+    image
+    simple_format
+  end
 
 	STATUS = [:open, :working_on, :cancelled, :finished]
 

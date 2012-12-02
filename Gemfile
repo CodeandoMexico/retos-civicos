@@ -24,6 +24,8 @@ group :development do
 	gem 'debugger'
 end
 
+gem 'sanitize'
+gem 'auto_html'
 gem 'jquery-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
