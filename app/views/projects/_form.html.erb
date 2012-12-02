@@ -5,8 +5,16 @@
 	<%= f.label :pitch, 'Pitch' %>
 	<%= f.text_field :pitch %>
 	<br />
+
+  <%= f.label :avatar, 'Avatar' %>
+  <%= f.file_field :avatar %>
+	<br />
+
 	<%= f.label :description, 'Descripción' %>
 	<%= f.text_area :description %>
+	<br />
+	<%= f.label :additional_links, 'Links adicionales' %>
+	<%= f.text_area :additional_links, placeholder: 'Separados por coma', rows: 3 %>
 	<br />
 	<%= f.label :status, 'Status' %>
 	<%= f.select(:status, status_for_project) %>

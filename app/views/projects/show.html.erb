@@ -1,4 +1,5 @@
 <h1><%= @project.title %></h1>
+<%= image_tag @project.avatar_url(:profile) %>
 
 <%= collaborate_section(@project) %> <br />
 <%= @project.likes_counter %>
@@ -8,8 +9,10 @@ Status: <%= @project.status %> <br />
 Creado por: <%= @project.creator %> -
 <i>"<%= @project.creator.bio %>"</i>
 <h3><%= @project.pitch %></h3>
+
 <h2>Descripción</h2>
-<%= @project.description %>
+<%= @project.description_html %>
+
 <h2>Puntos</h2>
 <%= @project.first_spec %><br />
 <%= @project.second_spec %><br />
