@@ -1,3 +1,19 @@
-<p><%= link_to "Sign in with Github", "/auth/github" %></p>
-<p><%= link_to "Sign in with LinkedIn", "/auth/linkedin" %></p>
-<p><%= link_to "Sign in with Twitter", "/auth/twitter" %></p>
+<section id="main-wrap">
+  <div class="login-wrap">
+    <div class="row">
+      
+      <section class="login-box">
+        <header>
+          <h1>Sign up / Log in</h1>
+        </header>
+        <div class="login-content">
+          <p>Sign in with your GitHub, Twitter, or LinkedIn account below for easy access to Codear Mexico.</p>
+          <p><%= link_to "/auth/github", :class => "github" do %><i class="icon-github"></i> Sign in with Github<% end %></p>
+          <p><%= link_to "/auth/twitter", :class => "twitter" do %><i class="icon-twitter"></i> Sign in with Twitter<% end %></p>
+          <p><%= link_to "/auth/linkedin", :class => "linkedin" do %><i class="icon-linkedin"></i> Sign in with LinkedIn<% end %></p>
+        </div>
+      </section>
+  
+    </div>
+  </div>
+</section>

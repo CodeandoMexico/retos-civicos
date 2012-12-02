@@ -25,14 +25,17 @@
 
 </head>
 <body>
-  <%= render partial: "shared/header" %>
+  <div id="content">
+    <%= render partial: "shared/header" %>
   
-  <% flash.each do |type, message| %>
-    <div class="<%= type %>">
-      <%= message %>
-    </div>
-  <% end %>
-  <%= yield %>
+    <!--<% flash.each do |type, message| %>
+      <div class="<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>-->
+    <%= yield %>
+    <div id="root_footer"></div>
+  </div>
   
   <%= render partial: "shared/footer" %>
 </body>
