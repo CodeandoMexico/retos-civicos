@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :first_spec, :second_spec, :third_spec, :pitch
+  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :first_spec, :second_spec, :third_spec, :pitch, :additional_links
 
   # Relations
   #resources
