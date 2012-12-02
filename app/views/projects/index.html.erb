@@ -4,7 +4,7 @@
 		<%= link_to project.title, project_path(project) %> <br />
 		<%= project.description %> <br />
 		Status: <%= project.status %> <br  />
-		<%= link_to 'Edit', edit_project_path(project) %>
+		<%= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
 	</p>
 <% end %>
-<%= link_to 'Nuevo proyecto', new_project_path %>
+<%= link_to 'Nuevo proyecto', new_project_path if signed_in? %>

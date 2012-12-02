@@ -8,4 +8,8 @@ module ProjectsHelper
 		status
 	end
 
+  def can_edit_project?(project)
+    project.creator == current_user
+  end
+
 end

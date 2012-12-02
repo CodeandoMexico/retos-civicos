@@ -19,6 +19,11 @@
     <p><%= link_to "Sign in with Twitter", "/auth/twitter" %></p>
   <% end %>
 
+  <% flash.each do |type, message| %>
+    <div class="<%= type %>">
+      <%= message %>
+    </div>
+  <% end %>
   <%= yield %>
   </div>
 </div>
