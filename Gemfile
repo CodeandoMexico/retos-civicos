@@ -7,7 +7,8 @@ gem 'pg'
 
 # OAuth providers
 gem 'omniauth-github'
-
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

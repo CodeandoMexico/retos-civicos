@@ -12,7 +12,9 @@
     Welcome <%= current_user.to_s %>!
     <%= link_to "Sign Out", signout_path %>
   <% else %>
-    <%= link_to "Sign in with Github", "/auth/github" %>
+    <p><%= link_to "Sign in with Github", "/auth/github" %></p>
+    <p><%= link_to "Sign in with LinkedIn", "/auth/linkedin" %></p>
+    <p><%= link_to "Sign in with Twitter", "/auth/twitter" %></p>
   <% end %>
 
   <%= yield %>
