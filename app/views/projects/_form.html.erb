@@ -2,6 +2,9 @@
 	<%= f.label :title, 'Título' %>
 	<%= f.text_field :title %>
 	<br />
+	<%= f.label :pitch, 'Pitch' %>
+	<%= f.text_field :pitch %>
+	<br />
 	<%= f.label :description, 'Descripción' %>
 	<%= f.text_area :description %>
 	<br />
@@ -10,6 +13,15 @@
 	<br />
 	<%= f.label :dataset_url, 'URL API' %>
 	<%= f.text_field :dataset_url %>
+	<br />
+	<%= f.label :first_spec, 'Especificación 1' %>
+	<%= f.text_area :first_spec %>
+	<br />
+	<%= f.label :second_spec, 'Especificación 2' %>
+	<%= f.text_area :second_spec %>
+	<br />
+	<%= f.label :thrid_spec, 'Especificación 3' %>
+	<%= f.text_area :third_spec %>
 	<br />
 	<%= f.submit 'Guardar' %>
 <% end %>
