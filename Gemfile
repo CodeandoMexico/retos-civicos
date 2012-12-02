@@ -26,3 +26,4 @@ end
 
 gem 'jquery-rails'
 gem 'thumbs_up'
+gem 'acts_as_commentable_with_threading'

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :collaborating_in, through: :collaborations, class_name: "Project", source: :project
   has_many :userskills
   has_many :skills, through: :userskills
+  has_many :comments
 
   # Validations
   validates :bio, length: { maximum: 255 }

@@ -5,6 +5,12 @@ Aquila::Application.routes.draw do
 
   resources :authentications
 	resources :projects, except: [:destroy] do
+		resources :comments do
+			member do
+				post :like
+				post :reply
+			end
+		end
 		member do
 			put :cancel
 			post :collaborate

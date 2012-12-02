@@ -1,0 +1,34 @@
+<%= form_for([@project, Comment.new]) do |f| %>
+	<%= f.text_area :body, placeholder: "Deja tus comentarios" %>
+	<br />
+	<%= f.submit 'Comentar' %>
+<% end %>
+<% @comments.each do |comment| %>
+	<p>
+		<% if signed_in? and !current_user.voted_on?(comment) %>
+			<%= link_to 'Up', like_project_comment_path(@project, comment, like: true), method: :post %> |
+			<%= link_to 'Down', like_project_comment_path(@project, comment), method: :post %>
+		<% end %>
+		<%= comment.votes_counter %>
+		<%= comment.user.name %> <br />
+		<%= comment.created_at %> <br />
+		<%= comment.body %> <br />
+		<%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
+			<%= f.text_field :body, placeholder: "Contesta" %>
+			<br />
+			<%= f.submit 'Reply' %>
+		<% end %>
+	</p>
+	<% comment.children.each do |comment| %>
+		<p style="margin-left:40px">
+			<% if signed_in? and !current_user.voted_on?(comment) %>
+				<%= link_to 'Up', like_project_comment_path(@project, comment, like: true), method: :post %> |
+				<%= link_to 'Down', like_project_comment_path(@project, comment), method: :post %>
+			<% end %>
+			<%= comment.votes_counter %>
+			<%= comment.user.name %> <br />
+			<%= comment.created_at %> <br />
+			<%= comment.body %> <br />
+		</p>
+	<% end %>
+<% end %>

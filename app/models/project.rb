@@ -16,6 +16,7 @@ class Project < ActiveRecord::Base
 
 	# Additionals
 	acts_as_voteable
+	acts_as_commentable
 
 	STATUS = [:open, :working_on, :cancelled, :finished]
 
