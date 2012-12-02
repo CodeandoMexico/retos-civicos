@@ -23,3 +23,4 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'thumbs_up'
