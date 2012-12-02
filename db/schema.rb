@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(:version => 20121202183347) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.integer  "likes_counter",    :default => 0
-    t.text     "additional_links"
-    t.string   "avatar"
     t.text     "first_spec"
     t.text     "second_spec"
     t.text     "third_spec"
     t.string   "pitch"
+    t.text     "additional_links"
+    t.string   "avatar"
   end
 
   create_table "skills", :force => true do |t|
