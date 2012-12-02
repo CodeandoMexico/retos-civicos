@@ -1,12 +1,15 @@
 <section id="comments" class="comments row">
   <header>
-    <%= link_to I18n.t("project.comment"), "#", class: "comment" %>
+    <% if signed_in? and current_user.collaborating_in?(@project) %>
+      <%= link_to I18n.t("project.comment"), "#", class: "comment" %>
+    <% end %>
     <h2><%= I18n.t("project.titles.comments") %></h2>
   </header>
   <section>
     
     <div class="wrapper">
       <div class="row comment_form">
+      <% if signed_in? and current_user.collaborating_in?(@project) %>
         <%= form_for [@project, Comment.new] do |f| %>
           <div class="column left info">
             <%= image_tag "https://secure.gravatar.com/avatar/0b343626d51c6f147021209edbcb2c02?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-112e2e92d74b7344b8be3630bbccc5da.png" %>
@@ -21,6 +24,7 @@
             </div>
           </div>
         <% end %>
+      <% end %>
       </div>
       
       
@@ -49,7 +53,9 @@
                 <span class="icon-sort-down"></span>
               <% end %>
             </div>
-            <%= link_to link_to I18n.t("project.reply"), "#", class: "reply" %>
+            <% if signed_in? and current_user.collaborating_in?(@project) %>
+              <%= link_to I18n.t("project.reply"), "#", class: "reply" %>
+            <% end %>
             <p class="comment"><%= comment.body %></p>
 
             <div class="replies">
@@ -60,11 +66,13 @@
                 </div>
               <% end %>
             </div>
-            <div class="form">
-              <%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
-                <%= f.text_field :body %>
-              <% end %>
-            </div>
+            <% if signed_in? and current_user.collaborating_in?(@project) %>
+              <div class="form">
+                <%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
+                  <%= f.text_field :body %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
