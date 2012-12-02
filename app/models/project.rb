@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 	#collaborators
 	#comments
 	#tags
+	belongs_to :creator, class_name: "User"
 
 	# Validations
 	validates :description, :title, :status, presence: true

@@ -13,11 +13,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-  	@project = Project.find(params[:id])
+  	@project = current_user.created_projects.find(params[:id])
   end
 
   def create
-		@project = Project.new(params[:project]) 
+		@project = current_user.created_projects.build(params[:project])
 		if @project.save
 		  redirect_to @project
 		else
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-  	@project = Project.find(params[:id])
+  	@project = current_user.created_projects.find(params[:id])
     if @project.update_attributes(params[:project])
       redirect_to @project
     else
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
   end
 
   def cancel
-  	@project = Project.find(params[:project_id])
+  	@project = current_user.created_projects.find(params[:project_id])
   	@project.cancel!
   	redirect_to projects_url
   end
