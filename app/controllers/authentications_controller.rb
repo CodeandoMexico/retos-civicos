@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
       sign_in_and_redirect(authentication.user_id)
     elsif current_user
       current_user.authentications.create_with_omniauth(provider: omniauth['provider'], uid: omniauth['uid'])
-      redirect_to root_url, notice: "New authentication successful."
+      redirect_back_or root_url, "New authentication successful."
     else
       user = User.create_with_omniauth(omniauth)
       sign_in_and_redirect(user.id)
@@ -27,7 +27,7 @@ class AuthenticationsController < ApplicationController
 
   def sign_in_and_redirect(user_id)
     session[:user_id] = user_id
-    redirect_to root_path, notice: "Signed in successfully."
+    redirect_back_or projects_path, "Signed in successfully."
   end
 
 end
