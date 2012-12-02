@@ -10,7 +10,7 @@ gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
-gem 'linkedin'
+gem 'github_api'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -20,8 +20,9 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
-    user.authentications.build(provider: auth["provider"], uid: auth["uid"])
-    user.apply_extra_info_from_omniauth(auth)
+    authentication = user.authentications.build(provider: auth['provider'], uid: auth['uid']) 
+    authentication.user = user
+    authentication.apply_extra_info_from_omniauth(auth)
     user.save
     user
   end
@@ -34,21 +35,8 @@ class User < ActiveRecord::Base
     Collaboration.where(user_id: self.id, project_id: project.id).blank? ? false : true
   end
 
-  def apply_extra_info_from_omniauth(auth_hash)
-    case auth_hash["provider"]
-    when 'linkedin'
-      self.skills = get_skills_from_linkedin(auth_hash["extra"]["raw_info"])
-    end
-  end
-
-  private
-
-  def get_skills_from_linkedin(raw_info)
-    skills = []
-    raw_info["skills"]["values"].each do |value|
-      skills << Skill.find_or_create_by_name(value.skill.name)
-    end
-    skills
+  def update_skills(skills = [])
+    self.skills = (self.skills + skills).uniq
   end
 
 end

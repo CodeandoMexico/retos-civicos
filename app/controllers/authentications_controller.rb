@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
     if authentication
       sign_in_and_redirect(authentication.user_id)
     elsif current_user
-      current_user.authentications.create!(provider: omniauth['provider'], uid: omniauth['uid'])
+      current_user.authentications.create_with_omniauth(provider: omniauth['provider'], uid: omniauth['uid'])
       redirect_to root_url, notice: "New authentication successful."
     else
       user = User.create_with_omniauth(omniauth)
