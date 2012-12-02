@@ -24,6 +24,7 @@ group :development do
 	gem 'debugger'
 end
 
+gem 'compass'
 gem 'fog'
 gem 'carrierwave'
 gem 'mini_magick'
