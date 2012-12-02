@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202042255) do
+ActiveRecord::Schema.define(:version => 20121202043719) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20121202042255) do
     t.string   "title"
     t.text     "description"
     t.integer  "creator_id"
-    t.integer  "owner_id"
     t.string   "status",        :default => "open"
     t.string   "dataset_url"
     t.datetime "created_at",                        :null => false
