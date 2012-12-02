@@ -20,11 +20,11 @@ class Project < ActiveRecord::Base
 
   # Embeddables
   auto_html_for :description do
-    youtube      :width => 400, :height => 250, :wmode => "transparent"
-    vimeo        :width => 400, :height => 250
-    link :target => "_blank", :rel => "nofollow"
-    image
     simple_format
+    image
+    youtube width: 400, height: 250, wmode: "transparent"
+    vimeo   width: 400, height: 250
+    link target: "_blank", rel: "nofollow"
   end
 
 	STATUS = [:open, :working_on, :cancelled, :finished]
