@@ -39,4 +39,13 @@ class User < ActiveRecord::Base
     self.skills = (self.skills + skills).uniq
   end
 
+  def avatar
+    if self.authentications.pluck(:provider).include? "twitter"
+      twitter_auth = self.authentications.where(provider: 'twitter').first
+      "http://api.twitter.com/1/users/profile_image?id=#{twitter_auth.uid}&size=bigger"
+    else
+      Gravatar.new(self.email.to_s).image_url
+    end
+  end
+
 end

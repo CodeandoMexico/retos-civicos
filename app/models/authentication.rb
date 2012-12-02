@@ -18,7 +18,6 @@ class Authentication < ActiveRecord::Base
       skills = get_skills_from_linkedin(auth_hash["extra"]["raw_info"])
     when 'github'
       skills = get_skills_from_github(auth_hash)
-      self.user.avatar = auth_hash["extra"]["raw_info"]["avatar_url"] if self.user.avatar.blank?
     end
 
     self.user.update_skills(skills)
