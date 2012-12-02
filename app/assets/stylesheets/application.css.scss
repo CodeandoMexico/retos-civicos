@@ -2,11 +2,10 @@
 @import "fonts";
 @import "defaults";
 
-
-// Landing
+// Header
 //--------------------------------------------------
 
-header {
+header#main-header {
   
   .header-pre-wrap {
     height: 30px;
@@ -109,6 +108,67 @@ header {
   }// End of .header-wrap
   
 }// End of header
+
+// End of Header
+//--------------------------------------------------
+
+
+
+// Landing
+//--------------------------------------------------
+
+section#main-wrap {
+  
+  .main-home-wrap {
+    height: 300px;
+    background: $green;
+    border-bottom: solid 1px darken($green, 10%);
+    @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
+    
+    .action-wrap-box {
+      width: 800px;
+      margin: 76px auto 0;
+      text-align: center;
+//      background: $white;
+//      @include single-box-shadow(rgba(0, 0, 0, 0.1), 0, 0, 1px, 4px);
+
+      h1, h2 {
+        color: $white;
+      }
+      
+      a.get-involved {
+        width: 400px;
+        height: 60px;
+        display: block;
+        color: $white;
+        font: {
+          size: ms(3);
+          family: "MuseoSans-700";
+        }
+        text-transform: uppercase;
+        padding: 18px 45px;
+        margin: 40px auto 0;
+        background-color: darken($green, 10%);
+        @include single-transition(background-color, .15s, ease-in-out);
+        
+        &:hover {
+          background-color: darken($green, 12%);
+        }
+      }
+      
+    }
+    
+  }
+  
+}// End of section#main-wrap
+
+section#projects {
+  
+  .trending-projects {
+    min-height: 460px;
+  }
+  
+}
 
 // End of Landing
 //--------------------------------------------------
@@ -588,3 +648,19 @@ header {
     }
   }
 }
+
+
+// Footer
+//--------------------------------------------------
+
+footer#main-footer {
+  
+  .footer-wrap {
+    height: 40px;
+    background: $gray4;
+  }
+  
+}
+
+// End of Footer
+//--------------------------------------------------
