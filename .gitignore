@@ -18,7 +18,6 @@
 
 /config/database.yml
 .DS_Store
-/config/environment_variables.yml
 *.DS_Store
 .sass-cache
 bin
