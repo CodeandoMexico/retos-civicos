@@ -1,34 +1,76 @@
-<%= form_for([@project, Comment.new]) do |f| %>
-	<%= f.text_area :body, placeholder: "Deja tus comentarios" %>
-	<br />
-	<%= f.submit 'Comentar' %>
-<% end %>
-<% @comments.each do |comment| %>
-	<p>
-		<% if signed_in? and !current_user.voted_on?(comment) and comment.user != current_user %>
-			<%= link_to 'Up', like_project_comment_path(@project, comment, like: true), method: :post %> |
-			<%= link_to 'Down', like_project_comment_path(@project, comment), method: :post %>
-		<% end %>
-		<%= comment.votes_counter %>
-		<%= comment.user.name %> <br />
-		<%= comment.created_at %> <br />
-		<%= comment.body %> <br />
-		<%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
-			<%= f.text_field :body, placeholder: "Contesta" %>
-			<br />
-			<%= f.submit 'Reply' %>
-		<% end %>
-	</p>
-	<% comment.children.each do |comment| %>
-		<p style="margin-left:40px">
-			<% if signed_in? and !current_user.voted_on?(comment) %>
-				<%= link_to 'Up', like_project_comment_path(@project, comment, like: true), method: :post %> |
-				<%= link_to 'Down', like_project_comment_path(@project, comment), method: :post %>
-			<% end %>
-			<%= comment.votes_counter %>
-			<%= comment.user.name %> <br />
-			<%= comment.created_at %> <br />
-			<%= comment.body %> <br />
-		</p>
-	<% end %>
-<% end %>
+<section id="comments" class="comments row">
+  <header>
+    <%= link_to I18n.t("project.comment"), "#", class: "comment" %>
+    <h2><%= I18n.t("project.titles.comments") %></h2>
+  </header>
+  <section>
+    
+    <div class="wrapper">
+      <div class="row comment_form">
+        <%= form_for [@project, Comment.new] do |f| %>
+          <div class="column left info">
+            <%= image_tag "https://secure.gravatar.com/avatar/0b343626d51c6f147021209edbcb2c02?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-112e2e92d74b7344b8be3630bbccc5da.png" %>
+            <span class="name"><%= current_user.name %></span>
+            <time><%= Time.now %></time>
+            <span class="clock">12:30 pm</span>
+          </div>
+          <div class="column right data">
+            <div class="unit box">
+              <%= f.text_area :body%>
+              <%= f.submit I18n.t("project.comment"), class: "reply" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      
+      
+    <% @comments.each do |comment| %>
+      <div class="row">
+        <div class="column left info">
+          <%= image_tag "https://secure.gravatar.com/avatar/0b343626d51c6f147021209edbcb2c02?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-112e2e92d74b7344b8be3630bbccc5da.png" %>
+          <span class="name"><%= comment.user.name %></span>
+          <time><%= comment.created_at %></time>
+          <span class="clock">12:30 pm</span>
+        </div>
+        <div class="column right data">
+          <div class="unit box com">
+            <div class="votes">
+              <% if signed_in? and !current_user.voted_on?(comment) and comment.user != current_user %>
+                <%= link_to like_project_comment_path(@project, comment, like: true), method: :post do %>
+                  <span class="icon-sort-up"></span>
+                <% end %>
+                <span class="count"><%= comment.votes_counter %></span>
+                <%= link_to like_project_comment_path(@project, comment), method: :post  do %>
+                  <span class="icon-sort-down"></span>
+                <% end %>
+              <% else %>
+                <span class="icon-sort-up"></span>
+                <span class="count"><%= comment.votes_counter %></span>
+                <span class="icon-sort-down"></span>
+              <% end %>
+            </div>
+            <%= link_to link_to I18n.t("project.reply"), "#", class: "reply" %>
+            <p class="comment"><%= comment.body %></p>
+
+            <div class="replies">
+              <% comment.children.each do |comment| %>
+                <div class="rep">
+                  <strong class="name"><%= comment.user.name %> <span class="time"><%= comment.created_at %></span></strong>
+                  <p class="comment"><%= comment.body %></p>
+                </div>
+              <% end %>
+            </div>
+            <div class="form">
+              <%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
+                <%= f.text_field :body %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    </div>
+
+  </section>
+</section>

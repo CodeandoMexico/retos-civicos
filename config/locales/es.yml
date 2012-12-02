@@ -1,0 +1,20 @@
+es:
+  project:
+    colaborate: "Colaborar"
+    colaborating: "Estas Colaborando"
+    myproject: "Mi Proyecto"
+    like: "Me gusta"
+    titles:
+      about: "Sobre la organización"
+      needs: "Necesidades del proyecto"
+      points: "Puntos clave"
+      activities: "Actividades y Noticias"
+      comments: "Comentarios y Notas"
+      supportus: "Ayudanos a cumplir nuestro objetivo"
+    created-by: "Creado por:"
+    resources:
+      colaborators: "Colaboradores"
+      references: "Referencias"
+      datasets: "Datasets"
+    comment: "Comentar"
+    reply: "Responder"

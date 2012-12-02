@@ -17,21 +17,24 @@ module ProjectsHelper
 		if signed_in? and current_user.voted_for?(project)
 			'Votado'
 		elsif signed_in?
-			link_to 'Like', like_project_path(project), method: :post
+			link_to like_project_path(project), method: :post, class: "like" do
+        "<i class=\"icon-hand-right\"></i>".html_safe+project.likes_counter.to_s
+      end
 		else
-			link_to 'Registrate para dar Like', '#'
+      link_to I18n.t("project.like"), "#", class: "like"
 		end
   end
 
   def collaborate_section(project)
   	if current_user == project.creator
-  		'Proyecto tuyo'
+      link_to I18n.t("project.myproject"), "", class: "colaborate"
 		elsif signed_in? and current_user.collaborating_in?(project)
-			'Estás colaborando!'
+			link_to I18n.t("project.colaborating"), "", class: "colaborate"
 		elsif signed_in?
-			link_to 'Colaborar', collaborate_project_path(project), method: :post
+      link_to I18n.t("project.colaborate"), collaborate_project_path(project), method: :post, class: "colaborate"
 		else
-			link_to 'Registrate para colaborar', '#'
+			link_to I18n.t("project.colaborate"), '#'
+
 		end
   end
 

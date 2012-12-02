@@ -1,9 +1,20 @@
-body {
+body{
   color: $gray4;
+  font-family: "MuseoSans-300";
+  background-color: $gray1;
+}
+
+p {
   font-family: "MuseoSans-300";
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: $gray4;
   font-family: "MuseoSans-500";
+  margin-top: 0;
+}
+
+.row .row, .column, .columns {
+  margin: 0;
+  padding: 0;
 }

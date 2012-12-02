@@ -2,6 +2,7 @@
 @import "fonts";
 @import "defaults";
 
+
 // Landing
 //--------------------------------------------------
 
@@ -111,3 +112,479 @@ header {
 
 // End of Landing
 //--------------------------------------------------
+
+
+
+/***************************************************
+**  SHARED
+***************************************************/
+.content {
+  padding: 30px;
+}
+
+/***************************************************
+**  Project Show
+***************************************************/
+
+.pitch {
+  header {
+    background-color: $green;
+    padding: $columnGutter;
+
+    h1 {
+      color: $white;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      float: right;
+
+      a {
+        float: left;
+        color: $white;
+        display: block;
+        text-align: center;
+        background-color: darken($green, 15%);
+        height: 45px;
+        padding: 0 30px;
+        line-height: 45px;
+        text-transform: uppercase;
+        @include border-radius(4px);
+        margin-left: 25px;
+        font-weight: bold;
+
+        &:hover{
+        background-color: darken($green, 20%);
+        }
+      }
+      .like i {
+        margin-right: 15px;
+        font-size: ms(1);
+      }
+    } // End nav
+
+  } // End header
+
+  .description {
+    background-color: $white;
+    height: 360px;
+    position: relative;
+    
+    .left {
+      width: 600px;
+      height: 360px;
+      img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+    }
+    .right {
+      width: 360px;
+
+        h2 {
+          font-size: ms(2);
+          margin-bottom: 30px;
+        }
+    }
+    .owner {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: auto;
+      .name, .status {
+        display: inline-block;
+        color: $white;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 25px;
+        background-color: $green;
+        margin: 0;
+        font-weight: bold;
+
+        em {
+          font-style: normal;
+          font-weight: bold;
+          color: $gray4;
+        }
+      }
+      .status{
+        background-color: darken($green, 15%);
+        text-transform: uppercase;
+        position: relative;
+        left: -4px;
+      }
+    }
+  } // End .description
+
+}// End .pitch
+
+.slogan.row {
+  background-color: $gray4;
+  padding: 50px 150px;
+
+  h3 {
+    color: $white;
+    text-align: center;
+    margin: 0;
+    font-family: "MuseoSans-300";
+  }
+}
+
+
+.resources {
+
+  .colaborators, .references, .datasets {
+    width: 320px;
+    position: relative;
+    background-color: $white;
+    cursor: pointer;
+
+    p {
+      font-size: ms(2);
+      margin: 0;
+      line-height: 1em;
+      color: $black;
+    }
+
+    .content {
+      font-size: ms(6);
+      font-family: "MuseoSans-500";
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      background: #DDDDDD inline-image('down_arrow.png') no-repeat center center;
+      display: block;
+    }
+  }
+  .references .content {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+  }
+}
+
+
+.needs {
+  background-color: $white;
+
+  header {
+    padding: 30px 0;
+    border-bottom: 1px solid $gray2;
+
+    h2 {
+      font-size: ms(2);
+      text-align: center;
+      margin: 0;
+    }
+  }
+  .left {
+    width: 580px;
+    .content {
+      padding-bottom: 10px;
+    }
+  }
+  .right {
+    width: 380px;
+
+    h3 {
+      background-color: $green;
+      color: $white;
+      padding: 20px;
+      margin: 0;
+      font-size: ms(2);
+      font-family: "MuseoSans-300";
+      margin-bottom: 1px;
+    }
+    .points {
+      margin: 0;
+      padding: 0;
+
+      li { 
+        background-color: $gray1;
+        padding: 20px;
+        margin-bottom: 1px;
+        border-right: 1px solid $white;
+      }  
+    }
+  }
+}
+
+
+.activities {
+  header {
+    background-color: $gray4;
+    padding: 30px;
+
+    h2 {
+      color: $white;
+      margin: 0;
+      font-size: ms(2);
+    }
+  }
+
+  section {
+    height: 300px;
+    background-color: $white;
+  }
+
+}
+
+.comments {
+  header {
+    background-color: $gray4;
+    padding: 30px;
+
+    h2 {
+      color: $white;
+      margin: 0;
+      font-size: ms(2);
+      height: 45px;
+      line-height: 45px;
+    }
+    .comment {
+      float: right;
+      color: $white;
+      display: block;
+      text-align: center;
+      background-color: lighten($gray4, 15%);
+      height: 45px;
+      padding: 0 30px;
+      line-height: 45px;
+      text-transform: uppercase;
+      @include border-radius(4px);
+      margin-left: 25px;
+      font-weight: bold;
+
+      &:hover{
+      background-color: lighten($gray4, 20%);
+      }
+    }
+  }
+
+  section {
+    max-height: 650px;
+    background-color: $gray1;
+    border: 30px solid $gray4;
+    border-top: 0;
+    background: $gray1 inline-image('comments_line.png') repeat-y left top;
+
+    .wrapper {
+      max-height: 620px;
+      display: block;
+      overflow: auto;
+
+      .row.comment_form {
+        display: none;
+        background-color: rgba($gray4, 0.5);
+
+        .box:before{
+          background-color: #838383;
+        }
+        .box {
+          padding: 5px;
+          height: 100px;
+
+          .reply {
+            border: 0;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    .row {
+      padding: 15px 0 15px 20px;
+
+      .left {
+        width: 290px;
+        padding-right: 20px;
+
+        img {
+          width: 60px;
+          height: 60px;
+          float: right;
+          display: block;
+          margin-left: 20px;
+          border: 5px solid $gray3;
+        }
+        .name {
+          font-size: ms(1);
+          color: $black;
+          margin-bottom: 5px;
+          display: block;
+          text-align: right;
+          padding-top: 5px;
+        }
+        time, .clock  {
+          display: block;
+          text-align: right;
+          margin-bottom: 5px;
+        }
+
+      }
+      .right {
+        width: 555px;
+        float: left;
+
+        .box {
+          background-color: $white;
+          @include border-radius(4px);
+          @include box-shadow(0 1px 4px lighten($gray3, 30%));
+          position: relative;
+          margin-left: 25px;
+          padding-left: 40px;
+          padding-bottom: 50px;
+
+          &:before{
+            content: " ";
+            height: 5px;
+            width: 20px;
+            background-color: darken($gray2, 10%);
+            position: absolute;
+            top: 20px;
+            left: -20px;
+          }
+
+          .votes {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 100%;
+            border-right: 1px solid #eeeeee;
+            padding: 8px;
+            padding-top: 18px;
+            text-align: center;
+
+            span {
+              font-size: ms(1);
+              font-weight: bold;
+              color: $gray4;
+              line-height: 1em;
+              display: block;
+              text-align: center;
+            }
+          }
+
+          .reply {
+            display: block;
+            width: auto;
+            padding: 5px 15px;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: $gray2;
+            color: $gray4;
+            @include border-radius(4px);
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover{
+              background-color: darken($gray2, 10%);
+              color: $black;
+            }
+          }
+
+          .comment {
+            padding: 15px;
+            border-bottom: 1px solid #eeeeee;
+            margin: 0;
+          }
+
+          .replies {
+            margin-left: 20px;
+            border-left: 1px solid #eeeeee;
+            .rep {
+              padding: 15px;
+              border-bottom: 1px solid #eeeeee;
+
+              .name .time {
+                color: $gray3;
+                font-weight: normal;
+                padding-left: 20px;
+                font-size: ms(-1);
+              }
+            }
+            .comment {
+              padding: 0;
+              border: 0;
+            }
+          }
+          .form {
+            padding: 15px 15px 0 15px;
+            margin-left: 20px;
+            border-left: 1px solid #eeeeee;
+            display: none;
+
+            textarea, input {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+.supportus {
+  background-color: $green;
+  margin-bottom: 100px !important;
+
+  header {
+    display: block;
+    clear: both;
+    padding: 30px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    color: $white;
+    text-align: center;
+    font-size: ms(3);
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lighten($green, 15%);
+  }
+
+  section {
+    width: 380px;
+    margin: 0 auto;
+    height: 75px;
+
+    a {
+      float: left;
+      color: $white;
+      display: block;
+      text-align: center;
+      background-color: darken($green, 15%);
+      height: 45px;
+      padding: 0 30px;
+      line-height: 45px;
+      text-transform: uppercase;
+      @include border-radius(4px);
+      margin-left: 25px;
+      font-weight: bold;
+
+      &:hover{
+      background-color: darken($green, 20%);
+      }
+    }
+    .like i {
+      margin-right: 15px;
+      font-size: ms(1);
+    }
+  }
+}

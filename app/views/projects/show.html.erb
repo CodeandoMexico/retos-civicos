@@ -1,34 +1,77 @@
-<h1><%= @project.title %></h1>
-<%= image_tag @project.avatar_url(:profile) %>
+<section id="pitch" class="pitch row">
+  <header>
+    <nav>
+      <%= like_section(@project) %>
+      <%= collaborate_section(@project)  %>
+    </nav>
+    <h1><%= @project.title %></h1>
+  </header>
+  <section id="description" class="description row">
+    <div class="column left">
+      <%= image_tag @project.avatar_url(:profile), style: "width:600px;height:360px;" %>
+      <div class="owner">
+        <span class="name"><%= I18n.t("project.created-by")%> <em><%= @project.creator %></em></span>
+        <span class="status"><%= @project.status %></span>
+      </div>
+    </div>
+    <div class="column right">
+      <div class="content">
+        <h2><%= I18n.t("project.titles.about") %></h2>
+        <p><%= @project.creator.bio %></p>
+      </div>
+    </div>
+  </section>
+</section>
 
-<%= collaborate_section(@project) %> <br />
-<%= @project.likes_counter %>
-<%= like_section(@project) %> <br />
+<section id="slogan" class="slogan row">
+  <h3><%= @project.pitch %></h3>
+</section>
 
-Status: <%= @project.status %> <br />
-Creado por: <%= @project.creator %> -
-<i>"<%= @project.creator.bio %>"</i>
-<h3><%= @project.pitch %></h3>
 
-<h2>Descripción</h2>
-<%= @project.description_html %>
+<%= render "resources" %>
 
-<h2>Puntos</h2>
-<%= @project.first_spec %><br />
-<%= @project.second_spec %><br />
-<%= @project.third_spec %><br />
-<h2>Colaboradores</h2>
-<% if @project.collaborators.blank? %>
-	Anímate. Sé el primero en colaborar en este proyecto
-<% else %>
-	<% @project.collaborators.each do |collaborator| %>
-		<p>
-			<%= link_to "#{collaborator.name}", "#" %> <br />
-			<%= collaborator.email %> <br />
-		</p>
-	<% end %>
-<% end %>
-<h2>DataSet</h2>
-<%= @project.dataset_url %>
-<h2>Discusión</h2>
-<%= render 'comments' %>
+
+<section id="needs" class="needs row">
+  <header>
+    <h2><%= I18n.t("project.titles.needs") %></h2>
+  </header>
+  <div class="column left">
+    <div class="content">
+      <%= @project.description_html %>
+    </div>
+  </div>
+  <div class="column right">
+    &nbsp;
+    <% if  !@project.first_spec.blank? && !@project.second_spec.blank? && !@project.third_spec.blank? %>
+      <h3><%= I18n.t("project.titles.points") %></h3>
+      <ul class="points">
+        <% if !@project.first_spec.blank? %>
+          <li><%= @project.first_spec %></li>
+        <% end %>
+        <% if !@project.second_spec.blank? %>
+          <li><%= @project.second_spec %></li>
+        <% end %>
+        <% if !@project.third_spec.blank? %>
+          <li><%= @project.third_spec %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</section>
+
+
+<%= render "activities" %>
+
+
+<%= render "comments" %>
+
+
+<section id="supportus" class="supportus row">
+  <header>
+    <h2><%= I18n.t("project.titles.supportus") %></h2>
+  </header>
+  <section>
+    <%= like_section(@project) %>
+    <%= collaborate_section(@project)  %>
+  </section>
+</section>
