@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
 
   def create
 		@project = current_user.created_projects.build(params[:project])
+    Collaboration.create(user: current_user, project: @project)
 		if @project.save
 		  redirect_to @project
 		else
