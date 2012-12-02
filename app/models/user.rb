@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :avatar, :email, :name, :nickname
+  attr_accessible :avatar, :email, :name, :nickname, :bio
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :collaborating_in, through: :collaborations, class_name: "Project", source: :project
   has_many :userskills
   has_many :skills, through: :userskills
+
+  # Validations
+  validates :bio, length: { maximum: 255 }
 
   # Additionals
   acts_as_voter
