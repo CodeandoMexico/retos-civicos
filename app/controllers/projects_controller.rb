@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_filter :save_location, only: [:new]
+  before_filter :save_previous, only: [:collaborate, :like]
   before_filter :authorize!, except: [:index, :show]
 
 	def index
@@ -54,6 +56,12 @@ class ProjectsController < ApplicationController
     current_user.vote_for(@project)
     @project.update_likes_counter
     redirect_to @project
+  end
+
+  private
+
+  def save_location
+    store_location unless signed_in?
   end
 
 end

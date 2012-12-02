@@ -14,9 +14,7 @@
     Welcome <%= current_user.to_s %>!
     <%= link_to "Sign Out", signout_path %>
   <% else %>
-    <p><%= link_to "Sign in with Github", "/auth/github" %></p>
-    <p><%= link_to "Sign in with LinkedIn", "/auth/linkedin" %></p>
-    <p><%= link_to "Sign in with Twitter", "/auth/twitter" %></p>
+    <%= link_to 'Login / Sign up', sign_up_path %>
   <% end %>
 
   <% flash.each do |type, message| %>

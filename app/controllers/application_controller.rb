@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  include ApplicationHelper
   helper_method :current_user, :signed_in?
 
   private
@@ -14,7 +14,14 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize!
-    redirect_to root_path, flash: { error: 'Login required' } unless signed_in?
+    redirect_to sign_up_path, flash: { error: 'Login required' } unless signed_in?
   end
 
+  def save_location
+    store_location unless signed_in?
+  end
+
+  def save_previous
+    store_location(request.referer) unless signed_in?
+  end
 end

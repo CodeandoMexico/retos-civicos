@@ -21,7 +21,7 @@ module ProjectsHelper
         "<i class=\"icon-hand-right\"></i>".html_safe+project.likes_counter.to_s
       end
 		else
-      link_to I18n.t("project.like"), "#", class: "like"
+      link_to I18n.t("project.like"), like_project_path(project), method: :post, class: "like"
 		end
   end
 
@@ -33,8 +33,7 @@ module ProjectsHelper
 		elsif signed_in?
       link_to I18n.t("project.colaborate"), collaborate_project_path(project), method: :post, class: "colaborate"
 		else
-			link_to I18n.t("project.colaborate"), '#'
-
+			link_to I18n.t("project.colaborate"), collaborate_project_path(project), method: :post
 		end
   end
 
