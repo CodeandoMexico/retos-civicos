@@ -1,11 +1,11 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :first_spec, :second_spec, :third_spec, :pitch, :additional_links
+  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
+                  :first_spec, :second_spec, :third_spec, :pitch, :avatar
+
+  mount_uploader :avatar, ProjectAvatarUploader
 
   # Relations
-  #resources
-	#comments
-	#tags
 	has_many :collaborations, foreign_key: 'project_id'
 	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
 
@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
 	# Validations
 	validates :description, :title, :status, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }
+
 
 	# Additionals
 	acts_as_voteable

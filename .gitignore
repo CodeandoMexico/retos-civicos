@@ -25,3 +25,4 @@ bin
 *.dat
 .powder
 tags
+/public/uploads/
