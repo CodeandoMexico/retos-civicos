@@ -1,4 +1,9 @@
 <h1><%= @project.title %></h1>
+<% if current_user.collaborating_in?(@project) %>
+	<h4>Estás colaborando!</h4>
+<% else %>
+	<h4><%= link_to 'Colaborar', collaborate_project_path(@project), method: :post %></h4>
+<% end %>
 <h4>Status: <%= @project.status %></h4>
 <h4>Creado por: Alguien<%#= @project.creator %></h4>
 <h4>Soportado por: Alguien Mas<%#= @project.owner %></h4>
@@ -8,6 +13,15 @@
 <h2>DataSet</h2>
 <h4><%= @project.dataset_url %></h4>
 <h2>Colaboradores</h2>
-<h4>Gente</h4>
+<% if @project.collaborators.blank? %>
+	Anímate. Sé el primero en colaborar en este proyecto
+<% else %>
+	<% @project.collaborators.each do |collaborator| %>
+		<p>
+			<%= link_to "#{collaborator.name}", "#" %> <br />
+			<%= collaborator.email %> <br />
+		</p>
+	<% end %>
+<% end %>
 <h2>Discusión</h2>
 <h4>Randoms</h4>

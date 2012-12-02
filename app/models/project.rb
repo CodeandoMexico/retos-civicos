@@ -3,10 +3,13 @@ class Project < ActiveRecord::Base
 
   # Relations
   #resources
-	#upvotes
-	#collaborators
 	#comments
 	#tags
+	#upvotes
+	#collaborators
+	has_many :collaborations, foreign_key: 'project_id'
+	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
+
 	belongs_to :creator, class_name: "User"
 
 	# Validations

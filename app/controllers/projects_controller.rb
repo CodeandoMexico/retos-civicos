@@ -35,9 +35,15 @@ class ProjectsController < ApplicationController
   end
 
   def cancel
-  	@project = current_user.created_projects.find(params[:project_id])
+  	@project = current_user.created_projects.find(params[:id])
   	@project.cancel!
   	redirect_to projects_url
+  end
+
+  def collaborate
+    @project = Project.find(params[:id])
+    Collaboration.create(user: current_user, project: @project)
+    redirect_to @project
   end
 
 end

@@ -5,7 +5,10 @@ Aquila::Application.routes.draw do
 
   resources :authentications
 	resources :projects, except: [:destroy] do
-		put :cancel
+		member do
+			put :cancel
+			post :collaborate
+		end
 	end
 
   root :to => 'home#index'
