@@ -5,7 +5,109 @@
 // Landing
 //--------------------------------------------------
 
+header {
+  
+  .header-pre-wrap {
+    height: 30px;
+    background: $gray2;
 
+    
+    .row {
+      position: relative;
+      
+      .what-badge {
+        width: 30px;
+        height: 35px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent inline-image("what-badge.png") no-repeat 0 0;
+      }
+      
+      p {
+        margin: 3px 0 0 40px;
+        color: $gray4;
+        text-shadow: 0 1px $gray1;
+      }
+      
+    }
+    
+  }// End of .header-pre-wrap
+  
+  .header-wrap {
+    height: 60px;
+    border-bottom: solid 1px $gray1;
+    @include background-image(linear-gradient($white, $white 60%, $gray2 200%));
+    
+    .logo {
+      height: 32px;
+      width: 287px;
+      display: block;
+      margin: 16px 30px 0 0;
+      float: left;
+      
+      a {
+        height: 32px;
+        width: 287px;
+        display: block;
+        @include hide-text;
+        background: transparent inline-image("logo.png") no-repeat 0 0;
+      }
+    }// End of .logo
+    
+    nav {
+      width: 643px;
+      height: 60px;
+      float: left;
+      
+      ul {
+        height: 60px;
+        margin: 0;
+        
+        li {
+          height: 60px;
+          float: left;
+          
+          a {
+            display: block;
+            font-weight: bold;
+            text-shadow: 0 1px $gray1;
+          }
+        }
+        
+      }
+      
+      ul.main-menu {
+        float: left;
+        
+        li {
+          border-right: solid 1px $gray1;
+          
+          a {
+            padding: 18px 20px;
+          }
+          
+        }
+      }
+      
+      ul.login-menu {
+        float: right;
+        
+        li {
+          
+          a {
+            padding: 18px 0 18px 20px;
+          }
+          
+        }
+        
+      }
+      
+    }// End of nav
+    
+  }// End of .header-wrap
+  
+}// End of header
 
 // End of Landing
 //--------------------------------------------------

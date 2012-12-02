@@ -1,0 +1,32 @@
+<header>
+  <div class="header-pre-wrap">
+    <div class="row">
+      <div class="what-badge"></div>
+      <p><strong>¿Que es Codeando México?</strong> Skateboard quis four loko, et tumblr ut pour-over ullamco stumptown. <strong><%= link_to "¡Ver más!"%></strong></p>
+    </div>
+  </div>
+  <div class="header-wrap">
+    <div class="row">
+      <div class="logo"><%= link_to "Codeando México", root_path %></div>
+      <nav>
+        <ul class="main-menu">
+          <li><%= link_to 'Proyectos', projects_path %></li>
+          <li><%= link_to "Proyecto Nuevo", new_project_path %></li>
+        </ul>
+        <ul class="login-menu">
+          <% if current_user %>
+          <li>Welcome <%= current_user.to_s %>! <%= link_to "Sign Out", signout_path %></li>
+          <% else %>
+          <li><%= link_to "#" do %>
+            Sign up / Log in <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
+          <% end %>  
+          </li>
+          <!--<li><%= link_to "Sign in with Github", "/auth/github" %></li>
+          <li><%= link_to "Sign in with LinkedIn", "/auth/linkedin" %></li>
+          <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>-->
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
