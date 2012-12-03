@@ -53,7 +53,7 @@
                 <span class="icon-sort-down"></span>
               <% end %>
             </div>
-            <% if signed_in? and current_user.collaborating_in?(@project) %>
+            <% if signed_in? %>
               <%= link_to I18n.t("project.reply"), "#", class: "reply" %>
             <% end %>
             <p class="comment"><%= comment.body %></p>
@@ -66,7 +66,7 @@
                 </div>
               <% end %>
             </div>
-            <% if signed_in? and current_user.collaborating_in?(@project) %>
+            <% if signed_in? %>
               <div class="form">
                 <%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
                   <%= f.text_field :body %>
