@@ -7,23 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="content">
+    <%= render partial: "shared/header" %>
+    
+      <div class="container">
+        <div class="row">
+        <% if current_user %>
+          Welcome <%= current_user.to_s %>!
+          <%= link_to "Sign Out", signout_path %>
+        <% else %>
+          <%= link_to 'Login / Sign up', sign_up_path %>
+        <% end %>
 
-<div class="container">
-  <div class="row">
-  <% if current_user %>
-    Welcome <%= current_user.to_s %>!
-    <%= link_to "Sign Out", signout_path %>
-  <% else %>
-    <%= link_to 'Login / Sign up', sign_up_path %>
-  <% end %>
-
-  <% flash.each do |type, message| %>
-    <div class="<%= type %>">
-      <%= message %>
-    </div>
-  <% end %>
-  <%= yield %>
+        <% flash.each do |type, message| %>
+          <div class="<%= type %>">
+            <%= message %>
+          </div>
+        <% end %>
+        <%= yield %>
+        </div>
+      </div>
+    <div id="root_footer"></div>
   </div>
-</div>
+
+  <%= render partial: "shared/footer" %>
 </body>
 </html>
