@@ -11,6 +11,9 @@ development:
     key: 'xEEoh0lQLA9XlPrrGde3EA'
     secret: '8RrEl91CN9oLtmRv2UnuNT07eSTMQnr51Uw5ET2BU'
 
+  ckan:
+    key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
+
 production:
   github:
     key: '6be7a4510ce45f6f25b9'
