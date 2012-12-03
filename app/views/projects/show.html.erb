@@ -41,7 +41,6 @@
     </div>
   </div>
   <div class="column right">
-    <% if  !@project.first_spec.blank? && !@project.second_spec.blank? && !@project.third_spec.blank? %>
       <h3><%= I18n.t("project.titles.points") %></h3>
       <ul class="points">
         <% if !@project.first_spec.blank? %>
@@ -54,7 +53,6 @@
           <li><%= @project.third_spec %></li>
         <% end %>
       </ul>
-    <% end %>
   </div>
 </section>
 
