@@ -13,17 +13,20 @@
           <li><%= link_to 'Proyectos', projects_path %></li>
           <li><%= link_to "Proyecto Nuevo", new_project_path %></li>
         </ul>
+        <% if current_user %>
+        <div class="current-user"><span>Welcome <%= current_user.to_s %>!</span> <%= link_to "Sign Out", signout_path %></div>
+        <% else %>
         <ul class="login-menu">
-          <% if current_user %>
-          <li>Welcome <%= current_user.to_s %>! <%= link_to "Sign Out", signout_path %></li>
-          <% else %>
           <li><%= link_to sign_up_path do %>
             Sign up / Log in <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
           <% end %>  
           </li>
-          <% end %>
         </ul>
+        <% end %>
       </nav>
     </div>
   </div>
+  <% if signed_in? && !current_page?('/') %>
+  <div class="header-green-margin"></div>
+  <% end %>
 </header>
