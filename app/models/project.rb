@@ -46,6 +46,10 @@ class Project < ActiveRecord::Base
     self.save
   end
 
+  def about
+    self[:about].to_s
+  end
+
   private
 
   def upload_file
