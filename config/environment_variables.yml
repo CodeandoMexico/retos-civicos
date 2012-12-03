@@ -26,3 +26,6 @@ production:
   twitter:
     key: 'FOYYB0xqai6qO1oaKsokA'
     secret: 'IueF3pZavUpLQtuCRrKQ6tKNJC46lpVRFKJMyk4NgM'
+
+  ckan:
+    key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
