@@ -15,7 +15,9 @@ module ProjectsHelper
 
   def like_section(project)
 		if signed_in? and current_user.voted_for?(project)
-			'Votado'
+			link_to "", class: "like" do
+        "<i class=\"icon-thumbs-up\"></i>".html_safe+project.likes_counter.to_s
+      end
 		elsif signed_in?
 			link_to like_project_path(project), method: :post, class: "like" do
         "<i class=\"icon-thumbs-up\"></i>".html_safe+project.likes_counter.to_s
