@@ -18,7 +18,6 @@
         <% else %>
           <%= link_to 'Login / Sign up', sign_up_path %>
         <% end %>
-
         <% flash.each do |type, message| %>
           <div class="<%= type %>">
             <%= message %>
@@ -29,7 +28,6 @@
       </div>
     <div id="root_footer"></div>
   </div>
-
   <%= render partial: "shared/footer" %>
 </body>
 </html>

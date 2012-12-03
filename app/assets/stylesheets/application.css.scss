@@ -281,6 +281,14 @@ section#projects {
 }
 
 /***************************************************
+**  MAIN LAYOUT
+***************************************************/
+
+.container > .row {
+  padding: 40px 0;
+}
+
+/***************************************************
 **  Project Show
 ***************************************************/
 
@@ -787,6 +795,83 @@ section#projects {
   }
 }
 
+/***************************************************
+**  PROJECT'S INDEX
+***************************************************/
+
+section.index_projects {
+  .column.data {
+    width: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: 430px;
+    background-color: $white;
+
+    &:hover{
+      outline: 5px solid $gray2;
+    }
+
+    .wrapper {
+      padding: 15px;
+
+      img {
+        width: 270px;
+        height: 140px;
+        margin-bottom: 15px;
+      }
+
+      .about {
+        color: $gray4;
+        height: 90px;
+      }
+
+      .resources {
+        .column {
+          width: 33%;
+          padding: 10px;
+          font-size: ms(2);
+          color: $black;
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+
+    }
+
+    header {
+      background-color: $green;
+      padding: 15px;
+
+      h2 {
+        font-size: ms(1);
+        color: $white;
+        margin: 0;
+      }
+    }
+  }
+}
+
+section.new_project {
+  background-color: $green;
+  padding: 30px;
+
+  a {
+    width: 250px;
+    float: none;
+    margin: 0 auto;
+    border: 0;
+    @extend .buttons;
+    background-color: darken($green, 15%);
+    font-size: ms(1);
+    font-weight: normal;
+  }
+}
+
+.index_projects.home {
+  padding: 40px 0;
+}
 
 // Footer
 //--------------------------------------------------
