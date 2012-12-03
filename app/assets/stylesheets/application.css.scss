@@ -419,22 +419,28 @@ section#projects {
   }
 
   .resources_display.row {
-    padding: 30px;
+    padding: 40px;
     background: $gray2 inline-image('activities_bg.png') repeat-x top center;
+
+    a {
+        color: $gray4;
+        text-decoration: underline;
+        font-weight: bold;
+      }
 
     .colab {
       float: left;
-      height: 90px;
-      width: 90px;
+      height: 110px;
+      width: 110px;
       margin-right: 20px;
 
       a {
-        color: $gray4;
+        text-decoration: none;
       }
 
       img {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         border: 5px solid $gray3;
       }
     }

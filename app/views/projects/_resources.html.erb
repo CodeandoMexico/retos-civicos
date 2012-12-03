@@ -32,7 +32,6 @@
             <p class="colab">
               <%= image_tag collaborator.avatar %>
               <%= link_to "#{collaborator.name}", "#" %> <br />
-              <%= collaborator.email %> <br />
             </p>
           <% end %>
       </div>
@@ -40,7 +39,7 @@
     <% if !@project.dataset_url.blank? %>
     <div class="unit row">
       <h4>Datasets</h4>
-      <%= @project.dataset_url %>
+      <%= link_to @project.dataset_url, @project.dataset_url %>
     </div>
     <% end %>
     
