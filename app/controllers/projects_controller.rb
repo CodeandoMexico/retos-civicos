@@ -33,7 +33,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    debugger
   	@project = current_user.created_projects.find(params[:id])
     if @project.update_attributes(params[:project])
       redirect_to @project
