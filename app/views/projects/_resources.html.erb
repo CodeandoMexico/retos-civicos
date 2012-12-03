@@ -1,36 +1,48 @@
 <section id="resources" class="resources row">
-  <div class="column colaborators">
-    <div class="content">
-      <%= @project.collaborators.count %>
-      <p><%= I18n.t("project.resources.colaborators") %></p>
-      <span class="arrow"></span>
+    <div class="row">
+    <div class="column colaborators">
+      <div class="content">
+        <%= @project.collaborators.count %>
+        <p><%= I18n.t("project.resources.colaborators") %></p>
+        <span class="arrow"></span>
+      </div>
+    </div>
+    <div class="column references">
+      <div class="content">
+        5
+        <p><%= I18n.t("project.resources.references") %></p>
+        <span class="arrow"></span>
+      </div>
+    </div>
+    <div class="column datasets">
+      <div class="content">
+        3
+        <p><%= I18n.t("project.resources.datasets") %></p>
+        <span class="arrow"></span>
+      </div>
     </div>
   </div>
-  <div class="column references">
-    <div class="content">
-      5
-      <p><%= I18n.t("project.resources.references") %></p>
-      <span class="arrow"></span>
-    </div>
-  </div>
-  <div class="column datasets">
-    <div class="content">
-      3
-      <p><%= I18n.t("project.resources.datasets") %></p>
-      <span class="arrow"></span>
-    </div>
-  </div>
-  <div class="unit">
-    <%= @project.dataset_url %>
+  <div class="unit resources_display row">
     <% if @project.collaborators.blank? %>
       Anímate. Sé el primero en colaborar en este proyecto
     <% else %>
-      <% @project.collaborators.each do |collaborator| %>
-        <p>
-          <%= link_to "#{collaborator.name}", "#" %> <br />
-          <%= collaborator.email %> <br />
-        </p>
-      <% end %>
+      <h4>Colaboradores</h4>
+      <div class="unit row">
+          <% @project.collaborators.each do |collaborator| %>
+            <p class="colab">
+              <%= image_tag collaborator.avatar %>
+              <%= link_to "#{collaborator.name}", "#" %> <br />
+              <%= collaborator.email %> <br />
+            </p>
+          <% end %>
+      </div>
     <% end %>
+    <% if !@project.dataset_url.blank? %>
+    <div class="unit row">
+      <h4>Datasets</h4>
+      <%= @project.dataset_url %>
+    </div>
+    <% end %>
+    
   </div>
 </section>
