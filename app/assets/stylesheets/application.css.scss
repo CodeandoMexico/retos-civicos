@@ -417,6 +417,28 @@ section#projects {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
   }
+
+  .resources_display.row {
+    padding: 30px;
+    background: $gray2 inline-image('activities_bg.png') repeat-x top center;
+
+    .colab {
+      float: left;
+      height: 90px;
+      width: 90px;
+      margin-right: 20px;
+
+      a {
+        color: $gray4;
+      }
+
+      img {
+        width: 70px;
+        height: 70px;
+        border: 5px solid $gray3;
+      }
+    }
+  }
 }
 
 
