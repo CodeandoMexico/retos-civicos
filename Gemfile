@@ -13,6 +13,8 @@ gem 'omniauth-twitter'
 gem 'github_api'
 gem 'gravatar-ultimate'
 
+gem 'ckan', :github => 'wilhelmbot/CKAN'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

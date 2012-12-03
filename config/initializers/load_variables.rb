@@ -8,3 +8,4 @@ LINKEDIN_SECRET = ENV['LINKEDIN_SECRET'] || env['linkedin']['secret']
 TWITTER_KEY = ENV['TWITTER_KEY'] || env['twitter']['key']
 TWITTER_SECRET = ENV['TWITTER_SECRET'] || env['twitter']['secret']
 
+CKAN_API_KEY = ENV['CKAN_API_KEY'] || env['ckan']['key']
