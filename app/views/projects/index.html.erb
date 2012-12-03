@@ -1,9 +1,49 @@
-<h1>Proyectos</h1>
-<% @projects.each do |project| %>
-	<p>
-		<%= link_to project.title, project_path(project) %> <br />
-		Status: <%= project.status %> <br  />
-		<%= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
-	</p>
+
+<section id="index_projects" class="index_projects">
+  <header>
+    <h1>Proyectos</h1>
+  </header>
+
+  <section id="projects_list" class="projects_list row">
+    <% @projects.each do |project| %>
+      <article class="column left data">
+        <div class="wrapper">
+          <%= link_to project_path(project) do %>
+            <header>
+              <h2><%= project.title %></h2>
+            </header>
+            <%= image_tag project.avatar %>
+            <p class="about">
+              <%= project.about.truncate(160) %>
+            </p>
+
+            <div class="unit row resources">
+              <div class="column left">
+                <%= project.collaborators.count %>
+                <p><%= I18n.t("project.resources.colaborators") %></p>
+              </div>
+              <div class="column left">
+                5
+                <p><%= I18n.t("project.resources.references") %></p>
+              </div>
+              <div class="column left">
+                3
+                <p><%= I18n.t("project.resources.datasets") %></p>
+              </div>
+            </div>
+          <% end %>
+          <%#= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
+        </div>
+      </article>
+
+    <% end %>
+  </section>
+</section>
+
+<% if signed_in? %>
+  <section id="new_project" class="new_project">
+    <%= link_to 'Nuevo proyecto', new_project_path %>
+  </section>
 <% end %>
-<%= link_to 'Nuevo proyecto', new_project_path if signed_in? %>
+
+
