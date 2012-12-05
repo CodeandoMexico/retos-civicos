@@ -1,6 +1,6 @@
 $ ->
 
-  $("#locale").change ->
+  $("#i18n_locale").change ->
     $(@).parents("form").submit()
 
   $(".comments .box.com").on "click", ".reply", ->
