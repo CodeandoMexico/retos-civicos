@@ -7,6 +7,10 @@ class HomeController < ApplicationController
   end
 
   def sign_up 
+  end
 
+  def set_language
+    session[:locale] = params[:locale]
+    redirect_to :back
   end
 end

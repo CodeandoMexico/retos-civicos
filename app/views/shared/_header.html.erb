@@ -2,7 +2,10 @@
   <div class="header-pre-wrap">
     <div class="row">
       <div class="what-badge"></div>
-      <p><strong>¿Que es Codeando México?</strong> Un espacio donde la transparencia y colaboración ocurren todos los días. <strong><%= link_to "¡Ver más!"%></strong></p>
+      <p> <strong>¿Que es Codeando México?</strong> Un espacio donde la transparencia y colaboración ocurren todos los días. <strong><%= link_to "¡Ver más!"%></strong> </p>
+      <%= form_tag set_language_path do %>
+        <%= select_tag 'locale', options_from_collection_for_select(LANGUAGES, :first, :last, session[:locale]) %>
+      <% end %>
     </div>
   </div>
   <div class="header-wrap">
