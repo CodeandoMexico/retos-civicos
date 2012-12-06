@@ -10,13 +10,13 @@
     <div class="column left">
       <%= image_tag @project.avatar_url(:profile), style: "width:600px;height:360px;" %>
       <div class="owner">
-        <span class="name"><%= I18n.t("project.created-by")%> <em><%= @project.creator %></em></span>
+        <span class="name"><%= t("projects.form.created-by") %> <em><%= @project.creator %></em></span>
         <span class="status"><%= @project.status %></span>
       </div>
     </div>
     <div class="column right">
       <div class="content">
-        <h2><%= I18n.t("project.titles.about") %></h2>
+        <h2><%= t("projects.form.about") %></h2>
         <p><%= @project.about %></p>
       </div>
     </div>
@@ -33,7 +33,7 @@
 
 <section id="needs" class="needs row">
   <header>
-    <h2><%= I18n.t("project.titles.needs") %></h2>
+    <h2><%= t("projects.form.needs") %></h2>
   </header>
   <div class="column left">
     <div class="content">
@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="column right">
-      <h3><%= I18n.t("project.titles.points") %></h3>
+      <h3><%= t("projects.form.points") %></h3>
       <ul class="points">
         <% if !@project.first_spec.blank? %>
           <li><%= @project.first_spec %></li>
@@ -65,7 +65,7 @@
 
 <section id="supportus" class="supportus row">
   <header>
-    <h2><%= I18n.t("project.titles.supportus") %></h2>
+    <h2><%= t(".supportus") %></h2>
   </header>
   <section>
     <%= like_section(@project) %>

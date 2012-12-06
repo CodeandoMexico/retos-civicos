@@ -1,8 +1,8 @@
-es:
+pt-br:
   projects:
     index:
-      header: "Proyectos"
-      new_project: "Nuevo Proyecto"
+      header: "Proyectiños"
+      new_project: "Novo Proyecto"
     new:
       header: "Nuevo Proyecto"
     edit:
