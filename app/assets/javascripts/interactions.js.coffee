@@ -1,5 +1,8 @@
 $ ->
 
+  $("#i18n_locale").change ->
+    $(@).parents("form").submit()
+
   $(".comments .box.com").on "click", ".reply", ->
     if $(@).hasClass("active")
       if $(@).siblings(".form").find("input#comment_body").val() isnt ""

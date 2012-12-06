@@ -13,6 +13,7 @@ gem 'omniauth-twitter'
 gem 'github_api'
 gem 'gravatar-ultimate'
 
+gem 'rails-translate-routes'
 gem 'ckan', :github => 'wilhelmbot/CKAN'
 
 group :assets do
@@ -25,6 +26,7 @@ end
 
 group :development do
 	gem 'debugger'
+  gem 'quiet_assets'
 end
 
 gem 'compass'

@@ -1,0 +1,21 @@
+en:
+  routes:
+
+es:
+  routes:
+    projects: proyectos
+    comments: comentarios
+
+    new: nuevo
+    edit: editar
+    sign_up: registrate
+
+
+pt-br:
+  routes:
+    projects: projetos
+    comments: comentarios
+
+    new: novo
+    edit: editar
+    sign_up: signup_br

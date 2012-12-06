@@ -19,6 +19,9 @@ Aquila::Application.routes.draw do
 		end
 	end
 
+  match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
   root :to => 'home#index'
 
 end
+
+ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })

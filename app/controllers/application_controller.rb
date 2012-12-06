@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   helper_method :current_user, :signed_in?
 
+  before_filter :set_locale
+
+  def set_locale
+    I18n.locale = session[:locale] || "es"
+  end
+
   private
 
   def current_user
