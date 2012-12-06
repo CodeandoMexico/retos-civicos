@@ -23,7 +23,7 @@ module ProjectsHelper
         "<i class=\"icon-thumbs-up\"></i>".html_safe+project.likes_counter.to_s
       end
 		else
-      link_to I18n.t("project.like"), like_project_path(project), method: :post, class: "like"
+      link_to t("projects.like"), like_project_path(project), method: :post, class: "like"
 		end
   end
 
@@ -31,11 +31,11 @@ module ProjectsHelper
   	if current_user == project.creator
       link_to "Editar", edit_project_path(@project)
 		elsif signed_in? and current_user.collaborating_in?(project)
-			link_to I18n.t("project.colaborating"), "", class: "colaborate"
+			link_to t(".colaborating"), "", class: "colaborate"
 		elsif signed_in?
-      link_to I18n.t("project.colaborate"), collaborate_project_path(project), method: :post, class: "colaborate"
+      link_to t(".colaborate"), collaborate_project_path(project), method: :post, class: "colaborate"
 		else
-			link_to I18n.t("project.colaborate"), collaborate_project_path(project), method: :post
+			link_to t(".colaborate"), collaborate_project_path(project), method: :post
 		end
   end
 

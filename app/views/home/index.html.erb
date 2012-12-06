@@ -3,9 +3,8 @@
     <div class="row">
       
       <div class="action-wrap-box">
-        <h1>Hackers + Organizaciones <br/ >
-          las 24 horas del día. </h1>
-        <%= link_to new_project_path, :class => "get-involved" do %>¡Involúcrate!<% end %>
+        <h1><%= raw t('.pitch')%> </h1>
+        <%= link_to new_project_path, :class => "get-involved" do %> <%= t('.get_involved') %> <% end %>
       </div>
       
     </div>
@@ -32,15 +31,15 @@
           <div class="unit row resources">
             <div class="column left">
               <%= project.collaborators.count %>
-              <p><%= I18n.t("project.resources.colaborators") %></p>
+              <p><%= t("project.resources.colaborators") %></p>
             </div>
             <div class="column left">
               5
-              <p><%= I18n.t("project.resources.references") %></p>
+              <p><%= t("project.resources.references") %></p>
             </div>
             <div class="column left">
               3
-              <p><%= I18n.t("project.resources.datasets") %></p>
+              <p><%= t("project.resources.datasets") %></p>
             </div>
           </div>
         <% end %>

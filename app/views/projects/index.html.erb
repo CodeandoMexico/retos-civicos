@@ -1,7 +1,7 @@
 
 <section id="index_projects" class="index_projects">
   <header>
-    <h1>Proyectos</h1>
+    <h1><%= t('.header') %></h1>
   </header>
 
   <section id="projects_list" class="projects_list row">
@@ -20,15 +20,15 @@
             <div class="unit row resources">
               <div class="column left">
                 <%= project.collaborators.count %>
-                <p><%= I18n.t("project.resources.colaborators") %></p>
+                <p><%= t("project.resources.colaborators") %></p>
               </div>
               <div class="column left">
                 5
-                <p><%= I18n.t("project.resources.references") %></p>
+                <p><%= t("project.resources.references") %></p>
               </div>
               <div class="column left">
                 3
-                <p><%= I18n.t("project.resources.datasets") %></p>
+                <p><%= t("project.resources.datasets") %></p>
               </div>
             </div>
           <% end %>
@@ -42,7 +42,7 @@
 
 <% if signed_in? %>
   <section id="new_project" class="new_project">
-    <%= link_to 'Nuevo proyecto', new_project_path %>
+    <%= link_to t('.new_project'), new_project_path %>
   </section>
 <% end %>
 

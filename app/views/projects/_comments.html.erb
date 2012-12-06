@@ -1,9 +1,9 @@
 <section id="comments" class="comments row">
   <header>
     <% if signed_in? and current_user.collaborating_in?(@project) %>
-      <%= link_to I18n.t("project.comment"), "#", class: "comment" %>
+      <%= link_to t(".comment"), "#", class: "comment" %>
     <% end %>
-    <h2><%= I18n.t("project.titles.comments") %></h2>
+    <h2><%= t("projects.form.comments") %></h2>
   </header>
   <section>
     
@@ -20,7 +20,7 @@
           <div class="column right data">
             <div class="unit box">
               <%= f.text_area :body%>
-              <%= f.submit I18n.t("project.comment"), class: "reply" %>
+              <%= f.submit t(".comment"), class: "reply" %>
             </div>
           </div>
         <% end %>
@@ -54,7 +54,7 @@
               <% end %>
             </div>
             <% if signed_in? %>
-              <%= link_to I18n.t("project.reply"), "#", class: "reply" %>
+              <%= link_to t(".reply"), "#", class: "reply" %>
             <% end %>
             <p class="comment"><%= comment.body %></p>
 

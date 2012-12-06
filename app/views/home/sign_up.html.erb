@@ -7,10 +7,10 @@
           <h1>Sign up / Log in</h1>
         </header>
         <div class="login-content">
-          <p>Selecciona alguno de los siguientes servicios para tener acceso a Codeando México.</p>
-          <p><%= link_to "/auth/github", :class => "github" do %><i class="icon-github"></i> Inicia con Github<% end %></p>
-          <p><%= link_to "/auth/twitter", :class => "twitter" do %><i class="icon-twitter"></i> Inicia con Twitter<% end %></p>
-          <p><%= link_to "/auth/linkedin", :class => "linkedin" do %><i class="icon-linkedin"></i> Inicia con LinkedIn<% end %></p>
+          <p><%= I18n.t("signup.choose_provider") %></p>
+          <p><%= link_to "/auth/github", :class => "github" do %><i class="icon-github"></i> <%= I18n.t("signup.with_github") %><% end %></p>
+          <p><%= link_to "/auth/twitter", :class => "twitter" do %><i class="icon-twitter"></i> <%= I18n.t("signup.with_twitter") %><% end %></p>
+          <p><%= link_to "/auth/linkedin", :class => "linkedin" do %><i class="icon-linkedin"></i> <%= I18n.t("signup.with_linkedin") %><% end %></p>
         </div>
       </section>
   
