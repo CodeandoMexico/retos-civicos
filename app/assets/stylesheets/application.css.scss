@@ -1,6 +1,7 @@
 @import "base";
 @import "fonts";
 @import "defaults";
+@import "vendor";
 
 @include sticky-footer(40px, "#content", "#layout_footer", "#main-footer");
 

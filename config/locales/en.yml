@@ -28,6 +28,7 @@ en:
       dataset_file: "Dataset (formato .csv)"
       activities: "Actividades y Noticias"
       activities-description: "Eventos relevantes del proyecto"
+      activities-title: "Título"
       submit: "Publicar"
       description: "¿Cuál es el problema a enfrentar?"
       description-description: "Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema."
