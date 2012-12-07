@@ -114,8 +114,11 @@
 		</header>
 		<section>
 			<%= f.fields_for :activities do |a| %>
+		    <%= a.label :title, t(".activities-title") %>
+		    <%= a.text_field :title %>
 		    <%= a.label :text, t(".activities-description") %>
 		    <%= a.text_area :text, rows: 2 %>
+        <hr />
 		  <% end %>
 		</section>
 	</section>

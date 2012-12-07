@@ -50,6 +50,34 @@ class Project < ActiveRecord::Base
     self[:about].to_s
   end
 
+  def timeline_json
+    {
+      "timeline" =>
+      {
+        "headline" => "Actividades y Noticias",
+        "type" => "default",
+        "startDate" => self.created_at.year,
+        "text" => "",
+        "date" => self.activities.map do |activity|
+          date = activity.created_at.strftime("%Y, %m, %d")
+          {
+            "startDate" => date,
+            "endDate" => date,
+            "headline" => activity.title,
+            "text" => activity.text,
+            "asset" =>
+            {
+              "media" => "",
+              "credit" => "",
+              "caption" => ""
+            }
+          }
+
+        end
+      }
+    }    
+  end
+
   private
 
   def upload_file
@@ -71,3 +99,4 @@ class Project < ActiveRecord::Base
   end
 
 end
+

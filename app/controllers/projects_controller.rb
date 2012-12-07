@@ -60,6 +60,11 @@ class ProjectsController < ApplicationController
     redirect_to @project
   end
 
+  def timeline
+    @project = Project.find(params[:id])
+    render json: @project.timeline_json
+  end
+
   private
 
   def save_location

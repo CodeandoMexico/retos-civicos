@@ -12,11 +12,12 @@ Aquila::Application.routes.draw do
 				post :reply
 			end
 		end
-		member do
-			put :cancel
-			post :collaborate
-			post :like
-		end
+    member do
+      put :cancel
+      post :collaborate
+      post :like
+      get :timeline
+    end
 	end
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
