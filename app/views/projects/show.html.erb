@@ -1,12 +1,12 @@
-<section id="pitch" class="pitch row">
-  <header>
+<section id="pitch" class="unit pitch">
+  <header class="unit">
     <nav>
       <%= like_section(@project) %>
       <%= collaborate_section(@project)  %>
     </nav>
     <h1><%= @project.title %></h1>
   </header>
-  <section id="description" class="description row">
+  <section id="description" class="unit description ">
     <div class="column left">
       <%= image_tag @project.avatar_url(:profile), style: "width:600px;height:360px;" %>
       <div class="owner">
@@ -23,7 +23,7 @@
   </section>
 </section>
 
-<section id="slogan" class="slogan row">
+<section id="slogan" class="unit slogan ">
   <h3><%= @project.pitch %></h3>
 </section>
 
@@ -31,7 +31,7 @@
 <%= render "resources" %>
 
 
-<section id="needs" class="needs row">
+<section id="needs" class="unit needs ">
   <header>
     <h2><%= t("projects.form.needs") %></h2>
   </header>
@@ -63,7 +63,7 @@
 <%= render "comments" %>
 
 
-<section id="supportus" class="supportus row">
+<section id="supportus" class="unit supportus ">
   <header>
     <h2><%= t(".supportus") %></h2>
   </header>

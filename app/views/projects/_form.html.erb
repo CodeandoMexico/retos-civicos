@@ -61,9 +61,11 @@
 	  <section>
 			<div class="unit row">
 				<div class="column left">
-					<%= f.label :description, t(".description") %>
-					<p><%= t(".description-description") %></p>
-					<%= f.text_area :description %>
+					<div class="container">
+						<%= f.label :description, t(".description") %>
+						<p><%= t(".description-description") %></p>
+						<%= f.text_area :description %>
+					</div>
 				</div>
 				<div class="column right">
 					<label><%= t(".points") %></label>
@@ -108,6 +110,7 @@
 		</section>
 	</section>
 
+	<% if controller.action_name == "edit" %>
 	<section id="form_activities" class="form_activities">
 		<header>
 			<h2><%= t(".activities") %></h2>
@@ -121,7 +124,7 @@
         <hr />
 		  <% end %>
 		</section>
-	</section>
+	<% end %>
 
 	<section id="form_save" class="form_save">
 		<%= f.submit t(".submit") %>

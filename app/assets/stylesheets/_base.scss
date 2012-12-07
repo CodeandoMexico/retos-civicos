@@ -36,9 +36,6 @@ $green:       #77b433;
 // Grid Settings
 
  $rowWidth: 960px;
- $columnGutter: 30px;
- $totalColumns: 12;
-// $mobileTotalColumns: 4;
 
 // Button Settings
 
@@ -110,7 +107,20 @@ $green:       #77b433;
 // $topBarBreakPoint: 940px; // Change to 9999px for always mobile layout
 // $topBarNavToggleSize: 8px;
 
-@import 'foundation';
+
+/***************************************************
+**  STUFF NEEDED FROM FOUNDATION
+***************************************************/
+@import "modular-scale";
+@import "foundation/functions/all";
+@import "foundation/settings";
+@import "foundation/mixins/all";
+@import "foundation/common/base";
+
+/***************************************************
+**  FOR THE GRID SYSTEM
+***************************************************/
+@import 'elasticss';
 
 
 // Mixins

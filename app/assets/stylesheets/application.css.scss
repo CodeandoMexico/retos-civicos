@@ -3,6 +3,18 @@
 @import "defaults";
 @import "vendor";
 
+
+/***************************************************
+**  LAYOUT + GRID
+***************************************************/
+
+.holder {
+  width: $rowWidth;
+  margin: 0 auto;
+}
+
+
+
 @include sticky-footer(40px, "#content", "#layout_footer", "#main-footer");
 
 // Header
@@ -15,7 +27,7 @@ header#main-header {
     background: $gray2;
 
     
-    .row {
+    .container {
       position: relative;
       
       .what-badge {
@@ -28,9 +40,12 @@ header#main-header {
       }
       
       p {
-        margin: 3px 0 0 40px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 0 0 40px;
         color: $gray4;
         text-shadow: 0 1px $gray1;
+        margin: 0;
       }
       
     }
@@ -65,7 +80,13 @@ header#main-header {
       
       .current-user {
         float: right;
-        padding: 20px 0 18px 20px;
+        height: 60px;
+        line-height: 60px;
+        padding-right: 20px;
+
+        a {
+          margin-left: 10px;
+        }
       }
       
       ul {
@@ -75,6 +96,7 @@ header#main-header {
         li {
           height: 60px;
           float: left;
+          list-style: none;
           
           a {
             display: block;
@@ -113,7 +135,63 @@ header#main-header {
           }
           
         }
-        
+      }
+
+      .languages {
+        float: right;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+
+        .current {
+          padding: 5px;
+          background-color: $gray4;
+          color: $white;
+          text-transform: uppercase;
+          font-size: ms(0);
+          line-height: auto;
+          @include border-radius(5px);
+          padding-right: 20px;
+          position: relative;
+
+          &:before{
+            position: absolute;
+            line-height: 56px;
+            right: 6px;
+          }
+        }
+
+        .list {
+          position: absolute;
+          top: 37px;
+          right: 0;
+          height: auto;
+          background-color: $gray4;
+          padding: 6px 15px;
+          @include border-radius(5px);
+          @include border-top-right-radius(0);
+          display: none;
+
+
+          li {
+            height: auto;
+
+            a {
+              color: $gray2;
+              font-weight: normal;
+
+              &:hover{
+                color: $white;
+              }
+            }
+          }
+        }
+
+        &:hover .list {
+            display: block;
+        }
       }
       
     }// End of nav
@@ -138,16 +216,18 @@ header#main-header {
 //--------------------------------------------------
 
 section#main-wrap {
-  
+  background: $green;
+  @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
+
   .main-home-wrap {
     height: 300px;
-    background: $green;
     border-bottom: solid 1px darken($green, 10%);
-    @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
+    
     
     .action-wrap-box {
       width: 800px;
-      margin: 56px auto 0;
+      margin: 0 auto;
+      padding-top:56px;
       text-align: center;
 //      background: $white;
 //      @include single-box-shadow(rgba(0, 0, 0, 0.1), 0, 0, 1px, 4px);
@@ -185,11 +265,12 @@ section#main-wrap {
     background: $green;
     border-bottom: solid 1px darken($green, 10%);
     @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
+    padding: 50px 0;
     
     .login-box {
       width: 600px;
       background: $white;
-      margin: 40px auto 60px;
+      margin: 0 auto;
       @include border-radius(4px, 4px);
       @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px);
       
@@ -285,7 +366,7 @@ section#projects {
 **  MAIN LAYOUT
 ***************************************************/
 
-.container > .row {
+.container.body {
   padding: 40px 0;
 }
 
@@ -302,6 +383,7 @@ section#projects {
       color: $white;
       margin: 0;
       padding: 0;
+      font-size: ms(4);
     }
     nav {
       float: right;
@@ -371,7 +453,7 @@ section#projects {
 
 }// End .pitch
 
-.slogan.row {
+.slogan {
   background-color: $gray4;
   padding: 50px 150px;
 
@@ -380,6 +462,7 @@ section#projects {
     text-align: center;
     margin: 0;
     font-family: "MuseoSans-300";
+    font-size: ms(3);
   }
 }
 
@@ -485,6 +568,7 @@ section#projects {
       padding: 0;
 
       li { 
+        list-style: none;
         background-color: $gray1;
         padding: 20px;
         margin-bottom: 1px;
@@ -545,37 +629,7 @@ section#projects {
     border-top: 0;
     background: $gray1 inline-image('comments_line.png') repeat-y left top;
 
-    .wrapper {
-      max-height: 620px;
-      display: block;
-      overflow: auto;
-
-      .row.comment_form {
-        display: none;
-        background-color: rgba($gray4, 0.5);
-
-        .box:before{
-          background-color: #838383;
-        }
-        .box {
-          padding: 5px;
-          height: 100px;
-
-          .reply {
-            border: 0;
-          }
-        }
-
-        textarea {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-      }
-    }
-
-    .row {
+    .cbox {
       padding: 15px 0 15px 20px;
 
       .left {
@@ -706,6 +760,37 @@ section#projects {
           }
         }
       }
+    } // Closes .cbox
+
+    .wrapper {
+      max-height: 620px;
+      display: block;
+      overflow: auto;
+
+      .comment_form {
+        display: none;
+        background-color: rgba($gray4, 0.5);
+
+        .box:before{
+          background-color: #838383;
+        }
+        .box {
+          padding: 5px;
+          height: 100px;
+
+          .reply {
+            border: 0;
+            width: auto !important;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
     }
 
   }
@@ -786,6 +871,7 @@ section#projects {
     }
     p {
       margin-bottom: 25px;
+      padding-right: 20px;
     }
 
     header {
@@ -795,6 +881,7 @@ section#projects {
       h2 {
         color: $white;
         margin: 0;
+        font-size: ms(3);
       }
     }
   }
@@ -802,6 +889,9 @@ section#projects {
   .form_needs {
     .left {
       width: 440px;
+      .container {
+        padding-right: 20px;
+      }
     }
     .right {
       width: 450px;
@@ -822,7 +912,16 @@ section#projects {
       font-weight: normal;
     }
   }
+  .form_activities {
+    textarea {
+      height: 60px;
+      margin-bottom: 30px;
+    }
+  }
 }
+
+
+
 
 /***************************************************
 **  PROJECT'S INDEX
@@ -831,13 +930,15 @@ section#projects {
 section.index_projects {
   .column.data {
     width: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     height: 430px;
     background-color: $white;
 
     &:hover{
       outline: 5px solid $gray2;
+    }
+    &:nth-child(3n+2){
+      margin: 0 30px 30px 30px
     }
 
     .wrapper {
@@ -908,12 +1009,14 @@ section.new_project {
 footer#main-footer {
   
   .footer-wrap {
-    height: 40px;
+    height: 50px;
     background: $gray4;
+    border-top: 1px solid $white;
     
     p {
       color: $white;
-      margin: 10px 0 0 0;
+      line-height: 50px;
+      margin: 0;
     }
   }
   

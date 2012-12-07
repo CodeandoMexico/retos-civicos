@@ -4,10 +4,10 @@
     <h1><%= t('.header') %></h1>
   </header>
 
-  <section id="projects_list" class="projects_list row">
+  <section id="projects_list" class="columns on-3 projects_list">
     <% @projects.each do |project| %>
-      <article class="column left data">
-        <div class="wrapper">
+      <article class="column fixed data">
+        <div class="container wrapper">
           <%= link_to project_path(project) do %>
             <header>
               <h2><%= project.title %></h2>
@@ -41,7 +41,7 @@
 </section>
 
 <% if signed_in? %>
-  <section id="new_project" class="new_project">
+  <section id="new_project" class="unit new_project">
     <%= link_to t('.new_project'), new_project_path %>
   </section>
 <% end %>

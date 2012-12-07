@@ -16,9 +16,9 @@ $ ->
 
   $(".comments").on "click", "a.comment", ->
     if $(@).hasClass("active")
-      $(".comments .row.comment_form").slideUp()
+      $(".comments .comment_form").slideUp()
     else
-      $(".comments .row.comment_form").slideDown()
-      $(".comments .row.comment_form textarea").focus();
+      $(".comments .comment_form").slideDown()
+      $(".comments .comment_form textarea").focus();
     $(@).toggleClass "active"
     false
