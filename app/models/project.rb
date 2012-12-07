@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Project < ActiveRecord::Base
 
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
@@ -20,6 +21,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
   before_create :upload_file
+  after_create :create_initial_activity
 
 	# Additionals
 	acts_as_voteable
@@ -79,6 +81,10 @@ class Project < ActiveRecord::Base
   end
 
   private
+
+  def create_initial_activity
+    self.activities.create(title: 'Creación del proyecto', text: 'Publicación del proyecto en Codeando America Latina')
+  end
 
   def upload_file
     return true if @dataset_file.blank?
