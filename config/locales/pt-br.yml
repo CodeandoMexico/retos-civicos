@@ -56,14 +56,14 @@ pt-br:
   layout:
     header: "Codeando América Latina"
     copyright: "&copy; Codeando América Latina - 2012"
-    question: "¿Qué es Codeando México?"
+    question: "¿Qué es Codeando América Latina?"
     brief: "Un espacio donde la transparencia y colaboración ocurren todos los días."
     about: "¡Ver Más!"
     sign_in: "Iniciar Sesión"
     sign_out: "Salir"
     welcome: "Hola"
   signup:
-    choose_provider: "Selecciona alguno de los siguientes servicios para tener acceso a Codeando México."
+    choose_provider: "Selecciona alguno de los siguientes servicios para tener acceso a Codeando América Latina."
     with_github: "Inicia con Github"
     with_twitter: "Inicia con Twitter"
     with_linkedin: "Inicia con LinkedIn"
