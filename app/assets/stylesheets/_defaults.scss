@@ -1,3 +1,6 @@
+html {
+  background-color: $gray1;
+}
 body{
   color: $gray4;
   font-family: "MuseoSans-300";
@@ -13,8 +16,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "MuseoSans-500";
   margin-top: 0;
 }
+h1 {
+  font-size: ms(4);
+}
 
 .row .row, .column, .columns {
   margin: 0;
   padding: 0;
+}
+
+input, textarea {
+  width: 100% !important;
 }

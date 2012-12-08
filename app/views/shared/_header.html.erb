@@ -1,37 +1,46 @@
-<header id="main-header">
-  <div class="header-pre-wrap">
-    <div class="row">
+<header id="main-header" class="unit">
+  <div class="unit header-pre-wrap">
+    <div class="container holder">
       <div class="what-badge"></div>
       <p>
         <strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about') %></strong></p>
     </div>
   </div>
-  <div class="header-wrap">
-    <div class="row">
+  <div class="unit header-wrap">
+    <div class="container holder">
       <div class="logo"><%= link_to t('.layout.header'), root_path %></div>
       <nav>
         <ul class="main-menu">
           <li><%= link_to t('projects.index.header'), projects_path %></li>
           <li><%= link_to t('projects.new.header'), new_project_path %></li>
         </ul>
-        <% if current_user %>
-        <div class="current-user">
-                  <div class="current-user"><span><%= "#{t('layout.welcome')} #{current_user.to_s}" %>!</span> <%= link_to t('layout.sign_out'), signout_path %>
-          <%= form_tag set_language_path do %>
-            <%= select_tag 'i18n[locale]', options_from_collection_for_select(LANGUAGES, :first, :last, I18n.locale.to_s) %>
-          <% end %>
-        </div>
-        <% else %>
-        <ul class="login-menu">
-          <li><%= link_to sign_up_path do %>
-            <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
-          <% end %>  
-            <%= form_tag set_language_path do %>
-              <%= select_tag 'i18n[locale]', options_from_collection_for_select(LANGUAGES, :first, :last, I18n.locale.to_s) %>
+
+        <div class="languages">
+          <span class="current icon-sort-down"><%= I18n.locale %></span>
+          <ul class="list">
+            <% LANGUAGES.each do |k, val| %>
+              <li><%= link_to val, set_language_path(i18n: {locale: k}), method: :post, class: k %></li>
             <% end %>
-          </li>
-        </ul>
+          </ul>
+        </div>
+
+        <% if current_user %>
+          <div class="current-user">
+            <span><%= "#{t('layout.welcome')} #{current_user.to_s}" %>!</span> 
+            <%= link_to t('layout.sign_out'), signout_path %>
+          </div>
+        <% else %>
+          <ul class="login-menu">
+            <li>
+              <%= link_to sign_up_path do %>
+                <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
+              <% end %>  
+            </li>
+          </ul>
         <% end %>
+
+        
+
       </nav>
     </div>
   </div>

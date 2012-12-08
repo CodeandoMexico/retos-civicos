@@ -1,52 +1,53 @@
-<section id="main-wrap">
-  <div class="main-home-wrap">
-    <div class="row">
-      
-      <div class="action-wrap-box">
-        <h1><%= raw t('.pitch')%> </h1>
-        <%= link_to new_project_path, :class => "get-involved" do %> <%= t('.get_involved') %> <% end %>
-      </div>
-      
+<section id="main-wrap" class="unit">
+  <div class="container holder main-home-wrap">
+    <div class="action-wrap-box">
+      <h1><%= raw t('.pitch')%> </h1>
+      <%= link_to new_project_path, :class => "get-involved" do %> <%= t('.get_involved') %> <% end %>
     </div>
   </div>
 </section>
 
-<section id="index_projects" class="index_projects home row">
-  <header>
-    <h1>Proyectos Recientes</h1>
-  </header>
-<section id="projects_list" class="projects_list row">
-  <% @projects.each do |project| %>
-    <article class="column left data">
-      <div class="wrapper">
-        <%= link_to project_path(project) do %>
-          <header>
-            <h2><%= project.title %></h2>
-          </header>
-          <%= image_tag project.avatar %>
-          <p class="about">
-            <%= project.about.truncate(160) %>
-          </p>
+<section id="index_projects" class="unit index_projects home">
+  <div class="container holder">
 
-          <div class="unit row resources">
-            <div class="column left">
-              <%= project.collaborators.count %>
-              <p><%= t("project.resources.colaborators") %></p>
-            </div>
-            <div class="column left">
-              5
-              <p><%= t("project.resources.references") %></p>
-            </div>
-            <div class="column left">
-              3
-              <p><%= t("project.resources.datasets") %></p>
-            </div>
+    <header>
+      <h1>Proyectos Recientes</h1>
+    </header>
+    
+    <section id="projects_list" class="columns on-3 projects_list">
+      <% @projects.each do |project| %>
+        <article class="column fixed data">
+          <div class="container wrapper">
+            <%= link_to project_path(project) do %>
+              <header>
+                <h2><%= project.title %></h2>
+              </header>
+              <%= image_tag project.avatar %>
+              <p class="about">
+                <%= project.about.truncate(160) %>
+              </p>
+
+              <div class="unit row resources">
+                <div class="column left">
+                  <%= project.collaborators.count %>
+                  <p><%= t("project.resources.colaborators") %></p>
+                </div>
+                <div class="column left">
+                  5
+                  <p><%= t("project.resources.references") %></p>
+                </div>
+                <div class="column left">
+                  3
+                  <p><%= t("project.resources.datasets") %></p>
+                </div>
+              </div>
+            <% end %>
+            <%#= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
           </div>
-        <% end %>
-        <%#= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
-      </div>
-    </article>
+        </article>
 
-  <% end %>
-</section>
+      <% end %>
+    </section>
+    
+  </div>
 </section>
