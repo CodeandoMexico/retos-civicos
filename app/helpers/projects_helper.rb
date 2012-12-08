@@ -29,7 +29,7 @@ module ProjectsHelper
 
   def collaborate_section(project)
   	if current_user == project.creator
-      link_to "Editar", edit_project_path(@project)
+      link_to t(".edit"), edit_project_path(@project)
 		elsif signed_in? and current_user.collaborating_in?(project)
 			link_to t(".colaborating"), "", class: "colaborate"
 		elsif signed_in?
