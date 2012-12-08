@@ -38,6 +38,7 @@ pt-br:
       supportus: "Ayúdanos a cumplir nuestro objetivo"
       colaborate: "Colaborar"
       colaborating: "Estas Colaborando"
+      edit: "Editar"
     resources:
       colaborators: "Colaboradores"
       references: "Referencias"
@@ -53,6 +54,7 @@ pt-br:
     index:
       pitch: "Organizações, Geeks, e dados aberto 24 horas por dia."
       get_involved: "Invoúcrate"
+      recent: "Proyectos Recientes"
     about:
       problem:
         title: 'Escenario actual'

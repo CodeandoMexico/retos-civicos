@@ -3,7 +3,6 @@ en:
     index:
       header: "Projects"
       new_project: "New Project"
-      recent: "New Projects"
     new:
       header: "New Project"
     edit:
@@ -56,6 +55,7 @@ en:
     index: 
       pitch: "NGOs, Geeks, and Open Data 24/7."
       get_involved: "Get involved"
+      recent: "Recent Projects"
     about:
       problem:
         title: 'Current landscape'
