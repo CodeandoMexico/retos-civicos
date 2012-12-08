@@ -1,12 +1,12 @@
 class HomeController < ApplicationController
-  
+
   layout "home"
 
   def index
     @projects = Project.limit(3)
   end
 
-  def sign_up 
+  def sign_up
   end
 
   def set_language
@@ -15,6 +15,9 @@ class HomeController < ApplicationController
     route.merge!({locale: locale.to_s})
 
     redirect_to url_for(route)
+  end
+
+  def about
   end
 
 end

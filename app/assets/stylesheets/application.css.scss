@@ -1003,6 +1003,35 @@ section.new_project {
   padding: 40px 0;
 }
 
+/***************************************************
+**  ABOUT
+***************************************************/
+.about {
+  padding: 40px 0;
+  margin-bottom: 40px;
+
+  h3 {
+    color: $white;
+    font-size: ms(3);
+    background-color: $gray4;
+    margin: 0;
+    padding: 30px;
+
+  }
+  .tblock {
+    background-color: $white;
+    padding: 30px;
+    margin: 0;
+
+    blockquote {
+      margin: 30px;
+      padding-left: 30px;
+      font-size: ms(1);
+    }
+  }
+}
+
+
 // Footer
 //--------------------------------------------------
 

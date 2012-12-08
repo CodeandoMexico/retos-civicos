@@ -54,6 +54,42 @@ en:
     index: 
       pitch: "NGOs, Geeks, and Open Data 24/7."
       get_involved: "Get involved"
+    about:
+      problem:
+        title: 'Current landscape'
+        description: |
+          <strong>An increasing demand for problem solvers</strong>
+          <p>Recently, there has been an increasing demand to connect NGOs, hackers and designers to solve real social problems. <a href='http://desarrollandoamerica.org/' target='_blank'>Desarrollando América Latina</a> is an annual contest where these social agents collaborate to create and propose solutions to problems in Latin America.<p>
+          <p>Events like these, also known as Open Data Hackathons, strive to solve this need for connection once in a while, gathering many NGOs, hackers, designers and datasets.</p>
+          <blockquote>What if we could gather these events in the cloud, where thousands of organizations, hackers and designers would collaborate anytime?</blockquote>
+          <strong>Data openness</strong>
+          <p>The social impact of new technology will be more effective as government data is made public. Such information transparency empowers the citizens to take a more proactive role.</p>
+          <p>Nevertheless, this flow of information and innovation stalls when data is deliver in heterogeneous formats with poor universal compatibility. Reaching a standard format, readable for humans and machines, will expedite the analysis and creation of new valuable information to our society.</p>
+          <blockquote>What if government data could be delivered in open formats through a web platform, ready to be explored by hackers and designers?</blockquote>
+      what:
+        title: 'What is Codeando América Latina?'
+        description: |
+          <p>Codeando América Latina is a platform where NGOs and society publish projects, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
+      who:
+        title: 'Who is Codeando América Latina?'
+        description: |
+          <p>We are a team of software developers and designers who have been active in the mexican Open Data community for more than one year. And based in our personal experiences in this events, we decided to push the limits of the community through this platform.</p>
+          <p><b>We strive</b> to remove the space and time constraints of the interaction between NGOs and the Open Data community.</p>
+          <p><b>We believe</b> that the openness of government data will bring a positive outcome to our society.</p>
+          <p><b>We dream</b> of a time where technology will solve the most important social problems of our region.</p>
+      open_data:
+        title: 'What is Open Data and why is so important?'
+        description: |
+          <p>Quoting OpenDefinition.org, <b>Open data</b> is data that can be freely used, reused and redistributed by anyone – subject only, at most, to the requirement to attribute and sharealike. Such data must be available, provided under terms that permit reuse and redistribution, and everyone must be able to use, reuse and redistribute. Examples of this kind of data are transport, taxes, weather, environment and culture.</p>
+          <p>Data should be open for the following common reasons:</p>
+          <ul>
+          <li><b>Transparency.</b> In a well-functioning, democratic society citizens need to know what their government is doing. To do that, they must be able freely to access government data and information and to share that information with other citizens.</li>
+          <li><b>Releasing social and commercial value.</b> In a digital age, data is a key resource for social and commercial activities. By opening up data, government can help drive the creation of innovative business and services that deliver social and commercial value.</li>
+          <li><b>Participation and engagement.</b> By opening up data, citizens are enabled to be much more directly informed and involved in decision-making. This is more than transparency: it’s about making a full “read/write” society, not just about knowing what is happening in the process of governance but being able to contribute to it.</li>
+          </ul>
+          <p>Sources<br />
+          Open Knowledge Foundation, <a href='http://okfn.org/opendata/' target='_blank'>http://okfn.org/opendata/</a>
+          </p>
   layout:
     header: "Codeando América Latina"
     copyright: "&copy; Codeando América Latina - 2012"
