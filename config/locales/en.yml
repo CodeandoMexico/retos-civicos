@@ -56,38 +56,38 @@ en:
       get_involved: "Get involved"
     about:
       problem:
-        title: 'Escenario actual'
+        title: 'Current landscape'
         description: |
-          <strong>La demanda por desarrolladores de soluciones</strong>
-          <p>La demanda para conectar organizaciones, hackers y diseñadores para resolver problemas sociales es latente. <a href='http://desarrollandoamerica.org/' target='_blank'>Desarrollando América Latina</a> es un evento anual con el fin de reunir a estos actores sociales para generar soluciones a los problemas de la región.<p>
-          <p>Eventos como estos, denominados hackathons de Open Data, buscan resolver esto cada par de meses a través de eventos con decenas de organizaciones, programadores, diseñadores y bases de datos.</p>
-          <blockquote>¿Qué sucedería si tuviéramos hackathons en la nube, sucediendo los 365 días del año, reuniendo miles de organizaciones, hackers y diseñadores?</blockquote>
-          <strong>La apertura de los datos</strong>
-          <p>La generación de soluciones tecnológicas de impacto social crecerá en proporción a la apertura de los datos de gobierno. Dicha transparencia de información permite a la sociedad tomar un rol más informado y proactivo.</p>
-          <p>Este escenario se complica cuando los datos se presentan en formatos heterogéneos y sin soporte para todas las plataformas tecnológicas. Lograr un formato estándar de datos, que sea de fácil consumo tanto para personas como máquinas, acelerará el proceso de análisis y generación de información valiosa para la sociedad.</p>
-          <blockquote>¿Qué sucedería si los datos de gobierno estuvieran en formato estándar, centralizados en una plataforma web, listos para consumirse y explorarse por un diseñador o un programa computacional?</blockquote>
+          <strong>An increasing demand for problem solvers</strong>
+          <p>Recently, there has been an increasing demand to connect NGOs, hackers and designers to solve real social problems. <a href='http://desarrollandoamerica.org/' target='_blank'>Desarrollando América Latina</a> is an annual contest where these social agents collaborate to create and propose solutions to problems in Latin America.<p>
+          <p>Events like these, also known as Open Data Hackathons, strive to solve this need for connection once in a while, gathering many NGOs, hackers, designers and datasets.</p>
+          <blockquote>What if we could gather these events in the cloud, where thousands of organizations, hackers and designers would collaborate anytime?</blockquote>
+          <strong>Data openness</strong>
+          <p>The social impact of new technology will be more effective as government data is made public. Such information transparency empowers the citizens to take a more proactive role.</p>
+          <p>Nevertheless, this flow of information and innovation stalls when data is deliver in heterogeneous formats with poor universal compatibility. Reaching a standard format, readable for humans and machines, will expedite the analysis and creation of new valuable information to our society.</p>
+          <blockquote>What if government data could be delivered in open formats through a web platform, ready to be explored by hackers and designers?</blockquote>
       what:
-        title: '¿Qué es Codeando América Latina?'
+        title: 'What is Codeando América Latina?'
         description: |
-          <p>Codeando América Latina es una plataforma donde las organizaciones y la sociedad civil publican proyectos y necesidades, exponiendo <a href='http://okfn.org/opendata/' target='_blank'>datos abiertos</a> a través de <a href='http://ckan.org/' target='_blank'>CKAN</a>, y convocando a interesados del área de tecnología y diseño para resolverlos.</p>
+          <p>Codeando América Latina is a platform where NGOs and society publish projects, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
       who:
-        title: '¿Quién es Codeando América Latina?'
+        title: 'Who is Codeando América Latina?'
         description: |
-          <p>Somos un equipo de programadores y diseñadores que desde hace más de un año está muy activo en la comunidad mexicana de Open Data. Y fue a raíz de nuestras experiencias en estos eventos, que decidimos empujar el <b>status quo</b> a través de esta plataforma.</p>
-          <p><b>Buscamos</b> remover las restricciones de espacio y tiempo a la interacción entre organizaciones, hackers y diseñadores.</p>
-          <p><b>Creemos</b> en que la apertura de datos de gobierno traerá un gran impacto positivo en nuestra sociedad.</p>
-          <p><b>Soñamos</b> con un espacio en el que la tecnología atienda los problemas sociales más latentes de nuestra región.</p>
+          <p>We are a team of software developers and designers who have been active in the mexican Open Data community for more than one year. And based in our personal experiences in this events, we decided to push the limits of the community through this platform.</p>
+          <p><b>We strive</b> to remove the space and time constraints of the interaction between NGOs and the Open Data community.</p>
+          <p><b>We believe</b> that the openness of government data will bring a positive outcome to our society.</p>
+          <p><b>We dream</b> of a time where technology will solve the most important social problems of our region.</p>
       open_data:
-        title: '¿Qué es Open Data y por qué es tan importante?'
+        title: 'What is Open Data and why is so important?'
         description: |
-          <p><b>Open Data</b> son datos que libremente pueden ser utilizados, reutilizados y distribuidos por cualquier persona. Dichos datos deben estar disponibles públicamente, con permisos de reproducción y modificación, y libres de restricciones comerciales. Ejemplos de estos tipos de datos pueden ser transporte, recaudación de impuestos, clima, ambiente y cultura.</p>
-          <p>Los datos deben ser abiertos por las siguientes razones:</p>
+          <p>Quoting OpenDefinition.org, <b>Open data</b> is data that can be freely used, reused and redistributed by anyone – subject only, at most, to the requirement to attribute and sharealike. Such data must be available, provided under terms that permit reuse and redistribution, and everyone must be able to use, reuse and redistribute. Examples of this kind of data are transport, taxes, weather, environment and culture.</p>
+          <p>Data should be open for the following common reasons:</p>
           <ul>
-          <li><b>Transparencia.</b> En una sociedad democrática los ciudadanos deben tener la posibilidad de evaluar las acciones de gobierno a través de datos públicamente disponibles y accesibles.</li>
-          <li><b>Generación de valor social y comercial.</b> Al abrir datos de gobierno, se promueve la generación de negocios innovadores y servicios de impacto social.</li>
-          <li><b>Participación ciudadana.</b> Con datos abiertos, los ciudadanos tienen la posibilidad de estar más informados e involucrados en la toma de decisiones de la sociedad, y más allá de sólo saber qué hace el gobierno, los ciudadanos pueden comenzar a contribuir al cambio.</li>
+          <li><b>Transparency.</b> In a well-functioning, democratic society citizens need to know what their government is doing. To do that, they must be able freely to access government data and information and to share that information with other citizens.</li>
+          <li><b>Releasing social and commercial value.</b> In a digital age, data is a key resource for social and commercial activities. By opening up data, government can help drive the creation of innovative business and services that deliver social and commercial value.</li>
+          <li><b>Participation and engagement.</b> By opening up data, citizens are enabled to be much more directly informed and involved in decision-making. This is more than transparency: it’s about making a full “read/write” society, not just about knowing what is happening in the process of governance but being able to contribute to it.</li>
           </ul>
-          <p>Fuentes<br />
+          <p>Sources<br />
           Open Knowledge Foundation, <a href='http://okfn.org/opendata/' target='_blank'>http://okfn.org/opendata/</a>
           </p>
   layout:
