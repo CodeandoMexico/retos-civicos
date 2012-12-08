@@ -20,6 +20,6 @@ class ProjectAvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/assets/project_avatar_#{version_name}.png"
+    "/assets/project_avatar_small.png"
   end
 end
