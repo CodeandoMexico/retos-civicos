@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   before_filter :save_location, only: [:new]
   before_filter :save_previous, only: [:collaborate, :like]
-  before_filter :authorize!, except: [:index, :show]
+  before_filter :authorize!, except: [:index, :show, :timeline]
 
 	def index
 		@projects = Project.all
