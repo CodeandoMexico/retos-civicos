@@ -83,7 +83,7 @@ class Project < ActiveRecord::Base
   private
 
   def create_initial_activity
-    self.activities.create(title: 'Creación del proyecto', text: 'Publicación del proyecto en Codeando America Latina')
+    self.activities.create(title: I18n.t("projects.initial_activity.title"), text: I18n.t("projects.initial_activity.text"))
   end
 
   def upload_file

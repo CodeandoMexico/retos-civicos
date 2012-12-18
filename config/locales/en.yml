@@ -1,5 +1,8 @@
 en:
   projects:
+    initial_activity:
+      title: 'Creación del proyecto'
+      text: 'Publicación del proyecto en Codeando México'
     index:
       header: "Projects"
       new_project: "New Project"

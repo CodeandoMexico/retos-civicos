@@ -1,5 +1,8 @@
 pt-br:
   projects:
+    initial_activity:
+      title: 'Creación del proyecto'
+      text: 'Publicación del proyecto en Codeando México'
     index:
       header: "Proyectiños"
       new_project: "Novo Proyecto"
