@@ -48,6 +48,10 @@ class Project < ActiveRecord::Base
     self.save
   end
 
+  def total_references
+    self.additional_links.nil? ? 0 : self.additional_links.split(",").size
+  end
+
   def about
     self[:about].to_s
   end
