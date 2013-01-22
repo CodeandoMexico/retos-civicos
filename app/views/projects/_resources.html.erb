@@ -9,14 +9,14 @@
     </div>
     <div class="column references">
       <div class="contianer content">
-        5
+        <%= @project.additional_links.split(",").size %>
         <p><%= t(".references") %></p>
         <span class="arrow"></span>
       </div>
     </div>
     <div class="column datasets">
       <div class="contianer content">
-        3
+        <%= @project.dataset_url.present? ? "1" : "0" %>
         <p><%= t(".datasets") %></p>
         <span class="arrow"></span>
       </div>
