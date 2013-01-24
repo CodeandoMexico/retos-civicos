@@ -40,11 +40,11 @@ en:
     show:
       created-by: "Created by:"
       supportus: "Help us reach our goal"
-      colaborate: "Join"
-      colaborating: "Collaborating"
+      collaborate: "Join"
+      collaborating: "Collaborating"
       edit: "Edit"
     resources:
-      colaborators: "Collaborators"
+      collaborators: "Collaborators"
       references: "References"
       datasets: "Datasets"
       non-collaboration: "Be the first to join this project!"

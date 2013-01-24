@@ -14,7 +14,7 @@ pt-br:
       title: "Título de tu proyecto"
       pitch: "Invitación"
       pitch-description: "Escribe en un solo enunciado una frase para motivar a que las personas participen en el proyecto. Ej. 'Hagamos conciencia para tener un México limpio'"
-      avatar: "Imagén"
+      avatar: "Imagen"
       avatar-description: "Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver."
       about: "Sobre la organización"
       about-description: "Describe brevemente que hace tu organización y que los motiva a mejorar al país."
@@ -39,11 +39,11 @@ pt-br:
     show:
       created-by: "Creado por:"
       supportus: "Ayúdanos a cumplir nuestro objetivo"
-      colaborate: "Colaborar"
-      colaborating: "Estas Colaborando"
+      collaborate: "Colaborar"
+      collaborating: "Estas Colaborando"
       edit: "Editar"
     resources:
-      colaborators: "Colaboradores"
+      collaborators: "Colaboradores"
       references: "Referencias"
       datasets: "Datasets"
       non-collaboration: "Anímate. Sé el primero en colaborar en este proyecto."

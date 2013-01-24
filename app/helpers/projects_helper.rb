@@ -31,11 +31,11 @@ module ProjectsHelper
   	if current_user == project.creator
       link_to t(".edit"), edit_project_path(@project)
 		elsif signed_in? and current_user.collaborating_in?(project)
-			link_to t(".colaborating"), "", class: "colaborate"
+			link_to t(".collaborating"), "", class: "collaborate"
 		elsif signed_in?
-      link_to t(".colaborate"), collaborate_project_path(project), method: :post, class: "colaborate"
+      link_to t(".collaborate"), collaborate_project_path(project), method: :post, class: "collaborate"
 		else
-			link_to t(".colaborate"), collaborate_project_path(project), method: :post
+			link_to t(".collaborate"), collaborate_project_path(project), method: :post
 		end
   end
 
