@@ -30,15 +30,15 @@
               <div class="unit row resources">
                 <div class="column left">
                   <%= project.collaborators.count %>
-                  <p><%= t("project.resources.colaborators") %></p>
+                  <p><%= t("projects.resources.collaborators") %></p>
                 </div>
                 <div class="column left">
-                  5
-                  <p><%= t("project.resources.references") %></p>
+                  <%= project.total_references %>
+                  <p><%= t("projects.resources.references") %></p>
                 </div>
                 <div class="column left">
-                  3
-                  <p><%= t("project.resources.datasets") %></p>
+                  <%= project.dataset_url.present? ? "1" : "0" %>
+                  <p><%= t("projects.resources.datasets") %></p>
                 </div>
               </div>
             <% end %>
