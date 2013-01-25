@@ -15,13 +15,3 @@ es:
     edit: editar
     sign_up: registrate
     about: acerca
-
-pt-br:
-  routes:
-    projects: projetos
-    comments: comentarios
-    new: novo
-    edit: editar
-    sign_up: signup_br
-    about: sobre
-
