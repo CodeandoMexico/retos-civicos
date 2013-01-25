@@ -72,11 +72,11 @@ en:
           <p>Nevertheless, this flow of information and innovation stalls when data is deliver in heterogeneous formats with poor universal compatibility. Reaching a standard format, readable for humans and machines, will expedite the analysis and creation of new valuable information to our society.</p>
           <blockquote>What if government data could be delivered in open formats through a web platform, ready to be explored by hackers and designers?</blockquote>
       what:
-        title: 'What is Codeando América Latina?'
+        title: 'What is Codeando México?'
         description: |
-          <p>Codeando América Latina is a platform where NGOs and society publish projects, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
+          <p>Codeando México is a platform where NGOs and society publish projects, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
       who:
-        title: 'Who is Codeando América Latina?'
+        title: 'Who is Codeando México?'
         description: |
           <p>We are a team of software developers and designers who have been active in the mexican Open Data community for more than one year. And based in our personal experiences in this events, we decided to push the limits of the community through this platform.</p>
           <p><b>We strive</b> to remove the space and time constraints of the interaction between NGOs and the Open Data community.</p>
@@ -96,9 +96,9 @@ en:
           Open Knowledge Foundation, <a href='http://okfn.org/opendata/' target='_blank'>http://okfn.org/opendata/</a>
           </p>
   layout:
-    header: "Codeando América Latina"
-    copyright: "&copy; Codeando América Latina - 2012"
-    question: "What is Codeando América Latina?"
+    header: "Codeando México"
+    copyright: "&copy; Codeando México - 2012"
+    question: "What is Codeando México?"
     brief: "A place where open data and project collaboration happens everyday."
     about: "Read More..."
     sign_in: "Sign in"
