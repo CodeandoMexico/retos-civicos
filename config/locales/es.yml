@@ -72,11 +72,11 @@ es:
           <p>Este escenario se complica cuando los datos se presentan en formatos heterogéneos y sin soporte para todas las plataformas tecnológicas. Lograr un formato estándar de datos, que sea de fácil consumo tanto para personas como máquinas, acelerará el proceso de análisis y generación de información valiosa para la sociedad.</p>
           <blockquote>¿Qué sucedería si los datos de gobierno estuvieran en formato estándar, centralizados en una plataforma web, listos para consumirse y explorarse por un diseñador o un programa computacional?</blockquote>
       what:
-        title: '¿Qué es Codeando América Latina?'
+        title: '¿Qué es Codeando México?'
         description: |
-          <p>Codeando América Latina es una plataforma donde las organizaciones y la sociedad civil publican proyectos y necesidades, exponiendo <a href='http://okfn.org/opendata/' target='_blank'>datos abiertos</a> a través de <a href='http://ckan.org/' target='_blank'>CKAN</a>, y convocando a interesados del área de tecnología y diseño para resolverlos.</p>
+          <p>Codeando México es una plataforma donde las organizaciones y la sociedad civil publican proyectos y necesidades, exponiendo <a href='http://okfn.org/opendata/' target='_blank'>datos abiertos</a> a través de <a href='http://ckan.org/' target='_blank'>CKAN</a>, y convocando a interesados del área de tecnología y diseño para resolverlos.</p>
       who:
-        title: '¿Quién es Codeando América Latina?'
+        title: '¿Quién es Codeando México?'
         description: |
           <p>Somos un equipo de programadores y diseñadores que desde hace más de un año está muy activo en la comunidad mexicana de Open Data. Y fue a raíz de nuestras experiencias en estos eventos, que decidimos empujar el <b>status quo</b> a través de esta plataforma.</p>
           <p><b>Buscamos</b> remover las restricciones de espacio y tiempo a la interacción entre organizaciones, hackers y diseñadores.</p>
@@ -96,16 +96,16 @@ es:
           Open Knowledge Foundation, <a href='http://okfn.org/opendata/' target='_blank'>http://okfn.org/opendata/</a>
           </p>
   layout:
-    header: "Codeando América Latina"
-    copyright: "&copy; Codeando América Latina - 2012"
-    question: "¿Qué es Codeando América Latina?"
+    header: "Codeando México"
+    copyright: "&copy; Codeando México - 2012"
+    question: "¿Qué es Codeando México?"
     brief: "Un espacio donde la transparencia y colaboración ocurren todos los días."
     about: "¡Ver Más!"
     sign_in: "Iniciar Sesión"
     sign_out: "Salir"
     welcome: "Hola"
   signup:
-    choose_provider: "Selecciona alguno de los siguientes servicios para tener acceso a Codeando América Latina."
+    choose_provider: "Selecciona alguno de los siguientes servicios para tener acceso a Codeando México."
     with_github: "Inicia con Github"
     with_twitter: "Inicia con Twitter"
     with_linkedin: "Inicia con LinkedIn"
