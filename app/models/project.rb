@@ -27,6 +27,8 @@ class Project < ActiveRecord::Base
 	acts_as_voteable
 	acts_as_commentable
 
+  scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
+
   # Embeddables
   auto_html_for :description do
     simple_format
