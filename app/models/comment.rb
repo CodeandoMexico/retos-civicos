@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   # Dafault scopes to show comments threads
-  default_scope order: 'comments.votes_counter DESC, comments.created_at DESC'
+  scope :sort_parents, order('comments.votes_counter DESC, created_at DESC')
 
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
