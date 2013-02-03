@@ -16,6 +16,14 @@ class Comment < ActiveRecord::Base
   # Dafault scopes to show comments threads
   scope :sort_parents, order('comments.votes_counter DESC, created_at DESC')
 
+  # Embeddables
+  auto_html_for :body do
+    image
+    youtube width: "100%", height: 290, wmode: "transparent"
+    vimeo   width: "100%", height: 290
+    link target: "_blank", rel: "nofollow"
+  end
+
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme
