@@ -51,7 +51,11 @@ class Project < ActiveRecord::Base
   end
 
   def total_references
-    self.additional_links.nil? ? 0 : self.additional_links.split(",").size
+    self.references.size
+  end
+
+  def references
+    (self.additional_links || '').split(",")
   end
 
   def about

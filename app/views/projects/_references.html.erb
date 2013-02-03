@@ -1,0 +1,15 @@
+<section id="references" class="row">
+  <header class="section-header">
+    <h2 class="header-title"><%= t("projects.form.additional_links") %></h2>
+  </header>
+  <section class="section-content">
+    <ul class="list-vrt">
+      <% @project.references.each do |reference| %>
+        <li class="list-vrt-item">
+          <%= link_to truncate(reference, length: 90), reference, class: 'reference-item', target: '_blank' %>
+        </li>
+        <br />
+      <% end %>
+    </ul>
+  </section>
+</section>

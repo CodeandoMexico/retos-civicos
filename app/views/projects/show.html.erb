@@ -56,9 +56,11 @@
   </div>
 </section>
 
+<% unless @project.references.empty? %>
+  <%= render 'references' %>
+<% end %>
 
 <%= render "activities" %>
-
 
 <%= render "comments" %>
 
