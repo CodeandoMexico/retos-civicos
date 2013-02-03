@@ -55,13 +55,13 @@
             <% if signed_in? %>
               <%= link_to t(".reply"), "#", class: "reply" %>
             <% end %>
-            <p class="comment"><%= comment.body %></p>
+            <p class="comment"><%= comment.body_html %></p>
 
             <div class="replies">
               <% comment.children.each do |comment| %>
                 <div class="rep">
                   <strong class="name"><%= comment.user.name %> <span class="time"><%= comment.created_at %></span></strong>
-                  <p class="comment"><%= comment.body %></p>
+                  <p class="comment"><%= comment.body_html %></p>
                 </div>
               <% end %>
             </div>
