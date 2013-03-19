@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
+    user.avatar = auth.info.image if auth.provider == "linkedin"
     authentication = user.authentications.build(provider: auth['provider'], uid: auth['uid']) 
     authentication.user = user
     authentication.apply_extra_info_from_omniauth(auth)
@@ -39,10 +40,12 @@ class User < ActiveRecord::Base
     self.skills = (self.skills + skills).uniq
   end
 
-  def avatar
+  def avatar_url
     if self.authentications.pluck(:provider).include? "twitter"
       twitter_auth = self.authentications.where(provider: 'twitter').first
       "http://api.twitter.com/1/users/profile_image?id=#{twitter_auth.uid}&size=bigger"
+    elsif self.authentications.pluck(:provider).include? "linkedin"
+      self.avatar
     else
       Gravatar.new(self.email.to_s).image_url
     end
