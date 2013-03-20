@@ -30,8 +30,8 @@
       <div class="unit row">
           <% @project.collaborators.each do |collaborator| %>
             <p class="collab">
-              <%= image_tag collaborator.avatar %>
-              <%= link_to "#{collaborator.name}", "#" %> <br />
+              <%= image_tag collaborator.avatar_url %>
+              <%= link_to collaborator, "#" %> <br />
             </p>
           <% end %>
       </div>
