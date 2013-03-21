@@ -651,7 +651,7 @@ section#projects {
   }
 
   section {
-    max-height: 650px;
+    // max-height: 650px;
     background-color: $gray1;
     border: 30px solid $gray4;
     border-top: 0;
@@ -791,9 +791,9 @@ section#projects {
     } // Closes .cbox
 
     .wrapper {
-      max-height: 620px;
+      // max-height: 620px;
       display: block;
-      overflow: auto;
+      // overflow: auto;
 
       .comment_form {
         display: none;
