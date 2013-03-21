@@ -20,7 +20,7 @@
           <div class="container wrapper">
             <%= link_to project_path(project) do %>
               <header>
-                <h2><%= project.title %></h2>
+                <h2><%= project.title.truncate(40) %></h2>
               </header>
               <%= image_tag project.avatar %>
               <p class="about">
