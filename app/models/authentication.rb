@@ -1,6 +1,6 @@
 class Authentication < ActiveRecord::Base
 
-  attr_accessible :provider, :uid, :user_id
+  attr_accessible :provider, :uid, :user_id, :public_url
 
   belongs_to :user
 
