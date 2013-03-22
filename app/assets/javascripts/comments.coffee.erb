@@ -1,0 +1,7 @@
+$ ->
+  $(".jtruncate").jTruncate(
+    length: 500
+    moreText: '<%= I18n.t 'comments.truncate.more', default: 'more' %>'
+    lessText: '<%= I18n.t 'comments.truncate.less', default: 'less' %>'
+  )
+
