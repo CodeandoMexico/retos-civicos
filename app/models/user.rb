@@ -51,4 +51,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_url
+    if self.authentications.pluck(:provider).include? "twitter" 
+      "http://twitter.com/#{self.nickname}"
+    elsif self.authentications.pluck(:provider).include? "github"
+      "http://github.com/#{self.nickname}"
+    else
+      linkedin_auth= self.authentications.where(provider: 'linkedin').first
+      linkedin_auth.public_url.present? ? linkedin_auth.public_url : ''
+    end
+  end
+
 end
