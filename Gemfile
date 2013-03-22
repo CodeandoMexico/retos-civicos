@@ -38,3 +38,5 @@ gem 'auto_html'
 gem 'jquery-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
+gem 'copycopter_client', '~> 2.0.1'
+
