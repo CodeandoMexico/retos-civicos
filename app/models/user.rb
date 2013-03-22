@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     if self.authentications.pluck(:provider).include? "twitter"
       twitter_auth = self.authentications.where(provider: 'twitter').first
       "http://api.twitter.com/1/users/profile_image?id=#{twitter_auth.uid}&size=bigger"
-    elsif self.authentications.pluck(:provider).include? "linkedin"
+    elsif self.avatar
       self.avatar
     else
       Gravatar.new(self.email.to_s).image_url
