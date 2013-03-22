@@ -503,7 +503,8 @@ section#projects {
   }
 
   .resources_display.row {
-    padding: 40px;
+    padding: 50px;
+    padding-right: 0;
     background: $gray2 inline-image('activities_bg.png') repeat-x top center;
 
     a {
@@ -514,9 +515,7 @@ section#projects {
 
     .collab {
       float: left;
-      height: 110px;
-      width: 110px;
-      margin-right: 20px;
+      padding-right: 50px;
 
       a {
         text-decoration: none;
