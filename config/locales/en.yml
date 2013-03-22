@@ -49,6 +49,7 @@ en:
       datasets: "Datasets"
       non-collaboration: "Be the first to join this project!"
       datasets: "Datasets"
+      votes: "Votes"
     comments:
       comment: "Leave a comment"
       reply: "Reply"

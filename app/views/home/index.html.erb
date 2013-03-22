@@ -37,8 +37,8 @@
                   <p><%= t("projects.resources.references") %></p>
                 </div>
                 <div class="column left">
-                  <%= project.dataset_url.present? ? "1" : "0" %>
-                  <p><%= t("projects.resources.datasets") %></p>
+                  <%= project.votes_for %>
+                  <p><%= t("projects.resources.votes") %></p>
                 </div>
               </div>
             <% end %>
