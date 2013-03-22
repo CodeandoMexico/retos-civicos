@@ -4,25 +4,25 @@
       <div class="contianer content">
         <%= @project.collaborators.count %>
         <p><%= t(".collaborators") %></p>
-        <span class="arrow"></span>
+        <a href="#collaborators"><span class="arrow"></span></a>
       </div>
     </div>
     <div class="column references">
       <div class="contianer content">
         <%= @project.total_references %>
         <p><%= t(".references") %></p>
-        <span class="arrow"></span>
+        <a href="#references"><span class="arrow"></span></a>
       </div>
     </div>
     <div class="column datasets">
       <div class="contianer content">
         <%= @project.dataset_url.present? ? "1" : "0" %>
         <p><%= t(".datasets") %></p>
-        <span class="arrow"></span>
+        <a href="#datasets"><span class="arrow"></span></a>
       </div>
     </div>
   </div>
-  <div class="unit resources_display row">
+  <div class="unit resources_display row" id="collaborators">
     <% if @project.collaborators.blank? %>
       <%= t(".non-collaboration") %>
     <% else %>
