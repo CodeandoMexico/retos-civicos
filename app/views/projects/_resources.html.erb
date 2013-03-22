@@ -26,12 +26,13 @@
     <% if @project.collaborators.blank? %>
       <%= t(".non-collaboration") %>
     <% else %>
-      <h4><%= t('.collaborators')%> </h4>
+      <h4><%= t('.collaborators')%> </h4><br />
       <div class="unit row">
-          <% @project.collaborators.each do |collaborator| %>
+          <% @project.collaborators.limit(6).each do |collaborator| %>
             <p class="collab">
-              <%= link_to (image_tag collaborator.avatar_url), collaborator.profile_url, target: '_blank' %>
-              <%= link_to collaborator, collaborator.profile_url, target: '_blank' %> <br />
+              <%= link_to collaborator.profile_url, target: '_blank' do %>
+                <%= image_tag(collaborator.avatar_url, title: collaborator.name, alt: collaborator.name) %>
+              <% end %>
             </p>
           <% end %>
       </div>
