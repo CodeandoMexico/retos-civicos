@@ -4,40 +4,12 @@
     <h1><%= t('.header') %></h1>
   </header>
 
-  <section id="projects_list" class="columns on-3 projects_list">
-    <% @projects.each do |project| %>
-      <article class="column fixed data">
-        <div class="container wrapper">
-          <%= link_to project_path(project) do %>
-            <header>
-              <h2><%= project.title.truncate(40) %></h2>
-            </header>
-            <%= image_tag project.avatar %>
-            <p class="about">
-              <%= project.description.truncate(145) %>
-            </p>
+  <section id="projects_list" class="columns on-3 projects_list gray">
 
-            <div class="unit row resources">
-              <div class="column left">
-                <%= project.collaborators.count %>
-                <p><%= t("projects.resources.collaborators") %></p>
-              </div>
-              <div class="column left">
-                <%= project.total_references %>
-                <p><%= t("projects.resources.references") %></p>
-              </div>
-              <div class="column left">
-                <%= project.votes_for %>
-                <p><%= t("projects.resources.votes") %></p>
-              </div>
-            </div>
-          <% end %>
-          <%#= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
-        </div>
-      </article>
-
-    <% end %>
+    <%= render @projects %>
+    
   </section>
+  
 </section>
 
 <% if signed_in? %>

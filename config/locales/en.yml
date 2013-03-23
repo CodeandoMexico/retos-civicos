@@ -1,17 +1,17 @@
 en:
   projects:
     initial_activity:
-      title: 'Creación del proyecto'
-      text: 'Publicación del proyecto en Codeando México'
+      title: 'Challenge creation'
+      text: 'Challenge publication in Codeando México'
     index:
-      header: "Projects"
-      new_project: "New Project"
+      header: "Challenges"
+      new_project: "New Challenge"
     new:
       header: "New Project"
     edit:
       header: "Edit Project"
     form:
-      title: "Name your project"
+      title: "Name your challenge"
       pitch: "One line description"
       pitch-description: "Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'."
       avatar: "Image"

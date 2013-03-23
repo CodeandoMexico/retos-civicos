@@ -1,0 +1,23 @@
+<article class="column">
+  <div class="container project_box">
+    <%= link_to project_path(project) do %>
+
+      <div class="unit image">
+        <%= image_tag project.avatar %>
+        <h2><%= project.title.truncate(60) %></h2>
+      </div>
+
+      <div class="unit colaborate">
+        <span class="get">
+          <%= t('home.index.get_involved') %>
+        </span>
+        <span class="num">
+          <i class="icon-user"></i>
+          <em><%= project.collaborators.count %></em>
+          <%= t("projects.resources.collaborators") %>
+        </span>
+      </div>
+
+    <% end %>
+  </div>
+</article>
