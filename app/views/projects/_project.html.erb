@@ -4,7 +4,7 @@
 
       <div class="unit image">
         <%= image_tag project.avatar %>
-        <h2><%= project.title %></h2>
+        <h2><%= project.title.truncate(60) %></h2>
       </div>
 
       <div class="unit colaborate">
