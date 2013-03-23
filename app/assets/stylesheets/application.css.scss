@@ -217,8 +217,29 @@ header#main-header {
 
 .slogan-landing {
   height: 570px;
-  background: #FFFFFF url("landing_bg.jpg") top center no-repeat;
+  background: #FFFFFF url("landing_bg2.jpg") top center no-repeat;
   position: relative;
+
+  h1{
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 120px;
+    font-weight: normal;
+
+    span {
+      font-size: 1.6em;
+      display: block;
+      font-weight: bold;
+
+      em {
+        color: $green;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+    }
+  }
 
   .circles {
     position: absolute;
