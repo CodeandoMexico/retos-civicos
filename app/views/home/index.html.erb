@@ -1,7 +1,7 @@
 <section class="unit slogan-landing">
   <div class="container wrapper">
 
-    <h1>Juntado el talento mexicano <span>para <em>hacer</em> el cambio</span></h1>
+    <h1><%= t("landing.slogan") %></h1>
 
     <%= link_to projects_path, :class => "get-involved" do %>
       <%= t('.get_involved') %>
@@ -15,7 +15,7 @@
   <div class="container holder">
 
     <div class="unit home_pitch">
-      Buscamos integrar tecnología con organizaciones, dando solucion a los retos que ellos proponen, para desarrollar la siguiente generación de tecnología cívica.
+      <%= t("landing.goal") %>
     </div>
 
     <header class="">
