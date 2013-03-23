@@ -13,7 +13,7 @@
           <%= form_for [@project, Comment.new] do |f| %>
             <div class="column left info">
               <%= image_tag current_user.avatar_url %>
-              <span class="name"><%= current_user.name %></span>
+              <span class="name"><%= current_user.to_s %></span>
               <time><%= Time.now.strftime("%B %e, %Y") %></time>
             <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
             </div>
@@ -33,7 +33,7 @@
           <%= link_to comment.user.profile_url, target: '_blank' do  %>
             <%= image_tag comment.user.avatar_url %>
           <% end %>
-          <span class="name"><%= link_to comment.user.name, comment.user.profile_url, target: '_blank' %></span>
+          <span class="name"><%= link_to comment.user.to_s, comment.user.profile_url, target: '_blank' %></span>
           <time><%= comment.created_at.strftime("%B %e, %Y") %></time>
           <span class="clock"><%= comment.created_at.strftime("%l:%M %P %Z") %></span>
         </div>
@@ -62,7 +62,7 @@
             <div class="replies">
               <% comment.children.each do |comment| %>
                 <div class="rep">
-                  <strong class="name"><%= link_to comment.user.name, comment.user.profile_url, target: '_blank' %> <span class="time"><%= comment.created_at.strftime("%B %e, %Y %l:%M %P %Z") %></span></strong>
+                  <strong class="name"><%= link_to comment.user.to_s, comment.user.profile_url, target: '_blank' %> <span class="time"><%= comment.created_at.strftime("%B %e, %Y %l:%M %P %Z") %></span></strong>
                   <p class="comment jtruncate"><%= comment.body_html %></p>
                 </div>
               <% end %>

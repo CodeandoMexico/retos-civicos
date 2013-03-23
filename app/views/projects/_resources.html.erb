@@ -31,7 +31,7 @@
           <% @project.collaborators.each do |collaborator| %>
             <p class="collab">
               <%= link_to collaborator.profile_url, target: '_blank' do %>
-                <%= image_tag(collaborator.avatar_url, title: collaborator.name, alt: collaborator.name) %>
+                <%= image_tag(collaborator.avatar_url, title: collaborator.to_s, alt: collaborator.to_s) %>
               <% end %>
             </p>
           <% end %>

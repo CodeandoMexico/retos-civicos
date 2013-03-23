@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    name ? name : nickname
+    name || nickname || email
   end
 
   def collaborating_in?(project)
