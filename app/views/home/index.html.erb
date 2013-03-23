@@ -1,53 +1,35 @@
-<section id="main-wrap" class="unit">
-  <div class="container holder main-home-wrap">
-    <div class="action-wrap-box">
-      <h1><%= raw t('.pitch')%> </h1>
-      <%= link_to new_project_path, :class => "get-involved" do %> <%= t('.get_involved') %> <% end %>
-    </div>
+<section class="unit slogan-landing">
+  <div class="container wrapper">
+    <%= link_to projects_path, :class => "get-involved" do %>
+      <%= t('.get_involved') %>
+    <% end %>
+
+    <%= image_tag "circles_4.png", class: "circles" %>
   </div>
 </section>
 
 <section id="index_projects" class="unit index_projects home">
   <div class="container holder">
 
-    <header>
+    <div class="unit home_pitch">
+      Buscamos integrar tecnología con organizaciones, dando solucion a los retos que ellos proponen, para desarrollar la siguiente generación de tecnología cívica.
+    </div>
+
+    <header class="">
       <h1><%= t('.recent') %></h1>
     </header>
-    
+
     <section id="projects_list" class="columns on-3 projects_list">
-      <% @projects.each do |project| %>
-        <article class="column fixed data">
-          <div class="container wrapper">
-            <%= link_to project_path(project) do %>
-              <header>
-                <h2><%= project.title.truncate(40) %></h2>
-              </header>
-              <%= image_tag project.avatar %>
-              <p class="about">
-                <%= project.description.truncate(145) %>
-              </p>
 
-              <div class="unit row resources">
-                <div class="column left">
-                  <%= project.collaborators.count %>
-                  <p><%= t("projects.resources.collaborators") %></p>
-                </div>
-                <div class="column left">
-                  <%= project.total_references %>
-                  <p><%= t("projects.resources.references") %></p>
-                </div>
-                <div class="column left">
-                  <%= project.votes_for %>
-                  <p><%= t("projects.resources.votes") %></p>
-                </div>
-              </div>
-            <% end %>
-            <%#= link_to 'Edit', edit_project_path(project) if can_edit_project? project %>
-          </div>
-        </article>
+      <%= render @projects %>
 
-      <% end %>
     </section>
     
   </div>
 </section>
+
+<div class="unit landing_collage">
+  <div class="container wrapper">
+    <%= image_tag "collage.png" %>
+  </div>
+</div>
