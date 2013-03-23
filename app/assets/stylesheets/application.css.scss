@@ -245,7 +245,28 @@ header#main-header {
     position: absolute;
     top: 430px;
     left: 50%;
-    margin-left: -420px;
+    margin-left: -480px;
+    width: 960px;
+    height: 200px;
+
+    h3 {
+      text-align: center;
+      color: $black;
+      font-size: 22px;
+      font-weight: normal;
+    }
+    .circle {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      background: url("circles_4.png") no-repeat left top;
+      margin-bottom: 20px;
+
+      &.c1 { background-position: -2px -6px;}
+      &.c2 { background-position: -236px -6px;}
+      &.c3 { background-position: -453px -6px;}
+      &.c4 { background-position: -688px -6px;}
+    }
   }
 
   .get-involved {
