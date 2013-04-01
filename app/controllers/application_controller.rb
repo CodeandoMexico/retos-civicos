@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   def set_locale
     I18n.locale = session[:locale] || "es"
   end
@@ -19,7 +23,7 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  def authorize!
+  def authorize_user!
     redirect_to sign_up_path, flash: { error: 'Login required' } unless signed_in?
   end
 
