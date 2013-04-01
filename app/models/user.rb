@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :role
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
 
   def to_s
     name || nickname || email
+  end
+
+  def admin?
+    role == 'admin'
+  end
+
+  def member?
+    role == 'member'
   end
 
   def collaborating_in?(project)

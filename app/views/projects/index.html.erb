@@ -12,7 +12,7 @@
   
 </section>
 
-<% if signed_in? %>
+<% if can? :manage, Project %>
   <section id="new_project" class="unit new_project">
     <%= link_to t('.new_project'), new_project_path %>
   </section>
