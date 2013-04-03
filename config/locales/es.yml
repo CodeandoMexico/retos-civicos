@@ -55,6 +55,7 @@ es:
       reply: "Responder"
       myproject: "Mi Reto"
       like: "Me gusta"
+    collaborating: "Te has unido al reto"
   home:
     index: 
       pitch: "Organizaciones, Geeks, y Open Data las 24 horas del día."
@@ -110,4 +111,15 @@ es:
     with_github: "Inicia con Github"
     with_twitter: "Inicia con Twitter"
     with_linkedin: "Inicia con LinkedIn"
+  app_controller:
+    login_required: "Credenciales necesarias para iniciar"
+  auth_controller:
+    new_auth: "Nueva autenticación creada"
+    destroy: "Has salido satisfactoriamente"
+    failure: "Acceso no autorizado, intenta de nuevo"
+    sign_in: "Bienvenido a la plataforma"
+  comments:
+    commented: "Gracias por tus comentarios"
+    failure: "Intenta de nuevo"
+    voted: "Tu voto se ha registrado"
 

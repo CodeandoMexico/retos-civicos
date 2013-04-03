@@ -13,7 +13,7 @@
       <div class="unit">
         <div class="container holder body">
         <% flash.each do |type, message| %>
-          <div class="<%= type %>">
+          <div class="flash <%= type %>">
             <%= message %>
           </div>
         <% end %>

@@ -110,4 +110,15 @@ en:
     with_github: "Sign in with Github"
     with_twitter: "Sign in with Twitter"
     with_linkedin: "Sign in with LinkedIn"
+  app_controller:
+    login_required: "Authentication required"
+  auth_controller:
+    new_auth: "New authentication created"
+    destroy: "Logged out succesfully"
+    failure: "Access denied, please try again"
+    sign_in: "Welcome to the challenge engine"
+  comments:
+    commented: "Thanks for your comments"
+    failure: "Something went wrong, try again"
+    voted: "Your vote has been registered"
 
