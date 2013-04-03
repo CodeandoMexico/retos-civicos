@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to project_path(@project, anchor: 'comments'), notice: "Gracias por tus comentarios"
 		else
-			redirect_to project_path(@project, anchor: 'comments'), notice: "Intenta de nuevo"
+			redirect_to project_path(@project, anchor: 'comments'), error: "Intenta de nuevo"
 		end
 	end
 
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     	current_user.vote_against(@comment)
     end
     @comment.update_votes_counter
-    redirect_to @project
+    redirect_to @project, notice: "Tu voto se ha registrado"
 	end
 
 	def reply
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 			@reply.move_to_child_of(parent_comment)
 			redirect_to project_path(@project, anchor: 'comments'), notice: "Gracias por tus comentarios"
 		else
-			redirect_to project_path(@project, anchor: 'comments'), notice: "Intenta de nuevo"
+			redirect_to project_path(@project, anchor: 'comments'), error: "Intenta de nuevo"
 		end
 	end
 

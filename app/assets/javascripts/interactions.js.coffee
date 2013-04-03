@@ -1,5 +1,12 @@
 $ ->
 
+  setTimeout ->
+    hideFlashMessages()
+  ,3000
+
+  hideFlashMessages = ->
+    $(".alert, .success, .notice, .error").fadeOut('slow')
+
   $("#i18n_locale").change ->
     $(@).parents("form").submit()
 

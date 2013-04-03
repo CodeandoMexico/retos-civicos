@@ -51,14 +51,14 @@ class ProjectsController < ApplicationController
   def collaborate
     @project = Project.find(params[:id])
     Collaboration.create(user: current_user, project: @project)
-    redirect_to @project
+    redirect_to @project, notice: "Te has unido al reto"
   end
 
   def like
     @project = Project.find(params[:id])
     current_user.vote_for(@project)
     @project.update_likes_counter
-    redirect_to @project
+    redirect_to @project, notice: "Tu voto se ha registrado"
   end
 
   def timeline

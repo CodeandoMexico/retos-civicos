@@ -18,18 +18,18 @@ class AuthenticationsController < ApplicationController
 
   def session_destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Signed out successfully."
+    redirect_to root_url, notice: "Has salido satisfactoriamente"
   end
 
   def failure
-    redirect_to root_path, notice: "Authentication not authorized"
+    redirect_to root_path, notice: "Acceso no autorizado, intenta de nuevo"
   end
 
   private
 
   def sign_in_and_redirect(user_id)
     session[:user_id] = user_id
-    redirect_back_or projects_path, "Signed in successfully."
+    redirect_back_or projects_path, "Bienvenido a la plataforma"
   end
 
 end

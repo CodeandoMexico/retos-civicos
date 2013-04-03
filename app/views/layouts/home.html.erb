@@ -28,11 +28,11 @@
   <div id="content">
     <%= render partial: "shared/header" %>
   
-    <!--<% flash.each do |type, message| %>
+    <% flash.each do |type, message| %>
       <div class="<%= type %>">
         <%= message %>
       </div>
-    <% end %>-->
+    <% end %>
     <%= yield %>
     <div id="root_footer"></div>
   </div>

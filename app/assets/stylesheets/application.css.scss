@@ -13,6 +13,21 @@
   margin: 0 auto;
 }
 
+/* Flash Messages */
+.notice { color: #9F6000; background-color: #FEEFB3; }
+.error { color: #D8000C; background-color: #FFBABA; }
+.success { color: #4F8A10; background-color: #DFF2BF; }
+.alert { background: #faefa4; color: #c63e25; }
+
+.error, .notice, .success, .alert {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 70px;
+  padding: 10px 70px;
+  margin-left: -140px;
+  border: 1px solid;
+}
 
 
 @include sticky-footer(0, "#content", "#layout_footer", "#main-footer");
