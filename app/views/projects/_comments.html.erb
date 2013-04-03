@@ -18,7 +18,7 @@
             <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
             </div>
             <div class="column right data">
-              <div class="unit box">
+              <div class="unit box first_comment">
                 <%= f.text_area :body%>
                 <%= f.submit t(".comment"), class: "reply" %>
               </div>

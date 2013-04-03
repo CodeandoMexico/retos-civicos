@@ -701,6 +701,7 @@ section#projects {
 
     .cbox {
       padding: 15px 0 15px 20px;
+      margin-right:30px;
 
       .left {
         width: 290px;
@@ -837,6 +838,10 @@ section#projects {
       display: block;
       // overflow: auto;
 
+      .first_comment {
+        margin-bottom:40px;
+      }
+
       .comment_form {
         display: none;
         background-color: rgba($gray4, 0.5);
@@ -846,11 +851,12 @@ section#projects {
         }
         .box {
           padding: 5px;
-          height: 100px;
+          height: 70px;
 
           .reply {
             border: 0;
             width: auto !important;
+            margin-bottom: -52px;
           }
         }
 
