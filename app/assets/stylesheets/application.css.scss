@@ -144,6 +144,7 @@ header#main-header {
         text-align: center;
         cursor: pointer;
         position: relative;
+        z-index: 1000;
 
         .current {
           padding: 5px;
