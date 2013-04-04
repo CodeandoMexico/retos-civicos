@@ -235,6 +235,7 @@ header#main-header {
   height: 570px;
   background: #FFFFFF url("landing_bg2.jpg") top center no-repeat;
   position: relative;
+  min-width: 960px;
 
   h1{
     color: $white;
