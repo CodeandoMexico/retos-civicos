@@ -7,7 +7,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.member?
-      can :read, Project
+      can :read, Challenge
     else
       can :read, :all
     end

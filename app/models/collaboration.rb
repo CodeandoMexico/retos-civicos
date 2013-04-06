@@ -1,9 +1,9 @@
 class Collaboration < ActiveRecord::Base
-  attr_accessible :project_id, :user_id, :user, :project
+  attr_accessible :challenge_id, :user_id, :user, :challenge
 
   belongs_to :user
-  belongs_to :project
+  belongs_to :challenge
 
-  validates :user_id, uniqueness: { scope: :project_id }
+  validates :user_id, uniqueness: { scope: :challenge_id }
 
 end

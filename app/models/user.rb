@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   # Relations
   has_many :authentications, dependent: :destroy
 
-  has_many :created_projects, foreign_key: "creator_id", class_name: "Project"
+  has_many :created_challenges, foreign_key: "creator_id", class_name: "Challenge"
   has_many :collaborations, foreign_key: 'user_id'
-  has_many :collaborating_in, through: :collaborations, class_name: "Project", source: :project
+  has_many :collaborating_in, through: :collaborations, class_name: "Challenge", source: :challenge
   has_many :userskills
   has_many :skills, through: :userskills
   has_many :comments
@@ -40,8 +40,8 @@ class User < ActiveRecord::Base
     role == 'member'
   end
 
-  def collaborating_in?(project)
-    Collaboration.where(user_id: self.id, project_id: project.id).blank? ? false : true
+  def collaborating_in?(challenge)
+    Collaboration.where(user_id: self.id, challenge_id: challenge.id).blank? ? false : true
   end
 
   def update_skills(skills = [])

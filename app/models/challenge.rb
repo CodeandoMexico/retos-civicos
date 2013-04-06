@@ -1,15 +1,15 @@
 #encoding: utf-8
-class Project < ActiveRecord::Base
+class Challenge < ActiveRecord::Base
 
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :first_spec, :second_spec, :third_spec, :pitch, :avatar, :about, :activities_attributes, :dataset_file
 
   attr_accessor :dataset_file
 
-  mount_uploader :avatar, ProjectAvatarUploader
+  mount_uploader :avatar, ChallengeAvatarUploader
 
   # Relations
-	has_many :collaborations, foreign_key: 'project_id'
+	has_many :collaborations, foreign_key: 'challenge_id'
 	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
   has_many :activities
 
@@ -93,7 +93,7 @@ class Project < ActiveRecord::Base
   private
 
   def create_initial_activity
-    self.activities.create(title: I18n.t("projects.initial_activity.title"), text: I18n.t("projects.initial_activity.text"))
+    self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))
   end
 
   def upload_file

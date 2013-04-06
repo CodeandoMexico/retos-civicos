@@ -1,6 +1,7 @@
 en:
   routes:
     projects: projects
+    challenges: challenges
     comments: comments
     new: new
     edit: edit
@@ -10,6 +11,7 @@ en:
 es:
   routes:
     projects: proyectos
+    challenges: retos
     comments: comentarios
     new: nuevo
     edit: editar

@@ -1,0 +1,76 @@
+<section id="pitch" class="unit pitch">
+  <header class="unit">
+    <nav>
+      <%= like_section(@challenge) %>
+      <%= collaborate_section(@challenge)  %>
+    </nav>
+    <h1><%= @challenge.title %></h1>
+  </header>
+  <section id="description" class="unit description ">
+    <div class="column left">
+      <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>
+      <div class="owner">
+        <span class="name"><%= t("challenges.form.created-by") %> <em><%= @challenge.creator %></em></span>
+        <span class="status"><%= @challenge.status %></span>
+      </div>
+    </div>
+    <div class="column right">
+      <div class="content">
+        <h2><%= t("challenges.form.about") %></h2>
+        <p><%= @challenge.about %></p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section id="slogan" class="unit slogan ">
+  <h3><%= @challenge.pitch %></h3>
+</section>
+
+
+<%= render "resources" %>
+
+
+<section id="needs" class="unit needs ">
+  <header>
+    <h2><%= t("challenges.form.needs") %></h2>
+  </header>
+  <div class="column left">
+    <div class="content">
+      <%= @challenge.description_html %>
+    </div>
+  </div>
+  <div class="column right">
+      <h3><%= t("challenges.form.points") %></h3>
+      <ul class="points">
+        <% if !@challenge.first_spec.blank? %>
+          <li><%= @challenge.first_spec %></li>
+        <% end %>
+        <% if !@challenge.second_spec.blank? %>
+          <li><%= @challenge.second_spec %></li>
+        <% end %>
+        <% if !@challenge.third_spec.blank? %>
+          <li><%= @challenge.third_spec %></li>
+        <% end %>
+      </ul>
+  </div>
+</section>
+
+<% unless @challenge.references.empty? %>
+  <%= render 'references' %>
+<% end %>
+
+<%= render "activities" %>
+
+<%= render "comments" %>
+
+
+<section id="supportus" class="unit supportus ">
+  <header>
+    <h2><%= t(".supportus") %></h2>
+  </header>
+  <section>
+    <%= like_section(@challenge) %>
+    <%= collaborate_section(@challenge)  %>
+  </section>
+</section>

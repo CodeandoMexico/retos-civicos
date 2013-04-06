@@ -29,7 +29,7 @@ class AuthenticationsController < ApplicationController
 
   def sign_in_and_redirect(user_id)
     session[:user_id] = user_id
-    redirect_back_or projects_path, t('auth_controller.sign_in')
+    redirect_back_or challenges_path, t('auth_controller.sign_in')
   end
 
 end

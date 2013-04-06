@@ -2,33 +2,33 @@
   <div class="columns on-3">
     <div class="column collaborators">
       <div class="contianer content">
-        <%= @project.collaborators.count %>
+        <%= @challenge.collaborators.count %>
         <p><%= t(".collaborators") %></p>
         <a href="#collaborators"><span class="arrow"></span></a>
       </div>
     </div>
     <div class="column references">
       <div class="contianer content">
-        <%= @project.total_references %>
+        <%= @challenge.total_references %>
         <p><%= t(".references") %></p>
         <a href="#references"><span class="arrow"></span></a>
       </div>
     </div>
     <div class="column datasets">
       <div class="contianer content">
-        <%= @project.dataset_url.present? ? "1" : "0" %>
+        <%= @challenge.dataset_url.present? ? "1" : "0" %>
         <p><%= t(".datasets") %></p>
         <a href="#datasets"><span class="arrow"></span></a>
       </div>
     </div>
   </div>
   <div class="unit resources_display row" id="collaborators">
-    <% if @project.collaborators.blank? %>
+    <% if @challenge.collaborators.blank? %>
       <%= t(".non-collaboration") %>
     <% else %>
       <h4><%= t('.collaborators')%> </h4><br />
       <div class="unit row">
-          <% @project.collaborators.each do |collaborator| %>
+          <% @challenge.collaborators.each do |collaborator| %>
             <p class="collab">
               <%= link_to collaborator.profile_url, target: '_blank' do %>
                 <%= image_tag(collaborator.avatar_url, title: collaborator.to_s, alt: collaborator.to_s) %>
@@ -37,10 +37,10 @@
           <% end %>
       </div>
     <% end %>
-    <% if !@project.dataset_url.blank? %>
+    <% if !@challenge.dataset_url.blank? %>
     <div class="unit row">
       <h4><%= t('.datasets') %></h4>
-      <%= link_to @project.dataset_url, @project.dataset_url %>
+      <%= link_to @challenge.dataset_url, @challenge.dataset_url %>
     </div>
     <% end %>
     
