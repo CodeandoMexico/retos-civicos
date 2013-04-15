@@ -1,5 +1,5 @@
 <div class="form_container">
-<%= form_for @project do |f| %>
+<%= form_for @challenge do |f| %>
 	<section id="form_main" class="form_main">
 
 		<section>
@@ -47,7 +47,7 @@
 				<%= f.label :status, t(".status") %>
 			</div>
 			<div class="column right">
-				<%= f.select(:status, status_for_project)%>
+				<%= f.select(:status, status_for_challenge)%>
 			</div>
 		</div>
 		</section>

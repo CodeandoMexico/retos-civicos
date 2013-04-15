@@ -1,0 +1,21 @@
+
+<section id="index_challenges" class="index_challenges">
+  <header>
+    <h1><%= t('.header') %></h1>
+  </header>
+
+  <section id="challenges_list" class="columns on-3 challenges_list gray">
+
+    <%= render @challenges %>
+    
+  </section>
+  
+</section>
+
+<% if can? :manage, Challenge %>
+  <section id="new_challenge" class="unit new_challenge">
+    <%= link_to t('.new_challenge'), new_challenge_path %>
+  </section>
+<% end %>
+
+

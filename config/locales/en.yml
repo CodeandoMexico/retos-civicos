@@ -1,15 +1,15 @@
 en:
-  projects:
+  challenges:
     initial_activity:
       title: 'Challenge creation'
       text: 'Challenge publication in Codeando México'
     index:
       header: "Challenges"
-      new_project: "New Challenge"
+      new_challenge: "New Challenge"
     new:
-      header: "New Project"
+      header: "New Challenge"
     edit:
-      header: "Edit Project"
+      header: "Edit Challenge"
     form:
       title: "Name your challenge"
       pitch: "One line description"
@@ -18,10 +18,10 @@ en:
       avatar-description: "Choose wisely. A descriptive and high-quality image will catch more eyes."
       about: "About the organization"
       about-description: "Describe briefly what your organization is doing and what drives it."
-      status: "Project status"
-      needs: "Project needs"
+      status: "Challenge status"
+      needs: "Challenge needs"
       points: "Key goals"
-      points-description: "What are the main goals of this project? Try to be concise."
+      points-description: "What are the main goals of this challenge? Try to be concise."
       point1: "First point (Optional)"
       point2: "Second point (Optional)"
       point3: "Third point (Optional)"
@@ -30,7 +30,7 @@ en:
       additional_links-placeholder: "Split by commas"
       dataset_file: "Dataset (CSV format)"
       activities: "News and recent activity"
-      activities-description: "Relevant milestones in the project"
+      activities-description: "Relevant milestones in the challenge"
       activities-title: "Title"
       submit: "Publish"
       description: "What is the problem to solve?"
@@ -47,19 +47,19 @@ en:
       collaborators: "Collaborators"
       references: "References"
       datasets: "Datasets"
-      non-collaboration: "Be the first to join this project!"
+      non-collaboration: "Be the first to join this challenge!"
       datasets: "Datasets"
       votes: "Votes"
     comments:
       comment: "Leave a comment"
       reply: "Reply"
-      myproject: "My project"
+      mychallenge: "My challenge"
       like: "Like"
   home:
     index: 
       pitch: "NGOs, Geeks, and Open Data 24/7."
       get_involved: "Get involved"
-      recent: "Recent Projects"
+      recent: "Recent Challenges"
     about:
       problem:
         title: 'Current landscape'
@@ -75,7 +75,7 @@ en:
       what:
         title: 'What is Codeando México?'
         description: |
-          <p>Codeando México is a platform where NGOs and society publish projects, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
+          <p>Codeando México is a platform where NGOs and society publish challenges, exposing <a href='http://okfn.org/opendata/' target='_blank'>open data</a> through <a href='http://ckan.org/' target='_blank'>CKAN</a>, and call together interested technologists and designers to build solutions.</p>
       who:
         title: 'Who is Codeando México?'
         description: |
@@ -100,7 +100,7 @@ en:
     header: "Codeando México"
     copyright: "&copy; Codeando México - 2013"
     question: "What is Codeando México?"
-    brief: "A place where open data and project collaboration happens everyday."
+    brief: "A place where open data and challenge collaboration happens everyday."
     about: "Read More..."
     sign_in: "Sign in"
     sign_out: "Sign out"

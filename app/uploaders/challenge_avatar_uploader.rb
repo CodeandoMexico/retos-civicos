@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ProjectAvatarUploader < CarrierWave::Uploader::Base
+class ChallengeAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :profile do

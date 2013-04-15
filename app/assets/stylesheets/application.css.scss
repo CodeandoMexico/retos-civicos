@@ -384,9 +384,9 @@ section#main-wrap {
   
 }// End of section#main-wrap
 
-section#projects {
+section#challenges {
   
-  .trending-projects {
+  .trending-challenges {
     min-height: 460px;
   }
   
@@ -431,7 +431,7 @@ section#projects {
 }
 
 /***************************************************
-**  Project Show
+**  Challenge Show
 ***************************************************/
 
 .pitch {
@@ -926,7 +926,7 @@ section#projects {
 
 
 /***************************************************
-**  PROJECT FORM
+**  CHALLENGE FORM
 ***************************************************/
 
 .form_container {
@@ -1017,12 +1017,12 @@ section#projects {
 
 
 /***************************************************
-**  PROJECT'S INDEX
+**  CHALLENGE'S INDEX
 ***************************************************/
 
-section.index_projects {
+section.index_challenges {
 
-  .project_box {
+  .challenge_box {
     width: 300px;
     height: 225px;
     margin: 0 auto;
@@ -1086,7 +1086,7 @@ section.index_projects {
     }
   }
 
-  .gray .project_box {
+  .gray .challenge_box {
     .num {
       background-color: $white;
     }
@@ -1147,7 +1147,7 @@ section.index_projects {
   }
 }
 
-section.new_project {
+section.new_challenge {
   background-color: $green;
   padding: 30px;
 
@@ -1163,7 +1163,7 @@ section.new_project {
   }
 }
 
-.index_projects.home {
+.index_challenges.home {
   padding: 40px 0;
   background-color: $white;
   padding-top: 120px;

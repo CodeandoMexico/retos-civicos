@@ -3,7 +3,7 @@
 
     <h1><%= t("landing.slogan") %></h1>
 
-    <%= link_to projects_path, :class => "get-involved" do %>
+    <%= link_to challenges_path, :class => "get-involved" do %>
       <%= t('.get_involved') %>
     <% end %>
 
@@ -24,7 +24,7 @@
   </div>
 </section>
 
-<section id="index_projects" class="unit index_projects home">
+<section id="index_challenges" class="unit index_challenges home">
   <div class="container holder">
 
     <div class="unit home_pitch">
@@ -35,9 +35,9 @@
       <h1><%= t('.recent') %></h1>
     </header>
 
-    <section id="projects_list" class="columns on-3 projects_list">
+    <section id="challenges_list" class="columns on-3 challenges_list">
 
-      <%= render @projects %>
+      <%= render @challenges %>
 
     </section>
     

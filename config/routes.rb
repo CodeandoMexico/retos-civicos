@@ -6,7 +6,7 @@ Aquila::Application.routes.draw do
   match '/about' => 'home#about'
 
   resources :authentications
-	resources :projects, except: [:destroy] do
+	resources :challenges, except: [:destroy] do
 		resources :comments do
 			member do
 				post :like
@@ -23,6 +23,10 @@ Aquila::Application.routes.draw do
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
   root :to => 'home#index'
+
+  # Catch for Challenges when call as project/:id/ due to model rename
+  match "/projects/:id" => 'challenges#show'
+  match "/projects/:id/timeline" => 'challenges#timeline'
 
 end
 

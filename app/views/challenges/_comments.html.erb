@@ -1,16 +1,16 @@
 <section id="comments" class="comments row">
   <header>
-    <% if signed_in? and (current_user.collaborating_in?(@project) or current_user == @project.creator) %>
+    <% if signed_in? and (current_user.collaborating_in?(@challenge) or current_user == @challenge.creator) %>
       <%= link_to t(".comment"), "#", class: "comment" %>
     <% end %>
-    <h2><%= t("projects.form.comments") %></h2>
+    <h2><%= t("challenges.form.comments") %></h2>
   </header>
   <section>
     
     <div class="wrapper">
       <div class="unit comment_form cbox">
-        <% if signed_in? and (current_user.collaborating_in?(@project) or current_user == @project.creator) %>
-          <%= form_for [@project, Comment.new] do |f| %>
+        <% if signed_in? and (current_user.collaborating_in?(@challenge) or current_user == @challenge.creator) %>
+          <%= form_for [@challenge, Comment.new] do |f| %>
             <div class="column left info">
               <%= image_tag current_user.avatar_url %>
               <span class="name"><%= current_user.to_s %></span>
@@ -41,11 +41,11 @@
           <div class="unit box com">
             <div class="votes">
               <% if signed_in? and !current_user.voted_on?(comment) and comment.user != current_user %>
-                <%= link_to like_project_comment_path(@project, comment, like: true), method: :post do %>
+                <%= link_to like_challenge_comment_path(@challenge, comment, like: true), method: :post do %>
                   <span class="icon-sort-up"></span>
                 <% end %>
                 <span class="count"><%= comment.votes_counter %></span>
-                <%= link_to like_project_comment_path(@project, comment), method: :post  do %>
+                <%= link_to like_challenge_comment_path(@challenge, comment), method: :post  do %>
                   <span class="icon-sort-down"></span>
                 <% end %>
               <% else %>
@@ -69,7 +69,7 @@
             </div>
             <% if signed_in? %>
               <div class="form">
-                <%= form_for([@project, Comment.new], url: reply_project_comment_path(@project, comment, parent: comment), method: :post) do |f| %>
+                <%= form_for([@challenge, Comment.new], url: reply_challenge_comment_path(@challenge, comment, parent: comment), method: :post) do |f| %>
                   <%= f.text_field :body %>
                 <% end %>
               </div>

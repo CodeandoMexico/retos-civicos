@@ -1,11 +1,11 @@
 es:
-  projects:
+  challenges:
     initial_activity:
       title: 'Creación del reto'
       text: 'Publicación del reto en Codeando México'
     index:
       header: "Retos"
-      new_project: "Nuevo Reto"
+      new_challenge: "Nuevo Reto"
     new:
       header: "Nuevo Reto"
     edit:
@@ -53,7 +53,7 @@ es:
     comments:
       comment: "Comentar"
       reply: "Responder"
-      myproject: "Mi Reto"
+      mychallenge: "Mi Reto"
       like: "Me gusta"
     collaborating: "Te has unido al reto"
   home:

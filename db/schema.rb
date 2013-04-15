@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331232228) do
+ActiveRecord::Schema.define(:version => 20130406204325) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
     t.string   "type"
-    t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "challenge_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "title"
   end
 
@@ -31,11 +31,29 @@ ActiveRecord::Schema.define(:version => 20130331232228) do
     t.string   "public_url"
   end
 
+  create_table "challenges", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "creator_id"
+    t.string   "status",           :default => "open"
+    t.string   "dataset_url"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "likes_counter",    :default => 0
+    t.text     "first_spec"
+    t.text     "second_spec"
+    t.text     "third_spec"
+    t.string   "pitch"
+    t.text     "additional_links"
+    t.string   "avatar"
+    t.text     "about"
+  end
+
   create_table "collaborations", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "challenge_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -53,24 +71,6 @@ ActiveRecord::Schema.define(:version => 20130331232228) do
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "projects", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "creator_id"
-    t.string   "status",           :default => "open"
-    t.string   "dataset_url"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.integer  "likes_counter",    :default => 0
-    t.text     "first_spec"
-    t.text     "second_spec"
-    t.text     "third_spec"
-    t.string   "pitch"
-    t.text     "additional_links"
-    t.string   "avatar"
-    t.text     "about"
-  end
 
   create_table "skills", :force => true do |t|
     t.string   "name"
