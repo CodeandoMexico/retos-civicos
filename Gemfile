@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'thin'
+gem 'foreman'
 gem 'pg'
 
 # OAuth providers
@@ -26,8 +26,13 @@ group :assets do
 end
 
 group :development do
+  gem 'thin'
 	gem 'debugger'
   gem 'quiet_assets'
+end
+
+group :production do
+  gem 'unicorn'
 end
 
 gem 'compass'
@@ -40,4 +45,3 @@ gem 'jquery-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
 gem 'copycopter_client', '~> 2.0.1'
-
