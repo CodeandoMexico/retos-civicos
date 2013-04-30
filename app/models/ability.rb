@@ -7,7 +7,9 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.member?
-      can :read, Challenge
+      can :manage, Challenge do |c|
+        c.creator == user
+      end
     else
       can :read, :all
     end
