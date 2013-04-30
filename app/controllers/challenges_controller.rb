@@ -10,7 +10,6 @@ class ChallengesController < ApplicationController
 
   def new
   	@challenge = Challenge.new
-    authorize! :create, @challenge
   end
 
   def show
