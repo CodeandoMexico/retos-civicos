@@ -23,6 +23,10 @@ class Challenge < ActiveRecord::Base
   before_create :upload_file
   after_create :create_initial_activity
 
+  #Scopes
+  scope :in_zapopan, lambda {
+    where("id IN (?)", (24..100).to_a) 
+  }
 	# Additionals
 	acts_as_voteable
 	acts_as_commentable

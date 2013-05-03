@@ -1,4 +1,61 @@
 en:
+  open_data_zapopan:
+    challenges:
+      initial_activity:
+        title: 'Challenge creation'
+        text: 'Challenge publication in Codeando México'
+      index:
+        header: "Challenges"
+        new_challenge: "New Challenge"
+      new:
+        header: "New Challenge"
+      edit:
+        header: "Edit Challenge"
+      form:
+        title: "Name your challenge"
+        pitch: "One line description"
+        pitch-description: "Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'."
+        avatar: "Image"
+        avatar-description: "Choose wisely. A descriptive and high-quality image will catch more eyes."
+        about: "About the organization"
+        about-description: "Describe briefly what your organization is doing and what drives it."
+        status: "Challenge status"
+        needs: "Challenge needs"
+        points: "Key goals"
+        points-description: "What are the main goals of this challenge? Try to be concise."
+        point1: "First point (Optional)"
+        point2: "Second point (Optional)"
+        point3: "Third point (Optional)"
+        additional_links: "External references"
+        additional_links-description: "Share some web site links which might complement your problem description or solution. Separate links with commas."
+        additional_links-placeholder: "Split by commas"
+        dataset_file: "Dataset (CSV format)"
+        activities: "News and recent activity"
+        activities-description: "Relevant milestones in the challenge"
+        activities-title: "Title"
+        submit: "Publish"
+        description: "What is the problem to solve?"
+        description-description: "Describe the problem and why is so important to solve it."
+        comments: "Notes and comments"
+        resources: "Data and external resources"
+      show:
+        created-by: "Created by:"
+        supportus: "Help us reach our goal"
+        collaborate: "Join"
+        collaborating: "Collaborating"
+        edit: "Edit"
+      resources:
+        collaborators: "Collaborators"
+        references: "References"
+        datasets: "Datasets"
+        non-collaboration: "Be the first to join this challenge!"
+        datasets: "Datasets"
+        votes: "Votes"
+      comments:
+        comment: "Leave a comment"
+        reply: "Reply"
+        mychallenge: "My challenge"
+        like: "Like"
   challenges:
     initial_activity:
       title: 'Challenge creation'

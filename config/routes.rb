@@ -5,6 +5,10 @@ Aquila::Application.routes.draw do
   match "/signout" => "authentications#session_destroy", :as => :signout
   match '/about' => 'home#about'
 
+  namespace :open_data_zapopan, path: 'opendatazapopan' do
+    resources :challenges, only: [:index]
+  end
+
   resources :authentications
 	resources :challenges, except: [:destroy] do
 		resources :comments do
