@@ -16,7 +16,7 @@
     </div>
     <div class="column datasets">
       <div class="contianer content">
-        <%= @challenge.dataset_url.present? ? "1" : "0" %>
+        <%= @challenge.total_references %>
         <p><%= t(".datasets") %></p>
         <a href="#datasets"><span class="arrow"></span></a>
       </div>
