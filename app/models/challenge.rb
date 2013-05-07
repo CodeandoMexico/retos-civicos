@@ -25,7 +25,7 @@ class Challenge < ActiveRecord::Base
 
   #Scopes
   scope :in_zapopan, lambda {
-    where("id IN (?)", (24..100).to_a) 
+    where("id IN (?)", (24..41).to_a) 
   }
 	# Additionals
 	acts_as_voteable
