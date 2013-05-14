@@ -83,6 +83,7 @@ class User < ActiveRecord::Base
     else
       self.userable = Member.new
     end
-    self.save
+    # To-do: Temporary removed validation. Remove validate false after major refactor.
+    self.save validate: false
   end    
 end
