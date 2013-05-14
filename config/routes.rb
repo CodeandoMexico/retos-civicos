@@ -1,5 +1,6 @@
 Aquila::Application.routes.draw do
 
+
 	match 'sign_up' => 'home#sign_up'
   match '/auth/:provider/callback' => 'authentications#create'
   match "/signout" => "authentications#session_destroy", :as => :signout
@@ -8,6 +9,8 @@ Aquila::Application.routes.draw do
   namespace :open_data_zapopan, path: 'opendatazapopan' do
     resources :challenges, only: [:index]
   end
+
+  resources :organizations, only: [:update, :edit]
 
   resources :authentications
 
@@ -26,10 +29,12 @@ Aquila::Application.routes.draw do
     end
 	end
 
-  resources :users, only: [:update, :edit] do
-    member do
+  resources :users do 
+    collection do
       get :define_role
-      post :set_role
+    end
+    member do
+      put :set_role
     end
   end
 

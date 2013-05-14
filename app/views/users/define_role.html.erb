@@ -1,20 +1,20 @@
 <section id="pitch" class="pitch row">
   <header>
-    <h1><%= @user.name %></h1>
+    <h1><%= current_user.name %></h1>
   </header>
 </section>
 
 <div class="form_container">
-  <%= form_tag set_role_user_path(@user) do %>
+  <%= form_for current_user, url: set_role_user_path(current_user) do |f| %>
     <section id="form_main" class="form_main">
 
     <section>
     <div class="unit row">
       <div class="column left">
-        <%= label_tag :email, t(".email")  %>
+        <%= f.label :email, t(".email")  %>
       </div>
       <div class="column right">
-        <%= text_field_tag :email, @user.email %>
+        <%= f.text_field :email %>
       </div>
     </div>
 
@@ -22,11 +22,10 @@
     </section>
 
     <section id="form_save" class="form_save">
-      <%= submit_tag "Organizacion" %>
+      <%= submit_tag "Organizacion", name: 'organization' %>
       <br />
-      <%= submit_tag "Participante" %>
+      <%= submit_tag "Participante", name: 'member' %>
     </section>
 
   <% end %>
 </div>
-

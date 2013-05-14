@@ -1,5 +1,10 @@
 module ApplicationHelper
-	def redirect_back_or(default, notice)
+
+  def edit_current_user_path(user)
+    send("edit_#{user.class.name.downcase}_path", user) 
+  end
+
+  def redirect_back_or(default, notice)
     redirect_to((session[:return_to] || default), notice: notice)
     clear_return_to
   end

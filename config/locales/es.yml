@@ -192,5 +192,7 @@ es:
     welcome_new_org: "Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:"
     form:
       bio-description: "140 caracteres"
+  organizations:
+    form:
       submit: "Listo! A crear el primer reto"
 

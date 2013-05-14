@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :role
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :userskills
   has_many :skills, through: :userskills
   has_many :comments
+
+  belongs_to :userable, polymorphic: true
 
   # Validations
   validates :bio, length: { maximum: 255 }
@@ -75,4 +77,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def create_role(params = {})
+    if params[:organization].present?
+      self.userable = Organization.new
+    elsif params[:name] == 'Member'
+      #self.userable = Member.new
+    end
+    self.save
+  end    
 end

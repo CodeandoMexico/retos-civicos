@@ -30,7 +30,7 @@ class AuthenticationsController < ApplicationController
   def sign_in_and_redirect(user_id, new_user = false)
     session[:user_id] = user_id
     if new_user
-      redirect_to define_role_user_path(@user), notice: t('auth_controller.define_role')
+      redirect_to define_role_users_path, notice: t('auth_controller.define_role')
     else
       redirect_back_or challenges_path, t('auth_controller.sign_in')
     end
