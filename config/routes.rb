@@ -9,7 +9,12 @@ Aquila::Application.routes.draw do
     resources :challenges, only: [:index]
   end
 
-  resources :authentications
+  resources :authentications do
+    collection do
+      get :define_role
+    end
+  end
+
 	resources :challenges, except: [:destroy] do
 		resources :comments do
 			member do
@@ -24,6 +29,12 @@ Aquila::Application.routes.draw do
       get :timeline
     end
 	end
+
+  resources :users, only: [:update, :edit] do
+    member do
+      post :set_role
+    end
+  end
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
   root :to => 'home#index'

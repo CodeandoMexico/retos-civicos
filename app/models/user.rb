@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :bio, length: { maximum: 255 }
+  validates_format_of :email, with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/
 
   # Additionals
   acts_as_voter
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
 
   def member?
     role == 'member'
+  end
+
+  def organization?
+    role == 'org'
   end
 
   def collaborating_in?(challenge)

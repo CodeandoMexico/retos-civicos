@@ -10,10 +10,15 @@ class AuthenticationsController < ApplicationController
       current_user.authentications.create_with_omniauth(provider: omniauth['provider'], uid: omniauth['uid'])
       redirect_back_or root_url, t('auth_controller.new_auth')
     else
-      user = User.create_with_omniauth(omniauth)
-      user.authentications.first.update_attribute(:public_url, omniauth.info.urls.public_profile) if omniauth.provider == "linkedin" && !user.authentications.first.public_url.present?
-      sign_in_and_redirect(user.id)
+      @user = User.create_with_omniauth(omniauth)
+      @user.authentications.first.update_attribute(:public_url, omniauth.info.urls.public_profile) if omniauth.provider == "linkedin" && !user.authentications.first.public_url.present?
+      sign_in_and_redirect(@user.id, true)
     end
+  end
+
+  def define_role
+    # To-do: protect this action from user manual request (use authorization)
+    @user = User.find(params[:id])
   end
 
   def session_destroy
@@ -27,9 +32,13 @@ class AuthenticationsController < ApplicationController
 
   private
 
-  def sign_in_and_redirect(user_id)
+  def sign_in_and_redirect(user_id, new_user = false)
     session[:user_id] = user_id
-    redirect_back_or challenges_path, t('auth_controller.sign_in')
+    if new_user
+      render :define_role, notice: t('auth_controller.define_role')
+    else
+      redirect_back_or challenges_path, t('auth_controller.sign_in')
+    end
   end
 
 end
