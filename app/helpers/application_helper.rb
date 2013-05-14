@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  # Dynamic current userable method depending on the user's role
+  # Example: if current_user is a member you can simply call current_member
+  ["member", "organization"].each do |role|
+    define_method "current_#{role.downcase}" do
+      current_user.userable
+    end
+  end
+
   def edit_current_user_path(user)
     send("edit_#{user.class.name.downcase}_path", user) 
   end

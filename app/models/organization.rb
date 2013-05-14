@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :email, :bio
+  attr_accessible :name, :email, :bio, :nickname
   acts_as_user
 
   after_create :send_notify_admin

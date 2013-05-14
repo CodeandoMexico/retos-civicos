@@ -26,3 +26,4 @@ bin
 tags
 /public/uploads/
 /public/assets/
+*.dump

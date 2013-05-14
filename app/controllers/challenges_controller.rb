@@ -50,7 +50,7 @@ class ChallengesController < ApplicationController
 
   def collaborate
     @challenge = Challenge.find(params[:id])
-    Collaboration.create(user: current_user, challenge: @challenge)
+    current_member.collaborations.create(challenge: @challenge)
     redirect_to @challenge, notice: t('challenges.collaborating')
   end
 

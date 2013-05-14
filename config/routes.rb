@@ -1,6 +1,8 @@
 Aquila::Application.routes.draw do
 
 
+  get "members/edit"
+
 	match 'sign_up' => 'home#sign_up'
   match '/auth/:provider/callback' => 'authentications#create'
   match "/signout" => "authentications#session_destroy", :as => :signout
@@ -11,6 +13,7 @@ Aquila::Application.routes.draw do
   end
 
   resources :organizations, only: [:update, :edit]
+  resources :members, only: [:update, :edit]
 
   resources :authentications
 

@@ -196,3 +196,7 @@ es:
     form:
       submit: "Listo! A crear el primer reto"
 
+  members:
+    form:
+      submit: "Actualizar"
+

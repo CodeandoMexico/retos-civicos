@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AdminMailer < ActionMailer::Base
   default from: "hubot@codeandomexico.org"
 

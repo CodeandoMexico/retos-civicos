@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -80,8 +80,8 @@ class User < ActiveRecord::Base
   def create_role(params = {})
     if params[:organization].present?
       self.userable = Organization.new
-    elsif params[:name] == 'Member'
-      #self.userable = Member.new
+    else
+      self.userable = Member.new
     end
     self.save
   end    
