@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
 
   before_filter :save_location, only: [:new]
-  before_filter :save_previous, only: [:collaborate, :like]
+  before_filter :save_previous, only: [:like]
   before_filter :authorize_user!, except: [:index, :show, :timeline]
 
 	def index
@@ -9,17 +9,18 @@ class ChallengesController < ApplicationController
 	end
 
   def new
-  	@challenge = Challenge.new
+  	@challenge = current_organization.challenges.build
     #authorize! :create, @challenge
   end
 
   def show
-  	@challenge = Challenge.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
+  	@challenge = @organization.challenges.find(params[:id])
     @comments = @challenge.root_comments.sort_parents
   end
 
   def edit
-  	@challenge = current_user.created_challenges.find(params[:id])
+  	@challenge = current_organization.challenges.find(params[:id])
     @activity = @challenge.activities.build
   end
 
@@ -33,7 +34,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
-  	@challenge = current_user.created_challenges.find(params[:id])
+  	@challenge = current_organization.challenges.find(params[:id])
     if @challenge.update_attributes(params[:challenge])
       redirect_to @challenge
     else
@@ -42,7 +43,7 @@ class ChallengesController < ApplicationController
   end
 
   def cancel
-  	@challenge = current_user.created_challenges.find(params[:id])
+  	@challenge = current_organization.challenges.find(params[:id])
   	@challenge.cancel!
   	redirect_to challenges_url
   end

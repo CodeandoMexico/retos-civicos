@@ -1,6 +1,6 @@
 <article class="column">
   <div class="container challenge_box">
-    <%= link_to challenge_path(challenge) do %>
+    <%= link_to organization_challenge_path(challenge.organization.id, challenge.id) do %>
 
       <div class="unit image">
         <%= image_tag challenge.avatar %>

@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
   has_many :challenges
   acts_as_user
 
-  after_create :send_notify_admin
+  #after_create :send_notify_admin
 
   def send_notify_admin
     AdminMailer.notify_new_organization(self).deliver

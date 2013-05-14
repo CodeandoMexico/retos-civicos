@@ -1,4 +1,4 @@
-task data_port: ['users:create_members_and_migrate_users']
+task data_port: ['users:create_members_and_migrate_users', 'orgs:create_orgs_and_link_to_challenges']
 
 desc "Create members for existing users and port their collaborations for Challenges"
 namespace :users do
@@ -16,4 +16,26 @@ namespace :users do
     end
   end
 
+end
+
+desc "Create Organizations and Port challenges ownership to Organizations"
+namespace :orgs do
+
+  task create_orgs_and_link_to_challenges: :environment do
+    creators = Challenge.pluck(:creator_id)
+    users = User.find creators
+
+    users.each do |user|
+      user.create_role({ organization: true })
+    end
+
+    users.each do |user|
+      organization = Organization.find user.userable_id
+      challenges = Challenge.where(creator_id: user.id)
+      challenges.each do |c| 
+        c.organization = organization
+        c.save
+      end
+    end
+  end
 end
