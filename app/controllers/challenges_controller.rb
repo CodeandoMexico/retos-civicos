@@ -27,7 +27,7 @@ class ChallengesController < ApplicationController
   def create
 		@challenge = current_organization.challenges.build(params[:challenge])
 		if @challenge.save
-		  redirect_to @challenge
+		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
 		else
 		  render :new
 		end
@@ -36,7 +36,7 @@ class ChallengesController < ApplicationController
   def update
   	@challenge = current_organization.challenges.find(params[:id])
     if @challenge.update_attributes(params[:challenge])
-      redirect_to @challenge
+		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     current_user.vote_for(@challenge)
     @challenge.update_likes_counter
-    redirect_to @challenge, notice: t('comments.voted')
+    redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
   end
 
   def timeline
