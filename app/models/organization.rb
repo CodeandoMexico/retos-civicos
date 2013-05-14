@@ -1,5 +1,6 @@
 class Organization < ActiveRecord::Base
   attr_accessible :name, :email, :bio, :nickname
+  has_many :challenges
   acts_as_user
 
   after_create :send_notify_admin

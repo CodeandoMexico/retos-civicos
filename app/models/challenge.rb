@@ -16,6 +16,7 @@ class Challenge < ActiveRecord::Base
   has_many :members, through: :collaborations
 
 	belongs_to :creator, class_name: "User"
+  belongs_to :organization
 	# Validations
 	validates :description, :title, :status, :about, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }

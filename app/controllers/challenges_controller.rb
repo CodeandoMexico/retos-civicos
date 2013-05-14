@@ -10,7 +10,7 @@ class ChallengesController < ApplicationController
 
   def new
   	@challenge = Challenge.new
-    authorize! :create, @challenge
+    #authorize! :create, @challenge
   end
 
   def show
@@ -24,8 +24,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
-		@challenge = current_user.created_challenges.build(params[:challenge])
-    Collaboration.create(user: current_user, challenge: @challenge)
+		@challenge = current_organization.challenges.build(params[:challenge])
 		if @challenge.save
 		  redirect_to @challenge
 		else
