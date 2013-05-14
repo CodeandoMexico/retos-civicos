@@ -18,6 +18,7 @@ Aquila::Application.routes.draw do
   resources :authentications
 
 	resources :challenges, except: [:destroy] do
+    resources :collaborations, only: [:create]
 		resources :comments do
 			member do
 				post :like

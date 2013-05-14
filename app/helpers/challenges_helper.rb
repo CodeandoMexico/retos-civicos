@@ -33,9 +33,9 @@ module ChallengesHelper
 		elsif signed_in? and current_user.collaborating_in?(challenge)
 			link_to t(".collaborating"), "", class: "collaborate"
 		elsif signed_in?
-      link_to t(".collaborate"), collaborate_challenge_path(challenge), method: :post, class: "collaborate"
+      link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
 		else
-			link_to t(".collaborate"), collaborate_challenge_path(challenge), method: :post
+			link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post
 		end
   end
 

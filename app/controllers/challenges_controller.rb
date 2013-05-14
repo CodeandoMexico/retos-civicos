@@ -48,12 +48,6 @@ class ChallengesController < ApplicationController
   	redirect_to challenges_url
   end
 
-  def collaborate
-    @challenge = Challenge.find(params[:id])
-    current_member.collaborations.create(challenge: @challenge)
-    redirect_to @challenge, notice: t('challenges.collaborating')
-  end
-
   def like
     @challenge = Challenge.find(params[:id])
     current_user.vote_for(@challenge)
