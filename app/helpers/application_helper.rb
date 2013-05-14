@@ -4,8 +4,16 @@ module ApplicationHelper
   # Example: if current_user is a member you can simply call current_member
   ["member", "organization"].each do |role|
     define_method "current_#{role.downcase}" do
-      current_user.userable
+      current_user.userable if signed_in?
     end
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def signed_in?
+    current_user.present?
   end
 
   def edit_current_user_path(user)
