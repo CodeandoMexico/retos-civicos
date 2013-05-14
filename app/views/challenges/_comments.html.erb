@@ -1,6 +1,6 @@
 <section id="comments" class="comments row">
   <header>
-    <% if signed_in? and (current_user.collaborating_in?(@challenge) or current_user == @challenge.creator) %>
+    <% if signed_in? and current_user.collaborating_in?(@challenge) %>
       <%= link_to t(".comment"), "#", class: "comment" %>
     <% end %>
     <h2><%= t("challenges.form.comments") %></h2>
@@ -9,7 +9,7 @@
     
     <div class="wrapper">
       <div class="unit comment_form cbox">
-        <% if signed_in? and (current_user.collaborating_in?(@challenge) or current_user == @challenge.creator) %>
+        <% if signed_in? and current_user.collaborating_in?(@challenge) %>
           <%= form_for [@challenge, Comment.new] do |f| %>
             <div class="column left info">
               <%= image_tag current_user.avatar_url %>
