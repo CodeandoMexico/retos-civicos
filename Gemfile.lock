@@ -74,6 +74,7 @@ GEM
       debugger-ruby_core_source (~> 1.2.0)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     excon (0.20.1)
@@ -246,6 +247,7 @@ DEPENDENCIES
   compass-rails
   copycopter_client (~> 2.0.1)
   debugger
+  dynamic_form
   fog
   foreman
   github_api
