@@ -10,7 +10,11 @@ Aquila::Application.routes.draw do
   end
 
   resources :organizations, only: [:update, :edit] do
-    resources :challenges, except: [:index]
+    resources :challenges, except: [:index] do
+      member do
+        get :timeline
+      end
+    end
   end
 
   resources :members, only: [:update, :edit]
@@ -28,7 +32,6 @@ Aquila::Application.routes.draw do
     member do
       put :cancel
       post :like
-      get :timeline
     end
 	end
 
