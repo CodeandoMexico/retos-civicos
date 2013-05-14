@@ -9,11 +9,7 @@ Aquila::Application.routes.draw do
     resources :challenges, only: [:index]
   end
 
-  resources :authentications do
-    collection do
-      get :define_role
-    end
-  end
+  resources :authentications
 
 	resources :challenges, except: [:destroy] do
 		resources :comments do
@@ -32,6 +28,7 @@ Aquila::Application.routes.draw do
 
   resources :users, only: [:update, :edit] do
     member do
+      get :define_role
       post :set_role
     end
   end

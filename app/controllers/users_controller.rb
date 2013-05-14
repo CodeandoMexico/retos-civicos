@@ -13,10 +13,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def define_role
+    @user = User.find(params[:id])
+  end
+
   def set_role
     @user = User.find(params[:id])
     update_user_attributes
     if @user.organization?
+      AdminMailer.notify_new_organization(@user).deliver
       redirect_to edit_user_path(@user), notice: t('auth_controller.welcome_new_org')
     else
       redirect_to challenges_path, notice: t('auth_controller.sign_in')

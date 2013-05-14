@@ -29,6 +29,7 @@ group :development do
   gem 'thin'
 	gem 'debugger'
   gem 'quiet_assets'
+  gem 'letter_opener'
 end
 
 group :production do

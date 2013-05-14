@@ -16,11 +16,6 @@ class AuthenticationsController < ApplicationController
     end
   end
 
-  def define_role
-    # To-do: protect this action from user manual request (use authorization)
-    @user = User.find(params[:id])
-  end
-
   def session_destroy
     session[:user_id] = nil
     redirect_to root_url, notice: t('auth_controller.destroy')
@@ -35,7 +30,7 @@ class AuthenticationsController < ApplicationController
   def sign_in_and_redirect(user_id, new_user = false)
     session[:user_id] = user_id
     if new_user
-      render :define_role, notice: t('auth_controller.define_role')
+      redirect_to define_role_user_path(@user), notice: t('auth_controller.define_role')
     else
       redirect_back_or challenges_path, t('auth_controller.sign_in')
     end
