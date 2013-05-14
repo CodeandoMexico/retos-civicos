@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  ROLES = ["member", "organization"]
+
   attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role
 
   # Relations
@@ -35,16 +37,11 @@ class User < ActiveRecord::Base
     name || nickname || email
   end
 
-  def admin?
-    role == 'admin'
-  end
-
-  def member?
-    role == 'member'
-  end
-
-  def organization?
-    role == 'org'
+  #Ex: member?, organization?
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      userable_type == role.capitalize
+    end
   end
 
   def collaborating_in?(challenge)

@@ -2,7 +2,7 @@ module ApplicationHelper
 
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
-  ["member", "organization"].each do |role|
+  User::ROLES.each do |role|
     define_method "current_#{role.downcase}" do
       current_user.userable if signed_in?
     end

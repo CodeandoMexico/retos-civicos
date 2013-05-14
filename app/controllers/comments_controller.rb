@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource :challenge
+  load_and_authorize_resource :comments, through: :challenge
 
 	def create
 		@challenge = Challenge.find(params[:challenge_id])

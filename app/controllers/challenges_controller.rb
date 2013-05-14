@@ -1,16 +1,15 @@
 class ChallengesController < ApplicationController
+  load_and_authorize_resource :organization, except: [:index, :show, :timeline]
+  load_and_authorize_resource :challenge, through: :organization, except: [:index, :show, :timeline]
 
   before_filter :save_location, only: [:new]
   before_filter :save_previous, only: [:like]
-  before_filter :authorize_user!, except: [:index, :show, :timeline]
 
 	def index
 		@challenges = Challenge.all
 	end
 
   def new
-  	@challenge = current_organization.challenges.build
-    #authorize! :create, @challenge
   end
 
   def show
@@ -20,12 +19,10 @@ class ChallengesController < ApplicationController
   end
 
   def edit
-  	@challenge = current_organization.challenges.find(params[:id])
     @activity = @challenge.activities.build
   end
 
   def create
-		@challenge = current_organization.challenges.build(params[:challenge])
 		if @challenge.save
 		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
 		else
@@ -34,7 +31,6 @@ class ChallengesController < ApplicationController
   end
 
   def update
-  	@challenge = current_organization.challenges.find(params[:id])
     if @challenge.update_attributes(params[:challenge])
 		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
