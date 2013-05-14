@@ -1,8 +1,8 @@
 module Userable
   def self.included(base)
     base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
-    base.validate :user_must_be_valid
-    base.alias_method_chain :user, :autobuild
+    #base.validate :user_must_be_valid
+    #base.alias_method_chain :user, :autobuild
     base.extend ClassMethods
     base.define_user_accessors
   end
