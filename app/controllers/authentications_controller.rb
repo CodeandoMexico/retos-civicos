@@ -11,7 +11,7 @@ class AuthenticationsController < ApplicationController
       redirect_back_or root_url, t('auth_controller.new_auth')
     else
       @user = User.create_with_omniauth(omniauth)
-      @user.authentications.first.update_attribute(:public_url, omniauth.info.urls.public_profile) if omniauth.provider == "linkedin" && !user.authentications.first.public_url.present?
+      @user.authentications.first.update_attribute(:public_url, omniauth.info.urls.public_profile) if omniauth.provider == "linkedin" && !@user.authentications.first.public_url.present?
       sign_in_and_redirect(@user.id, true)
     end
   end
