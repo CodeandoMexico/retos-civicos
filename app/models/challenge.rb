@@ -9,11 +9,9 @@ class Challenge < ActiveRecord::Base
   mount_uploader :avatar, ChallengeAvatarUploader
 
   # Relations
-	has_many :collaborations, foreign_key: 'challenge_id'
-	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
+	has_many :collaborations
+	has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
   has_many :activities
-  has_many :members
-  has_many :members, through: :collaborations
 
 	belongs_to :creator, class_name: "User"
   belongs_to :organization
