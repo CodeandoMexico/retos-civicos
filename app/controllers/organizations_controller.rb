@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  load_and_authorize_resource through: :current_organization
+  load_and_authorize_resource 
 
   def edit
     @organization = current_user.userable
