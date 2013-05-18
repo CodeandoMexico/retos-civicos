@@ -26,6 +26,7 @@ class Ability
       end
 
       can [:create, :reply], Comment 
+      can [:like], Challenge
     end
 
     if user.member?

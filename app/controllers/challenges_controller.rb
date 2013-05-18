@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  load_and_authorize_resource through: :current_organization, except: [:index, :show, :timeline]
+  load_and_authorize_resource through: :current_organization, except: [:index, :show, :timeline, :like]
 
   before_filter :save_location, only: [:new]
   before_filter :save_previous, only: [:like]
@@ -44,6 +44,7 @@ class ChallengesController < ApplicationController
   end
 
   def like
+    authorize! :like, Challenge
     @challenge = Challenge.find(params[:id])
     current_user.vote_for(@challenge)
     @challenge.update_likes_counter
