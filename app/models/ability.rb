@@ -8,16 +8,17 @@ class Ability
       user.id == u.id
     end
 
-    #Comment access
-    can [:like], Comment do |comment|
-      comment.user.id != user.id
-    end
 
     if user.organization?
       #Challenge access
       can [:new, :create], Challenge
       can [:edit, :update, :cancel], Challenge do |challenge|
         challenge.organization.id == user.userable.id
+      end
+
+      #Comment access
+      can [:like], Comment do |comment|
+        comment.user.id != user.id && !user.voted_on?(comment)
       end
 
       #Organization access
@@ -39,6 +40,11 @@ class Ability
       #Members access
       can [:edit, :update], Member do |member|
         user.userable.id == member.id
+      end
+
+      #Comment access
+      can [:like], Comment do |comment|
+        comment.user.id != user.id && !user.voted_on?(comment)
       end
 
       #Comment creation for members, restricting access through challenge

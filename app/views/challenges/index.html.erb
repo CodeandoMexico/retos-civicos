@@ -12,7 +12,7 @@
   
 </section>
 
-<% if current_organization %>
+<% if can? :create, Challenge %>
   <section id="new_challenge" class="unit new_challenge">
     <%= link_to t('.new_challenge'), new_organization_challenge_path(current_organization) %>
   </section>

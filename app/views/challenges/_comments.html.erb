@@ -1,6 +1,6 @@
 <section id="comments" class="comments row">
   <header>
-    <% if signed_in? and current_user.collaborating_in?(@challenge) %>
+    <% if can? :create_or_reply_challenge_comment, @challenge %>
       <%= link_to t(".comment"), "#", class: "comment" %>
     <% end %>
     <h2><%= t("challenges.form.comments") %></h2>
@@ -40,7 +40,7 @@
         <div class="column fixed right data">
           <div class="unit box com">
             <div class="votes">
-              <% if signed_in? and !current_user.voted_on?(comment) and comment.user != current_user %>
+              <% if can? :like, comment %>
                 <%= link_to like_challenge_comment_path(@challenge, comment, like: true), method: :post do %>
                   <span class="icon-sort-up"></span>
                 <% end %>
@@ -54,7 +54,7 @@
                 <span class="icon-sort-down"></span>
               <% end %>
             </div>
-            <% if signed_in? and current_user.collaborating_in?(@challenge) %>
+            <% if can? :create_or_reply_challenge_comment, @challenge %>
               <%= link_to t(".reply"), "#", class: "reply" %>
             <% end %>
             <p class="comment jtruncate"><%= comment.body_html %></p>
@@ -67,7 +67,7 @@
                 </div>
               <% end %>
             </div>
-            <% if signed_in? %>
+            <% if can? :create, Comment %>
               <div class="form">
                 <%= form_for([@challenge, Comment.new], url: reply_challenge_comment_path(@challenge, comment, parent: comment), method: :post) do |f| %>
                   <%= f.text_field :body %>
