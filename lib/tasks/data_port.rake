@@ -11,7 +11,7 @@ namespace :users do
 
     # Relate collaborations to members
     Collaboration.all.each do |c|
-      if c.user.userable == "Member"
+      if c.user.member?
         c.member = c.user.userable 
         c.save
       end
