@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
 	end
 
 	def like
-		@comment = Comment.find(params[:id])
 		@challenge = Challenge.find(params[:challenge_id])
 		if params[:like].present?
     	current_user.vote_for(@comment)
