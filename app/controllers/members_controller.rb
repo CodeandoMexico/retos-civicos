@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  load_and_authorize_resource through: :current_member
+  load_and_authorize_resource
 
   def edit
     @member = current_member

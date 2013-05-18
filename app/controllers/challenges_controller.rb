@@ -1,6 +1,5 @@
 class ChallengesController < ApplicationController
-  load_and_authorize_resource :organization, except: [:index, :show, :timeline]
-  load_and_authorize_resource :challenge, through: :organization, except: [:index, :show, :timeline]
+  load_and_authorize_resource through: :current_organization, except: [:index, :show, :timeline]
 
   before_filter :save_location, only: [:new]
   before_filter :save_previous, only: [:like]

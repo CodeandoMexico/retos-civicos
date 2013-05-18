@@ -54,7 +54,7 @@
                 <span class="icon-sort-down"></span>
               <% end %>
             </div>
-            <% if signed_in? %>
+            <% if signed_in? and current_user.collaborating_in?(@challenge) %>
               <%= link_to t(".reply"), "#", class: "reply" %>
             <% end %>
             <p class="comment jtruncate"><%= comment.body_html %></p>

@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource :challenge
-  load_and_authorize_resource :comments, through: :challenge
+  load_and_authorize_resource :comment, only: [:like]
 
 	def create
 		@challenge = Challenge.find(params[:challenge_id])
+    authorize! :create_or_reply_challenge_comment, @challenge
 		@comment = Comment.build_from(@challenge, current_user.id, params[:comment][:body])
 		if @comment.save
       redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.commented')
@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
 
 	def reply
 		@challenge = Challenge.find(params[:challenge_id])
+    authorize! :create_or_reply_challenge_comment, @challenge
 		@reply = Comment.build_from(@challenge, current_user.id, params[:comment][:body])
 		parent_comment = Comment.find(params[:parent])
 		if @reply.save
