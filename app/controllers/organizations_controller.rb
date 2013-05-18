@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = current_user.userable
     if @organization.update_attributes(params[:organization])
-      redirect_to new_challenge_path, notice: t('flash.organizations.updated')
+      redirect_to new_organization_challenge_path(@organization), notice: t('flash.organizations.updated')
     else
       render :edit
     end
