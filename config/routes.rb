@@ -32,6 +32,7 @@ Aquila::Application.routes.draw do
     member do
       put :cancel
       post :like
+      get :timeline
     end
 	end
 
