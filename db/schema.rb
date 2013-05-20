@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406204325) do
+ActiveRecord::Schema.define(:version => 20130514193950) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -47,14 +47,20 @@ ActiveRecord::Schema.define(:version => 20130406204325) do
     t.text     "additional_links"
     t.string   "avatar"
     t.text     "about"
+    t.integer  "organization_id"
   end
+
+  add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"
 
   create_table "collaborations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "member_id"
   end
+
+  add_index "collaborations", ["member_id"], :name => "index_collaborations_on_member_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -72,6 +78,16 @@ ActiveRecord::Schema.define(:version => 20130406204325) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "members", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "skills", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -82,12 +98,17 @@ ActiveRecord::Schema.define(:version => 20130406204325) do
     t.string   "name"
     t.string   "email"
     t.string   "avatar"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "nickname"
     t.string   "bio"
-    t.string   "role",       :default => "member"
+    t.string   "role",          :default => "member"
+    t.string   "userable_type"
+    t.integer  "userable_id"
   end
+
+  add_index "users", ["userable_id"], :name => "index_users_on_userable_id"
+  add_index "users", ["userable_type"], :name => "index_users_on_userable_type"
 
   create_table "userskills", :force => true do |t|
     t.integer  "user_id"

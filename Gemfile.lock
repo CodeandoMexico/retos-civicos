@@ -38,18 +38,25 @@ GEM
       activerecord (>= 3.0)
       activesupport (~> 3.0)
       awesome_nested_set (>= 2.0)
+    addressable (2.3.4)
     arel (3.0.2)
     auto_html (1.6.0)
       redcarpet (~> 2.0)
       rinku (~> 1.5.0)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
+    better_errors (0.5.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     cancan (1.6.9)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
     chunky_png (1.2.7)
+    coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -68,12 +75,14 @@ GEM
       i18n (>= 0.5.0)
       json
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     debugger (1.5.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.0)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     excon (0.20.1)
@@ -114,6 +123,10 @@ GEM
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
+    letter_opener (1.1.1)
+      launchy (~> 2.2)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -238,6 +251,8 @@ PLATFORMS
 DEPENDENCIES
   acts_as_commentable_with_threading
   auto_html
+  better_errors
+  binding_of_caller
   cancan
   carrierwave
   ckan!
@@ -246,11 +261,13 @@ DEPENDENCIES
   compass-rails
   copycopter_client (~> 2.0.1)
   debugger
+  dynamic_form
   fog
   foreman
   github_api
   gravatar-ultimate
   jquery-rails
+  letter_opener
   mini_magick
   omniauth-github
   omniauth-linkedin

@@ -9,11 +9,12 @@ class Challenge < ActiveRecord::Base
   mount_uploader :avatar, ChallengeAvatarUploader
 
   # Relations
-	has_many :collaborations, foreign_key: 'challenge_id'
-	has_many :collaborators, through: :collaborations, class_name: "User", source: :user
+	has_many :collaborations
+	has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
   has_many :activities
 
 	belongs_to :creator, class_name: "User"
+  belongs_to :organization
 	# Validations
 	validates :description, :title, :status, :about, :pitch, presence: true
 	validates :pitch, length: { maximum: 140 }

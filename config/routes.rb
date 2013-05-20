@@ -6,11 +6,23 @@ Aquila::Application.routes.draw do
   match '/about' => 'home#about'
 
   namespace :open_data_zapopan, path: 'opendatazapopan' do
-    resources :challenges, only: [:index]
+    resources :challenges, only: [:index, :show]
   end
 
+  resources :organizations, only: [:update, :edit] do
+    resources :challenges, except: [:index] do
+      member do
+        get :timeline
+      end
+    end
+  end
+
+  resources :members, only: [:update, :edit]
+
   resources :authentications
-	resources :challenges, except: [:destroy] do
+
+	resources :challenges, only: [:index, :show] do
+    resources :collaborations, only: [:create]
 		resources :comments do
 			member do
 				post :like
@@ -19,11 +31,18 @@ Aquila::Application.routes.draw do
 		end
     member do
       put :cancel
-      post :collaborate
       post :like
-      get :timeline
     end
 	end
+
+  resources :users do 
+    collection do
+      get :define_role
+    end
+    member do
+      put :set_role
+    end
+  end
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
   root :to => 'home#index'
@@ -33,5 +52,4 @@ Aquila::Application.routes.draw do
   match "/projects/:id/timeline" => 'challenges#timeline'
 
 end
-
 ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })

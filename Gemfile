@@ -29,6 +29,9 @@ group :development do
   gem 'thin'
 	gem 'debugger'
   gem 'quiet_assets'
+  gem 'letter_opener'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
@@ -45,3 +48,4 @@ gem 'jquery-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
 gem 'copycopter_client', '~> 2.0.1'
+gem 'dynamic_form'

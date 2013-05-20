@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :role
+  ROLES = ["member", "organization"]
+
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -12,8 +14,11 @@ class User < ActiveRecord::Base
   has_many :skills, through: :userskills
   has_many :comments
 
+  belongs_to :userable, polymorphic: true
+
   # Validations
   validates :bio, length: { maximum: 255 }
+  validates_format_of :email, with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/, on: :update
 
   # Additionals
   acts_as_voter
@@ -32,16 +37,15 @@ class User < ActiveRecord::Base
     name || nickname || email
   end
 
-  def admin?
-    role == 'admin'
-  end
-
-  def member?
-    role == 'member'
+  #Ex: member?, organization?
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      userable_type == role.capitalize
+    end
   end
 
   def collaborating_in?(challenge)
-    Collaboration.where(user_id: self.id, challenge_id: challenge.id).blank? ? false : true
+    self.userable.challenges.include?(challenge)
   end
 
   def update_skills(skills = [])
@@ -70,4 +74,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def create_role(params = {})
+    if params[:organization].present?
+      self.userable = Organization.new
+    else
+      self.userable = Member.new
+    end
+    # To-do: Temporary removed validation. Remove validate false after major refactor.
+    self.save validate: false
+  end    
 end

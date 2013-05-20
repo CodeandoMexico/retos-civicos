@@ -28,14 +28,14 @@ module ChallengesHelper
   end
 
   def collaborate_section(challenge)
-  	if current_user == challenge.creator
-      link_to t(".edit"), edit_challenge_path(@challenge)
+  	if signed_in? and current_user.userable == challenge.organization
+      link_to t(".edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
 		elsif signed_in? and current_user.collaborating_in?(challenge)
 			link_to t(".collaborating"), "", class: "collaborate"
 		elsif signed_in?
-      link_to t(".collaborate"), collaborate_challenge_path(challenge), method: :post, class: "collaborate"
+      link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
 		else
-			link_to t(".collaborate"), collaborate_challenge_path(challenge), method: :post
+			link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post
 		end
   end
 
