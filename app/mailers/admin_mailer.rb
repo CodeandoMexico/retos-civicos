@@ -5,6 +5,6 @@ class AdminMailer < ActionMailer::Base
   def notify_new_organization(organization)
     @organization = organization
 
-    mail to: "equipo@codeandomexico.org", subject: "Nueva organización registrada"
+    mail to: "equipo@codeandomexico.org", subject: "Nueva organizacion registrada"
   end
 end

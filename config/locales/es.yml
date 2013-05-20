@@ -64,6 +64,10 @@ es:
       template:
         header: "Algunos errores se encontraron al llenar la forma"
 
+  flash:
+    organizations:
+      updated: "Perfil de organización actualizada correctamente."
+
   challenges:
     initial_activity:
       title: 'Creación del reto'
@@ -183,6 +187,7 @@ es:
     destroy: "Has salido satisfactoriamente"
     failure: "Acceso no autorizado, intenta de nuevo"
     sign_in: "Bienvenido a la plataforma"
+    define_role: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
   comments:
     commented: "Gracias por tus comentarios"
     failure: "Intenta de nuevo"
@@ -191,10 +196,19 @@ es:
   users:
     welcome_new_org: "Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:"
     form:
-      bio-description: "140 caracteres"
+      bio-description: "140 caracteres sobre ti"
   organizations:
+    edit:
+      title: "Perfil de organización"
     form:
-      submit: "Listo! A crear el primer reto"
+      submit: "Actualizar"
+      to_challenge_creation: "Listo! A crear el primer reto"
+      name: "Nombre de la organización"
+      email: "Email"
+      bio: "Descripción"
+      bio-description: "140 caracteres sobre la organización"
+      email-description: "Email de la persona con la que estaremos en contacto"
+      avatar: "Imagen de perfil"
 
   members:
     form:

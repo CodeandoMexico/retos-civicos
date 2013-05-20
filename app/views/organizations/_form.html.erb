@@ -38,7 +38,7 @@
       <div class="column left">
         <%= f.label :avatar, t(".avatar") %>
       </div>
-      <div class="column right" style="padding-top:50px;">
+      <div class="column right">
         <%= image_tag @organization.avatar_url %>
       </div>
     </div>
@@ -51,7 +51,11 @@
     </section>
 
     <section id="form_save" class="form_save">
-    <%= f.submit t(".submit") %>
+    <% if params[:new_user] %>
+      <%= f.submit t(".to_challenge_creation") %>
+    <% else %>
+      <%= f.submit t(".submit") %>
+    <% end %>
     </section>
 
   <% end %>
