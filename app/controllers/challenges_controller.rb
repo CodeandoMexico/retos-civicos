@@ -12,8 +12,8 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:organization_id])
-  	@challenge = @organization.challenges.find(params[:id])
+  	@challenge = Challenge.find(params[:id])
+    @organization = @challenge.organization
     @comments = @challenge.root_comments.sort_parents
   end
 

@@ -21,7 +21,7 @@ Aquila::Application.routes.draw do
 
   resources :authentications
 
-	resources :challenges, only: [:index] do
+	resources :challenges, only: [:index, :show] do
     resources :collaborations, only: [:create]
 		resources :comments do
 			member do
