@@ -13,7 +13,6 @@ class Challenge < ActiveRecord::Base
 	has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
   has_many :activities
 
-	belongs_to :creator, class_name: "User"
   belongs_to :organization
 	# Validations
 	validates :description, :title, :status, :about, :pitch, presence: true
