@@ -1,3 +1,21 @@
-<%- @providers.each do |provider| %>
-  <%= link_to provider.to_s, "auth/#{provider.to_s}" %>
-<%- end%>
+<section id="main-wrap">
+  <div class="unit login-wrap">
+    <div class="container holder">
+      <section class="login-box">
+        <header>
+          <h1>Sign up / Log in</h1>
+        </header>
+        <div class="login-content">
+          <p><%= I18n.t("signup.choose_provider") %></p>
+          <%- @providers.each do |provider| %>
+            <p>
+              <%= link_to "/auth/#{provider.to_s}", :class => provider.to_s do %>
+                <i class="icon-<%= provider.to_s %>"></i> <%= I18n.t("signup.with_#{provider.to_s}") %>
+              <% end %>
+            </p>
+          <%- end%>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
