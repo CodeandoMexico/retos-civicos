@@ -1,0 +1,10 @@
+<section id="index_challenges" class="index_challenges">
+  <header>
+    <h1><%= @organization.name %></h1>
+  </header>
+
+  <section id="challenges_list" class="columns on-3 challenges_list gray">
+    <%= render partial: 'challenges/challenge', collection: @organization.challenges %>
+  </section>
+
+</section>

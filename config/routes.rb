@@ -9,7 +9,7 @@ Aquila::Application.routes.draw do
     resources :challenges, only: [:index, :show]
   end
 
-  resources :organizations, only: [:update, :edit] do
+  resources :organizations, only: [:show, :update, :edit] do
     resources :challenges, except: [:index] do
       member do
         get :timeline
