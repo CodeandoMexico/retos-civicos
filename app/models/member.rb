@@ -4,4 +4,9 @@ class Member < ActiveRecord::Base
 
   has_many :collaborations
   has_many :challenges, through: :collaborations
+
+  def to_s
+    name || nickname || email
+  end
+
 end
