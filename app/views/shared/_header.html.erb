@@ -26,7 +26,7 @@
 
         <% if signed_in? %>
           <div class="current-user">
-            <span><%= "#{t('layout.welcome')} #{current_user.to_s}" %>!</span> 
+            <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
             <%= link_to t('layout.sign_out'), signout_path %>
           </div>
         <% else %>
