@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514193950) do
+ActiveRecord::Schema.define(:version => 20130521004604) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -26,10 +26,13 @@ ActiveRecord::Schema.define(:version => 20130514193950) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "public_url"
+    t.string   "oauth_token"
   end
+
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"

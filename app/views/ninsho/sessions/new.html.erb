@@ -1,0 +1,3 @@
+<%- @providers.each do |provider| %>
+  <%= link_to provider.to_s, "auth/#{provider.to_s}" %>
+<%- end%>
