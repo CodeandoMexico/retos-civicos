@@ -10,7 +10,7 @@ module ChallengesHelper
 	end
 
   def can_edit_challenge?(challenge)
-    challenge.creator == current_user
+    challenge.organization == current_organization
   end
 
   def like_section(challenge)

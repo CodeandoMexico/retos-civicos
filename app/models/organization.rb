@@ -5,7 +5,14 @@ class Organization < ActiveRecord::Base
 
   #after_create :send_notify_admin
 
+  def to_s
+    name || nickname || email
+  end
+
+  private
+
   def send_notify_admin
     AdminMailer.notify_new_organization(self).deliver
   end
+
 end
