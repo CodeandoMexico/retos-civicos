@@ -4,6 +4,14 @@ GIT
   specs:
     ckan (0.0.3)
 
+PATH
+  remote: /Users/abrahamkuri/Documents/gems/ninsho
+  specs:
+    ninsho (0.1.1)
+      activerecord (>= 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -143,10 +151,6 @@ GEM
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.6)
-    ninsho (0.1.1)
-      activerecord (>= 3.0)
-      orm_adapter (~> 0.1)
-      railties (~> 3.1)
     nokogiri (1.5.8)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -274,7 +278,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mini_magick
-  ninsho
+  ninsho!
   omniauth-github
   omniauth-linkedin
   omniauth-twitter
