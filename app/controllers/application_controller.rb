@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale] || "es"
   end
 
+  def redirect_on_sign_in_path
+    if current_user.just_created?
+      redirect_to define_role_users_path, notice: t('auth_controller.define_role')
+    else
+      redirect_back_or challenges_path, t('auth_controller.sign_in')
+    end
+  end
+
   private
 
 
