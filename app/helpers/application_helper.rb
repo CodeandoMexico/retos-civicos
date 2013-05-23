@@ -4,7 +4,7 @@ module ApplicationHelper
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
     define_method "current_#{role.downcase}" do
-      current_user.userable if signed_in?
+      current_user.userable if user_signed_in?
     end
   end
 

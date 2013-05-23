@@ -59,7 +59,7 @@ class ChallengesController < ApplicationController
   private
 
   def save_location
-    store_location unless signed_in?
+    store_location unless user_signed_in?
   end
 
 end

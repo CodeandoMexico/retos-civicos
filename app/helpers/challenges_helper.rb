@@ -14,11 +14,11 @@ module ChallengesHelper
   end
 
   def like_section(challenge)
-		if signed_in? and current_user.voted_for?(challenge)
+		if user_signed_in? and current_user.voted_for?(challenge)
 			link_to "", class: "like" do
         "<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
       end
-		elsif signed_in?
+		elsif user_signed_in?
 			link_to like_challenge_path(challenge), method: :post, class: "like" do
         "<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
       end
@@ -28,11 +28,11 @@ module ChallengesHelper
   end
 
   def collaborate_section(challenge)
-  	if signed_in? and current_user.userable == challenge.organization
+  	if user_signed_in? and current_user.userable == challenge.organization
       link_to t(".edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
-		elsif signed_in? and current_user.collaborating_in?(challenge)
+		elsif user_signed_in? and current_user.collaborating_in?(challenge)
 			link_to t(".collaborating"), "", class: "collaborate"
-		elsif signed_in?
+		elsif user_signed_in?
       link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
 		else
 			link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post

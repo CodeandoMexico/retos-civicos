@@ -16,14 +16,16 @@ class ApplicationController < ActionController::Base
 
 
   def authorize_user!
-    redirect_to sign_up_path, flash: { error: t('app_controller.login_required') } unless signed_in?
+    redirect_to sign_up_path, flash: { error: t('app_controller.login_required') } unless user_signed_in?
   end
 
   def save_location
-    store_location unless signed_in?
+    store_location unless user_signed_in?
   end
 
   def save_previous
-    store_location(request.referer) unless signed_in?
+    store_location(request.referer) unless user_signed_in?
   end
 end
+
+
