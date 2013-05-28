@@ -1,5 +1,10 @@
 Aquila::Application.routes.draw do
 
+  namespace :admins do
+    resources :organizations, only: [:index]
+  end
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+
 	match 'sign_up' => 'home#sign_up'
   match '/auth/:provider/callback' => 'authentications#create'
   match "/signout" => "authentications#session_destroy", :as => :signout
