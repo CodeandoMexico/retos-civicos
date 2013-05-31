@@ -1,1 +1,21 @@
-hey
+<h2>Organizaciones<h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.name') %></th>
+      <th><%= t('.email') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @organizations.each do |organization| %>
+    <tr>
+      <td><h3><%= link_to organization.name, organization %></h3></td>
+      <td><%= organization.email %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
