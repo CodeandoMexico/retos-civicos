@@ -5,6 +5,7 @@
     <tr>
       <th><%= t('.name') %></th>
       <th><%= t('.email') %></th>
+      <th><%= t('.status') %></th>
     </tr>
   </thead>
 
@@ -14,6 +15,11 @@
     <tr>
       <td><h3><%= link_to organization.name, organization %></h3></td>
       <td><%= organization.email %></td>
+      <% if organization.accredited? %>
+        <td><%= t('.accredited') %></td>
+      <% else %>
+        <td><%= link_to 'Accept', accept_admins_organization_path(organization), method: :put %></td>
+      <% end %>
     </tr>
     <% end %>
 

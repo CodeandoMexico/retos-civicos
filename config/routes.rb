@@ -1,7 +1,9 @@
 Aquila::Application.routes.draw do
 
   namespace :admins do
-    resources :organizations, only: [:index]
+    resources :organizations, only: [:index] do
+      member { put :accept }
+    end
   end
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 

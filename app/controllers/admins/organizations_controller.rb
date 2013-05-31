@@ -4,4 +4,10 @@ class Admins::OrganizationsController < Admins::BaseController
     @organizations = Organization.all
   end
 
+  def accept
+    @organization = Organization.find(params[:id])
+    @organization.update_attribute :accredited, true
+    redirect_to admins_organizations_path
+  end
+
 end
