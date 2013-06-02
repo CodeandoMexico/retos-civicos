@@ -24,15 +24,15 @@
           </ul>
         </div>
 
-        <% if signed_in? %>
+        <% if user_signed_in? %>
           <div class="current-user">
             <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
-            <%= link_to t('layout.sign_out'), signout_path %>
+            <%= link_to t('layout.sign_out'), destroy_authentication_session_path, method: :delete %>
           </div>
         <% else %>
           <ul class="login-menu">
             <li>
-              <%= link_to sign_up_path do %>
+              <%= link_to new_authentication_session_path do %>
                 <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
               <% end %>  
             </li>
@@ -44,7 +44,7 @@
       </nav>
     </div>
   </div>
-  <% if signed_in? && !current_page?('/') %>
+  <% if user_signed_in? && !current_page?('/') %>
   <div class="header-green-margin"></div>
   <% end %>
 </header>

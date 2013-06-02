@@ -184,9 +184,7 @@ es:
     login_required: "Credenciales necesarias para iniciar"
   auth_controller:
     new_auth: "Nueva autenticación creada"
-    destroy: "Has salido satisfactoriamente"
     failure: "Acceso no autorizado, intenta de nuevo"
-    sign_in: "Bienvenido a la plataforma"
     define_role: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
   comments:
     commented: "Gracias por tus comentarios"
@@ -214,4 +212,3 @@ es:
   members:
     form:
       submit: "Actualizar"
-
