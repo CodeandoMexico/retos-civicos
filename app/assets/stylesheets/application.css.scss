@@ -14,21 +14,27 @@
 }
 
 /* Flash Messages */
-.notice { color: #9F6000; background-color: #FEEFB3; }
-.error { color: #D8000C; background-color: #FFBABA; }
-.success { color: #4F8A10; background-color: #DFF2BF; }
-.alert { background: #faefa4; color: #c63e25; }
+.notice { background-color: rgba(240,190,80,0.9); }
+.alert { background-color: rgba(240,190,80,0.9); }
+.success { background-color: rgba(140,190,80,0.9); }
+.error { background-color: rgba(240,90,80,0.9); }
 
-.error, .notice, .success, .alert {
+.flash {
   position: fixed;
-  z-index: 1000;
-  left: 50%;
   top: 70px;
-  padding: 10px 70px;
-  margin-left: -140px;
-  border: 1px solid;
+  left: 20%;
+  width: 60%;
+  text-align: center;
+  padding: 15px;
+  font-family: 'helvetica', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,1);
+  text-shadow: 0px 2px 1px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  box-shadow: inset 0px -2px 0px rgba(0,0,0,0.3);
+  border-top: 1px solid #fff;
+  z-index: 1000;
 }
-
 
 @include sticky-footer(0, "#content", "#layout_footer", "#main-footer");
 
