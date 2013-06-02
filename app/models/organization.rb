@@ -3,6 +3,8 @@ class Organization < ActiveRecord::Base
   has_many :challenges
   acts_as_user
 
+  default_scope order('created_at ASC')
+
   #after_create :send_notify_admin
 
   def to_s
