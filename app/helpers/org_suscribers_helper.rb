@@ -1,0 +1,2 @@
+module OrgSuscribersHelper
+end

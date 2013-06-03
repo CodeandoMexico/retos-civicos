@@ -4,7 +4,7 @@
   </header>
 
   <% if @organization.accepting_suscribers? %>
-    <%= form_tag add_suscriber_organization_path(@organization) do %>
+    <%= form_tag organization_org_suscribers_path(@organization) do %>
       <%= label_tag :email, t('.suscribe_label_field') %>
       <%= email_field_tag :email, nil, placeholder: t('.email_placeholder') %>
       <%= submit_tag t('.suscribe') %>
