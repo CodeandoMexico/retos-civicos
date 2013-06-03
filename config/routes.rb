@@ -12,6 +12,9 @@ Aquila::Application.routes.draw do
   end
 
   resources :organizations, only: [:show, :update, :edit] do
+    member do
+      post :add_suscriber
+    end
     resources :challenges, except: [:index] do
       member do
         get :timeline

@@ -67,6 +67,7 @@ es:
   flash:
     organizations:
       updated: "Perfil de organización actualizada correctamente."
+      welcome_new_suscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
 
   challenges:
     initial_activity:
@@ -208,6 +209,10 @@ es:
       bio-description: "140 caracteres sobre la organización"
       email-description: "Email de la persona con la que estaremos en contacto"
       avatar: "Imagen de perfil"
+    show:
+      email_placeholder: "Tu correo electrónico preferido"
+      suscribe_label_field: "Suscríbete con tu email y te mantendremos al tanto"
+      suscribe: "Suscribirme"
 
   members:
     form:
