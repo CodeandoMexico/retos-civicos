@@ -1,5 +1,5 @@
 es:
   ninsho:
     sessions:
-      signed_in: "Bienvenido a la plataforma"
-      signed_out: "Has salido satisfactoriamente"            
+      signed_in: "Bienvenido a Codeando México"
+      signed_out: "Nos vemos pronto!"
