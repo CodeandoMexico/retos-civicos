@@ -6,8 +6,8 @@ class Admins::OrganizationsController < Admins::BaseController
 
   def accept
     @organization = Organization.find(params[:id])
-    @organization.update_attribute :accredited, true
-    redirect_to admins_organizations_path
+    @organization.accredit!
+    redirect_to admins_organizations_path, notice: t('flash.admins.organizations.accredited')
   end
 
 end

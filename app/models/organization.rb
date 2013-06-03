@@ -11,6 +11,10 @@ class Organization < ActiveRecord::Base
     name || nickname || email
   end
 
+  def accredit!
+    self.update_attribute :accredited, true
+  end
+
   private
 
   def send_notify_admin
