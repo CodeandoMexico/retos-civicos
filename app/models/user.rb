@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :bio, length: { maximum: 255 }
   validates_format_of :email, with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/, on: :update
 
+
   # Additionals
   acts_as_voter
 
@@ -83,4 +84,8 @@ class User < ActiveRecord::Base
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     self.save validate: false
   end    
+
+  def just_created?
+    self.created_at == self.updated_at 
+  end
 end

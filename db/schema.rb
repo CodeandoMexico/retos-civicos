@@ -43,10 +43,13 @@ ActiveRecord::Schema.define(:version => 20130531210015) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "public_url"
+    t.string   "oauth_token"
   end
+
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"

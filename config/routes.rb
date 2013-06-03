@@ -10,6 +10,11 @@ Aquila::Application.routes.draw do
 	match 'sign_up' => 'home#sign_up'
   match '/auth/:provider/callback' => 'authentications#create'
   match "/signout" => "authentications#session_destroy", :as => :signout
+  ninsho_on :authentications
+
+	#match 'sign_up' => 'home#sign_up'
+  #match '/auth/:provider/callback' => 'authentications#create'
+  #match "/signout" => "authentications#session_destroy", :as => :signout
   match '/about' => 'home#about'
 
   namespace :open_data_zapopan, path: 'opendatazapopan' do
