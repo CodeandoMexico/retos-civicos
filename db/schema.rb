@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603031100) do
+ActiveRecord::Schema.define(:version => 20130603042440) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -113,9 +113,10 @@ ActiveRecord::Schema.define(:version => 20130603031100) do
   add_index "org_suscribers", ["organization_id"], :name => "index_org_suscribers_on_organization_id"
 
   create_table "organizations", :force => true do |t|
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "accredited", :default => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.boolean  "accredited",           :default => false
+    t.boolean  "accepting_suscribers", :default => false
   end
 
   create_table "skills", :force => true do |t|
