@@ -3,15 +3,15 @@
     <div class="container holder">
       <div class="what-badge"></div>
       <p>
-        <strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_path %></strong></p>
+        <strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_url(subdomain: false) %></strong></p>
     </div>
   </div>
   <div class="unit header-wrap">
     <div class="container holder">
-      <div class="logo"><%= link_to t('.layout.header'), root_path %></div>
+      <div class="logo"><%= link_to t('.layout.header'), root_url(subdomain: false) %></div>
       <nav>
         <ul class="main-menu">
-          <li><%= link_to t('challenges.index.header'), challenges_path %></li>
+          <li><%= link_to t('challenges.index.header'), challenges_url(subdomain: false) %></li>
           <li><%= link_to "Blog", "http://blog.codeandomexico.org/" %></li>
         </ul>
 
@@ -32,7 +32,7 @@
         <% else %>
           <ul class="login-menu">
             <li>
-              <%= link_to new_authentication_session_path do %>
+              <%= link_to new_authentication_session_url(subdomain: false) do %>
                 <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
               <% end %>  
             </li>

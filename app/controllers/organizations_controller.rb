@@ -1,7 +1,10 @@
 class OrganizationsController < ApplicationController
-  load_and_authorize_resource
+
+  before_filter :load_organization
+  authorize_resource
 
   def show
+    @challenges = @organization.challenges
   end
 
   def edit

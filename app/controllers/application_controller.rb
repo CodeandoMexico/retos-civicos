@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
   def save_previous
     store_location(request.referer) unless user_signed_in?
   end
+
+  def load_organization
+    @organization = Organization.find_by_subdomain!(request.subdomain)
+  end
 end
 
 

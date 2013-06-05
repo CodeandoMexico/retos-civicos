@@ -59,6 +59,9 @@ Aquila::Application.routes.draw do
   end
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
+
+  match '', to: 'organizations#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
+
   root :to => 'home#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
