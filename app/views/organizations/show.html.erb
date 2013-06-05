@@ -11,7 +11,7 @@
     <% end %>
   <% end %>
 
-  <%= content_tag 'h2', "Retos" unless @organizations.nil? %>
+  <%= content_tag 'h2', "Retos" unless @organization.challenges.blank? %>
   <section id="challenges_list" class="columns on-3 challenges_list gray">
     <%= render partial: 'challenges/challenge', collection: @organization.challenges %>
   </section>
