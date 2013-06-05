@@ -6,10 +6,16 @@ class Organization < ActiveRecord::Base
 
   acts_as_user
 
+  default_scope order('created_at ASC')
+
   #after_create :send_notify_admin
 
   def to_s
     name || nickname || email
+  end
+
+  def accredit!
+    self.update_attribute :accredited, true
   end
 
   private

@@ -65,6 +65,9 @@ es:
         header: "Algunos errores se encontraron al llenar la forma"
 
   flash:
+    admins:
+      organizations:
+        accredited: "Organización acreditada correctamente. Recibirán un correo de confirmación."
     organizations:
       updated: "Perfil de organización actualizada correctamente."
       welcome_new_suscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
