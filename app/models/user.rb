@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   # Additionals
   acts_as_voter
+  mount_uploader :avatar, UserAvatarUploader
 
   def self.create_with_omniauth(auth)
     user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
@@ -53,12 +54,10 @@ class User < ActiveRecord::Base
     self.skills = (self.skills + skills).uniq
   end
 
-  def avatar_url
+  def avatar_image_url
     if self.authentications.pluck(:provider).include? "twitter"
       twitter_auth = self.authentications.where(provider: 'twitter').first
       "http://api.twitter.com/1/users/profile_image?id=#{twitter_auth.uid}&size=bigger"
-    elsif self.avatar
-      self.avatar
     else
       Gravatar.new(self.email.to_s).image_url
     end
