@@ -7,5 +7,7 @@ LINKEDIN_SECRET = ENV['LINKEDIN_SECRET'] || env['linkedin']['secret']
 
 TWITTER_KEY = ENV['TWITTER_KEY'] || env['twitter']['key']
 TWITTER_SECRET = ENV['TWITTER_SECRET'] || env['twitter']['secret']
+TWITTER_ACCESS_KEY = ENV['TWITTER_ACCESS_KEY'] || env['twitter']['access_key']
+TWITTER_ACCESS_SECRET = ENV['TWITTER_ACCESS_SECRET'] || env['twitter']['access_secret']
 
 CKAN_API_KEY = ENV['CKAN_API_KEY'] || env['ckan']['key']

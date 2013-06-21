@@ -57,7 +57,11 @@ class User < ActiveRecord::Base
   def avatar_image_url
     if self.authentications.pluck(:provider).include? "twitter"
       twitter_auth = self.authentications.where(provider: 'twitter').first
-      "http://api.twitter.com/1/users/profile_image?id=#{twitter_auth.uid}&size=bigger"
+      begin
+        Twitter.user(self.nickname).profile_image_url.sub("_normal", "")
+      rescue 
+        Gravatar.new("generic@example.com").image_url
+      end
     else
       Gravatar.new(self.email.to_s).image_url
     end

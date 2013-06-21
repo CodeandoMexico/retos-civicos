@@ -10,6 +10,26 @@ development:
   twitter:
     key: 'xEEoh0lQLA9XlPrrGde3EA'
     secret: '8RrEl91CN9oLtmRv2UnuNT07eSTMQnr51Uw5ET2BU'
+    access_key: '47820923-j9O3yhB5WaBVJNO3srYPzo6FDLtVnyRTfpYOzZJeE'
+    access_secret: 'SXjyurM4PkYTeqYYJiN5b0RkPEJcdL4aSQk4qSV6xOI'
+
+  ckan:
+    key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
+
+staging:
+  github:
+    key: 'f845bbc0bfdcf65c8e0f'
+    secret: '304bac8771afd849d3f9fda7792c44d9eeb76b81'
+
+  linkedin:
+    key: 'cw5p55ar27nr'
+    secret: 'P2UBkMzymkOhLyBs'
+
+  twitter:
+    key: 'eKbgYNhN50gyZLcBStq6w'
+    secret: 'SmLVLCdqEyfcJsGFD48YLN39mXaGscLCVwLl3z8lQM'
+    access_key: '47820923-CVAocG4miqELaPh9r8AhVvBrXL5yNRDAIuoCfaZw'
+    consumer_secret: 'PJJenOSqg8n60JoWvzUCLfQxU2Umh1aPmpckmDaBjA'
 
   ckan:
     key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
@@ -26,6 +46,8 @@ production:
   twitter:
     key: 'FOYYB0xqai6qO1oaKsokA'
     secret: 'IueF3pZavUpLQtuCRrKQ6tKNJC46lpVRFKJMyk4NgM'
+    access_key: '47820923-pUDsBCaVwER2ZK1EdzmkM7ctgT9pLLCsmol7Rro'
+    consumer_secret: 'aICC8uO19iFsfLy45FtQTRIafVZSaUnKl6eQOwuc4'
 
   ckan:
     key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
