@@ -36,7 +36,11 @@ class ApplicationController < ActionController::Base
   end
 
   def load_organization
-    @organization = Organization.find_by_subdomain!(request.subdomain)
+    begin
+      @organization = Organization.find_by_subdomain!(request.subdomain)
+    rescue ActiveRecord::RecordNotFound
+      @organization = Organization.find(params[:id]) if params[:id]
+    end
   end
 end
 
