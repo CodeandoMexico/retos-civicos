@@ -6,7 +6,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update_attributes(params[:member])
-      redirect_to challenges_path, notice: t('flash.members.updated')
+      redirect_back_or challenges_path, t('flash.members.updated')
     else
       render :edit
     end
