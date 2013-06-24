@@ -64,4 +64,17 @@ Aquila::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  #Sendgrid
+  SENDGRID_CREDENTIAL = {
+    username: "kurenn",
+    password: "iri1kuxv",
+    domain: "codeandomexico.org"
+  }
+
+    #Exception Notification
+  config.middleware.use ExceptionNotifier,
+  sender_address: 'no-reply@codeandomexico.org',
+  exception_recipients: ['equipo@codeandomexico.org'],
+  ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
 end

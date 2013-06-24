@@ -36,4 +36,11 @@ Aquila::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.delivery_method = :letter_opener
+
+   #Sendgrid
+  SENDGRID_CREDENTIAL = {
+    username: "",
+    password: "",
+    domain: ""
+  }
 end
