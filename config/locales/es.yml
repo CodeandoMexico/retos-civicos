@@ -73,6 +73,8 @@ es:
       welcome_new_suscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
     members:
       updated: "Perfil actualizado correctamente."
+    users:
+      welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
 
   challenges:
     initial_activity:
@@ -202,6 +204,8 @@ es:
     form:
       bio-description: "140 caracteres sobre ti"
       submit: "Actualizar"
+    define_role:
+      complete_register: "Completar registro"
   organizations:
     edit:
       title: "Perfil de organización"

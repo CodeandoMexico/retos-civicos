@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_role?
+    not self.userable_type.blank?
+  end
+
   def collaborating_in?(challenge)
     self.userable.challenges.include?(challenge)
   end

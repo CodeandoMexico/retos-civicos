@@ -27,7 +27,9 @@
 
         <% if user_signed_in? %>
           <div class="current-user">
-            <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
+            <% if current_user.has_role? %>
+              <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
+            <% end %>
             <%= link_to t('layout.sign_out'), destroy_authentication_session_path, method: :delete %>
           </div>
         <% else %>
