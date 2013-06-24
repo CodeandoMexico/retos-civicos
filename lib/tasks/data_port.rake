@@ -61,7 +61,7 @@ namespace :users do
      begin
        num_attempts += 1
        twitter_auth = user.authentications.where(provider: 'twitter').first
-       image_url = Twitter.user(twitter_auth.uid).profile_image_url.sub("_normal", "") 
+       image_url = Twitter.user(twitter_auth.uid.to_i).profile_image_url.sub("_normal", "") 
        user.avatar = image_url
      rescue
        if num_attempts % 3 == 0
