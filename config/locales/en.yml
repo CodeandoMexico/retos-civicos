@@ -178,5 +178,16 @@ en:
     commented: "Thanks for your comments"
     failure: "Something went wrong, try again"
     voted: "Your vote has been registered"
+
   flash:
     unauthorized: "You need to login first"
+
+  members:
+    form:
+      submit: "Update"
+      email-description: "Your main email where you'll receive updates from the challenges you opt-in"
+      name: "Full name"
+      bio: "Bio"
+      bio-description: "A little about yourself in 140 characters"
+      avatar: "Profile picture"
+      avatar-description: "Your identity in Codeando Mexico"

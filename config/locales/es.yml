@@ -227,3 +227,9 @@ es:
   members:
     form:
       submit: "Actualizar"
+      email-description: "Tu correo principal en donde recibirás updates de los retos en los que participes"
+      name: "Nombre completo"
+      bio: "Bio"
+      bio-description: "Háblanos un poco sobre ti en 140 caracteres"
+      avatar: "Imagen perfil"
+      avatar-description: "Tu foto de identidad en Codeando México"
