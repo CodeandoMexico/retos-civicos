@@ -50,13 +50,14 @@ header#main-header {
     
     .container {
       position: relative;
+      padding-left: 5px;
       
       .what-badge {
         width: 30px;
         height: 35px;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 7px;
         background: transparent inline-image("what-badge.png") no-repeat 0 0;
       }
       
@@ -79,14 +80,14 @@ header#main-header {
     @include background-image(linear-gradient($white, $white 60%, $gray2 200%));
     
     .logo {
-      height: 32px;
+      height: 45px;
       width: 287px;
       display: block;
-      margin: 16px 30px 0 0;
+      margin: 10px 30px 0 0;
       float: left;
       
       a {
-        height: 32px;
+        height: 45px;
         width: 287px;
         display: block;
         @include hide-text;
@@ -135,7 +136,7 @@ header#main-header {
           border-right: solid 1px $gray1;
           
           a {
-            padding: 18px 20px;
+            padding: 22px 20px;
           }
           
         }
@@ -152,7 +153,7 @@ header#main-header {
           }
           
           a {
-            padding: 18px 0 18px 20px;
+            padding: 22px 0 18px 20px;
           }
           
         }
