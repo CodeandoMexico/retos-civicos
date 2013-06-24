@@ -60,7 +60,9 @@ Aquila::Application.routes.draw do
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
 
-  get '', to: 'organizations#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
+  get '', to: 'organizations#show',
+          # Constraints to skip www and heroku prefixes on route
+          constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' && r.subdomain != 'aquila-stag' }
 
   root :to => 'home#index'
 
