@@ -44,6 +44,10 @@ class Challenge < ActiveRecord::Base
 
 	STATUS = [:open, :working_on, :cancelled, :finished]
 
+  def to_param
+    "#{id}-#{title}".parameterize 
+  end
+
 	def cancel!
 		self.status = :cancelled
 		self.save
