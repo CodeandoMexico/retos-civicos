@@ -67,8 +67,8 @@ Aquila::Application.configure do
   
   #Sendgrid
   SENDGRID_CREDENTIAL = {
-    username: "kurenn",
-    password: "iri1kuxv",
+    username: "codeandomexico",
+    password: "codeandomexico2013",
     domain: "codeandomexico.org"
   }
 
