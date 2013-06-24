@@ -1,17 +1,19 @@
-<section id="index_challenges" class="index_challenges">
-  <header>
-    <h1><%= @organization.name %></h1>
-  </header>
+<header class="logo-org">
+  <%= image_tag @organization.avatar_url(:small) %>
+  <h1><%= @organization.name %></h1>
+</header>
 
-  <% if @organization.accepting_suscribers? %>
-    <%= form_tag organization_org_suscribers_path(@organization) do %>
-      <%= label_tag :email, t('.suscribe_label_field') %>
-      <%= email_field_tag :email, nil, placeholder: t('.email_placeholder') %>
-      <%= submit_tag t('.suscribe') %>
-    <% end %>
+<% if @organization.accepting_suscribers? %>
+  <%= form_tag organization_org_suscribers_path(@organization) do %>
+    <%= label_tag :email, t('.suscribe_label_field') %>
+    <%= email_field_tag :email, nil, placeholder: t('.email_placeholder') %>
+    <%= submit_tag t('.suscribe') %>
   <% end %>
+<% end %>
 
-  <%= content_tag 'h2', "Retos" unless @challenges.blank? %>
+<section id="index_challenges" class="index_challenges">
+
+  <%= content_tag 'h1', "Retos" unless @challenges.blank? %>
   <section id="challenges_list" class="columns on-3 challenges_list gray">
     <%= render partial: 'challenges/challenge', collection: @organization.challenges %>
   </section>
