@@ -1,4 +1,6 @@
-task data_port: ['orgs:create_orgs_and_link_to_challenges', 'users:create_members_and_migrate_users']
+task data_port: ['orgs:create_orgs_and_link_to_challenges', 
+                 'users:create_members_and_migrate_users',
+                 'users:import_twitter_avatars']
 
 desc "Create members for existing users and port their collaborations for Challenges"
 namespace :users do
@@ -46,5 +48,30 @@ namespace :orgs do
         c.save
       end
     end
+  end
+end
+
+desc 'Imports the twitter avatar url to the users model'
+namespace :users do
+  task import_twitter_avatars: :environment do
+    
+   puts 'Fetching users...'
+   User.from_twitter.each do |user|
+     num_attempts = 0
+     begin
+       num_attempts += 1
+       twitter_auth = user.authentications.where(provider: 'twitter').first
+       image_url = Twitter.user(twitter_auth.uid).profile_image_url.sub("_normal", "") 
+       user.avatar = image_url
+     rescue
+       if num_attempts % 3 == 0
+         sleep(15*60) # minutes * 60 seconds
+         retry
+       else
+         retry
+       end
+     end
+     user.save
+   end 
   end
 end
