@@ -3,9 +3,17 @@
 class UserAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
+  version :profile do
+    process :resize_to_fit => [200, 200]
+  end
+
+  version :small do
+    process :resize_to_fit => [80, 80]
+  end
+
+  version :thumb do
+    process :resize_to_fit => [60, 60]
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

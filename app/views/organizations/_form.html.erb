@@ -39,7 +39,10 @@
         <%= f.label :avatar, t(".avatar") %>
       </div>
       <div class="column right">
-        <%= image_tag @organization.avatar_url %>
+        <%= f.file_field :avatar %>
+        <div style="padding-top:20px;">
+          <%= image_tag @organization.avatar_url(:profile) %>
+        </div>
       </div>
     </div>
 

@@ -38,15 +38,14 @@
         <div class="column left">
           <%= f.label :avatar, t(".avatar") %>
         </div>
-        <div class="column right" style="padding-top:50px;">
-          <%= image_tag @member.avatar_url %>
+        <div class="column right">
+          <%= f.file_field :avatar %>
+          <div style="padding-top:20px;">
+            <%= image_tag @member.avatar_url(:profile) %>
+          </div>
         </div>
       </div>
 
-      <div class="unit row">
-        <div class="column left">
-        </div>
-      </div>
     </section>
   </section>
 

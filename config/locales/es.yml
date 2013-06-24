@@ -71,6 +71,8 @@ es:
     organizations:
       updated: "Perfil de organización actualizada correctamente."
       welcome_new_suscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
+    members:
+      updated: "Perfil actualizado correctamente."
 
   challenges:
     initial_activity:
