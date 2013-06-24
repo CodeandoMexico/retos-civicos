@@ -29,7 +29,7 @@ staging:
     key: 'eKbgYNhN50gyZLcBStq6w'
     secret: 'SmLVLCdqEyfcJsGFD48YLN39mXaGscLCVwLl3z8lQM'
     access_key: '47820923-CVAocG4miqELaPh9r8AhVvBrXL5yNRDAIuoCfaZw'
-    consumer_secret: 'PJJenOSqg8n60JoWvzUCLfQxU2Umh1aPmpckmDaBjA'
+    access_secret: 'PJJenOSqg8n60JoWvzUCLfQxU2Umh1aPmpckmDaBjA'
 
   ckan:
     key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
@@ -47,7 +47,7 @@ production:
     key: 'FOYYB0xqai6qO1oaKsokA'
     secret: 'IueF3pZavUpLQtuCRrKQ6tKNJC46lpVRFKJMyk4NgM'
     access_key: '47820923-pUDsBCaVwER2ZK1EdzmkM7ctgT9pLLCsmol7Rro'
-    consumer_secret: 'aICC8uO19iFsfLy45FtQTRIafVZSaUnKl6eQOwuc4'
+    access_secret: 'aICC8uO19iFsfLy45FtQTRIafVZSaUnKl6eQOwuc4'
 
   ckan:
     key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
