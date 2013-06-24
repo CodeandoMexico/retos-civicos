@@ -80,18 +80,21 @@ class User < ActiveRecord::Base
     else
       linkedin_auth= self.authentications.where(provider: 'linkedin').first
       # TODO: Refactor this to presenters
-      linkedin_auth.public_url.present? ? linkedin_auth.public_url : 'javascript:void(0)' 
+      linkedin_auth.public_url.present? ? linkedin_auth.public_url : 'javascript:void(0)' # Sorry @bhserna
     end
   end
 
   def create_role(params = {})
+    user_role = nil
     if params[:organization].present?
       self.userable = Organization.new
+      user_role =  self.userable
     else
       self.userable = Member.new
+      user_role = self.userable
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
-    self.save validate: false
+    user_role.save validate: false
   end    
 
   def just_created?
