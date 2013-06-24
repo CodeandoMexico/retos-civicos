@@ -54,3 +54,4 @@ gem 'ninsho', "~> 0.1.3"
 gem 'twitter'
 gem 'exception_notification'
 gem 'sendgrid'
+gem 'delayed_job_active_record'
