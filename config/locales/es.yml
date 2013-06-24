@@ -75,6 +75,8 @@ es:
       updated: "Perfil actualizado correctamente."
     users:
       welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
+    unauthorized:
+      message: "Necesitas iniciar sesión primero"
 
   challenges:
     initial_activity:
@@ -222,7 +224,6 @@ es:
       email_placeholder: "Tu correo electrónico preferido"
       suscribe_label_field: "Suscríbete con tu email y te mantendremos al tanto"
       suscribe: "Suscribirme"
-
   members:
     form:
       submit: "Actualizar"

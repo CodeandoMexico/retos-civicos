@@ -178,3 +178,5 @@ en:
     commented: "Thanks for your comments"
     failure: "Something went wrong, try again"
     voted: "Your vote has been registered"
+  flash:
+    unauthorized: "You need to login first"
