@@ -1,3 +1,5 @@
+require 'open-uri'
+
 task data_port: ['orgs:create_orgs_and_link_to_challenges', 
                  'users:create_members_and_migrate_users',
                  'users:import_twitter_avatars']
@@ -56,13 +58,20 @@ namespace :users do
   task import_twitter_avatars: :environment do
     
    puts 'Fetching users...'
-   User.from_twitter.each do |user|
+   User.from_twitter.readonly(false).each do |user|
      num_attempts = 0
      begin
        num_attempts += 1
        twitter_auth = user.authentications.where(provider: 'twitter').first
        image_url = Twitter.user(twitter_auth.uid.to_i).profile_image_url.sub("_normal", "") 
-       user.avatar = image_url
+       output_file = File.open("#{Rails.root}/tmp/#{user.id}.jpeg", "wb")
+       open(image_url) do |f|
+         output_file.puts f.read
+       end
+
+       user.avatar = output_file
+       user.save validate: false
+       File.delete(output_file)
      rescue
        if num_attempts % 3 == 0
          sleep(15*60) # minutes * 60 seconds
@@ -71,7 +80,6 @@ namespace :users do
          retry
        end
      end
-     user.save
    end 
   end
 end
