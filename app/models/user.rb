@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :bio, length: { maximum: 255 }
   validates_format_of :email, with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/, on: :update
 
+  scope :from_twitter, lambda { joins(:authentications).where("authentications.provider = ?", "twitter") }
 
   # Additionals
   acts_as_voter
@@ -78,7 +79,8 @@ class User < ActiveRecord::Base
       "http://github.com/#{self.nickname}"
     else
       linkedin_auth= self.authentications.where(provider: 'linkedin').first
-      linkedin_auth.public_url.present? ? linkedin_auth.public_url : ''
+      # TODO: Refactor this to presenters
+      linkedin_auth.public_url.present? ? linkedin_auth.public_url : 'javascript:void(0)' 
     end
   end
 
