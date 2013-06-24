@@ -52,3 +52,5 @@ gem 'copycopter_client', '~> 2.0.1'
 gem 'dynamic_form'
 gem 'ninsho', "~> 0.1.3"
 gem 'twitter'
+gem 'exception_notification'
+gem 'sendgrid'
