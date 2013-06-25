@@ -12,7 +12,7 @@
         <% if user_signed_in? and current_user.collaborating_in?(@challenge) %>
           <%= form_for [@challenge, Comment.new] do |f| %>
             <div class="column left info">
-              <%= image_tag current_user.avatar_url %>
+              <%= image_tag current_user.image_url(:thumb) %>
               <span class="name"><%= current_user.to_s %></span>
               <time><%= Time.now.strftime("%B %e, %Y") %></time>
             <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
@@ -31,7 +31,7 @@
       <div class="columns on-2 cbox">
         <div class="column fixed left info">
           <%= link_to comment.user.profile_url, target: '_blank' do  %>
-            <%= image_tag comment.user.avatar_url %>
+            <%= image_tag comment.user.image_url(:thumb) %>
           <% end %>
           <span class="name"><%= link_to comment.user.to_s, comment.user.profile_url, target: '_blank' %></span>
           <time><%= comment.created_at.strftime("%B %e, %Y") %></time>

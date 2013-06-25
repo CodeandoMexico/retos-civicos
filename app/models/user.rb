@@ -65,17 +65,8 @@ class User < ActiveRecord::Base
     self.skills = (self.skills + skills).uniq
   end
 
-  def avatar_image_url
-    if self.authentications.pluck(:provider).include? "twitter"
-      twitter_auth = self.authentications.where(provider: 'twitter').first
-      begin
-        Twitter.user(self.nickname).profile_image_url.sub("_normal", "")
-      rescue 
-        Gravatar.new("generic@example.com").image_url
-      end
-    else
-      Gravatar.new(self.email.to_s).image_url
-    end
+  def image_url(version = nil)
+    self.avatar_url(version) or Gravatar.new(self.email.to_s).image_url
   end
 
   def profile_url

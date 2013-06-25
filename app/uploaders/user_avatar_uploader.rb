@@ -29,9 +29,4 @@ class UserAvatarUploader < CarrierWave::Uploader::Base
     "uploads/user_avatar/#{model.id}"
   end
 
-  def default_url
-    # If there's no uploaded avatar, it uses the one from its social network profile
-    "#{model.avatar_image_url}"
-  end
-
 end
