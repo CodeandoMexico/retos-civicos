@@ -76,7 +76,8 @@ namespace :users do
   end
 
   task import_linkedin_avatars: :environment do
-    users = User.joins(:authentications).where("authentications.provider = ? AND users.avatar IS NOT NULL", 'linkedin')
+    users = User.joins(:authentications)
+    users = users.where("authentications.provider = ? AND users.avatar IS NOT NULL", 'linkedin').readonly(false)
 
     users.each do |user|
       image = user[:avatar]
