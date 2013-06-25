@@ -56,30 +56,24 @@ end
 desc 'Imports the twitter avatar url to the users model'
 namespace :users do
   task import_twitter_avatars: :environment do
-    
+
    puts 'Fetching users...'
    User.from_twitter.readonly(false).each do |user|
      num_attempts = 0
      begin
        num_attempts += 1
-       twitter_auth = user.authentications.where(provider: 'twitter').first
-       image_url = Twitter.user(twitter_auth.uid.to_i).profile_image_url.sub("_normal", "") 
-       output_file = File.open("#{Rails.root}/tmp/#{user.id}.jpeg", "wb")
-       open(image_url) do |f|
-         output_file.puts f.read
-       end
-
-       user.avatar = output_file
-       user.save validate: false
-       File.delete(output_file)
+       TwitterAvatarFetcher.new(user.id).fetch
      rescue
        if num_attempts % 3 == 0
+         puts 'Going to sleep given Too Many requests...'
          sleep(15*60) # minutes * 60 seconds
+         puts 'Working again...'
          retry
        else
          retry
        end
      end
    end 
+   puts "Done..."
   end
 end

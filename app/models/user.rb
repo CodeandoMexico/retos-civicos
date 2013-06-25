@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   acts_as_voter
   mount_uploader :avatar, UserAvatarUploader
 
+  after_create :fetch_twitter_avatar, if: :has_twitter_auth?
+
   def self.create_with_omniauth(auth)
     user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
     user.avatar = auth.info.image if auth.provider == "linkedin"
@@ -49,6 +51,10 @@ class User < ActiveRecord::Base
 
   def has_role?
     not self.userable_type.blank?
+  end
+
+  def has_twitter_auth?
+    not self.authentications.where(provider: 'twitter').blank?
   end
 
   def collaborating_in?(challenge)
@@ -99,5 +105,11 @@ class User < ActiveRecord::Base
 
   def just_created?
     self.created_at == self.updated_at 
+  end
+
+  private
+
+  def fetch_twitter_avatar
+    TwitterAvatarFetcher.new(self.id).delay.fetch
   end
 end
