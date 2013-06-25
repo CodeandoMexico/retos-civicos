@@ -91,7 +91,8 @@ class User < ActiveRecord::Base
       user_role = self.userable
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
-    user_role.save validate: false
+    user_role.user = self
+    user_role.user.save validate: false
   end    
 
   def just_created?
