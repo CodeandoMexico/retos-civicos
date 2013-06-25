@@ -58,22 +58,21 @@ namespace :users do
   task import_twitter_avatars: :environment do
 
    puts 'Fetching users...'
-   User.from_twitter.readonly(false).each do |user|
-     num_attempts = 0
+   users = User.from_twitter.readonly(false)
+   progress_bar = ProgressBar.create(format: '%a %B %c/%C Avatars fetched', starting_at: 0, total: users.count)
+
+   users.each do |user|
      begin
-       num_attempts += 1
        TwitterAvatarFetcher.new(user.id).fetch
+       progress_bar.progress += 1
      rescue
-       if num_attempts % 3 == 0
-         puts 'Going to sleep given Too Many requests...'
-         sleep(15*60) # minutes * 60 seconds
-         puts 'Working again...'
-         retry
-       else
-         retry
-       end
+       puts 'Going to sleep given Too Many requests...'
+       sleep(15*60) # minutes * 60 seconds
+       puts 'Working again...'
+       retry
      end
-   end 
+   end
    puts "Done..."
   end
+
 end
