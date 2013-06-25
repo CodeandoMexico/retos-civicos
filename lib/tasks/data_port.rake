@@ -75,4 +75,17 @@ namespace :users do
    puts "Done..."
   end
 
+  task import_linkedin_avatars: :environment do
+    users = User.joins(:authentications).where("authentications.provider = ? AND users.avatar IS NOT NULL", 'linkedin')
+
+    users.each do |user|
+      image = user[:avatar]
+      user.remote_avatar_url = image
+      user.save
+    end
+
+  end
+
 end
+
+
