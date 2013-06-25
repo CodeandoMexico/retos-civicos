@@ -45,7 +45,6 @@ GEM
       rinku (~> 1.5.0)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
-    bcrypt-ruby (3.0.1)
     better_errors (0.5.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -88,11 +87,6 @@ GEM
     delayed_job_active_record (0.4.4)
       activerecord (>= 2.1.0, < 4)
       delayed_job (~> 3.0)
-    devise (2.2.4)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (~> 3.1)
-      warden (~> 1.2.1)
     dynamic_form (1.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -265,8 +259,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    warden (1.2.1)
-      rack (>= 1.0)
     zurb-foundation (3.2.5)
       compass (>= 0.12.2)
       modular-scale (= 1.0.6)
@@ -290,7 +282,6 @@ DEPENDENCIES
   copycopter_client (~> 2.0.1)
   debugger
   delayed_job_active_record
-  devise
   dynamic_form
   exception_notification
   fog

@@ -10,7 +10,7 @@ gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
-gem 'devise'
+# gem 'devise'
 gem 'cancan'
 gem 'github_api'
 gem 'gravatar-ultimate'

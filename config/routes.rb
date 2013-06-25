@@ -5,12 +5,10 @@ Aquila::Application.routes.draw do
       member { put :accept }
     end
   end
-  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  # devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
-	match 'sign_up' => 'home#sign_up'
-  match '/auth/:provider/callback' => 'authentications#create'
-  match "/signout" => "authentications#session_destroy", :as => :signout
   ninsho_on :authentications
+	match 'sign_up' => 'home#sign_up'
 
 	#match 'sign_up' => 'home#sign_up'
   #match '/auth/:provider/callback' => 'authentications#create'
