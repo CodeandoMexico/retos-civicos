@@ -82,17 +82,13 @@ class User < ActiveRecord::Base
   end
 
   def create_role(params = {})
-    user_role = nil
     if params[:organization].present?
       self.userable = Organization.new
-      user_role =  self.userable
     else
       self.userable = Member.new
-      user_role = self.userable
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
-    user_role.user = self
-    user_role.user.save validate: false
+    self.save validate: false
   end    
 
   def just_created?
