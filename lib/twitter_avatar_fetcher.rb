@@ -14,14 +14,9 @@ class TwitterAvatarFetcher
 
   def fetch
     image_url = Twitter.user(auth.uid.to_i).profile_image_url.sub("_normal", "")
-    output_file = File.open("#{Rails.root}/tmp/#{user.id}.jpeg", "wb")
-    open(image_url) do |f|
-      output_file.puts f.read
-    end
 
-    user.avatar = output_file
+    user.remote_avatar_url = image_url
     user.save validate: false
-    File.delete(output_file)
     nil
   end
 
