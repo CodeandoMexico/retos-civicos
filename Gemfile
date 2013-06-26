@@ -60,3 +60,4 @@ gem 'delayed_job_active_record'
 
 # Console tools
 gem 'ruby-progressbar'
+gem 'newrelic_rpm'
