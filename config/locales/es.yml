@@ -135,6 +135,7 @@ es:
       mychallenge: "Mi Reto"
       like: "Me gusta"
     collaborating: "Te has unido al reto"
+    collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
   home:
     index: 
       pitch: "Organizaciones, Geeks, y Open Data las 24 horas del día."

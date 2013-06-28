@@ -3,7 +3,11 @@ class CollaborationsController < ApplicationController
 
   def create
     @challenge = Challenge.find(params[:challenge_id])
-    current_member.collaborations.create(challenge: @challenge)
-    redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('challenges.collaborating')
+    @collaboration = current_member.collaborations.build(challenge: @challenge)
+    if @collaboration.save
+      redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('challenges.collaborating')
+    else
+      redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('challenges.collaborating_error')
+    end
   end
 end

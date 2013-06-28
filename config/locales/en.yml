@@ -56,6 +56,8 @@ en:
         reply: "Reply"
         mychallenge: "My challenge"
         like: "Like"
+      collaborating: "Te has unido al reto"
+      collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
   challenges:
     initial_activity:
       title: 'Challenge creation'
