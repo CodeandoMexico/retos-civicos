@@ -62,5 +62,7 @@ module Aquila
 
     # Prevent initializing the app during assets precompilation
     config.assets.initialize_on_precompile = false
+
+    config.middleware.use "RedirectToCodeandoMexico" if Rails.env.production?
   end
 end
