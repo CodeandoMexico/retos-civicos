@@ -57,6 +57,7 @@ gem 'twitter'
 gem 'exception_notification'
 gem 'sendgrid'
 gem 'delayed_job_active_record'
+gem 'redcarpet'
 
 # Console tools
 gem 'ruby-progressbar'

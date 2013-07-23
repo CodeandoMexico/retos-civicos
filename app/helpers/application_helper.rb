@@ -22,6 +22,19 @@ module ApplicationHelper
     session[:return_to] = url
   end
 
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+    options = {
+      underline: true,
+      space_after_headers: true,
+      highlight: true,
+      lax_spacing: true,
+      autolink: true,
+      no_intra_emphasis: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
+
   private
 
   def clear_return_to
