@@ -1,0 +1,4 @@
+$('#challenge_comments_container').prepend('<%= j render @comment %>');
+$('.comments a.comment')[0].click(); // Had to add the [0] to get the anchor element returned by the jquery array
+$('#comment_body').val('');
+
