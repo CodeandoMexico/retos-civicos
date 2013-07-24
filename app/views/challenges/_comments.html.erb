@@ -41,16 +41,16 @@
           <div class="unit box com">
             <div class="votes">
               <% if can? :like, comment %>
-                <%= link_to like_challenge_comment_path(@challenge, comment, like: true), method: :post do %>
+                <%= link_to like_challenge_comment_path(@challenge, comment, like: true), method: :post, remote: true do %>
                   <span class="icon-sort-up"></span>
                 <% end %>
-                <span class="count"><%= comment.votes_counter %></span>
-                <%= link_to like_challenge_comment_path(@challenge, comment), method: :post  do %>
+                <span class="count" id="comment_<%= comment.id %>"><%= comment.votes_counter %></span>
+                <%= link_to like_challenge_comment_path(@challenge, comment), method: :post, remote: true  do %>
                   <span class="icon-sort-down"></span>
                 <% end %>
               <% else %>
                 <span class="icon-sort-up"></span>
-                <span class="count"><%= comment.votes_counter %></span>
+                <span class="count" id="comment_<%= comment.id %>"><%= comment.votes_counter %></span>
                 <span class="icon-sort-down"></span>
               <% end %>
             </div>

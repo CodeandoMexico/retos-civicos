@@ -48,7 +48,10 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     current_user.vote_for(@challenge)
     @challenge.update_likes_counter
-    redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
+    respond_to do |format|
+      format.js
+      format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted') }
+    end
   end
 
   def timeline

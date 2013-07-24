@@ -20,7 +20,10 @@ class CommentsController < ApplicationController
     	current_user.vote_against(@comment)
     end
     @comment.update_votes_counter
-    redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
+    respond_to do |format|
+      format.js
+      format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted') }
+    end
 	end
 
 	def reply

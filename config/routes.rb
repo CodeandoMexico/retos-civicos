@@ -33,6 +33,7 @@ Aquila::Application.routes.draw do
   resources :authentications
 
 	resources :challenges, only: [:index, :show] do
+    resources :votes, only: [:create]
     resources :collaborations, only: [:create]
 		resources :comments do
 			member do

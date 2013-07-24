@@ -19,7 +19,7 @@ module ChallengesHelper
         "<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
       end
 		elsif user_signed_in?
-			link_to like_challenge_path(challenge), method: :post, class: "like" do
+			link_to like_challenge_path(challenge), method: :post, class: "like", remote: true do
         "<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
       end
 		else
