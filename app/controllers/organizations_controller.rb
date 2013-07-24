@@ -4,7 +4,12 @@ class OrganizationsController < ApplicationController
   authorize_resource
 
   def show
-    @challenges = @organization.challenges
+    if @organization.has_only_one_challenge?
+      @challenge = @organization.challenges.first
+      redirect_to @challenge
+    else
+      @challenges = @organization.challenges
+    end
   end
 
   def edit

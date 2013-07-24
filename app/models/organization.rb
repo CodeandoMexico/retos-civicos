@@ -18,6 +18,10 @@ class Organization < ActiveRecord::Base
     self.update_attribute :accredited, true
   end
 
+  def has_only_one_challenge?
+    self.challenges.count == 1
+  end
+
   private
 
   def send_notify_admin
