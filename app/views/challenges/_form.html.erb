@@ -110,6 +110,33 @@
 		</section>
 	</section>
 
+	<section class="form_resources">
+		<header>
+	    <h2><%= t(".welcome_mail") %></h2>
+	  </header>
+		<section>
+      <div class="unit row">
+        <div class="column left">
+          <%= label_tag 'challenge[welcome_mail][subject]', t(".welcome_mail_subject")  %>
+          <p><%= t(".welcome_mail_subject-description") %></p>
+        </div>
+        <div class="column right">
+          <%= text_field_tag 'challenge[welcome_mail][subject]', @challenge.welcome_mail[:subject] %>
+        </div>
+      </div>
+			<div class="unit row">
+				<div class="column left">
+					<%= label_tag 'challenge[welcome_mail][body]', t(".welcome_mail_body") %>
+					<p><%= t(".welcome_mail_body-description") %></p>
+				</div>
+				<div class="column right">
+					<%= text_area_tag 'challenge[welcome_mail][body]', @challenge.welcome_mail[:body], rows: 5 %>
+				</div>
+			</div>
+
+		</section>
+	</section>
+
 	<% if controller.action_name == "edit" %>
 	<section id="form_activities" class="form_activities">
 		<header>

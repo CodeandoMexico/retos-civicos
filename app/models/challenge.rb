@@ -1,10 +1,12 @@
 #encoding: utf-8
 class Challenge < ActiveRecord::Base
 
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
+  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links, :welcome_mail,
                   :first_spec, :second_spec, :third_spec, :pitch, :avatar, :about, :activities_attributes, :dataset_file
 
   attr_accessor :dataset_file
+
+  serialize :welcome_mail
 
   mount_uploader :avatar, ChallengeAvatarUploader
 

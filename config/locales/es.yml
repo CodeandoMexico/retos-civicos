@@ -116,6 +116,11 @@ es:
       description-description: "Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema."
       comments: "Comentarios y Notas"
       resources: "Recursos y Datos"
+      welcome_mail: "Correo de bienvenida"
+      welcome_mail_subject: "Título del correo"
+      welcome_mail_subject-description: "Los participantes recibirán este correo al inscribirse al reto. Escribe algo breve para llamar su atención"
+      welcome_mail_body: "Cuerpo del mensaje"
+      welcome_mail_body-description: "Puedes enviarles las instrucciones y siguientes pasos del reto. Toda la información valiosa."
     show:
       created-by: "Creado por:"
       supportus: "Ayúdanos a cumplir nuestro objetivo"
