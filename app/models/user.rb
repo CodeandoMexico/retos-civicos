@@ -70,14 +70,14 @@ class User < ActiveRecord::Base
   end
 
   def profile_url
-    if self.authentications.pluck(:provider).include? "twitter" 
+    if self.authentications.map(&:provider).include? "twitter" 
       "http://twitter.com/#{self.nickname}"
-    elsif self.authentications.pluck(:provider).include? "github"
+    elsif self.authentications.map(&:provider).include? "github"
       "http://github.com/#{self.nickname}"
     else
-      linkedin_auth= self.authentications.where(provider: 'linkedin').first
+      linkedin_public_url = self.authentications.map { |auth| auth.public_url }.first
       # TODO: Refactor this to presenters
-      linkedin_auth.public_url.present? ? linkedin_auth.public_url : 'javascript:void(0)' # Sorry @bhserna
+      linkedin_public_url.blank? ? 'javascript:void(0)' : linkedin_public_url # Sorry @bhserna
     end
   end
 
