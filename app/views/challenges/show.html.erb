@@ -44,13 +44,13 @@
       <h3><%= t("challenges.form.points") %></h3>
       <ul class="points">
         <% if !@challenge.first_spec.blank? %>
-          <li><%= @challenge.first_spec %></li>
+          <li><%= markdown @challenge.first_spec %></li>
         <% end %>
         <% if !@challenge.second_spec.blank? %>
-          <li><%= @challenge.second_spec %></li>
+          <li><%= markdown @challenge.second_spec %></li>
         <% end %>
         <% if !@challenge.third_spec.blank? %>
-          <li><%= @challenge.third_spec %></li>
+          <li><%= markdown @challenge.third_spec %></li>
         <% end %>
       </ul>
   </div>
