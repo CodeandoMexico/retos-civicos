@@ -31,6 +31,7 @@ class Challenge < ActiveRecord::Base
 	acts_as_voteable
 	acts_as_commentable
 
+  default_scope { order('created_at DESC') }
   scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
 
   # Embeddables
