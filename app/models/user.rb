@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
 
   has_many :created_challenges, foreign_key: "creator_id", class_name: "Challenge"
-  has_many :collaborations, foreign_key: 'user_id'
+  has_many :collaborations, foreign_key: 'user_id', dependent: :destroy
   has_many :collaborating_in, through: :collaborations, class_name: "Challenge", source: :challenge
   has_many :userskills
   has_many :skills, through: :userskills
@@ -57,8 +57,8 @@ class User < ActiveRecord::Base
     not self.authentications.where(provider: 'twitter').blank?
   end
 
-  def collaborating_in?(challenge_id)
-    self.userable.challenge_ids.include? challenge_id
+  def collaborating_in?(challenge)
+    self.userable.challenge_ids.include? challenge.id
   end
 
   def update_skills(skills = [])
