@@ -10,7 +10,7 @@ class Collaboration < ActiveRecord::Base
   after_create :send_challenge_welcome_email
 
   def send_challenge_welcome_email
-    ChallengeMailer.delay.welcome(self)
+    ChallengeMailer.delay.welcome(self) if not self.member.email.blank?
   end
 
 end
