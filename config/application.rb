@@ -64,5 +64,11 @@ module Aquila
     config.assets.initialize_on_precompile = false
 
     config.middleware.use "RedirectToCodeandoMexico" if Rails.env.production?
+
+    # Strip the www to prevent crash with subdomains
+    if Rails.env.production? or Rails.env.staging?
+      config.middleware.insert_before Rack::Lock, Rack::NoWWW
+    end
+
   end
 end
