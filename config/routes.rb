@@ -7,12 +7,10 @@ Aquila::Application.routes.draw do
   end
   # devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
-  ninsho_on :authentications
 	match 'sign_up' => 'home#sign_up'
+  match '/auth/:provider/callback' => 'authentications#create'
+  match "/signout" => "authentications#session_destroy", :as => :sign_out
 
-	#match 'sign_up' => 'home#sign_up'
-  #match '/auth/:provider/callback' => 'authentications#create'
-  #match "/signout" => "authentications#session_destroy", :as => :signout
   match '/about' => 'home#about'
 
   namespace :open_data_zapopan, path: 'opendatazapopan' do

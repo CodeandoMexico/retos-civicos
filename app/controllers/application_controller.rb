@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
+  helper_method :current_user
+
   rescue_from CanCan::AccessDenied do |exception|
     store_location(self.request.env["HTTP_REFERER"])
-    redirect_to new_authentication_session_path, :alert => t('flash.unauthorized.message')
+    redirect_to sign_up_path, :alert => t('flash.unauthorized.message')
   end
 
   def set_locale
@@ -22,7 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
 
   def authorize_user!
     redirect_to sign_up_path, flash: { error: t('app_controller.login_required') } unless user_signed_in?

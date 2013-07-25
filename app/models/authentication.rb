@@ -1,7 +1,8 @@
 class Authentication < ActiveRecord::Base
-  attr_accessible :provider, :uid, :oauth_token, :public_url
 
-  belongs_to_ninsho :user, hold_attributes: [:name, :nickname], autosave: true
+  attr_accessible :provider, :uid, :user_id, :public_url
+
+  belongs_to :user
 
   def self.create_with_omniauth(omniauth)
     authentication = Authentication.new(provider: omniauth['provider'], uid: omniauth['uid'])

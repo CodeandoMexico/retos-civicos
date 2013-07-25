@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def user_signed_in?
+    current_user.present?
+  end
+
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
