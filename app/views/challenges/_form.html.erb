@@ -117,20 +117,20 @@
 		<section>
       <div class="unit row">
         <div class="column left">
-          <%= label_tag 'challenge[welcome_mail][subject]', t(".welcome_mail_subject")  %>
+          <%= f.label :subject, t(".welcome_mail_subject")  %>
           <p><%= t(".welcome_mail_subject-description") %></p>
         </div>
         <div class="column right">
-          <%= text_field_tag 'challenge[welcome_mail][subject]', @challenge.welcome_mail[:subject] %>
+          <%= f.text_field :subject %>
         </div>
       </div>
 			<div class="unit row">
 				<div class="column left">
-					<%= label_tag 'challenge[welcome_mail][body]', t(".welcome_mail_body") %>
+					<%= f.label :body, t(".welcome_mail_body") %>
 					<p><%= t(".welcome_mail_body-description") %></p>
 				</div>
 				<div class="column right">
-					<%= text_area_tag 'challenge[welcome_mail][body]', @challenge.welcome_mail[:body], rows: 5 %>
+					<%= f.text_area :body, rows: 5 %>
 				</div>
 			</div>
 
