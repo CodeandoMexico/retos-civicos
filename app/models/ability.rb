@@ -27,7 +27,10 @@ class Ability
         organization.id == user.userable.id
       end
 
-      can [:create, :reply], Comment 
+      can [:create, :reply], Comment
+      can [:create_or_reply_challenge_comment], Challenge do |challenge|
+        challenge.organization_id == user.userable.id
+      end
       can [:like], Challenge
     end
 
