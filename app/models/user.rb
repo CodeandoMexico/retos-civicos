@@ -57,8 +57,8 @@ class User < ActiveRecord::Base
     not self.authentications.where(provider: 'twitter').blank?
   end
 
-  def collaborating_in?(challenge)
-    self.userable.challenges.include?(challenge)
+  def collaborating_in?(challenge_id)
+    self.userable.challenge_ids.include? challenge_id
   end
 
   def update_skills(skills = [])

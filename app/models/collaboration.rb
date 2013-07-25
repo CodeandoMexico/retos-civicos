@@ -7,4 +7,10 @@ class Collaboration < ActiveRecord::Base
 
   validates :member_id, uniqueness: { scope: :challenge_id }
 
+  after_create :send_challenge_welcome_email
+
+  def send_challenge_welcome_email
+    ChallengeMailer.delay.welcome(self)
+  end
+
 end

@@ -30,7 +30,7 @@ module ChallengesHelper
   def collaborate_section(challenge)
   	if user_signed_in? and current_user.userable == challenge.organization
       link_to t(".edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
-		elsif user_signed_in? and current_user.collaborating_in?(challenge)
+		elsif user_signed_in? and current_user.collaborating_in?(challenge.id)
 			link_to t(".collaborating"), "", class: "collaborate"
 		elsif user_signed_in?
       link_to t(".collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
