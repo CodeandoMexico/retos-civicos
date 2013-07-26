@@ -15,15 +15,13 @@ class Authentication < ActiveRecord::Base
 
     case auth_hash["provider"]
     when 'linkedin'
-      skills = get_skills_from_linkedin(auth_hash["extra"]["raw_info"])
+      skills = self.get_skills_from_linkedin(auth_hash["extra"]["raw_info"])
     when 'github'
-      skills = get_skills_from_github(auth_hash)
+      skills = self.get_skills_from_github(auth_hash)
     end
 
     self.user.update_skills(skills)
   end
-
-  private
 
   def get_skills_from_linkedin(raw_info)
     skills = []
