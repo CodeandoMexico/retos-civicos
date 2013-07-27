@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def collaborating_in?(challenge)
-    self.userable.challenge_ids.include? challenge.id
+    self.userable.challenge_ids.include?(challenge.id) unless self.userable_id.nil?
   end
 
   def update_skills(skills = [])
