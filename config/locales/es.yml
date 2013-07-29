@@ -205,6 +205,7 @@ es:
     failure: "Acceso no autorizado, intenta de nuevo"
     last_step: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
     welcome_back: "Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!"
+    confirm_email: "Confirma tu correo antes de iniciar tu participación"
   comments:
     commented: "Gracias por tus comentarios"
     failure: "Intenta de nuevo"

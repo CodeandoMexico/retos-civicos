@@ -8,22 +8,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in user
       redirect_after_sign_in_with_oauth_for(user)
     else
-      session["devise.github_data"] = request.env["omniauth.auth"]
+      session["devise.omniauth_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
   end
 
-   alias_method :github, :all
-   alias_method :linkedin, :all
+  alias_method :github, :all
+  alias_method :linkedin, :all
+  alias_method :twitter, :all
 
-   private
+  private
 
-   def redirect_after_sign_in_with_oauth_for(user)
-     if user.just_created?
-       redirect_to edit_current_user_path(user.userable), notice: t('omniauth_controller.last_step')
-     else
-       redirect_back_or(challenges_path, t('omniauth_controller.welcome_back', provider: @auth.provider.capitalize))
-     end
-   end
+  def redirect_after_sign_in_with_oauth_for(user)
+    if user.just_created?
+      redirect_to edit_current_user_path(user.userable), notice: t('omniauth_controller.last_step')
+    else
+      if user.email.blank?
+        redirect_to edit_current_user_path(user.userable), notice: t('omniauth_controller.confirm_email')
+      else
+        redirect_back_or(challenges_path, t('omniauth_controller.welcome_back', provider: @auth.provider.capitalize))
+      end
+    end
+  end
 
 end
