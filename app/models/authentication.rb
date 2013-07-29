@@ -4,13 +4,6 @@ class Authentication < ActiveRecord::Base
 
   belongs_to :user
 
-  def self.create_with_omniauth(omniauth, user)
-    authentication = Authentication.new(provider: omniauth['provider'], uid: omniauth['uid'])
-    authentication.apply_extra_info_from_omniauth(omniauth)
-    authentication.save
-  end
-
-
   def self.find_for_provider_oauth(omniauth, signed_in_resource = nil)
     send("find_for_#{omniauth.provider}_oauth", omniauth, signed_in_resource) 
   end
@@ -40,7 +33,6 @@ class Authentication < ActiveRecord::Base
 
   def self.find_for_linkedin_oauth(omniauth, signed_in_resource = nil)
     auth = self.where(provider: omniauth.provider, uid: omniauth.uid).first
-    debugger
     unless auth.present?
       if signed_in_resource
         # If there's a user signed in it builds a new authentication
@@ -67,20 +59,5 @@ class Authentication < ActiveRecord::Base
     user.save
     auth
   end
-
-
-  def apply_extra_info_from_omniauth(auth_hash)
-    skills = []
-
-    case auth_hash["provider"]
-    when 'linkedin'
-      skills = self.get_skills_from_linkedin(auth_hash["extra"]["raw_info"])
-    when 'github'
-      skills = self.get_skills_from_github(auth_hash)
-    end
-
-    self.user.update_skills(skills)
-  end
-
 
 end
