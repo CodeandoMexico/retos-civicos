@@ -1,16 +1,14 @@
 Aquila::Application.routes.draw do
 
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
   namespace :admins do
     resources :organizations, only: [:index] do
       member { put :accept }
     end
   end
-  # devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
-	match 'sign_up' => 'home#sign_up'
-  match '/auth/:provider/callback' => 'authentications#create'
-  match "/signout" => "authentications#session_destroy", :as => :sign_out
-
+	match 'signup' => 'home#sign_up'
   match '/about' => 'home#about'
 
   namespace :open_data_zapopan, path: 'opendatazapopan' do

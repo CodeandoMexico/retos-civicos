@@ -196,12 +196,15 @@ es:
     with_github: "Inicia con Github"
     with_twitter: "Inicia con Twitter"
     with_linkedin: "Inicia con LinkedIn"
+    with_email: "Inicia con Email"
   app_controller:
     login_required: "Credenciales necesarias para iniciar"
-  auth_controller:
+
+  omniauth_controller:
     new_auth: "Nueva autenticación creada"
     failure: "Acceso no autorizado, intenta de nuevo"
-    define_role: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
+    last_step: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
+    welcome_back: "Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!"
   comments:
     commented: "Gracias por tus comentarios"
     failure: "Intenta de nuevo"

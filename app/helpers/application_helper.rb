@@ -1,13 +1,5 @@
 module ApplicationHelper
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def user_signed_in?
-    current_user.present?
-  end
-
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
@@ -16,19 +8,10 @@ module ApplicationHelper
     end
   end
 
-
   def edit_current_user_path(user, new_user = nil)
     send("edit_#{user.class.name.downcase}_path", user, new_user) 
   end
 
-  def redirect_back_or(default, notice)
-    redirect_to((session[:return_to] || default), notice: notice)
-    clear_return_to
-  end
-
-  def store_location(url=request.fullpath)
-    session[:return_to] = url
-  end
 
   def markdown(text)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
@@ -43,9 +26,4 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
-  private
-
-  def clear_return_to
-    session.delete(:return_to)
-  end
 end

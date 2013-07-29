@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
 
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :validatable
+  devise :omniauthable, omniauth_providers: [:github, :twitter, :linkedin]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
   ROLES = ["member", "organization"]
 
   attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role

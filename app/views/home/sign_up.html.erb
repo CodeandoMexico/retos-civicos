@@ -1,19 +1,18 @@
 <section id="main-wrap">
   <div class="unit login-wrap">
     <div class="container holder">
-      
       <section class="login-box">
         <header>
           <h1>Sign up / Log in</h1>
         </header>
         <div class="login-content">
           <p><%= I18n.t("signup.choose_provider") %></p>
-          <p><%= link_to "/auth/github", :class => "github" do %><i class="icon-github"></i> <%= I18n.t("signup.with_github") %><% end %></p>
-          <p><%= link_to "/auth/twitter", :class => "twitter" do %><i class="icon-twitter"></i> <%= I18n.t("signup.with_twitter") %><% end %></p>
-          <p><%= link_to "/auth/linkedin", :class => "linkedin" do %><i class="icon-linkedin"></i> <%= I18n.t("signup.with_linkedin") %><% end %></p>
+          <p><%= link_to user_omniauth_authorize_path(:github), :class => "github" do %><i class="icon-github"></i> <%= t("signup.with_github") %><% end %></p>
+          <p><%= link_to user_omniauth_authorize_path(:twitter), :class => "twitter" do %><i class="icon-twitter"></i> <%= t("signup.with_twitter") %><% end %></p>
+          <p><%= link_to user_omniauth_authorize_path(:linkedin), :class => "linkedin" do %><i class="icon-linkedin"></i> <%= t("signup.with_linkedin") %><% end %></p>
+          <p><%= link_to new_user_registration_path, :class => "github" do %><i class="icon-envelope-alt"></i> <%= t("signup.with_email") %><% end %></p>
         </div>
       </section>
-  
     </div>
   </div>
 </section>

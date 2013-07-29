@@ -12,7 +12,7 @@ gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
-# gem 'devise'
+gem 'devise', '~> 3.0.0'
 gem 'cancan'
 gem 'github_api'
 gem 'gravatar-ultimate'

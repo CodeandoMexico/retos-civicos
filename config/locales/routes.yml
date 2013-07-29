@@ -5,7 +5,7 @@ en:
     comments: comments
     new: new
     edit: edit
-    sign_up: sign_up
+    signup: signup
     about: about
 
 es:
@@ -15,6 +15,6 @@ es:
     comments: comentarios
     new: nuevo
     edit: editar
-    sign_up: registrate
+    signup: registrate
     about: acerca
     organizations: organizaciones

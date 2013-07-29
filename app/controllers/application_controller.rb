@@ -4,37 +4,40 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
-  helper_method :current_user
-
   rescue_from CanCan::AccessDenied do |exception|
     store_location(self.request.env["HTTP_REFERER"])
-    redirect_to sign_up_path, :alert => t('flash.unauthorized.message')
+    redirect_to signup_path, :alert => t('flash.unauthorized.message')
   end
 
   def set_locale
     I18n.locale = session[:locale] || "es"
   end
 
-  def redirect_on_sign_in_path
+  def after_sign_in_path_for(resource)
     if current_user.just_created?
-      redirect_to define_role_users_path, notice: t('auth_controller.define_role')
+      edit_current_user_path
     else
-      redirect_back_or challenges_path, t('auth_controller.sign_in')
+      session[:return_to] || challenges_path
     end
+  end
+
+  def redirect_back_or(default, notice)
+    redirect_to((session[:return_to] || default), notice: notice)
+    clear_return_to
+  end
+
+  def store_location(url = request.fullpath)
+    # store last url - this is needed for post-login redirect to whatever the user last visited.
+    if (request.fullpath != "/login" && (request.fullpath != "/logout" && !request.xhr?)) # don't store ajax calls
+      session[:return_to] = url
+    end
+    session[:return_to] = url
   end
 
   private
 
-  def authorize_user!
-    redirect_to sign_up_path, flash: { error: t('app_controller.login_required') } unless user_signed_in?
-  end
-
-  def save_location
-    store_location unless user_signed_in?
-  end
-
-  def save_previous
-    store_location(request.referer) unless user_signed_in?
+  def clear_return_to
+    session.delete(:return_to)
   end
 
   def load_organization
@@ -44,6 +47,7 @@ class ApplicationController < ActionController::Base
       @organization = Organization.find(params[:id]) if params[:id]
     end
   end
+
 end
 
 

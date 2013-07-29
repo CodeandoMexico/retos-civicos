@@ -5,7 +5,7 @@ class Ability
     user ||= User.new 
 
     # Visitor access
-    can [:edit, :update, :define_role, :set_role], User do |u| 
+    can [:edit, :update, :define_role, :set_role], User do |u|
       user.id == u.id
     end
     can [:read], Organization

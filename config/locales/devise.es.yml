@@ -33,6 +33,11 @@ es:
       send_paranoid_instructions: 'Si tu correo electrónico existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo confirmar tu cuenta en unos minutos.'
       confirmed: 'Tu cuenta fue confirmada exitosamente, has sido ingresado al sistema.'
     registrations:
+      new:
+        sign_up: 'Regístrarme'
+        email: 'Email'
+        password: 'Elige una contraseña'
+        password: 'Confirma tu contraseña'
       signed_up: '¡Bienvenido! Has ingresado al sistema exitosamente.'
       inactive_signed_up: 'Te has registrado exitosamente; sin embargo, no te hemos podido ingresar debido a que tu cuenta está %{reason}.'
       updated: 'Actualizaste tu cuenta exitosamente.'

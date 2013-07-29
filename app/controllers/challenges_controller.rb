@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   load_and_authorize_resource through: :current_organization, except: [:index, :show, :timeline, :like]
 
-  before_filter :save_location, only: [:new]
+  before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
 
 	def index
@@ -63,6 +63,10 @@ class ChallengesController < ApplicationController
 
   def save_location
     store_location unless user_signed_in?
+  end
+
+  def save_previous
+    store_location(request.referer) unless user_signed_in?
   end
 
 end

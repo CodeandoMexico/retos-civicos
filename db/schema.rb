@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724213846) do
+ActiveRecord::Schema.define(:version => 20130725211603) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -147,15 +147,24 @@ ActiveRecord::Schema.define(:version => 20130724213846) do
     t.string   "name"
     t.string   "email"
     t.string   "avatar"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "nickname"
     t.string   "bio"
-    t.string   "role",          :default => "member"
+    t.string   "role",                   :default => "member"
     t.string   "userable_type"
     t.integer  "userable_id"
+    t.string   "encrypted_password",     :default => "",       :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["userable_id"], :name => "index_users_on_userable_id"
   add_index "users", ["userable_type"], :name => "index_users_on_userable_type"
 
