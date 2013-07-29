@@ -14,6 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
    alias_method :github, :all
+   alias_method :linkedin, :all
 
    private
 

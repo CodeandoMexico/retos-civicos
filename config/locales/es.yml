@@ -72,7 +72,7 @@ es:
       updated: "Perfil de organización actualizada correctamente."
       welcome_new_suscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
     members:
-      updated: "Perfil actualizado correctamente."
+      updated: "Listo para participar!"
     users:
       welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
     unauthorized:
