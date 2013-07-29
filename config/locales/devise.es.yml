@@ -34,7 +34,7 @@ es:
       confirmed: 'Tu cuenta fue confirmada exitosamente, has sido ingresado al sistema.'
     registrations:
       new:
-        sign_up: 'Regístrarme'
+        sign_up: 'Registrarme'
         email: 'Email'
         password: 'Elige una contraseña'
         password: 'Confirma tu contraseña'

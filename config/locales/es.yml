@@ -197,6 +197,8 @@ es:
     with_twitter: "Inicia con Twitter"
     with_linkedin: "Inicia con LinkedIn"
     with_email: "Inicia con Email"
+    register_with_email: "Registro con email"
+    login: "Iniciar sesión"
   app_controller:
     login_required: "Credenciales necesarias para iniciar"
 
