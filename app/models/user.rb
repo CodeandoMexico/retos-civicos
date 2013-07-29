@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
 
   after_create :fetch_twitter_avatar, if: :has_twitter_auth?
 
+  after_create do
+    self.create_role if self.userable.nil?
+  end
+
   def self.create_with_omniauth(auth)
     user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
     user.avatar = auth.info.image if auth.provider == "linkedin"
@@ -46,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    name || nickname || email
+    name.blank? ? (nickname.blank? ? email : nickname) : name
   end
 
   #Ex: member?, organization?

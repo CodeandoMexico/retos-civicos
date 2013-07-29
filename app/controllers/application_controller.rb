@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.just_created?
-      edit_current_user_path
+    if resource.just_created?
+      edit_current_user_path(resource.userable)
     else
       session[:return_to] || challenges_path
     end
