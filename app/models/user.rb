@@ -106,10 +106,6 @@ class User < ActiveRecord::Base
     self.created_at == self.updated_at 
   end
 
-  def confirmation_required?
-    if self.has_twitter_auth? then !confirmed? else confirmed? end
-  end
-
   private
 
   def fetch_twitter_avatar
