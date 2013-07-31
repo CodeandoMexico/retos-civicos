@@ -17,6 +17,8 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps
     end
+    # All existing user accounts should be able to log in after this.
+    User.update_all(confirmed_at: Time.now)
 
     add_index :users, :reset_password_token, :unique => true
     add_index :users, :confirmation_token,   :unique => true
