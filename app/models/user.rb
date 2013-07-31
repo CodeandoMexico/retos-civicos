@@ -75,6 +75,14 @@ class User < ActiveRecord::Base
     not self.authentications.where(provider: 'twitter').blank?
   end
 
+  def has_github_auth?
+    not self.authentications.where(provider: 'github').blank?
+  end
+
+  def has_linkedin_auth?
+    not self.authentications.where(provider: 'linkedin').blank?
+  end
+
   def collaborating_in?(challenge)
     self.userable.challenge_ids.include?(challenge.id) unless self.userable_id.nil?
   end
@@ -88,14 +96,14 @@ class User < ActiveRecord::Base
   end
 
   def profile_url
-    if self.authentications.map(&:provider).include? "twitter" 
+    if has_twitter_auth?
       "http://twitter.com/#{self.nickname}"
-    elsif self.authentications.map(&:provider).include? "github"
-      "http://github.com/#{self.nickname}"
+    elsif has_github_auth? or has_linkedin_auth?
+      # LinkedIn or Github URL
+      self.authentications.first.public_url
     else
-      linkedin_public_url = self.authentications.map { |auth| auth.public_url }.first
-      # TODO: Refactor this to presenters
-      linkedin_public_url.blank? ? 'javascript:void(0)' : linkedin_public_url # Sorry @bhserna
+      # No public URL.
+      'javascript:void(0)'
     end
   end
 
