@@ -23,6 +23,10 @@ es:
     sessions:
       signed_in: 'Ingreso exitoso.'
       signed_out: 'Has salido del sistema.'
+      new:
+        email: 'Email'
+        password: 'Contraseña'
+        submit: 'Entrar'
     passwords:
       send_instructions: 'Recibirás un correo electrónico con instrucciones sobre cómo reiniciar tu contraseña en unos minutos.'
       updated: 'Tu contraseña fue cambiada exitosamente y has sido ingresado al sistema.'
@@ -37,7 +41,7 @@ es:
         sign_up: 'Registrarme'
         email: 'Email'
         password: 'Elige una contraseña'
-        password: 'Confirma tu contraseña'
+        password_confirmation: 'Confirma tu contraseña'
       signed_up: '¡Bienvenido! Has ingresado al sistema exitosamente.'
       inactive_signed_up: 'Te has registrado exitosamente; sin embargo, no te hemos podido ingresar debido a que tu cuenta está %{reason}.'
       updated: 'Actualizaste tu cuenta exitosamente.'

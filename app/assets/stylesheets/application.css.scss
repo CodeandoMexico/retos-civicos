@@ -354,16 +354,25 @@ section#main-wrap {
         }
       }
     }// End of .login-box
-    
+
+    .links {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
     .login-content {
       width: 400px;
       margin: 0 auto;
       padding: 20px;
-      
-      a {
+
+      a, input[type=submit] {
         height: 60px;
         display: block;
         color: $white;
+        border: 0;
         font: {
           size: ms(2);
           family: "MuseoSans-700";
@@ -373,16 +382,14 @@ section#main-wrap {
         background-color: darken($green, 10%);
         @include border-radius(4px, 4px);
         @include single-transition(background-color, .15s, ease-in-out);
-        
+
         &:hover {
           background-color: darken($green, 12%);
         }
-        
         i {
           margin-right: 16px;
           font-size: ms(3);
         }
-        
       }
       
     }

@@ -7,16 +7,18 @@
         </header>
         <div class="login-content">
           <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-            <div><%= f.label :email %><br />
+            <div><%= f.label :email, t('.email') %><br />
               <%= f.email_field :email, :autofocus => true %></div>
 
-            <div><%= f.label :password %><br />
+            <div><%= f.label :password, t('.password') %><br />
               <%= f.password_field :password %></div>
 
-            <div><%= f.submit "Sign in" %></div>
+            <div><%= f.submit t('.submit') %></div>
           <% end %>
         </div>
-        <%= render "devise/shared/links" %>
+        <div class="links">
+          <%= render "devise/shared/links" %>
+        </div>
       </section>
     </div>
   </div>
