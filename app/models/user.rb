@@ -39,13 +39,20 @@ class User < ActiveRecord::Base
     self.create_role if self.userable.nil?
   end
 
-  def self.create_with_omniauth(auth)
-    user = User.new(name: auth["info"]["name"], nickname: auth["info"]["nickname"], email: auth["info"]["email"])
-    user.avatar = auth.info.image if auth.provider == "linkedin"
-    authentication = user.authentications.build(provider: auth['provider'], uid: auth['uid']) 
-    authentication.user = user
-    authentication.apply_extra_info_from_omniauth(auth)
-    user.save
+
+  def self.find_or_build_with_omniauth(info)
+    user = User.where(email: info.email).first
+    if not user.present?
+      # If there's no user with that email with create it with its new auth
+      user = User.new(name: info.name,
+                      nickname: info.nickname,
+                      email: info.email,
+                      password: Devise.friendly_token[0,20])
+      # Devise confirm user and skip email
+      user.skip_confirmation!
+      # It creates a Member role for the user and saves it
+      user.userable = Member.new
+    end
     user
   end
 

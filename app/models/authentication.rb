@@ -5,56 +5,25 @@ class Authentication < ActiveRecord::Base
   belongs_to :user
 
   def self.find_for_provider_oauth(omniauth, signed_in_resource = nil)
-    send("find_for_#{omniauth.provider}_oauth", omniauth, signed_in_resource) 
-  end
-
-  def self.find_for_github_oauth(omniauth, signed_in_resource = nil)
-    auth = self.where(provider: omniauth.provider, uid: omniauth.uid).first
-    unless auth.present?
-      if signed_in_resource
-        # If there's a user signed in it builds a new authentication
-        auth = self.create_with_github(omniauth, signed_in_resource)
-      else
-        # If there's no signed in user we look for a user with the email
-        user = User.where(email: omniauth.info.email).first
-        if not user.present?
-          # If there's no user with that email with create it with its new auth
-          user = User.new(name: omniauth.info.name,
-                          nickname: omniauth.info.nickname,
-                          email: omniauth.info.email,
-                          password: Devise.friendly_token[0,20])
-          # Devise confirm user and skip email
-          user.skip_confirmation!
-          # It creates a Member role for the user and saves it
-          user.userable = Member.new
-        end
-        auth = self.create_with_github(omniauth, user)
-      end
+    case omniauth.provider
+    when 'github', 'linkedin'
+      find_or_create_with_omniauth(omniauth, signed_in_resource)
+    when 'twitter'
+      find_for_twitter_oauth(omniauth, signed_in_resource)
     end
-    auth
   end
 
-  def self.find_for_linkedin_oauth(omniauth, signed_in_resource = nil)
+  # Method to build an Authentication for GitHub and LinkedIn
+  def self.find_or_create_with_omniauth(omniauth, current_user)
     auth = self.where(provider: omniauth.provider, uid: omniauth.uid).first
     unless auth.present?
-      if signed_in_resource
+      if current_user
         # If there's a user signed in it builds a new authentication
-        auth = self.create_with_linkedin(omniauth, signed_in_resource)
+        auth = send("create_with_#{omniauth.provider}", omniauth, current_user)
       else
         # If there's no signed in user we look for a user with the email
-        user = User.where(email: omniauth.info.email).first
-        if not user.present?
-          # If there's no user with that email with create it with its new auth
-          user = User.new(name: omniauth.info.name,
-                          nickname: omniauth.info.nickname,
-                          email: omniauth.info.email,
-                          password: Devise.friendly_token[0,20])
-          # Devise confirm user and skip email
-          user.skip_confirmation!
-          # It creates a Member role for the user and saves it
-          user.userable = Member.new
-        end
-        auth = self.create_with_linkedin(omniauth, user)
+        user = User.find_or_build_with_omniauth(omniauth.info)
+        auth = send("create_with_#{omniauth.provider}", omniauth, user)
       end
     end
     auth
@@ -99,4 +68,5 @@ class Authentication < ActiveRecord::Base
     end
     auth
   end
+
 end
