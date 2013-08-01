@@ -953,7 +953,11 @@ section#challenges {
     background-color: $white;
 
     section {
-      padding: 30px;  
+      padding: 30px;
+    }
+
+    .errorExplanation {
+      padding: 30px;
     }
     .left {
       width: 350px;

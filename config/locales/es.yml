@@ -60,9 +60,18 @@ es:
 
 
   activerecord:
+    attributes:
+      user:
+        email: "Email"
     errors:
       template:
         header: "Algunos errores se encontraron al llenar la forma"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "no puede estar en blanco"
+              format: "es inválido"
 
   flash:
     admins:
