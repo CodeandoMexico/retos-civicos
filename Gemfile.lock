@@ -39,6 +39,10 @@ GEM
       activesupport (~> 3.0)
       awesome_nested_set (>= 2.0)
     addressable (2.3.5)
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     arel (3.0.2)
     auto_html (1.6.0)
       redcarpet (~> 2.0)
@@ -280,6 +284,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable_with_threading
+  airbrake
   auto_html
   better_errors
   binding_of_caller

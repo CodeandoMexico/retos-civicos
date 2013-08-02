@@ -61,6 +61,7 @@ gem 'redcarpet'
 # Console tools
 gem 'ruby-progressbar'
 gem 'newrelic_rpm'
+gem 'airbrake'
 
 # Rack tools
 gem 'rack-no-www'
