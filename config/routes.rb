@@ -10,6 +10,7 @@ Aquila::Application.routes.draw do
 
 	match 'signup' => 'home#sign_up'
   match '/about' => 'home#about'
+  get '/jobs' => 'home#jobs'
 
   namespace :open_data_zapopan, path: 'opendatazapopan' do
     resources :challenges, only: [:index, :show]

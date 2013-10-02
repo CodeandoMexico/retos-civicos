@@ -20,4 +20,7 @@ class HomeController < ApplicationController
   def about
   end
 
+  def jobs
+  end
+
 end

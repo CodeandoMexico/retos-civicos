@@ -7,6 +7,7 @@ en:
     edit: edit
     signup: signup
     about: about
+    jobs: jobs
 
 es:
   routes:
@@ -18,3 +19,4 @@ es:
     signup: registrate
     about: acerca
     organizations: organizaciones
+    jobs: unete
