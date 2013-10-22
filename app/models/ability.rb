@@ -56,6 +56,9 @@ class Ability
       can [:create_or_reply_challenge_comment], Challenge do |challenge|
         user.collaborating_in? challenge
       end
+
+      #Entry access
+      can [:create], Entry
     end
   end
 end

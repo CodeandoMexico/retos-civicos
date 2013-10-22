@@ -32,6 +32,7 @@ Aquila::Application.routes.draw do
 	resources :challenges, only: [:index, :show] do
     resources :votes, only: [:create]
     resources :collaborations, only: [:create]
+    resources :entries, only: [:new, :create, :show]
 		resources :comments do
 			member do
 				post :like

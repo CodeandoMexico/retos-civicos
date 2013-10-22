@@ -1,0 +1,18 @@
+<section id="pitch" class="unit pitch">
+  <header class="unit">
+    <h1><%= @entry.name %></h1>
+  </header>
+  <section id="description" class="unit description ">
+      <div class="content">
+        <h2><%= t(".about") %></h2>
+        <p><%= @entry.description %></p>
+        <h2><%= t(".owner") %></h2>
+        <p><%= @user.name %></p>
+        <h2><%= t(".github") %></h2>
+        <p>Repositorio: <%= link_to "#{@entry.github_url}", @entry.github_url, target: "_blank" %></p>
+        <h2><%= t(".live_demo_url") %></h2>
+        <p>Demo en línea: <%= link_to "#{@entry.live_demo_url}", @entry.live_demo_url, target: "_blank" %></p>
+      </div>
+    </div>
+  </section>
+</section>

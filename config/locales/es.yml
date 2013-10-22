@@ -136,6 +136,7 @@ es:
       collaborate: "Colaborar"
       collaborating: "Estas Colaborando"
       edit: "Editar"
+      submit_app: "Enviar app"
     resources:
       collaborators: "Colaboradores"
       references: "Referencias"
@@ -254,3 +255,16 @@ es:
       bio-description: "Háblanos un poco sobre ti en 140 caracteres"
       avatar: "Imagen perfil"
       avatar-description: "Tu foto de identidad en Codeando México"
+
+  entries:
+    form:
+      name: "Nombre"
+      name-description: "Del proyecto/app"
+      github-url: "GitHub Repo URL"
+      github-url-description: "Link al repositorio open source"
+      live-demo-url: "Demo URL"
+      demo-url-description: "Link a la aplicación en vivo"
+      description: "Descripción"
+      description-description: "En breve la funcionalidad/objetivo del app"
+      challenge: "Reto"
+      submit: "Enviar proyecto"

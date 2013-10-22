@@ -1,0 +1,67 @@
+<div class="form_container">
+  <%= form_for [@challenge, Entry.new] do |f| %>
+    <section id="form_main" class="form_main">
+    <%= f.error_messages %>
+
+    <section>
+      <div class="unit row">
+        <div class="column left">
+          <h2><%= t(".challenge") %></h2>
+        </div>
+        <div class="column right">
+          <h3><%= @challenge.title %></h3>
+        </div>
+      </div>
+
+      <div class="unit row">
+        <div class="column left">
+          <%= f.label :name, t(".name")  %>
+          <p><%= t(".name-description") %></p>
+        </div>
+        <div class="column right">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+
+      <div class="unit row">
+        <div class="column left">
+          <%= f.label :description, t(".description")  %>
+          <p><%= t(".description-description") %></p>
+        </div>
+        <div class="column right">
+          <%= f.text_area :description %>
+        </div>
+      </div>
+
+      <div class="unit row">
+        <div class="column left">
+          <%= f.label :github_url, t(".github_url")  %>
+          <p><%= t(".github-url-description") %></p>
+        </div>
+        <div class="column right">
+          <%= f.text_field :github_url %>
+        </div>
+      </div>
+
+      <div class="unit row">
+        <div class="column left">
+          <%= f.label :live_demo_url, t(".live_demo_url")  %>
+          <p><%= t(".demo-url-description") %></p>
+        </div>
+        <div class="column right">
+          <%= f.text_field :live_demo_url %>
+        </div>
+      </div>
+
+      <%= f.hidden_field :member_id, value: current_member.id %>
+
+    </section>
+  </section>
+
+  <section id="form_save" class="form_save">
+    <%= f.submit t('.submit') %>
+  </section>
+
+<% end %>
+</div>
+
