@@ -87,6 +87,11 @@ class User < ActiveRecord::Base
     self.userable.challenge_ids.include?(challenge.id) unless self.userable_id.nil?
   end
 
+  # To-do: move this method to Member model given is only used by members
+  def has_submitted_app?(challenge)
+    not self.userable.entries.where(challenge_id: challenge.id).blank? unless self.userable_id.nil?
+  end
+
   def update_skills(skills = [])
     self.skills = (self.skills + skills).uniq
   end
