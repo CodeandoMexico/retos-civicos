@@ -86,6 +86,7 @@ es:
       welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
     unauthorized:
       message: "Necesitas iniciar sesión primero"
+      already_submited_app: "Ya has enviado tu aplicación a este reto"
 
   challenges:
     initial_activity:
