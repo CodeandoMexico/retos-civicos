@@ -278,3 +278,6 @@ es:
       owner: "Creador"
       github: "GitHub Repo"
       live-demo-url: "Link al Demo en vivo"
+      go-to-challenge: "Ir al reto - %{challenge}"
+    new:
+      back: "Volver al reto"
