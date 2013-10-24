@@ -269,3 +269,8 @@ es:
       description-description: "En breve la funcionalidad/objetivo del app"
       challenge: "Reto"
       submit: "Enviar proyecto"
+    show:
+      description: "Descripción"
+      owner: "Creador"
+      github: "GitHub Repo"
+      live-demo-url: "Link al Demo en vivo"
