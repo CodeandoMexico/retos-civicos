@@ -84,6 +84,9 @@ es:
       updated: "Listo para participar!"
     users:
       welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
+    entries:
+      created_successfully: "Felicidades! Has enviado tu aplicación correctamente. Atento a resultados."
+      updated_successfully: "La aplicación fue editada correctamente."
     unauthorized:
       message: "Necesitas iniciar sesión primero"
       already_submited_app: "Ya has enviado tu aplicación a este reto"
