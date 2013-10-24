@@ -3,6 +3,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find params[:id]
+    debugger
     @challenge = @entry.challenge
     @user = @entry.member
   end

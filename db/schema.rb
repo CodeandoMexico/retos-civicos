@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20131022220944) do
     t.string   "github_url"
     t.string   "live_demo_url"
     t.text     "description"
+    t.text     "team_members"
     t.integer  "member_id"
     t.integer  "challenge_id"
     t.datetime "created_at",    :null => false

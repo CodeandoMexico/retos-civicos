@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :github_url, :live_demo_url, :name, :description, :member_id
+  attr_accessible :github_url, :live_demo_url, :name, :description, :member_id, :team_members
 
   belongs_to :member
   belongs_to :challenge

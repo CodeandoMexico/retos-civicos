@@ -271,13 +271,16 @@ es:
       demo-url-description: "Link a la aplicación en vivo"
       description: "Descripción"
       description-description: "En breve la funcionalidad/objetivo del app"
+      team-members: "Miembros del equipo"
+      team-members-description: "Si trabajaste en equipo, lista el nombre de tus colegas y su email. Puedes usar Markdown para listarlos"
       challenge: "Reto"
       submit: "Enviar proyecto"
     show:
       description: "Descripción"
-      owner: "Creador"
+      owner: "Líder del equipo"
       github: "GitHub Repo"
       live-demo-url: "Link al Demo en vivo"
       go-to-challenge: "Ir al reto - %{challenge}"
+      team-members: "Miembros del equipo"
     new:
       back: "Volver al reto"
