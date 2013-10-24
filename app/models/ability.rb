@@ -59,6 +59,9 @@ class Ability
 
       #Entry access
       can [:create], Entry
+      can [:update], Entry do |entry|
+        user.userable.id = entry.member.id
+      end
     end
   end
 end

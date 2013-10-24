@@ -31,7 +31,7 @@ module ChallengesHelper
   	if user_signed_in? and current_user.userable == challenge.organization
       link_to t(".edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
 		elsif user_signed_in? and current_user.has_submitted_app?(challenge)
-			link_to t(".edit_entry"), new_challenge_entry_path(challenge)
+			link_to t(".edit_entry"), edit_challenge_entry_path(challenge, current_user.entry_for(challenge))
 		elsif user_signed_in? and current_user.collaborating_in?(challenge)
 			link_to t(".submit_app"), new_challenge_entry_path(challenge)
 		elsif user_signed_in?

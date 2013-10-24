@@ -89,7 +89,12 @@ class User < ActiveRecord::Base
 
   # To-do: move this method to Member model given is only used by members
   def has_submitted_app?(challenge)
-    not self.userable.entries.where(challenge_id: challenge.id).blank? unless self.userable_id.nil?
+    not self.entry_for(challenge).blank? unless self.userable_id.nil?
+  end
+
+  # To-do: move this method to Member model given is only used by members
+  def entry_for(challenge)
+    self.userable.entries.where(challenge_id: challenge.id).first
   end
 
   def update_skills(skills = [])

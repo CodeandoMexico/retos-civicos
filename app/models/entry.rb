@@ -4,4 +4,6 @@ class Entry < ActiveRecord::Base
   belongs_to :member
   belongs_to :challenge
 
+  validates :name, :description, :github_url, presence: true
+
 end

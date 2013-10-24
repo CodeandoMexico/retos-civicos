@@ -137,6 +137,7 @@ es:
       collaborating: "Estas Colaborando"
       edit: "Editar"
       submit_app: "Enviar app"
+      edit_entry: "Editar app"
     resources:
       collaborators: "Colaboradores"
       references: "Referencias"
