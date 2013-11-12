@@ -19,7 +19,7 @@ class Organization < ActiveRecord::Base
   end
 
   def has_only_one_challenge?
-    self.challenges.count == 1
+    self.challenges.active.count == 1
   end
 
   private

@@ -5,7 +5,7 @@ class OrganizationsController < ApplicationController
 
   def show
     if @organization.has_only_one_challenge?
-      @challenge = @organization.challenges.first
+      @challenge = @organization.challenges.active.first
       redirect_to @challenge
     else
       @challenges = @organization.challenges.active
