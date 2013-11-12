@@ -28,15 +28,23 @@ class Challenge < ActiveRecord::Base
   after_create :create_initial_activity
 
   #Scopes
+
+  default_scope { order('challenges.created_at DESC') }
+
+  scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
+
   scope :in_zapopan, lambda {
     where("id IN (?)", (24..41).to_a) 
   }
+
+  scope :active, lambda {
+    where("status = 'open' OR status = 'working_on'")
+  }
+
 	# Additionals
 	acts_as_voteable
 	acts_as_commentable
 
-  default_scope { order('challenges.created_at DESC') }
-  scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
 
   # Embeddables
   auto_html_for :description do

@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
   before_filter :save_previous, only: [:like]
 
 	def index
-		@challenges = Challenge.all
+		@challenges = Challenge.active
 	end
 
   def new

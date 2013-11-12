@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
       @challenge = @organization.challenges.first
       redirect_to @challenge
     else
-      @challenges = @organization.challenges
+      @challenges = @organization.challenges.active
     end
   end
 
