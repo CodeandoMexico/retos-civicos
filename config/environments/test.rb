@@ -34,4 +34,10 @@ Aquila::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  SENDGRID_CREDENTIAL = {
+    username: "",
+    password: "",
+    domain: ""
+  }
 end

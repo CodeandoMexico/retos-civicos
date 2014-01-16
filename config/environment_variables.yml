@@ -1,3 +1,21 @@
+test:
+  github:
+    key: '550d5620ef923e586a21'
+    secret: '55aa76339e357d4f5c38017b7feb0223b1500b7c'
+
+  linkedin:
+    key: '10qqof45wxaq'
+    secret: 'baH1vTSDMud1KGeP'
+
+  twitter:
+    key: 'xEEoh0lQLA9XlPrrGde3EA'
+    secret: '8RrEl91CN9oLtmRv2UnuNT07eSTMQnr51Uw5ET2BU'
+    access_key: '47820923-j9O3yhB5WaBVJNO3srYPzo6FDLtVnyRTfpYOzZJeE'
+    access_secret: 'SXjyurM4PkYTeqYYJiN5b0RkPEJcdL4aSQk4qSV6xOI'
+
+  ckan:
+    key: 'f8923bc6-3206-4406-ae66-8c8df16144b2'
+
 development:
   github:
     key: '550d5620ef923e586a21'

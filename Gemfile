@@ -20,6 +20,13 @@ gem 'gravatar-ultimate'
 gem 'rails-translate-routes'
 gem 'ckan', :github => 'wilhelmbot/CKAN'
 
+group :test do
+  gem 'shoulda-matchers'
+end
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
