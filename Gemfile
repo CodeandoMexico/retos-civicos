@@ -22,6 +22,9 @@ gem 'ckan', :github => 'wilhelmbot/CKAN'
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 group :development, :test do
   gem 'rspec-rails'

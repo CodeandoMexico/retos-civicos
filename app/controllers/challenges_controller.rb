@@ -4,15 +4,15 @@ class ChallengesController < ApplicationController
   before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
 
-	def index
-		@challenges = Challenge.active
-	end
+  def index
+    @challenges = Challenge.active
+  end
 
   def new
   end
 
   def show
-  	@challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
+    @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
     @organization = @challenge.organization
     @comments = @challenge.root_comments.sort_parents
   end
@@ -22,25 +22,25 @@ class ChallengesController < ApplicationController
   end
 
   def create
-		if @challenge.save
-		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
-		else
-		  render :new
-		end
+    if @challenge.save
+      redirect_to organization_challenge_path(@challenge.organization, @challenge)
+    else
+      render :new
+    end
   end
 
   def update
     if @challenge.update_attributes(params[:challenge])
-		  redirect_to organization_challenge_path(@challenge.organization, @challenge)
+      redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
       render :edit
     end
   end
 
   def cancel
-  	@challenge = current_organization.challenges.find(params[:id])
-  	@challenge.cancel!
-  	redirect_to challenges_url
+    @challenge = current_organization.challenges.find(params[:id])
+    @challenge.cancel!
+    redirect_to challenges_url
   end
 
   def like
