@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     authorize! :create_or_reply_challenge_comment, @challenge
     @comment = Comment.build_from(@challenge, current_user.id, params[:comment][:body])
     if @comment.save
+      CommentMailer.delay.create_comment_notification(@comment.id)
       respond_to do |format|
 	format.js
 	format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.commented') } 

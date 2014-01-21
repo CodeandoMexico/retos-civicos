@@ -2,10 +2,36 @@ require 'spec_helper'
 
 describe CommentMailer do
 
-  let!(:parent_comment) { FactoryGirl.create(:comment) }
-  let!(:comment) { FactoryGirl.create(:comment, parent: parent_comment, commentable: parent_comment.commentable) }
+  describe ".create_comment_notification" do
+    let!(:comment) { FactoryGirl.create(:comment) }
+    let!(:organization) { comment.commentable.organization }
+    let!(:user) { FactoryGirl.create(:user, userable: organization) }
+    let!(:mail) { CommentMailer.create_comment_notification(comment.id) }
+
+
+    it "should send the email" do
+      #Since user creation sends an email, we need to clear the array just before
+      ActionMailer::Base.deliveries.clear
+      mail.deliver!
+      ActionMailer::Base.deliveries.size.should == 1
+    end
+
+    it "should send an email to the organization" do
+      expect(mail.to).to eq( [organization.email] )
+    end
+
+    it "should send an email from" do
+      expect( mail.from ).to eq( ['equipo@codeandomexico.org'] )
+    end
+
+    it "should expect subject to be 'Tienes un nuevo comentario" do
+      expect( mail.subject ).to eq( "Tienes un nuevo comentario")
+    end
+  end
 
   describe ".reply_comment_notification" do
+    let!(:parent_comment) { FactoryGirl.create(:comment) }
+    let!(:comment) { FactoryGirl.create(:comment, parent: parent_comment, commentable: parent_comment.commentable) }
     let(:mail) { CommentMailer.reply_comment_notification(comment.id) }
 
     it "should send the email" do
