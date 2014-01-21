@@ -37,6 +37,7 @@ group :assets do
   gem 'compass-rails'
   gem 'zurb-foundation',  '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
+  gem 'timelineJS-rails', '~> 1.1.1'
 end
 
 group :development do

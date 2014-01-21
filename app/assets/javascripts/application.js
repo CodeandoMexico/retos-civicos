@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require vendor
+//= require timelineJS/embed
 //= require_tree .
