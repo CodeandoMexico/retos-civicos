@@ -29,7 +29,7 @@ feature "Commenting on challenge" do
   scenario "Can reply to another comment", js: true do
     FactoryGirl.create(:comment, commentable: challenge)
     # Clear emails from suscriptions
-    ActionMailer::Base.deliveries.clear
+    reset_email
     visit organization_challenge_path(challenge.organization.id, challenge.id)
     click_link 'Reply'
     within '#challenge_comments_container' do
@@ -37,6 +37,6 @@ feature "Commenting on challenge" do
       click_link 'Reply'
     end
     page.should have_content 'Gracias por tus comentarios'
-    ActionMailer::Base.deliveries.size.should == 1
+    ActionMailer::Base.deliveries.size.should be 1
   end
 end

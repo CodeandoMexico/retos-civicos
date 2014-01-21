@@ -3,6 +3,7 @@ require 'spec_helper'
 describe CommentMailer do
 
   describe ".create_comment_notification" do
+
     let!(:comment) { FactoryGirl.create(:comment) }
     let!(:organization) { comment.commentable.organization }
     let!(:user) { FactoryGirl.create(:user, userable: organization) }
@@ -10,10 +11,9 @@ describe CommentMailer do
 
 
     it "should send the email" do
-      #Since user creation sends an email, we need to clear the array just before
-      ActionMailer::Base.deliveries.clear
+      reset_email
       mail.deliver!
-      ActionMailer::Base.deliveries.size.should == 1
+      ActionMailer::Base.deliveries.size.should be 1
     end
 
     it "should send an email to the organization" do
@@ -35,10 +35,9 @@ describe CommentMailer do
     let(:mail) { CommentMailer.reply_comment_notification(comment.id) }
 
     it "should send the email" do
-      #Since user creation sends an email, we need to clear the array just before
-      ActionMailer::Base.deliveries.clear
+      reset_email
       mail.deliver!
-      ActionMailer::Base.deliveries.size.should == 1
+      ActionMailer::Base.deliveries.size.should be 1
     end
 
     it "should send an email to parent comment creator" do

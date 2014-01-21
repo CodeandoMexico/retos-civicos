@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
     if @comment.save
       CommentMailer.delay.create_comment_notification(@comment.id)
       respond_to do |format|
-	format.js
-	format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.commented') } 
+        format.js
+        format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.commented') }
       end
     else
       redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.failure')
