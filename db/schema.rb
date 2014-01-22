@@ -133,20 +133,11 @@ ActiveRecord::Schema.define(:version => 20140128173653) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "org_suscribers", :force => true do |t|
-    t.string   "email"
-    t.integer  "organization_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "org_suscribers", ["organization_id"], :name => "index_org_suscribers_on_organization_id"
-
   create_table "organizations", :force => true do |t|
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.boolean  "accredited",           :default => false
-    t.boolean  "accepting_suscribers", :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.boolean  "accredited",            :default => false
+    t.boolean  "accepting_subscribers", :default => false
     t.string   "subdomain"
   end
 
@@ -155,6 +146,15 @@ ActiveRecord::Schema.define(:version => 20140128173653) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "email"
+    t.integer  "organization_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "subscribers", ["organization_id"], :name => "index_subscribers_on_organization_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

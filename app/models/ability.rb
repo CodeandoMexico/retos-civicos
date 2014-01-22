@@ -13,7 +13,7 @@ class Ability
     if user.organization?
       #Challenge access
       can [:new, :create], Challenge
-      can [:edit, :update, :cancel], Challenge do |challenge|
+      can [:edit, :update, :cancel, :send_newsletter, :mail_newsletter], Challenge do |challenge|
         challenge.organization.id == user.userable.id
       end
 
@@ -23,7 +23,7 @@ class Ability
       end
 
       #Organization access
-      can [:edit, :update], Organization do |organization|
+      can [:edit, :update, :subscribers_list, :send_newsletter, :mail_newsletter], Organization do |organization|
         organization.id == user.userable.id
       end
 

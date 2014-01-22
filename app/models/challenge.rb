@@ -2,8 +2,8 @@
 class Challenge < ActiveRecord::Base
 
   attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
-                  :pitch, :avatar, :about, :activities_attributes, :dataset_file
+    :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
+    :pitch, :avatar, :about, :activities_attributes, :dataset_file
 
   attr_accessor :dataset_file
 
@@ -12,15 +12,15 @@ class Challenge < ActiveRecord::Base
   mount_uploader :avatar, ChallengeAvatarUploader
 
   # Relations
-	has_many :collaborations
-	has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
+  has_many :collaborations
+  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
   has_many :activities
   has_many :entries
 
   belongs_to :organization
-	# Validations
-	validates :description, :title, :status, :about, :pitch, presence: true
-	validates :pitch, length: { maximum: 140 }
+  # Validations
+  validates :description, :title, :status, :about, :pitch, presence: true
+  validates :pitch, length: { maximum: 140 }
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
@@ -41,9 +41,9 @@ class Challenge < ActiveRecord::Base
     where("status = 'open' OR status = 'working_on'")
   }
 
-	# Additionals
-	acts_as_voteable
-	acts_as_commentable
+  # Additionals
+  acts_as_voteable
+  acts_as_commentable
 
 
   # Embeddables
@@ -55,18 +55,18 @@ class Challenge < ActiveRecord::Base
     link target: "_blank", rel: "nofollow"
   end
 
-	STATUS = [:open, :working_on, :cancelled, :finished]
+  STATUS = [:open, :working_on, :cancelled, :finished]
 
   def to_param
     "#{id}-#{title}".parameterize
   end
 
-	def cancel!
-		self.status = :cancelled
-		self.save
-	end
+  def cancel!
+    self.status = :cancelled
+    self.save
+  end
 
-	def update_likes_counter
+  def update_likes_counter
     self.likes_counter = self.votes_count
     self.save
   end

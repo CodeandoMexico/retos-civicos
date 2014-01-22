@@ -41,4 +41,10 @@ module ChallengesHelper
     end
   end
 
+  def newsletter_helper(challenge)
+    if user_signed_in? and current_user.userable == challenge.organization
+      link_to t(".send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge)
+    end
+  end
+
 end

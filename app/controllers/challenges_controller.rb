@@ -61,6 +61,18 @@ class ChallengesController < ApplicationController
     render json: @challenge.timeline_json
   end
 
+  def send_newsletter
+  end
+
+  def mail_newsletter
+    challenge = Challenge.find(params[:id])
+    challenge.collaborations.each do |collaborator|
+      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, challenge.organization, params[:subject], params[:body])
+    end
+
+    redirect_to challenge_path(challenge), notice: t('flash.organizations.send')
+  end
+
   private
 
   def save_location

@@ -6,6 +6,5 @@ FactoryGirl.define do
     pitch "piitch del challenge"
     
     association :organization
-
   end
 end

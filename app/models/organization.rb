@@ -1,8 +1,8 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :email, :bio, :nickname, :accepting_suscribers, :avatar
+  attr_accessible :name, :email, :bio, :nickname, :accepting_subscribers, :avatar
 
   has_many :challenges
-  has_many :org_suscribers
+  has_many :subscribers
 
   acts_as_user
 
