@@ -1,0 +1,18 @@
+postgresql: &postgresql
+  adapter: postgresql
+  host: localhost
+  min_messages: ERROR
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *postgresql
+  database: aquila_development
+
+test:
+  <<: *postgresql
+  database: aquila_test
+
+production:
+  <<: *postgresql
+  database: aquila_production
