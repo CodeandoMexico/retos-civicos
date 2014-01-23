@@ -27,9 +27,27 @@
   <h3><%= @challenge.pitch %></h3>
 </section>
 
+<section id="tabTools" class="tabTools">
+<dl class="tabs">
+  <%= render 'tab' %>
+</dl>
 
-<%= render "resources" %>
+<ul class="tabs-content">
+  <li class="active collaboratorsTTab" id="collaboratorsTTab">
+    <%= render 'collaborators' %>
+  </li>
+  <li id="referencesTTab">
+    <%= render 'references' %>
+  </li>
+  <!-- Todavia no se usa
+     -<li id="datasetsTTab"></li>
+     -->
+  <li id="entriesTTab">
 
+  </li>
+</ul>
+
+</section>
 
 <section id="needs" class="unit needs ">
   <header>
@@ -55,10 +73,6 @@
       </ul>
   </div>
 </section>
-
-<% unless @challenge.references.empty? %>
-  <%= render 'references' %>
-<% end %>
 
 <%= render "activities" %>
 

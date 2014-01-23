@@ -1,8 +1,7 @@
-<section id="references" class="row">
-  <header class="section-header">
-    <h2 class="header-title"><%= t("challenges.form.additional_links") %></h2>
-  </header>
-  <section class="section-content">
+<section class="section-content">
+  <% if @challenge.references.empty? %>
+    <%= t(".non-references") %>
+  <% else %>
     <ul class="list-vrt">
       <% @challenge.references.each do |reference| %>
         <li class="list-vrt-item">
@@ -11,5 +10,5 @@
         <br />
       <% end %>
     </ul>
-  </section>
+  <% end %>
 </section>
