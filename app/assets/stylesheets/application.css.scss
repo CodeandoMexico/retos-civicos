@@ -545,6 +545,72 @@ section#challenges {
   }
 }
 
+.tabTools {
+
+  .tabs{
+    height: 140px;
+    background-color:white;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .tab-challenge{
+    height: inherit;
+    width: 25%;
+  }
+  .tabs dd a{
+    position: relative;
+    padding: 30px;
+    height: inherit;
+    font-size: 59px;
+  }
+  .tabs dd p{
+    font-size: 23px;
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: #DDDDDD inline-image('down_arrow.png') no-repeat center center;
+    display: block;
+  }
+  .tabs-content {
+    padding: 50px;
+
+    div .collab:nth-child(7n){
+      padding-right:0 !important;
+    }
+
+
+    background: $gray2 inline-image('activities_bg.png') repeat-x top center;
+
+    a {
+        color: $gray4;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+    .collab {
+      float: left;
+      padding-right: 50px;
+      height:100%;
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        border: 5px solid $gray3;
+      }
+    }
+  }
+}
+
 
 .resources {
 
