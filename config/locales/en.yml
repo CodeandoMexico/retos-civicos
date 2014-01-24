@@ -96,19 +96,22 @@ en:
       description-description: "Describe the problem and why is so important to solve it."
       comments: "Notes and comments"
       resources: "Data and external resources"
+    tab:
+      collaborators: "Collaborators"
+      references: "References"
+      datasets: "Datasets"
+      entries: "Apps"
+    collaborators:
+      collaborators: "Collaborators"
+      non-collaboration: "Be the first to join this challenge!"
+    references:
+      non-references: "Sin Referencias."
     show:
       created-by: "Created by:"
       supportus: "Help us reach our goal"
       collaborate: "Join"
       collaborating: "Collaborating"
       edit: "Edit"
-    resources:
-      collaborators: "Collaborators"
-      references: "References"
-      datasets: "Datasets"
-      non-collaboration: "Be the first to join this challenge!"
-      datasets: "Datasets"
-      votes: "Votes"
     comments:
       comment: "Leave a comment"
       reply: "Reply"
