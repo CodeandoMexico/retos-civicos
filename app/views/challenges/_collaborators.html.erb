@@ -1,7 +1,6 @@
 <% if @challenge.collaborators.blank? %>
   <%= t(".non-collaboration") %>
 <% else %>
-  <h4><%= t('.collaborators')%> </h4><br />
   <div class="unit row">
     <% @challenge.collaborators.each do |collaborator| %>
       <p class="collab">

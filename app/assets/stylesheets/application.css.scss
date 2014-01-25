@@ -43,16 +43,16 @@
 //--------------------------------------------------
 
 header#main-header {
-  
+
   .header-pre-wrap {
     height: 30px;
     background: $gray2;
 
-    
+
     .container {
       position: relative;
       padding-left: 5px;
-      
+
       .what-badge {
         width: 30px;
         height: 35px;
@@ -61,7 +61,7 @@ header#main-header {
         left: 7px;
         background: transparent inline-image("what-badge.png") no-repeat 0 0;
       }
-      
+
       p {
         height: 30px;
         line-height: 30px;
@@ -70,23 +70,23 @@ header#main-header {
         text-shadow: 0 1px $gray1;
         margin: 0;
       }
-      
+
     }
-    
+
   }// End of .header-pre-wrap
-  
+
   .header-wrap {
     height: 60px;
     border-bottom: solid 1px $gray1;
     @include background-image(linear-gradient($white, $white 60%, $gray2 200%));
-    
+
     .logo {
       height: 45px;
       width: 287px;
       display: block;
       margin: 10px 30px 0 0;
       float: left;
-      
+
       a {
         height: 45px;
         width: 287px;
@@ -95,12 +95,12 @@ header#main-header {
         background: transparent inline-image("logo.png") no-repeat 0 0;
       }
     }// End of .logo
-    
+
     nav {
       width: 643px;
       height: 60px;
       float: left;
-      
+
       .current-user {
         float: right;
         height: 60px;
@@ -111,52 +111,52 @@ header#main-header {
           margin-left: 10px;
         }
       }
-      
+
       ul {
         height: 60px;
         margin: 0;
-        
+
         li {
           height: 60px;
           float: left;
           list-style: none;
-          
+
           a {
             display: block;
             font-weight: bold;
             text-shadow: 0 1px $gray1;
           }
         }
-        
+
       }
-      
+
       ul.main-menu {
         float: left;
-        
+
         li {
           border-right: solid 1px $gray1;
-          
+
           a {
             padding: 22px 20px;
           }
-          
+
         }
       }
-      
+
       ul.login-menu {
         float: right;
         width: 220px;
-        
+
         li {
-          
+
           span {
             float: left;
           }
-          
+
           a {
             padding: 22px 0 18px 20px;
           }
-          
+
         }
       }
 
@@ -217,18 +217,18 @@ header#main-header {
             display: block;
         }
       }
-      
+
     }// End of nav
-    
+
   }// End of .header-wrap
-  
+
   .header-green-margin {
     height: 10px;
     margin-bottom: 20px;
     background-color: $green;
     border-bottom: solid 1px darken($green, 10%);
   }
-  
+
 }// End of header
 
 // End of Header
@@ -328,27 +328,27 @@ header#main-header {
 section#main-wrap {
   background: $green;
   @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
-  
+
   .login-wrap {
     background: $green;
     border-bottom: solid 1px darken($green, 10%);
     @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px, inset);
     padding: 50px 0;
-    
+
     .login-box {
       width: 600px;
       background: $white;
       margin: 0 auto;
       @include border-radius(4px, 4px);
       @include single-box-shadow(rgba(0, 0, 0, 0.06), 0, 0, 40px, 30px);
-      
+
       header {
         padding: 10px;
         text-align: center;
         background-color: $gray4;
         @include border-top-right-radius(4px);
         @include border-top-left-radius(4px);
-        
+
         h1 {
           color: $white;
           margin: 0;
@@ -392,19 +392,19 @@ section#main-wrap {
           font-size: ms(3);
         }
       }
-      
+
     }
-    
+
   }
-  
+
 }// End of section#main-wrap
 
 section#challenges {
-  
+
   .trending-challenges {
     min-height: 460px;
   }
-  
+
 }
 
 // End of Landing
@@ -478,7 +478,7 @@ section#challenges {
     background-color: $white;
     height: 360px;
     position: relative;
-    
+
     .left {
       width: 600px;
       height: 360px;
@@ -550,9 +550,12 @@ section#challenges {
   .tabs{
     height: 140px;
     background-color:white;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
+    margin: 0;
+    position: relative;
+  }
+  .drop-shadow{
+    box-shadow: 0px 5px 7px -5px #363636;
+
   }
   .tab-challenge{
     height: inherit;
@@ -579,16 +582,33 @@ section#challenges {
   }
   .tabs-content {
     padding: 50px;
+    background: #fff;
+    z-index: -1;
+    margin-bottom: 0;
+
+    .tab-content-block{
+      width:49%;
+      display:inline-block;
+      vertical-align: top;
+    }
 
     div .collab:nth-child(7n){
       padding-right:0 !important;
     }
+    .tab-entries, .tab-references{
+      padding: 15px;
+      background: #FFF;
+      border: 1px solid #666666;
+      .list-vrt {
+        margin: 0;
+      }
 
-
-    background: $gray2 inline-image('activities_bg.png') repeat-x top center;
+      .list-vrt-item {
+        list-style: none;
+      }
+    }
 
     a {
-        color: $gray4;
         text-decoration: underline;
         font-weight: bold;
       }
@@ -612,78 +632,15 @@ section#challenges {
 }
 
 
-.resources {
-
-  .collaborators, .references, .datasets {
-    width: 320px;
-    position: relative;
-    background-color: $white;
-    cursor: pointer;
-
-    p {
-      font-size: ms(2);
-      margin: 0;
-      line-height: 1em;
-      color: $black;
-    }
-
-    .content {
-      font-size: ms(6);
-      font-family: "MuseoSans-500";
-    }
-
-    .arrow {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 36px;
-      height: 36px;
-      background: #DDDDDD inline-image('down_arrow.png') no-repeat center center;
-      display: block;
-    }
-  }
-  .references .content {
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-  }
-
-  .resources_display.row {
-    padding: 50px;
-    padding-right: 0;
-    background: $gray2 inline-image('activities_bg.png') repeat-x top center;
-
-    a {
-        color: $gray4;
-        text-decoration: underline;
-        font-weight: bold;
-      }
-
-    .collab {
-      float: left;
-      padding-right: 50px;
-
-      a {
-        text-decoration: none;
-      }
-
-      img {
-        width: 80px;
-        height: 80px;
-        border: 5px solid $gray3;
-      }
-    }
-  }
-}
-
-
 .needs {
   background-color: $white;
 
   header {
     padding: 30px 0;
-    border-bottom: 1px solid $gray2;
+    background-color: $gray4;
 
     h2 {
+      color: $white;
       font-size: ms(2);
       text-align: center;
       margin: 0;
@@ -711,13 +668,13 @@ section#challenges {
       margin: 0;
       padding: 0;
 
-      li { 
+      li {
         list-style: none;
         background-color: $gray1;
         padding: 20px;
         margin-bottom: 1px;
         border-right: 1px solid $white;
-      }  
+      }
     }
   }
 }
@@ -734,21 +691,12 @@ section#challenges {
   font-size: 23px;
 }
 
-.section-content{
-  padding: 15px;
-  background: #FFF;
-}
-
 .list-vrt {
   margin: 0;
 }
 
 .list-vrt-item {
   list-style: none;
-}
-
-.reference-item {
-  font-size: 18px;
 }
 
 .activities {
@@ -1327,7 +1275,7 @@ header.logo-org {
 //--------------------------------------------------
 
 footer#main-footer {
-  
+
   .footer-wrap {
     height: 50px;
     line-height: 50px;
@@ -1340,7 +1288,7 @@ footer#main-footer {
       margin-left: 20px;
     }
   }
-  
+
 }
 
 // End of Footer

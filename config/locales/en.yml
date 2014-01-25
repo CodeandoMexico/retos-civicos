@@ -105,7 +105,9 @@ en:
       collaborators: "Collaborators"
       non-collaboration: "Be the first to join this challenge!"
     references:
-      non-references: "Sin Referencias."
+      non-references: "No available references."
+    entries:
+      non-entries: "Be the first to send an App!"
     show:
       created-by: "Created by:"
       supportus: "Help us reach our goal"
@@ -118,7 +120,7 @@ en:
       mychallenge: "My challenge"
       like: "Like"
   home:
-    index: 
+    index:
       pitch: "NGOs, Geeks, and Open Data 24/7."
       get_involved: "Get involved"
       recent: "Recent Challenges"

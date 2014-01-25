@@ -28,25 +28,24 @@
 </section>
 
 <section id="tabTools" class="tabTools">
-<dl class="tabs">
-  <%= render 'tab' %>
-</dl>
+  <dl class="tabs drop-shadow">
+    <%= render 'tab' %>
+  </dl>
 
-<ul class="tabs-content">
-  <li class="active collaboratorsTTab" id="collaboratorsTTab">
-    <%= render 'collaborators' %>
-  </li>
-  <li id="referencesTTab">
-    <%= render 'references' %>
-  </li>
-  <!-- Todavia no se usa
-     -<li id="datasetsTTab"></li>
-     -->
-  <li id="entriesTTab">
-
-  </li>
-</ul>
-
+  <ul class="tabs-content">
+    <li class="active collaboratorsTTab" id="collaboratorsTTab">
+      <%= render 'collaborators' %>
+    </li>
+    <li id="referencesTTab">
+      <%= render 'references' %>
+    </li>
+    <!-- Todavia no se usa
+       -<li id="datasetsTTab"></li>
+       -->
+    <li id="entriesTTab">
+      <%= render'entries' %>
+    </li>
+  </ul>
 </section>
 
 <section id="needs" class="unit needs ">

@@ -1,0 +1,10 @@
+<% if @entries.empty? %>
+  <%= t(".non-entries") %>
+<% else %>
+  <% @entries.each do |e| %>
+    <div class="tab-content-block">
+      <%= link_to e.name, e.github_url %>
+      <p><%= e.description %> <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url %></p>
+    </div>
+  <% end %>
+<% end %>
