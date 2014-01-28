@@ -108,6 +108,8 @@ en:
       non-references: "No available references."
     entries:
       non-entries: "Be the first to send an App!"
+      repo: "Repo"
+      demo: "Demo"
     show:
       created-by: "Created by:"
       supportus: "Help us reach our goal"
@@ -198,3 +200,29 @@ en:
       bio-description: "A little about yourself in 140 characters"
       avatar: "Profile picture"
       avatar-description: "Your identity in Codeando Mexico"
+
+  entries:
+    form:
+      name: "Name"
+      name-description: "App/Project"
+      github-url: "GitHub Repo URL"
+      github-url-description: "Link to open source repository"
+      live-demo-url: "Demo URL"
+      demo-url-description: "Link to live app"
+      entry-logo: "Logo"
+      entry-logo-description: "Upload the app's logo. (80x80)"
+      description: "Description"
+      description-description: "In brief functionality/purpose of app"
+      team-members: "Team members"
+      team-members-description: "If you worked on a team, list the name and email of your colleagues. You can use Markdown."
+      challenge: "Challenge"
+      submit: "Send project"
+    show:
+      description: "Description"
+      owner: "Team Leader"
+      github: "GitHub Repo"
+      live-demo-url: "Link to live app"
+      go-to-challenge: "Go to challenge - %{challenge}"
+      team-members: "Team members"
+    new:
+      back: "Back to challenge"

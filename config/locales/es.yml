@@ -146,6 +146,8 @@ es:
       non-references: "Sin Referencias."
     entries:
       non-entries: "Anímate. Sé el primero en enviar una App."
+      repo: "Repo"
+      demo: "Demo"
     show:
       created-by: "Creado por:"
       supportus: "Ayúdanos a cumplir nuestro objetivo"
@@ -274,6 +276,8 @@ es:
       github-url-description: "Link al repositorio open source"
       live-demo-url: "Demo URL"
       demo-url-description: "Link a la aplicación en vivo"
+      entry-logo: "Logo"
+      entry-logo-description: "Sube el logotipo de la applicación. (80x80)"
       description: "Descripción"
       description-description: "En breve la funcionalidad/objetivo del app"
       team-members: "Miembros del equipo"
