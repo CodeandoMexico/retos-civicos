@@ -1,13 +1,15 @@
 <% if @entries.empty? %>
   <%= t(".non-entries") %>
 <% else %>
-  <% @entries.each do |e| %>
-    <div class="tab-content-block">
-      <%= link_to e.name, challenge_entry_path(@challenge, e) %>
-      <%= image_tag(e.entry_logo.url, :class=>"appImage") %>
-      <p><%= e.description %><br/>
-        <%= link_to t(".repo"), e.github_url if e.github_url %> | <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url%>
-      </p>
-    </div>
-  <% end %>
+  <div class="unit">
+    <% @entries.each do |e| %>
+      <div class="tab-content-block">
+        <%= link_to e.name, challenge_entry_path(@challenge, e) %>
+        <%= image_tag(e.entry_logo.url, :class=>"appImage") %>
+        <p><%= e.description %><br/>
+          <%= link_to t(".repo"), e.github_url if e.github_url %> | <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url%>
+        </p>
+      </div>
+    <% end %>
+  </div>
 <% end %>

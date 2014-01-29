@@ -586,20 +586,22 @@ section#challenges {
     z-index: -1;
     margin-bottom: 0;
 
+    #collaboratorsTTab{
+      div .collab:nth-child(7n){
+        padding-right:0;
+      }
+    }
+
     .appImage {
       float: left;
       margin-right: 15px;
     }
 
     .tab-content-block{
-      width:49%;
-      display:inline-block;
-      vertical-align: top;
+      float: left;
+      width: 50%;
     }
 
-    div .collab:nth-child(7n){
-      padding-right:0 !important;
-    }
     .tab-entries, .tab-references{
       padding: 15px;
       background: #FFF;

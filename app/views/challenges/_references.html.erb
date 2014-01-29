@@ -1,11 +1,13 @@
 <% if @challenge.references.empty? %>
   <%= t(".non-references") %>
 <% else %>
-    <% @challenge.references.each do |reference| %>
-      <div class="tab-content-block">
-        <p>
+  <div class="unit">
+    <ul>
+      <% @challenge.references.each do |reference| %>
+        <li class="list-vrt-item">
           <%= link_to truncate(reference, length: 90), reference, class: 'reference-item', target: '_blank' %>
-        </p>
-      </div>
-    <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
