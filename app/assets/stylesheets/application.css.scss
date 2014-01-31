@@ -590,6 +590,24 @@ section#challenges {
       div .collab:nth-child(7n){
         padding-right:0;
       }
+      .showMore{
+        color: $white;
+        display: inline-block;
+        text-align: center;
+        background-color: $green;
+        height: 45px;
+        margin-top: 20px;
+        padding: 0 30px;
+        line-height: 45px;
+        text-transform: uppercase;
+        @include border-radius(4px);
+        font-weight: bold;
+
+        &:hover{
+          background-color: darken($green, 15%);
+        }
+
+      }
     }
 
     .appImage {

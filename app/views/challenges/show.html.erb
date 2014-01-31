@@ -35,6 +35,7 @@
   <ul class="tabs-content">
     <li class="active collaboratorsTTab" id="collaboratorsTTab">
       <%= render 'collaborators' %>
+      <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
     </li>
     <li id="referencesTTab">
       <%= render 'references' %>

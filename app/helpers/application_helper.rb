@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def edit_current_user_path(user, new_user = nil)
-    send("edit_#{user.class.name.downcase}_path", user, new_user) 
+    send("edit_#{user.class.name.downcase}_path", user, new_user)
   end
 
 

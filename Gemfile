@@ -53,6 +53,7 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'kaminari'
 gem 'compass'
 gem 'fog'
 gem 'carrierwave'
@@ -74,6 +75,7 @@ gem 'redcarpet'
 gem 'ruby-progressbar'
 gem 'newrelic_rpm'
 gem 'airbrake'
+gem 'hirb'
 
 # Rack tools
 gem 'rack-no-www'

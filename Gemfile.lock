@@ -149,6 +149,7 @@ GEM
     gravatar-ultimate (1.0.3)
     hashie (2.0.5)
     hike (1.2.3)
+    hirb (0.7.1)
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -158,6 +159,9 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
@@ -348,7 +352,9 @@ DEPENDENCIES
   foreman
   github_api
   gravatar-ultimate
+  hirb
   jquery-rails
+  kaminari
   letter_opener
   mini_magick
   newrelic_rpm

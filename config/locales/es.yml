@@ -57,8 +57,7 @@ es:
         mychallenge: "Mi Reto"
         like: "Me gusta"
       collaborating: "Te has unido al reto"
-
-
+      collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
   activerecord:
     attributes:
       user:
@@ -156,6 +155,7 @@ es:
       edit: "Editar"
       submit_app: "Enviar app"
       edit_entry: "Editar app"
+      show-more: "Mostrar más"
     comments:
       comment: "Comentar"
       reply: "Responder"

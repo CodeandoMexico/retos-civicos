@@ -57,7 +57,39 @@ en:
         mychallenge: "My challenge"
         like: "Like"
       collaborating: "Te has unido al reto"
-      collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
+      collaborating_error: "Error, please try again"
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+    errors:
+      template:
+        header: "Some errors were found in the form"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "can't be blank"
+              format: "it's invalid"
+
+  flash:
+    admins:
+      organizations:
+        accredited: "Organiation properly accredited. You will receive a confirmation email."
+    organizations:
+      updated: "Organization Profile updated correctly."
+      welcome_new_suscriber: "Thanks for subscribing! We promise great news, no spam."
+    members:
+      updated: "Ready to Participate!"
+    users:
+      welcome_and_edit_profile: "Welcome to Codeando Mexico. Edit your profile before collaborating"
+    entries:
+      created_successfully: "Congratulations! You have successfully sent your application. Watch for results."
+      updated_successfully: "The application was properly edited."
+    unauthorized:
+      message: "You need to login first"
+      already_submited_app: "You've already sent your application to this challenge"
+
   challenges:
     initial_activity:
       title: 'Challenge creation'
@@ -96,6 +128,11 @@ en:
       description-description: "Describe the problem and why is so important to solve it."
       comments: "Notes and comments"
       resources: "Data and external resources"
+      welcome_mail: "Welcome Mail"
+      welcome_mail_subject: "Título del correo"
+      welcome_mail_subject-description: "Participants will receive this email when they sign up to the challenge. Write something short to get their attention"
+      welcome_mail_body: "Message Body"
+      welcome_mail_body-description: "You can send instructions and next steps of the challenge. All the valuable information."
     tab:
       collaborators: "Collaborators"
       references: "References"
@@ -116,11 +153,16 @@ en:
       collaborate: "Join"
       collaborating: "Collaborating"
       edit: "Edit"
+      submit_app: "Submit app"
+      edit_entry: "Edit app"
+      show-more: "Show more"
     comments:
       comment: "Leave a comment"
       reply: "Reply"
       mychallenge: "My challenge"
       like: "Like"
+    collaborating: "You have joined the challenge"
+    collaborating_error: "An error occured, please try joining again"
   home:
     index:
       pitch: "NGOs, Geeks, and Open Data 24/7."
@@ -176,21 +218,46 @@ en:
     with_github: "Sign in with Github"
     with_twitter: "Sign in with Twitter"
     with_linkedin: "Sign in with LinkedIn"
+    with_email: "Sign in with Email"
+    register_with_email: "Register with Email"
+    login: "Login"
   app_controller:
     login_required: "Authentication required"
-  auth_controller:
+
+  omniauth_controller:
     new_auth: "New authentication created"
-    destroy: "Logged out succesfully"
     failure: "Access denied, please try again"
-    sign_in: "Welcome to the challenge engine"
+    last_step: "Welcome to Codeando Mexico! Last step to start your participation:"
+    welcome_back: "You signed correctly with %{provider}. Welcome to Codeando Mexico!"
+    confirm_email: "Confirm your email before starting your participation"
   comments:
     commented: "Thanks for your comments"
     failure: "Something went wrong, try again"
     voted: "Your vote has been registered"
 
-  flash:
-    unauthorized: "You need to login first"
-
+  users:
+    welcome_new_org: "We have received your registration, while validating your organization, you can edit the profile:"
+    form:
+      bio-description: "140 characters about you"
+      submit: "Update"
+    define_role:
+      complete_register: "Complete registration"
+  organizations:
+    edit:
+      title: "Profile of organization"
+    form:
+      submit: "Update"
+      to_challenge_creation: "Ready! To create the first challenge"
+      name: "Name of organization"
+      email: "Email"
+      bio: "Description"
+      bio-description: "140 characters about the organization"
+      email-description: "Email of the person with whom we will be in contact"
+      avatar: "Profile image"
+    show:
+      email_placeholder: "Your favorite email"
+      suscribe_label_field: "Subscribe with your email and we will keep you up to date"
+      suscribe: "Subscribe"
   members:
     form:
       submit: "Update"
