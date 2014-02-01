@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :collaboration do
-    association :user
+    association :member
     association :challenge
   end
 end

@@ -10,7 +10,7 @@ feature "Submit an app" do
 
   background do
     sign_in_user(member.user, password: 'password')
-    FactoryGirl.create(:collaboration, user: member.user, member: member, challenge: challenge)
+    FactoryGirl.create(:collaboration, member: member, challenge: challenge)
   end
 
   scenario "Create and submit app" do
