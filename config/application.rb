@@ -70,5 +70,5 @@ module Aquila
       config.middleware.insert_before Rack::Lock, Rack::NoWWW
     end
 
-  end
+    end
 end

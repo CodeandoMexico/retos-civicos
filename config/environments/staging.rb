@@ -68,11 +68,11 @@ Aquila::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-   #Sendgrid
+  #Sendgrid
   SENDGRID_CREDENTIAL = {
     username: "kurenn",
     password: "iri1kuxv",
     domain: "aquila-stag.herokuapp.com"
   }
-end
+  end
 

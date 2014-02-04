@@ -42,4 +42,4 @@ Aquila::Application.configure do
     password: "",
     domain: ""
   }
-end
+  end

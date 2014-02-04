@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :validatable
+    :recoverable, :validatable
   devise :omniauthable, omniauth_providers: [:github, :twitter, :linkedin]
 
   # Setup accessible (or protected) attributes for your model
@@ -111,10 +111,10 @@ class User < ActiveRecord::Base
     elsif has_github_auth? or has_linkedin_auth?
       # LinkedIn or Github URL
       self.authentications.first.public_url
-    else
-      # No public URL.
-      'javascript:void(0)'
-    end
+      else
+        # No public URL.
+        'javascript:void(0)'
+      end
   end
 
   def create_role(params = {})

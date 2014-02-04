@@ -39,10 +39,10 @@ Aquila::Application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-   #Sendgrid
+  #Sendgrid
   SENDGRID_CREDENTIAL = {
     username: "",
     password: "",
     domain: ""
   }
-end
+  end
