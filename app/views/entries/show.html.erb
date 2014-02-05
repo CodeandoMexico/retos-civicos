@@ -6,26 +6,26 @@
     <h1 style="display:inline;"><%= @entry.name %></h1>
   </header>
   <section id="description" class="unit description">
-      <div class="column left">
-        <div class="content">
-          <h2><%= t(".description") %></h2>
-          <p><%= @entry.description %></p>
-          <h2><%= t(".github") %></h2>
-          <p>Repositorio: <%= link_to "#{@entry.github_url}", @entry.github_url, target: "_blank" %></p>
-          <h2><%= t(".live-demo-url") %></h2>
-          <p>Demo en línea: <%= link_to "#{@entry.live_demo_url}", @entry.live_demo_url, target: "_blank" %></p>
-        </div>
-      </div>
-      <div class="column right">
-        <div class="content">
-          <h2><%= t(".owner") %></h2>
-          <p><%= @user.name %></p>
-          <% unless @entry.team_members.blank? %>
-            <h2><%= t(".team-members") %></h2>
-            <p><%= @entry.team_members %></p>
-          <% end %>
-        </div>
+    <div class="column left">
+      <div class="content">
+        <h2><%= t(".description") %></h2>
+        <p><%= @entry.description %></p>
+        <h2><%= t(".github") %></h2>
+        <p>Repositorio: <%= link_to "#{@entry.github_url}", @entry.github_url, target: "_blank" %></p>
+        <h2><%= t(".live-demo-url") %></h2>
+        <p>Demo en línea: <%= link_to "#{@entry.live_demo_url}", @entry.live_demo_url, target: "_blank" %></p>
       </div>
     </div>
-  </section>
+    <div class="column right">
+      <div class="content">
+        <h2><%= t(".owner") %></h2>
+        <p><%= @user.name %></p>
+        <% unless @entry.team_members.blank? %>
+          <h2><%= t(".team-members") %></h2>
+        <p><%= @entry.team_members %></p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 </section>

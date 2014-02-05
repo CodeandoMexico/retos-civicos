@@ -2,12 +2,12 @@
   <%= t(".non-references") %>
 <% else %>
   <div class="unit">
-    <ul>
-      <% @challenge.references.each do |reference| %>
-        <li class="list-vrt-item">
-          <%= link_to truncate(reference, length: 90), reference, class: 'reference-item', target: '_blank' %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <ul>
+    <% @challenge.references.each do |reference| %>
+      <li class="list-vrt-item">
+    <%= link_to truncate(reference, length: 90), reference, class: 'reference-item', target: '_blank' %>
+    </li>
+  <% end %>
+  </ul>
+</div>
 <% end %>
