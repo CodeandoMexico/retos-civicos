@@ -4,8 +4,8 @@ require 'carrierwave/test/matchers'
 feature "Submit an app" do
   include CarrierWave::Test::Matchers
 
-  let!(:member) { FactoryGirl.create(:user).userable }
-  let!(:organization) { FactoryGirl.create(:user, userable: Organization.new).userable }
+  let!(:member) { new_member }
+  let!(:organization) { new_organization }
   let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
 
   background do
@@ -33,8 +33,7 @@ feature "Submit an app" do
       page.should have_content 'http://codeandomexico.org'
       page.should have_content 'yo, y los demas'
     end
-
-    click_link 'Ir al reto - El titulo 1'
+    click_link "Ir al reto - #{challenge.title}"
 
     within '.tabs' do
       page.should have_content '1 Apps'

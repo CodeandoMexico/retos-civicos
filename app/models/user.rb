@@ -125,10 +125,10 @@ class User < ActiveRecord::Base
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     self.save validate: false
-  end    
+  end
 
   def just_created?
-    self.created_at == self.updated_at 
+    self.created_at == self.updated_at
   end
 
   private

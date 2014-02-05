@@ -35,6 +35,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include SessionHelpers, type: :feature
+  config.include UserHelpers
   config.include MailerHelpers
 
 

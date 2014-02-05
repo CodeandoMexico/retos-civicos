@@ -2,13 +2,13 @@ require 'spec_helper'
 
 feature "Commenting on challenge" do
 
-  let!(:member) { FactoryGirl.create(:user).userable }
-  let!(:organization) { FactoryGirl.create(:user, userable: Organization.new).userable }
+  let!(:member) { new_member }
+  let!(:organization) { new_organization }
   let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
 
   background do
     sign_in_user(member.user, password: 'password')
-    FactoryGirl.create(:collaboration, user: member.user, member: member, challenge: challenge)
+    FactoryGirl.create(:collaboration, member: member, challenge: challenge)
   end
 
   scenario "Can comment", js: true do

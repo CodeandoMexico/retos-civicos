@@ -16,7 +16,7 @@ class ChallengesController < ApplicationController
     @organization = @challenge.organization
     @comments = @challenge.root_comments.sort_parents
     @entries = @challenge.entries
-    @collaborators = @challenge.collaborators.order(:created_at).page(params[:page]).per(21)
+    @collaborators = @challenge.collaborators.order(:created_at).page(params[:page])
   end
 
   def edit
