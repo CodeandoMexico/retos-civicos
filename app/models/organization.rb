@@ -22,6 +22,10 @@ class Organization < ActiveRecord::Base
     self.challenges.active.count == 1
   end
 
+  def has_submitted_app?(challenge)
+    false
+  end
+
   private
 
   def send_notify_admin

@@ -10,4 +10,12 @@ class Member < ActiveRecord::Base
     name || nickname || email
   end
 
+  def has_submitted_app?(challenge)
+    ! self.entry_for(challenge).nil?
+  end
+
+  def entry_for(challenge)
+    self.userable.entries.where(challenge_id: challenge.id).first
+  end
+
 end

@@ -87,16 +87,6 @@ class User < ActiveRecord::Base
     self.userable.challenge_ids.include?(challenge.id) unless self.userable_id.nil?
   end
 
-  # To-do: move this method to Member model given is only used by members
-  def has_submitted_app?(challenge)
-    not self.entry_for(challenge).blank? unless self.userable_id.nil?
-  end
-
-  # To-do: move this method to Member model given is only used by members
-  def entry_for(challenge)
-    self.userable.entries.where(challenge_id: challenge.id).first
-  end
-
   def update_skills(skills = [])
     self.skills = (self.skills + skills).uniq
   end
@@ -111,10 +101,10 @@ class User < ActiveRecord::Base
     elsif has_github_auth? or has_linkedin_auth?
       # LinkedIn or Github URL
       self.authentications.first.public_url
-      else
-        # No public URL.
-        'javascript:void(0)'
-      end
+    else
+      # No public URL.
+      'javascript:void(0)'
+    end
   end
 
   def create_role(params = {})
