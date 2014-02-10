@@ -7,6 +7,10 @@ es:
       index:
         header: "Retos"
         new_challenge: "Nuevo Reto"
+        active: "Activos"
+        inactive: "Inactivos"
+        popular: "Más populares"
+        recent: "Más recientes"
       new:
         header: "Nuevo Reto"
       edit:
@@ -100,6 +104,10 @@ es:
     index:
       header: "Retos"
       new_challenge: "Nuevo Reto"
+      active: "Activos"
+      inactive: "Inactivos"
+      popular: "Más populares"
+      recent: "Más recientes"
     new:
       header: "Nuevo Reto"
     edit:
@@ -307,3 +315,11 @@ es:
       team-members: "Miembros del equipo"
     new:
       back: "Volver al reto"
+
+  models:
+    challenge:
+      status:
+        finished: 'Terminado'
+        open: 'Abierto'
+        working_on: 'En desarrollo'
+        cancelled: 'Cancelado'

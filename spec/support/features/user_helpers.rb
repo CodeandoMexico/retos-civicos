@@ -5,4 +5,7 @@ module UserHelpers
   def new_organization
     FactoryGirl.create(:user, userable: Organization.new).userable
   end
+  def new_user
+    FactoryGirl.create(:user)
+  end
 end

@@ -28,23 +28,32 @@ class Challenge < ActiveRecord::Base
   after_create :create_initial_activity
 
   #Scopes
+  scope :active, lambda {
+    where("status = 'open' OR status = 'working_on'")
+  }
 
-  default_scope { order('challenges.created_at DESC') }
+  scope :inactive, lambda {
+    where("status = 'finished' OR status = 'cancelled'")
+  }
 
-  scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
+  scope :recent, lambda {
+    order('created_at DESC')
+  }
+
+  scope :popular, lambda {
+    joins('LEFT OUTER JOIN collaborations ON collaborations.challenge_id = challenges.id').
+    select('challenges.*, count(collaborations.challenge_id) as "challenge_count"').
+    group('challenges.id').
+    order('challenge_count desc')
+  }
 
   scope :in_zapopan, lambda {
     where("id IN (?)", (24..41).to_a) 
   }
 
-  scope :active, lambda {
-    where("status = 'open' OR status = 'working_on'")
-  }
-
   # Additionals
   acts_as_voteable
   acts_as_commentable
-
 
   # Embeddables
   auto_html_for :description do

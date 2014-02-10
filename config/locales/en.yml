@@ -7,6 +7,10 @@ en:
       index:
         header: "Challenges"
         new_challenge: "New Challenge"
+        active: "Actives"
+        inactive: "Inactives"
+        popular: "Most Popular"
+        recent: "Recent"
       new:
         header: "New Challenge"
       edit:
@@ -97,6 +101,10 @@ en:
     index:
       header: "Challenges"
       new_challenge: "New Challenge"
+      active: "Actives"
+      inactive: "Inactives"
+      popular: "Most Popular"
+      recent: "Recent"
     new:
       header: "New Challenge"
     edit:
@@ -293,3 +301,11 @@ en:
       team-members: "Team members"
     new:
       back: "Back to challenge"
+
+  models:
+    challenge:
+      status:
+        finished: 'Finished'
+        open: 'Open'
+        working_on: 'Working On'
+        cancelled: 'Cancelled'

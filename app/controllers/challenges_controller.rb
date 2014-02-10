@@ -5,7 +5,11 @@ class ChallengesController < ApplicationController
   before_filter :save_previous, only: [:like]
 
   def index
-    @challenges = Challenge.active
+    ch = Challenge.recent
+    ch = Challenge.active if params[:active]
+    ch = Challenge.inactive if params[:inactive]
+    ch = Challenge.popular if params[:popular]
+    @challenges = ch.page(params[:page])
   end
 
   def new
