@@ -1,8 +1,9 @@
 GIT
-  remote: git://github.com/wilhelmbot/CKAN.git
-  revision: 703394831df9944cf26eb338346591ab582caecf
+  remote: git://github.com/acrogenesis/CKAN-rb.git
+  revision: 49d2677e1b1675a9642c62f36439cf07a6027a57
   specs:
     ckan (0.0.3)
+      rest-client (~> 1.6.0)
 
 GEM
   remote: https://rubygems.org/
@@ -66,7 +67,7 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    childprocess (0.4.0)
+    childprocess (0.5.1)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.8)
     coderay (1.0.9)
@@ -116,10 +117,10 @@ GEM
     excon (0.6.6)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (4.3.0)
+    factory_girl (4.4.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.3.0)
-      factory_girl (~> 4.3.0)
+    factory_girl_rails (4.4.0)
+      factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
@@ -159,7 +160,7 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
-    kaminari (0.15.0)
+    kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
@@ -245,11 +246,13 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (2.3.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rinku (1.5.1)
     rspec-core (2.14.7)
-    rspec-expectations (2.14.4)
+    rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.4)
+    rspec-mocks (2.14.5)
     rspec-rails (2.14.1)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -296,7 +299,7 @@ GEM
       activerecord
       statistics2
     tilt (1.4.1)
-    timelineJS-rails (1.1.3)
+    timelineJS-rails (1.1.5)
       jquery-rails
     treetop (1.4.14)
       polyglot

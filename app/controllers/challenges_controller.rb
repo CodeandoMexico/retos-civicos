@@ -20,6 +20,7 @@ class ChallengesController < ApplicationController
     @organization = @challenge.organization
     @comments = @challenge.root_comments.sort_parents
     @entries = @challenge.entries
+    @resources = @challenge.resources_from_dataset
     @collaborators = @challenge.collaborators.order(:created_at).page(params[:page])
   end
 

@@ -545,6 +545,79 @@ section#challenges {
   }
 }
 
+.resource-teaser {
+  float: left;
+  width: 50%;
+  margin-bottom: 30px;
+  padding-right: 15px;
+
+  .resource-teaser-logo {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .resource-teaser-info {
+    float: right;
+    width: 77%;
+  }
+
+  .resource-teaser-info-datasets {
+    width: 82%;
+  }
+}
+
+
+/***************************************************
+**  FORMAT ICONS
+***************************************************/
+.format-label {
+  text-indent: -900em;
+  background: url(image_path('sprite-resource-icons.png')) no-repeat 0 0px;
+  width: 57px;
+  height: 61px;
+}
+
+.format-label[data-format=rdf],
+.format-label[data-format*=rdf] {
+  background-position: -58px 0px;
+}
+.format-label[data-format=pdf],
+.format-label[data-format*=pdf] {
+  background-position: -116px 0px;
+}
+.format-label[data-format=api],
+.format-label[data-format*=api] {
+  background-position: -174px 0px;
+}
+.format-label[data-format=zip],
+.format-label[data-format*=zip] {
+  background-position: -232px 0px;
+}
+.format-label[data-format=xls],
+.format-label[data-format*=xls] {
+  background-position: -290px 0px;
+}
+.format-label[data-format=csv],
+.format-label[data-format*=csv] {
+  background-position: -348px 0px;
+}
+.format-label[data-format=txt],
+.format-label[data-format*=txt] {
+  background-position: -406px 0px;
+}
+.format-label[data-format=xml],
+.format-label[data-format*=xml] {
+  background-position: -464px 0px;
+}
+.format-label[data-format=json],
+.format-label[data-format*=json] {
+  background-position: -522px 0px;
+}
+.format-label[data-format=html],
+.format-label[data-format*=html] {
+  background-position: -580px 0px;
+}
+
 .tabTools {
 
   .tabs{
@@ -610,15 +683,6 @@ section#challenges {
       }
     }
 
-    .appImage {
-      float: left;
-      margin-right: 15px;
-    }
-
-    .tab-content-block{
-      float: left;
-      width: 50%;
-    }
 
     .tab-entries, .tab-references{
       padding: 15px;

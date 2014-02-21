@@ -11,3 +11,4 @@ TWITTER_ACCESS_KEY = ENV['TWITTER_ACCESS_KEY'] || env['twitter']['access_key']
 TWITTER_ACCESS_SECRET = ENV['TWITTER_ACCESS_SECRET'] || env['twitter']['access_secret']
 
 CKAN_API_KEY = ENV['CKAN_API_KEY'] || env['ckan']['key']
+CKAN_API_BASE = ENV['CKAN_API_BASE'] || env['ckan']['base']

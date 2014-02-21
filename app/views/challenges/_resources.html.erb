@@ -1,0 +1,15 @@
+<% if @resources.empty? %>
+  <%= t(".non-resources") %>
+<% else %>
+  <div class="unit">
+    <% @resources.each do |r| %>
+      <div class="resource-teaser">
+        <span class="resource-teaser-logo format-label" property="dc:format" data-format="<%= r['format'] %>"><%= r['format']%></span>
+        <div class='resource-teaser-info resource-teaser-info-datasets' >
+          <%= link_to r['name'], r['url'] %>
+          <p><%= r['description'].truncate(100) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

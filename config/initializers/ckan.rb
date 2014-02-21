@@ -1,0 +1,1 @@
+CKAN::API.api_url = CKAN_API_BASE

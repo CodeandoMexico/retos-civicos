@@ -127,6 +127,8 @@ en:
       additional_links: "External references"
       additional_links-description: "Share some web site links which might complement your problem description or solution. Separate links with commas."
       additional_links-placeholder: "Split by commas"
+      dataset_id: "Dataset Id"
+      dataset_id-description: "Add a Dataset from http://datamx.io/"
       dataset_file: "Dataset (CSV format)"
       activities: "News and recent activity"
       activities-description: "Relevant milestones in the challenge"
@@ -144,13 +146,15 @@ en:
     tab:
       collaborators: "Collaborators"
       references: "References"
-      datasets: "Datasets"
+      resources: "Resource"
       entries: "Apps"
     collaborators:
       collaborators: "Collaborators"
       non-collaboration: "Be the first to join this challenge!"
     references:
       non-references: "No available references."
+    resources:
+      non-resources: "No available resources"
     entries:
       non-entries: "Be the first to send an App!"
       repo: "Repo"

@@ -1,9 +1,9 @@
 #encoding: utf-8
 class Challenge < ActiveRecord::Base
 
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-    :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
-    :pitch, :avatar, :about, :activities_attributes, :dataset_file
+  attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
+                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
+                  :pitch, :avatar, :about, :activities_attributes, :dataset_file
 
   attr_accessor :dataset_file
 
@@ -117,8 +117,18 @@ class Challenge < ActiveRecord::Base
 
         end
       }
-    }    
+    }
   end
+
+  def resources_from_dataset
+    if self.dataset_id
+      response = CKAN::Action::action_get("package_show", { "id" => self.dataset_id } )
+      response['result']['resources']
+    else
+      []
+    end
+  end
+
 
   private
 

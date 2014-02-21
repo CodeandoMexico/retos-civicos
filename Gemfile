@@ -18,7 +18,7 @@ gem 'github_api'
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
-gem 'ckan', :github => 'wilhelmbot/CKAN'
+gem 'ckan', :github => 'acrogenesis/CKAN-rb'
 
 group :test do
   gem 'shoulda-matchers'
