@@ -9,7 +9,7 @@ class ChallengesController < ApplicationController
     ch = Challenge.active if params[:active]
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
-    @challenges = ch.page(params[:page])
+    @challenges = ch.page(params[:page]).per(12)
   end
 
   def new

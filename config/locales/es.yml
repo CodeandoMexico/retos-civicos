@@ -105,7 +105,7 @@ es:
       header: "Retos"
       new_challenge: "Nuevo Reto"
       active: "Activos"
-      inactive: "Inactivos"
+      inactive: "Concluidos"
       popular: "Más populares"
       recent: "Más recientes"
     new:
