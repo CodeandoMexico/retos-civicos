@@ -24,7 +24,7 @@ feature "Challenges page filter" do
   end
 
   scenario "Inactive filter shows only the finished challenges" do
-    click_link("Inactivos")
+    click_link("Concluidos")
     page.should have_content(finished_ch.title)
     page.should_not have_content(active_ch.title)
   end
