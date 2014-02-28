@@ -9,7 +9,7 @@ class ChallengesController < ApplicationController
     ch = Challenge.active if params[:active]
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
-    @challenges = ch.page(params[:page]).per(12)
+    @challenges = ch.page(params[:page])
   end
 
   def new
@@ -20,7 +20,7 @@ class ChallengesController < ApplicationController
     @organization = @challenge.organization
     @comments = @challenge.root_comments.sort_parents
     @entries = @challenge.entries
-    @resources = @challenge.resources_from_dataset
+    @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators.order(:created_at).page(params[:page])
   end
 

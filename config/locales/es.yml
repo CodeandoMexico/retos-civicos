@@ -130,9 +130,8 @@ es:
       additional_links: "Referencias adicionales"
       additional_links-description: "Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas."
       additional_links-placeholder: "Separados por comas"
-      dataset_id: "Dataset Id"
+      dataset_id: "Datasets"
       dataset_id-description: "Agrega un Dataset de http://datamx.io/"
-      dataset_file: "Dataset (formato .csv)"
       activities: "Actividades y Noticias"
       activities-description: "Eventos relevantes del reto"
       activities-title: "Título"
@@ -146,6 +145,9 @@ es:
       welcome_mail_subject-description: "Los participantes recibirán este correo al inscribirse al reto. Escribe algo breve para llamar su atención"
       welcome_mail_body: "Cuerpo del mensaje"
       welcome_mail_body-description: "Puedes enviarles las instrucciones y siguientes pasos del reto. Toda la información valiosa."
+      dataset_hint_text: "Escriba un término de búsqueda"
+      dataset_no_results_text: "No hay resultados"
+      dataset_searching_text: "Buscando..."
     send_newsletter:
       header: "Mandar un newsletter"
       newsletter_subject: "Título del correo"
@@ -156,15 +158,15 @@ es:
     tab:
       collaborators: "Colaboradores"
       references: "Referencias"
-      resources: "Recurso"
+      datasets: "Datasets"
       entries: "Apps"
     collaborators:
       collaborators: "Colaboradores"
       non-collaboration: "Anímate. Sé el primero en colaborar en este reto."
     references:
       non-references: "Sin Referencias."
-    resources:
-      non-resources: "Por el momento no existen recursos."
+    datasets:
+      non-datasets: "Por el momento no existen datasets."
     entries:
       non-entries: "Anímate. Sé el primero en enviar una App."
       repo: "Repo"

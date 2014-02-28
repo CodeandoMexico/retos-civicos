@@ -60,7 +60,7 @@ en:
         reply: "Reply"
         mychallenge: "My challenge"
         like: "Like"
-      collaborating: "Te has unido al reto"
+      collaborating: "You have joined the challenge"
       collaborating_error: "Error, please try again"
   activerecord:
     attributes:
@@ -83,6 +83,9 @@ en:
     organizations:
       updated: "Organization Profile updated correctly."
       welcome_new_suscriber: "Thanks for subscribing! We promise great news, no spam."
+      repeated_subscriber: "Email already registered. Please try another"
+      send: "Your message has been sent"
+      long_message: "Please limit your message to 300 characters"
     members:
       updated: "Ready to Participate!"
     users:
@@ -127,9 +130,8 @@ en:
       additional_links: "External references"
       additional_links-description: "Share some web site links which might complement your problem description or solution. Separate links with commas."
       additional_links-placeholder: "Split by commas"
-      dataset_id: "Dataset Id"
+      dataset_id: "Datasets"
       dataset_id-description: "Add a Dataset from http://datamx.io/"
-      dataset_file: "Dataset (CSV format)"
       activities: "News and recent activity"
       activities-description: "Relevant milestones in the challenge"
       activities-title: "Title"
@@ -143,6 +145,16 @@ en:
       welcome_mail_subject-description: "Participants will receive this email when they sign up to the challenge. Write something short to get their attention"
       welcome_mail_body: "Message Body"
       welcome_mail_body-description: "You can send instructions and next steps of the challenge. All the valuable information."
+      dataset_hint_text: "Type in a search term"
+      dataset_no_results_text: "No results"
+      dataset_searching_text: "Searching..."
+    send_newsletter:
+      header: "Send a newsletter"
+      newsletter_subject: "Message Subject"
+      newsletter_subject-description: "Write something short that describes the reason for this message to all members of your challenge."
+      newsletter_body: "Message Body"
+      newsletter_body-description: "You can send them here in detail your statement."
+      submit: "Send newsletter"
     tab:
       collaborators: "Collaborators"
       references: "References"
@@ -168,6 +180,7 @@ en:
       submit_app: "Submit app"
       edit_entry: "Edit app"
       show-more: "Show more"
+      send_update: "Send newsletter"
     comments:
       comment: "Leave a comment"
       reply: "Reply"
@@ -270,6 +283,10 @@ en:
       email_placeholder: "Your favorite email"
       suscribe_label_field: "Subscribe with your email and we will keep you up to date"
       suscribe: "Subscribe"
+    subscribers_list:
+      title: "Message title"
+      message: "Add your message here"
+      submit: "Send"
   members:
     form:
       submit: "Update"
@@ -279,7 +296,6 @@ en:
       bio-description: "A little about yourself in 140 characters"
       avatar: "Profile picture"
       avatar-description: "Your identity in Codeando Mexico"
-
   entries:
     form:
       name: "Name"

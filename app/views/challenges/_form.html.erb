@@ -105,14 +105,6 @@
             <%= f.text_field :dataset_id %>
           </div>
         </div>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :dataset_file, t(".dataset_file") %>
-          </div>
-          <div class="column right">
-            <%= f.file_field :dataset_file %>
-          </div>
-        </div>
       </section>
     </section>
 
@@ -165,3 +157,23 @@
 
   <% end %>
 </div>
+<script>
+  $(function() {
+      $( "#challenge_dataset_id" ).tokenInput("<%= CKAN_API_BASE + '/action/package_search' %>", {
+        crossDomain: false,
+        jsonContainer: "result",
+        jsonContainer2: "results",
+        propertyToSearch: "title",
+        preventDuplicates: true,
+        minChars: 3,
+        prePopulate: [
+          <%= @challenge.prepopulate_dataset_id %>
+        ],
+        //translate
+        hintText: "<%= t(".dataset_hint_text") %>",
+        noResultsText: "<%= t(".dataset_no_results_text") %>",
+        searchingText: "<%= t(".dataset_searching_text") %>"
+
+    });
+  });
+</script>

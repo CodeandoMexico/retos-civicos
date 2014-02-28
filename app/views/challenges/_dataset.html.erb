@@ -1,0 +1,10 @@
+<% @datasets.each do |d| %>
+  <% data = @challenge.dataset_info(d) %>
+  <div class="dataset-teaser">
+    <span class="dataset-teaser-logo format-label" property="dc:format" data-format="<%= data['resources'][0]['format'].downcase %>"><%= data['resources'][0]['format'].downcase %></span>
+    <div class='dataset-teaser-info dataset-teaser-info-datasets' >
+      <%= link_to data['title'], "http://datamx.io/dataset/#{data['name']}", target:"_blank" %>
+      <p><%= data['notes'].truncate(100) %></p>
+    </div>
+  </div>
+<% end %>

@@ -5,6 +5,12 @@ GIT
     ckan (0.0.3)
       rest-client (~> 1.6.0)
 
+GIT
+  remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
+  revision: ed83ec13b6e4bcd309139c110dd93cd0aa61546e
+  specs:
+    jquery-tokeninput-rails (1.6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -357,6 +363,7 @@ DEPENDENCIES
   gravatar-ultimate
   hirb
   jquery-rails
+  jquery-tokeninput-rails!
   kaminari
   letter_opener
   mini_magick

@@ -3,6 +3,7 @@
 @import "defaults";
 @import "vendor";
 @import "timelineJS/timeline";
+@import "token-input";
 
 
 /***************************************************
@@ -545,23 +546,24 @@ section#challenges {
   }
 }
 
-.resource-teaser {
+.dataset-teaser {
   float: left;
   width: 50%;
   margin-bottom: 30px;
   padding-right: 15px;
+  height: 80px;
 
-  .resource-teaser-logo {
+  .dataset-teaser-logo {
     float: left;
     margin-right: 15px;
   }
 
-  .resource-teaser-info {
+  .dataset-teaser-info {
     float: right;
     width: 77%;
   }
 
-  .resource-teaser-info-datasets {
+  .dataset-teaser-info-datasets {
     width: 82%;
   }
 }

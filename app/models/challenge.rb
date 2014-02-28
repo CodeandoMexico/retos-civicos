@@ -11,6 +11,8 @@ class Challenge < ActiveRecord::Base
 
   mount_uploader :avatar, ChallengeAvatarUploader
 
+  paginates_per 12
+
   # Relations
   has_many :collaborations
   has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
@@ -24,7 +26,6 @@ class Challenge < ActiveRecord::Base
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
-  before_create :upload_file
   after_create :create_initial_activity
 
   #Scopes
@@ -48,7 +49,7 @@ class Challenge < ActiveRecord::Base
   }
 
   scope :in_zapopan, lambda {
-    where("id IN (?)", (24..41).to_a) 
+    where("id IN (?)", (24..41).to_a)
   }
 
   # Additionals
@@ -120,12 +121,35 @@ class Challenge < ActiveRecord::Base
     }
   end
 
-  def resources_from_dataset
+  def datasets_id
     if self.dataset_id
-      response = CKAN::Action::action_get("package_show", { "id" => self.dataset_id } )
-      response['result']['resources']
+      self.dataset_id.split(',')
     else
       []
+    end
+  end
+
+  def dataset_info(d)
+    response = CKAN::Action::action_get("package_show", { "id" => d } )
+    response['result']
+  end
+
+  def prepopulate_dataset_id
+    if self.dataset_id
+      datos = {}
+      datos_json = ""
+      c = 0
+      self.datasets_id.each do |d|
+        c += 1
+        response = CKAN::Action::action_get("package_show", { "id" => d } )
+        datos['id'] = d
+        datos['title'] = response['result']['title']
+        datos_json += datos.to_json
+        datos_json += "," unless c == self.datasets_id.count
+      end
+      datos_json.html_safe
+    else
+      {}
     end
   end
 
@@ -136,23 +160,4 @@ class Challenge < ActiveRecord::Base
     self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))
   end
 
-  def upload_file
-    return true if @dataset_file.blank?
-
-    dataset_name = self.title.gsub(/\s/,'_').downcase
-
-    # Upload dataset resource
-    resource = CKAN::Resource.new(name: @dataset_file.original_filename, title: self.title)
-    resource.content = File.read(@dataset_file.tempfile)
-    resource.upload(CKAN_API_KEY)
-
-    # Create dataset
-    datastore = CKAN::Datastore.new(name: dataset_name, title: @title)
-    datastore.resources = [resource]
-    response = datastore.upload(CKAN_API_KEY)
-    created = JSON.parse(response.body)
-    self.dataset_url = created['ckan_url']
-  end
-
 end
-
