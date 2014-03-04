@@ -36,10 +36,10 @@ feature "Submit an app" do
     click_link "Ir al reto - #{challenge.title}"
 
     within '.tabs' do
-      page.should have_content '1 Apps'
+      page.should have_content '1 App'
     end
 
-    click_link '1 Apps'
+    click_link '1 App'
 
     within '#entriesTTab' do
       page.should have_content 'App de Prueba'

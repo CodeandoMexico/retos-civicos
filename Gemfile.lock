@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/acrogenesis/CKAN-rb.git
-  revision: 49d2677e1b1675a9642c62f36439cf07a6027a57
+  remote: git://github.com/CodeandoMexico/CKAN-rb.git
+  revision: 35e451ff641079e8d5e2f7258735a12928036ed0
   specs:
     ckan (0.0.3)
       rest-client (~> 1.6.0)

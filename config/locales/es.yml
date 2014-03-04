@@ -156,10 +156,10 @@ es:
       newsletter_body-description: "Puedes enviarles aquí todo detalle de tu comunicado."
       submit: "Enviar newsletter"
     tab:
-      collaborators: "Colaboradores"
-      references: "Referencias"
-      datasets: "Datasets"
-      entries: "Apps"
+      collaborators: "Colaborador"
+      references: "Referencia"
+      datasets: "Dataset"
+      entries: "App"
     collaborators:
       collaborators: "Colaboradores"
       non-collaboration: "Anímate. Sé el primero en colaborar en este reto."

@@ -15,7 +15,7 @@ test:
 
   ckan:
     key: 'a1164d3a-cb0d-47ff-b13b-a7b58fbdc463'
-    base: 'http://api.codeandomexico.org/api/3'
+    base: 'http://datamx.io/api/3'
 
 development:
   github:
@@ -34,7 +34,7 @@ development:
 
   ckan:
     key: 'a1164d3a-cb0d-47ff-b13b-a7b58fbdc463'
-    base: 'http://api.codeandomexico.org/api/3'
+    base: 'http://datamx.io/api/3'
 
 staging:
   github:

@@ -149,7 +149,7 @@ class Challenge < ActiveRecord::Base
       end
       datos_json.html_safe
     else
-      {}
+      ""
     end
   end
 
