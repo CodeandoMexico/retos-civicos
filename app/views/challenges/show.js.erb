@@ -1,0 +1,3 @@
+$('.collabrow').append('<%= j render('collaborator') %>');
+  $('.showMore').replaceWith('<%= escape_javascript(
+    link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore") %>');

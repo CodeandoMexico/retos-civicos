@@ -8,7 +8,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-	match 'signup' => 'home#sign_up'
+  match 'signup' => 'home#sign_up'
   match '/about' => 'home#about'
   get '/jobs' => 'home#jobs'
 
@@ -17,10 +17,17 @@ Aquila::Application.routes.draw do
   end
 
   resources :organizations, only: [:show, :update, :edit] do
-    resources :org_suscribers, only: [:create]
+    member do
+      get :subscribers_list
+    end
+    resources :subscribers, only: [:create]
     resources :challenges, except: [:index] do
       member do
-        get :timeline
+	get :timeline
+      end
+      member do
+	get :send_newsletter
+	post :mail_newsletter
       end
     end
   end
@@ -29,22 +36,22 @@ Aquila::Application.routes.draw do
 
   resources :authentications
 
-	resources :challenges, only: [:index, :show] do
+  resources :challenges, only: [:index, :show] do
     resources :votes, only: [:create]
     resources :collaborations, only: [:create]
     resources :entries, except: [:destroy]
-		resources :comments do
-			member do
-				post :like
-				post :reply
-			end
-		end
+    resources :comments do
+      member do
+	post :like
+	post :reply
+      end
+    end
     member do
       put :cancel
       post :like
       get :timeline
     end
-	end
+  end
 
   resources :users do 
     collection do

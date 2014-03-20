@@ -1,0 +1,17 @@
+<% if @entries.empty? %>
+  <%= t(".non-entries") %>
+<% else %>
+  <div class="unit">
+    <% @entries.each do |e| %>
+      <div class="dataset-teaser">
+        <%= image_tag(e.entry_logo.url, :class=>"dataset-teaser-logo") %>
+        <div class='dataset-teaser-info' >
+          <%= link_to e.name, challenge_entry_path(@challenge, e) %>
+          <p><%= e.description %><br/>
+          <%= link_to t(".repo"), e.github_url if e.github_url %> | <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url%>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

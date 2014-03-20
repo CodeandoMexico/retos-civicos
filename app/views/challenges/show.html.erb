@@ -3,6 +3,7 @@
     <nav>
       <%= like_section(@challenge) %>
       <%= collaborate_section(@challenge)  %>
+      <%= newsletter_helper(@challenge)  %>
     </nav>
     <h1><%= @challenge.title %></h1>
   </header>
@@ -11,7 +12,7 @@
       <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>
       <div class="owner">
         <span class="name"><%= t("challenges.form.created-by") %> <em><%= link_to @organization.name, root_url(subdomain: @organization.subdomain) %></em></span>
-        <span class="status"><%= @challenge.status %></span>
+        <span class="status"><%= t("models.challenge.status.#{@challenge.status}") %></span>
       </div>
     </div>
     <div class="column right">
@@ -27,9 +28,27 @@
   <h3><%= @challenge.pitch %></h3>
 </section>
 
+<section id="tabTools" class="tabTools">
+  <dl class="tabs drop-shadow">
+    <%= render 'tab' %>
+  </dl>
 
-<%= render "resources" %>
-
+  <ul class="tabs-content">
+    <li class="active collaboratorsTTab" id="collaboratorsTTab">
+    <%= render 'collaborators' %>
+    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
+    </li>
+    <li id="referencesTTab">
+    <%= render 'references' %>
+    </li>
+    <li id="datasetsTTab">
+      <%= render 'datasets' %>
+    </li>
+    <li id="entriesTTab">
+    <%= render'entries' %>
+    </li>
+  </ul>
+</section>
 
 <section id="needs" class="unit needs ">
   <header>
@@ -41,24 +60,20 @@
     </div>
   </div>
   <div class="column right">
-      <h3><%= t("challenges.form.points") %></h3>
-      <ul class="points">
-        <% if !@challenge.first_spec.blank? %>
-          <li><%= markdown @challenge.first_spec %></li>
-        <% end %>
-        <% if !@challenge.second_spec.blank? %>
-          <li><%= markdown @challenge.second_spec %></li>
-        <% end %>
-        <% if !@challenge.third_spec.blank? %>
-          <li><%= markdown @challenge.third_spec %></li>
-        <% end %>
-      </ul>
+    <h3><%= t("challenges.form.points") %></h3>
+    <ul class="points">
+      <% if !@challenge.first_spec.blank? %>
+        <li><%= markdown @challenge.first_spec %></li>
+    <% end %>
+      <% if !@challenge.second_spec.blank? %>
+        <li><%= markdown @challenge.second_spec %></li>
+    <% end %>
+      <% if !@challenge.third_spec.blank? %>
+        <li><%= markdown @challenge.third_spec %></li>
+    <% end %>
+    </ul>
   </div>
 </section>
-
-<% unless @challenge.references.empty? %>
-  <%= render 'references' %>
-<% end %>
 
 <%= render "activities" %>
 

@@ -1,5 +1,5 @@
 class CollaborationsController < ApplicationController
-  load_and_authorize_resource 
+  load_and_authorize_resource
 
   def create
     @challenge = Challenge.find(params[:challenge_id])

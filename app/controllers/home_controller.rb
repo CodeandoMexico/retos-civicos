@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout "home"
 
   def index
-    @challenges = Challenge.recents(3)
+    @challenges = Challenge.recent.limit(3)
   end
 
   def sign_up

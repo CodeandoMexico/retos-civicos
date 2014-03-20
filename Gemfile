@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 
 gem 'foreman'
 gem 'pg'
@@ -18,7 +18,18 @@ gem 'github_api'
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
-gem 'ckan', :github => 'wilhelmbot/CKAN'
+gem 'ckan', :github => 'CodeandoMexico/CKAN-rb'
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,6 +37,7 @@ group :assets do
   gem 'compass-rails'
   gem 'zurb-foundation',  '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
+  gem 'timelineJS-rails', '~> 1.1.1'
 end
 
 group :development do
@@ -41,18 +53,20 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'kaminari'
 gem 'compass'
 gem 'fog'
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.8.0'
 gem 'mini_magick'
 gem 'sanitize'
 gem 'auto_html'
 gem 'jquery-rails'
+gem 'jquery-tokeninput-rails', :github => 'acrogenesis/jquery-tokeninput-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
 gem 'copycopter_client', '~> 2.0.1'
 gem 'dynamic_form'
-gem 'twitter'
+gem 'twitter', '~> 4.8.1'
 gem 'exception_notification'
 gem 'sendgrid'
 gem 'delayed_job_active_record'
@@ -62,6 +76,7 @@ gem 'redcarpet'
 gem 'ruby-progressbar'
 gem 'newrelic_rpm'
 gem 'airbrake'
+gem 'hirb'
 
 # Rack tools
 gem 'rack-no-www'

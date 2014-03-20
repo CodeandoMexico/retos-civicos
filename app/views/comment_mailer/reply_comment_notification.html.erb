@@ -1,0 +1,5 @@
+<h1>Hola <%= @user.email %>: </h1>
+
+<p>Tienes un comentario nuevo en <%= link_to "esta liga", organization_challenge_url(@challenge.organization.id, @challenge)  %>.</p>
+<br/>
+<p>Comentario: <%= @comment.body %></p>

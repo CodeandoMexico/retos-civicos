@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :validatable
+    :recoverable, :validatable
   devise :omniauthable, omniauth_providers: [:github, :twitter, :linkedin]
 
   # Setup accessible (or protected) attributes for your model
@@ -87,16 +87,6 @@ class User < ActiveRecord::Base
     self.userable.challenge_ids.include?(challenge.id) unless self.userable_id.nil?
   end
 
-  # To-do: move this method to Member model given is only used by members
-  def has_submitted_app?(challenge)
-    not self.entry_for(challenge).blank? unless self.userable_id.nil?
-  end
-
-  # To-do: move this method to Member model given is only used by members
-  def entry_for(challenge)
-    self.userable.entries.where(challenge_id: challenge.id).first
-  end
-
   def update_skills(skills = [])
     self.skills = (self.skills + skills).uniq
   end
@@ -125,10 +115,10 @@ class User < ActiveRecord::Base
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     self.save validate: false
-  end    
+  end
 
   def just_created?
-    self.created_at == self.updated_at 
+    self.created_at == self.updated_at
   end
 
   private

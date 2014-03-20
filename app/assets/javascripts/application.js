@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.tokeninput
 //= require foundation
 //= require vendor
+//= require timelineJS/embed
 //= require_tree .

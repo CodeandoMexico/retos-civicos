@@ -1,0 +1,28 @@
+<dd class="active tab-challenge">
+  <a href="#collaboratorsT">
+    <%= @collaborators.count %>
+    <p><%= t(".collaborators").pluralize(@collaborators.count) %></p>
+    <span class="arrow"></span>
+  </a>
+</dd>
+<dd class="tab-challenge">
+  <a href="#referencesT">
+    <%= @challenge.total_references %>
+    <p><%= t(".references").pluralize(@challenge.total_references) %></p>
+    <span class="arrow"></span>
+  </a>
+</dd>
+<dd class="tab-challenge">
+  <a href="#datasetsT">
+    <%= @datasets.count %>
+    <p><%= t(".datasets").pluralize(@datasets.count) %></p>
+    <span class="arrow"></span>
+  </a>
+</dd>
+<dd class="tab-challenge">
+  <a href="#entriesT">
+    <%= @entries.count %>
+    <p><%= t(".entries").pluralize(@entries.count) %></p>
+    <span class="arrow"></span>
+  </a>
+</dd>

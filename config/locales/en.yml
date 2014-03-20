@@ -7,6 +7,10 @@ en:
       index:
         header: "Challenges"
         new_challenge: "New Challenge"
+        active: "Actives"
+        inactive: "Inactives"
+        popular: "Most Popular"
+        recent: "Recent"
       new:
         header: "New Challenge"
       edit:
@@ -56,8 +60,43 @@ en:
         reply: "Reply"
         mychallenge: "My challenge"
         like: "Like"
-      collaborating: "Te has unido al reto"
-      collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
+      collaborating: "You have joined the challenge"
+      collaborating_error: "Error, please try again"
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+    errors:
+      template:
+        header: "Some errors were found in the form"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "can't be blank"
+              format: "it's invalid"
+
+  flash:
+    admins:
+      organizations:
+        accredited: "Organiation properly accredited. You will receive a confirmation email."
+    organizations:
+      updated: "Organization Profile updated correctly."
+      welcome_new_suscriber: "Thanks for subscribing! We promise great news, no spam."
+      repeated_subscriber: "Email already registered. Please try another"
+      send: "Your message has been sent"
+      long_message: "Please limit your message to 300 characters"
+    members:
+      updated: "Ready to Participate!"
+    users:
+      welcome_and_edit_profile: "Welcome to Codeando Mexico. Edit your profile before collaborating"
+    entries:
+      created_successfully: "Congratulations! You have successfully sent your application. Watch for results."
+      updated_successfully: "The application was properly edited."
+    unauthorized:
+      message: "You need to login first"
+      already_submited_app: "You've already sent your application to this challenge"
+
   challenges:
     initial_activity:
       title: 'Challenge creation'
@@ -65,6 +104,10 @@ en:
     index:
       header: "Challenges"
       new_challenge: "New Challenge"
+      active: "Actives"
+      inactive: "Inactives"
+      popular: "Most Popular"
+      recent: "Recent"
     new:
       header: "New Challenge"
     edit:
@@ -87,7 +130,8 @@ en:
       additional_links: "External references"
       additional_links-description: "Share some web site links which might complement your problem description or solution. Separate links with commas."
       additional_links-placeholder: "Split by commas"
-      dataset_file: "Dataset (CSV format)"
+      dataset_id: "Datasets"
+      dataset_id-description: "Add a Dataset from http://datamx.io/"
       activities: "News and recent activity"
       activities-description: "Relevant milestones in the challenge"
       activities-title: "Title"
@@ -96,26 +140,56 @@ en:
       description-description: "Describe the problem and why is so important to solve it."
       comments: "Notes and comments"
       resources: "Data and external resources"
+      welcome_mail: "Welcome Mail"
+      welcome_mail_subject: "Título del correo"
+      welcome_mail_subject-description: "Participants will receive this email when they sign up to the challenge. Write something short to get their attention"
+      welcome_mail_body: "Message Body"
+      welcome_mail_body-description: "You can send instructions and next steps of the challenge. All the valuable information."
+      dataset_hint_text: "Type in a search term"
+      dataset_no_results_text: "No results"
+      dataset_searching_text: "Searching..."
+    send_newsletter:
+      header: "Send a newsletter"
+      newsletter_subject: "Message Subject"
+      newsletter_subject-description: "Write something short that describes the reason for this message to all members of your challenge."
+      newsletter_body: "Message Body"
+      newsletter_body-description: "You can send them here in detail your statement."
+      submit: "Send newsletter"
+    tab:
+      collaborators: "Collaborators"
+      references: "References"
+      resources: "Resource"
+      entries: "Apps"
+    collaborators:
+      collaborators: "Collaborators"
+      non-collaboration: "Be the first to join this challenge!"
+    references:
+      non-references: "No available references."
+    resources:
+      non-resources: "No available resources"
+    entries:
+      non-entries: "Be the first to send an App!"
+      repo: "Repo"
+      demo: "Demo"
     show:
       created-by: "Created by:"
       supportus: "Help us reach our goal"
       collaborate: "Join"
       collaborating: "Collaborating"
       edit: "Edit"
-    resources:
-      collaborators: "Collaborators"
-      references: "References"
-      datasets: "Datasets"
-      non-collaboration: "Be the first to join this challenge!"
-      datasets: "Datasets"
-      votes: "Votes"
+      submit_app: "Submit app"
+      edit_entry: "Edit app"
+      show-more: "Show more"
+      send_update: "Send newsletter"
     comments:
       comment: "Leave a comment"
       reply: "Reply"
       mychallenge: "My challenge"
       like: "Like"
+    collaborating: "You have joined the challenge"
+    collaborating_error: "An error occured, please try joining again"
   home:
-    index: 
+    index:
       pitch: "NGOs, Geeks, and Open Data 24/7."
       get_involved: "Get involved"
       recent: "Recent Challenges"
@@ -169,21 +243,50 @@ en:
     with_github: "Sign in with Github"
     with_twitter: "Sign in with Twitter"
     with_linkedin: "Sign in with LinkedIn"
+    with_email: "Sign in with Email"
+    register_with_email: "Register with Email"
+    login: "Login"
   app_controller:
     login_required: "Authentication required"
-  auth_controller:
+
+  omniauth_controller:
     new_auth: "New authentication created"
-    destroy: "Logged out succesfully"
     failure: "Access denied, please try again"
-    sign_in: "Welcome to the challenge engine"
+    last_step: "Welcome to Codeando Mexico! Last step to start your participation:"
+    welcome_back: "You signed correctly with %{provider}. Welcome to Codeando Mexico!"
+    confirm_email: "Confirm your email before starting your participation"
   comments:
     commented: "Thanks for your comments"
     failure: "Something went wrong, try again"
     voted: "Your vote has been registered"
 
-  flash:
-    unauthorized: "You need to login first"
-
+  users:
+    welcome_new_org: "We have received your registration, while validating your organization, you can edit the profile:"
+    form:
+      bio-description: "140 characters about you"
+      submit: "Update"
+    define_role:
+      complete_register: "Complete registration"
+  organizations:
+    edit:
+      title: "Profile of organization"
+    form:
+      submit: "Update"
+      to_challenge_creation: "Ready! To create the first challenge"
+      name: "Name of organization"
+      email: "Email"
+      bio: "Description"
+      bio-description: "140 characters about the organization"
+      email-description: "Email of the person with whom we will be in contact"
+      avatar: "Profile image"
+    show:
+      email_placeholder: "Your favorite email"
+      suscribe_label_field: "Subscribe with your email and we will keep you up to date"
+      suscribe: "Subscribe"
+    subscribers_list:
+      title: "Message title"
+      message: "Add your message here"
+      submit: "Send"
   members:
     form:
       submit: "Update"
@@ -193,3 +296,36 @@ en:
       bio-description: "A little about yourself in 140 characters"
       avatar: "Profile picture"
       avatar-description: "Your identity in Codeando Mexico"
+  entries:
+    form:
+      name: "Name"
+      name-description: "App/Project"
+      github-url: "GitHub Repo URL"
+      github-url-description: "Link to open source repository"
+      live-demo-url: "Demo URL"
+      demo-url-description: "Link to live app"
+      entry-logo: "Logo"
+      entry-logo-description: "Upload the app's logo. (80x80)"
+      description: "Description"
+      description-description: "In brief functionality/purpose of app"
+      team-members: "Team members"
+      team-members-description: "If you worked on a team, list the name and email of your colleagues. You can use Markdown."
+      challenge: "Challenge"
+      submit: "Send project"
+    show:
+      description: "Description"
+      owner: "Team Leader"
+      github: "GitHub Repo"
+      live-demo-url: "Link to live app"
+      go-to-challenge: "Go to challenge - %{challenge}"
+      team-members: "Team members"
+    new:
+      back: "Back to challenge"
+
+  models:
+    challenge:
+      status:
+        finished: 'Finished'
+        open: 'Open'
+        working_on: 'Working On'
+        cancelled: 'Cancelled'

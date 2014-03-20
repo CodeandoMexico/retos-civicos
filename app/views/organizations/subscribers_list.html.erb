@@ -1,0 +1,20 @@
+<h1>Lista de suscripciones</h1>
+
+<table class='twelve'>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Correo Electrónico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |sub| %>
+      <tr>
+        <td><%= sub.id %></td>
+        <td><%= sub.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @subscribers %>

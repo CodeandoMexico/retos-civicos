@@ -23,4 +23,9 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def subscribers_list
+    @subscribers = @organization.subscribers.order(:id).page(params[:page])
+  end
+
+  
 end

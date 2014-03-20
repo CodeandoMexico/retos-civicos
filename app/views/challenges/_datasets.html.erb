@@ -1,0 +1,7 @@
+<% if @datasets.empty? %>
+  <%= t(".non-datasets") %>
+<% else %>
+  <div class="unit">
+    <%= render 'dataset' %>
+  </div>
+<% end %>

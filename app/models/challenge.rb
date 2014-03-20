@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Challenge < ActiveRecord::Base
 
-  attr_accessible :dataset_url, :description, :owner_id, :status, :title, :additional_links,
+  attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file
 
@@ -11,40 +11,50 @@ class Challenge < ActiveRecord::Base
 
   mount_uploader :avatar, ChallengeAvatarUploader
 
+  paginates_per 12
+
   # Relations
-	has_many :collaborations
-	has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
+  has_many :collaborations
+  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
   has_many :activities
   has_many :entries
 
   belongs_to :organization
-	# Validations
-	validates :description, :title, :status, :about, :pitch, presence: true
-	validates :pitch, length: { maximum: 140 }
+  # Validations
+  validates :description, :title, :status, :about, :pitch, presence: true
+  validates :pitch, length: { maximum: 140 }
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
-  before_create :upload_file
   after_create :create_initial_activity
 
   #Scopes
-
-  default_scope { order('challenges.created_at DESC') }
-
-  scope :recents, lambda { |limit| order('created_at DESC').limit(limit) } 
-
-  scope :in_zapopan, lambda {
-    where("id IN (?)", (24..41).to_a) 
-  }
-
   scope :active, lambda {
     where("status = 'open' OR status = 'working_on'")
   }
 
-	# Additionals
-	acts_as_voteable
-	acts_as_commentable
+  scope :inactive, lambda {
+    where("status = 'finished' OR status = 'cancelled'")
+  }
 
+  scope :recent, lambda {
+    order('created_at DESC')
+  }
+
+  scope :popular, lambda {
+    joins('LEFT OUTER JOIN collaborations ON collaborations.challenge_id = challenges.id').
+    select('challenges.*, count(collaborations.challenge_id) as "challenge_count"').
+    group('challenges.id').
+    order('challenge_count desc')
+  }
+
+  scope :in_zapopan, lambda {
+    where("id IN (?)", (24..41).to_a)
+  }
+
+  # Additionals
+  acts_as_voteable
+  acts_as_commentable
 
   # Embeddables
   auto_html_for :description do
@@ -55,18 +65,18 @@ class Challenge < ActiveRecord::Base
     link target: "_blank", rel: "nofollow"
   end
 
-	STATUS = [:open, :working_on, :cancelled, :finished]
+  STATUS = [:open, :working_on, :cancelled, :finished]
 
   def to_param
-    "#{id}-#{title}".parameterize 
+    "#{id}-#{title}".parameterize
   end
 
-	def cancel!
-		self.status = :cancelled
-		self.save
-	end
+  def cancel!
+    self.status = :cancelled
+    self.save
+  end
 
-	def update_likes_counter
+  def update_likes_counter
     self.likes_counter = self.votes_count
     self.save
   end
@@ -108,8 +118,41 @@ class Challenge < ActiveRecord::Base
 
         end
       }
-    }    
+    }
   end
+
+  def datasets_id
+    if self.dataset_id
+      self.dataset_id.split(',')
+    else
+      []
+    end
+  end
+
+  def dataset_info(d)
+    response = CKAN::Action::action_get("package_show", { "id" => d } )
+    response['result']
+  end
+
+  def prepopulate_dataset_id
+    if self.dataset_id
+      datos = {}
+      datos_json = ""
+      c = 0
+      self.datasets_id.each do |d|
+        c += 1
+        response = CKAN::Action::action_get("package_show", { "id" => d } )
+        datos['id'] = d
+        datos['title'] = response['result']['title']
+        datos_json += datos.to_json
+        datos_json += "," unless c == self.datasets_id.count
+      end
+      datos_json.html_safe
+    else
+      ""
+    end
+  end
+
 
   private
 
@@ -117,23 +160,4 @@ class Challenge < ActiveRecord::Base
     self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))
   end
 
-  def upload_file
-    return true if @dataset_file.blank?
-
-    dataset_name = self.title.gsub(/\s/,'_').downcase
-
-    # Upload dataset resource
-    resource = CKAN::Resource.new(name: @dataset_file.original_filename, title: self.title)
-    resource.content = File.read(@dataset_file.tempfile)
-    resource.upload(CKAN_API_KEY)
-
-    # Create dataset
-    datastore = CKAN::Datastore.new(name: dataset_name, title: @title)
-    datastore.resources = [resource]
-    response = datastore.upload(CKAN_API_KEY)
-    created = JSON.parse(response.body)
-    self.dataset_url = created['ckan_url']
-  end
-
 end
-

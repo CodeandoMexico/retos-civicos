@@ -1,8 +1,8 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :email, :bio, :nickname, :accepting_suscribers, :avatar
+  attr_accessible :name, :email, :bio, :nickname, :accepting_subscribers, :avatar
 
   has_many :challenges
-  has_many :org_suscribers
+  has_many :subscribers
 
   acts_as_user
 
@@ -20,6 +20,10 @@ class Organization < ActiveRecord::Base
 
   def has_only_one_challenge?
     self.challenges.active.count == 1
+  end
+
+  def has_submitted_app?(challenge)
+    false
   end
 
   private

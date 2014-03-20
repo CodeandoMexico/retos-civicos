@@ -3,7 +3,6 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find params[:id]
-    debugger
     @challenge = @entry.challenge
     @user = @entry.member
   end
@@ -21,7 +20,7 @@ class EntriesController < ApplicationController
 
   def create
     authorize! :create, Entry
-		@challenge = Challenge.find(params[:challenge_id])
+    @challenge = Challenge.find(params[:challenge_id])
     @entry = @challenge.entries.build(params[:entry])
     if @entry.save
       redirect_to challenge_entry_path(@entry.challenge, @entry), notice: I18n.t("flash.entries.created_successfully")
@@ -43,7 +42,7 @@ class EntriesController < ApplicationController
   private
 
   def redirect_if_has_submitted_app
-    if current_user.has_submitted_app?(@challenge)
+    if current_user.userable.has_submitted_app?(@challenge)
       redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.already_submited_app")
     end
   end
