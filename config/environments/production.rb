@@ -72,9 +72,4 @@ Aquila::Application.configure do
     domain: "codeandomexico.org"
   }
 
-  #Exception Notification
-  config.middleware.use ExceptionNotifier,
-    sender_address: 'no-reply@codeandomexico.org',
-    exception_recipients: ['equipo@codeandomexico.org'],
-    ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
-  end
+end

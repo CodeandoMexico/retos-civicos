@@ -120,9 +120,6 @@ GEM
     dynamic_form (1.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    exception_notification (4.0.1)
-      actionmailer (>= 3.0.4)
-      activesupport (>= 3.0.4)
     excon (0.31.0)
     execjs (2.0.2)
     factory_girl (4.4.0)
@@ -361,7 +358,6 @@ DEPENDENCIES
   delayed_job_active_record
   devise (~> 3.0.0)
   dynamic_form
-  exception_notification
   factory_girl_rails
   fog
   foreman

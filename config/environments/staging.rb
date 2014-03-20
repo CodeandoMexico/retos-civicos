@@ -74,5 +74,4 @@ Aquila::Application.configure do
     password: "iri1kuxv",
     domain: "aquila-stag.herokuapp.com"
   }
-  end
-
+end
