@@ -21,7 +21,9 @@ class ChallengesController < ApplicationController
     @comments = @challenge.root_comments.sort_parents
     @entries = @challenge.entries
     @datasets = @challenge.datasets_id
-    @collaborators = @challenge.collaborators.order(:created_at).page(params[:page])
+    @collaborators = @challenge.collaborators
+    @collabcount = @collaborators.count
+    @collaborators = @collaborators.order(:created_at).page(params[:page])
   end
 
   def edit
