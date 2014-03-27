@@ -8,8 +8,8 @@ feature "Challenges page filter" do
   let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
 
   before do
-    visit challenges_path
     double(Challenge.paginates_per(2))
+    visit challenges_path
   end
 
   scenario "Default filter is by date" do
