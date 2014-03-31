@@ -222,9 +222,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   linkedin_fields = ["id", "email-address", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url", "location", "skills"]
 
-  config.omniauth :github, GITHUB_KEY, GITHUB_SECRET
-  config.omniauth :linkedin, LINKEDIN_KEY, LINKEDIN_SECRET, scope: 'r_fullprofile r_emailaddress', fields: linkedin_fields
-  config.omniauth :twitter, TWITTER_KEY, TWITTER_SECRET
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+  config.omniauth :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'], scope: 'r_fullprofile r_emailaddress', fields: linkedin_fields
+  config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
