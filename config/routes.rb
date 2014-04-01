@@ -12,10 +12,6 @@ Aquila::Application.routes.draw do
   match '/about' => 'home#about'
   get '/jobs' => 'home#jobs'
 
-  namespace :open_data_zapopan, path: 'opendatazapopan' do
-    resources :challenges, only: [:index, :show]
-  end
-
   resources :organizations, only: [:show, :update, :edit] do
     member do
       get :subscribers_list
