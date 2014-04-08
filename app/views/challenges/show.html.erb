@@ -35,17 +35,17 @@
 
   <ul class="tabs-content">
     <li class="active collaboratorsTTab" id="collaboratorsTTab">
-    <%= render 'collaborators' %>
-    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
+      <%= render 'collaborators' %>
+      <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
     </li>
     <li id="referencesTTab">
-    <%= render 'references' %>
+      <%= render 'references' %>
     </li>
     <li id="datasetsTTab">
       <%= render 'datasets' %>
     </li>
     <li id="entriesTTab">
-    <%= render'entries' %>
+      <%= render'entries' %>
     </li>
   </ul>
 </section>
@@ -64,13 +64,13 @@
     <ul class="points">
       <% if !@challenge.first_spec.blank? %>
         <li><%= markdown @challenge.first_spec %></li>
-    <% end %>
+      <% end %>
       <% if !@challenge.second_spec.blank? %>
         <li><%= markdown @challenge.second_spec %></li>
-    <% end %>
+      <% end %>
       <% if !@challenge.third_spec.blank? %>
         <li><%= markdown @challenge.third_spec %></li>
-    <% end %>
+      <% end %>
     </ul>
   </div>
 </section>
