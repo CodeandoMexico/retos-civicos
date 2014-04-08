@@ -359,10 +359,9 @@ es:
           target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
   layout:
     header: Codeando México
-    copyright: "&copy; Codeando México - 2013"
+    copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
-    brief: Una plataforma que reúne talento para resolver problemáticas de impacto
-      social.
+    brief: Una plataforma que reúne talento para resolver problemáticas de impacto social.
     about: "¡Ver Más!"
     sign_in: Iniciar Sesión
     sign_out: Salir

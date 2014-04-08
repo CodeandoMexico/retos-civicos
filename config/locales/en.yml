@@ -292,6 +292,15 @@ en:
           />\r\n[3] <a href=\"http://desarrollandoamerica.org\" target=\"_blank\">Desarrollando
           América Latina</a>\r\n<br />\r\n[4] <a href=\"http://davidsasaki.name/2012/12/on-hackathons-and-solutionism/\"
           target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
+  layout:
+    header: Codeando México
+    copyright: "&copy; Codeando México - 2014"
+    question: What is Codeando México?
+    brief: A space where top talent meet to solve real problems.
+    about: Read More...
+    sign_in: Sign in
+    sign_out: Sign out
+    welcome: Hello
   date:
     formats:
       default: "%Y-%m-%d"
@@ -364,15 +373,6 @@ en:
     goal: Bringing together hackers, designers, NGOs and government to build our new
       generation of civic technology.
     slogan: The hub for the new era of <span> <em>civic</em> innovation</span>
-  layout:
-    header: Codeando México
-    copyright: "&copy; Codeando México - 2013"
-    question: What is Codeando México?
-    brief: A space where top talent meet to solve real problems.
-    about: Read More...
-    sign_in: Sign in
-    sign_out: Sign out
-    welcome: Hello
   ninsho:
     sessions:
       signed_in: Signed in successfully
