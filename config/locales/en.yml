@@ -179,10 +179,11 @@ en:
       newsletter_body-description: You can send them here in detail your statement.
       submit: Send newsletter
     tab:
-      collaborators: Collaborators
-      references: References
+      collaborators: Collaborator
+      references: Reference
+      datasets: Dataset
       resources: Resource
-      entries: Apps
+      entries: App
     collaborators:
       collaborators: Collaborators
       non-collaboration: Be the first to join this challenge!
