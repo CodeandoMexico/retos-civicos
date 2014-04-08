@@ -302,13 +302,8 @@ es:
     show:
       created-by: Creado por
       supportus: Ayúdanos a cumplir nuestro objetivo
-      collaborate: Participar
-      collaborating: Estas Colaborando
-      edit: Editar
-      submit_app: Enviar app
-      edit_entry: Editar app
       show-more: Mostrar más
-      send_update: Enviar newsletter
+      collaborating: Estas Colaborando
       send_newsletter: probando
     comments:
       comment: Comentar
@@ -691,6 +686,11 @@ es:
       too_short: is too short (minimum is %{count} characters)
       wrong_length: is the wrong length (should be %{count} characters)
   helpers:
+    edit: Editar
+    edit_entry: Editar app
+    submit_app: Enviar app
+    collaborate: Participar
+    send_update: Enviar newsletter
     button:
       create: Create %{model}
       submit: Save %{model}
