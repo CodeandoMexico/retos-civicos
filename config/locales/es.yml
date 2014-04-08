@@ -82,42 +82,42 @@ es:
   activerecord:
     attributes:
       admin:
-        email: Email
-        password: Password
-        password_confirmation: Password confirmation
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
       challenge:
-        about: About
-        description: Description
+        about: Acerca de
+        description: Descripción
         pitch: Pitch
       collaboration:
-        member_id: Member
-        user_id: User
+        member_id: Miembro
+        user_id: Usuario
       comment:
-        user: User
+        user: Usuario
       entry:
-        description: Description
+        description: Descripción
         github_url: Github url
-        name: Name
+        name: Nombre
       member:
-        collaborations: Collaborations
+        collaborations: Colaboraciones
       member/user:
-        avatar: User avatar
-        bio: User bio
-        email: User email
+        avatar: Avatar de usuario
+        bio: Bio de usuario
+        email: Correo de usuario
       organization/user:
-        bio: User bio
-        email: User email
+        bio: Bio de usuario
+        email: Correo de usuario
       project:
-        about: About
-        description: Description
+        about: Acerca de
+        description: Descripción
         pitch: Pitch
-        title: Title
+        title: Título
       subscriber:
-        email: Email
+        email: Correo
       user:
-        email: Email
-        password: Password
-        password_confirmation: Password confirmation
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
       vote:
         voteable_id: Voteable
     errors:
@@ -186,23 +186,20 @@ es:
       vote: Vote
   flash:
     admins:
-      organizations: Organización acreditada correctamente. Recibirán un correo de
-        confirmación.
+      organizations:
+        accredited: Organización acreditada correctamente. Recibirán un correo de confirmación.
     organizations:
       updated: Perfil de organización actualizada correctamente.
-      welcome_new_subscriber: Gracias por suscribirte! Te prometemos buenas noticias,
-        no spam.
+      welcome_new_subscriber: Gracias por suscribirte! Te prometemos buenas noticias, no spam.
       repeated_subscriber: Correo ya registrado. Por favor intente con otro
       send: Tu mensaje ha sido enviado
       long_message: Por favor limita tu mensaje a 300 carácteres
     members:
       updated: Listo para participar!
     users:
-      welcome_and_edit_profile: Bienvenido a Codeando México. Edita tu perfil antes
-        de colaborar
+      welcome_and_edit_profile: Bienvenido a Codeando México. Edita tu perfil antes de colaborar
     entries:
-      created_successfully: Felicidades! Has enviado tu aplicación correctamente.
-        Atento a resultados.
+      created_successfully: Felicidades! Has enviado tu aplicación correctamente. Atento a resultados.
       updated_successfully: La aplicación fue editada correctamente.
     unauthorized:
       message: Necesitas iniciar sesión primero
@@ -218,6 +215,7 @@ es:
       inactive: Concluidos
       popular: Más populares
       recent: Más recientes
+    like: Me gusta
     new:
       header: Nuevo Reto
     edit:
@@ -225,28 +223,20 @@ es:
     form:
       title: Título de tu reto
       pitch: Invitación
-      pitch-description: Escribe en un solo enunciado una frase para motivar a que
-        las personas participen en el reto. Ej. 'Hagamos conciencia para tener un
-        México limpio'
+      pitch-description: Escribe en un solo enunciado una frase para motivar a que las personas participen en el reto. Ej. 'Hagamos conciencia para tener un México limpio'
       avatar: Imagen
-      avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto
-        en las personas y que se relacione con la problematica a resolver.
+      avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
       about: Sobre la organización
-      about-description: Describe brevemente que hace tu organización y que los motiva
-        a mejorar al país.
+      about-description: Describe brevemente que hace tu organización y que los motiva a mejorar al país.
       status: Estado actual del reto
       needs: Necesidades del reto
       points: Puntos clave
-      points-description: En base a lo descrito, redacta los puntos clave sobre tus
-        necesidades actuales. Te pedimos ser breve.
+      points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
       point1: Punto 1 (Opcional)
       point2: Punto 2 (Opcional)
       point3: Punto 3 (Opcional)
       additional_links: Referencias adicionales
-      additional_links-description: 'Comparte algunas ligas a páginas web que tengan
-        soluciones similares a tu problema, algún recurso que sirva para inspirar
-        a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda
-        separar las ligas por comas.'
+      additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas.'
       additional_links-placeholder: Separados por comas
       dataset_id: Datasets
       dataset_id-description: Agrega un Dataset de http://datamx.io/
@@ -255,10 +245,10 @@ es:
       activities-title: Título
       submit: Publicar
       description: "¿Cuál es el problema a enfrentar?"
-      description-description: Relata cual ha sido el problema que han tenido y menciona
-        la importancia de resolver dicho problema.
+      description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
       comments: Comentarios y Notas
       resources: Recursos y Datos
+      created-by: Creador por
       welcome_mail: Correo de bienvenida
       welcome_mail_subject: Título del correo
       welcome_mail_subject-description: Subject del email. Escribe algo breve para
@@ -269,17 +259,10 @@ es:
       dataset_hint_text: Escriba un término de búsqueda
       dataset_no_results_text: No hay resultados
       dataset_searching_text: Buscando...
-      created-by: Creador por
-      dataset_file: Dataset (formato .csv)
-      dataset_ids: Dataset Id
-      dataset_ids-description: Agrega un Dataset de http://datamx.io/
-      dataset_ids_description: Agrega Datasets de http://datamx.io/ separados por
-        comas
     send_newsletter:
       header: Mandar un newsletter
       newsletter_subject: Título del correo
-      newsletter_subject-description: Escribe algo breve que describa la razón de
-        este mensaje a todos los miembros de tu reto.
+      newsletter_subject-description: Escribe algo breve que describa la razón de este mensaje a todos los miembros de tu reto.
       newsletter_body: Cuerpo del mensaje
       newsletter_body-description: Puedes enviarles aquí todo detalle de tu comunicado.
       submit: Enviar newsletter
@@ -293,6 +276,12 @@ es:
       non-collaboration: Anímate. Sé el primero en colaborar en este reto.
     references:
       non-references: Sin Referencias.
+    resources:
+      collaborators: Participantes
+      datasets: Datasets
+      non-collaboration: Anímate. Sé el primero en colaborar en este reto.
+      references: Referencias
+      votes: Votos
     datasets:
       non-datasets: Por el momento no existen datasets.
     entries:
@@ -300,11 +289,8 @@ es:
       repo: Repo
       demo: Demo
     show:
-      created-by: Creado por
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
-      collaborating: Estas Colaborando
-      send_newsletter: probando
     comments:
       comment: Comentar
       reply: Responder
@@ -312,13 +298,6 @@ es:
       like: Me gusta
     collaborating: Te has unido al reto
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
-    like: Me gusta
-    resources:
-      collaborators: Participantes
-      datasets: Datasets
-      non-collaboration: Anímate. Sé el primero en colaborar en este reto.
-      references: Referencias
-      votes: Votos
   home:
     index:
       pitch: Organizaciones, Geeks, y Open Data las 24 horas del día.

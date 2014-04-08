@@ -69,8 +69,45 @@ en:
       collaborating_error: Error, please try again
   activerecord:
     attributes:
+      admin:
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+      challenge:
+        about: About
+        description: Description
+        pitch: Pitch
+      collaboration:
+        member_id: Member
+        user_id: User
+      comment:
+        user: User
+      entry:
+        description: Description
+        github_url: Github url
+        name: Name
+      member:
+        collaborations: Collaborations
+      member/user:
+        avatar: User avatar
+        bio: User bio
+        email: User email
+      organization/user:
+        bio: User bio
+        email: User email
+      project:
+        about: About
+        description: Description
+        pitch: Pitch
+        title: Title
+      subscriber:
+        email: Email
       user:
         email: Email
+        password: Password
+        password_confirmation: Password confirmation
+      vote:
+        voteable_id: Voteable
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -89,8 +126,7 @@ en:
   flash:
     admins:
       organizations:
-        accredited: Organiation properly accredited. You will receive a confirmation
-          email.
+        accredited: Organiation properly accredited. You will receive a confirmation email.
     organizations:
       updated: Organization Profile updated correctly.
       welcome_new_suscriber: Thanks for subscribing! We promise great news, no spam.
@@ -100,13 +136,13 @@ en:
     members:
       updated: Ready to Participate!
     users:
-      welcome_and_edit_profile: Welcome to Codeando Mexico. Edit your profile before
-        collaborating
+      welcome_and_edit_profile: Welcome to Codeando Mexico. Edit your profile before collaborating
     entries:
-      created_successfully: Congratulations! You have successfully sent your application.
-        Watch for results.
+      created_successfully: Congratulations! You have successfully sent your application. Watch for results.
       updated_successfully: The application was properly edited.
-    unauthorized: You need to login first
+    unauthorized:
+      message: You need to login first
+      already_submited_app: You've sent your application to this challenge
   challenges:
     initial_activity:
       title: Challenge creation
@@ -126,14 +162,11 @@ en:
     form:
       title: Name your challenge
       pitch: One line description
-      pitch-description: Captivate your audience in just one line, e.g. 'Let's build
-        an open platform for e-learning'.
+      pitch-description: Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'.
       avatar: Image
-      avatar-description: Choose wisely. A descriptive and high-quality image will
-        catch more eyes.
+      avatar-description: Choose wisely. A descriptive and high-quality image will catch more eyes.
       about: About the organization
-      about-description: Describe briefly what your organization is doing and what
-        drives it.
+      about-description: Describe briefly what your organization is doing and what drives it.
       status: Challenge status
       needs: Challenge needs
       points: Key goals
@@ -142,24 +175,19 @@ en:
       point2: Second point (Optional)
       point3: Third point (Optional)
       additional_links: References
-      additional_links-description: Share some web site links which might complement
-        your problem description or solution. Separate links with commas.
+      additional_links-description: Share some web site links which might complement your problem description or solution. Separate links with commas.
       additional_links-placeholder: Split by commas
+      dataset_id: Datasets
+      dataset_id-description: Add a Dataset from http://datamx.io/
       activities: News and recent activity
       activities-description: Relevant milestones in the challenge
       activities-title: Title
       submit: Publish
       description: What is the problem to solve?
-      description-description: Describe the problem and why is so important to solve
-        it.
+      description-description: Describe the problem and why is so important to solve it.
       comments: Notes and comments
       resources: Data and external resources
       created-by: Created by
-      dataset_file: Dataset (CSV format)
-      dataset_ids: Dataset Id
-      dataset_ids-description: Add a Dataset from http://datamx.io/
-      dataset_id: Datasets
-      dataset_id-description: Add a Dataset from http://datamx.io/
       welcome_mail: Welcome Mail
       welcome_mail_subject: Título del correo
       welcome_mail_subject-description: Participants will receive this email when
@@ -173,8 +201,7 @@ en:
     send_newsletter:
       header: Send a newsletter
       newsletter_subject: Message Subject
-      newsletter_subject-description: Write something short that describes the reason
-        for this message to all members of your challenge.
+      newsletter_subject-description: Write something short that describes the reason for this message to all members of your challenge.
       newsletter_body: Message Body
       newsletter_body-description: You can send them here in detail your statement.
       submit: Send newsletter
@@ -192,24 +219,18 @@ en:
     resources:
       collaborators: Participants
       datasets: Datasets
-      non-resources: No available resources
+      non-collaboration: Be the first to join this challenge!
       references: References
       votes: Votes
-      non-collaboration: Be the first to join this challenge!
+    datasets:
+      non-datasets: Currently there are no datasets.
     entries:
       non-entries: Be the first to send an App!
       repo: Repo
       demo: Demo
     show:
-      created-by: 'Created by:'
       supportus: Help us reach our goal
-      collaborate: Join
-      collaborating: Collaborating
-      edit: Edit
-      submit_app: Submit app
-      edit_entry: Edit app
       show-more: Show more
-      send_update: Send newsletter
     comments:
       comment: Leave a comment
       reply: Reply
