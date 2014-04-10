@@ -486,25 +486,11 @@ en:
       too_short: is too short (minimum is %{count} characters)
       wrong_length: is the wrong length (should be %{count} characters)
   helpers:
-    button:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-    page_entries_info:
-      more_pages:
-        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
-          of <b>%{total}</b> in total
-      one_page:
-        display_entries:
-          one: Displaying <b>1</b> %{entry_name}
-          other: Displaying <b>all %{count}</b> %{entry_name}
-          zero: No %{entry_name} found
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+    edit: Edit
+    edit_entry: Edit app
+    submit_app: Send app
+    collaborate: Collaborate
+    send_update: Send newsletter
   landing:
     goal: Bringing together hackers, designers, NGOs and government to build our new
       generation of civic technology.

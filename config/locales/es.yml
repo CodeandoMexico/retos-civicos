@@ -556,33 +556,6 @@ es:
     submit_app: Enviar app
     collaborate: Participar
     send_update: Enviar newsletter
-    button:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-    page_entries_info:
-      more_pages:
-        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
-          of <b>%{total}</b> in total
-      one_page:
-        display_entries:
-          one: Displaying <b>1</b> %{entry_name}
-          other: Displaying <b>all %{count}</b> %{entry_name}
-          zero: No %{entry_name} found
-    select:
-      prompt: Please select
-    submit:
-      challenge:
-        update: Update Challenge
-      create: Create %{model}
-      member:
-        update: Update Member
-      organization:
-        update: Update Organization
-      submit: Save %{model}
-      update: Update %{model}
-      user:
-        update: Update User
   landing:
     goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación
       de tecnología cívica.
