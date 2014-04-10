@@ -361,8 +361,7 @@ en:
   members:
     form:
       submit: Update
-      email-description: Your main email where you'll receive updates from the challenges
-        you opt-in
+      email-description: Your main email where you'll receive updates from the challenges you opt-in
       name: Full name
       bio: Bio
       bio-description: A little about yourself in 140 characters
@@ -381,8 +380,7 @@ en:
       description: Description
       description-description: In brief functionality/purpose of app
       team-members: Team members
-      team-members-description: If you worked on a team, list the name and email of
-        your colleagues. You can use Markdown.
+      team-members-description: If you worked on a team, list the name and email of your colleagues. You can use Markdown.
       challenge: Challenge
       submit: Send project
     show:

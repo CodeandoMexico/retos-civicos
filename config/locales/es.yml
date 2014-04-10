@@ -426,8 +426,7 @@ es:
   members:
     form:
       submit: Actualizar
-      email-description: Tu correo principal en donde recibirás updates de los retos
-        en los que participes
+      email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
       name: Nombre completo
       bio: Bio
       bio-description: Háblanos un poco sobre ti en 140 caracteres
@@ -446,8 +445,7 @@ es:
       description: Descripción
       description-description: En breve la funcionalidad/objetivo del app
       team-members: Miembros del equipo
-      team-members-description: Si trabajaste en equipo, lista el nombre de tus colegas
-        y su email. Puedes usar Markdown para listarlos
+      team-members-description: Si trabajaste en equipo, lista el nombre de tus colegas y su email. Puedes usar Markdown para listarlos
       challenge: Reto
       submit: Enviar proyecto
     show:
