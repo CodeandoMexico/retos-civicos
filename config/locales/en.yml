@@ -440,6 +440,51 @@ en:
       month: Month
       second: Seconds
       year: Year
+  errors:
+    dynamic_format: "%{message}"
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      already_confirmed: was already confirmed, please try signing in
+      blank: can't be blank
+      carrierwave_download_error: could not be downloaded
+      carrierwave_integrity_error: is not of an allowed file type
+      carrierwave_processing_error: failed to be processed
+      confirmation: doesn't match confirmation
+      confirmation_period_expired: needs to be confirmed within %{period}, please
+        request a new one
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      expired: has expired, please request a new one
+      extension_black_list_error: 'You are not allowed to upload %{extension} files,
+        prohibited types: %{prohibited_types}'
+      extension_white_list_error: 'You are not allowed to upload %{extension} files,
+        allowed types: %{allowed_types}'
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      mime_types_processing_error: 'Failed to process file with MIME::Types, maybe
+        not valid content-type? Original Error: %{e}'
+      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it
+        is not an image? Original Error: %{e}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      odd: must be odd
+      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
+        an image? Original Error: %{e}'
+      too_long: is too long (maximum is %{count} characters)
+      too_short: is too short (minimum is %{count} characters)
+      wrong_length: is the wrong length (should be %{count} characters)
   helpers:
     button:
       create: Create %{model}
@@ -587,51 +632,6 @@ en:
       next: Next &rsaquo;
       previous: "&lsaquo; Prev"
       truncate: "&hellip;"
-  errors:
-    dynamic_format: "%{message}"
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: must be accepted
-      already_confirmed: was already confirmed, please try signing in
-      blank: can't be blank
-      carrierwave_download_error: could not be downloaded
-      carrierwave_integrity_error: is not of an allowed file type
-      carrierwave_processing_error: failed to be processed
-      confirmation: doesn't match confirmation
-      confirmation_period_expired: needs to be confirmed within %{period}, please
-        request a new one
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      expired: has expired, please request a new one
-      extension_black_list_error: 'You are not allowed to upload %{extension} files,
-        prohibited types: %{prohibited_types}'
-      extension_white_list_error: 'You are not allowed to upload %{extension} files,
-        allowed types: %{allowed_types}'
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      mime_types_processing_error: 'Failed to process file with MIME::Types, maybe
-        not valid content-type? Original Error: %{e}'
-      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it
-        is not an image? Original Error: %{e}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      not_found: not found
-      not_locked: was not locked
-      not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
-      odd: must be odd
-      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
-        an image? Original Error: %{e}'
-      too_long: is too long (maximum is %{count} characters)
-      too_short: is too short (minimum is %{count} characters)
-      wrong_length: is the wrong length (should be %{count} characters)
   open_data_zapopan:
     challenges:
       collaborating_error: Ocurrio un error, intenta unirte de nuevo
