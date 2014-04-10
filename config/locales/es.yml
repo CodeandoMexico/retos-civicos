@@ -397,8 +397,7 @@ es:
       less: ocultar
       more: ver completo
   users:
-    welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización,
-      puedes editar el perfil:'
+    welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
       bio-description: 140 caracteres sobre ti
       submit: Actualizar
@@ -424,12 +423,6 @@ es:
       title: Titulo del mensaje
       message: Añade tu mensaje aquí
       submit: Mandar
-    send_newsletter:
-      message: Añade tu mensaje aquí
-      submit: Mandar
-      title: Titulo del mensaje
-    show_subscribers:
-      send_newsletter: Mandar un newsletter
   members:
     form:
       submit: Actualizar
