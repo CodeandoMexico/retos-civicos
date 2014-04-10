@@ -301,6 +301,106 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     welcome: Hello
+  signup:
+    choose_provider: Choose one of the following providers to sign in.
+    with_github: Sign in with Github
+    with_twitter: Sign in with Twitter
+    with_linkedin: Sign in with LinkedIn
+    with_email: Sign in with Email
+    register_with_email: Register with Email
+    login: Login
+  app_controller:
+    login_required: Authentication required
+  auth_controller:
+    destroy: Logged out succesfully
+    failure: Access denied, please try again
+    new_auth: New authentication created
+    sign_in: Welcome to the challenge engine
+  omniauth_controller:
+    new_auth: New authentication created
+    failure: Access denied, please try again
+    last_step: 'Welcome to Codeando Mexico! Last step to start your participation:'
+    welcome_back: You signed correctly with %{provider}. Welcome to Codeando Mexico!
+    confirm_email: Confirm your email before starting your participation
+  comments:
+    commented: Thanks for your comments
+    failure: Something went wrong, try again
+    voted: Your vote has been registered
+    comment:
+      reply: 'Comentar '
+    truncate:
+      less: ocultar
+      more: ver completo
+  users:
+    welcome_new_org: 'We have received your registration, while validating your organization, you can edit the profile:'
+    form:
+      bio-description: 140 characters about you
+      submit: Update
+    define_role:
+      complete_register: Complete registration
+  organizations:
+    edit:
+      title: Profile of organization
+    form:
+      submit: Update
+      to_challenge_creation: Ready! To create the first challenge
+      name: Name of organization
+      email: Email
+      bio: Description
+      bio-description: 140 characters about the organization
+      email-description: Email of the person with whom we will be in contact
+      avatar: Profile image
+    show:
+      email_placeholder: Your favorite email
+      suscribe_label_field: Subscribe with your email and we will keep you up to date
+      suscribe: Subscribe
+    subscribers_list:
+      title: Message title
+      message: Add your message here
+      submit: Send
+  members:
+    form:
+      submit: Update
+      email-description: Your main email where you'll receive updates from the challenges
+        you opt-in
+      name: Full name
+      bio: Bio
+      bio-description: A little about yourself in 140 characters
+      avatar: Profile picture
+      avatar-description: Your identity in Codeando Mexico
+  entries:
+    form:
+      name: Name
+      name-description: App/Project
+      github-url: GitHub Repo URL
+      github-url-description: Link to open source repository
+      live-demo-url: Demo URL
+      demo-url-description: Link to live app
+      entry-logo: Logo
+      entry-logo-description: Upload the app's logo. (80x80)
+      description: Description
+      description-description: In brief functionality/purpose of app
+      team-members: Team members
+      team-members-description: If you worked on a team, list the name and email of
+        your colleagues. You can use Markdown.
+      challenge: Challenge
+      submit: Send project
+    show:
+      description: Description
+      owner: Team Leader
+      github: GitHub Repo
+      live-demo-url: Link to live app
+      go-to-challenge: Go to challenge - %{challenge}
+      team-members: Team members
+    new:
+      back: Back to challenge
+  models:
+    challenge:
+      status:
+        finished: Finished
+        open: Open
+        working_on: Working On
+        cancelled: Cancelled
   date:
     formats:
       default: "%Y-%m-%d"
@@ -477,19 +577,6 @@ en:
     sign_up: sign_up
     signup: signup
     team: team
-  shared:
-    footer:
-      about_us: About us
-      contact_us: Contact us
-      twitter: Twitter
-  signup:
-    choose_provider: Choose one of the following providers to sign in.
-    with_github: Sign in with Github
-    with_twitter: Sign in with Twitter
-    with_linkedin: Sign in with LinkedIn
-    with_email: Sign in with Email
-    register_with_email: Register with Email
-    login: Login
   support:
     array:
       last_word_connector: ", and "
@@ -509,94 +596,7 @@ en:
       next: Next &rsaquo;
       previous: "&lsaquo; Prev"
       truncate: "&hellip;"
-  app_controller:
-    login_required: Authentication required
-  auth_controller:
-    destroy: Logged out succesfully
-    failure: Access denied, please try again
-    new_auth: New authentication created
-    sign_in: Welcome to the challenge engine
-  omniauth_controller:
-    new_auth: New authentication created
-    failure: Access denied, please try again
-    last_step: 'Welcome to Codeando Mexico! Last step to start your participation:'
-    welcome_back: You signed correctly with %{provider}. Welcome to Codeando Mexico!
-    confirm_email: Confirm your email before starting your participation
-  comments:
-    commented: Thanks for your comments
-    failure: Something went wrong, try again
-    voted: Your vote has been registered
-  users:
-    welcome_new_org: 'We have received your registration, while validating your organization,
-      you can edit the profile:'
-    form:
-      bio-description: 140 characters about you
-      submit: Update
-    define_role:
-      complete_register: Complete registration
-  organizations:
-    edit:
-      title: Profile of organization
-    form:
-      submit: Update
-      to_challenge_creation: Ready! To create the first challenge
-      name: Name of organization
-      email: Email
-      bio: Description
-      bio-description: 140 characters about the organization
-      email-description: Email of the person with whom we will be in contact
-      avatar: Profile image
-    show:
-      email_placeholder: Your favorite email
-      suscribe_label_field: Subscribe with your email and we will keep you up to date
-      suscribe: Subscribe
-    subscribers_list:
-      title: Message title
-      message: Add your message here
-      submit: Send
-  members:
-    form:
-      submit: Update
-      email-description: Your main email where you'll receive updates from the challenges
-        you opt-in
-      name: Full name
-      bio: Bio
-      bio-description: A little about yourself in 140 characters
-      avatar: Profile picture
-      avatar-description: Your identity in Codeando Mexico
-  entries:
-    form:
-      name: Name
-      name-description: App/Project
-      github-url: GitHub Repo URL
-      github-url-description: Link to open source repository
-      live-demo-url: Demo URL
-      demo-url-description: Link to live app
-      entry-logo: Logo
-      entry-logo-description: Upload the app's logo. (80x80)
-      description: Description
-      description-description: In brief functionality/purpose of app
-      team-members: Team members
-      team-members-description: If you worked on a team, list the name and email of
-        your colleagues. You can use Markdown.
-      challenge: Challenge
-      submit: Send project
-    show:
-      description: Description
-      owner: Team Leader
-      github: GitHub Repo
-      live-demo-url: Link to live app
-      go-to-challenge: Go to challenge - %{challenge}
-      team-members: Team members
-    new:
-      back: Back to challenge
-  models:
-    challenge:
-      status:
-        finished: Finished
-        open: Open
-        working_on: Working On
-        cancelled: Cancelled
+
   devise:
     confirmations:
       confirmed: Your account was successfully confirmed. You are now signed in.

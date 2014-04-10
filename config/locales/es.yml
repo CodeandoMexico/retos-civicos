@@ -367,8 +367,7 @@ es:
     sign_out: Salir
     welcome: Hola
   signup:
-    choose_provider: Selecciona alguno de los siguientes servicios para tener acceso
-      a Codeando México.
+    choose_provider: Selecciona alguno de los siguientes servicios para tener acceso a Codeando México.
     with_github: Inicia con Github
     with_twitter: Inicia con Twitter
     with_linkedin: Inicia con LinkedIn
@@ -382,15 +381,11 @@ es:
     failure: Acceso no autorizado, intenta de nuevo
     new_auth: Nueva autenticación creada
     sign_in: Bienvenido a Codeando México
-  challenge_mailer:
-    welcome:
-      subject: Welcome
   omniauth_controller:
     new_auth: Nueva autenticación creada
     failure: Acceso no autorizado, intenta de nuevo
     last_step: 'Bienvenido a Codeando México! Último paso para iniciar tu participación:'
-    welcome_back: Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando
-      México!
+    welcome_back: Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!
     confirm_email: Confirma tu correo antes de iniciar tu participación
   comments:
     commented: Gracias por tus comentarios
