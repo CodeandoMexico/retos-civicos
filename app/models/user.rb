@@ -124,6 +124,6 @@ class User < ActiveRecord::Base
   private
 
   def fetch_twitter_avatar
-    TwitterAvatarFetcher.new(self.id).delay.fetch
+    TwitterApi.new(self.id).delay.save_profile_image
   end
 end

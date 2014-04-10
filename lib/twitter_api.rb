@@ -1,8 +1,9 @@
-class TwitterAvatarFetcher
+class TwitterApi
 
-  def initialize(user_id)
+  def initialize(user_id, client=nil)
     @user_id = user_id
-    @client = Twitter::REST::Client.new do |config|
+    @client = client
+    @client ||= Twitter::REST::Client.new do |config|
       config.consumer_key = TWITTER_KEY
       config.consumer_secret = TWITTER_SECRET
       config.access_token = TWITTER_ACCESS_KEY
@@ -18,10 +19,12 @@ class TwitterAvatarFetcher
     @auth ||= user.authentications.where(provider: 'twitter').first
   end
 
-  def fetch
+  def fetch_profile_image
     image_url = @client.user(auth.uid.to_i).profile_image_url.to_s.sub("_normal", "")
+  end
 
-    user.remote_avatar_url = image_url
+  def save_profile_image
+    user.remote_avatar_url = fetch_profile_image
     user.save validate: false
     nil
   end

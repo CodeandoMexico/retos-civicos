@@ -46,7 +46,7 @@ class Authentication < ActiveRecord::Base
   def self.create_with_twitter(omniauth, user)
     auth = user.authentications.build(provider: omniauth.provider, uid: omniauth.uid)
     user.save validate: false
-    TwitterAvatarFetcher.new(user.id).fetch
+    TwitterApi.new(user.id).save_profile_image
     auth
   end
 

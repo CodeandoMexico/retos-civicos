@@ -1,6 +1,6 @@
 require 'open-uri'
 
-task data_port: ['orgs:create_orgs_and_link_to_challenges', 
+task data_port: ['orgs:create_orgs_and_link_to_challenges',
                  'users:create_members_and_migrate_users',
                  'users:import_twitter_avatars']
 
@@ -11,14 +11,14 @@ namespace :users do
     # Create members
     puts "Creating members..."
     User.where(userable_type: nil).each do |user|
-      user.create_role 
+      user.create_role
     end
 
     # Relate collaborations to members
     puts "Relating collaborations to members..."
     Collaboration.all.each do |c|
       if c.user.member?
-        c.member = c.user.userable 
+        c.member = c.user.userable
         c.save
       end
     end
@@ -45,7 +45,7 @@ namespace :orgs do
     users.each do |user|
       organization = Organization.find user.userable_id
       challenges = Challenge.where(creator_id: user.id)
-      challenges.each do |c| 
+      challenges.each do |c|
         c.organization = organization
         c.save
       end
@@ -63,7 +63,7 @@ namespace :users do
 
    users.find_in_batches(batch_size: 50) do |group|
      group.each do |user|
-       TwitterAvatarFetcher.new(user.id).fetch
+       TwitterApi.new(user.id).save_profile_image
        progress_bar.progress += 1
      end
      puts "Going to sleep..."
@@ -86,5 +86,3 @@ namespace :users do
   end
 
 end
-
-
