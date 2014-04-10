@@ -557,8 +557,7 @@ es:
     collaborate: Participar
     send_update: Enviar newsletter
   landing:
-    goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación
-      de tecnología cívica.
+    goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación de tecnología cívica.
     slogan: La plataforma para la nueva era de<span> <em>innovación cívica</em></span>
   ninsho:
     sessions:
@@ -567,22 +566,22 @@ es:
   number:
     currency:
       format:
-        delimiter: ","
-        format: "%u%n"
-        separator: "."
-        unit: "$"
+        delimiter: .
+        format: "%n %u"
+        separator: ","
+        unit: $
     format:
-      delimiter: ","
-      separator: "."
+      delimiter: .
+      separator: ","
     human:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
       storage_units:
         format: "%n %u"
         units:
