@@ -527,6 +527,11 @@ en:
           kb: KB
           mb: MB
           tb: TB
+  shared:
+    footer:
+      about_us: About Codeando México
+      contact_us: Contact us
+      twitter: Twitter
   support:
     array:
       last_word_connector: ", and "
