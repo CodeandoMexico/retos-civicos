@@ -48,10 +48,6 @@ class Challenge < ActiveRecord::Base
     order('challenge_count desc')
   }
 
-  scope :in_zapopan, lambda {
-    where("id IN (?)", (24..41).to_a)
-  }
-
   # Additionals
   acts_as_voteable
   acts_as_commentable
