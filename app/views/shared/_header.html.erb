@@ -2,8 +2,7 @@
   <div class="unit header-pre-wrap">
     <div class="container holder">
       <div class="what-badge"></div>
-      <p>
-      <strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_url(subdomain: false) %></strong></p>
+      <p><strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_url(subdomain: false) %></strong></p>
     </div>
   </div>
   <div class="unit header-wrap">
@@ -21,26 +20,26 @@
           <ul class="list">
             <% LANGUAGES.each do |k, val| %>
               <li><%= link_to val, set_language_path(i18n: {locale: k}), method: :post, class: k %></li>
-          <% end %>
+            <% end %>
           </ul>
         </div>
 
         <% if user_signed_in? %>
           <div class="current-user">
-          <% if current_user.has_role? %>
-            <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
-        <% end %>
-          <%= link_to t('layout.sign_out'), destroy_user_session_path, method: :delete %>
-        </div>
-      <% else %>
+            <% if current_user.has_role? %>
+              <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
+            <% end %>
+            <%= link_to t('layout.sign_out'), destroy_user_session_path, method: :delete %>
+          </div>
+        <% else %>
           <ul class="login-menu">
-          <li>
-          <%= link_to signup_path(subdomain: false) do %>
-            <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
-        <% end %>  
-          </li>
-        </ul>
-      <% end %>
+            <li>
+              <%= link_to signup_path(subdomain: false) do %>
+                <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
 
       </nav>
     </div>
@@ -48,6 +47,6 @@
 
   <% if user_signed_in? && !current_page?('/') %>
     <div class="header-green-margin"></div>
-<% end %>
+  <% end %>
 
 </header>

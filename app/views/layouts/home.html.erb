@@ -4,53 +4,51 @@
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-<!-- Set the viewport width to device width for mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta content="Open Data, Civic, Innovation, OpenGov" name="keywords" />
-<meta content="The new era of civic innovation" name="description" />
-<link rel="shortcut icon" href="favicon.ico" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="Open Data, Civic, Innovation, OpenGov" name="keywords" />
+  <meta content="The new era of civic innovation" name="description" />
+  <link rel="shortcut icon" href="favicon.ico" />
 
-<title><%= t('layout.header')%></title>
+  <title><%= t('layout.header')%></title>
 
-<!-- Included CSS Files -->
-<%= stylesheet_link_tag    "application", :media => "all" %>
+  <!-- Included CSS Files -->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
 
-<!-- Included JS Files  -->
-<%= javascript_include_tag "application" %>
+  <!-- Included JS Files  -->
+  <%= javascript_include_tag "application" %>
 
-<%= csrf_meta_tags %>
-<%= yield :head %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
 
 </head>
 <body>
-<div id="content">
-  <%= render partial: "shared/header" %>
+  <div id="content">
+    <%= render partial: "shared/header" %>
 
-  <% flash.each do |type, message| %>
-    <div class="flash <%= type %>">
-    <%= message %>
+    <% flash.each do |type, message| %>
+      <div class="flash <%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <div id="root_footer"></div>
   </div>
-<% end %>
-  <%= yield %>
-  <div id="root_footer"></div>
-</div>
 
-<%= render partial: "shared/footer" %>
+  <%= render partial: "shared/footer" %>
 
-<script type="text/javascript">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36672089-1']);
+    _gaq.push(['_trackPageview']);
 
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-36672089-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
- var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
- ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
- var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
-
-</script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>

@@ -4,43 +4,42 @@
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-<!-- Set the viewport width to device width for mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta content="Open Data, Civic, Innovation, OpenGov" name="keywords" />
-<meta content="The new era of civic innovation" name="description" />
-<link rel="shortcut icon" href="favicon.ico" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="Open Data, Civic, Innovation, OpenGov" name="keywords" />
+  <meta content="The new era of civic innovation" name="description" />
+  <link rel="shortcut icon" href="favicon.ico" />
 
-<title><%= t('layout.header')%></title>
+  <title><%= t('layout.header')%></title>
 
-<!-- Included CSS Files -->
-<%= stylesheet_link_tag    "application", :media => "all" %>
+  <!-- Included CSS Files -->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
 
-<!-- Included JS Files  -->
-<%= javascript_include_tag "application" %>
+  <!-- Included JS Files  -->
+  <%= javascript_include_tag "application" %>
 
-<%= csrf_meta_tags %>
-<%= yield :head %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
 
 </head>
 <body>
-<div id="content">
-  <% if current_admin %>
-    <div class="current-user">
-    <span><%= current_admin.email %></span>
-    <%= link_to t('layout.sign_out'), destroy_admin_session_path, method: :delete %>
-  </div>
-<% end %>
+  <div id="content">
+    <% if current_admin %>
+      <div class="current-user">
+        <span><%= current_admin.email %></span>
+        <%= link_to t('layout.sign_out'), destroy_admin_session_path, method: :delete %>
+      </div>
+    <% end %>
 
-  <% flash.each do |type, message| %>
-    <div class="<%= type %>">
-    <%= message %>
+    <% flash.each do |type, message| %>
+      <div class="<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <div id="root_footer"></div>
   </div>
-<% end %>
-  <%= yield %>
-  <div id="root_footer"></div>
-</div>
-
 </body>
 </html>

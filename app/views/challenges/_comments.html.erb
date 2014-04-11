@@ -2,7 +2,7 @@
   <header>
     <% if can? :create_or_reply_challenge_comment, @challenge %>
       <%= link_to t(".comment"), "#", class: "comment" %>
-  <% end %>
+    <% end %>
     <h2><%= t("challenges.form.comments") %></h2>
   </header>
   <section>
@@ -11,21 +11,21 @@
       <div class="unit comment_form cbox">
         <% if user_signed_in? and current_user.collaborating_in?(@challenge) %>
           <%= form_for [@challenge, Comment.new], remote: true do |f| %>
-          <div class="column left info">
-          <%= image_tag current_user.image_url(:thumb) %>
-          <span class="name"><%= current_user.to_s %></span>
-          <time><%= Time.now.strftime("%B %e, %Y") %></time>
-          <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
-        </div>
-        <div class="column right data">
-          <div class="unit box first_comment">
-            <%= f.text_area :body%>
-            <%= f.submit t(".comment"), class: "reply", :disable_with => "Comentando..." %>
-          </div>
-        </div>
-      <% end %>
-      <% end %>
-      </div>      
+            <div class="column left info">
+              <%= image_tag current_user.image_url(:thumb) %>
+              <span class="name"><%= current_user.to_s %></span>
+              <time><%= Time.now.strftime("%B %e, %Y") %></time>
+              <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
+            </div>
+            <div class="column right data">
+              <div class="unit box first_comment">
+                <%= f.text_area :body%>
+                <%= f.submit t(".comment"), class: "reply", :disable_with => "Comentando..." %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <div id="challenge_comments_container">
         <%= render @comments %>
       </div>

@@ -1,58 +1,57 @@
 <div class="form_container">
   <%= form_for @user do |f| %>
     <section id="form_main" class="form_main">
-    <%= f.error_messages %>
+      <%= f.error_messages %>
 
-    <section>
-    <div class="unit row">
-      <div class="column left">
-        <%= f.label :name, t(".name")  %>
-      </div>
-      <div class="column right">
-        <%= f.text_field :name %>
-      </div>
-    </div>
+      <section>
+        <div class="unit row">
+          <div class="column left">
+            <%= f.label :name, t(".name")  %>
+          </div>
+          <div class="column right">
+            <%= f.text_field :name %>
+          </div>
+        </div>
 
-    <div class="unit row">
-      <div class="column left">
-        <%= f.label :email, t(".email")  %>
-        <p><%= t(".email-description") %></p>
-      </div>
-      <div class="column right" style="padding-top:30px;">
-        <%= f.text_field :email %>
-      </div>
-    </div>
+        <div class="unit row">
+          <div class="column left">
+            <%= f.label :email, t(".email")  %>
+            <p><%= t(".email-description") %></p>
+          </div>
+          <div class="column right" style="padding-top:30px;">
+            <%= f.text_field :email %>
+          </div>
+        </div>
 
 
-    <div class="unit row">
-      <div class="column left">
-        <%= f.label :bio, t(".bio") %>
-        <p><%= t(".bio-description") %></p>
-      </div>
-      <div class="column right">
-        <%= f.text_area :bio %>
-      </div>
-    </div>
+        <div class="unit row">
+          <div class="column left">
+            <%= f.label :bio, t(".bio") %>
+            <p><%= t(".bio-description") %></p>
+          </div>
+          <div class="column right">
+            <%= f.text_area :bio %>
+          </div>
+        </div>
 
-    <div class="unit row">
-      <div class="column left">
-        <%= f.label :avatar, t(".avatar") %>
-        <p><%= t(".avatar-description") %></p>
-      </div>
-      <div class="column right" style="padding-top:50px;">
-        <%= image_tag @user.image_url(:profile) %>
-      </div>
-    </div>
+        <div class="unit row">
+          <div class="column left">
+            <%= f.label :avatar, t(".avatar") %>
+            <p><%= t(".avatar-description") %></p>
+          </div>
+          <div class="column right" style="padding-top:50px;">
+            <%= image_tag @user.image_url(:profile) %>
+          </div>
+        </div>
 
-    <div class="unit row">
-      <div class="column left">
-      </div>
-    </div>
-    </section>
+        <div class="unit row">
+          <div class="column left"></div>
+        </div>
+      </section>
     </section>
 
     <section id="form_save" class="form_save">
-    <%= f.submit t(".submit") %>
+      <%= f.submit t(".submit") %>
     </section>
 
   <% end %>
