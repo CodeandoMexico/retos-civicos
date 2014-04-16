@@ -191,7 +191,6 @@ en:
       collaborators: Collaborator
       references: Reference
       datasets: Dataset
-      resources: Resource
       entries: App
     collaborators:
       collaborators: Collaborators
@@ -264,8 +263,7 @@ en:
           a year. And based in our personal experiences in this events, we decided
           to push the limits of our community through this platform.</p>\r\n\r\n<p>Codeando
           México <b>seek to expedite and democratize civic innovation</b>, redesigning
-          our government and communities by following the philosophy and agile practices
-          of the tech community.</p>"
+          our government and communities by following the philosophy and agile practices of the tech community.</p>"
       open_data:
         title: References
         description: "<p>\r\n[1] David G. Robinson, cited by Tim O’Reilly in Open

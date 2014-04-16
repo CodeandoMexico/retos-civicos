@@ -233,21 +233,16 @@ es:
         title: Escenario actual
         description: "<blockquote>“Los gobiernos han demostrado su constante incapacidad
           para mantenerse al ritmo de evolución de las tecnologías de información”[1]</blockquote><p>Aunado
-          a esto, la mayoría de sus proyectos son desarrollados por una minoría de
-          proveedores que los ejecutan de manera costosa y en tiempos de ejecución
+          a esto, la mayoría de sus proyectos son desarrollados por una minoría de proveedores que los ejecutan de manera costosa y en tiempos de ejecución
           ridículamente largos.</p>\r\n\r\n<p>Es por esta razón que tanto el movimiento
-          de <i>open government</i> como el de <i>hacking cívico </i>toman fuerza,
-          porque en lugar de agregar capas de burocracia y más responsabilidades al
+          de <i>open government</i> como el de <i>hacking cívico </i>toman fuerza, porque en lugar de agregar capas de burocracia y más responsabilidades al
           gobierno, estos movimientos buscan que el gobierno sea un facilitador para
-          que se genere la innovación desde fuera.</p>\r\n\r\n<p>En esta búsqueda
-          por la innovación cívica, ha surgido una tendencia por convocar a un sinnúmero
+          que se genere la innovación desde fuera.</p>\r\n\r\n<p>En esta búsqueda por la innovación cívica, ha surgido una tendencia por convocar a un sinnúmero
           de maratones de desarrollo cívico (también conocidos como <i>hackathons</i>),
-          desde Noruega[2] hasta América Latina[3], con la finalidad de conectar a
-          hackers y diseñadores con la sociedad civil y el gobierno.</p>\r\n\r\n<p>Estos
+          desde Noruega[2] hasta América Latina[3], con la finalidad de conectar a hackers y diseñadores con la sociedad civil y el gobierno.</p>\r\n\r\n<p>Estos
           eventos han sido un primer intento por reunir a una comunidad bajo un objetivo
           en común, sin embargo no hemos visto proyectos de impacto, particularmente
-          porque el hackathon tiende al <i>solucionismo</i>[4] y presenta un espacio
-          donde se vierten muchas horas de talento en construir proyectos sin tener
+          porque el hackathon tiende al <i>solucionismo</i>[4] y presenta un espacio donde se vierten muchas horas de talento en construir proyectos sin tener
           muy claras las necesidades más importantes de la sociedad y el gobierno.</p>\r\n\r\n<p>Si
           queremos ver proyectos de impacto, fruto de reunir a estas comunidades,
           necesitamos re-inventar esta interacción e invertir estas horas de talento
@@ -258,8 +253,7 @@ es:
           abierta</b>, que convoca talento a través de la publicación de retos para
           resolver problemas específicos de impacto social.</p>\r\n\r\n<p>Los retos
           cumplen la dinámica de cualquier concurso virtual, tienen registro, fecha
-          de cierre, requisitos de participación, una especificación clara para la
-          entrega de soluciones, una evaluación, un jurado y una premiación.</p>"
+          de cierre, requisitos de participación, una especificación clara para la entrega de soluciones, una evaluación, un jurado y una premiación.</p>"
       who:
         title: "¿Quién es Codeando México?"
         description: "<p>Somos un <a href=\"https://github.com/CodeandoMexico?tab=members\"
