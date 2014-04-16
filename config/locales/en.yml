@@ -51,11 +51,60 @@ en:
           one: 1 error prohibited this %{model} from being saved
           other: "%{count} errors prohibited this %{model} from being saved"
       models:
-        user:
+        admin:
           attributes:
             email:
               blank: can't be blank
-              format: it's invalid
+              format: is invalid
+            password:
+              confirmation: doesn't match confirmation
+              too_short: is too short (minimum is 8 characters)
+        collaboration:
+          attributes:
+            member_id:
+              taken: has already been taken
+            user_id:
+              taken: has already been taken
+        entry:
+          attributes:
+            description:
+              blank: can't be blank
+            github_url:
+              blank: can't be blank
+            name:
+              blank: can't be blank
+        member:
+          attributes:
+            collaborations:
+              invalid: is invalid
+        subscriber:
+          attributes:
+            email:
+              invalid: is invalid
+              taken: has already been taken
+        user:
+          attributes:
+            email:
+              already_confirmed: was already confirmed, please try signing in
+              blank: can't be blank
+              format: Email es inválido
+              invalid: is invalid
+              taken: has already been taken
+            password:
+              blank: can't be blank
+              too_short: is too short (minimum is 6 characters)
+    models:
+      admin: Admin
+      challenge: Challenge
+      collaboration: Collaboration
+      comment: Comment
+      entry: App
+      member: Member
+      organization: Organization
+      project: Project
+      subscriber: Subscriber
+      user: User
+      vote: Vote
   flash:
     admins:
       organizations:

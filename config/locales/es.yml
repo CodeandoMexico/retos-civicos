@@ -43,8 +43,13 @@ es:
         voteable_id: Voteable
     errors:
       messages:
-        record_invalid: 'Validation failed: %{errors}'
-        taken: has already been taken
+        record_invalid: 'La validación falló: %{errors}'
+        taken: ya ha sido elegido
+      template:
+        body: 'Hubo problemas con los siguientes campos:'
+        header:
+          one: 1 error evito que el %{model} se guardara
+          other: "%{count} errores evitaron que el %{model} se guardara"
       models:
         admin:
           attributes:
@@ -52,59 +57,54 @@ es:
               blank: no puede estar en blanco
               format: es inválido
             password:
-              confirmation: doesn't match confirmation
-              too_short: is too short (minimum is 8 characters)
+              confirmation: no coincide con la confirmación
+              too_short: es muy corto (mínimo 8 caracteres)
         collaboration:
           attributes:
             member_id:
-              taken: has already been taken
+              taken: ya ha sido elegido
             user_id:
-              taken: has already been taken
+              taken: ya ha sido elegido
         entry:
           attributes:
             description:
-              blank: can't be blank
+              blank: no puede estar en blanco
             github_url:
-              blank: can't be blank
+              blank: no puede estar en blanco
             name:
-              blank: can't be blank
+              blank: no puede estar en blanco
         member:
           attributes:
             collaborations:
-              invalid: is invalid
+              invalid: es inválido
         subscriber:
           attributes:
             email:
-              invalid: is invalid
-              taken: has already been taken
+              invalid: es inválido
+              taken: ya ha sido elegido
         user:
           attributes:
             email:
-              already_confirmed: was already confirmed, please try signing in
-              blank: can't be blank
+              already_confirmed: ya has sido confirmado, por favor inicia sesión
+              blank: no puede estar en blanco
               format: Email es inválido
-              invalid: is invalid
-              taken: has already been taken
+              invalid: es inválido
+              taken: ya ha sido elegido
             password:
-              blank: can't be blank
-              too_short: is too short (minimum is 6 characters)
-      template:
-        body: 'There were problems with the following fields:'
-        header:
-          one: 1 error prohibited this %{model} from being saved
-          other: "%{count} errors prohibited this %{model} from being saved"
+              blank: no puede estar en blanco
+              too_short: es muy corto (mínimo 6 caracteres)
     models:
       admin: Admin
-      challenge: Challenge
-      collaboration: Collaboration
-      comment: Comment
-      entry: Entry
-      member: Member
-      organization: Organization
-      project: Project
-      subscriber: Subscriber
-      user: User
-      vote: Vote
+      challenge: Reto
+      collaboration: Colaboración
+      comment: Comentario
+      entry: App
+      member: Miembro
+      organization: Organización
+      project: Proyecto
+      subscriber: Subscriptor
+      user: Usuario
+      vote: Voto
   flash:
     admins:
       organizations:
