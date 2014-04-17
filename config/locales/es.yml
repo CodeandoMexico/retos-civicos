@@ -1,268 +1,522 @@
+---
 es:
   activerecord:
     attributes:
+      admin:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      challenge:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+      collaboration:
+        member_id: Miembro
+        user_id: Usuario
+      comment:
+        user: Usuario
+      entry:
+        description: Descripción
+        github_url: Github url
+        name: Nombre
+      member:
+        collaborations: Colaboraciones
+      member/user:
+        avatar: Avatar de usuario
+        bio: Bio de usuario
+        email: Correo de usuario
+      organization/user:
+        bio: Bio de usuario
+        email: Correo de usuario
+      project:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+        title: Título
+      subscriber:
+        email: Correo
       user:
-        email: "Email"
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      vote:
+        voteable_id: Voteable
     errors:
+      messages:
+        record_invalid: 'La validación falló: %{errors}'
+        taken: ya ha sido elegido
       template:
-        header: "Algunos errores se encontraron al llenar la forma"
+        body: 'Hubo problemas con los siguientes campos:'
+        header:
+          one: 1 error evito que el %{model} se guardara
+          other: "%{count} errores evitaron que el %{model} se guardara"
       models:
+        admin:
+          attributes:
+            email:
+              blank: no puede estar en blanco
+              format: es inválido
+            password:
+              confirmation: no coincide con la confirmación
+              too_short: es muy corto (mínimo 8 caracteres)
+        collaboration:
+          attributes:
+            member_id:
+              taken: ya ha sido elegido
+            user_id:
+              taken: ya ha sido elegido
+        entry:
+          attributes:
+            description:
+              blank: no puede estar en blanco
+            github_url:
+              blank: no puede estar en blanco
+            name:
+              blank: no puede estar en blanco
+        member:
+          attributes:
+            collaborations:
+              invalid: es inválido
+        subscriber:
+          attributes:
+            email:
+              invalid: es inválido
+              taken: ya ha sido elegido
         user:
           attributes:
             email:
-              blank: "no puede estar en blanco"
-              format: "es inválido"
-
+              already_confirmed: ya has sido confirmado, por favor inicia sesión
+              blank: no puede estar en blanco
+              format: Email es inválido
+              invalid: es inválido
+              taken: ya ha sido elegido
+            password:
+              blank: no puede estar en blanco
+              too_short: es muy corto (mínimo 6 caracteres)
+    models:
+      admin: Admin
+      challenge: Reto
+      collaboration: Colaboración
+      comment: Comentario
+      entry: App
+      member: Miembro
+      organization: Organización
+      project: Proyecto
+      subscriber: Subscriptor
+      user: Usuario
+      vote: Voto
   flash:
     admins:
       organizations:
-        accredited: "Organización acreditada correctamente. Recibirán un correo de confirmación."
+        accredited: Organización acreditada correctamente. Recibirán un correo de confirmación.
     organizations:
-      updated: "Perfil de organización actualizada correctamente."
-      welcome_new_subscriber: "Gracias por suscribirte! Te prometemos buenas noticias, no spam."
-      repeated_subscriber: "Correo ya registrado. Por favor intente con otro"
-      send: "Tu mensaje ha sido enviado"
-      long_message: "Por favor limita tu mensaje a 300 carácteres"
+      updated: Perfil de organización actualizada correctamente.
+      welcome_new_subscriber: Gracias por suscribirte! Te prometemos buenas noticias, no spam.
+      repeated_subscriber: Correo ya registrado. Por favor intente con otro
+      send: Tu mensaje ha sido enviado
+      long_message: Por favor limita tu mensaje a 300 carácteres
     members:
-      updated: "Listo para participar!"
+      updated: Listo para participar!
     users:
-      welcome_and_edit_profile: "Bienvenido a Codeando México. Edita tu perfil antes de colaborar"
+      welcome_and_edit_profile: Bienvenido a Codeando México. Edita tu perfil antes de colaborar
     entries:
-      created_successfully: "Felicidades! Has enviado tu aplicación correctamente. Atento a resultados."
-      updated_successfully: "La aplicación fue editada correctamente."
+      created_successfully: Felicidades! Has enviado tu aplicación correctamente. Atento a resultados.
+      updated_successfully: La aplicación fue editada correctamente.
     unauthorized:
-      message: "Necesitas iniciar sesión primero"
-      already_submited_app: "Ya has enviado tu aplicación a este reto"
-
+      message: Necesitas iniciar sesión primero
+      already_submited_app: Ya has enviado tu aplicación a este reto
   challenges:
     initial_activity:
-      title: 'Creación del reto'
-      text: 'Publicación del reto en Codeando México'
+      title: Creación del reto
+      text: Publicación del reto en Codeando México
     index:
-      header: "Retos"
-      new_challenge: "Nuevo Reto"
-      active: "Activos"
-      inactive: "Concluidos"
-      popular: "Más populares"
-      recent: "Más recientes"
+      header: Retos
+      new_challenge: Nuevo Reto
+      active: Activos
+      inactive: Concluidos
+      popular: Más populares
+      recent: Más recientes
+    like: Me gusta
     new:
-      header: "Nuevo Reto"
+      header: Nuevo Reto
     edit:
-      header: "Editar Reto"
+      header: Editar Reto
     form:
-      title: "Título de tu reto"
-      pitch: "Invitación"
-      pitch-description: "Escribe en un solo enunciado una frase para motivar a que las personas participen en el reto. Ej. 'Hagamos conciencia para tener un México limpio'"
-      avatar: "Imagen"
-      avatar-description: "Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver."
-      about: "Sobre la organización"
-      about-description: "Describe brevemente que hace tu organización y que los motiva a mejorar al país."
-      status: "Estado actual del reto"
-      needs: "Necesidades del reto"
-      points: "Puntos clave"
-      points-description: "En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve."
-      point1: "Punto 1 (Opcional)"
-      point2: "Punto 2 (Opcional)"
-      point3: "Punto 3 (Opcional)"
-      additional_links: "Referencias adicionales"
-      additional_links-description: "Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas."
-      additional_links-placeholder: "Separados por comas"
-      dataset_id: "Datasets"
-      dataset_id-description: "Agrega un Dataset de http://datamx.io/"
-      activities: "Actividades y Noticias"
-      activities-description: "Eventos relevantes del reto"
-      activities-title: "Título"
-      submit: "Publicar"
+      title: Título de tu reto
+      pitch: Invitación
+      pitch-description: Escribe en un solo enunciado una frase para motivar a que las personas participen en el reto. Ej. 'Hagamos conciencia para tener un México limpio'
+      avatar: Imagen
+      avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
+      about: Sobre la organización
+      about-description: Describe brevemente que hace tu organización y que los motiva a mejorar al país.
+      status: Estado actual del reto
+      needs: Necesidades del reto
+      points: Puntos clave
+      points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
+      point1: Punto 1 (Opcional)
+      point2: Punto 2 (Opcional)
+      point3: Punto 3 (Opcional)
+      additional_links: Referencias adicionales
+      additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas.'
+      additional_links-placeholder: Separados por comas
+      dataset_id: Datasets
+      dataset_id-description: Agrega un Dataset de http://datamx.io/
+      activities: Actividades y Noticias
+      activities-description: Eventos relevantes del reto
+      activities-title: Título
+      submit: Publicar
       description: "¿Cuál es el problema a enfrentar?"
-      description-description: "Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema."
-      comments: "Comentarios y Notas"
-      resources: "Recursos y Datos"
-      welcome_mail: "Correo de bienvenida"
-      welcome_mail_subject: "Título del correo"
-      welcome_mail_subject-description: "Los participantes recibirán este correo al inscribirse al reto. Escribe algo breve para llamar su atención"
-      welcome_mail_body: "Cuerpo del mensaje"
-      welcome_mail_body-description: "Puedes enviarles las instrucciones y siguientes pasos del reto. Toda la información valiosa."
-      dataset_hint_text: "Escriba un término de búsqueda"
-      dataset_no_results_text: "No hay resultados"
-      dataset_searching_text: "Buscando..."
+      description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
+      comments: Comentarios y Notas
+      resources: Recursos y Datos
+      created-by: Creador por
+      welcome_mail: Correo de bienvenida
+      welcome_mail_subject: Título del correo
+      welcome_mail_subject-description: Subject del email. Escribe algo breve para
+        llamar su atención
+      welcome_mail_body: Cuerpo del mensaje
+      welcome_mail_body-description: Puedes enviarles las instrucciones y siguientes
+        pasos del reto. Toda la información valiosa.
+      dataset_hint_text: Escriba un término de búsqueda
+      dataset_no_results_text: No hay resultados
+      dataset_searching_text: Buscando...
     send_newsletter:
-      header: "Mandar un newsletter"
-      newsletter_subject: "Título del correo"
-      newsletter_subject-description: "Escribe algo breve que describa la razón de este mensaje a todos los miembros de tu reto."
-      newsletter_body: "Cuerpo del mensaje"
-      newsletter_body-description: "Puedes enviarles aquí todo detalle de tu comunicado."
-      submit: "Enviar newsletter"
+      header: Mandar un newsletter
+      newsletter_subject: Título del correo
+      newsletter_subject-description: Escribe algo breve que describa la razón de este mensaje a todos los miembros de tu reto.
+      newsletter_body: Cuerpo del mensaje
+      newsletter_body-description: Puedes enviarles aquí todo detalle de tu comunicado.
+      submit: Enviar newsletter
     tab:
-      collaborators: "Colaborador"
-      references: "Referencia"
-      datasets: "Dataset"
-      entries: "App"
+      collaborators: Colaborador
+      references: Referencia
+      datasets: Dataset
+      entries: App
     collaborators:
-      collaborators: "Colaboradores"
-      non-collaboration: "Anímate. Sé el primero en colaborar en este reto."
+      collaborators: Colaboradores
+      non-collaboration: Anímate. Sé el primero en colaborar en este reto.
     references:
-      non-references: "Sin Referencias."
+      non-references: Sin Referencias.
+    resources:
+      collaborators: Participantes
+      datasets: Datasets
+      non-collaboration: Anímate. Sé el primero en colaborar en este reto.
+      references: Referencias
+      votes: Votos
     datasets:
-      non-datasets: "Por el momento no existen datasets."
+      non-datasets: Por el momento no existen datasets.
     entries:
-      non-entries: "Anímate. Sé el primero en enviar una App."
-      repo: "Repo"
-      demo: "Demo"
+      non-entries: Anímate. Sé el primero en enviar una App.
+      repo: Repo
+      demo: Demo
     show:
-      created-by: "Creado por:"
-      supportus: "Ayúdanos a cumplir nuestro objetivo"
-      collaborate: "Colaborar"
-      collaborating: "Estas Colaborando"
-      edit: "Editar"
-      submit_app: "Enviar app"
-      edit_entry: "Editar app"
-      show-more: "Mostrar más"
-      send_update: "Enviar newsletter"
+      supportus: Ayúdanos a cumplir nuestro objetivo
+      show-more: Mostrar más
     comments:
-      comment: "Comentar"
-      reply: "Responder"
-      mychallenge: "Mi Reto"
-      like: "Me gusta"
-    collaborating: "Te has unido al reto"
-    collaborating_error: "Ocurrio un error, intenta unirte de nuevo"
+      comment: Comentar
+      reply: Responder
+      mychallenge: Mi Reto
+      like: Me gusta
+    collaborating: Te has unido al reto
+    collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
   home:
     index:
-      pitch: "Organizaciones, Geeks, y Open Data las 24 horas del día."
-      get_involved: "Involúcrate"
-      recent: "Retos Recientes"
+      pitch: Organizaciones, Geeks, y Open Data las 24 horas del día.
+      get_involved: Involúcrate
+      recent: Retos recientes
+      citizens: Ciudadanía
+      designers: Diseñadores
+      government: Gobierno
+      hackers: Hackers
     about:
       problem:
-        title: 'Escenario actual'
-        description: |
-          <strong>La demanda por desarrolladores de soluciones</strong>
-          <p>La demanda para conectar organizaciones, hackers y diseñadores para resolver problemas sociales es latente. <a href='http://desarrollandoamerica.org/' target='_blank'>Desarrollando América Latina</a> es un evento anual con el fin de reunir a estos actores sociales para generar soluciones a los problemas de la región.<p>
-          <p>Eventos como estos, denominados hackathons de Open Data, buscan resolver esto cada par de meses a través de eventos con decenas de organizaciones, programadores, diseñadores y bases de datos.</p>
-          <blockquote>¿Qué sucedería si tuviéramos hackathons en la nube, sucediendo los 365 días del año, reuniendo miles de organizaciones, hackers y diseñadores?</blockquote>
-          <strong>La apertura de los datos</strong>
-          <p>La generación de soluciones tecnológicas de impacto social crecerá en proporción a la apertura de los datos de gobierno. Dicha transparencia de información permite a la sociedad tomar un rol más informado y proactivo.</p>
-          <p>Este escenario se complica cuando los datos se presentan en formatos heterogéneos y sin soporte para todas las plataformas tecnológicas. Lograr un formato estándar de datos, que sea de fácil consumo tanto para personas como máquinas, acelerará el proceso de análisis y generación de información valiosa para la sociedad.</p>
-          <blockquote>¿Qué sucedería si los datos de gobierno estuvieran en formato estándar, centralizados en una plataforma web, listos para consumirse y explorarse por un diseñador o un programa computacional?</blockquote>
+        title: Escenario actual
+        description: "<blockquote>“Los gobiernos han demostrado su constante incapacidad
+          para mantenerse al ritmo de evolución de las tecnologías de información”[1]</blockquote><p>Aunado
+          a esto, la mayoría de sus proyectos son desarrollados por una minoría de proveedores que los ejecutan de manera costosa y en tiempos de ejecución
+          ridículamente largos.</p>\r\n\r\n<p>Es por esta razón que tanto el movimiento
+          de <i>open government</i> como el de <i>hacking cívico </i>toman fuerza, porque en lugar de agregar capas de burocracia y más responsabilidades al
+          gobierno, estos movimientos buscan que el gobierno sea un facilitador para
+          que se genere la innovación desde fuera.</p>\r\n\r\n<p>En esta búsqueda por la innovación cívica, ha surgido una tendencia por convocar a un sinnúmero
+          de maratones de desarrollo cívico (también conocidos como <i>hackathons</i>),
+          desde Noruega[2] hasta América Latina[3], con la finalidad de conectar a hackers y diseñadores con la sociedad civil y el gobierno.</p>\r\n\r\n<p>Estos
+          eventos han sido un primer intento por reunir a una comunidad bajo un objetivo
+          en común, sin embargo no hemos visto proyectos de impacto, particularmente
+          porque el hackathon tiende al <i>solucionismo</i>[4] y presenta un espacio donde se vierten muchas horas de talento en construir proyectos sin tener
+          muy claras las necesidades más importantes de la sociedad y el gobierno.</p>\r\n\r\n<p>Si
+          queremos ver proyectos de impacto, fruto de reunir a estas comunidades,
+          necesitamos re-inventar esta interacción e invertir estas horas de talento
+          en resolver problemas reales.</p>"
       what:
-        title: '¿Qué es Codeando México?'
-        description: |
-          <p>Codeando México es una plataforma donde las organizaciones y la sociedad civil publican proyectos y necesidades, exponiendo <a href='http://okfn.org/opendata/' target='_blank'>datos abiertos</a> a través de <a href='http://ckan.org/' target='_blank'>CKAN</a>, y convocando a interesados del área de tecnología y diseño para resolverlos.</p>
+        title: "¿Qué es Codeando México?"
+        description: "<p>Codeando México es una <b>plataforma digital de innovación
+          abierta</b>, que convoca talento a través de la publicación de retos para
+          resolver problemas específicos de impacto social.</p>\r\n\r\n<p>Los retos
+          cumplen la dinámica de cualquier concurso virtual, tienen registro, fecha
+          de cierre, requisitos de participación, una especificación clara para la entrega de soluciones, una evaluación, un jurado y una premiación.</p>"
       who:
-        title: '¿Quién es Codeando México?'
-        description: |
-          <p>Somos un equipo de programadores y diseñadores que desde hace más de un año está muy activo en la comunidad mexicana de Open Data. Y fue a raíz de nuestras experiencias en estos eventos, que decidimos empujar el <b>status quo</b> a través de esta plataforma.</p>
-          <p><b>Buscamos</b> remover las restricciones de espacio y tiempo a la interacción entre organizaciones, hackers y diseñadores.</p>
-          <p><b>Creemos</b> en que la apertura de datos de gobierno traerá un gran impacto positivo en nuestra sociedad.</p>
-          <p><b>Soñamos</b> con un espacio en el que la tecnología atienda los problemas sociales más latentes de nuestra región.</p>
+        title: "¿Quién es Codeando México?"
+        description: "<p>Somos un <a href=\"https://github.com/CodeandoMexico?tab=members\"
+          target=\"_blank\">equipo</a> de programadores y diseñadores que desde hace
+          más de un año trabajamos activamente en la comunidad mexicana de <a href=\"http://opendatahandbook.org/es/what-is-open-data/\"
+          target=\"_blank\">Open Data</a>. Y fue a raíz de nuestras experiencias en
+          estos eventos, que decidimos empujar el <b>status quo</b> a través de esta
+          plataforma.</p>\r\n\r\n<p>En Codeando México <b>buscamos acelerar y democratizar
+          la innovación cívica</b>, rediseñando nuestro gobierno y sociedad con la
+          agilidad característica de la comunidad de tecnología.</p>"
       open_data:
-        title: '¿Qué es Open Data y por qué es tan importante?'
-        description: |
-          <p><b>Open Data</b> son datos que libremente pueden ser utilizados, reutilizados y distribuidos por cualquier persona. Dichos datos deben estar disponibles públicamente, con permisos de reproducción y modificación, y libres de restricciones comerciales. Ejemplos de estos tipos de datos pueden ser transporte, recaudación de impuestos, clima, ambiente y cultura.</p>
-          <p>Los datos deben ser abiertos por las siguientes razones:</p>
-          <ul>
-          <li><b>Transparencia.</b> En una sociedad democrática los ciudadanos deben tener la posibilidad de evaluar las acciones de gobierno a través de datos públicamente disponibles y accesibles.</li>
-          <li><b>Generación de valor social y comercial.</b> Al abrir datos de gobierno, se promueve la generación de negocios innovadores y servicios de impacto social.</li>
-          <li><b>Participación ciudadana.</b> Con datos abiertos, los ciudadanos tienen la posibilidad de estar más informados e involucrados en la toma de decisiones de la sociedad, y más allá de sólo saber qué hace el gobierno, los ciudadanos pueden comenzar a contribuir al cambio.</li>
-          </ul>
-          <p>Fuentes<br />
-          Open Knowledge Foundation, <a href='http://okfn.org/opendata/' target='_blank'>http://okfn.org/opendata/</a>
-          </p>
+        title: Referencias
+        description: "<p>\r\n[1] David G. Robinson, citado por Tim O’Reilly en Open
+          Government: Collaboration, Transparency, and Participation in Practice.\r\n<br
+          />\r\n[2] <a href=\"http://apps4norge.no\" target=\"_blank\">Apps for Norge</a>\r\n<br
+          />\r\n[3] <a href=\"http://desarrollandoamerica.org\" target=\"_blank\">Desarrollando
+          América Latina</a>\r\n<br />\r\n[4] <a href=\"http://davidsasaki.name/2012/12/on-hackathons-and-solutionism/\"
+          target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
   layout:
-    header: "Codeando México"
+    header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
-    brief: "Un espacio donde la transparencia y colaboración ocurren todos los días."
+    brief: Una plataforma que reúne talento para resolver problemáticas de impacto social.
     about: "¡Ver Más!"
-    sign_in: "Iniciar Sesión"
-    sign_out: "Salir"
-    welcome: "Hola"
+    sign_in: Iniciar Sesión
+    sign_out: Salir
+    welcome: Hola
   signup:
-    choose_provider: "Selecciona alguno de los siguientes servicios para tener acceso a Codeando México."
-    with_github: "Inicia con Github"
-    with_twitter: "Inicia con Twitter"
-    with_linkedin: "Inicia con LinkedIn"
-    with_email: "Inicia con Email"
-    register_with_email: "Registro con email"
-    login: "Iniciar sesión"
+    choose_provider: Selecciona alguno de los siguientes servicios para tener acceso a Codeando México.
+    with_github: Inicia con Github
+    with_twitter: Inicia con Twitter
+    with_linkedin: Inicia con LinkedIn
+    with_email: Inicia con Email
+    register_with_email: Registro con email
+    login: Iniciar sesión
   app_controller:
-    login_required: "Credenciales necesarias para iniciar"
-
+    login_required: Credenciales necesarias para iniciar
+  auth_controller:
+    destroy: Has salido satisfactoriamente
+    failure: Acceso no autorizado, intenta de nuevo
+    new_auth: Nueva autenticación creada
+    sign_in: Bienvenido a Codeando México
   omniauth_controller:
-    new_auth: "Nueva autenticación creada"
-    failure: "Acceso no autorizado, intenta de nuevo"
-    last_step: "Bienvenido a Codeando México! Último paso para iniciar tu participación:"
-    welcome_back: "Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!"
-    confirm_email: "Confirma tu correo antes de iniciar tu participación"
+    new_auth: Nueva autenticación creada
+    failure: Acceso no autorizado, intenta de nuevo
+    last_step: 'Bienvenido a Codeando México! Último paso para iniciar tu participación:'
+    welcome_back: Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!
+    confirm_email: Confirma tu correo antes de iniciar tu participación
   comments:
-    commented: "Gracias por tus comentarios"
-    failure: "Intenta de nuevo"
-    voted: "Tu voto se ha registrado"
-
+    commented: Gracias por tus comentarios
+    failure: Intenta de nuevo
+    voted: Tu voto se ha registrado
+    comment:
+      reply: 'Comentar '
+    truncate:
+      less: ocultar
+      more: ver completo
   users:
-    welcome_new_org: "Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:"
+    welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
-      bio-description: "140 caracteres sobre ti"
-      submit: "Actualizar"
+      bio-description: 140 caracteres sobre ti
+      submit: Actualizar
     define_role:
-      complete_register: "Completar registro"
+      complete_register: Completar registro
   organizations:
     edit:
-      title: "Perfil de organización"
+      title: Perfil de organización
     form:
-      submit: "Actualizar"
-      to_challenge_creation: "Listo! A crear el primer reto"
-      name: "Nombre de la organización"
-      email: "Email"
-      bio: "Descripción"
-      bio-description: "140 caracteres sobre la organización"
-      email-description: "Email de la persona con la que estaremos en contacto"
-      avatar: "Imagen de perfil"
+      submit: Actualizar
+      to_challenge_creation: Listo! A crear el primer reto
+      name: Nombre de la organización
+      email: Email
+      bio: Descripción
+      bio-description: 140 caracteres sobre la organización
+      email-description: Email de la persona con la que estaremos en contacto
+      avatar: Imagen de perfil
     show:
-      email_placeholder: "Tu correo electrónico preferido"
-      suscribe_label_field: "Suscríbete con tu email y te mantendremos al tanto"
-      suscribe: "Suscribirme"
+      email_placeholder: Tu correo electrónico preferido
+      suscribe_label_field: Suscríbete con tu email y te mantendremos al tanto
+      suscribe: Suscribirme
     subscribers_list:
-      title: "Titulo del mensaje"
-      message: "Añade tu mensaje aquí"
-      submit: "Mandar"
+      title: Titulo del mensaje
+      message: Añade tu mensaje aquí
+      submit: Mandar
   members:
     form:
-      submit: "Actualizar"
-      email-description: "Tu correo principal en donde recibirás updates de los retos en los que participes"
-      name: "Nombre completo"
-      bio: "Bio"
-      bio-description: "Háblanos un poco sobre ti en 140 caracteres"
-      avatar: "Imagen perfil"
-      avatar-description: "Tu foto de identidad en Codeando México"
+      submit: Actualizar
+      email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
+      name: Nombre completo
+      bio: Bio
+      bio-description: Háblanos un poco sobre ti en 140 caracteres
+      avatar: Imagen perfil
+      avatar-description: Tu foto de identidad en Codeando México
   entries:
     form:
-      name: "Nombre"
-      name-description: "Del proyecto/app"
-      github-url: "GitHub Repo URL"
-      github-url-description: "Link al repositorio open source"
-      live-demo-url: "Demo URL"
-      demo-url-description: "Link a la aplicación en vivo"
-      entry-logo: "Logo"
-      entry-logo-description: "Sube el logotipo de la applicación. (80x80)"
-      description: "Descripción"
-      description-description: "En breve la funcionalidad/objetivo del app"
-      team-members: "Miembros del equipo"
-      team-members-description: "Si trabajaste en equipo, lista el nombre de tus colegas y su email. Puedes usar Markdown para listarlos"
-      challenge: "Reto"
-      submit: "Enviar proyecto"
+      name: Nombre
+      name-description: Del proyecto/app
+      github-url: GitHub Repo URL
+      github-url-description: Link al repositorio open source
+      live-demo-url: Demo URL
+      demo-url-description: Link a la aplicación en vivo
+      entry-logo: Logo
+      entry-logo-description: Sube el logotipo de la applicación. (80x80)
+      description: Descripción
+      description-description: En breve la funcionalidad/objetivo del app
+      team-members: Miembros del equipo
+      team-members-description: Si trabajaste en equipo, lista el nombre de tus colegas y su email. Puedes usar Markdown para listarlos
+      challenge: Reto
+      submit: Enviar proyecto
     show:
-      description: "Descripción"
-      owner: "Líder del equipo"
-      github: "GitHub Repo"
-      live-demo-url: "Link al Demo en vivo"
-      go-to-challenge: "Ir al reto - %{challenge}"
-      team-members: "Miembros del equipo"
+      description: Descripción
+      owner: Líder del equipo
+      github: GitHub Repo
+      live-demo-url: Link al Demo en vivo
+      go-to-challenge: Ir al reto - %{challenge}
+      team-members: Miembros del equipo
     new:
-      back: "Volver al reto"
-
-  models:
-    challenge:
-      status:
-        finished: 'Terminado'
-        open: 'Abierto'
-        working_on: 'En desarrollo'
-        cancelled: 'Cancelado'
+      back: Volver al reto
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minuto
+      month: Mes
+      second: Segundo
+      year: Año
+  errors:
+    dynamic_format: "%{message}"
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      already_confirmed: was already confirmed, please try signing in
+      blank: can't be blank
+      carrierwave_download_error: could not be downloaded
+      carrierwave_integrity_error: is not of an allowed file type
+      carrierwave_processing_error: failed to be processed
+      confirmation: doesn't match confirmation
+      confirmation_period_expired: needs to be confirmed within %{period}, please
+        request a new one
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      expired: has expired, please request a new one
+      extension_black_list_error: 'You are not allowed to upload %{extension} files,
+        prohibited types: %{prohibited_types}'
+      extension_white_list_error: 'You are not allowed to upload %{extension} files,
+        allowed types: %{allowed_types}'
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      mime_types_processing_error: 'Failed to process file with MIME::Types, maybe
+        not valid content-type? Original Error: %{e}'
+      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it
+        is not an image? Original Error: %{e}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      odd: must be odd
+      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
+        an image? Original Error: %{e}'
+      too_long: is too long (maximum is %{count} characters)
+      too_short: is too short (minimum is %{count} characters)
+      wrong_length: is the wrong length (should be %{count} characters)
+  helpers:
+    edit: Editar
+    edit_entry: Editar app
+    submit_app: Enviar app
+    collaborate: Participar
+    send_update: Enviar newsletter
+  landing:
+    goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación de tecnología cívica.
+    slogan: La plataforma para la nueva era de<span> <em>innovación cívica</em></span>
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: "%n %u"
+        separator: ","
+        unit: $
+    format:
+      delimiter: .
+      separator: ","
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+  shared:
+    footer:
+      about_us: Sobre Codeando México
+      contact_us: Escríbenos
+      twitter: Twitter
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
