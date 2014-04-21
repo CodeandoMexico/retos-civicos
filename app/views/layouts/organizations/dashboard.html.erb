@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>hola</title>
+  <title>Codeando México</title>
   <%= stylesheet_link_tag 'organizations', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>hola</h1>
-  <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-  <%= yield %>
+  <div class="container-fluid l-dashboard">
+    <div class="col-lg-3 l-sidebar sidebar">
+      <h1 class="l-space-bottom"><%= image_tag 'logo.png', alt: 'Codeando México' %></h1>
+      <h3 class="text-muted l-space-bottom">SEP</h3>
+      <ul class="sidebar-nav">
+        <li><%= link_to 'Retos', '#' %></li>
+        <li><%= link_to 'Propuestas', '#' %></li>
+        <li><%= link_to 'Participantes', '#' %></li>
+      </ul>
+      <hr/>
+      <ul class="sidebar-subnav">
+        <li><%= link_to 'Configuración', '#' %></li>
+        <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+    <div class="col-lg-9 l-main">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
