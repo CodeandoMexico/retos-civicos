@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hola</title>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>hola</h1>
+  <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+  <%= yield %>
+</body>
+</html>

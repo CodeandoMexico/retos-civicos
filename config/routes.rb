@@ -11,6 +11,7 @@ Aquila::Application.routes.draw do
   match 'signup' => 'home#sign_up'
   match '/about' => 'home#about'
   get '/jobs' => 'home#jobs'
+  get 'dashboard' => 'organizations/dashboard#index'
 
   resources :organizations, only: [:show, :update, :edit] do
     member do
@@ -19,11 +20,11 @@ Aquila::Application.routes.draw do
     resources :subscribers, only: [:create]
     resources :challenges, except: [:index] do
       member do
-	get :timeline
+        get :timeline
       end
       member do
-	get :send_newsletter
-	post :mail_newsletter
+        get :send_newsletter
+        post :mail_newsletter
       end
     end
   end
