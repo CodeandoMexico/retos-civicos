@@ -11,8 +11,8 @@ Aquila::Application.routes.draw do
   match 'signup' => 'home#sign_up'
   match '/about' => 'home#about'
   get '/jobs' => 'home#jobs'
-  get 'dashboard' => 'organizations/dashboard#index'
 
+  resource :dashboard, only: :show, controller: :dashboard
   resources :organizations, only: [:show, :update, :edit] do
     member do
       get :subscribers_list
