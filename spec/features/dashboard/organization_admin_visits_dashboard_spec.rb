@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 feature 'Organization admin visits dashboard' do
-  attr_reader :organization, :organization_admin
+  attr_reader :member, :organization, :organization_admin
 
   before do
+    user = create :user, name: 'Juanito'
+    @member = create :member, user: user
     @organization = create :organization, subdomain: 'superorg'
     @organization_admin = create :user, userable: organization
   end
 
   scenario 'and watches the last challenges and last entries' do
     challenge = create :challenge, title: 'Reto 1', organization: organization
-    user = create :user, name: 'Juanito'
-    member = create :member, user: user
     create :collaboration, member: member, challenge: challenge
     create :entry,
       name: 'Propuesta 1',
@@ -26,7 +26,6 @@ feature 'Organization admin visits dashboard' do
       collaborators: 1,
       entries: 1,
     )
-
     page_should_have_entry_with(
       name: 'Propuesta 1',
       member: 'Juanito',

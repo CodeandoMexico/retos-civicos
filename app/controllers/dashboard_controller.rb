@@ -1,7 +1,5 @@
-class DashboardController < ApplicationController
+class DashboardController < Dashboard::BaseController
   layout 'dashboard'
-
-  before_filter :authenticate_organization_admin!
 
   def show
     @challenges = top_five(organization_challenges)
@@ -21,15 +19,5 @@ class DashboardController < ApplicationController
 
   def top_five(relation)
     relation.order('created_at DESC').limit(5)
-  end
-
-  def organization
-    current_user.userable
-  end
-
-  def authenticate_organization_admin!
-    unless current_user
-      redirect_to challenges_path
-    end
   end
 end
