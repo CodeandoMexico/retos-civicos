@@ -8,8 +8,18 @@ html, body, .l-dashboard, .l-sidebar, .l-main {
   height: 100%;
 }
 
+.table-vertically-centered {
+  > thead > tr > td, > tbody > tr > td {
+    vertical-align: middle;
+  }
+}
+
 .l-space-bottom {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5em !important;
+}
+
+.l-space-top-large {
+  margin-top: 2.5em !important;
 }
 
 .sidebar {

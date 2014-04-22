@@ -17,5 +17,4 @@ class Member < ActiveRecord::Base
   def entry_for(challenge)
     self.userable.entries.where(challenge_id: challenge.id).first
   end
-
 end

@@ -5,9 +5,27 @@ module Organizations
     before_filter :authenticate_organization_admin!
 
     def index
+      @challenges = top_five(organization_challenges)
+      @entries = top_five(organization_entries)
     end
 
     private
+
+    def organization_challenges
+      organization.challenges.includes(:collaborators, :entries)
+    end
+
+    def organization_entries
+      Entry.where(id: organization.challenge_ids).includes(:challenge, member: :user)
+    end
+
+    def top_five(relation)
+      relation.order('created_at DESC').limit(5)
+    end
+
+    def organization
+      current_user.userable
+    end
 
     def authenticate_organization_admin!
       unless current_user

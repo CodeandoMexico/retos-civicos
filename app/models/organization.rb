@@ -31,5 +31,4 @@ class Organization < ActiveRecord::Base
   def send_notify_admin
     AdminMailer.notify_new_organization(self).deliver
   end
-
 end

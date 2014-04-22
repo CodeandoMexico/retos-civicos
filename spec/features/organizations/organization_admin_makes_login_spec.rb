@@ -4,8 +4,8 @@ feature 'Organization admin makes login' do
   attr_reader :organization, :organization_admin
 
   before do
-    @organization = create_organization_with subdomain: 'superorg'
-    @organization_admin = organization.user
+    @organization = create :organization, subdomain: 'superorg'
+    @organization_admin = create :user, userable: organization
   end
 
   scenario 'an is redirected to a dashboard' do
@@ -16,15 +16,9 @@ feature 'Organization admin makes login' do
 
   scenario 'and then logs out' do
     sign_in_organization_admin(organization_admin)
-    click_on 'Salir'
+    click_on 'Cerrar sesión'
     visit dashboard_url subdomain: 'superorg'
     current_path.should eq '/retos'
-  end
-
-  def create_organization_with(attributes)
-    organization = FactoryGirl.build(:organization, attributes)
-    user = FactoryGirl.create(:user, userable: organization)
-    user.userable
   end
 
   def should_have_subdomain(subdomain)
