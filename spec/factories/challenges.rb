@@ -6,5 +6,9 @@ FactoryGirl.define do
     pitch "piitch del challenge"
 
     association :organization
+
+    trait :inactive do
+      status 'finished'
+    end
   end
 end

@@ -8,6 +8,7 @@ feature 'Organization admin visits dashboard' do
     @member = create :member, user: user
     @organization = create :organization, subdomain: 'superorg'
     @organization_admin = create :user, userable: organization
+    create :challenge, :inactive, organization: organization
   end
 
   scenario 'and watches the last challenges and last entries' do
