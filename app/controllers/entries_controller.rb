@@ -1,8 +1,6 @@
 class EntriesController < ApplicationController
-
-
   def show
-    @entry = Entry.find params[:id]
+    @entry = Entry.public.find params[:id]
     @challenge = @entry.challenge
     @user = @entry.member
   end
@@ -46,6 +44,4 @@ class EntriesController < ApplicationController
       redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.already_submited_app")
     end
   end
-
 end
-

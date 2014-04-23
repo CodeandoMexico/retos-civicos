@@ -32,7 +32,18 @@
           <td><%= entry.member.name %></td>
           <td><%= link_to entry.github_url, entry.github_url, target: '_blank' %></td>
           <td><%= entry.technologies %></td>
-          <td></td>
+
+          <% if entry.public? %>
+            <td><%= link_to 'Ver vista pública',
+              challenge_entry_path(@current_challenge, entry),
+              target: '_blank' %></td>
+
+          <% else %>
+            <td><%= button_to 'Publicar',
+              publish_dashboard_entry_path(entry),
+              confirm: '¿Estás seguro de hacer pública esta propuesta?',
+              class: 'btn btn-primary' %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

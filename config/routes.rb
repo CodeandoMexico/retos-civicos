@@ -14,7 +14,9 @@ Aquila::Application.routes.draw do
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :challenges, only: :index, controller: 'dashboard/challenges'
-    resources :entries, only: :index, controller: 'dashboard/entries'
+    resources :entries, only: :index, controller: 'dashboard/entries' do
+      post :publish, on: :member
+    end
   end
 
   resources :organizations, only: [:show, :update, :edit] do
