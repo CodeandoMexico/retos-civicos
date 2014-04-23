@@ -10,7 +10,7 @@
   <div class="container-fluid l-dashboard">
     <div class="col-lg-3 l-sidebar sidebar">
       <h1 class="l-space-bottom"><%= image_tag 'logo.png', alt: 'Codeando México' %></h1>
-      <h3 class="text-muted l-space-bottom">SEP</h3>
+      <h3 class="text-muted l-space-bottom"><%= organization.name %></h3>
       <ul class="sidebar-nav">
         <li><%= link_to 'Dashboard', dashboard_path %></li>
         <li><%= link_to 'Retos', dashboard_challenges_path %></li>

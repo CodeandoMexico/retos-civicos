@@ -17,5 +17,7 @@ module Dashboard
     def organization
       @cached_organization ||= current_user.userable
     end
+
+    helper_method :organization
   end
 end
