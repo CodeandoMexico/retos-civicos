@@ -8,6 +8,10 @@ html, body, .l-dashboard, .l-sidebar, .l-main {
   height: 100%;
 }
 
+.l-main {
+  overflow: scroll;
+}
+
 .table-vertically-centered {
   > thead > tr > td, > tbody > tr > td {
     vertical-align: middle;

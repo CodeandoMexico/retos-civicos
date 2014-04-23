@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1><%= @entry.name.capitalize %></h1>
+</div>
+
+<div class="l-space-bottom">
+  <%= link_to "< Volver a propuestas de #{@entry.challenge.title}",
+    dashboard_entries_path(challenge_id: @entry.challenge_id), class: 'pull-righ' %>
+</div>
+
+<div class="row">
+  <div class="col-lg-7">
+    <div class="panel panel-default">
+      <div class="panel-body text-center">
+        <%= image_tag @entry.entry_logo_url %>
+      </div>
+    </div>
+    <div class="page-header">
+      <h3>¿Como resuelve el reto?</h3>
+    </div>
+    <%= simple_format @entry.description %>
+  </div>
+  <div class="col-lg-5">
+    <div class="panel panel-default">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Líder del equipo</th>
+            <td ><%= @entry.member.name %></td>
+          </tr>
+          <tr>
+            <th>Link al demo</th>
+            <td><%= link_to truncate(@entry.live_demo_url), @entry.live_demo_url, target: '_blank' %></td>
+          </tr>
+          <tr>
+            <th>Tecnologías</th>
+            <td><%= @entry.technologies %></td>
+          </tr>
+          <tr>
+            <th>Recibida el</th>
+            <td><%= l(@entry.created_at, format: :long).capitalize %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
