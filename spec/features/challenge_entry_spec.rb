@@ -36,20 +36,10 @@ feature "Submit an app" do
     click_link "Ir al reto - #{challenge.title}"
 
     within '.tabs' do
-      page.should have_content '1 App'
-    end
-
-    click_link '1 App'
-
-    within '#entriesTTab' do
-      page.should have_content 'App de Prueba'
-      page.should have_content 'Spec de subir una app'
-      page.should have_link 'Repo', 'https://github.com/CodeandoMexico/aquila'
-      page.should have_link 'Demo', 'http://codeandomexico.org'
+      page.should have_content '0 App'
     end
 
     #borrar imagen y folders creados
     FileUtils.rm_rf(Dir["#{Rails.root}/public/entries_logo/entry/entry_logo/1"])
   end
-
 end
