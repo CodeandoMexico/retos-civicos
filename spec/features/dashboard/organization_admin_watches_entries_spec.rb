@@ -8,9 +8,9 @@ feature 'Organization admin watches entries' do
     @member = create :member, user: user
     @organization = create :organization, subdomain: 'superorg'
     @organization_admin = create :user, userable: organization
+    create :challenge, :inactive, title: 'Reto no activo', organization: organization
     @challenge_one = create :challenge, title: 'Reto 1', organization: organization
     @challenge_two = create :challenge, title: 'Reto 2', organization: organization
-    create :challenge, :inactive, title: 'Reto no activo', organization: organization
   end
 
   scenario 'in a list' do
@@ -34,7 +34,7 @@ feature 'Organization admin watches entries' do
     click_link 'Propuestas'
 
     page.should have_content 'Reto: Reto 2'
-    page_should_have_challenges_filter_with 'Reto 2', 'Reto 1'
+    page_should_have_challenges_filter_with 'Reto 2', 'Reto 1', 'Reto no activo'
     page_should_have_entry_with(
       position: 1,
       name: 'Propuesta 2',

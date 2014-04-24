@@ -23,7 +23,7 @@ module Dashboard
     end
 
     def organization_challenges
-      @organization_challenges ||= organization.challenges.active.order('created_at DESC')
+      @organization_challenges ||= organization.challenges.order('created_at DESC')
     end
 
     def current_challenge
