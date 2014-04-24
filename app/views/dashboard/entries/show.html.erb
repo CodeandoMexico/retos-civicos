@@ -1,4 +1,8 @@
 <div class="page-header">
+  <div class="pull-right">
+    <%= render 'visit_or_publish_entry', entry: @entry %>
+  </div>
+
   <h1><%= @entry.name.capitalize %></h1>
 </div>
 
@@ -21,7 +25,7 @@
       <%= simple_format @entry.description %>
     </div>
   </div>
-  <div class="col-lg-5">
+  <div class="col-lg-5 col-lg-offset-1">
     <div class="panel panel-default">
       <table class="table">
         <tbody>
