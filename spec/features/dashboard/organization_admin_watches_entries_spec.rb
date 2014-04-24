@@ -19,14 +19,14 @@ feature 'Organization admin watches entries' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge_two,
-      github_url: 'http://miproyecto.com',
+      live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: 'PHP, MySQL'
     create :entry,
       name: 'Propuesta 2',
       member: member,
       challenge: challenge_two,
-      github_url: 'http://otroproyecto.com',
+      live_demo_url: 'http://otroproyecto.com',
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
       technologies: 'Rust, Haskell'
 
@@ -59,7 +59,7 @@ feature 'Organization admin watches entries' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge_one,
-      github_url: 'http://miproyecto.com',
+      live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: 'PHP, MySQL'
 

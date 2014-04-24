@@ -18,7 +18,7 @@ feature 'Organization admin visits dashboard' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge,
-      github_url: 'http://miproyecto.com',
+      live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53)
 
     sign_in_organization_admin(organization_admin)

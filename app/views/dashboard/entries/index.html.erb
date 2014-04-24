@@ -30,7 +30,7 @@
             <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
           </td>
           <td><%= entry.member.name %></td>
-          <td><%= link_to entry.github_url, entry.github_url, target: '_blank' %></td>
+          <td><%= link_to entry.live_demo_url, entry.live_demo_url, target: '_blank' %></td>
           <td><%= entry.technologies %></td>
 
           <% if entry.public? %>
