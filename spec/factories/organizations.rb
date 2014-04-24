@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :organization do
-    subdomain nil
+    subdomain 'superorg'
   end
 end
