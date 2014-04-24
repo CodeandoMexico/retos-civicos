@@ -12,4 +12,8 @@ class Entry < ActiveRecord::Base
   def publish!
     self.public = true
   end
+
+  def member?(user)
+    member == user.try(:userable)
+  end
 end

@@ -1,8 +1,12 @@
 class EntriesController < ApplicationController
   def show
-    @entry = Entry.public.find params[:id]
+    @entry = Entry.find(params[:id])
     @challenge = @entry.challenge
     @user = @entry.member
+
+    if !@entry.public? && !@entry.member?(current_user)
+      return render status: :not_found
+    end
   end
 
   def new
