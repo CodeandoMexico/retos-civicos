@@ -28,7 +28,7 @@ feature 'Organization admin watches entry profile' do
       challenge: 'Reto 1',
       member: 'Juanito',
       sent_at: 'Abril 10, 2013 20:53',
-      logo: entry.entry_logo_url,
+      logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
       description: 'Este reto se resuelve con tecnología',
       live_demo_link: 'http://miproyecto.com'

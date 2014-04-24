@@ -357,6 +357,8 @@ en:
       demo-url-description: Link to live app
       entry-logo: Logo
       entry-logo-description: Upload the app's logo. (80x80)
+      image: Image
+      image-description: Upload a cover image for your app
       description: Description
       description-description: In brief functionality/purpose of app
       team-members: Team members

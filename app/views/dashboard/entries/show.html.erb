@@ -8,16 +8,18 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-7">
+  <div class="col-lg-6">
     <div class="panel panel-default">
       <div class="panel-body text-center">
-        <%= image_tag @entry.entry_logo_url %>
+        <%= image_tag @entry.image_url, class: 'img-responsive' %>
       </div>
     </div>
     <div class="page-header">
       <h3>¿Como resuelve el reto?</h3>
     </div>
-    <%= simple_format @entry.description %>
+    <div class="l-space-bottom">
+      <%= simple_format @entry.description %>
+    </div>
   </div>
   <div class="col-lg-5">
     <div class="panel panel-default">
