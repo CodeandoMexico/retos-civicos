@@ -13,7 +13,7 @@
     <tbody>
       <% @challenges.each do |challenge| %>
         <tr>
-          <td><%= link_to challenge.title, '#' %></td>
+          <td><%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
           <td><%= challenge.collaborators.size %></td>
           <td><%= challenge.entries.size %></td>
         </tr>
