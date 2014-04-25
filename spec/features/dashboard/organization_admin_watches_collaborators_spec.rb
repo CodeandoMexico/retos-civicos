@@ -1,0 +1,80 @@
+require 'spec_helper'
+
+feature 'Organization admin watches collaborators' do
+  attr_reader :organization_admin, :inactive_challenge, :active_challenge, :juanito, :pepito
+
+  before do
+    organization = create :organization, subdomain: 'superorg'
+    @organization_admin = create :user, userable: organization
+    @inactive_challenge = create :challenge, :inactive, title: 'Reto no activo', organization: organization
+    @active_challenge = create :challenge, title: 'Reto activo', organization: organization
+    @juanito = create_member name: 'Juanito', email: 'juanito@example.com', nickname: 'jnto'
+    @pepito = create_member name: 'Pepito', email: 'pepito@example.com', nickname: 'ppto'
+  end
+
+  scenario 'in a table' do
+    create :collaboration, member: pepito, challenge: active_challenge
+    create :collaboration, member: juanito, challenge: active_challenge
+
+    sign_in_organization_admin(organization_admin)
+    click_link 'Participantes'
+
+    page.should have_content 'Reto: Reto activo'
+    page_should_have_challenges_filter_with 'Reto activo', 'Reto no activo'
+    page_should_have_collaborator_with(
+      position: 1,
+      id: juanito.id,
+      name: 'Juanito',
+      email: 'juanito@example.com',
+      nickname: 'jnto',
+      registered_at: juanito.created_at
+    )
+
+    page_should_have_collaborator_with(
+      position: 2,
+      id: pepito.id,
+      name: 'Pepito',
+      email: 'pepito@example.com',
+      nickname: 'ppto',
+      registered_at: pepito.created_at
+    )
+  end
+
+  scenario 'with a selected filter' do
+    create :collaboration, member: juanito, challenge: inactive_challenge
+
+    sign_in_organization_admin(organization_admin)
+    click_link 'Participantes'
+    click_link 'Reto no activo'
+
+    page.should have_content 'Reto: Reto no activo'
+    page_should_have_collaborator_with(
+      position: 1,
+      id: juanito.id,
+      name: 'Juanito',
+      email: 'juanito@example.com',
+      nickname: 'jnto',
+      registered_at: juanito.created_at
+    )
+  end
+
+  def create_member(attrs)
+    create :member, user: (create :user, attrs)
+  end
+
+  def page_should_have_challenges_filter_with(*challenges)
+    within "#challenges_options" do
+      challenges.each { |challenge| page.should have_content challenge }
+    end
+  end
+
+  def page_should_have_collaborator_with(args)
+    within "#collaborators tbody tr:nth-of-type(#{args.fetch(:position)})" do
+      page.should have_content args.fetch(:id)
+      page.should have_content args.fetch(:name)
+      page.should have_content args.fetch(:email)
+      page.should have_content args.fetch(:nickname)
+      page.should have_content args.fetch(:registered_at)
+    end
+  end
+end

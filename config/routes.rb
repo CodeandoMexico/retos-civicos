@@ -13,6 +13,7 @@ Aquila::Application.routes.draw do
   get '/jobs' => 'home#jobs'
 
   resource :dashboard, only: :show, controller: :dashboard do
+    resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: :index, controller: 'dashboard/challenges'
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :publish, on: :member

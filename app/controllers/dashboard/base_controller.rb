@@ -14,10 +14,21 @@ module Dashboard
       end
     end
 
+    helper_method :organization
+
     def organization
-      @cached_organization ||= current_user.userable
+      @_organization ||= current_user.userable
     end
 
-    helper_method :organization
+    def organization_challenges
+      @_organization_challenges ||= organization.challenges.order('created_at DESC')
+    end
+
+    def current_challenge
+      @_current_challenge ||= begin
+        organization_challenges.find_by_id(params[:challenge_id]) ||
+          organization_challenges.first
+      end
+    end
   end
 end

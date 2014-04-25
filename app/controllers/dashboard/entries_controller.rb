@@ -26,18 +26,7 @@ module Dashboard
     private
 
     def entry
-      @cached_entry ||= Entry.find(params[:id])
-    end
-
-    def organization_challenges
-      @organization_challenges ||= organization.challenges.order('created_at DESC')
-    end
-
-    def current_challenge
-      @current_challenge ||= begin
-        organization_challenges.find_by_id(params[:challenge_id]) ||
-          organization_challenges.first
-      end
+      @_entry ||= Entry.find(params[:id])
     end
 
     def entries_csv(entries)
