@@ -219,6 +219,11 @@ en:
       like: Like
     collaborating: You have joined the challenge
     collaborating_error: An error occured, please try joining again
+    status:
+      open: Open
+      working_on: Working on
+      finished: Finished
+      cancelled: Cancelled
   home:
     index:
       pitch: NGOs, Geeks, and Open Data 24/7.

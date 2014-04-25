@@ -10,5 +10,17 @@ FactoryGirl.define do
     trait :inactive do
       status 'finished'
     end
+
+    trait :open do
+      status 'open'
+    end
+
+    trait :finished do
+      status 'finished'
+    end
+
+    trait :working_on do
+      status 'working_on'
+    end
   end
 end

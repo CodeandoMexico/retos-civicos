@@ -1,0 +1,30 @@
+<h1 class="l-space-bottom">Retos</h1>
+
+<% if @challenges.any? %>
+  <table id="challenges" class="table table-striped table-vertically-centered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Fecha de lanzamiento</th>
+        <th>Status</th>
+        <th>Participantes</th>
+        <th>Propuestas recibidas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @challenges.each do |challenge| %>
+        <tr>
+          <td><%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
+          <td><%= l challenge.created_at, format: :long %></td>
+          <td><%= t("challenges.status.#{challenge.status}") %></td>
+          <td><%= challenge.collaborators.size %></td>
+          <td><%= challenge.entries.size %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info">
+    No hay retos publicados.
+  </div>
+<% end %>

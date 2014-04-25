@@ -219,6 +219,11 @@ es:
       like: Me gusta
     collaborating: Te has unido al reto
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
+    status:
+      open: Abierto
+      working_on: En desarrollo
+      finished: Concluido
+      cancelled: Cancelado
   home:
     index:
       pitch: Organizaciones, Geeks, y Open Data las 24 horas del día.
