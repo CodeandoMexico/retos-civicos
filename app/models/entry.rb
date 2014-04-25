@@ -12,11 +12,30 @@ class Entry < ActiveRecord::Base
     where public: true
   end
 
+  def self.report_attributes
+    [:id, :name, :challenge_title, :created_at, :description,
+     :live_demo_url, :technologies, :member_name, :public?]
+  end
+
   def publish!
     self.public = true
   end
 
   def member?(user)
     member == user.try(:userable)
+  end
+
+  def member_name
+    member.name
+  end
+
+  def challenge_title
+    challenge.title
+  end
+
+  def to_report
+    self.class.report_attributes.map do |report_attribute|
+      self.send(report_attribute).to_s
+    end
   end
 end

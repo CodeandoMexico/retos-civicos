@@ -374,6 +374,16 @@ en:
       team-members: Team members
     new:
       back: Back to challenge
+    csv_headers:
+      id: id
+      name: name
+      challenge_title: challenge
+      created_at: date
+      description: description
+      live_demo_url: link
+      technologies: technologies
+      member_name: member
+      public?: pública
   date:
     formats:
       default: "%Y-%m-%d"

@@ -1,5 +1,9 @@
 <h1 class="l-space-bottom">Propuestas</h1>
 
+<%= link_to 'Exportar CSV',
+  dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv),
+  class: 'btn btn-default pull-right' %>
+
 <div class="btn-group l-space-bottom">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     <strong>Reto:</strong> <%= @current_challenge.title %> <span class="caret"></span>

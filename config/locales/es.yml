@@ -374,6 +374,16 @@ es:
       team-members: Miembros del equipo
     new:
       back: Volver al reto
+    csv_headers:
+      id: id
+      name: nombre
+      challenge_title: reto
+      created_at: fecha
+      description: descripción
+      live_demo_url: link
+      technologies: tecnologías
+      member_name: participante
+      public?: pública
   date:
     abbr_day_names:
     - dom
