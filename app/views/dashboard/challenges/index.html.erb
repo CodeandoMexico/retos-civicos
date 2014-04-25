@@ -17,8 +17,8 @@
           <td><%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
           <td><%= l challenge.created_at, format: :long %></td>
           <td><%= t("challenges.status.#{challenge.status}") %></td>
-          <td><%= challenge.collaborators.size %></td>
-          <td><%= challenge.entries.size %></td>
+          <td><%= link_to challenge.collaborators.size, dashboard_collaborators_path(challenge_id: challenge.id) %></td>
+          <td><%= link_to challenge.entries.size, dashboard_entries_path(challenge_id: challenge.id) %></td>
         </tr>
       <% end %>
     </tbody>
