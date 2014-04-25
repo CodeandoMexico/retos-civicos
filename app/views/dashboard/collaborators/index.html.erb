@@ -1,5 +1,9 @@
 <h1 class="l-space-bottom">Participantes</h1>
 
+<%= link_to 'Exportar CSV',
+  dashboard_collaborators_path(challenge_id: @current_challenge.id, format: :csv),
+  class: 'btn btn-default pull-right' %>
+
 <%= render 'challenges_filter',
   challenges: @challenges,
   current_challenge: @current_challenge,

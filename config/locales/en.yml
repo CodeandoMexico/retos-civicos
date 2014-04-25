@@ -352,6 +352,12 @@ en:
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture
       avatar-description: Your identity in Codeando Mexico
+    csv_headers:
+      id: id
+      name: name
+      email: email
+      nickname: nickname
+      created_at: registration date
   entries:
     form:
       name: Name

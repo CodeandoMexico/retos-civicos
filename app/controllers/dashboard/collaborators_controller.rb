@@ -4,6 +4,11 @@ module Dashboard
       @challenges = organization_challenges
       @current_challenge = current_challenge
       @collaborators = current_challenge_collaborators
+
+      respond_to do |format|
+        format.html
+        format.csv { send_data dashboard_csv_for(Member, @collaborators) }
+      end
     end
 
     private

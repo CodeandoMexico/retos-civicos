@@ -9,7 +9,7 @@ module Dashboard
 
       respond_to do |format|
         format.html
-        format.csv { send_data entries_csv(@entries) }
+        format.csv { send_data dashboard_csv_for(Entry, @entries) }
       end
     end
 
@@ -27,18 +27,6 @@ module Dashboard
 
     def entry
       @_entry ||= Entry.find(params[:id])
-    end
-
-    def entries_csv(entries)
-      CSV.generate do |csv|
-        csv << entries_csv_headers(entries)
-        entries.each { |entry| csv << entry.to_report }
-      end
-    end
-
-    def entries_csv_headers(entries)
-      csv_headers = I18n.t('entries.csv_headers')
-      entries.report_attributes.map { |attribute| csv_headers.fetch(attribute) }
     end
   end
 end

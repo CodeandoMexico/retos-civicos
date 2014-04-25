@@ -30,5 +30,17 @@ module Dashboard
           organization_challenges.first
       end
     end
+
+    def dashboard_csv_for(record_class, collection)
+      CSV.generate do |csv|
+        csv << dashboard_csv_headers(record_class)
+        collection.each { |record| csv << record.to_report }
+      end
+    end
+
+    def dashboard_csv_headers(record_class)
+      csv_headers = I18n.t("#{record_class.to_s.pluralize.underscore}.csv_headers")
+      record_class.report_attributes.map { |attribute| csv_headers.fetch(attribute) }
+    end
   end
 end

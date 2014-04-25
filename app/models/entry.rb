@@ -1,4 +1,6 @@
 class Entry < ActiveRecord::Base
+  include Reportable
+
   attr_accessible :image, :entry_logo, :github_url, :live_demo_url, :name,
     :description, :member_id, :team_members
 
@@ -31,11 +33,5 @@ class Entry < ActiveRecord::Base
 
   def challenge_title
     challenge.title
-  end
-
-  def to_report
-    self.class.report_attributes.map do |report_attribute|
-      self.send(report_attribute).to_s
-    end
   end
 end

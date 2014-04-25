@@ -352,6 +352,12 @@ es:
       bio-description: Háblanos un poco sobre ti en 140 caracteres
       avatar: Imagen perfil
       avatar-description: Tu foto de identidad en Codeando México
+    csv_headers:
+      id: id
+      name: nombre
+      email: email
+      nickname: nickname
+      created_at: fecha de registro
   entries:
     form:
       name: Nombre
