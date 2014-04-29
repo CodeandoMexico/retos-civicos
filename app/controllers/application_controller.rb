@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.organization?
       organization = resource.userable
-      return dashboard_url(subdomain: organization.subdomain)
+      return dashboard_url(subdomain: organization.slug)
     end
 
     if resource.just_created?

@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 feature 'Organization admin watches collaborators' do
-  attr_reader :organization_admin, :inactive_challenge, :active_challenge, :juanito, :pepito
+  attr_reader :organization, :inactive_challenge, :active_challenge, :juanito, :pepito
 
   before do
-    organization = create :organization, subdomain: 'superorg'
-    @organization_admin = create :user, userable: organization
+    @organization = create :organization
     @inactive_challenge = create :challenge, :inactive, title: 'Reto no activo', organization: organization
     @active_challenge = create :challenge, title: 'Reto activo', organization: organization
     @juanito = create_member name: 'Juanito', email: 'juanito@example.com', nickname: 'jnto'
@@ -16,7 +15,7 @@ feature 'Organization admin watches collaborators' do
     create :collaboration, member: pepito, challenge: active_challenge
     create :collaboration, member: juanito, challenge: active_challenge
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Participantes'
 
     page.should have_content 'Reto: Reto activo'
@@ -43,7 +42,7 @@ feature 'Organization admin watches collaborators' do
   scenario 'with a selected filter' do
     create :collaboration, member: juanito, challenge: inactive_challenge
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Participantes'
     click_link 'Reto no activo'
 

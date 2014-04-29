@@ -1,14 +1,11 @@
 require 'spec_helper'
 
 describe CommentMailer do
-
   describe ".create_comment_notification" do
-
     let!(:comment) { create(:comment) }
     let!(:organization) { comment.commentable.organization }
     let!(:user) { organization.user }
     let!(:mail) { CommentMailer.create_comment_notification(comment.id) }
-
 
     it "should send the email" do
       reset_email

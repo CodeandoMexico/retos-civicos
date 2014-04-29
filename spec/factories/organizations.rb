@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :organization do
-    subdomain 'superorg'
+    slug 'superorg'
     association :user, name: 'Super Org'
   end
 end

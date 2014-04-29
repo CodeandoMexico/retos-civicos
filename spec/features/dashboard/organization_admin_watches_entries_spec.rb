@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature 'Organization admin watches entries' do
-  attr_reader :member, :organization, :organization_admin, :challenge_one, :challenge_two
+  attr_reader :member, :organization, :challenge_one, :challenge_two
 
   before do
     user = create :user, name: 'Juanito'
     @member = create :member, user: user
-    @organization = create :organization, subdomain: 'superorg'
-    @organization_admin = create :user, userable: organization
+    @organization = create :organization
     create :challenge, :inactive, title: 'Reto no activo', organization: organization
     @challenge_one = create :challenge, title: 'Reto 1', organization: organization
     @challenge_two = create :challenge, title: 'Reto 2', organization: organization
@@ -30,7 +29,7 @@ feature 'Organization admin watches entries' do
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
       technologies: 'Rust, Haskell'
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
 
     page.should have_content 'Reto: Reto 2'
@@ -63,7 +62,7 @@ feature 'Organization admin watches entries' do
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: 'PHP, MySQL'
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
     click_link 'Reto 1'
 

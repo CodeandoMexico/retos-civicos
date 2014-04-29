@@ -9,8 +9,8 @@ module Dashboard
     end
 
     def authenticate_organization_admin!
-      unless organization.subdomain == request.subdomains.first
-        redirect_to dashboard_url(subdomain: organization.subdomain)
+      unless organization.slug == request.subdomains.first
+        redirect_to dashboard_url(subdomain: organization.slug)
       end
     end
 

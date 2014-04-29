@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature 'Organization admin visits dashboard' do
-  attr_reader :member, :organization, :organization_admin
+  attr_reader :member, :organization
 
   before do
     user = create :user, name: 'Juanito'
     @member = create :member, user: user
-    @organization = create :organization, subdomain: 'superorg'
-    @organization_admin = create :user, userable: organization
+    @organization = create :organization
     create :challenge, :inactive, organization: organization
   end
 
@@ -21,7 +20,7 @@ feature 'Organization admin visits dashboard' do
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53)
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     page_should_have_challenge_with(
       title: 'Reto 1',
       collaborators: 1,

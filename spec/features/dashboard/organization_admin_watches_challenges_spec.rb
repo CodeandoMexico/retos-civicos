@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature 'Organization admin watches challenges' do
-  attr_reader :member, :organization, :organization_admin
+  attr_reader :member, :organization
 
   before do
     user = create :user, name: 'Juanito'
     @member = create :member, user: user
-    @organization = create :organization, subdomain: 'superorg'
-    @organization_admin = create :user, userable: organization
+    @organization = create :organization
   end
 
   scenario 'in a table' do
@@ -30,7 +29,7 @@ feature 'Organization admin watches challenges' do
     create :collaboration, member: member, challenge: finished
     create :entry, member: member, challenge: finished
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Retos'
 
     page_should_have_challenge_with(

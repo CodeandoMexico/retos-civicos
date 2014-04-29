@@ -5,8 +5,7 @@ feature 'Organization admin watches entry profile' do
     user = create :user, name: 'Juanito'
     member = create :member, user: user
 
-    organization = create :organization, subdomain: 'superorg'
-    organization_admin = create :user, userable: organization
+    organization = create :organization
     challenge = create :challenge, title: 'Reto 1', organization: organization
     create :collaboration, member: member, challenge: challenge
 
@@ -19,7 +18,7 @@ feature 'Organization admin watches entry profile' do
       technologies: 'PHP, MySQL',
       description: 'Este reto se resuelve con tecnología'
 
-    sign_in_organization_admin(organization_admin)
+    sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
     click_link 'Propuesta 1'
 

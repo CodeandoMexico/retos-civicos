@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   authorize_resource
 
   def show
-    @organization = Organization.find_by_subdomain(params[:organization_slug])
+    @organization = Organization.find_by_slug(params[:organization_slug])
 
     if @organization.has_only_one_challenge?
       @challenge = @organization.challenges.active.first
