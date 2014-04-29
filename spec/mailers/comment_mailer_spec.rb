@@ -4,9 +4,9 @@ describe CommentMailer do
 
   describe ".create_comment_notification" do
 
-    let!(:comment) { FactoryGirl.create(:comment) }
+    let!(:comment) { create(:comment) }
     let!(:organization) { comment.commentable.organization }
-    let!(:user) { FactoryGirl.create(:user, userable: organization) }
+    let!(:user) { organization.user }
     let!(:mail) { CommentMailer.create_comment_notification(comment.id) }
 
 
@@ -17,7 +17,7 @@ describe CommentMailer do
     end
 
     it "should send an email to the organization" do
-      expect(mail.to).to eq( [organization.email] )
+      expect(mail.to).to eq [organization.email]
     end
 
     it "should send an email from" do

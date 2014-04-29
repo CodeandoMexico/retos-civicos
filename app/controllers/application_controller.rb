@@ -44,15 +44,4 @@ class ApplicationController < ActionController::Base
   def clear_return_to
     session.delete(:return_to)
   end
-
-  def load_organization
-    begin
-      @organization = Organization.find_by_subdomain!(request.subdomain)
-    rescue ActiveRecord::RecordNotFound
-      @organization = Organization.find(params[:id]) if params[:id]
-    end
-  end
-
 end
-
-

@@ -1,5 +1,4 @@
 Aquila::Application.routes.draw do
-
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   namespace :admins do
@@ -20,7 +19,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  resources :organizations, only: [:show, :update, :edit] do
+  resources :organizations, only: [:update, :edit] do
     member do
       get :subscribers_list
     end
@@ -46,8 +45,8 @@ Aquila::Application.routes.draw do
     resources :entries, except: [:destroy]
     resources :comments do
       member do
-	post :like
-	post :reply
+        post :like
+        post :reply
       end
     end
     member do
@@ -57,7 +56,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  resources :users do 
+  resources :users do
     collection do
       get :define_role
     end
@@ -68,13 +67,12 @@ Aquila::Application.routes.draw do
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
 
-  get '', to: 'organizations#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
-
-  root :to => 'home#index'
+  root to: 'home#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
   match "/projects/:id" => 'challenges#show'
   match "/projects/:id/timeline" => 'challenges#timeline'
 
+  get ':organization_slug', to: 'organizations#show', as: 'organization'
 end
 ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })

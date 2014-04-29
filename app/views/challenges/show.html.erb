@@ -11,7 +11,7 @@
     <div class="column left">
       <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>
       <div class="owner">
-        <span class="name"><%= t("challenges.form.created-by") %> <em><%= link_to @organization.name, root_url(subdomain: @organization.subdomain) %></em></span>
+        <span class="name"><%= t("challenges.form.created-by") %> <em><%= link_to @organization.name, organization_path(@organization.subdomain) %></em></span>
         <span class="status"><%= t("models.challenge.status.#{@challenge.status}") %></span>
       </div>
     </div>
