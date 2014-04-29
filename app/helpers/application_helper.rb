@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
@@ -11,7 +10,6 @@ module ApplicationHelper
   def edit_current_user_path(user, new_user = nil)
     send("edit_#{user.class.name.downcase}_path", user, new_user)
   end
-
 
   def markdown(text)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
@@ -26,4 +24,7 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  def tab_class(activator)
+    'active' if params[:controller] == activator
   end
+end

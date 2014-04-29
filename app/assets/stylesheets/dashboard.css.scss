@@ -44,6 +44,11 @@ html, body, .l-dashboard, .l-sidebar, .l-main {
       background: #f5f5f5;
       text-decoration: none;
     }
+
+    &.active {
+      background: #428bca;
+      color: #ffffff;
+    }
   }
 }
 
