@@ -5,13 +5,19 @@ feature 'Organization admin watches collaborators' do
 
   before do
     @organization = create :organization
-    @inactive_challenge = create :challenge, :inactive, title: 'Reto no activo', organization: organization
-    @active_challenge = create :challenge, title: 'Reto activo', organization: organization
     @juanito = create_member name: 'Juanito', email: 'juanito@example.com', nickname: 'jnto'
     @pepito = create_member name: 'Pepito', email: 'pepito@example.com', nickname: 'ppto'
   end
 
+  scenario 'when there is no challenge' do
+    sign_in_organization_admin(organization.admin)
+    click_link 'Participantes'
+    page.should have_content 'Participantes'
+    page.should have_content 'Aún no hay retos publicados'
+  end
+
   scenario 'in a table' do
+    create_challenges
     create :collaboration, member: pepito, challenge: active_challenge
     create :collaboration, member: juanito, challenge: active_challenge
 
@@ -40,6 +46,7 @@ feature 'Organization admin watches collaborators' do
   end
 
   scenario 'with a selected filter' do
+    create_challenges
     create :collaboration, member: juanito, challenge: inactive_challenge
 
     sign_in_organization_admin(organization.admin)
@@ -59,6 +66,11 @@ feature 'Organization admin watches collaborators' do
 
   def create_member(attrs)
     create :member, user: (create :user, attrs)
+  end
+
+  def create_challenges
+    @inactive_challenge = create :challenge, :inactive, title: 'Reto no activo', organization: organization
+    @active_challenge = create :challenge, title: 'Reto activo', organization: organization
   end
 
   def page_should_have_challenges_filter_with(*challenges)

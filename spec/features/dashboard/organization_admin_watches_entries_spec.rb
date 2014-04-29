@@ -7,12 +7,17 @@ feature 'Organization admin watches entries' do
     user = create :user, name: 'Juanito'
     @member = create :member, user: user
     @organization = create :organization
-    create :challenge, :inactive, title: 'Reto no activo', organization: organization
-    @challenge_one = create :challenge, title: 'Reto 1', organization: organization
-    @challenge_two = create :challenge, title: 'Reto 2', organization: organization
+  end
+
+  scenario 'when there is no challenge' do
+    sign_in_organization_admin(organization.admin)
+    click_link 'Propuestas'
+    page.should have_content 'Propuestas'
+    page.should have_content 'Aún no hay retos publicados'
   end
 
   scenario 'in a list' do
+    create_challenges
     create :collaboration, member: member, challenge: challenge_two
     create :entry,
       name: 'Propuesta 1',
@@ -53,6 +58,7 @@ feature 'Organization admin watches entries' do
   end
 
   scenario 'with a selected filter' do
+    create_challenges
     create :collaboration, member: member, challenge: challenge_one
     create :entry,
       name: 'Propuesta 1',
@@ -74,6 +80,12 @@ feature 'Organization admin watches entries' do
       link: 'http://miproyecto.com',
       tecnologies: 'PHP, MySQL'
     )
+  end
+
+  def create_challenges
+    create :challenge, :inactive, title: 'Reto no activo', organization: organization
+    @challenge_one = create :challenge, title: 'Reto 1', organization: organization
+    @challenge_two = create :challenge, title: 'Reto 2', organization: organization
   end
 
   def page_should_have_challenges_filter_with(*challenges)

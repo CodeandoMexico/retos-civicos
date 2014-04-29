@@ -29,6 +29,10 @@ module Dashboard
       end
     end
 
+    def require_current_challenge
+      render 'no_challenge' unless current_challenge
+    end
+
     def dashboard_csv_for(record_class, collection)
       CSV.generate do |csv|
         csv << dashboard_csv_headers(record_class)

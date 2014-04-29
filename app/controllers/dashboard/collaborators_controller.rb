@@ -1,5 +1,7 @@
 module Dashboard
   class CollaboratorsController < Dashboard::BaseController
+    before_filter :require_current_challenge, only: :index
+
     def index
       @challenges = organization_challenges
       @current_challenge = current_challenge

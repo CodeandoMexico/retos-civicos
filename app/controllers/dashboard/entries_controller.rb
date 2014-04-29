@@ -2,10 +2,12 @@ require 'csv'
 
 module Dashboard
   class EntriesController < Dashboard::BaseController
+    before_filter :require_current_challenge, only: :index
+
     def index
       @challenges = organization_challenges
       @current_challenge = current_challenge
-      @entries = current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
+      @entries = current_challenge_entries
 
       respond_to do |format|
         format.html
@@ -24,6 +26,10 @@ module Dashboard
     end
 
     private
+
+    def current_challenge_entries
+      current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
+    end
 
     def entry
       @_entry ||= Entry.find(params[:id])
