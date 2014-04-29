@@ -9,9 +9,7 @@ module Dashboard
     end
 
     def authenticate_organization_admin!
-      unless organization.slug == request.subdomains.first
-        redirect_to dashboard_url(subdomain: organization.slug)
-      end
+      redirect_to challenges_path unless current_user.organization?
     end
 
     helper_method :organization

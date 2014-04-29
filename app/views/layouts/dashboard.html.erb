@@ -19,7 +19,7 @@
       </ul>
       <hr/>
       <ul class="sidebar-subnav">
-        <li><%= link_to 'Configuración', '#' %></li>
+        <li><%= link_to 'Configuración', edit_organization_path(organization) %></li>
         <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>

@@ -14,16 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.organization?
-      organization = resource.userable
-      return dashboard_url(subdomain: organization.slug)
-    end
-
-    if resource.just_created?
-      edit_current_user_path(resource.userable)
-    else
-      session[:return_to] || challenges_path
-    end
+    return dashboard_url if resource.organization?
+    return edit_current_user_path(resource.userable) if resource.just_created?
+    session[:return_to] || challenges_path
   end
 
   def redirect_back_or(default, notice)
