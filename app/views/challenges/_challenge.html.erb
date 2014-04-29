@@ -3,7 +3,7 @@
     <%= link_to organization_challenge_path(challenge.organization.id, challenge) do %>
 
       <div class="unit image">
-      <%= image_tag challenge.avatar %>
+      <%= image_tag challenge.avatar.small %>
       <h2><%= challenge.title.truncate(60) %></h2>
     </div>
 
