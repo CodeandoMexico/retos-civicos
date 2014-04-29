@@ -19,8 +19,9 @@ feature 'Organization admin makes an entry public' do
     click_link 'Propuestas'
 
     click_button 'Hacer pública'
-    click_link 'Ver vista pública'
+    current_full_path.should eq dashboard_entries_path(challenge_id: challenge.id)
 
+    click_link 'Ver vista pública'
     page.should have_content entry.name
     current_path.should eq challenge_entry_path(challenge, entry)
   end
@@ -35,5 +36,10 @@ feature 'Organization admin makes an entry public' do
 
     page.should have_content entry.name
     current_path.should eq challenge_entry_path(challenge, entry)
+  end
+
+  def current_full_path
+    uri = URI.parse(current_url)
+    "#{uri.path}?#{uri.query}"
   end
 end

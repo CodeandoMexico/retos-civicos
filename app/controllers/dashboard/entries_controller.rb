@@ -22,7 +22,7 @@ module Dashboard
     def publish
       entry.publish!
       entry.save
-      redirect_to dashboard_entries_path(challenge_id: current_challenge.id)
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge.id)
     end
 
     private
