@@ -9,8 +9,6 @@ Aquila::Application.routes.draw do
   end
 
   match 'signup' => 'home#sign_up'
-  match '/about' => 'home#about'
-  get '/jobs' => 'home#jobs'
 
   resources :organizations, only: [:show, :update, :edit] do
     member do
@@ -49,7 +47,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  resources :users do 
+  resources :users do
     collection do
       get :define_role
     end
@@ -62,7 +60,7 @@ Aquila::Application.routes.draw do
 
   get '', to: 'organizations#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
 
-  root :to => 'home#index'
+  root :to => 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
   match "/projects/:id" => 'challenges#show'
