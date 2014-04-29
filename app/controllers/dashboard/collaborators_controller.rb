@@ -19,7 +19,8 @@ module Dashboard
       current_challenge.collaborations.
         includes(:member).
         order('created_at DESC').
-        map &:member
+        map(&:member).
+        compact
     end
   end
 end
