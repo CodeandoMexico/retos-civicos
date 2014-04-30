@@ -352,6 +352,7 @@ en:
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture
       avatar-description: Your identity in Codeando Mexico
+    csv_filename: members-%{organization}-organization.csv
     csv_headers:
       id: id
       name: name
@@ -385,6 +386,7 @@ en:
       team-members: Team members
     new:
       back: Back to challenge
+    csv_filename: entries-%{organization}-organization.csv
     csv_headers:
       id: id
       name: name
@@ -542,4 +544,5 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
+      csv_filename: '%d%m%y-%H%Mhrs'
     pm: pm

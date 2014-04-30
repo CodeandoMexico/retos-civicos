@@ -9,7 +9,7 @@ module Dashboard
 
       respond_to do |format|
         format.html
-        format.csv { send_data dashboard_csv_for(Member, @collaborators) }
+        format.csv { send_data *dashboard_csv_for(Member, @collaborators) }
       end
     end
 

@@ -21,17 +21,26 @@ feature 'Organization admin downloads entries CSV' do
     click_link 'Propuestas'
     click_link 'Exportar CSV'
 
+    should_have_csv_with_name "#{formatted_current_time}-propuestas-superorg-organizacion.csv"
     should_have_csv_with(
       'id' => entry.id.to_s,
       'nombre' => 'Mi propuesta',
       'reto' => 'Reto 1',
       'fecha' => '2014-04-25 10:52:24 -0500',
-      'descripción' => 'la mejor',
+      'descripcion' => 'la mejor',
       'link' => 'http://mipropuesta.com',
-      'tecnologías' => 'PHP, Rust',
+      'tecnologias' => 'PHP, Rust',
       'participante' => 'Juanito',
-      'pública' => 'true'
+      'publica' => 'true'
     )
+  end
+
+  def formatted_current_time
+    Time.zone.now.strftime '%d%m%y-%H%Mhrs'
+  end
+
+  def should_have_csv_with_name(name)
+    page.response_headers['Content-Disposition'].should include name
   end
 
   def should_have_csv_with(csv_hash)

@@ -11,7 +11,7 @@ module Dashboard
 
       respond_to do |format|
         format.html
-        format.csv { send_data dashboard_csv_for(Entry, @entries) }
+        format.csv { send_data *dashboard_csv_for(Entry, @entries) }
       end
     end
 

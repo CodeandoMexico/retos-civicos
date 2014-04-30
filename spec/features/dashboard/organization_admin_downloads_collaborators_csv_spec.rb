@@ -14,6 +14,7 @@ feature 'Organization admin downloads collaborators csv' do
     click_link 'Participantes'
     click_link 'Exportar CSV'
 
+    should_have_csv_with_name "#{formatted_current_time}-participantes-superorg-organizacion.csv"
     should_send_csv_with(
       'id' => juanito.id.to_s,
       'nombre' => 'Juanito',
@@ -21,6 +22,14 @@ feature 'Organization admin downloads collaborators csv' do
       'nickname' => 'jnto',
       'fecha de registro' => '2013-04-10 20:53:00 -0500'
     )
+  end
+
+  def formatted_current_time
+    Time.zone.now.strftime '%d%m%y-%H%Mhrs'
+  end
+
+  def should_have_csv_with_name(name)
+    page.response_headers['Content-Disposition'].should include name
   end
 
   def create_member(attrs)
