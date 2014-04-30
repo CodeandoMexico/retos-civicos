@@ -17,7 +17,6 @@ es:
         user: Usuario
       entry:
         description: Descripción
-        github_url: Github url
         name: Nombre
       member:
         collaborations: Colaboraciones
@@ -68,8 +67,6 @@ es:
         entry:
           attributes:
             description:
-              blank: no puede estar en blanco
-            github_url:
               blank: no puede estar en blanco
             name:
               blank: no puede estar en blanco
@@ -363,27 +360,21 @@ es:
     form:
       name: Nombre
       name-description: Del proyecto/app
-      github-url: GitHub Repo URL
-      github-url-description: Link al repositorio open source
+      company-name: Empresa
+      company-name-description: Nombre de la empresa
       live-demo-url: Demo URL
       demo-url-description: Link a la aplicación en vivo
-      entry-logo: Logo
-      entry-logo-description: Sube el logotipo de la applicación. (80x80)
       image: Imagen
       image-description: Sube una imagen de portada para tu aplicación
       description: Descripción
       description-description: En breve la funcionalidad/objetivo del app
-      team-members: Miembros del equipo
-      team-members-description: Si trabajaste en equipo, lista el nombre de tus colegas y su email. Puedes usar Markdown para listarlos
       challenge: Reto
       submit: Enviar proyecto
     show:
       description: Descripción
       owner: Líder del equipo
-      github: GitHub Repo
       live-demo-url: Link al Demo en vivo
       go-to-challenge: Ir al reto - %{challenge}
-      team-members: Miembros del equipo
     new:
       back: Volver al reto
     csv_filename: propuestas-%{organization}-organizacion.csv

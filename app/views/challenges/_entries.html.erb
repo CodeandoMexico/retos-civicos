@@ -2,13 +2,13 @@
   <%= t(".non-entries") %>
 <% else %>
   <div class="unit">
-    <% @entries.each do |e| %>
+    <% @entries.each do |entry| %>
       <div class="dataset-teaser">
-        <%= image_tag(e.entry_logo.url, :class=>"dataset-teaser-logo") %>
+        <%= image_tag entry.image.small.url, width: 80, class: 'dataset-teaser-logo' %>
         <div class='dataset-teaser-info' >
-          <%= link_to e.name.truncate(43), challenge_entry_path(@challenge, e) %>
-          <p><%= e.description.truncate(95) %><br/>
-          <%= link_to t(".repo"), e.github_url if e.github_url %> | <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url%>
+          <%= link_to entry.name.truncate(43), challenge_entry_path(@challenge, entry) %>
+          <p><%= entry.description.truncate(95) %><br/>
+          <%= link_to t(".demo"), entry.live_demo_url if entry.live_demo_url %>
           </p>
         </div>
       </div>

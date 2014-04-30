@@ -12,7 +12,6 @@ feature 'User watches entry' do
       challenge: challenge,
       name: 'App de prueba',
       description: 'App description',
-      github_url: 'https://github.com/CodeandoMexico/aquila',
       live_demo_url: 'http://codeandomexico.org'
 
     visit challenge_path(challenge)
@@ -20,7 +19,6 @@ feature 'User watches entry' do
     page_should_have_entry(
       name: 'App de prueba',
       description: 'App description',
-      github_link: ['Repo', 'https://github.com/CodeandoMexico/aquila'],
       demo_link: ['Demo', 'http://codeandomexico.org']
     )
   end
@@ -29,7 +27,6 @@ feature 'User watches entry' do
     within '#entriesTTab' do
       page.should have_content entry.fetch(:name)
       page.should have_content entry.fetch(:description)
-      page.should have_link *entry.fetch(:github_link)
       page.should have_link *entry.fetch(:demo_link)
     end
   end
