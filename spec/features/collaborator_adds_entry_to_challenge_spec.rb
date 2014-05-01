@@ -10,7 +10,6 @@ feature 'Collaborator adds entry to challenge' do
     visit new_challenge_entry_path(challenge)
 
     submit_entry_form_with(
-      company_name: 'Super empresa',
       project_name: 'Mi super app',
       description: 'Es la mejor',
       url: 'https://github.com/CodeandoMexico/aquila',
@@ -19,7 +18,7 @@ feature 'Collaborator adds entry to challenge' do
     )
 
     page_should_have_pitch_with(
-      'Super empresa',
+      'Juanito',
       'Mi super app',
       'Es la mejor',
       'https://github.com/CodeandoMexico/aquila',
@@ -35,7 +34,6 @@ feature 'Collaborator adds entry to challenge' do
   end
 
   def submit_entry_form_with(args)
-    fill_in 'entry_company_name', with: args.fetch(:company_name)
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_live_demo_url', with: args.fetch(:url)
@@ -45,7 +43,9 @@ feature 'Collaborator adds entry to challenge' do
   end
 
   def page_should_have_pitch_with(*data)
-    data.each { |item| page.should have_content item }
+    within '#pitch' do
+      data.each { |item| page.should have_content item }
+    end
   end
 
   def app_should_not_be_counted_yet

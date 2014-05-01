@@ -1,8 +1,7 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :live_demo_url, :name, :description, :member_id,
-    :url, :technologies, :company_name
+  attr_accessible :image, :live_demo_url, :name, :description, :member_id, :url, :technologies
 
   belongs_to :member
   belongs_to :challenge

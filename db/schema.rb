@@ -127,7 +127,6 @@ ActiveRecord::Schema.define(:version => 20140430195726) do
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"
-    t.string   "company_name"
   end
 
   create_table "members", :force => true do |t|
