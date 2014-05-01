@@ -223,6 +223,8 @@ section#challenges {
 .content {
   padding: 30px;
 }
+
+%buttons,
 .buttons {
   float: left;
   color: $darkGreen;
@@ -240,6 +242,11 @@ section#challenges {
   &:hover{
     background-color: darken($lightGreen, 5%);
   }
+}
+
+%buttons-shadow,
+.buttons-shadow {
+  border-bottom: 2px solid $buttonShadow;
 }
 
 /***************************************************
@@ -269,8 +276,8 @@ section#challenges {
       float: right;
 
       a {
-        @extend .buttons;
-        border-bottom: 2px solid $buttonShadow;
+        @extend %buttons;
+        @extend %buttons-shadow;
       }
       .like i {
         margin-right: 15px;
@@ -328,7 +335,7 @@ section#challenges {
         }
       }
       .status{
-        background-color: darken($green, 15%);
+        background-color: $darkGreen;
         text-transform: uppercase;
         position: relative;
         left: -4px;
@@ -627,14 +634,9 @@ section#challenges {
       line-height: 45px;
     }
     .comment {
-      @extend .buttons;
+      @extend %buttons;
+      @extend %buttons-shadow;
       float: right;
-      background-color: lighten($gray4, 15%);
-      height: 45px;
-      line-height: 45px;
-      &:hover{
-      background-color: lighten($gray4, 20%);
-      }
     }
   }
 
@@ -835,7 +837,7 @@ section#challenges {
     font-size: ms(3);
     margin: 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid lighten($green, 15%);
+    border-bottom: 1px solid #ffffff;
   }
 
   section {
@@ -933,7 +935,6 @@ section#challenges {
       margin: 0 auto;
       border: 0;
       @extend .buttons;
-      background-color: darken($green, 15%);
       font-size: ms(1);
       font-weight: normal;
       cursor: pointer;
@@ -1013,8 +1014,8 @@ section.index_challenges {
         left: 0;
         width: 80%;
         bottom: 15px;
-        background: rgba($green, .8);
-        color: $white;
+        background: $darkBackground;
+        color: $green;
         padding: 10px 20px;
         margin: 0;
       }
@@ -1042,7 +1043,6 @@ section.index_challenges {
         color: $gray4;
 
         em {
-          margin-right: 10px;
           font-style: normal;
         }
       }
@@ -1120,7 +1120,6 @@ section.new_challenge {
     margin: 0 auto;
     border: 0;
     @extend .buttons;
-    background-color: darken($green, 15%);
     font-size: ms(1);
     font-weight: normal;
   }
