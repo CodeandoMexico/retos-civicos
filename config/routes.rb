@@ -8,8 +8,6 @@ Aquila::Application.routes.draw do
   end
 
   match 'signup' => 'home#sign_up'
-  match '/about' => 'home#about'
-  get '/jobs' => 'home#jobs'
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
@@ -67,7 +65,7 @@ Aquila::Application.routes.draw do
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
 
-  root to: 'home#index'
+  root :to => 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
   match "/projects/:id" => 'challenges#show'
