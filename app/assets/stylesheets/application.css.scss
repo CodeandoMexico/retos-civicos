@@ -17,9 +17,10 @@
 }
 
 /* Flash Messages */
-.notice { background-color: rgba(240,190,80,0.9); }
-.alert { background-color: rgba(240,190,80,0.9); }
-.success { background-color: rgba(140,190,80,0.9); }
+.notice { background-color: rgba(20,170,0,0.9); }
+.success { background-color: rgba(20,170,0,0.9); }
+
+.alert { background-color: rgba(240,90,80,0.9); }
 .error { background-color: rgba(240,90,80,0.9); }
 
 .flash {
