@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature "Challenges Datasets" do
-
-  let!(:organization) { new_organization }
-  let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
-
+  attr_reader :organization, :challenge
 
   before do
-    sign_in_user(organization.user, password: 'password')
+    @organization = create :organization
+    @challenge = create :challenge, organization: organization
+    sign_in_organization_admin(organization.admin)
   end
 
   scenario "Add and view dataset of a challenge", js: true do
@@ -27,7 +26,5 @@ feature "Challenges Datasets" do
       page.should have_link 'Banco Mundial', 'http://datamx.io/dataset/banco-mundial'
       page.should have_content 'Migración neta: La migración neta es, el total neto de personas que migraron durante el período:...'
     end
-
   end
-
 end

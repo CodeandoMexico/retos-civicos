@@ -2,15 +2,15 @@
   <div class="unit header-pre-wrap">
     <div class="container holder">
       <div class="what-badge"></div>
-      <p><strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_url(subdomain: false) %></strong></p>
+      <p><strong><%= t('layout.question') %> </strong><%= t('layout.brief') %><strong> <%= link_to t('layout.about'), about_url %></strong></p>
     </div>
   </div>
   <div class="unit header-wrap">
     <div class="container holder">
-      <div class="logo"><%= link_to t('.layout.header'), root_url(subdomain: false) %></div>
+      <div class="logo"><%= link_to t('.layout.header'), root_url %></div>
       <nav>
         <ul class="main-menu">
-          <li><%= link_to t('challenges.index.header'), challenges_url(subdomain: false) %></li>
+          <li><%= link_to t('challenges.index.header'), challenges_url %></li>
           <li><%= link_to "Datos Abiertos", "http://datamx.io" %></li>
           <li><%= link_to "Blog", "http://blog.codeandomexico.org/" %></li>
         </ul>
@@ -24,7 +24,7 @@
           </ul>
         </div>
 
-        <% if user_signed_in? %>
+        <% if current_user %>
           <div class="current-user">
             <% if current_user.has_role? %>
               <span><%= link_to current_user, edit_current_user_path(current_user.userable) %></span>
@@ -34,7 +34,7 @@
         <% else %>
           <ul class="login-menu">
             <li>
-              <%= link_to signup_path(subdomain: false) do %>
+              <%= link_to signup_path do %>
                 <%= t('layout.sign_in') %> <i class="icon-github"></i> <i class="icon-twitter"></i> <i class="icon-linkedin"></i>
               <% end %>
             </li>
@@ -48,5 +48,4 @@
   <% if user_signed_in? && !current_page?('/') %>
     <div class="header-green-margin"></div>
   <% end %>
-
 </header>

@@ -5,6 +5,9 @@ FactoryGirl.define do
     github_url 'www.github.com/loqusea'
     association :member
     association :challenge
+
+    trait :public do
+      self.public true
+    end
   end
 end
-

@@ -14,11 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.just_created?
-      edit_current_user_path(resource.userable)
-    else
-      session[:return_to] || challenges_path
-    end
+    return dashboard_url if resource.organization?
+    return edit_current_user_path(resource.userable) if resource.just_created?
+    session[:return_to] || challenges_path
   end
 
   def redirect_back_or(default, notice)
@@ -39,15 +37,4 @@ class ApplicationController < ActionController::Base
   def clear_return_to
     session.delete(:return_to)
   end
-
-  def load_organization
-    begin
-      @organization = Organization.find_by_subdomain!(request.subdomain)
-    rescue ActiveRecord::RecordNotFound
-      @organization = Organization.find(params[:id]) if params[:id]
-    end
-  end
-
 end
-
-
