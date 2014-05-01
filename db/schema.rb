@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220153945) do
+ActiveRecord::Schema.define(:version => 20140429165327) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -124,9 +124,12 @@ ActiveRecord::Schema.define(:version => 20140220153945) do
     t.text     "team_members"
     t.integer  "member_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "entry_logo"
+    t.text     "technologies"
+    t.boolean  "public",        :default => false, :null => false
+    t.string   "image"
   end
 
   create_table "members", :force => true do |t|
@@ -139,7 +142,7 @@ ActiveRecord::Schema.define(:version => 20140220153945) do
     t.datetime "updated_at",                               :null => false
     t.boolean  "accredited",            :default => false
     t.boolean  "accepting_subscribers", :default => false
-    t.string   "subdomain"
+    t.string   "slug"
   end
 
   create_table "skills", :force => true do |t|

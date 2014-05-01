@@ -1,0 +1,42 @@
+<h1 class="l-space-bottom">Propuestas</h1>
+
+<%= link_to 'Exportar CSV',
+  dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv),
+  class: 'btn btn-default pull-right' %>
+
+<%= render 'challenges_filter',
+  challenges: @challenges,
+  current_challenge: @current_challenge,
+  filter_path: ->(challenge) { dashboard_entries_path(challenge_id: challenge.id) } %>
+
+<% if @entries.any? %>
+  <table id="entries" class="table table-striped table-vertically-centered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Participante</th>
+        <th>Link al proyecto</th>
+        <th>Tecnologías</th>
+        <th>¿Pública?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @entries.each do |entry| %>
+        <tr>
+          <td>
+            <%= link_to entry.name, dashboard_entry_path(entry) %><br/>
+            <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
+          </td>
+          <td><%= entry.member.name %></td>
+          <td><%= link_to entry.live_demo_url, entry.live_demo_url, target: '_blank' %></td>
+          <td><%= entry.technologies %></td>
+          <td><%= render 'visit_or_publish_entry', entry: entry %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info">
+    Aún no hay propuestas para este reto.
+  </div>
+<% end %>

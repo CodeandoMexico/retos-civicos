@@ -1,10 +1,12 @@
 class EntriesController < ApplicationController
-
-
   def show
-    @entry = Entry.find params[:id]
+    @entry = Entry.find(params[:id])
     @challenge = @entry.challenge
     @user = @entry.member
+
+    if !@entry.public? && !@entry.member?(current_user)
+      return render status: :not_found
+    end
   end
 
   def new
@@ -46,6 +48,4 @@ class EntriesController < ApplicationController
       redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.already_submited_app")
     end
   end
-
 end
-

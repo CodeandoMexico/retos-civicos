@@ -1,0 +1,60 @@
+@import 'bootstrap';
+
+html {
+  overflow: hidden;
+}
+
+html, body, .l-dashboard, .l-sidebar, .l-main {
+  height: 100%;
+}
+
+.l-main {
+  overflow: scroll;
+}
+
+.table-vertically-centered {
+  > thead > tr > td, > tbody > tr > td {
+    vertical-align: middle;
+  }
+}
+
+.l-space-bottom {
+  margin-bottom: 1.5em !important;
+}
+
+.l-space-top-large {
+  margin-top: 2.5em !important;
+}
+
+.sidebar {
+  border-right: 1px solid #eeeeee;
+}
+
+.sidebar-nav {
+  font-size: 1.4em;
+  line-height: 2;
+  list-style: none;
+  padding: 0;
+
+  > li > a {
+    display: block;
+    padding: 1em;
+
+    &:hover {
+      background: #f5f5f5;
+      text-decoration: none;
+    }
+
+    &.active {
+      background: #428bca;
+      color: #ffffff;
+    }
+  }
+}
+
+.sidebar-subnav {
+  font-size: 1.2em;
+  line-height: 2.5;
+  list-style: none;
+  padding: 0;
+}

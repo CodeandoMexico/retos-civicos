@@ -1,0 +1,10 @@
+<div class="btn-group l-space-bottom">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <strong>Reto:</strong> <%= current_challenge.title %> <span class="caret"></span>
+  </button>
+  <ul id="challenges_options" class="dropdown-menu" role="menu">
+    <% challenges.each do |challenge| %>
+      <li><%= link_to challenge.title, filter_path.(challenge) %></li>
+    <% end %>
+  </ul>
+</div>

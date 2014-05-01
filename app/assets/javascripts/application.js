@@ -16,4 +16,5 @@
 //= require foundation
 //= require vendor
 //= require timelineJS/embed
+//= require bootstrap/dropdown
 //= require_tree .

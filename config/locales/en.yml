@@ -219,6 +219,11 @@ en:
       like: Like
     collaborating: You have joined the challenge
     collaborating_error: An error occured, please try joining again
+    status:
+      open: Open
+      working_on: Working on
+      finished: Finished
+      cancelled: Cancelled
   home:
     index:
       pitch: NGOs, Geeks, and Open Data 24/7.
@@ -347,6 +352,13 @@ en:
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture
       avatar-description: Your identity in Codeando Mexico
+    csv_filename: members-%{organization}-organization.csv
+    csv_headers:
+      id: id
+      name: name
+      email: email
+      nickname: nickname
+      created_at: registration date
   entries:
     form:
       name: Name
@@ -357,6 +369,8 @@ en:
       demo-url-description: Link to live app
       entry-logo: Logo
       entry-logo-description: Upload the app's logo. (80x80)
+      image: Image
+      image-description: Upload a cover image for your app
       description: Description
       description-description: In brief functionality/purpose of app
       team-members: Team members
@@ -372,6 +386,17 @@ en:
       team-members: Team members
     new:
       back: Back to challenge
+    csv_filename: entries-%{organization}-organization.csv
+    csv_headers:
+      id: id
+      name: name
+      challenge_title: challenge
+      created_at: date
+      description: description
+      live_demo_url: link
+      technologies: technologies
+      member_name: member
+      public?: pública
   date:
     formats:
       default: "%Y-%m-%d"
@@ -519,4 +544,5 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
+      csv_filename: '%d%m%y-%H%Mhrs'
     pm: pm

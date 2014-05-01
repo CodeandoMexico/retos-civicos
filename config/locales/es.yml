@@ -219,6 +219,11 @@ es:
       like: Me gusta
     collaborating: Te has unido al reto
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
+    status:
+      open: Abierto
+      working_on: En desarrollo
+      finished: Concluido
+      cancelled: Cancelado
   home:
     index:
       pitch: Organizaciones, Geeks, y Open Data las 24 horas del día.
@@ -347,6 +352,13 @@ es:
       bio-description: Háblanos un poco sobre ti en 140 caracteres
       avatar: Imagen perfil
       avatar-description: Tu foto de identidad en Codeando México
+    csv_filename: participantes-%{organization}-organizacion.csv
+    csv_headers:
+      id: id
+      name: nombre
+      email: email
+      nickname: nickname
+      created_at: fecha de registro
   entries:
     form:
       name: Nombre
@@ -357,6 +369,8 @@ es:
       demo-url-description: Link a la aplicación en vivo
       entry-logo: Logo
       entry-logo-description: Sube el logotipo de la applicación. (80x80)
+      image: Imagen
+      image-description: Sube una imagen de portada para tu aplicación
       description: Descripción
       description-description: En breve la funcionalidad/objetivo del app
       team-members: Miembros del equipo
@@ -372,7 +386,66 @@ es:
       team-members: Miembros del equipo
     new:
       back: Volver al reto
+    csv_filename: propuestas-%{organization}-organizacion.csv
+    csv_headers:
+      id: id
+      name: nombre
+      challenge_title: reto
+      created_at: fecha
+      description: descripcion
+      live_demo_url: link
+      technologies: tecnologias
+      member_name: participante
+      public?: publica
   date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
     formats:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
@@ -519,4 +592,5 @@ es:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
+      csv_filename: '%d%m%y-%H%Mhrs'
     pm: pm

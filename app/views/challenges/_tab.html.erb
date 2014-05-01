@@ -21,8 +21,8 @@
 </dd>
 <dd class="tab-challenge">
   <a href="#entriesT">
-    <%= @entries.count %>
-    <p><%= t(".entries").pluralize(@entries.count) %></p>
+    <%= @entries.public.count %>
+    <p><%= t(".entries").pluralize(@entries.public.count) %></p>
     <span class="arrow"></span>
   </a>
 </dd>

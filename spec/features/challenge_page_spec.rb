@@ -8,7 +8,7 @@ feature "Commenting on challenge" do
 
   background do
     sign_in_user(member.user, password: 'password')
-    FactoryGirl.create(:collaboration, member: member, challenge: challenge)
+    create :collaboration, member: member, challenge: challenge
   end
 
   scenario "Can comment", js: true do
@@ -27,14 +27,15 @@ feature "Commenting on challenge" do
   end
 
   scenario "Can reply to another comment", js: true do
-    FactoryGirl.create(:comment, commentable: challenge)
+    create :comment, commentable: challenge
     # Clear emails from suscriptions
     reset_email
-    visit organization_challenge_path(challenge.organization.id, challenge.id)
-    click_link 'Reply'
+
+    visit organization_challenge_path(challenge.organization, challenge)
     within '#challenge_comments_container' do
+      click_link 'Comentar'
       fill_in 'comment[body]', with: 'This is my comment!'
-      click_link 'Reply'
+      click_link 'Comentar'
     end
     page.should have_content 'Gracias por tus comentarios'
     ActionMailer::Base.deliveries.size.should be 1
