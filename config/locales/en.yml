@@ -359,11 +359,11 @@ en:
   entries:
     form:
       name: Name
-      name-description: App/Project
-      company-name: Company
-      company-name-description: Company name
-      live-demo-url: Demo URL
-      demo-url-description: Link to live app
+      name-description: Project name
+      live-demo-url: Link to the proyect
+      demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      technologies: Technologies
+      technologies-description: 'The technologies you are using. Example: python, d3.js, postgresql, .NET'
       image: Image
       image-description: Upload a cover image for your app
       description: Description

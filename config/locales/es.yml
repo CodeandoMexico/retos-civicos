@@ -359,15 +359,15 @@ es:
   entries:
     form:
       name: Nombre
-      name-description: Del proyecto/app
-      company-name: Empresa
-      company-name-description: Nombre de la empresa
-      live-demo-url: Demo URL
-      demo-url-description: Link a la aplicación en vivo
+      name-description: Del proyecto
+      live-demo-url: Link a la propuesta
+      demo-url-description: 'URL al archivo/carpeta en donde alojaste la propuesta, como Drive, Dropbox o SkyDrive'
+      technologies: Tecnologías a utilizar
+      technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
       image-description: Sube una imagen de portada para tu aplicación
-      description: Descripción
-      description-description: En breve la funcionalidad/objetivo del app
+      description: '¿Cómo estás resolviendo el reto?'
+      description-description: 'Describe en breve tu propuesta (max 1000 chars)'
       challenge: Reto
       submit: Enviar proyecto
     show:
