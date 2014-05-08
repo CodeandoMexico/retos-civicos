@@ -12,6 +12,32 @@
     </div>
   </div>
 </div>
+<div class="challenge-cover">
+  <div class="row">
+    <div class="col-xs-7">
+      <div class="challenge-cover-background" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
+        <div class="challenge-cover-hightlight">
+          <div class="row">
+            <div class="col-xs-8 text-center">
+              <div class="challenge-cover-author">
+                <span><%= t("challenges.form.created-by") %></span>
+                <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
+              </div>
+            </div>
+            <div class="col-xs-4 text-center">
+              <div class="challenge-cover-status">
+                <%= t("models.challenge.status.#{@challenge.status}") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <section id="pitch" class="unit pitch">
   <section id="description" class="unit description ">
     <div class="column left">

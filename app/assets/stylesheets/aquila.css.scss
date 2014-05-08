@@ -63,6 +63,7 @@ body {
 
 .main {
   background-color: $gray-lighter;
+  padding: 3em 0;
 }
 
 .challenge-header {
@@ -74,4 +75,22 @@ body {
 
 .challenge-title {
   margin: 0;
+}
+
+.challenge-cover {
+}
+
+.challenge-cover-background {
+  @include clearfix;
+  background-size: cover;
+  height: 25em;
+}
+
+.challenge-cover-hightlight {
+  width: 70%;
+  margin-top: 18em;
+  background-color: $brand-primary;
+  color: #ffffff;
+  padding: 1em;
+  font-size: 1.1em;
 }
