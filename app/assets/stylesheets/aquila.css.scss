@@ -1,0 +1,62 @@
+$brand-success: #5cb85c;
+$brand-primary: #77b433;
+@import 'bootstrap';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.top-message {
+  background: $gray-lighter;
+}
+
+.top-message-container {
+  position: relative;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+.top-message-content {
+  margin-left: 3em;
+}
+
+.top-message-icon {
+  background: transparent inline-image("what-badge.png") no-repeat 0 0;
+  display: inline-block;
+  height: 35px;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+
+.main-navbar {
+  @extend .clearfix;
+  padding-top: 0.5em;
+  color: $brand-success;
+  font-size: 1.1em;
+  border-bottom: 5px solid $brand-primary;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.main-navbar-container {
+  height: 50px;
+  line-height: 50px;
+}
+
+.main-navbar-logo {
+  position: absolute;
+  top: -5px;
+}
+
+.main-navbar-nav {
+  text-shadow: 0 1px $gray-lighter;
+}

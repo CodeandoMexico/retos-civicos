@@ -24,6 +24,7 @@ class ChallengesController < ApplicationController
     @collaborators = @challenge.collaborators
     @collabcount = @collaborators.count
     @collaborators = @collaborators.order(:created_at).page(params[:page])
+    render layout: 'aquila'
   end
 
   def edit
