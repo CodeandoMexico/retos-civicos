@@ -26,7 +26,6 @@ feature 'User update his information' do
     fill_in 'member_bio', with: text_of_length(300)
 
     click_on 'Actualizar'
-    # expect(current_path).not_to eq '/retos'
     expect(current_path).to eq member_path(member)
     
   end 
