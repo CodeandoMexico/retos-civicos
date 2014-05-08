@@ -9,7 +9,7 @@ class Member < ActiveRecord::Base
   has_many :entries
 
   def self.report_attributes
-    [:id, :name, :email, :nickname, :created_at]
+    [:id, :name, :email, :created_at]
   end
 
   def to_s

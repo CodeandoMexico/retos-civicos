@@ -35,11 +35,11 @@
 
         <div class="unit row">
           <div class="column left">
-            <%= f.label :github_url, t(".github-url")  %>
-            <p><%= t(".github-url-description") %></p>
+            <%= f.label :technologies, t(".technologies")  %>
+            <p><%= t(".technologies-description") %></p>
           </div>
           <div class="column right">
-            <%= f.text_field :github_url, required: true %>
+            <%= f.text_area :technologies, required: true %>
           </div>
         </div>
 
@@ -49,18 +49,7 @@
             <p><%= t(".demo-url-description") %></p>
           </div>
           <div class="column right">
-            <%= f.text_field :live_demo_url %>
-          </div>
-        </div>
-
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :entry_logo, t(".entry-logo")  %>
-            <p><%= t(".entry-logo-description") %></p>
-          </div>
-          <div class="column right">
-            <%= image_tag @entry.entry_logo.url %>
-            <%= f.file_field :entry_logo %>
+            <%= f.text_field :live_demo_url, required: true %>
           </div>
         </div>
 
@@ -75,18 +64,7 @@
           </div>
         </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :team_members, t(".team-members")  %>
-            <p><%= t(".team-members-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :team_members %>
-          </div>
-        </div>
-
         <%= f.hidden_field :member_id, value: current_member.id %>
-
       </section>
     </section>
 

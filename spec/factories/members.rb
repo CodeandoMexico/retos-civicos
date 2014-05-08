@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :member do
-    association :user
+    association :user, name: 'Juanito'
   end
 end

@@ -4,7 +4,6 @@ FactoryGirl.define do
     description "descripcion"
     about "este es mi test"
     pitch "piitch del challenge"
-
     association :organization
 
     trait :inactive do

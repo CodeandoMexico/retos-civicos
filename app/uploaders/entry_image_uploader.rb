@@ -8,10 +8,14 @@ class EntryImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path('codeandomx.png')
+    ActionController::Base.helpers.asset_path('retos_challenge_avatar.png')
   end
 
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  version :small do
+    process resize_to_fill: [80, 80]
   end
 end

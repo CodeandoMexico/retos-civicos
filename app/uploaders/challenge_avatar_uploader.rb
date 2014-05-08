@@ -20,6 +20,6 @@ class ChallengeAvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/assets/project_avatar_small.png"
+    "/assets/retos_challenge_avatar.png"
   end
 end

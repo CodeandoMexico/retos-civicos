@@ -4,6 +4,7 @@
 @import "vendor";
 @import "timelineJS/timeline";
 @import "token-input";
+@import "modules/navbar";
 
 
 /***************************************************
@@ -16,9 +17,10 @@
 }
 
 /* Flash Messages */
-.notice { background-color: rgba(240,190,80,0.9); }
-.alert { background-color: rgba(240,190,80,0.9); }
-.success { background-color: rgba(140,190,80,0.9); }
+.notice { background-color: rgba(20,170,0,0.9); }
+.success { background-color: rgba(20,170,0,0.9); }
+
+.alert { background-color: rgba(240,90,80,0.9); }
 .error { background-color: rgba(240,90,80,0.9); }
 
 .flash {
@@ -39,203 +41,6 @@
 }
 
 @include sticky-footer(0, "#content", "#layout_footer", "#main-footer");
-
-// Header
-//--------------------------------------------------
-
-header#main-header {
-
-  .header-pre-wrap {
-    height: 30px;
-    background: $gray2;
-
-
-    .container {
-      position: relative;
-      padding-left: 5px;
-
-      .what-badge {
-        width: 30px;
-        height: 35px;
-        position: absolute;
-        top: 0;
-        left: 7px;
-        background: transparent inline-image("what-badge.png") no-repeat 0 0;
-      }
-
-      p {
-        height: 30px;
-        line-height: 30px;
-        padding: 0 0 0 40px;
-        color: $gray4;
-        text-shadow: 0 1px $gray1;
-        margin: 0;
-      }
-
-    }
-
-  }// End of .header-pre-wrap
-
-  .header-wrap {
-    height: 60px;
-    border-bottom: solid 1px $gray1;
-    @include background-image(linear-gradient($white, $white 60%, $gray2 200%));
-
-    .logo {
-      height: 45px;
-      width: 287px;
-      display: block;
-      margin: 10px 30px 0 0;
-      float: left;
-
-      a {
-        height: 45px;
-        width: 287px;
-        display: block;
-        @include hide-text;
-        background: transparent inline-image("logo.png") no-repeat 0 0;
-      }
-    }// End of .logo
-
-    nav {
-      width: 643px;
-      height: 60px;
-      float: left;
-
-      .current-user {
-        float: right;
-        height: 60px;
-        line-height: 60px;
-        padding-right: 20px;
-
-        a {
-          margin-left: 10px;
-        }
-      }
-
-      ul {
-        height: 60px;
-        margin: 0;
-
-        li {
-          height: 60px;
-          float: left;
-          list-style: none;
-
-          a {
-            display: block;
-            font-weight: bold;
-            text-shadow: 0 1px $gray1;
-          }
-        }
-
-      }
-
-      ul.main-menu {
-        float: left;
-
-        li {
-          border-right: solid 1px $gray1;
-
-          a {
-            padding: 22px 20px;
-          }
-
-        }
-      }
-
-      ul.login-menu {
-        float: right;
-        width: 220px;
-
-        li {
-
-          span {
-            float: left;
-          }
-
-          a {
-            padding: 22px 0 18px 20px;
-          }
-
-        }
-      }
-
-      .languages {
-        float: right;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-        cursor: pointer;
-        position: relative;
-        z-index: 1000;
-
-        .current {
-          padding: 5px;
-          background-color: $gray4;
-          color: $white;
-          text-transform: uppercase;
-          font-size: ms(0);
-          line-height: auto;
-          @include border-radius(5px);
-          padding-right: 20px;
-          position: relative;
-
-          &:before{
-            position: absolute;
-            line-height: 56px;
-            right: 6px;
-          }
-        }
-
-        .list {
-          position: absolute;
-          top: 37px;
-          right: 0;
-          height: auto;
-          background-color: $gray4;
-          padding: 6px 15px;
-          @include border-radius(5px);
-          @include border-top-right-radius(0);
-          display: none;
-
-
-          li {
-            height: auto;
-
-            a {
-              color: $gray2;
-              font-weight: normal;
-
-              &:hover{
-                color: $white;
-              }
-            }
-          }
-        }
-
-        &:hover .list {
-            display: block;
-        }
-      }
-
-    }// End of nav
-
-  }// End of .header-wrap
-
-  .header-green-margin {
-    height: 10px;
-    margin-bottom: 20px;
-    background-color: $green;
-    border-bottom: solid 1px darken($green, 10%);
-  }
-
-}// End of header
-
-// End of Header
-//--------------------------------------------------
-
-
 
 // Landing
 //--------------------------------------------------
@@ -419,23 +224,30 @@ section#challenges {
 .content {
   padding: 30px;
 }
+
+%buttons,
 .buttons {
   float: left;
-  color: $white;
+  color: $darkGreen;
   display: block;
   text-align: center;
-  background-color: darken($green, 15%);
+  background-color: $lightGreen;
   height: 45px;
   padding: 0 30px;
-  line-height: 45px;
+  line-height: 47px;
   text-transform: uppercase;
   @include border-radius(4px);
   margin-left: 25px;
   font-weight: bold;
 
   &:hover{
-  background-color: darken($green, 20%);
+    background-color: darken($lightGreen, 5%);
   }
+}
+
+%buttons-shadow,
+.buttons-shadow {
+  border-bottom: 2px solid $buttonShadow;
 }
 
 /***************************************************
@@ -452,11 +264,11 @@ section#challenges {
 
 .pitch {
   header {
-    background-color: $green;
+    background-color: $darkBackground;
     padding: $columnGutter;
 
     h1 {
-      color: $white;
+      color: $green;
       margin: 0;
       padding: 0;
       font-size: ms(4);
@@ -465,7 +277,8 @@ section#challenges {
       float: right;
 
       a {
-        @extend .buttons;
+        @extend %buttons;
+        @extend %buttons-shadow;
       }
       .like i {
         margin-right: 15px;
@@ -523,7 +336,7 @@ section#challenges {
         }
       }
       .status{
-        background-color: darken($green, 15%);
+        background-color: $darkGreen;
         text-transform: uppercase;
         position: relative;
         left: -4px;
@@ -822,14 +635,9 @@ section#challenges {
       line-height: 45px;
     }
     .comment {
-      @extend .buttons;
+      @extend %buttons;
+      @extend %buttons-shadow;
       float: right;
-      background-color: lighten($gray4, 15%);
-      height: 45px;
-      line-height: 45px;
-      &:hover{
-      background-color: lighten($gray4, 20%);
-      }
     }
   }
 
@@ -1030,7 +838,7 @@ section#challenges {
     font-size: ms(3);
     margin: 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid lighten($green, 15%);
+    border-bottom: 1px solid #ffffff;
   }
 
   section {
@@ -1128,7 +936,6 @@ section#challenges {
       margin: 0 auto;
       border: 0;
       @extend .buttons;
-      background-color: darken($green, 15%);
       font-size: ms(1);
       font-weight: normal;
       cursor: pointer;
@@ -1208,8 +1015,8 @@ section.index_challenges {
         left: 0;
         width: 80%;
         bottom: 15px;
-        background: rgba($green, .8);
-        color: $white;
+        background: $darkBackground;
+        color: $green;
         padding: 10px 20px;
         margin: 0;
       }
@@ -1237,7 +1044,6 @@ section.index_challenges {
         color: $gray4;
 
         em {
-          margin-right: 10px;
           font-style: normal;
         }
       }
@@ -1315,7 +1121,6 @@ section.new_challenge {
     margin: 0 auto;
     border: 0;
     @extend .buttons;
-    background-color: darken($green, 15%);
     font-size: ms(1);
     font-weight: normal;
   }

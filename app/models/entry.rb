@@ -1,13 +1,11 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :entry_logo, :github_url, :live_demo_url, :name,
-    :description, :member_id, :team_members
+  attr_accessible :image, :live_demo_url, :name, :description, :member_id, :url, :technologies
 
   belongs_to :member
   belongs_to :challenge
-  validates :name, :description, :github_url, presence: true
-  mount_uploader :entry_logo, EntryLogoUploader
+  validates :name, :description, :live_demo_url, presence: true
   mount_uploader :image, EntryImageUploader
 
   def self.public

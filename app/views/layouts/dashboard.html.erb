@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codeando México</title>
+  <title>Retos públicos</title>
   <%= stylesheet_link_tag 'dashboard', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="container-fluid l-dashboard">
-    <div class="col-lg-3 l-sidebar sidebar">
-      <h1 class="l-space-bottom"><%= image_tag 'logo.png', alt: 'Codeando México' %></h1>
+    <div class="col-lg-3 col-md-3 l-sidebar sidebar">
+      <h1 class="l-space-bottom"><%= image_tag 'logos-horizontal/retos_logo_horizontal-04.png', class: 'brand', alt: 'Retos públicos' %></h1>
       <h3 class="text-muted l-space-bottom"><%= organization.name %></h3>
       <ul class="sidebar-nav">
         <li><%= link_to 'Dashboard', dashboard_path, class: tab_class('dashboard') %></li>
@@ -23,7 +23,7 @@
         <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
-    <div class="col-lg-9 l-main">
+    <div class="col-lg-9 col-md-9 l-main">
       <%= yield %>
     </div>
   </div>

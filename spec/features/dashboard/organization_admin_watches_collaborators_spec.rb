@@ -5,8 +5,8 @@ feature 'Organization admin watches collaborators' do
 
   before do
     @organization = create :organization
-    @juanito = create_member name: 'Juanito', email: 'juanito@example.com', nickname: 'jnto'
-    @pepito = create_member name: 'Pepito', email: 'pepito@example.com', nickname: 'ppto'
+    @juanito = create_member name: 'Juanito', email: 'juanito@example.com'
+    @pepito = create_member name: 'Pepito', email: 'pepito@example.com'
   end
 
   scenario 'when there is no challenge' do
@@ -31,7 +31,6 @@ feature 'Organization admin watches collaborators' do
       id: juanito.id,
       name: 'Juanito',
       email: 'juanito@example.com',
-      nickname: 'jnto',
       registered_at: juanito.created_at
     )
 
@@ -40,7 +39,6 @@ feature 'Organization admin watches collaborators' do
       id: pepito.id,
       name: 'Pepito',
       email: 'pepito@example.com',
-      nickname: 'ppto',
       registered_at: pepito.created_at
     )
   end
@@ -59,7 +57,6 @@ feature 'Organization admin watches collaborators' do
       id: juanito.id,
       name: 'Juanito',
       email: 'juanito@example.com',
-      nickname: 'jnto',
       registered_at: juanito.created_at
     )
   end
@@ -84,7 +81,6 @@ feature 'Organization admin watches collaborators' do
       page.should have_content args.fetch(:id)
       page.should have_content args.fetch(:name)
       page.should have_content args.fetch(:email)
-      page.should have_content args.fetch(:nickname)
       page.should have_content args.fetch(:registered_at)
     end
   end

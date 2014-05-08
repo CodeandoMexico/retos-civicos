@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140429165327) do
+ActiveRecord::Schema.define(:version => 20140430195726) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -118,15 +118,12 @@ ActiveRecord::Schema.define(:version => 20140429165327) do
 
   create_table "entries", :force => true do |t|
     t.string   "name"
-    t.string   "github_url"
     t.string   "live_demo_url"
     t.text     "description"
-    t.text     "team_members"
     t.integer  "member_id"
     t.integer  "challenge_id"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
-    t.string   "entry_logo"
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"

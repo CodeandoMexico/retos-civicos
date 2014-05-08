@@ -17,7 +17,6 @@ en:
         user: User
       entry:
         description: Description
-        github_url: Github url
         name: Name
       member:
         collaborations: Collaborations
@@ -68,8 +67,6 @@ en:
         entry:
           attributes:
             description:
-              blank: can't be blank
-            github_url:
               blank: can't be blank
             name:
               blank: can't be blank
@@ -278,7 +275,7 @@ en:
           América Latina</a>\r\n<br />\r\n[4] <a href=\"http://davidsasaki.name/2012/12/on-hackathons-and-solutionism/\"
           target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
   layout:
-    header: Codeando México
+    header: Retos públicos
     copyright: "&copy; Codeando México - 2014"
     question: What is Codeando México?
     brief: A space where top talent meet to solve real problems.
@@ -362,28 +359,22 @@ en:
   entries:
     form:
       name: Name
-      name-description: App/Project
-      github-url: GitHub Repo URL
-      github-url-description: Link to open source repository
-      live-demo-url: Demo URL
-      demo-url-description: Link to live app
-      entry-logo: Logo
-      entry-logo-description: Upload the app's logo. (80x80)
+      name-description: Project name
+      live-demo-url: Link to the proyect
+      demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      technologies: Technologies
+      technologies-description: 'The technologies you are using. Example: python, d3.js, postgresql, .NET'
       image: Image
       image-description: Upload a cover image for your app
       description: Description
       description-description: In brief functionality/purpose of app
-      team-members: Team members
-      team-members-description: If you worked on a team, list the name and email of your colleagues. You can use Markdown.
       challenge: Challenge
       submit: Send project
     show:
       description: Description
       owner: Team Leader
-      github: GitHub Repo
       live-demo-url: Link to live app
       go-to-challenge: Go to challenge - %{challenge}
-      team-members: Team members
     new:
       back: Back to challenge
     csv_filename: entries-%{organization}-organization.csv

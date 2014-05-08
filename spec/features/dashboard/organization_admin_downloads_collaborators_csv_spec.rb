@@ -5,9 +5,7 @@ feature 'Organization admin downloads collaborators csv' do
     organization = create :organization
     organization_admin = create :user, userable: organization
     challenge = create :challenge, title: 'Reto activo', organization: organization
-    juanito = create_member name: 'Juanito',
-      email: 'juanito@example.com',
-      nickname: 'jnto'
+    juanito = create_member name: 'Juanito', email: 'juanito@example.com'
     create :collaboration, member: juanito, challenge: challenge
 
     sign_in_organization_admin(organization_admin)
@@ -19,7 +17,6 @@ feature 'Organization admin downloads collaborators csv' do
       'id' => juanito.id.to_s,
       'nombre' => 'Juanito',
       'email' => 'juanito@example.com',
-      'nickname' => 'jnto',
       'fecha de registro' => '2013-04-10 20:53:00 -0500'
     )
   end
