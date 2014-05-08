@@ -1,12 +1,18 @@
+<div class="challenge-header">
+  <div class="row">
+    <div class="col-xs-7">
+      <h1 class="challenge-title"><%= @challenge.title %></h1>
+    </div>
+    <div class="col-xs-5 text-right">
+      <div class="btn-group btn-group-lg">
+        <%= like_section(@challenge) %>
+        <%= collaborate_section(@challenge)  %>
+        <%= newsletter_helper(@challenge)  %>
+      </div>
+    </div>
+  </div>
+</div>
 <section id="pitch" class="unit pitch">
-  <header class="unit">
-    <nav>
-      <%= like_section(@challenge) %>
-      <%= collaborate_section(@challenge)  %>
-      <%= newsletter_helper(@challenge)  %>
-    </nav>
-    <h1><%= @challenge.title %></h1>
-  </header>
   <section id="description" class="unit description ">
     <div class="column left">
       <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>

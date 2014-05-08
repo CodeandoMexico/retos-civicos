@@ -33,10 +33,10 @@ body {
 
 .main-navbar {
   @extend .clearfix;
-  padding-top: 0.5em;
+  border-bottom: 5px solid $brand-primary;
   color: $brand-success;
   font-size: 1.1em;
-  border-bottom: 5px solid $brand-primary;
+  padding-top: 0.5em;
 
   a:hover {
     text-decoration: none;
@@ -59,4 +59,19 @@ body {
 
 .main-navbar-nav {
   text-shadow: 0 1px $gray-lighter;
+}
+
+.main {
+  background-color: $gray-lighter;
+}
+
+.challenge-header {
+  @include clearfix;
+  background-color: $brand-primary;
+  color: #ffffff;
+  padding: 2em 1em;
+}
+
+.challenge-title {
+  margin: 0;
 }

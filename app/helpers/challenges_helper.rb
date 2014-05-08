@@ -14,16 +14,18 @@ module ChallengesHelper
   end
 
   def like_section(challenge)
+    classes = "like btn btn-primary"
+
     if user_signed_in? and current_user.voted_for?(challenge)
-      link_to "", class: "like" do
-	"<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
+      link_to "", class: classes do
+        "#{icon('thumbs-o-up')} #{challenge.likes_counter}".html_safe
       end
     elsif user_signed_in?
-      link_to like_challenge_path(challenge), method: :post, class: "like", remote: true do
-	"<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
+      link_to like_challenge_path(challenge), method: :post, class: classes, remote: true do
+        "#{icon('thumbs-o-up')} #{challenge.likes_counter}".html_safe
       end
     else
-      link_to t("challenges.like"), like_challenge_path(challenge), method: :post, class: "like"
+      link_to t("challenges.like"), like_challenge_path(challenge), method: :post, class: classes
     end
   end
 
@@ -31,22 +33,22 @@ module ChallengesHelper
     if user_signed_in?
       userable = current_user.userable
       if userable == challenge.organization
-        link_to t("helpers.edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
+        link_to t("helpers.edit"), edit_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
       elsif userable.has_submitted_app?(challenge)
-        link_to t("helpers.edit_entry"), edit_challenge_entry_path(challenge, userable.entry_for(challenge))
+        link_to t("helpers.edit_entry"), edit_challenge_entry_path(challenge, userable.entry_for(challenge)), class: 'btn btn-primary'
       elsif current_user.collaborating_in?(challenge)
-        link_to t("helpers.submit_app"), new_challenge_entry_path(challenge)
+        link_to t("helpers.submit_app"), new_challenge_entry_path(challenge), class: 'btn btn-primary'
       else
-        link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
+        link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
       end
     else
-      link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post
+      link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
     end
   end
 
   def newsletter_helper(challenge)
     if user_signed_in? and current_user.userable == challenge.organization
-      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge)
+      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
     end
   end
 
