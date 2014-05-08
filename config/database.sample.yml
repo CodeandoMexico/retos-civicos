@@ -7,12 +7,12 @@ postgresql: &postgresql
 
 development:
   <<: *postgresql
-  database: aquila_development
+  database: retos_publicos_development
 
 test:
   <<: *postgresql
-  database: aquila_test
+  database: retos_publicos_test
 
 production:
   <<: *postgresql
-  database: aquila_production
+  database: retos_publicos_production
