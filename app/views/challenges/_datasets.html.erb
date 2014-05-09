@@ -1,7 +1,23 @@
-<% if @datasets.empty? %>
+<% if datasets.empty? %>
   <%= t(".non-datasets") %>
 <% else %>
-  <div class="unit">
-    <%= render 'dataset' %>
-  </div>
+  <% datasets.each do |dataset| %>
+    <% dataset_info = challenge.dataset_info(dataset) %>
+    <% dataset_format = dataset_info['resources'][0]['format'].downcase %>
+    <% dataset_url = "http://datamx.io/dataset/#{dataset_info['name']}" %>
+
+    <div class="media">
+      <%= link_to dataset_url, class: 'pull-left' do %>
+        <div class="format-label media-object" property="dc:format" data-format="<%= dataset_format %>">
+          <%= dataset_format %>
+        </div>
+      <% end %>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to dataset_info['title'], dataset_url, target:"_blank" %>
+        </h4>
+        <%= dataset_info['notes'].truncate(100) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

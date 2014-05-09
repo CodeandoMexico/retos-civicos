@@ -1,28 +1,26 @@
-<dd class="active tab-challenge">
-  <a href="#collaboratorsT">
-    <%= @collabcount %>
-    <p><%= t(".collaborators").pluralize(@collabcount) %></p>
-    <span class="arrow"></span>
+<ul class="row challenge-tabs">
+  <li class="col-xs-3 active">
+  <a href="#collaborators_tab_pane" data-toggle="tab" class="challenge-tab">
+    <em><%= collaborators_count %></em>
+    <%= t(".collaborators").pluralize collaborators_count %>
   </a>
-</dd>
-<dd class="tab-challenge">
-  <a href="#referencesT">
-    <%= @challenge.total_references %>
-    <p><%= t(".references").pluralize(@challenge.total_references) %></p>
-    <span class="arrow"></span>
+  </li>
+  <li class="col-xs-3">
+  <a href="#references_tab_pane" data-toggle="tab" class="challenge-tab">
+    <em><%= references_count %></em>
+    <%= t(".references").pluralize references_count %>
   </a>
-</dd>
-<dd class="tab-challenge">
-  <a href="#datasetsT">
-    <%= @datasets.count %>
-    <p><%= t(".datasets").pluralize(@datasets.count) %></p>
-    <span class="arrow"></span>
+  </li>
+  <li class="col-xs-3">
+  <a href="#datasets_tab_pane" data-toggle="tab" class="challenge-tab">
+    <em><%= datasets_count %></em>
+    <%= t(".datasets").pluralize datasets_count %>
   </a>
-</dd>
-<dd class="tab-challenge">
-  <a href="#entriesT">
-    <%= @entries.public.count %>
-    <p><%= t(".entries").pluralize(@entries.public.count) %></p>
-    <span class="arrow"></span>
+  </li>
+  <li class="col-xs-3">
+  <a href="#entries_tab_pane" data-toggle="tab" class="challenge-tab">
+    <em><%= entries_count %></em>
+    <%= t(".entries").pluralize entries_count %>
   </a>
-</dd>
+  </li>
+</ul>

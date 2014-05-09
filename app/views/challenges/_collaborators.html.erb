@@ -1,7 +1,11 @@
-<% if @challenge.collaborators.blank? %>
+<% if collaborators.blank? %>
   <%= t(".non-collaboration") %>
 <% else %>
-  <div class="unit row collabrow">
-    <%= render 'collaborator' %>
-  </div>
+  <% collaborators.each do |collaborator| %>
+    <div class="challenge-avatar">
+      <%= link_to collaborator.profile_url, target: '_blank' do %>
+        <%= image_tag collaborator.image_url(:small), class: 'avatar', title: collaborator, alt: collaborator %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

@@ -22,6 +22,8 @@ class ChallengesController < ApplicationController
     @entries = @challenge.entries.public
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators
+
+    # TODO: remove this ivar
     @collabcount = @collaborators.count
     @collaborators = @collaborators.order(:created_at).page(params[:page])
     render layout: 'aquila'

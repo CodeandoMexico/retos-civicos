@@ -22,7 +22,7 @@
             <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
           </div>
           <div class="challenge-hightlight-status">
-            <%= t("models.challenge.status.#{@challenge.status}") %>
+            <%= t("challenge.status.#{@challenge.status}") %>
           </div>
         </div>
       </div>
@@ -35,52 +35,32 @@
     </div>
   </div>
 </div>
+<div class="challenge-subheader text-center">
+  <h2><%= @challenge.pitch %></h2>
+</div>
 
+<%= render 'tab',
+  collaborators_count: @collaborators.count,
+  references_count: @challenge.total_references,
+  datasets_count: @datasets.count,
+  entries_count: @entries.count %>
 
+<div class="challenge-tabs-content">
+  <div class="challenge-tab-pane active" id="collaborators_tab_pane">
+    <%= render 'collaborators', collaborators: @collaborators %>
+    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
+  </div>
+  <div class="challenge-tab-pane" id="references_tab_pane">
+    <%= render 'references', references: @challenge.references %>
+  </div>
+  <div class="challenge-tab-pane" id="datasets_tab_pane">
+    <%= render 'datasets', challenge: @challenge, datasets: @datasets %>
+  </div>
+  <div class="challenge-tab-pane" id="entries_tab_pane">
+    <%= render 'entries', challenge: @challenge, entries: @entries %>
+  </div>
+</div>
 
-<section id="pitch" class="unit pitch">
-  <section id="description" class="unit description ">
-    <div class="column left">
-      <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>
-      <div class="owner">
-        <span class="name"><%= t("challenges.form.created-by") %> <em><%= link_to @organization.name, organization_path(@organization.slug) %></em></span>
-        <span class="status"><%= t("models.challenge.status.#{@challenge.status}") %></span>
-      </div>
-    </div>
-    <div class="column right">
-      <div class="content">
-        <h2><%= t("challenges.form.about") %></h2>
-        <p><%= @challenge.about %></p>
-      </div>
-    </div>
-  </section>
-</section>
-
-<section id="slogan" class="unit slogan ">
-  <h3><%= @challenge.pitch %></h3>
-</section>
-
-<section id="tabTools" class="tabTools">
-  <dl class="tabs drop-shadow">
-    <%= render 'tab' %>
-  </dl>
-
-  <ul class="tabs-content">
-    <li class="active collaboratorsTTab" id="collaboratorsTTab">
-      <%= render 'collaborators' %>
-      <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
-    </li>
-    <li id="referencesTTab">
-      <%= render 'references' %>
-    </li>
-    <li id="datasetsTTab">
-      <%= render 'datasets' %>
-    </li>
-    <li id="entriesTTab">
-      <%= render 'entries' %>
-    </li>
-  </ul>
-</section>
 
 <section id="needs" class="unit needs ">
   <header>
