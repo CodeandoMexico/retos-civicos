@@ -1,0 +1,23 @@
+.top-message {
+  background: $gray-lighter;
+}
+
+.top-message-container {
+  position: relative;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+.top-message-content {
+  margin-left: 3em;
+}
+
+.top-message-icon {
+  background: transparent inline-image("what-badge.png") no-repeat 0 0;
+  display: inline-block;
+  height: 35px;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}

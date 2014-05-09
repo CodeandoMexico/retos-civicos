@@ -1,0 +1,32 @@
+.challenge-hightlight {
+  @include clearfix;
+  font-size: 1.1em;
+  margin-top: 18em;
+  color: #ffffff;
+  width: 80%;
+
+  em {
+    font-style: normal;
+  }
+
+  a {
+    color: $brand-dark;
+  }
+}
+
+.challenge-hightlight-author, .challenge-hightlight-status {
+  float: left;
+  padding: 1em;
+  text-align: center;
+  height: 100%;
+}
+
+.challenge-hightlight-author {
+  background-color: $brand-primary;
+  width: 70%;
+}
+
+.challenge-hightlight-status {
+  background-color: $brand-dark;
+  width: 30%;
+}

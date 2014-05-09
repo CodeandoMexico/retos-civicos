@@ -1,0 +1,41 @@
+.challenge-header {
+  @include clearfix;
+  background-color: $brand-primary;
+  color: #ffffff;
+  padding: 2em 1em;
+}
+
+.challenge-title {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.challenge-cover {
+  background-color: #ffffff;
+}
+
+.challenge-profile-image {
+  @include clearfix;
+  background-size: cover;
+  height: 25em;
+}
+
+.challenge-about {
+  padding-right: 1em;
+
+  @media (max-width: $screen-sm-min) {
+    padding: 1em;
+  }
+}
+
+.challenge-subheader {
+  @include clearfix;
+  background-color: $gray;
+  color: #ffffff;
+  padding: 2em 1em;
+}
+
+.challenge-avatar {
+  margin: 1em;
+  float: left;
+}
