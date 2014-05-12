@@ -51,10 +51,10 @@
 
         <div class="unit row">
           <div class="column left">
-            <%= f.label "Fecha de termino" %>
+            <%= f.label :finish_date, t(".finish-date") %>
           </div>
           <div class="column right">
-            <input type="text" id="finish_challenge_on">
+            <%= f.text_field :finish_date %>
           </div>
         </div>
       </section>
@@ -187,6 +187,6 @@
 </script>
 <script>
   $(function () {
-    $("#finish_challenge_on").datepicker();
+    $("#challenge_finish_date").datepicker({ dateFormat: "yy-mm-dd" });
   });
 </script>
