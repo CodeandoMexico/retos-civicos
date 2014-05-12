@@ -3,12 +3,15 @@ $brand-primary: #77b433;
 $brand-dark: #507822;
 
 @import 'bootstrap';
+@import "timelineJS/timeline";
+
 @import 'aquila/top-message';
 @import 'aquila/main-navbar';
 @import 'aquila/format-label';
 @import 'aquila/challenge';
 @import 'aquila/challenge-hightlight';
 @import 'aquila/challenge-tabs';
+@import 'aquila/challenge-points';
 
 body {
   font-family: 'Open Sans', sans-serif;

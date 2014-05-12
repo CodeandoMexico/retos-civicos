@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<div class="challenge-cover">
+<div class="challenge-section">
   <div class="row">
     <div class="col-md-7">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
@@ -35,7 +35,8 @@
     </div>
   </div>
 </div>
-<div class="challenge-subheader text-center">
+
+<div class="challenge-pitch text-center">
   <h2><%= @challenge.pitch %></h2>
 </div>
 
@@ -45,7 +46,7 @@
   datasets_count: @datasets.count,
   entries_count: @entries.count %>
 
-<div class="challenge-tabs-content">
+<div class="challenge-section">
   <div class="challenge-tab-pane active" id="collaborators_tab_pane">
     <div class="clearfix js-collaborators-container">
       <%= render 'collaborators', collaborators: @collaborators %>
@@ -63,35 +64,40 @@
   </div>
 </div>
 
+<div class="challenge-subheader text-center">
+  <h3><%= t('challenges.form.needs') %></h3>
+</div>
 
-<section id="needs" class="unit needs ">
-  <header>
-    <h2><%= t("challenges.form.needs") %></h2>
-  </header>
-  <div class="column left">
-    <div class="content">
-      <%= markdown @challenge.description %>
+<div class="challenge-section">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="challenge-needs">
+        <%= markdown @challenge.description %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="challenge-points">
+        <div class="challenge-points-header">
+          <h3><%= t("challenges.form.points") %></h3>
+        </div>
+        <ul>
+          <% if @challenge.first_spec.present? %>
+            <li><%= markdown @challenge.first_spec %></li>
+          <% end %>
+          <% if @challenge.second_spec.present? %>
+            <li><%= markdown @challenge.second_spec %></li>
+          <% end %>
+          <% if @challenge.third_spec.present? %>
+            <li><%= markdown @challenge.third_spec %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="column right">
-    <h3><%= t("challenges.form.points") %></h3>
-    <ul class="points">
-      <% if !@challenge.first_spec.blank? %>
-        <li><%= markdown @challenge.first_spec %></li>
-      <% end %>
-      <% if !@challenge.second_spec.blank? %>
-        <li><%= markdown @challenge.second_spec %></li>
-      <% end %>
-      <% if !@challenge.third_spec.blank? %>
-        <li><%= markdown @challenge.third_spec %></li>
-      <% end %>
-    </ul>
-  </div>
-</section>
+</div>
 
-<%= render "activities" %>
-
-<%= render "comments" %>
+<%= render 'activities' %>
+<%= render 'comments' %>
 
 
 <section id="supportus" class="unit supportus ">
