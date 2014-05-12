@@ -10,6 +10,10 @@
   margin-bottom: 0.3em;
 }
 
+.challenge-actions .btn {
+  @extend .btn-lg;
+}
+
 .challenge-section {
   background-color: #ffffff;
 }
@@ -36,11 +40,58 @@
   padding: 1em;
 }
 
+.challenge-subheader-actions {
+  margin-top: 0.5em;
+}
+
 .challenge-needs {
+  padding: 2em;
+}
+
+.challenge-comments {
   padding: 2em;
 }
 
 .challenge-avatar {
   margin: 1em;
   float: left;
+}
+
+.comments-form {
+  background-color: $gray;
+  color: #ffffff;
+  display: none;
+  padding: 2em;
+}
+
+.reply-form {
+  display: none;
+}
+
+.comments-form-body {
+  color: $gray-dark;
+  border-color: $gray-light;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.comment-item {
+  padding-bottom: 1em;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+.comment-item-body {
+  min-height: 80px;
+}
+
+.reply-item {
+  border-top: 1px solid $gray-lighter;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.votes {
+  margin-right: 1em;
+  font-size: 1.5em;
+  line-height: 0.9;
 }

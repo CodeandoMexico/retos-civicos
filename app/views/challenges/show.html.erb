@@ -4,7 +4,7 @@
       <h1 class="challenge-title"><%= @challenge.title %></h1>
     </div>
     <div class="col-md-5 text-right">
-      <div class="btn-group btn-group-lg">
+      <div class="challenge-actions">
         <%= like_section(@challenge) %>
         <%= collaborate_section(@challenge)  %>
         <%= newsletter_helper(@challenge)  %>
@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<div class="challenge-subheader text-center">
+<div class="challenge-subheader">
   <h3><%= t('challenges.form.needs') %></h3>
 </div>
 
@@ -97,7 +97,7 @@
 </div>
 
 <%= render 'activities' %>
-<%= render 'comments' %>
+<%= render 'comments', challenge: @challenge %>
 
 
 <section id="supportus" class="unit supportus ">
