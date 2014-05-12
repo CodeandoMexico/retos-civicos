@@ -47,8 +47,10 @@
 
 <div class="challenge-tabs-content">
   <div class="challenge-tab-pane active" id="collaborators_tab_pane">
-    <%= render 'collaborators', collaborators: @collaborators %>
-    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
+    <div class="clearfix js-collaborators-container">
+      <%= render 'collaborators', collaborators: @collaborators %>
+    </div>
+    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: 'js-more-collaborators btn btn-primary btn-lg' %>
   </div>
   <div class="challenge-tab-pane" id="references_tab_pane">
     <%= render 'references', references: @challenge.references %>
