@@ -150,6 +150,7 @@ en:
       about: About the organization
       about-description: Describe briefly what your organization is doing and what drives it.
       status: Challenge status
+      finish-date: End date
       needs: Challenge needs
       points: Key goals
       points-description: What are the main goals of this challenge? Try to be concise.
