@@ -284,7 +284,7 @@ es:
     sign_out: Salir
     welcome: Hola
   signup:
-    choose_provider: Selecciona alguno de los siguientes servicios para tener acceso a Codeando México.
+    choose_provider: Selecciona alguno de los siguientes servicios para iniciar sesión
     with_github: Inicia con Github
     with_twitter: Inicia con Twitter
     with_linkedin: Inicia con LinkedIn
