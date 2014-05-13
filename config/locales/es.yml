@@ -283,6 +283,7 @@ es:
     sign_in: Iniciar Sesión
     sign_out: Salir
     welcome: Hola
+  terms_of_service: Términos de Servicio
   signup:
     choose_provider: Selecciona alguno de los siguientes servicios para iniciar sesión
     with_github: Inicia con Github

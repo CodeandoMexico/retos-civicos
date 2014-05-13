@@ -1,6 +1,7 @@
 en:
   routes:
     projects: projects
+    terms_of_service: terms_of_service
     challenges: challenges
     comments: comments
     new: new
@@ -12,6 +13,7 @@ en:
 es:
   routes:
     projects: proyectos
+    terms_of_service: terminos_de_servicio
     challenges: retos
     comments: comentarios
     new: nuevo
