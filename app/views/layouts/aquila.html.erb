@@ -18,19 +18,19 @@
   <div class="main-navbar">
     <div class="main-navbar-container container">
       <div class="row">
-        <div class="col-xs-4">
-          <%= link_to root_url, class: 'main-navbar-logo' do %>
+        <div class="col-md-4 col-sm-6">
+          <%= link_to root_url do %>
             <%= image_tag 'logo.png', alt: t('layout.header') %>
           <% end %>
         </div>
-        <div class="col-xs-5">
+        <div class="col-md-4 col-sm-6 text-right">
           <ul class="list-inline main-navbar-nav">
             <li><%= link_to t('challenges.index.header'), challenges_url %></li>
             <li><%= link_to 'Datos Abiertos', 'http://datamx.io' %></li>
             <li><%= link_to 'Blog', 'http://blog.codeandomexico.org/' %></li>
           </ul>
         </div>
-        <div class="col-xs-3">
+        <div class="col-md-4 col-sm-12">
           <ul class="list-inline text-right">
             <% if current_user %>
               <li><%= link_to current_user, edit_current_user_path(current_user.userable) %></li>

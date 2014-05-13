@@ -3,6 +3,7 @@
   border-bottom: 5px solid $brand-primary;
   color: $brand-success;
   font-size: 1.1em;
+  padding-bottom: 0.5em;
   padding-top: 0.5em;
 
   a:hover {
@@ -15,13 +16,7 @@
 }
 
 .main-navbar-container {
-  height: 50px;
   line-height: 50px;
-}
-
-.main-navbar-logo {
-  position: absolute;
-  top: -5px;
 }
 
 .main-navbar-nav {
