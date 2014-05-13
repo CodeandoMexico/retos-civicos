@@ -26,7 +26,7 @@ feature 'User watches entry' do
   end
 
   def page_should_have_entry(entry)
-    within '#entriesTTab' do
+    within '#entries_tab_pane' do
       page.should have_content entry.fetch(:name)
       page.should have_content entry.fetch(:description)
       page.should have_link *entry.fetch(:github_link)

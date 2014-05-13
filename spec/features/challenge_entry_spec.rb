@@ -37,7 +37,7 @@ feature "Submit an app" do
 
     click_link "Ir al reto - #{challenge.title}"
 
-    within '.tabs' do
+    within '.challenge-tabs' do
       page.should have_content '0 App'
     end
 
