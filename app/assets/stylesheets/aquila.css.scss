@@ -5,7 +5,6 @@ $brand-dark: #507822;
 @import 'bootstrap';
 @import "timelineJS/timeline";
 
-@import 'aquila/top-message';
 @import 'aquila/main-navbar';
 @import 'aquila/format-label';
 @import 'aquila/challenge';
@@ -20,6 +19,12 @@ $brand-dark: #507822;
 
 body {
   font-family: 'Open Sans', sans-serif;
+}
+
+.top-message {
+  background: $gray-lighter;
+  padding: 0.6em 0;
+  line-height: 1.5;
 }
 
 .main {
