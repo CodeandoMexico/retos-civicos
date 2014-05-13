@@ -49,7 +49,7 @@ body {
   height: 60px;
 }
 
-.errorExplanation {
+.errorExplanation, #error_explanation {
   @extend .alert;
   @extend .alert-danger;
 
