@@ -8,7 +8,6 @@ feature "Commenting on challenge" do
 
   background do
     sign_in_user(member.user, password: 'password')
-    create :collaboration, member: member, challenge: challenge
   end
 
   scenario "Can comment", js: true do
