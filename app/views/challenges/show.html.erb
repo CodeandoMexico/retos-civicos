@@ -22,7 +22,7 @@
             <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
           </div>
           <div class="challenge-hightlight-status">
-            <%= t("challenge.status.#{@challenge.status}") %>
+            <%= t("challenges.status.#{@challenge.status}") %>
           </div>
         </div>
       </div>
@@ -99,13 +99,11 @@
 <%= render 'activities' %>
 <%= render 'comments', challenge: @challenge %>
 
+<div class="challenge-footer text-center">
+  <h2><%= t(".supportus") %></h2>
 
-<section id="supportus" class="unit supportus ">
-  <header>
-    <h2><%= t(".supportus") %></h2>
-  </header>
-  <section>
+  <div class="challenge-actions">
     <%= like_section(@challenge) %>
-    <%= collaborate_section(@challenge)  %>
-  </section>
-</section>
+    <%= collaborate_section(@challenge) %>
+  </div>
+</div>

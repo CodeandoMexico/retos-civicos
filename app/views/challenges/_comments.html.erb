@@ -11,15 +11,16 @@
     </div>
   </div>
 </div>
+
 <% if can? :create_or_reply_challenge_comment, challenge %>
   <%= form_for [challenge, Comment.new], remote: true, html: { class: 'comments-form' } do |form| %>
     <div class="media">
       <div class="pull-left">
-        <%= image_tag current_user.image_url(:small), class: 'avatar media-object' %>
+        <%= image_tag current_user.image_url(:thumb), class: 'avatar-thumb media-object' %>
       </div>
       <div class="media-body">
-        <span class="pull-right"><%= l Time.zone.now, format: :long %></span>
-        <h4 class="media-heading"><%= current_user %></h4>
+        <h4 class="media-heading comment-item-title"><%= current_user %></h4>
+        <span>- <%= l Time.zone.now, format: :long %></span>
         <%= form.text_area :body, class: 'comments-form-body', rows: 3 %>
         <div class="text-right">
           <%= link_to t('.cancel'), '#', class: 'btn btn-lg js-close-comments-form' %>
@@ -29,39 +30,7 @@
     </div>
   <% end %>
 <% end %>
+
 <div id="challenge_comments_container" class="challenge-section challenge-comments">
   <%= render @comments, challenge: @challenge %>
 </div>
-
-<section id="comments" class="comments row">
-  <header>
-    <% if can? :create_or_reply_challenge_comment, @challenge %>
-      <%= link_to t(".comment"), "#", class: "comment" %>
-    <% end %>
-    <h2><%= t("challenges.form.comments") %></h2>
-  </header>
-  <section>
-
-    <div class="wrapper">
-      <div class="unit comment_form cbox">
-        <% if user_signed_in? and current_user.collaborating_in?(@challenge) %>
-          <%= form_for [@challenge, Comment.new], remote: true do |f| %>
-            <div class="column left info">
-              <%= image_tag current_user.image_url(:thumb) %>
-              <span class="name"><%= current_user.to_s %></span>
-              <time><%= Time.now.strftime("%B %e, %Y") %></time>
-              <span class="clock"><%= Time.now.strftime("%l:%M %P") %></span>
-            </div>
-            <div class="column right data">
-              <div class="unit box first_comment">
-                <%= f.text_area :body%>
-                <%= f.submit t(".comment"), class: "reply", :disable_with => "Comentando..." %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-  </section>
-</section>

@@ -12,6 +12,10 @@
   a {
     color: $brand-dark;
   }
+
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+  }
 }
 
 .challenge-hightlight-author, .challenge-hightlight-status {

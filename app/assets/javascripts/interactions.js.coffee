@@ -51,13 +51,13 @@ $ ->
   $(document).on 'click', '.js-open-reply-form', (e) ->
     e.preventDefault()
     button = $(this)
-    form = $(this).siblings('form')
+    form = $(this).siblings('.js-reply-form')
     button.hide()
     form.fadeIn()
 
   $(document).on 'click', '.js-close-reply-form', (e) ->
     e.preventDefault()
-    form = $(this).parents('form')
+    form = $(this).parents('.js-reply-form')
     button = form.siblings('.js-open-reply-form')
     form.find('textarea').val('')
     form.fadeOut => button.show()

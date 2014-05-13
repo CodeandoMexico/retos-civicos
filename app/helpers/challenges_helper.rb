@@ -14,7 +14,7 @@ module ChallengesHelper
   end
 
   def like_section(challenge)
-    classes = "like btn btn-primary"
+    classes = "js-like btn btn-primary"
 
     if user_signed_in? and current_user.voted_for?(challenge)
       link_to "", class: classes do

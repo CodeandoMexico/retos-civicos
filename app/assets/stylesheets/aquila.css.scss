@@ -12,6 +12,11 @@ $brand-dark: #507822;
 @import 'aquila/challenge-hightlight';
 @import 'aquila/challenge-tabs';
 @import 'aquila/challenge-points';
+@import 'aquila/comments-form';
+@import 'aquila/comment-item';
+@import 'aquila/reply-form';
+@import 'aquila/reply-item';
+@import 'aquila/votes';
 
 body {
   font-family: 'Open Sans', sans-serif;
