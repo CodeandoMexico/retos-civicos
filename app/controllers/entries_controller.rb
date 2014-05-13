@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
     @challenge = Challenge.find params[:challenge_id]
     redirect_if_has_submitted_app
     @entry = @challenge.entries.build
+    render layout: 'aquila'
   end
 
   def edit
@@ -28,7 +29,7 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to challenge_entry_path(@entry.challenge, @entry), notice: I18n.t("flash.entries.created_successfully")
     else
-      render :new
+      render :new, layout: 'aquila'
     end
   end
 
