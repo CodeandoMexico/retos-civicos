@@ -22,6 +22,8 @@ feature 'Organization admin watches entries' do
     create :entry,
       name: 'Propuesta 1',
       member: member,
+      company_name: "Empresa 1",
+      company_rfc: "Empresa1RFC",
       challenge: challenge_two,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
@@ -29,6 +31,8 @@ feature 'Organization admin watches entries' do
     create :entry,
       name: 'Propuesta 2',
       member: member,
+      company_name: "Empresa 2",
+      company_rfc: "Empresa2RFC",
       challenge: challenge_two,
       live_demo_url: 'http://otroproyecto.com',
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
@@ -42,7 +46,8 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 1,
       name: 'Propuesta 2',
-      member: 'Juanito',
+      company_name: "Empresa 2",
+      company_rfc: "Empresa2RFC",
       sent_at: '12 abr 20:53',
       link: 'http://otroproyecto.com',
       tecnologies: 'Rust, Haskell'
@@ -50,6 +55,8 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 2,
       name: 'Propuesta 1',
+      company_name: "Empresa 1",
+      company_rfc: "Empresa1RFC",
       member: 'Juanito',
       sent_at: '10 abr 20:53',
       link: 'http://miproyecto.com',
@@ -62,7 +69,8 @@ feature 'Organization admin watches entries' do
     create :collaboration, member: member, challenge: challenge_one
     create :entry,
       name: 'Propuesta 1',
-      member: member,
+      company_name: 'Empresa 1',
+      company_rfc: 'Empresa1RFC',
       challenge: challenge_one,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
@@ -75,7 +83,7 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 1,
       name: 'Propuesta 1',
-      member: 'Juanito',
+      company_name: 'Empresa 1',
       sent_at: '10 abr 20:53',
       link: 'http://miproyecto.com',
       tecnologies: 'PHP, MySQL'
@@ -97,7 +105,7 @@ feature 'Organization admin watches entries' do
   def page_should_have_entry_with(args)
     within "#entries tbody tr:nth-of-type(#{args.fetch(:position)})" do
       page.should have_content args.fetch(:name)
-      page.should have_content args.fetch(:member)
+      page.should have_content args.fetch(:company_name)
       page.should have_content args.fetch(:sent_at)
       page.should have_content args.fetch(:link)
       page.should have_content args.fetch(:tecnologies)

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20140430195726) do
-=======
-ActiveRecord::Schema.define(:version => 20140512214641) do
->>>>>>> aquila/dev
+ActiveRecord::Schema.define(:version => 20140513203424) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -132,6 +128,8 @@ ActiveRecord::Schema.define(:version => 20140512214641) do
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"
+    t.string   "company_name"
+    t.string   "company_rfc"
   end
 
   create_table "members", :force => true do |t|
