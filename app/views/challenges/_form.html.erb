@@ -48,6 +48,15 @@
             <%= f.select(:status, status_for_challenge)%>
           </div>
         </div>
+
+        <div class="unit row">
+          <div class="column left">
+            <%= f.label :finish_date, t(".finish-date") %>
+          </div>
+          <div class="column right">
+            <%= f.text_field :finish_date %>
+          </div>
+        </div>
       </section>
     </section>
 
@@ -173,5 +182,10 @@
       noResultsText: "<%= t(".dataset_no_results_text") %>",
       searchingText: "<%= t(".dataset_searching_text") %>"
     });
+  });
+</script>
+<script>
+  $(function () {
+    $("#challenge_finish_date").datepicker({ dateFormat: "yy-mm-dd" });
   });
 </script>

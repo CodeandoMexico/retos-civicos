@@ -14,6 +14,7 @@ feature "Challenges Datasets" do
 
     #agregar un dataset
     fill_in 'token-input-challenge_dataset_id', with: 'Banco mundial'
+    wait_for_ajax
     find(".token-input-selected-dropdown-item").click
     click_button "Publicar"
 
@@ -23,8 +24,7 @@ feature "Challenges Datasets" do
     end
     click_link '1 Dataset'
     within '#datasetsTTab' do
-      page.should have_link 'Banco Mundial', 'http://datamx.io/dataset/banco-mundial'
-      page.should have_content 'Migración neta: La migración neta es, el total neto de personas que migraron durante el período:...'
+      find(".dataset-teaser")
     end
   end
 end

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140430195726) do
+=======
+ActiveRecord::Schema.define(:version => 20140512214641) do
+>>>>>>> aquila/dev
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -70,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20140430195726) do
     t.integer  "organization_id"
     t.text     "welcome_mail"
     t.string   "dataset_id"
+    t.date     "finish_date"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"
