@@ -6,7 +6,7 @@
     <% dataset_format = dataset_info['resources'][0]['format'].downcase %>
     <% dataset_url = "http://datamx.io/dataset/#{dataset_info['name']}" %>
 
-    <div class="media">
+    <div class="media" data-dataset-teaser>
       <%= link_to dataset_url, class: 'pull-left' do %>
         <div class="format-label media-object" property="dc:format" data-format="<%= dataset_format %>">
           <%= dataset_format %>

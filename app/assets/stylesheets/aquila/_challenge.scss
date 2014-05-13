@@ -1,21 +1,5 @@
-.challenge-header {
-  @include clearfix;
-  background-color: $brand-primary;
-  color: #ffffff;
-  padding: 2em 1em;
-}
-
-.challenge-title {
-  margin-top: 0;
-  margin-bottom: 0.3em;
-}
-
 .challenge-actions .btn {
   @extend .btn-lg;
-}
-
-.challenge-section {
-  background-color: #ffffff;
 }
 
 .challenge-profile-image {

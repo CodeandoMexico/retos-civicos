@@ -6,6 +6,7 @@ $brand-dark: #507822;
 @import "timelineJS/timeline";
 
 @import 'aquila/main-navbar';
+@import 'aquila/sheet';
 @import 'aquila/format-label';
 @import 'aquila/challenge';
 @import 'aquila/challenge-hightlight';
@@ -40,4 +41,19 @@ body {
 .avatar-thumb {
   width: 60px;
   height: 60px;
+}
+
+.errorExplanation {
+  @extend .alert;
+  @extend .alert-danger;
+
+  h2 {
+    @extend .h4;
+    font-weight: bold;
+  }
+
+  p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 }

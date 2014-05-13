@@ -1,0 +1,24 @@
+.sheet-header {
+  @include clearfix;
+  background-color: $brand-primary;
+  color: #ffffff;
+  padding: 2em 1em;
+}
+
+.sheet-title {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.sheet-section {
+  @include clearfix;
+  background-color: #ffffff;
+}
+
+.sheet-section-with-pad {
+  padding: 1.5em;
+}
+
+.sheet-section-title {
+  margin-bottom: 1em;
+}

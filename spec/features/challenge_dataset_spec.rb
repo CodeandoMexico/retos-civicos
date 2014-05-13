@@ -25,9 +25,7 @@ feature "Challenges Datasets" do
     click_link '1 Dataset'
 
     within '#datasets_tab_pane' do
-      find(".dataset-teaser")
-      page.should have_link 'Banco Mundial', 'http://datamx.io/dataset/banco-mundial'
-      page.should have_content 'Migración neta: La migración neta es, el total neto de personas que migraron durante el período:...'
+      find("[data-dataset-teaser]")
     end
   end
 end

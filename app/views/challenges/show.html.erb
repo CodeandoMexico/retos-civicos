@@ -1,7 +1,7 @@
-<div class="challenge-header">
+<div class="sheet-header">
   <div class="row">
     <div class="col-md-7">
-      <h1 class="challenge-title"><%= @challenge.title %></h1>
+      <h1 class="sheet-title"><%= @challenge.title %></h1>
     </div>
     <div class="col-md-5 text-right">
       <div class="challenge-actions">
@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<div class="challenge-section">
+<div class="sheet-section">
   <div class="row">
     <div class="col-md-7">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
@@ -46,7 +46,7 @@
   datasets_count: @datasets.count,
   entries_count: @entries.count %>
 
-<div class="challenge-section">
+<div class="sheet-section">
   <div class="challenge-tab-pane active" id="collaborators_tab_pane">
     <div class="clearfix js-collaborators-container">
       <%= render 'collaborators', collaborators: @collaborators %>
@@ -68,7 +68,7 @@
   <h3><%= t('challenges.form.needs') %></h3>
 </div>
 
-<div class="challenge-section">
+<div class="sheet-section">
   <div class="row">
     <div class="col-md-7">
       <div class="challenge-needs">
