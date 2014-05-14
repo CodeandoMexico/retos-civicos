@@ -1,98 +1,83 @@
-<div class="form_container">
-  <%= form_for [@challenge, @entry] do |f| %>
-    <section id="form_main" class="form_main">
-      <%= f.error_messages %>
+<h2 class="sheet-section-title"><%= t('.challenge') %> - <%= @challenge.title %></h2>
+<%= form_for [@challenge, @entry], html: { class: 'form-horizontal' } do |f| %>
+  <%= f.error_messages %>
 
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <h2><%= t(".challenge") %></h2>
-          </div>
-          <div class="column right">
-            <h3><%= @challenge.title %></h3>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :name, t('.name'), class: 'control-label' %>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :name, required: true, class: 'form-control' %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :name, t(".name")  %>
-            <p><%= t(".name-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_field :name, required: true %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :description, t(".description"), class: 'control-label' %>
+      <span class="help-block"><%= t(".description-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_area :description, required: true, class: 'form-control', rows: 3 %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :description, t(".description")  %>
-            <p><%= t(".description-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :description, required: true %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :github_url, t(".github-url"), class: 'control-label' %>
+      <span class="help-block"><%= t(".github-url-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :github_url, required: true, class: 'form-control' %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :github_url, t(".github-url")  %>
-            <p><%= t(".github-url-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_field :github_url, required: true %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :live_demo_url, t(".live-demo-url"), class: 'control-label' %>
+      <span class="help-block"><%= t(".demo-url-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :live_demo_url, class: 'form-control' %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :live_demo_url, t(".live-demo-url")  %>
-            <p><%= t(".demo-url-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_field :live_demo_url %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :entry_logo, t(".entry-logo"), class: 'control-label'  %>
+      <span class="help-block"><%= t(".entry-logo-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= image_tag @entry.entry_logo.url %>
+      <%= f.file_field :entry_logo %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :entry_logo, t(".entry-logo")  %>
-            <p><%= t(".entry-logo-description") %></p>
-          </div>
-          <div class="column right">
-            <%= image_tag @entry.entry_logo.url %>
-            <%= f.file_field :entry_logo %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :image, t(".image"), class: 'control-label' %>
+      <span class="help-block"><%= t(".image-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= image_tag @entry.image_url, width: 300 %>
+      <%= f.file_field :image %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :image, t(".image") %>
-            <p><%= t(".image-description") %></p>
-          </div>
-          <div class="column right">
-            <%= image_tag @entry.image_url, width: 300 %>
-            <%= f.file_field :image %>
-          </div>
-        </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :team_members, t(".team-members"), class: 'control-label' %>
+      <span class="help-block"><%= t(".team-members-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_area :team_members, class: 'form-control', rows: 3 %>
+    </div>
+  </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :team_members, t(".team-members")  %>
-            <p><%= t(".team-members-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :team_members %>
-          </div>
-        </div>
+  <%= f.hidden_field :member_id, value: current_member.id %>
 
-        <%= f.hidden_field :member_id, value: current_member.id %>
-
-      </section>
-    </section>
-
-    <section id="form_save" class="form_save">
-      <%= f.submit t('.submit') %>
-    </section>
-
-  <% end %>
-</div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+<% end %>

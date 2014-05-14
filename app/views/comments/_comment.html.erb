@@ -1,47 +1,71 @@
-<div class="columns on-2 cbox">
-  <div class="column fixed left info">
-    <%= link_to comment.user.profile_url, target: '_blank' do  %>
-      <%= image_tag comment.user.image_url(:thumb) %>
+<div class="comment-item">
+  <div class="pull-left votes">
+    <% if can? :like, comment %>
+      <div>
+        <%= link_to like_challenge_comment_path(challenge, comment, like: true), method: :post, remote: true do %>
+          <span class="fa fa-sort-up"></span>
+        <% end %>
+      </div>
+      <div id="comment_<%= comment.id %>"><%= comment.votes_counter %></div>
+      <div>
+        <%= link_to like_challenge_comment_path(@challenge, comment), method: :post, remote: true  do %>
+          <span class="fa fa-sort-down"></span>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-muted">
+        <div class="fa fa-sort-up"></div>
+        <div id="comment_<%= comment.id %>" class="text-center"><%= comment.votes_counter %></div>
+        <div class="fa fa-sort-down"></div>
+      </div>
     <% end %>
-    <span class="name"><%= link_to comment.user.to_s, comment.user.profile_url, target: '_blank' %></span>
-    <time><%= comment.created_at.strftime("%B %e, %Y") %></time>
-    <span class="clock"><%= comment.created_at.strftime("%l:%M %P %Z") %></span>
   </div>
-  <div class="column fixed right data">
-    <div class="unit box com">
-      <div class="votes">
-        <% if can? :like, comment %>
-          <%= link_to like_challenge_comment_path(@challenge, comment, like: true), method: :post, remote: true do %>
-            <span class="icon-sort-up"></span>
-          <% end %>
-          <span class="count" id="comment_<%= comment.id %>"><%= comment.votes_counter %></span>
-          <%= link_to like_challenge_comment_path(@challenge, comment), method: :post, remote: true  do %>
-            <span class="icon-sort-down"></span>
-          <% end %>
-        <% else %>
-          <span class="icon-sort-up"></span>
-          <span class="count" id="comment_<%= comment.id %>"><%= comment.votes_counter %></span>
-          <span class="icon-sort-down"></span>
-        <% end %>
-      </div>
-      <% if can? :create_or_reply_challenge_comment, @challenge %>
-        <%= link_to t(".reply"), "#", class: "reply" %>
-      <% end %>
-      <p class="comment jtruncate"><%= comment.body_html %></p>
 
-      <div class="replies">
-        <% comment.children.each do |comment| %>
-          <div class="rep">
-            <strong class="name"><%= link_to comment.user.to_s, comment.user.profile_url, target: '_blank' %> <span class="time"><%= comment.created_at.strftime("%B %e, %Y %l:%M %P %Z") %></span></strong>
-            <p class="comment jtruncate"><%= comment.body_html %></p>
-          </div>
-        <% end %>
+  <div class="media">
+    <%= link_to comment.user.profile_url, class: 'pull-left', target: '_blank' do %>
+      <%= image_tag comment.user.image_url(:thumb), class: 'avatar-thumb media-object' %>
+    <% end %>
+
+    <div class="media-body">
+      <div class="comment-item-body">
+        <h4 class="media-heading comment-item-title"><%= link_to comment.user, comment.user.profile_url, target: '_blank' %></h4>
+        <small class="text-muted">- <%= l comment.created_at, format: :long %></small>
+        <p><%= comment.body_html %></p>
       </div>
-      <% if can? :create, Comment %>
-        <div class="form">
-          <%= form_for([@challenge, Comment.new], url: reply_challenge_comment_path(@challenge, comment, parent: comment), method: :post) do |f| %>
-            <%= f.text_field :body %>
+
+      <% comment.children.each do |comment| %>
+        <div class="media reply-item">
+          <%= link_to comment.user.profile_url, class: 'pull-left', target: '_blank' do %>
+            <%= image_tag comment.user.image_url(:thumb), class: 'avatar-thumb media-object' %>
           <% end %>
+          <div class="media-body">
+            <h4 class="media-heading comment-item-title"><%= link_to comment.user, comment.user.profile_url, target: '_blank' %></h4>
+            <small class="text-muted">- <%= l comment.created_at, format: :long %></small>
+            <p><%= comment.body_html %></p>
+          </div>
+        </div>
+      <% end %>
+
+      <% if can? :create_or_reply_challenge_comment, challenge %>
+        <%= link_to t('.reply'), '#', class: 'btn btn-primary pull-right js-open-reply-form' %>
+        <div class="media reply-item reply-form js-reply-form">
+          <div class="pull-left">
+            <%= image_tag current_user.image_url(:thumb), class: 'avatar-thumb media-object' %>
+          </div>
+
+          <div class="media-body">
+            <h4 class="media-heading comment-item-title"><%= current_user %></h4>
+            <small class="text-muted">- <%= l Time.zone.now, format: :long %></small>
+            <%= form_for [challenge, Comment.new], method: :post,
+              url: reply_challenge_comment_path(challenge, comment, parent: comment) do |form| %>
+
+              <%= form.text_area :body, class: 'comments-form-body', rows: 2 %>
+              <div class="text-right">
+                <%= link_to t('.cancel'), '#', class: 'btn text-muted js-close-reply-form' %>
+                <%= form.submit t('.reply'), class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

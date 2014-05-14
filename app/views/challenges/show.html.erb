@@ -1,91 +1,111 @@
-<section id="pitch" class="unit pitch">
-  <header class="unit">
-    <nav>
-      <%= like_section(@challenge) %>
-      <%= collaborate_section(@challenge)  %>
-      <%= newsletter_helper(@challenge)  %>
-    </nav>
-    <h1><%= @challenge.title %></h1>
-  </header>
-  <section id="description" class="unit description ">
-    <div class="column left">
-      <%= image_tag @challenge.avatar_url(:profile), style: "width:600px;height:360px;" %>
-      <div class="owner">
-        <span class="name"><%= t("challenges.form.created-by") %> <em><%= link_to @organization.name, organization_path(@organization.slug) %></em></span>
-        <span class="status"><%= t("models.challenge.status.#{@challenge.status}") %></span>
+<div class="sheet-header">
+  <div class="row">
+    <div class="col-md-7">
+      <h1 class="sheet-title"><%= @challenge.title %></h1>
+    </div>
+    <div class="col-md-5 text-right">
+      <div class="challenge-actions">
+        <%= like_section(@challenge) %>
+        <%= collaborate_section(@challenge)  %>
+        <%= newsletter_helper(@challenge)  %>
       </div>
     </div>
-    <div class="column right">
-      <div class="content">
+  </div>
+</div>
+<div class="sheet-section">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
+        <div class="challenge-hightlight">
+          <div class="challenge-hightlight-author">
+            <span><%= t("challenges.form.created-by") %></span>
+            <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
+          </div>
+          <div class="challenge-hightlight-status">
+            <%= t("challenges.status.#{@challenge.status}") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="challenge-about">
         <h2><%= t("challenges.form.about") %></h2>
         <p><%= @challenge.about %></p>
       </div>
     </div>
-  </section>
-</section>
+  </div>
+</div>
 
-<section id="slogan" class="unit slogan ">
-  <h3><%= @challenge.pitch %></h3>
-</section>
+<div class="challenge-pitch text-center">
+  <div class="challenge-pitch-content">
+    <h3><%= @challenge.pitch %></h3>
+  </div>
+</div>
 
-<section id="tabTools" class="tabTools">
-  <dl class="tabs drop-shadow">
-    <%= render 'tab' %>
-  </dl>
+<%= render 'tab',
+  collaborators_count: @collaborators_count,
+  references_count: @challenge.total_references,
+  datasets_count: @datasets.count,
+  entries_count: @entries.count %>
 
-  <ul class="tabs-content">
-    <li class="active collaboratorsTTab" id="collaboratorsTTab">
-      <%= render 'collaborators' %>
-      <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: "showMore" %>
-    </li>
-    <li id="referencesTTab">
-      <%= render 'references' %>
-    </li>
-    <li id="datasetsTTab">
-      <%= render 'datasets' %>
-    </li>
-    <li id="entriesTTab">
-      <%= render 'entries' %>
-    </li>
-  </ul>
-</section>
+<div class="sheet-section">
+  <div class="challenge-tab-pane active" id="collaborators_tab_pane">
+    <div class="clearfix js-collaborators-container">
+      <%= render 'collaborators', collaborators: @collaborators %>
+    </div>
+    <%= link_to_next_page @collaborators, t('.show-more'), remote: true, class: 'js-more-collaborators btn btn-primary btn-lg' %>
+  </div>
+  <div class="challenge-tab-pane" id="references_tab_pane">
+    <%= render 'references', references: @challenge.references %>
+  </div>
+  <div class="challenge-tab-pane" id="datasets_tab_pane">
+    <%= render 'datasets', challenge: @challenge, datasets: @datasets %>
+  </div>
+  <div class="challenge-tab-pane" id="entries_tab_pane">
+    <%= render 'entries', challenge: @challenge, entries: @entries %>
+  </div>
+</div>
 
-<section id="needs" class="unit needs ">
-  <header>
-    <h2><%= t("challenges.form.needs") %></h2>
-  </header>
-  <div class="column left">
-    <div class="content">
-      <%= markdown @challenge.description %>
+<div class="challenge-subheader">
+  <h3><%= t('challenges.form.needs') %></h3>
+</div>
+
+<div class="sheet-section">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="challenge-needs">
+        <%= markdown @challenge.description %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="challenge-points">
+        <div class="challenge-points-header">
+          <h3><%= t("challenges.form.points") %></h3>
+        </div>
+        <ul>
+          <% if @challenge.first_spec.present? %>
+            <li><%= markdown @challenge.first_spec %></li>
+          <% end %>
+          <% if @challenge.second_spec.present? %>
+            <li><%= markdown @challenge.second_spec %></li>
+          <% end %>
+          <% if @challenge.third_spec.present? %>
+            <li><%= markdown @challenge.third_spec %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="column right">
-    <h3><%= t("challenges.form.points") %></h3>
-    <ul class="points">
-      <% if !@challenge.first_spec.blank? %>
-        <li><%= markdown @challenge.first_spec %></li>
-      <% end %>
-      <% if !@challenge.second_spec.blank? %>
-        <li><%= markdown @challenge.second_spec %></li>
-      <% end %>
-      <% if !@challenge.third_spec.blank? %>
-        <li><%= markdown @challenge.third_spec %></li>
-      <% end %>
-    </ul>
-  </div>
-</section>
+</div>
 
-<%= render "activities" %>
+<%= render 'activities' %>
+<%= render 'comments', challenge: @challenge %>
 
-<%= render "comments" %>
+<div class="challenge-footer text-center">
+  <h2><%= t(".supportus") %></h2>
 
-
-<section id="supportus" class="unit supportus ">
-  <header>
-    <h2><%= t(".supportus") %></h2>
-  </header>
-  <section>
+  <div class="challenge-actions">
     <%= like_section(@challenge) %>
-    <%= collaborate_section(@challenge)  %>
-  </section>
-</section>
+    <%= collaborate_section(@challenge) %>
+  </div>
+</div>

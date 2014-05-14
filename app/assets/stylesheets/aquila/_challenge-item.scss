@@ -1,0 +1,26 @@
+.challenge-item {
+  background-size: cover;
+  border: 1px solid #ffffff;
+  display: block;
+  height: 250px;
+  margin: 1.5em 0;
+  position: relative;
+
+  h3 {
+    padding: 0.5em;
+    color: #ffffff;
+    background-color: $brand-primary;
+    width: 90%;
+  }
+}
+
+.challenge-item-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.challenge-item-block {
+  padding: 0.5em;
+  background-color: #ffffff;
+}

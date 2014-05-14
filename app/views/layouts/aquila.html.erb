@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Codeando México</title>
+  <%= stylesheet_link_tag 'aquila', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top-message text-center">
+      <div class="container">
+        <strong><%= t('layout.question') %></strong>
+        <span><%= t('layout.brief') %></span>
+      </div>
+    </div>
+    <div class="main-navbar">
+      <div class="main-navbar-container container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+            <%= link_to root_url do %>
+              <%= image_tag 'logo.png', alt: t('layout.header') %>
+            <% end %>
+          </div>
+          <div class="col-md-4 col-sm-6 text-right">
+            <ul class="list-inline main-navbar-nav">
+              <li><%= link_to t('challenges.index.header'), challenges_url %></li>
+              <li><%= link_to 'Datos Abiertos', 'http://datamx.io' %></li>
+              <li><%= link_to 'Blog', 'http://blog.codeandomexico.org/' %></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <ul class="list-inline text-right">
+              <% if current_user %>
+                <li><%= link_to current_user, edit_current_user_path(current_user.userable) %></li>
+                <li><%= link_to t('layout.sign_out'), destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li>
+                <%= link_to signup_path do %>
+                  <%= t('layout.sign_in') %> <%= icon 'github' %> <%= icon 'twitter' %> <%= icon 'linkedin' %>
+                <% end %>
+                </li>
+              <% end %>
+              <li>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <%= I18n.locale %> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <% LANGUAGES.each do |k, val| %>
+                    <li><%= link_to val, set_language_path(i18n: {locale: k}), method: :post %></li>
+                  <% end %>
+                </ul>
+              </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container">
+        <% if alert %>
+          <div class="alert alert-danger">
+            <%= alert %>
+          </div>
+        <% end %>
+
+        <% if notice %>
+          <div class="alert alert-success">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </div>
+    <div class="push"></div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <%= raw t('layout.copyright') %>
+      <ul class="list-inline pull-right">
+        <li><%= link_to t('.twitter'), "https://www.twitter.com/codeandomexico" %></li>
+        <li><%= link_to "Blog", "http://blog.codeandomexico.org" %></li>
+        <li><%= link_to t('.contact_us'), "mailto:equipo@codeandomexico.org" %></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

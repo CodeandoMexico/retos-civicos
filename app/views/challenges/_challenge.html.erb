@@ -1,23 +1,20 @@
-<article class="column">
-  <div class="container challenge_box">
-    <%= link_to organization_challenge_path(challenge.organization.id, challenge) do %>
-
-      <div class="unit image">
-      <%= image_tag challenge.avatar.small %>
-      <h2><%= challenge.title.truncate(60) %></h2>
+<%= link_to organization_challenge_path(challenge.organization.id, challenge),
+  class: 'challenge-item',
+  style: "background-image: url(#{challenge.avatar_url(:small)})" do %>
+  <div class="challenge-item-content">
+    <h3><%= challenge.title.truncate(60) %></h3>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="challenge-item-block">
+          <span><%= t('home.index.get_involved') %></span>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="challenge-item-block">
+          <strong><%= challenge.collaborators.count %></strong>
+          <span><%= t("challenges.resources.collaborators") %></span>
+        </div>
+      </div>
     </div>
-
-    <div class="unit colaborate">
-      <span class="get">
-        <%= t('home.index.get_involved') %>
-      </span>
-      <span class="num">
-        <i class="icon-user"></i>
-        <em><%= challenge.collaborators.count %></em>
-        <%= t("challenges.resources.collaborators") %>
-      </span>
-    </div>
-
-  <% end %>
   </div>
-</article>
+<% end %>

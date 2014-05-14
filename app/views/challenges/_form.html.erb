@@ -1,171 +1,189 @@
-<div class="form_container">
-  <%= form_for [current_organization, @challenge] do |f| %>
-    <section id="form_main" class="form_main">
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :title, t(".title")  %>
-          </div>
-          <div class="column right">
-            <%= f.text_field :title %>
-          </div>
-        </div>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :pitch, t(".pitch")  %>
-            <p><%= t(".pitch-description") %></p>
-          </div>
-          <div class="column right" style="padding-top:30px;">
-            <%= f.text_field :pitch %>
-          </div>
-        </div>
+<%= form_for [current_organization, @challenge], html: { class: 'form-horizontal' } do |f| %>
+  <div class="sheet-section sheet-section-with-pad">
+    <%= f.error_messages %>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :avatar, t(".avatar") %>
-            <p><%= t(".avatar-description") %></p>
-          </div>
-          <div class="column right" style="padding-top:50px;">
-            <%= f.file_field :avatar %>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :title, t(".title"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :about, t(".about") %>
-            <p><%= t(".about-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :about %>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :pitch, t(".pitch"), class: 'control-label' %>
+        <span class="help-block"><%= t(".pitch-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :pitch, class: 'form-control' %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :status, t(".status") %>
-          </div>
-          <div class="column right">
-            <%= f.select(:status, status_for_challenge)%>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :avatar, t(".avatar"), class: 'control-label' %>
+        <span class="help-block"><%= t(".avatar-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :finish_date, t(".finish-date") %>
-          </div>
-          <div class="column right">
-            <%= f.text_field :finish_date %>
-          </div>
-        </div>
-      </section>
-    </section>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :about, t(".about"), class: 'control-label' %>
+        <span class="help-block"><%= t(".about-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_area :about, class: 'form-control', rows: 4 %>
+      </div>
+    </div>
 
-    <section id="form_needs" class="form_needs">
-      <header>
-        <h2><%= t(".needs") %></h2>
-      </header>
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <div class="container">
-              <%= f.label :description, t(".description") %>
-              <p><%= t(".description-description") %></p>
-              <%= f.text_area :description %>
-            </div>
-          </div>
-          <div class="column right">
-            <label><%= t(".points") %></label>
-            <p><%= t(".points-description") %></p>
-            <%= t(".point1") %>
-            <%= f.text_field :first_spec %>
-            <br />
-            <%= t(".point2") %>
-            <%= f.text_field :second_spec %>
-            <br />
-            <%= t(".point3") %>
-            <%= f.text_field :third_spec %>
-            <br />
-          </div>
-        </div>
-      </section>
-    </section>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :status, t(".status"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.select(:status, status_for_challenge, class: 'form-control') %>
+      </div>
+    </div>
 
-    <section id="form_resources" class="form_resources">
-      <header>
-        <h2><%= t(".resources") %></h2>
-      </header>
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :additional_links, t(".additional_links") %>
-            <p><%= t(".additional_links-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :additional_links, placeholder: t(".additional_links-placeholder"), rows: 3 %>
-          </div>
-        </div>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :dataset_id, t(".dataset_id")  %>
-            <p><%= t(".dataset_id-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_field :dataset_id %>
-          </div>
-        </div>
-      </section>
-    </section>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :finish_date, t(".finish-date"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :finish_date, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
 
-    <section class="form_resources">
-      <header>
-        <h2><%= t(".welcome_mail") %></h2>
-      </header>
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :subject, t(".welcome_mail_subject")  %>
-            <p><%= t(".welcome_mail_subject-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_field :subject %>
-          </div>
-        </div>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :body, t(".welcome_mail_body") %>
-            <p><%= t(".welcome_mail_body-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :body, rows: 5 %>
-          </div>
-        </div>
+  <div class="sheet-subheader">
+    <h3><%= t(".needs") %></h3>
+  </div>
 
-      </section>
-    </section>
+  <div class="sheet-section sheet-section-with-pad">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :description, t(".description"), class: 'control-label' %>
+        <span class="help-block"><%= t(".description-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_area :description, class: 'form-control', rows: 4 %>
+      </div>
+    </div>
 
-    <% if controller.action_name == "edit" %>
-      <section id="form_activities" class="form_activities">
-        <header>
-          <h2><%= t(".activities") %></h2>
-        </header>
-        <section>
-          <%= f.fields_for :activities do |a| %>
-            <%= a.label :title, t(".activities-title") %>
-            <%= a.text_field :title %>
-            <%= a.label :text, t(".activities-description") %>
-            <%= a.text_area :text, rows: 2 %>
-            <hr />
-          <% end %>
-        </section>
-      </section>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <label class="control-label"><%= t(".points") %></label>
+        <span class="help-block"><%= t(".points-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= t(".point1") %>
+        <%= f.text_field :first_spec, class: 'form-control' %>
+        <br />
+        <%= t(".point2") %>
+        <%= f.text_field :second_spec, class: 'form-control' %>
+        <br />
+        <%= t(".point3") %>
+        <%= f.text_field :third_spec, class: 'form-control' %>
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-subheader">
+    <h3><%= t(".resources") %></h3>
+  </div>
+  <div class="sheet-section sheet-section-with-pad">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :additional_links, t(".additional_links"), class: 'control-label' %>
+        <span class="help-block"><%= t(".additional_links-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_area :additional_links, class: 'form-control', placeholder: t(".additional_links-placeholder"), rows: 3 %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :dataset_id, t(".dataset_id"), class: 'control-label' %>
+        <p><%= t(".dataset_id-description") %></p>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :dataset_id, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-subheader">
+    <h3><%= t(".welcome_mail") %></h3>
+  </div>
+  <div class="sheet-section sheet-section-with-pad">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :subject, t(".welcome_mail_subject"), class: 'control-label' %>
+        <span class="help-block"><%= t(".welcome_mail_subject-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :subject, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :body, t(".welcome_mail_body"), class: 'control-label' %>
+        <span class="help-block"><%= t(".welcome_mail_body-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_area :body, rows: 5, class: 'form-control' %>
+      </div>
+    </div>
+
+    <% unless controller.action_name == "edit" %>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
     <% end %>
+  </div>
 
-    <section id="form_save" class="form_save">
-      <%= f.submit t(".submit") %>
-    </section>
+  <% if controller.action_name == "edit" %>
+    <div class="sheet-subheader">
+      <h3><%= t(".activities") %></h3>
+    </div>
+    <div class="sheet-section sheet-section-with-pad">
+      <%= f.fields_for :activities do |a| %>
+        <div class="form-group">
+          <div class="col-sm-3">
+            <%= a.label :title, t(".activities-title"), class: 'control-label' %>
+          </div>
+          <div class="col-sm-9">
+            <%= a.text_field :title, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-3">
+            <%= a.label :text, t(".activities-description"), class: 'control-label' %>
+          </div>
+          <div class="col-sm-9">
+            <%= a.text_area :text, rows: 2, class: 'form-control' %>
+          </div>
+        </div>
+        <hr/>
+      <% end %>
 
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>
 <script>
   $(function() {
     $( "#challenge_dataset_id" ).tokenInput("<%= CKAN_API_BASE + '/action/package_search' %>", {

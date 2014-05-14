@@ -1,0 +1,25 @@
+.main-navbar {
+  @extend .clearfix;
+  background-color: #ffffff;
+  border-bottom: 5px solid $brand-primary;
+  color: $brand-success;
+  font-size: 1.1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.main-navbar-container {
+  line-height: 50px;
+}
+
+.main-navbar-nav {
+  text-shadow: 0 1px $gray-lighter;
+}

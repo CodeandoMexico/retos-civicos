@@ -18,4 +18,5 @@
 //= require vendor
 //= require timelineJS/embed
 //= require bootstrap/dropdown
+//= require bootstrap/tab
 //= require_tree .

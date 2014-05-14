@@ -1,17 +1,19 @@
-<% if @entries.empty? %>
+<% if entries.empty? %>
   <%= t(".non-entries") %>
 <% else %>
-  <div class="unit">
-    <% @entries.each do |e| %>
-      <div class="dataset-teaser">
-        <%= image_tag(e.entry_logo.url, :class=>"dataset-teaser-logo") %>
-        <div class='dataset-teaser-info' >
-          <%= link_to e.name.truncate(43), challenge_entry_path(@challenge, e) %>
-          <p><%= e.description.truncate(95) %><br/>
-          <%= link_to t(".repo"), e.github_url if e.github_url %> | <%= link_to t(".demo"), e.live_demo_url if e.live_demo_url%>
-          </p>
-        </div>
+  <% entries.each do |entry| %>
+    <div class="media">
+      <%= link_to challenge_entry_path(challenge, entry), class: 'pull-left' do %>
+        <%= image_tag entry.entry_logo_url, class: 'media-object' %>
+      <% end %>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to entry.name, challenge_entry_path(challenge, entry) %>
+        </h4>
+        <p><%= truncate entry.description, length: 200 %></p>
+        <%= link_to t(".repo"), entry.github_url if entry.github_url %> |
+        <%= link_to t(".demo"), entry.live_demo_url if entry.live_demo_url%>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 <% end %>

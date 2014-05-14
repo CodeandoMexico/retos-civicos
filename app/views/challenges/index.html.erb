@@ -1,26 +1,26 @@
-<section id="index_challenges" class="index_challenges">
-  <header class='clearfix'>
-    <h1 class='title'><%= t('.header') %></h1>
-    <ul class="inline-list">
-      <li><%= link_to t('.active'), challenges_path(active: 1), class: "#{check_filter('active')} success label round" %></li>
-      <li><%= link_to t('.popular'), challenges_path(popular: 1), class: "#{check_filter('popular')} success label round" %></li>
-      <li><%= link_to t('.recent'), challenges_path(recent: 1), class: "#{check_filter('recent')} success label round" %></li>
-      <li><%= link_to t('.inactive'), challenges_path(inactive: 1), class: "#{check_filter('inactive')} success label round" %></li>
-    </ul>
-  </header>
-
-
-  <section id="challenges_list" class="columns on-3 challenges_list gray">
-    <%= render @challenges %>
-  </section>
-  <section id="paginator", class="paginator">
-    <%= paginate @challenges%>
-  </section>
-
-</section>
-
 <% if can? :create, Challenge %>
-  <section id="new_challenge" class="unit new_challenge">
-    <%= link_to t('.new_challenge'), new_organization_challenge_path(current_organization) %>
-  </section>
+  <div id="new_challenge" class="pull-right">
+    <%= link_to t('.new_challenge'), new_organization_challenge_path(current_organization), class: 'btn btn-lg btn-primary' %>
+  </div>
 <% end %>
+
+<h1><%= t('.header') %></h1>
+
+<ul class="nav nav-pills">
+  <li class="<%= check_filter('active') %>"><%= link_to t('.active'), challenges_path(active: 1) %></li>
+  <li class="<%= check_filter('popular') %>"><%= link_to t('.popular'), challenges_path(popular: 1) %></li>
+  <li class="<%= check_filter('recent') %>"><%= link_to t('.recent'), challenges_path(recent: 1) %></li>
+  <li class="<%= check_filter('inactive') %>"><%= link_to t('.inactive'), challenges_path(inactive: 1) %></li>
+</ul>
+
+<div id="challenges_list" class="row">
+  <% @challenges.each do |challenge| %>
+    <div class="col-sm-6 col-md-4">
+      <%= render challenge %>
+    </div>
+  <% end %>
+</div>
+
+<div id="paginator">
+  <%= paginate @challenges%>
+</div>

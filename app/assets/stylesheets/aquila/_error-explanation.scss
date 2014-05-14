@@ -1,0 +1,14 @@
+.errorExplanation, #error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+
+  h2 {
+    @extend .h4;
+    font-weight: bold;
+  }
+
+  p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}

@@ -34,7 +34,7 @@ feature "Commenting on challenge" do
     within '#challenge_comments_container' do
       click_link 'Comentar'
       fill_in 'comment[body]', with: 'This is my comment!'
-      click_link 'Comentar'
+      click_button 'Comentar'
     end
     page.should have_content 'Gracias por tus comentarios'
     ActionMailer::Base.deliveries.size.should be 1

@@ -14,6 +14,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
+    render layout: 'aquila'
   end
 
   def update
@@ -22,7 +23,7 @@ class OrganizationsController < ApplicationController
     if @organization.update_attributes(params[:organization])
       redirect_to new_organization_challenge_path(@organization), notice: t('flash.organizations.updated')
     else
-      render :edit
+      render :edit, layout: 'aquila'
     end
   end
 

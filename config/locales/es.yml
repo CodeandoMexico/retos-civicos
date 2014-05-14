@@ -218,6 +218,7 @@ es:
       reply: Responder
       mychallenge: Mi Reto
       like: Me gusta
+      cancel: Cancelar
     collaborating: Te has unido al reto
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
     status:
@@ -314,6 +315,7 @@ es:
     voted: Tu voto se ha registrado
     comment:
       reply: 'Comentar '
+      cancel: Cancelar
     truncate:
       less: ocultar
       more: ver completo
