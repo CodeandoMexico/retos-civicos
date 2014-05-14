@@ -41,11 +41,11 @@
 
   <div class="form-group">
     <div class="col-sm-3">
-      <%= f.label :github_url, t(".github-url"), class: 'control-label' %>
-      <span class="help-block"><%= t(".github-url-description") %></span>
+      <%= f.label :technologies, t(".technologies"), class: 'control-label' %>
+      <span class="help-block"><%= t(".technologies-description") %></span>
     </div>
     <div class="col-sm-9">
-      <%= f.text_field :github_url, required: true, class: 'form-control' %>
+      <%= f.text_area :technologies, required: true, class: 'form-control' %>
     </div>
   </div>
 
@@ -61,33 +61,12 @@
 
   <div class="form-group">
     <div class="col-sm-3">
-      <%= f.label :entry_logo, t(".entry-logo"), class: 'control-label'  %>
-      <span class="help-block"><%= t(".entry-logo-description") %></span>
-    </div>
-    <div class="col-sm-9">
-      <%= image_tag @entry.entry_logo.url %>
-      <%= f.file_field :entry_logo %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-3">
       <%= f.label :image, t(".image"), class: 'control-label' %>
       <span class="help-block"><%= t(".image-description") %></span>
     </div>
     <div class="col-sm-9">
       <%= image_tag @entry.image_url, width: 300 %>
       <%= f.file_field :image %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-3">
-      <%= f.label :team_members, t(".team-members"), class: 'control-label' %>
-      <span class="help-block"><%= t(".team-members-description") %></span>
-    </div>
-    <div class="col-sm-9">
-      <%= f.text_area :team_members, class: 'form-control', rows: 3 %>
     </div>
   </div>
 

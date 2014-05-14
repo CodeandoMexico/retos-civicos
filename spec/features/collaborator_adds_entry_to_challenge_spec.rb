@@ -53,7 +53,7 @@ feature 'Collaborator adds entry to challenge' do
   end
 
   def app_should_not_be_counted_yet
-    within '.tabs' do
+    within '.challenge-tabs' do
       page.should have_content '0 App'
     end
   end
