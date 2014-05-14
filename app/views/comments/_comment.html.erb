@@ -29,7 +29,7 @@
     <div class="media-body">
       <div class="comment-item-body">
         <h4 class="media-heading comment-item-title"><%= link_to comment.user, comment.user.profile_url, target: '_blank' %></h4>
-        <span class="text-muted">- <%= l comment.created_at, format: :long %></span>
+        <small class="text-muted">- <%= l comment.created_at, format: :long %></small>
         <p><%= comment.body_html %></p>
       </div>
 
@@ -40,7 +40,7 @@
           <% end %>
           <div class="media-body">
             <h4 class="media-heading comment-item-title"><%= link_to comment.user, comment.user.profile_url, target: '_blank' %></h4>
-            <span class="text-muted">- <%= l comment.created_at, format: :long %></span>
+            <small class="text-muted">- <%= l comment.created_at, format: :long %></small>
             <p><%= comment.body_html %></p>
           </div>
         </div>
@@ -55,7 +55,7 @@
 
           <div class="media-body">
             <h4 class="media-heading comment-item-title"><%= current_user %></h4>
-            <span class="text-muted">- <%= l Time.zone.now, format: :long %></span>
+            <small class="text-muted">- <%= l Time.zone.now, format: :long %></small>
             <%= form_for [challenge, Comment.new], method: :post,
               url: reply_challenge_comment_path(challenge, comment, parent: comment) do |form| %>
 
