@@ -14,9 +14,11 @@ class ChallengesController < ApplicationController
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
     @challenges = ch.page(params[:page])
+    render layout: 'aquila'
   end
 
   def new
+    render layout: 'aquila'
   end
 
   def show
@@ -26,19 +28,22 @@ class ChallengesController < ApplicationController
     @entries = @challenge.entries.public
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators
-    @collabcount = @collaborators.count
+
+    @collaborators_count = @collaborators.count
     @collaborators = @collaborators.order(:created_at).page(params[:page])
+    render layout: 'aquila'
   end
 
   def edit
     @activity = @challenge.activities.build
+    render layout: 'aquila'
   end
 
   def create
     if @challenge.save
       redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
-      render :new
+      render :new, layout: 'aquila'
     end
   end
 
@@ -46,7 +51,7 @@ class ChallengesController < ApplicationController
     if @challenge.update_attributes(params[:challenge])
       redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
-      render :edit
+      render :edit, layout: 'aquila'
     end
   end
 
@@ -93,5 +98,4 @@ class ChallengesController < ApplicationController
   def save_previous
     store_location(request.referer) unless user_signed_in?
   end
-
 end

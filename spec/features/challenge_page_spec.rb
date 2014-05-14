@@ -8,7 +8,6 @@ feature "Commenting on challenge" do
 
   background do
     sign_in_user(member.user, password: 'password')
-    create :collaboration, member: member, challenge: challenge
   end
 
   scenario "Can comment", js: true do
@@ -35,7 +34,7 @@ feature "Commenting on challenge" do
     within '#challenge_comments_container' do
       click_link 'Comentar'
       fill_in 'comment[body]', with: 'This is my comment!'
-      click_link 'Comentar'
+      click_button 'Comentar'
     end
     page.should have_content 'Gracias por tus comentarios'
     ActionMailer::Base.deliveries.size.should be 1

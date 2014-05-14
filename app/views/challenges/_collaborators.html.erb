@@ -1,7 +1,7 @@
-<% if @challenge.collaborators.blank? %>
+<% if collaborators.blank? %>
   <%= t(".non-collaboration") %>
 <% else %>
-  <div class="unit row collabrow">
-    <%= render 'collaborator' %>
-  </div>
+  <% collaborators.each do |collaborator| %>
+    <%= render 'collaborator', collaborator: collaborator %>
+  <% end %>
 <% end %>

@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   load_and_authorize_resource
 
   def edit
+    render layout: 'aquila'
   end
 
   def update
@@ -9,8 +10,7 @@ class MembersController < ApplicationController
       @member.confirm! if @member.unconfirmed_email.present?
       redirect_back_or challenges_path, t('flash.members.updated')
     else
-      render :edit
+      render :edit, layout: 'aquila'
     end
   end
-
 end

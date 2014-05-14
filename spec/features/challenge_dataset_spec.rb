@@ -19,12 +19,13 @@ feature "Challenges Datasets" do
     click_button "Publicar"
 
     #ver un dataset
-    within '.tabs' do
+    within '.challenge-tabs' do
       page.should have_content '1 Dataset'
     end
     click_link '1 Dataset'
-    within '#datasetsTTab' do
-      find(".dataset-teaser")
+
+    within '#datasets_tab_pane' do
+      find("[data-dataset-teaser]")
     end
   end
 end

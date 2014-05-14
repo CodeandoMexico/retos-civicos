@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 
 gem 'foreman'
 gem 'pg'
@@ -39,6 +39,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'timelineJS-rails', '~> 1.1.1'
   gem 'bootstrap-sass', '~> 3.1.1'
+  gem 'font-awesome-sass'
 end
 
 group :development do

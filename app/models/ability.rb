@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new 
+    user ||= User.new
 
     # Visitor access
     can [:edit, :update, :define_role, :set_role], User do |u|
@@ -53,9 +53,7 @@ class Ability
 
       #Comment creation for members, restricting access through challenge
       can [:create, :reply], Comment
-      can [:create_or_reply_challenge_comment], Challenge do |challenge|
-        user.collaborating_in? challenge
-      end
+      can [:create_or_reply_challenge_comment], Challenge
 
       #Entry access
       can [:create], Entry

@@ -1,3 +1,9 @@
+window.closeChallengeCommentsForm = ->
+  form = $('#new_comment')
+  openButton = $('.js-open-comments-form')
+  form.find('textarea').val('')
+  form.slideUp => openButton.show()
+
 $ ->
 
   setTimeout ->
@@ -33,3 +39,28 @@ $ ->
   $("nav").on "click", "a.social-link", ->
     window.open(this, "", "width=500,height=500");
     false
+
+  $(document).on 'click', '.js-open-comments-form', (e) ->
+    e.preventDefault()
+    button = $(this)
+    form = $('#new_comment')
+    button.hide()
+    form.slideDown()
+
+  $(document).on 'click', '.js-close-comments-form', (e) ->
+    e.preventDefault()
+    closeChallengeCommentsForm()
+
+  $(document).on 'click', '.js-open-reply-form', (e) ->
+    e.preventDefault()
+    button = $(this)
+    form = $(this).siblings('.js-reply-form')
+    button.hide()
+    form.fadeIn()
+
+  $(document).on 'click', '.js-close-reply-form', (e) ->
+    e.preventDefault()
+    form = $(this).parents('.js-reply-form')
+    button = form.siblings('.js-open-reply-form')
+    form.find('textarea').val('')
+    form.fadeOut => button.show()

@@ -1,0 +1,93 @@
+$brand-success: #5cb85c;
+$brand-primary: #77b433;
+$brand-dark: #507822;
+
+@import 'bootstrap';
+@import "timelineJS/timeline";
+@import "token-input";
+@import "jquery.ui.datepicker";
+
+@import 'aquila/forms';
+@import 'aquila/main-navbar';
+@import 'aquila/sheet';
+@import 'aquila/format-label';
+@import 'aquila/challenge';
+@import 'aquila/challenge-hightlight';
+@import 'aquila/challenge-tabs';
+@import 'aquila/challenge-points';
+@import 'aquila/comments-form';
+@import 'aquila/comment-item';
+@import 'aquila/reply-form';
+@import 'aquila/reply-item';
+@import 'aquila/votes';
+@import 'aquila/challenge-item';
+@import 'aquila/error-explanation';
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $gray-lighter;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+.top-message {
+  background: $gray-lighter;
+  padding: 0.6em 0;
+  line-height: 1.5;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -3.5em; /* the bottom margin is the negative value of the footer's height */
+
+  @media (max-width: $screen-sm-min) {
+    margin: 0 auto 5em;
+  }
+}
+
+.footer, .push {
+  height: 3.5em; /* .push must be the same height as .footer */
+
+  @media (max-width: $screen-sm-min) {
+    height: 5em;
+  }
+}
+
+.footer {
+  background-color: $gray;
+  color: $gray-lighter;
+  padding: 1em;
+
+  a {
+    color: $gray-lighter;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.main {
+  background-color: $gray-lighter;
+  padding: 3em 0;
+}
+
+.centered-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.avatar-thumb {
+  width: 60px;
+  height: 60px;
+}

@@ -1,9 +1,7 @@
 <span id="activities_json" data-json='<%= @challenge.timeline_json.to_json %>'></span>
-<section id="activities" class="activities row">
-  <header>
-    <h2><%= t("challenges.form.activities") %></h2>
-  </header>
-  <section>
-    <div id="timeline"></div>
-  </section>
-</section>
+<div class="challenge-subheader">
+  <h3><%= t("challenges.form.activities") %></h3>
+</div>
+<div id="activities" class="sheet-section">
+  <div id="timeline"></div>
+</div>

@@ -13,7 +13,7 @@ feature "Ajax load collaborators" do
     }
     visit challenge_path(collaborators.first.challenge_id)
 
-    within '#collaboratorsTTab' do
+    within '#collaborators_tab_pane' do
       page.should have_css("img[alt='#{collaborators[0].member.name}']")
       page.should_not have_css("img[alt='#{collaborators[1].member.name}']")
       click_link 'Mostrar más'

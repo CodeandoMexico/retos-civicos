@@ -215,6 +215,7 @@ es:
       reply: Responder
       mychallenge: Mi Reto
       like: Me gusta
+      cancel: Cancelar
     collaborating: Te has unido al reto
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
     status:
@@ -313,6 +314,7 @@ es:
     voted: Tu voto se ha registrado
     comment:
       reply: 'Comentar '
+      cancel: Cancelar
     truncate:
       less: ocultar
       more: ver completo
@@ -349,7 +351,7 @@ es:
       email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
       name: Nombre completo
       bio: Bio
-      bio-description: Háblanos un poco sobre ti en 140 caracteres
+      bio-description: Háblanos un poco sobre tí
       avatar: Imagen perfil
       avatar-description: Tu foto de identidad en Codeando México
     csv_filename: participantes-%{organization}-organizacion.csv

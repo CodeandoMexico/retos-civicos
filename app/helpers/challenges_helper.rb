@@ -17,27 +17,26 @@ module ChallengesHelper
     if user_signed_in?
       userable = current_user.userable
       if userable == challenge.organization
-        link_to t("helpers.edit"), edit_organization_challenge_path(@challenge.organization, @challenge)
+        link_to t("helpers.edit"), edit_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
       elsif userable.has_submitted_app?(challenge)
-        link_to t("helpers.edit_entry"), edit_challenge_entry_path(challenge, userable.entry_for(challenge))
+        link_to t("helpers.edit_entry"), edit_challenge_entry_path(challenge, userable.entry_for(challenge)), class: 'btn btn-primary'
       elsif current_user.collaborating_in?(challenge)
-        link_to t("helpers.submit_app"), new_challenge_entry_path(challenge)
+        link_to t("helpers.submit_app"), new_challenge_entry_path(challenge), class: 'btn btn-primary'
       else
-        link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: "collaborate"
+        link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
       end
     else
-      link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post
+      link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
     end
   end
 
   def newsletter_helper(challenge)
     if user_signed_in? and current_user.userable == challenge.organization
-      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge)
+      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
     end
   end
 
   def check_filter(filter)
     params[filter].nil? ? '' : 'active'
   end
-
 end

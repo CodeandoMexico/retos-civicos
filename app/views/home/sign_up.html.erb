@@ -1,18 +1,32 @@
-<section id="main-wrap">
-  <div class="unit login-wrap">
-    <div class="container holder">
-      <section class="login-box">
-        <header>
-          <h1>Sign up / Log in</h1>
-        </header>
-        <div class="login-content">
-          <p><%= I18n.t("signup.choose_provider") %></p>
-          <p><%= link_to user_omniauth_authorize_path(:github), :class => "github" do %><i class="icon-github"></i> <%= t("signup.with_github") %><% end %></p>
-          <p><%= link_to user_omniauth_authorize_path(:twitter), :class => "twitter" do %><i class="icon-twitter"></i> <%= t("signup.with_twitter") %><% end %></p>
-          <p><%= link_to user_omniauth_authorize_path(:linkedin), :class => "linkedin" do %><i class="icon-linkedin"></i> <%= t("signup.with_linkedin") %><% end %></p>
-          <p><%= link_to new_user_session_path, :class => "github" do %><i class="icon-envelope-alt"></i> <%= t("signup.with_email") %><% end %></p>
-        </div>
-      </section>
-    </div>
+<div class="centered-form">
+  <div class="sheet-header text-center">
+    <h1 class="sheet-title">Sign up / Log in</h1>
   </div>
-</section>
+  <div class="sheet-section sheet-section-with-pad">
+    <p><%= I18n.t("signup.choose_provider") %></p>
+
+    <p>
+    <%= link_to user_omniauth_authorize_path(:github), class: 'btn btn-primary btn-lg btn-block' do %>
+      <%= icon 'github' %> <%= t("signup.with_github") %>
+    <% end %>
+    </p>
+
+    <p>
+    <%= link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-primary btn-lg btn-block' do %>
+      <%= icon 'twitter' %> <%= t("signup.with_twitter") %>
+    <% end %>
+    </p>
+
+    <p>
+    <%= link_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg btn-block' do %>
+      <%= icon 'linkedin' %> <%= t("signup.with_linkedin") %>
+    <% end %>
+    </p>
+
+    <p>
+    <%= link_to new_user_session_path, class: 'btn btn-primary btn-lg btn-block' do %>
+      <%= icon 'envelope' %> <%= t("signup.with_email") %>
+    <% end %>
+    </p>
+  </div>
+</div>

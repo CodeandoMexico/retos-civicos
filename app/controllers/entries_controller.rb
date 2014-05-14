@@ -13,11 +13,13 @@ class EntriesController < ApplicationController
     @challenge = Challenge.find params[:challenge_id]
     redirect_if_has_submitted_app
     @entry = @challenge.entries.build
+    render layout: 'aquila'
   end
 
   def edit
     @challenge = Challenge.find params[:challenge_id]
     @entry = Entry.find params[:id]
+    render layout: 'aquila'
   end
 
   def create
@@ -27,17 +29,18 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to challenge_entry_path(@entry.challenge, @entry), notice: I18n.t("flash.entries.created_successfully")
     else
-      render :new
+      render :new, layout: 'aquila'
     end
   end
 
   def update
+    @challenge = Challenge.find params[:challenge_id]
     @entry = Entry.find params[:id]
     authorize! :update, @entry
     if @entry.update_attributes(params[:entry])
       redirect_to challenge_entry_path(@entry.challenge, @entry), notice: I18n.t("flash.entries.updated_successfully")
     else
-      render :edit
+      render :edit, layout: 'aquila'
     end
   end
 
