@@ -5,6 +5,10 @@ class ChallengesController < ApplicationController
   before_filter :save_previous, only: [:like]
 
   def index
+    # comment next two lines to enable aquila default behavior
+    last_challenge = Challenge.last
+    redirect_to challenge_path(:id => last_challenge)
+
     ch = Challenge.recent
     ch = Challenge.active if params[:active]
     ch = Challenge.inactive if params[:inactive]
