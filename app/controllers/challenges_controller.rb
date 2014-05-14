@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
     @challenges = ch.page(params[:page])
+    render layout: 'aquila'
   end
 
   def new
@@ -92,5 +93,4 @@ class ChallengesController < ApplicationController
   def save_previous
     store_location(request.referer) unless user_signed_in?
   end
-
 end

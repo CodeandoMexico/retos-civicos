@@ -55,5 +55,4 @@ module ChallengesHelper
   def check_filter(filter)
     params[filter].nil? ? '' : 'active'
   end
-
 end
