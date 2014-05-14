@@ -9,7 +9,7 @@
 
     <div class="wrapper">
       <div class="unit comment_form cbox">
-        <% if user_signed_in? and current_user.collaborating_in?(@challenge) %>
+        <% if user_signed_in? %>
           <%= form_for [@challenge, Comment.new], remote: true do |f| %>
             <div class="column left info">
               <%= image_tag current_user.image_url(:thumb) %>
