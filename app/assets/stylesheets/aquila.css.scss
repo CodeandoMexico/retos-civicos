@@ -19,15 +19,53 @@ $brand-dark: #507822;
 @import 'aquila/votes';
 @import 'aquila/challenge-item';
 
+html {
+  height: 100%;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
   background-color: $gray-lighter;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 .top-message {
   background: $gray-lighter;
   padding: 0.6em 0;
   line-height: 1.5;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -3.5em; /* the bottom margin is the negative value of the footer's height */
+
+  @media (max-width: $screen-sm-min) {
+    margin: 0 auto 5em;
+  }
+}
+
+.footer, .push {
+  height: 3.5em; /* .push must be the same height as .footer */
+
+  @media (max-width: $screen-sm-min) {
+    height: 5em;
+  }
+}
+
+.footer {
+  background-color: $gray;
+  color: $gray-lighter;
+  padding: 1em;
+
+  a {
+    color: $gray-lighter;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 .main {
