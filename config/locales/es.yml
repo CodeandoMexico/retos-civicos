@@ -288,8 +288,8 @@ es:
     sign_in: Iniciar Sesión
     sign_out: Salir
     welcome: Hola
-    terms_of_service: Términos de Servicio
     description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
+  terms_of_service: Términos de Servicio
   signup:
     choose_provider: Selecciona alguno de los siguientes servicios para iniciar sesión
     with_github: Inicia con Github
