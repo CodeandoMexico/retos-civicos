@@ -1,3 +1,3 @@
-<%= link_to "Twitter", "http://twitter.com/home?status=#{t('layout.description')}+#{challenges_es_url(@challenge)}", :class => 'social-link' %>
-<%= link_to "Facebook", "http://www.facebook.com/sharer/sharer.php?p[url]=#{challenges_es_url(@challenge)}&p[title]=#{@challenge.title}&p[description]=#{t('layout.description')}", :class => 'social-link' %>
-<%= link_to "Google +", "http://plus.google.com/share?url=#{challenges_es_url(@challenge)}", :class => 'social-link' %>
+<%= link_to "<i class='fa fa-twitter-square fa-2x'></i>".html_safe, "http://twitter.com/home?status=#{t('layout.description')}+#{challenges_es_url(@challenge)}", :class => 'social-link' %>
+<%= link_to "<i class='fa fa-facebook-square fa-2x'></i>".html_safe, "http://www.facebook.com/sharer/sharer.php?p[url]=#{challenges_es_url(@challenge)}&p[title]=#{@challenge.title}&p[description]=#{t('layout.description')}", :class => 'social-link' %>
+<%= link_to "<i class='fa fa-google-plus-square fa-2x'></i>".html_safe, "http://plus.google.com/share?url=#{challenges_es_url(@challenge)}", :class => 'social-link' %>

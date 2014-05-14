@@ -1,10 +1,10 @@
-<div class="navbar">
-  <div class="navbar-content">
-    <%= link_to root_url, class: 'navbar-logo' do %>
+<div class="main-navbar">
+  <div class="container">
+    <%= link_to root_url, class: 'main-navbar-logo' do %>
       <%= image_tag 'logos-horizontal/retos_logo_horizontal-03.png', alt: t('layout.header') %>
     <% end %>
 
-    <ul class="navbar-menu navbar-menu-last">
+    <ul class="main-navbar-menu main-navbar-menu-last">
       <% if current_user %>
         <li><%= link_to current_user, edit_current_user_path(current_user.userable) %></li>
         <li><%= link_to t('layout.sign_out'), destroy_user_session_path, method: :delete %></li>
@@ -12,7 +12,7 @@
         <li><%= link_to t('layout.sign_in'), signup_path %></li>
       <% end %>
     </ul>
-    <ul class="navbar-menu">
+    <ul class="main-navbar-menu">
       <li class=""><%= link_to t('challenges.index.header'), challenges_url %></li>
     </ul>
   </div>

@@ -1,6 +1,6 @@
-$brand-success: #5cb85c;
-$brand-primary: #77b433;
-$brand-dark: #507822;
+$brand-success: #00e15a;
+$brand-primary: #00e15a;
+$brand-dark: #11ad00;
 
 @import 'bootstrap';
 @import "timelineJS/timeline";
@@ -8,7 +8,6 @@ $brand-dark: #507822;
 @import "jquery.ui.datepicker";
 
 @import 'aquila/forms';
-@import 'aquila/main-navbar';
 @import 'aquila/sheet';
 @import 'aquila/format-label';
 @import 'aquila/challenge';
@@ -22,6 +21,10 @@ $brand-dark: #507822;
 @import 'aquila/votes';
 @import 'aquila/challenge-item';
 @import 'aquila/error-explanation';
+
+@import "retos-publicos/main-navbar";
+@import "retos-publicos/sheet";
+@import "retos-publicos/social-link";
 
 html {
   height: 100%;

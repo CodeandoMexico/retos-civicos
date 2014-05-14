@@ -1,19 +1,14 @@
-.navbar {
+.main-navbar {
   background: #ffffff;
   overflow: hidden;
 }
 
-.navbar-content {
-  margin: auto;
-  width: 960px;
-}
-
-.navbar-logo img {
+.main-navbar-logo img {
   width: 250px;
   padding: 0.5em;
 }
 
-.navbar-menu {
+.main-navbar-menu {
   float: right;
   list-style: none;
   margin: 0;
@@ -27,11 +22,11 @@
     text-shadow: 0 1px #eeeeee;
 
     > a {
-      color: $darkGreen;
+      color: $brand-dark;
     }
   }
 }
 
-.navbar-menu-last {
+.main-navbar-menu-last {
   border-left: 1px solid #eeeeee;
 }
