@@ -284,6 +284,7 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     welcome: Hello
+  terms_of_service: Terms of Service
   signup:
     choose_provider: Choose one of the following providers to sign in.
     with_github: Sign in with Github

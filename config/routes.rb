@@ -64,6 +64,7 @@ Aquila::Application.routes.draw do
   end
 
   match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
+  match "/terms_of_service" => 'home#terms_of_service', via: :get, as: 'terms_of_service'
 
   root :to => 'challenges#index'
 
