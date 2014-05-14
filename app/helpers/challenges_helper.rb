@@ -13,20 +13,6 @@ module ChallengesHelper
     challenge.organization == current_organization
   end
 
-  def like_section(challenge)
-    if user_signed_in? and current_user.voted_for?(challenge)
-      link_to "", class: "like" do
-	"<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
-      end
-    elsif user_signed_in?
-      link_to like_challenge_path(challenge), method: :post, class: "like", remote: true do
-	"<i class=\"icon-thumbs-up\"></i>".html_safe+challenge.likes_counter.to_s
-      end
-    else
-      link_to t("challenges.like"), like_challenge_path(challenge), method: :post, class: "like"
-    end
-  end
-
   def collaborate_section(challenge)
     if user_signed_in?
       userable = current_user.userable

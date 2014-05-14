@@ -29,3 +29,7 @@ $ ->
       $(".comments .comment_form textarea").focus();
     $(@).toggleClass "active"
     false
+
+  $("nav").on "click", "a.social-link", ->
+    window.open(this, "", "width=500,height=500");
+    false
