@@ -2,12 +2,12 @@
   @include clearfix;
   background-color: $brand-primary;
   color: #ffffff;
-  padding: 2em 1em;
+  padding: 2em;
 }
 
 .sheet-title {
   margin-top: 0;
-  margin-bottom: 0.3em;
+  margin-bottom: 0;
 }
 
 .sheet-section {
@@ -16,7 +16,7 @@
 }
 
 .sheet-section-with-pad {
-  padding: 1.5em;
+  padding: 2em;
 }
 
 .sheet-section-title {
