@@ -1,64 +1,54 @@
-<div class="form_container">
-  <%= form_for @organization do |f| %>
-    <section id="form_main" class="form_main">
-      <%= f.error_messages %>
+<%= form_for @organization, html: { class: 'form-horizontal' } do |f| %>
+  <div class="sheet-section sheet-section-with-pad">
+    <%= f.error_messages %>
 
-      <section>
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :name, t(".name")  %>
-          </div>
-          <div class="column right">
-            <%= f.text_field :name %>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :name, t(".name"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :email, t(".email")  %>
-            <p><%= t(".email-description") %></p>
-          </div>
-          <div class="column right" style="padding-top:30px;">
-            <%= f.text_field :email %>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :email, t(".email"), class: 'control-label' %>
+        <span class="help-block"><%= t(".email-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
 
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :bio, t(".bio"), class: 'control-label' %>
+        <span class="help-block"><%= t(".bio-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_area :bio, class: 'form-control', rows: 4 %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :bio, t(".bio") %>
-            <p><%= t(".bio-description") %></p>
-          </div>
-          <div class="column right">
-            <%= f.text_area :bio %>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :avatar, t(".avatar"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= image_tag @organization.image_url(:profile) %>
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
 
-        <div class="unit row">
-          <div class="column left">
-            <%= f.label :avatar, t(".avatar") %>
-          </div>
-          <div class="column right">
-            <%= f.file_field :avatar %>
-            <div style="padding-top:20px;">
-              <%= image_tag @organization.image_url(:profile) %>
-            </div>
-          </div>
-        </div>
-
-        <div class="unit row">
-          <div class="column left"></div>
-        </div>
-      </section>
-    </section>
-
-    <section id="form_save" class="form_save">
-      <% if params[:new_user] %>
-        <%= f.submit t(".to_challenge_creation") %>
-      <% else %>
-        <%= f.submit t(".submit") %>
-      <% end %>
-    </section>
-
-  <% end %>
-</div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <% if params[:new_user] %>
+          <%= f.submit t('.to_challenge_creation'), class: 'btn btn-primary btn-lg' %>
+        <% else %>
+          <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
