@@ -6,8 +6,8 @@ class ChallengesController < ApplicationController
 
   def index
     # comment next two lines to enable aquila default behavior
-    last_challenge_id = Challenge.last.id
-    redirect_to challenge_path(:id => last_challenge_id)
+    last_challenge = Challenge.last
+    redirect_to challenge_path(:id => last_challenge)
 
     ch = Challenge.recent
     ch = Challenge.active if params[:active]

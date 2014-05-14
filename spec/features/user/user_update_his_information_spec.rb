@@ -6,6 +6,7 @@ feature 'User update his information' do
   before do
     @user = create :user
     @member = user.userable
+    @challenge = create :challenge
     sign_in_user(user, password: 'password')
   end
 
@@ -15,7 +16,11 @@ feature 'User update his information' do
     attach_file('member_avatar', cmx_logo_path)
 
     click_on 'Actualizar'
-    expect(current_path).to eq challenges_path
+
+    # Default aquila behavior
+    # expect(current_path).to eq challenges_path
+    expect(current_path).to eq challenge_path(@challenge)
+
     click_on 'Raúl Jiménez'
     expect(page).to have_content 'Raúl Jiménez'
     expect(page).to have_content 'I live in Monterrey, N.L., Mexico'

@@ -5,6 +5,7 @@ feature 'Organization admin makes login' do
 
   before do
     @organization = create :organization
+    @challenge = create :challenge
   end
 
   scenario 'an is redirected to a dashboard' do
@@ -17,6 +18,8 @@ feature 'Organization admin makes login' do
     sign_in_organization_admin(organization.admin)
     click_on 'Cerrar sesión'
     visit dashboard_url subdomain: 'superorg'
-    current_path.should eq '/retos'
+    # Default aquila behavior
+    # current_path.should eq '/retos'
+    current_path.should eq challenge_path(@challenge)
   end
 end
