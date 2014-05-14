@@ -5,6 +5,7 @@ $brand-dark: #507822;
 @import 'bootstrap';
 @import "timelineJS/timeline";
 
+@import 'aquila/forms';
 @import 'aquila/main-navbar';
 @import 'aquila/sheet';
 @import 'aquila/format-label';
@@ -18,6 +19,7 @@ $brand-dark: #507822;
 @import 'aquila/reply-item';
 @import 'aquila/votes';
 @import 'aquila/challenge-item';
+@import 'aquila/error-explanation';
 
 html {
   height: 100%;
@@ -86,19 +88,4 @@ body {
 .avatar-thumb {
   width: 60px;
   height: 60px;
-}
-
-.errorExplanation, #error_explanation {
-  @extend .alert;
-  @extend .alert-danger;
-
-  h2 {
-    @extend .h4;
-    font-weight: bold;
-  }
-
-  p {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
 }
