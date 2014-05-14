@@ -4,6 +4,8 @@ $brand-dark: #507822;
 
 @import 'bootstrap';
 @import "timelineJS/timeline";
+@import "token-input";
+@import "jquery.ui.datepicker";
 
 @import 'aquila/forms';
 @import 'aquila/main-navbar';

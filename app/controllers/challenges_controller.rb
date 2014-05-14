@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
   end
 
   def new
+    render layout: 'aquila'
   end
 
   def show
@@ -31,13 +32,14 @@ class ChallengesController < ApplicationController
 
   def edit
     @activity = @challenge.activities.build
+    render layout: 'aquila'
   end
 
   def create
     if @challenge.save
       redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
-      render :new
+      render :new, layout: 'aquila'
     end
   end
 
@@ -45,7 +47,7 @@ class ChallengesController < ApplicationController
     if @challenge.update_attributes(params[:challenge])
       redirect_to organization_challenge_path(@challenge.organization, @challenge)
     else
-      render :edit
+      render :edit, layout: 'aquila'
     end
   end
 

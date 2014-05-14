@@ -10,6 +10,13 @@
   margin-bottom: 0;
 }
 
+.sheet-subheader {
+  @include clearfix;
+  background-color: $gray;
+  color: #ffffff;
+  padding: 1em 2em;
+}
+
 .sheet-section {
   @include clearfix;
   background-color: #ffffff;

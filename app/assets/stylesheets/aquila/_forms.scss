@@ -4,4 +4,8 @@
 
 .form-horizontal .form-group {
   margin-bottom: 3em;
+
+  .control-label {
+    text-align: left;
+  }
 }
