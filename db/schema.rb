@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20140430195726) do
-=======
 ActiveRecord::Schema.define(:version => 20140512214641) do
->>>>>>> aquila/dev
 
   create_table "activities", :force => true do |t|
     t.text     "text"
