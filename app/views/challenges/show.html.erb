@@ -1,7 +1,7 @@
 <section id="pitch" class="unit pitch">
   <header class="unit">
     <nav>
-      <%= like_section(@challenge) %>
+      <%= render "social_links" %>
       <%= collaborate_section(@challenge)  %>
       <%= newsletter_helper(@challenge)  %>
     </nav>
@@ -85,7 +85,6 @@
     <h2><%= t(".supportus") %></h2>
   </header>
   <section>
-    <%= like_section(@challenge) %>
     <%= collaborate_section(@challenge)  %>
   </section>
 </section>

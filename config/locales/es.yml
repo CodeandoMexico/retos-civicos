@@ -284,6 +284,7 @@ es:
     sign_in: Iniciar Sesión
     sign_out: Salir
     welcome: Hola
+    description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
   signup:
     choose_provider: Selecciona alguno de los siguientes servicios para tener acceso a Codeando México.
     with_github: Inicia con Github
