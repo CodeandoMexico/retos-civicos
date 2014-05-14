@@ -12,6 +12,8 @@ feature 'Organization admin watches entry profile' do
     entry = create :entry,
       name: 'Propuesta 1',
       member: member,
+      company_name: 'Empresa de Juanito',
+      company_rfc: 'Juanito2014',
       challenge: challenge,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
@@ -25,7 +27,8 @@ feature 'Organization admin watches entry profile' do
     page_should_have_entry_with(
       name: 'Propuesta 1',
       challenge: 'Reto 1',
-      member: 'Juanito',
+      company_name: 'Empresa de Juanito',
+      company_rfc: 'Juanito2014',
       sent_at: 'Abril 10, 2013 20:53',
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
@@ -37,7 +40,8 @@ feature 'Organization admin watches entry profile' do
   def page_should_have_entry_with(args)
     page.should have_content args.fetch(:name)
     page.should have_content args.fetch(:challenge)
-    page.should have_content args.fetch(:member)
+    page.should have_content args.fetch(:company_name)
+    page.should have_content args.fetch(:company_rfc)
     page.should have_content args.fetch(:sent_at)
     page.should have_css "img[src='#{args.fetch(:logo)}']"
     page.should have_content args.fetch(:tecnologies)

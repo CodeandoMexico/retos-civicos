@@ -361,6 +361,8 @@ es:
   entries:
     form:
       name: Nombre
+      company_name: Nombre de la empresa
+      company_rfc: RFC de la empresa
       name-description: Del proyecto
       live-demo-url: Link a la propuesta
       demo-url-description: 'URL al archivo/carpeta en donde alojaste la propuesta, como Drive, Dropbox o SkyDrive'
