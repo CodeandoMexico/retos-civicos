@@ -144,8 +144,8 @@ es:
       pitch-description: Escribe en un solo enunciado una frase para motivar a que las personas participen en el reto. Ej. 'Hagamos conciencia para tener un México limpio'
       avatar: Imagen
       avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
-      about: Sobre la organización
-      about-description: Describe brevemente que hace tu organización y que los motiva a mejorar al país.
+      about: Sobre el reto
+      about-description: Describe brevemente de que trata el reto
       status: Estado actual del reto
       finish-date: Fecha de término
       needs: Necesidades del reto

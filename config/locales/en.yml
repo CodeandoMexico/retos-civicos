@@ -144,8 +144,8 @@ en:
       pitch-description: Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'.
       avatar: Image
       avatar-description: Choose wisely. A descriptive and high-quality image will catch more eyes.
-      about: About the organization
-      about-description: Describe briefly what your organization is doing and what drives it.
+      about: About the challenge
+      about-description: Describe briefly what the challenge is about.
       status: Challenge status
       finish-date: End date
       needs: Challenge needs
