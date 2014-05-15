@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-12 col-md-7 col-md-offset-2 sheet-section sheet-section-with-pad">
+    <div class="row">
+      <h1 class="title"><%= t('pages.about.title') %></h1>
+    </div>
+    <div class="row">
+      <%= image_tag 'info-quees.png', class: "img-responsive" %>
+    </div>
+    <div class="row">
+      <%= image_tag 'info-objetivo.png', class: "img-responsive" %>
+    </div>
+    <div class="row">
+      <%= image_tag 'info-proceso.png', class: "img-responsive" %>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+      <p><%= t('pages.about.info') %></p>
+    </div>
+    <br/>
+    <div class="row">
+      <%= link_to t("pages.about.download"), "https://docs.google.com/document/d/1D4pgzYnLTvqX4t1NgMimOX6UbzzPL0aRvhQusnt1gss/edit?usp=sharing", class: "btn btn-primary btn-large"%>
+    </div>
+  </div>
+</div>
