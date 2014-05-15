@@ -165,7 +165,7 @@ es:
       submit: Publicar
       description: "¿Cuál es el problema a enfrentar?"
       description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
-      comments: Comentarios y Notas
+      comments: Comentarios
       resources: Recursos y Datos
       created-by: Secretaría(s)
       welcome_mail: Correo de bienvenida

@@ -1,16 +1,10 @@
-<div class="challenge-subheader">
-  <div class="row">
-    <div class="col-md-7">
-      <h3><%= t("challenges.form.comments") %></h3>
-    </div>
-    <div class="col-md-5 text-right">
-      <div class="challenge-subheader-actions">
-        <% if can? :create_or_reply_challenge_comment, challenge %>
-          <%= link_to t(".comment"), "#",
-            class: "btn btn-primary btn-lg js-open-comments-form" %>
-        <% end %>
-      </div>
-    </div>
+<div class="challenge-subheader challenge-subheader-comments text-center">
+  <h3><%= t("challenges.form.comments") %></h3>
+  <div class="challenge-comments-action">
+    <% if can? :create_or_reply_challenge_comment, challenge %>
+      <%= link_to t(".comment"), "#",
+        class: "btn btn-primary btn-lg js-open-comments-form" %>
+    <% end %>
   </div>
 </div>
 
