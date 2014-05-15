@@ -98,7 +98,13 @@
   </div>
 </div>
 
-<%= render 'activities' %>
+<div class="challenge-subheader text-center">
+  <h3><%= t('.datasets-title') %></h3>
+</div>
+<div class="sheet-section sheet-section-with-pad">
+  <%= render 'datasets', challenge: @challenge, datasets: @datasets %>
+</div>
+
 <%= render 'comments', challenge: @challenge %>
 
 <div class="challenge-footer text-center">

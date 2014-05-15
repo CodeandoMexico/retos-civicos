@@ -209,6 +209,7 @@ en:
       demo: Demo
     show:
       description-title: 'Description'
+      datasets-title: 'Data'
       supportus: Help us reach our goal
       show-more: Show more
     comments:

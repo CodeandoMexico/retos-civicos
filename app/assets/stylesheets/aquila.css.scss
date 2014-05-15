@@ -28,6 +28,7 @@ $brand-dark: #11ad00;
 @import "retos-publicos/social-link";
 @import "retos-publicos/challenge";
 @import 'retos-publicos/challenge-points';
+@import 'retos-publicos/format-label';
 
 html {
   height: 100%;
@@ -96,4 +97,16 @@ body {
 .avatar-thumb {
   width: 60px;
   height: 60px;
+}
+
+.dataset-pair {
+  margin: auto;
+  margin-top: 2em;
+  max-width: 900px;
+}
+
+.dataset-title {
+  color: $gray-dark;
+  font-size: 0.9em;
+  font-weight: bold;
 }

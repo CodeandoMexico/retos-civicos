@@ -1,0 +1,17 @@
+.format-label[data-format=csv], .format-label[data-format*=csv] {
+  background: image-url('iconosFormatos_CSV.png') no-repeat 0 0px;
+  width: 30px;
+  height: 38px;
+}
+
+.format-label[data-format=json], .format-label[data-format*=json] {
+  background: image-url('iconosFormatos_json.png') no-repeat 0 0px;
+  width: 30px;
+  height: 38px;
+}
+
+.format-label[data-format=xls], .format-label[data-format*=xls] {
+  background: image-url('iconosFormatos_XLS.png') no-repeat 0 0px;
+  width: 30px;
+  height: 38px;
+}
