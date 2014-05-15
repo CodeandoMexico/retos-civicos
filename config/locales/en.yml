@@ -485,9 +485,9 @@ en:
       wrong_length: is the wrong length (should be %{count} characters)
   helpers:
     edit: Edit
-    edit_entry: Edit app
-    submit_app: Send app
-    collaborate: Collaborate
+    edit_entry: Edit proposal
+    submit_app: Send proposal
+    collaborate: Send proposal
     send_update: Send newsletter
   landing:
     goal: Bringing together hackers, designers, NGOs and government to build our new generation of civic technology.

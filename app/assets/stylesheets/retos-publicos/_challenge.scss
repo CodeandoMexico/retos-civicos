@@ -1,0 +1,21 @@
+.challenge-collaborate {
+  @include clearfix;
+  background-color: $brand-primary;
+  padding: 2em 1em;
+}
+
+.challenge-collaborate-content {
+  margin: auto;
+  max-width: 400px;
+
+  > .btn {
+    @extend .btn-block;
+    background-color: $brand-dark;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 4px 0 darken($brand-dark, 10%);
+    font-size: 1.5em;
+    padding: 0.8em;
+    text-transform: uppercase;
+  }
+}

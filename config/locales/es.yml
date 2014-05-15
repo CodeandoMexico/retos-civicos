@@ -216,7 +216,7 @@ es:
       mychallenge: Mi Reto
       like: Me gusta
       cancel: Cancelar
-    collaborating: Te has unido al reto
+    collaborating: Envíanos tu propuesta. Podras editarla hasta el cierre del reto.
     collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
     status:
       open: Abierto
@@ -538,9 +538,9 @@ es:
       wrong_length: is the wrong length (should be %{count} characters)
   helpers:
     edit: Editar
-    edit_entry: Editar app
-    submit_app: Enviar app
-    collaborate: Participar
+    edit_entry: Editar propuesta
+    submit_app: Envía tu propuesta
+    collaborate: Envía tu propuesta
     send_update: Enviar newsletter
   landing:
     goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación de tecnología cívica.

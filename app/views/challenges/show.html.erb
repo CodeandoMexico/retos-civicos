@@ -6,7 +6,6 @@
     <div class="col-md-6 text-right">
       <div class="challenge-actions">
         <%= render "social_links" %>
-        <%= collaborate_section(@challenge)  %>
         <%= newsletter_helper(@challenge)  %>
       </div>
     </div>
@@ -36,9 +35,9 @@
   </div>
 </div>
 
-<div class="challenge-pitch text-center">
-  <div class="challenge-pitch-content">
-    <h3><%= @challenge.pitch %></h3>
+<div class="challenge-collaborate text-center">
+  <div class="challenge-collaborate-content">
+    <%= collaborate_section(@challenge) %>
   </div>
 </div>
 
