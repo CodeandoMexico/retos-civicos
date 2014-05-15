@@ -35,13 +35,9 @@
   </div>
 
   <div class="footer">
-    <div class="container">
-      <%= raw t('layout.copyright') %>
-      <ul class="list-inline pull-right">
-        <li><%= link_to t('.twitter'), "https://www.twitter.com/codeandomexico" %></li>
-        <li><%= link_to "Blog", "http://blog.codeandomexico.org" %></li>
-        <li><%= link_to t('.contact_us'), "mailto:equipo@codeandomexico.org" %></li>
-      </ul>
+    <div class="container text-center">
+      <%= image_tag 'mx_a_logo_footer.png', width: 200 %><br/>
+      <%= link_to 'Términos y condiciones', terms_of_service_path %>
     </div>
   </div>
 </body>
