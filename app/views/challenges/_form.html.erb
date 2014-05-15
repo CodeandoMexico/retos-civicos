@@ -186,7 +186,7 @@
 <% end %>
 <script>
   $(function() {
-    $( "#challenge_dataset_id" ).tokenInput("<%= CKAN_API_BASE + '/action/package_search' %>", {
+    $( "#challenge_dataset_id" ).tokenInput("<%= ENV['CKAN_API_BASE'] + '/action/package_search' %>", {
       crossDomain: false,
       jsonContainer: "result",
       jsonContainer2: "results",
@@ -194,7 +194,7 @@
       preventDuplicates: true,
       minChars: 3,
       prePopulate: [
-        <%= @challenge.prepopulate_dataset_id %>
+      <%= @challenge.prepopulate_dataset_id %>
       ],
       //translate
       hintText: "<%= t(".dataset_hint_text") %>",

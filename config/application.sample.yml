@@ -1,0 +1,40 @@
+####################################
+########### DEFAULT KEYS ###########
+####################################
+
+# Github
+GITHUB_KEY:
+GITHUB_SECRET:
+
+# LinkedIn
+LINKEDIN_KEY:
+LINKEDIN_SECRET:
+
+# Twitter
+TWITTER_KEY:
+TWITTER_SECRET:
+TWITTER_ACCESS_KEY:
+TWITTER_ACCESS_SECRET:
+
+# Ckan (Data MX)
+CKAN_API_KEY:
+CKAN_API_BASE:
+
+# Mailing
+SMTP_CONFIG_USERNAME:
+SMTP_CONFIG_PASSWORD:
+SMTP_CONFIG_DOMAIN:
+
+# Error reporting
+AIRBRAKE_KEY:
+
+# Storage bucket
+AMAZON_ACCESS_KEY:
+AMAZON_SECRET_KEY:
+S3_BUCKET:
+
+# Performance metrics
+NEW_RELIC_KEY:
+
+# Secret key for signed cookies
+SECRET_TOKEN:
