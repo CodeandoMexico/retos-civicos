@@ -21,7 +21,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
     if @organization.update_attributes(params[:organization])
-      redirect_to new_organization_challenge_path(@organization), notice: t('flash.organizations.updated')
+      redirect_to dashboard_url, notice: t('flash.organizations.updated')
     else
       render :edit, layout: 'aquila'
     end

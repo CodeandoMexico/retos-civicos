@@ -19,7 +19,7 @@
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-author">
             <span><%= t("challenges.form.created-by") %></span>
-            <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
+            <em><%= link_to @organization.name, organization_profile_path(@organization.slug) %></em>
           </div>
           <div class="challenge-hightlight-status">
             <%= t("challenges.status.#{@challenge.status}") %>

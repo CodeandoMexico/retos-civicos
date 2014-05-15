@@ -75,6 +75,6 @@ Aquila::Application.routes.draw do
   match "/projects/:id" => 'challenges#show'
   match "/projects/:id/timeline" => 'challenges#timeline'
 
-  get ':organization_slug', to: 'organizations#show', as: 'organization'
+  get ':organization_slug', to: 'organizations#show', as: 'organization_profile'
 end
 ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })
