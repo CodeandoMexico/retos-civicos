@@ -4,7 +4,7 @@
   <% entries.each do |entry| %>
     <div class="media">
       <%= link_to challenge_entry_path(challenge, entry), class: 'pull-left' do %>
-        <%= image_tag entry.image.small.url, class: 'media-object' %>
+        <%= image_tag entry.image.small.url, class: 'media-object', width: 80 %>
       <% end %>
       <div class="media-body">
         <h4 class="media-heading">
