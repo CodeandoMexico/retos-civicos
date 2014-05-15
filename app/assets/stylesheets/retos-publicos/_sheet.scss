@@ -1,4 +1,15 @@
 .sheet-header {
   background-color: $gray-dark;
   color: $brand-primary;
+  text-transform: uppercase;
+}
+
+.sheet-subheader {
+  background-color: $gray-dark;
+  color: $brand-primary;
+  text-transform: uppercase;
+
+  h3 {
+    margin: 10px;
+  }
 }

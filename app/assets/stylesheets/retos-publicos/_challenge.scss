@@ -24,3 +24,13 @@
   color: $brand-primary;
   font-size: 1.3em;
 }
+
+.challenge-subheader {
+  background-color: $gray-dark;
+  color: $brand-primary;
+  text-transform: uppercase;
+
+  h3 {
+    margin: 10px;
+  }
+}
