@@ -7,7 +7,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match 'signup' => 'home#sign_up'
+  match 'signup' => 'pages#sign_up'
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
@@ -63,7 +63,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match "/set_language" => 'home#set_language', via: :post, as: 'set_language'
+  match "/set_language" => 'pages#set_language', via: :post, as: 'set_language'
 
   root :to => 'challenges#index'
 
