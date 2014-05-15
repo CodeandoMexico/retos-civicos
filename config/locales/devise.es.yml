@@ -41,6 +41,9 @@ es:
       updated: "Has actualizado tu cuenta correctamente."
       new:
         sign_up: "Registrarme"
+        email: "Email"
+        password: "Contraseña"
+        password_confirmation: "Confirma tu contraseña"
     sessions:
       new:
         email: 'Email'
