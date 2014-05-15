@@ -54,7 +54,7 @@
   <div class="form-group">
     <div class="col-sm-3">
       <%= f.label :live_demo_url, t(".live-demo-url"), class: 'control-label' %>
-      <span class="help-block"><%= t(".demo-url-description") %></span>
+      <span class="help-block"><%= raw t(".demo-url-description") %></span>
     </div>
     <div class="col-sm-9">
       <%= f.text_field :live_demo_url, class: 'form-control' %>
