@@ -1,27 +1,25 @@
-<h2>Organizaciones<h2>
+<h2>Organizaciones</h2>
 
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.name') %></th>
+      <th><%= t('.email') %></th>
+      <th><%= t('.status') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
       <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.email') %></th>
-        <th><%= t('.status') %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-
-      <% @organizations.each do |organization| %>
-      <tr>
-        <td><h3><%= link_to organization.name, organization_path(organization.slug) %></h3></td>
+        <td><h3><%= link_to organization.name, organization_profile_path(organization.slug) %></h3></td>
         <td><%= organization.email %></td>
         <% if organization.accredited? %>
-        <td><%= t('.accredited') %></td>
+          <td><%= t('.accredited') %></td>
         <% else %>
-        <td><%= link_to 'Accept', accept_admins_organization_path(organization), method: :put %></td>
+          <td><%= link_to 'Accept', accept_admins_organization_path(organization), method: :put %></td>
         <% end %>
       </tr>
-      <% end %>
-
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
