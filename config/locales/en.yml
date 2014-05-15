@@ -364,6 +364,10 @@ en:
   entries:
     form:
       name: Name
+      company_name: Company name
+      company-name-description: "Name to identify the company, the legal name is not necessary"
+      company_rfc: Company RFC
+      company-rfc-description: "To know if the company is registered"
       name-description: Project name
       live-demo-url: Link to the proyect
       demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'

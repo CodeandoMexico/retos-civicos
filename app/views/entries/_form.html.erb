@@ -14,6 +14,7 @@
   <div class="form-group">
     <div class="col-sm-3">
       <%= f.label :company_name, t(".company_name"), class: 'control-label' %>
+      <span class="help-block"><%= t(".company-name-description") %></span>
     </div>
     <div class="col-sm-9">
       <%= f.text_field :company_name, required: true, class: 'form-control' %>
@@ -23,6 +24,7 @@
   <div class="form-group">
     <div class="col-sm-3">
       <%= f.label :company_rfc, t(".company_rfc"), class: 'control-label' %>
+      <span class="help-block"><%= t(".company-rfc-description") %></span>
     </div>
     <div class="col-sm-9">
       <%= f.text_field :company_rfc, required: true, class: 'form-control' %>
