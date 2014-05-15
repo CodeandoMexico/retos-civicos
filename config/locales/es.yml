@@ -366,14 +366,14 @@ es:
       created_at: fecha de registro
   entries:
     form:
-      name: Nombre
+      name: Nombre del proyecto
       company_name: Nombre de la empresa
       company-name-description: "Nombre con el cual la indentifican, no necesariamente el nombre legal."
       company_rfc: RFC de la empresa
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
       live-demo-url: Link a la propuesta
-      demo-url-description: 'URL al archivo/carpeta en donde alojaste la propuesta, como Drive, Dropbox o SkyDrive'
+      demo-url-description: 'Basándote en la <a href="http://www.google.com/" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
