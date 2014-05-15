@@ -15,10 +15,6 @@
     <div class="col-md-7">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
-          <div class="challenge-hightlight-author">
-            <span><%= t("challenges.form.created-by") %></span>
-            <em><%= link_to @organization.name, organization_path(@organization.slug) %></em>
-          </div>
           <div class="challenge-hightlight-status">
             <%= t("challenges.status.#{@challenge.status}") %>
           </div>
@@ -27,8 +23,11 @@
     </div>
     <div class="col-md-5">
       <div class="challenge-about">
-        <h2><%= t("challenges.form.about") %></h2>
-        <p><%= @challenge.about %></p>
+        <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
+        <p><%= @challenge.description %></p>
+
+        <h2 class="challenge-about-title"><%= t("challenges.form.created-by") %></h2>
+        <p><%= @organization.name %></p>
       </div>
     </div>
   </div>

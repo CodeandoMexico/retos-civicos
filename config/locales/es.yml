@@ -167,7 +167,7 @@ es:
       description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
       comments: Comentarios y Notas
       resources: Recursos y Datos
-      created-by: Creador por
+      created-by: Secretaría(s)
       welcome_mail: Correo de bienvenida
       welcome_mail_subject: Título del correo
       welcome_mail_subject-description: Subject del email. Escribe algo breve para
@@ -208,6 +208,7 @@ es:
       repo: Repo
       demo: Demo
     show:
+      description-title: 'Descripción'
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
     comments:

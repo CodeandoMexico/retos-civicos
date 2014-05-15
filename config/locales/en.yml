@@ -208,6 +208,7 @@ en:
       repo: Repo
       demo: Demo
     show:
+      description-title: 'Description'
       supportus: Help us reach our goal
       show-more: Show more
     comments:
