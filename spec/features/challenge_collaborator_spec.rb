@@ -5,6 +5,8 @@ feature "Ajax load collaborators" do
   let!(:organization) { new_organization }
   let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
   scenario "Find all collaborators in collaborator tab", js: true do
+    pending
+
     double(Member.paginates_per(1))
 
     collaborators = Array.new

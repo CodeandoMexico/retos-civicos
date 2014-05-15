@@ -19,13 +19,6 @@ feature "Challenges Datasets" do
     click_button "Publicar"
 
     #ver un dataset
-    within '.challenge-tabs' do
-      page.should have_content '1 Dataset'
-    end
-    click_link '1 Dataset'
-
-    within '#datasets_tab_pane' do
-      find("[data-dataset-teaser]")
-    end
+    find("[data-dataset-teaser]")
   end
 end

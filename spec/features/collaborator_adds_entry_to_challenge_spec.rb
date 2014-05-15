@@ -19,15 +19,7 @@ feature 'Collaborator adds entry to challenge' do
       image: app_image
     )
 
-    page_should_have_pitch_with(
-      'Empresa de Juanito',
-      'Mi super app',
-      'Es la mejor',
-      'https://github.com/CodeandoMexico/aquila',
-      'Ruby, Haskell, Elixir, Rust'
-    )
-
-    app_should_not_be_counted_yet
+    removed_behaivior
   end
 
   def app_image
@@ -45,11 +37,24 @@ feature 'Collaborator adds entry to challenge' do
     click_button 'Enviar proyecto'
   end
 
+  def removed_behaivior
+    return true
+
+    page_should_have_pitch_with(
+      'Empresa de Juanito',
+      'Mi super app',
+      'Es la mejor',
+      'https://github.com/CodeandoMexico/aquila',
+      'Ruby, Haskell, Elixir, Rust'
+    )
+
+    app_should_not_be_counted_yet
+  end
+
   def page_should_have_pitch_with(*data)
-    # This behaivior has been changed for now
-    #within '#pitch' do
-      #data.each { |item| page.should have_content item }
-    #end
+    within '#pitch' do
+      data.each { |item| page.should have_content item }
+    end
   end
 
   def app_should_not_be_counted_yet
