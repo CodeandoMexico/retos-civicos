@@ -287,6 +287,7 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     welcome: Hello
+    description: "If you are an entepreneur solve a federal government challenge, take part in retos.gob.mx"
   terms_of_service: Terms of Service
   signup:
     choose_provider: Choose one of the following providers to sign in.
