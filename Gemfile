@@ -72,6 +72,7 @@ gem 'twitter', '~> 5.8.0'
 gem 'sendgrid'
 gem 'delayed_job_active_record'
 gem 'redcarpet'
+gem 'figaro'
 
 # Console tools
 gem 'ruby-progressbar'
