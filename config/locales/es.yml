@@ -226,7 +226,7 @@ es:
       working_on: En desarrollo
       finished: Concluido
       cancelled: Cancelado
-  home:
+  pages:
     index:
       pitch: Organizaciones, Geeks, y Open Data las 24 horas del día.
       get_involved: Involúcrate
@@ -410,7 +410,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar

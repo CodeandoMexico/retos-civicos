@@ -1,6 +1,6 @@
-class HomeController < ApplicationController
+class PagesController < ApplicationController
 
-  layout "home"
+  layout "page"
 
   def index
     @challenges = Challenge.recent.limit(3)
