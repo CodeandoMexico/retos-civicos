@@ -51,7 +51,6 @@ feature 'Organization admin creates a challenge' do
 
   def entry_form_should_show_entry_template_url(url)
     first(:link, 'Enviar app').click
-    save_and_open_page
     page.should have_link 'plantilla', url
   end
 
