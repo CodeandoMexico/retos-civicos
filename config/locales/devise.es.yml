@@ -20,6 +20,11 @@ es:
         subject: "Instrucciones de confirmación"
       reset_password_instructions:
         subject: "Instrucciones para reestablecer tu contraseña"
+        title: 'Hola %{email}'
+        instructions: 'Alguien a solicitado un link para cambiar tu password. Puedes hacerlo por medio del siguiente link.'
+        change_my_password: 'Cambiar mi password'
+        ignore_if_necessary: 'Si no solicitaste esto, por favor ignora este correo.'
+        explanation: 'Tu password no cambiara hasta que acceses el link y crees un password nuevo.'
       unlock_instructions:
         subject: "Instrucciones de desbloqueo"
     omniauth_callbacks:
@@ -31,6 +36,12 @@ es:
       send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos, recibirás un enlace para reestablecer la contraseña en unos minutos."
       updated: "Tu contraseña se cambió correctamente. Has sido identificado."
       updated_not_active: "Tu contraseña se cambió correctamente."
+      new:
+        title: "¿Olvidaste tu password?"
+        submit: 'Envíame instrucciones para cambiar password'
+      edit:
+        title: 'Cambia tu password'
+        submit: 'Cambar mi password'
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
       signed_up: "¡Bienvenido! Has sido identificado."
