@@ -236,49 +236,9 @@ es:
       government: Gobierno
       hackers: Hackers
     about:
-      problem:
-        title: Escenario actual
-        description: "<blockquote>“Los gobiernos han demostrado su constante incapacidad
-          para mantenerse al ritmo de evolución de las tecnologías de información”[1]</blockquote><p>Aunado
-          a esto, la mayoría de sus proyectos son desarrollados por una minoría de proveedores que los ejecutan de manera costosa y en tiempos de ejecución
-          ridículamente largos.</p>\r\n\r\n<p>Es por esta razón que tanto el movimiento
-          de <i>open government</i> como el de <i>hacking cívico </i>toman fuerza, porque en lugar de agregar capas de burocracia y más responsabilidades al
-          gobierno, estos movimientos buscan que el gobierno sea un facilitador para
-          que se genere la innovación desde fuera.</p>\r\n\r\n<p>En esta búsqueda por la innovación cívica, ha surgido una tendencia por convocar a un sinnúmero
-          de maratones de desarrollo cívico (también conocidos como <i>hackathons</i>),
-          desde Noruega[2] hasta América Latina[3], con la finalidad de conectar a hackers y diseñadores con la sociedad civil y el gobierno.</p>\r\n\r\n<p>Estos
-          eventos han sido un primer intento por reunir a una comunidad bajo un objetivo
-          en común, sin embargo no hemos visto proyectos de impacto, particularmente
-          porque el hackathon tiende al <i>solucionismo</i>[4] y presenta un espacio donde se vierten muchas horas de talento en construir proyectos sin tener
-          muy claras las necesidades más importantes de la sociedad y el gobierno.</p>\r\n\r\n<p>Si
-          queremos ver proyectos de impacto, fruto de reunir a estas comunidades,
-          necesitamos re-inventar esta interacción e invertir estas horas de talento
-          en resolver problemas reales.</p>"
-      what:
-        title: "¿Qué es Codeando México?"
-        description: "<p>Codeando México es una <b>plataforma digital de innovación
-          abierta</b>, que convoca talento a través de la publicación de retos para
-          resolver problemas específicos de impacto social.</p>\r\n\r\n<p>Los retos
-          cumplen la dinámica de cualquier concurso virtual, tienen registro, fecha
-          de cierre, requisitos de participación, una especificación clara para la entrega de soluciones, una evaluación, un jurado y una premiación.</p>"
-      who:
-        title: "¿Quién es Codeando México?"
-        description: "<p>Somos un <a href=\"https://github.com/CodeandoMexico?tab=members\"
-          target=\"_blank\">equipo</a> de programadores y diseñadores que desde hace
-          más de un año trabajamos activamente en la comunidad mexicana de <a href=\"http://opendatahandbook.org/es/what-is-open-data/\"
-          target=\"_blank\">Open Data</a>. Y fue a raíz de nuestras experiencias en
-          estos eventos, que decidimos empujar el <b>status quo</b> a través de esta
-          plataforma.</p>\r\n\r\n<p>En Codeando México <b>buscamos acelerar y democratizar
-          la innovación cívica</b>, rediseñando nuestro gobierno y sociedad con la
-          agilidad característica de la comunidad de tecnología.</p>"
-      open_data:
-        title: Referencias
-        description: "<p>\r\n[1] David G. Robinson, citado por Tim O’Reilly en Open
-          Government: Collaboration, Transparency, and Participation in Practice.\r\n<br
-          />\r\n[2] <a href=\"http://apps4norge.no\" target=\"_blank\">Apps for Norge</a>\r\n<br
-          />\r\n[3] <a href=\"http://desarrollandoamerica.org\" target=\"_blank\">Desarrollando
-          América Latina</a>\r\n<br />\r\n[4] <a href=\"http://davidsasaki.name/2012/12/on-hackathons-and-solutionism/\"
-          target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
+      title: Acerca de Retos Públicos
+      info: Retos Públicos es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
+      download: DESCARGAR DOCUMENTO
   layout:
     header: Retos públicos
     copyright: "&copy; Codeando México - 2014"

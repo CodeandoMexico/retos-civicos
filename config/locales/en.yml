@@ -235,49 +235,9 @@ en:
       government: Government
       hackers: Hackers
     about:
-      problem:
-        title: Current landscape
-        description: "<blockquote>\"Government has shown itself consistently unable
-          to keep pace with the fast-evolving power of the Internet.\"[1]</blockquote><p>
-          Moreover, the vast majority of its projects are tendered to a small number
-          of contractors, who are building expensive and complex systems on long-term
-          contracts.</p>\r\n\r\n<p>This is why the <i>open government</i> and <i>civic
-          hacking </i> movements are taking traction. These movements strive for a
-          government that works as a platform, as opposed to the traditional bureaucracy.</p>\r\n\r\n<p>In
-          this search for civic innovation, a trend of hackathons has emerged all
-          around the world, from Norway[2] to Latin America[3], with the purpose of
-          connecting hackers and designers with NGOs and government.</p>\r\n\r\n<p>These
-          events are a first attempt to bring the community together with a shared
-          goal, however we haven't seen projects of real impact, mainly because hackathons
-          fall into <i>solutionism</i>[4], pouring many hours of talent on building
-          projects without a clear understanding of our community needs.</p>\r\n\r\n<p>We
-          need to reinvent this interaction and start investing these thousands of
-          hours into solving real problems.</p>"
-      what:
-        title: What is Codeando México?
-        description: "<p>Codeando México is an <b>open innovation platform</b>, which
-          brings together top talent through public challenges focused on solving
-          specific issues of our communities.</p>\r\n\r\n<p>These challenges follow
-          the rules of any virtual contest: registration, deadlines, requirements,
-          clear specs of the solution, judges and prizes.</p>"
-      who:
-        title: Who is Codeando México?
-        description: "<p>We are a <a href=\"https://github.com/CodeandoMexico?tab=members\"
-          target=\"_blank\">team</a> of software developers and designers who have
-          been actively working in the <a href=\"http://opendatahandbook.org/en/what-is-open-data/\"
-          target=\"_blank\">Open Data</a> and civic hacking community for more than
-          a year. And based in our personal experiences in this events, we decided
-          to push the limits of our community through this platform.</p>\r\n\r\n<p>Codeando
-          México <b>seek to expedite and democratize civic innovation</b>, redesigning
-          our government and communities by following the philosophy and agile practices of the tech community.</p>"
-      open_data:
-        title: References
-        description: "<p>\r\n[1] David G. Robinson, cited by Tim O’Reilly in Open
-          Government: Collaboration, Transparency, and Participation in Practice.\r\n<br
-          />\r\n[2] <a href=\"http://apps4norge.no\" target=\"_blank\">Apps for Norge</a>\r\n<br
-          />\r\n[3] <a href=\"http://desarrollandoamerica.org\" target=\"_blank\">Desarrollando
-          América Latina</a>\r\n<br />\r\n[4] <a href=\"http://davidsasaki.name/2012/12/on-hackathons-and-solutionism/\"
-          target=\"_blank\">On Hackathons and Solutionism.</a>\r\n</p>"
+      title: About Public Challenges
+      info: Lorem Ipsum
+      download: DOWNLOAD DOCUMENT
   layout:
     header: Retos públicos
     copyright: "&copy; Codeando México - 2014"

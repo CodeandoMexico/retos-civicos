@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    render layout: 'aquila'
   end
 
   def terms_of_service
