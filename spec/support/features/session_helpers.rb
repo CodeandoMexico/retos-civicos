@@ -3,7 +3,7 @@ module SessionHelpers
     opts = { password: 'password' }.merge(opts)
     visit new_user_session_path
     fill_in 'user[email]', with: user.email
-    fill_in 'user[password]', with: opts[:password]
+    fill_in 'user[password]', with: opts.fetch(:password) { 'password' }
     click_button 'Entrar'
   end
 

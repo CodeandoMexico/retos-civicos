@@ -148,6 +148,8 @@ en:
       about-description: Describe briefly what the challenge is about.
       status: Challenge status
       finish-date: End date
+      entry-template-url: App template link
+      entry-template-url-description: Link to a template that will help the members to send their apps.
       needs: Challenge needs
       points: Key goals
       points-description: What are the main goals of this challenge? Try to be concise.
@@ -307,6 +309,7 @@ en:
       message: Add your message here
       submit: Send
   members:
+    header: Edit profile
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in
@@ -332,6 +335,7 @@ en:
       name-description: Project name
       live-demo-url: Link to the proyect
       demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      demo-url-description-without-template: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
       technologies: Technologies
       technologies-description: 'The technologies you are using. Example: python, d3.js, postgresql, .NET'
       image: Image

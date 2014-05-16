@@ -21,6 +21,11 @@ en:
         subject: "Confirmation instructions"
       reset_password_instructions:
         subject: "Reset password instructions"
+        title: 'Hi %{email}'
+        instructions: 'Someone has requested a link to change your password. You can do this through the link below.'
+        change_my_password: 'Change my password'
+        ignore_if_necessary: "If you didn't request this, please ignore this email."
+        explanation: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         subject: "Unlock Instructions"
     omniauth_callbacks:
@@ -32,6 +37,12 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password was changed successfully. You are now signed in."
       updated_not_active: "Your password was changed successfully."
+      new:
+        title: "Forgot your password?"
+        submit: 'Send me instructions to change my password'
+      edit:
+        title: 'Change your password'
+        submit: 'Change my password'
     registrations:
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."

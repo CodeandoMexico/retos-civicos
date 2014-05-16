@@ -148,6 +148,8 @@ es:
       about-description: Describe brevemente de que trata el reto
       status: Estado actual del reto
       finish-date: Fecha de término
+      entry-template-url: Link plantilla de propuesta
+      entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
       points: Puntos clave
       points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
@@ -309,6 +311,7 @@ es:
       message: Añade tu mensaje aquí
       submit: Mandar
   members:
+    header: Editar perfil
     form:
       submit: Actualizar
       email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
@@ -333,7 +336,8 @@ es:
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
       live-demo-url: Link a la propuesta
-      demo-url-description: 'Basándote en la <a href="http://www.google.com/" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      demo-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      demo-url-description-without-template: 'Link a la aplicación en vivo'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
