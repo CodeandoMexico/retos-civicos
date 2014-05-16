@@ -347,6 +347,7 @@ en:
       message: Add your message here
       submit: Send
   members:
+    header: Edit profile
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in
