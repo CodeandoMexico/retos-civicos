@@ -337,7 +337,7 @@ es:
       name-description: Del proyecto
       live-demo-url: Link a la propuesta
       demo-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
-      demo-url-description-without-template: 'Link a la aplicación en vivo'
+      demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
