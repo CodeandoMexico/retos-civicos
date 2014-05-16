@@ -18,6 +18,7 @@ es:
       entry:
         description: Descripción
         name: Nombre
+        live_demo_url: 'Link a la propuesta'
       member:
         collaborations: Colaboraciones
       member/user:
@@ -70,6 +71,8 @@ es:
               blank: no puede estar en blanco
             name:
               blank: no puede estar en blanco
+            live_demo_url:
+              blank: no puede estar en blanco
         member:
           attributes:
             collaborations:
@@ -95,7 +98,7 @@ es:
       challenge: Reto
       collaboration: Colaboración
       comment: Comentario
-      entry: App
+      entry: Proyecto
       member: Miembro
       organization: Organización
       project: Proyecto
