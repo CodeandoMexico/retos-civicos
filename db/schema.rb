@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512214641) do
+ActiveRecord::Schema.define(:version => 20140516170945) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(:version => 20140512214641) do
     t.string   "title"
     t.text     "description"
     t.integer  "creator_id"
-    t.string   "status",           :default => "open"
+    t.string   "status",             :default => "open"
     t.string   "dataset_url"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.integer  "likes_counter",    :default => 0
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "likes_counter",      :default => 0
     t.text     "first_spec"
     t.text     "second_spec"
     t.text     "third_spec"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20140512214641) do
     t.text     "welcome_mail"
     t.string   "dataset_id"
     t.date     "finish_date"
+    t.string   "entry_template_url"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"

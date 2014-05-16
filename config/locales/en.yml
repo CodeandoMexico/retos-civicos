@@ -151,6 +151,8 @@ en:
       about-description: Describe briefly what your organization is doing and what drives it.
       status: Challenge status
       finish-date: End date
+      entry-template-url: App template link
+      entry-template-url-description: Link to a template that will help the members to send their apps.
       needs: Challenge needs
       points: Key goals
       points-description: What are the main goals of this challenge? Try to be concise.
@@ -367,7 +369,8 @@ en:
       github-url: GitHub Repo URL
       github-url-description: Link to open source repository
       live-demo-url: Demo URL
-      demo-url-description: Link to live app
+      demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      demo-url-description-without-template: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
       entry-logo: Logo
       entry-logo-description: Upload the app's logo. (80x80)
       image: Image

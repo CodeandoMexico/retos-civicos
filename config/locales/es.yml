@@ -151,6 +151,8 @@ es:
       about-description: Describe brevemente que hace tu organización y que los motiva a mejorar al país.
       status: Estado actual del reto
       finish-date: Fecha de término
+      entry-template-url: Link plantilla de propuesta
+      entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
       points: Puntos clave
       points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
@@ -369,7 +371,8 @@ es:
       github-url: GitHub Repo URL
       github-url-description: Link al repositorio open source
       live-demo-url: Demo URL
-      demo-url-description: Link a la aplicación en vivo
+      demo-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      demo-url-description-without-template: 'Link a la aplicación en vivo'
       entry-logo: Logo
       entry-logo-description: Sube el logotipo de la applicación. (80x80)
       image: Imagen
