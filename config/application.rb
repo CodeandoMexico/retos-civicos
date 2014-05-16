@@ -76,5 +76,6 @@ module Aquila
       config.middleware.insert_before Rack::Lock, Rack::NoWWW
     end
 
-    end
+    config.action_mailer.default_url_options = { host: ENV['ACTION_MAILER_HOST'] }
+  end
 end
