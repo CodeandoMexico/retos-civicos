@@ -18,7 +18,6 @@ feature 'Organization admin creates a challenge' do
 
     page_should_show_challenge_with(
       'Limpiemos México',
-      'Hagamos conciencia para un México limpio',
       'La organización limpia',
       'México esta muy sucio'
     )
@@ -27,7 +26,7 @@ feature 'Organization admin creates a challenge' do
 
     sign_in_user(member)
     visit_last_challenge
-    first(:link, 'Participar').click
+    first(:link, 'Envía tu propuesta').click
     entry_form_should_show_entry_template_url 'google.com'
   end
 
@@ -50,7 +49,6 @@ feature 'Organization admin creates a challenge' do
   end
 
   def entry_form_should_show_entry_template_url(url)
-    first(:link, 'Enviar app').click
     page.should have_link 'plantilla', url
   end
 
