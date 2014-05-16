@@ -13,7 +13,9 @@
       <% end %>
     </ul>
     <ul class="main-navbar-menu">
-      <li class=""><%= link_to last_challenge.title, challenges_url %></li>
+      <% if last_challenge %>
+        <li><%= link_to last_challenge.title, challenges_url %></li>
+      <% end %>
     </ul>
   </div>
 </div>
