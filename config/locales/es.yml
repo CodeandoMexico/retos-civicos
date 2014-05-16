@@ -349,6 +349,7 @@ es:
       message: Añade tu mensaje aquí
       submit: Mandar
   members:
+    header: Editar perfil
     form:
       submit: Actualizar
       email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
