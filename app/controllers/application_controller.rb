@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     session[:return_to] = url
   end
 
+  def last_challenge
+    @last_challenge ||= Challenge.order('created_at desc').first
+  end
+
+  helper_method :last_challenge
+
   private
 
   def clear_return_to
