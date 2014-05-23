@@ -118,7 +118,7 @@ es:
     members:
       updated: Listo para participar!
     users:
-      welcome_and_edit_profile: Bienvenido a Codeando México. Edita tu perfil antes de colaborar
+      welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
     entries:
       created_successfully: "¡Gracias por tu propuesta! Recuerda podrás seguir editándola hasta el cierre del reto"
       updated_successfully: La propuesta fue editada correctamente.
@@ -273,8 +273,8 @@ es:
   omniauth_controller:
     new_auth: Nueva autenticación creada
     failure: Acceso no autorizado, intenta de nuevo
-    last_step: 'Bienvenido a Codeando México! Último paso para iniciar tu participación:'
-    welcome_back: Iniciaste sesión correctamente con %{provider}. Bienvenido a Codeando México!
+    last_step: '¡Bienvenido! Último paso para iniciar tu participación:'
+    welcome_back: Iniciaste sesión correctamente con %{provider}. ¡Bienvenido!
     confirm_email: Confirma tu correo antes de iniciar tu participación
   comments:
     commented: Gracias por tus comentarios
@@ -322,7 +322,7 @@ es:
       bio: Bio
       bio-description: Háblanos un poco sobre tí
       avatar: Imagen perfil
-      avatar-description: Tu foto de identidad en Codeando México
+      avatar-description: Tu foto de perfil
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id
