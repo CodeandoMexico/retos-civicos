@@ -6,6 +6,8 @@ class ChallengesController < ApplicationController
 
   def index
     # comment next two lines to enable aquila default behavior
+    # TO-DO: remove next line. is a temporary redirect to avoid crash on DB clean state
+    return redirect_to about_path if Challenge.count.zero?
     return redirect_to challenge_path(last_challenge)
 
     ch = Challenge.recent
