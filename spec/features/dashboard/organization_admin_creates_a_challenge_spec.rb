@@ -1,18 +1,23 @@
 require 'spec_helper'
 
 feature 'Organization admin creates a challenge' do
-  scenario 'with good params' do
+  attr_reader :member
+
+  before do
     organization = create :organization
-    member = create :member
+    @member = create :member
+
     sign_in_organization_admin(organization.admin)
     visit new_organization_challenge_path(organization)
+  end
 
+  scenario 'with good params' do
     submit_challenge_with(
       title: 'Limpiemos México',
       pitch: 'Hagamos conciencia para un México limpio',
       image: image_fixture,
       organization_about: 'La organización limpia',
-      entry_template_url: 'google.com',
+      entry_template_url: 'http://google.com',
       description: 'México esta muy sucio'
     )
 
@@ -22,12 +27,24 @@ feature 'Organization admin creates a challenge' do
       'México esta muy sucio'
     )
 
-    click_link 'Salir'
+    when_addding_an_entry_as(member) do
+      entry_form_should_show_entry_template_url 'http://google.com'
+    end
+  end
 
-    sign_in_user(member)
-    visit_last_challenge
-    first(:link, 'Envía tu propuesta').click
-    entry_form_should_show_entry_template_url 'google.com'
+  scenario 'with a bad but recoverable entry template url' do
+    submit_challenge_with(
+      title: 'Limpiemos México',
+      pitch: 'Hagamos conciencia para un México limpio',
+      image: image_fixture,
+      organization_about: 'La organización limpia',
+      entry_template_url: 'google.com',
+      description: 'México esta muy sucio'
+    )
+
+    when_addding_an_entry_as(member) do
+      entry_form_should_show_entry_template_url 'http://google.com'
+    end
   end
 
   def submit_challenge_with(data)
@@ -40,6 +57,14 @@ feature 'Organization admin creates a challenge' do
     click_button 'Publicar'
   end
 
+  def when_addding_an_entry_as(member)
+    click_link 'Salir'
+    sign_in_user(member)
+    visit_last_challenge
+    first(:link, 'Envía tu propuesta').click
+    yield
+  end
+
   def page_should_show_challenge_with(*texts)
     texts.each { |text| page.should have_content text }
   end
@@ -49,7 +74,7 @@ feature 'Organization admin creates a challenge' do
   end
 
   def entry_form_should_show_entry_template_url(url)
-    page.should have_link 'plantilla', url
+    find_link('plantilla')[:href].should eq url
   end
 
   def image_fixture

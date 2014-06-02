@@ -56,7 +56,7 @@
       <%= f.label :live_demo_url, t(".live-demo-url"), class: 'control-label' %>
 
       <% if @challenge.entry_template_url.present? %>
-        <span class="help-block"><%= raw t(".demo-url-description", url: @challenge.entry_template_url) %></span>
+        <span class="help-block"><%= raw t(".demo-url-description", url: url_with_protocol(@challenge.entry_template_url)) %></span>
       <% else %>
         <span class="help-block"><%= t(".demo-url-description-without-template") %></span>
       <% end %>

@@ -27,4 +27,12 @@ module ApplicationHelper
   def tab_class(activator)
     'active' if params[:controller] == activator
   end
+
+  def url_with_protocol(url)
+    if url[/^https?/]
+      url
+    else
+      "http://#{url}"
+    end
+  end
 end
