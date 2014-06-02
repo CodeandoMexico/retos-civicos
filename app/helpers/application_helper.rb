@@ -35,4 +35,8 @@ module ApplicationHelper
       "http://#{url}"
     end
   end
+
+  def preview_url(url)
+    raw Onebox.preview(url_with_protocol(url)).to_s
+  end
 end
