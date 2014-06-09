@@ -14,7 +14,7 @@ feature 'Organization admin downloads entries CSV' do
       name: 'Mi propuesta',
       description: 'la mejor',
       live_demo_url: 'http://mipropuesta.com',
-      technologies: 'PHP, Rust',
+      technologies: ['PHP', 'Rust'],
       created_at: Time.zone.local(2014,4,25,10,52,24)
 
     sign_in_organization_admin(organization_admin)

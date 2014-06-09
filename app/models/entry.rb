@@ -5,8 +5,11 @@ class Entry < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :challenge
+
   validates :name, :description, :live_demo_url, presence: true
   mount_uploader :image, EntryImageUploader
+  serialize :technologies, Array
+  before_validation :validate_technologies!
 
   def self.public
     where public: true
@@ -14,7 +17,7 @@ class Entry < ActiveRecord::Base
 
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
-     :live_demo_url, :technologies, :member_name, :public?]
+     :live_demo_url, :technologies_separated_by_commas, :member_name, :public?]
   end
 
   def publish!
@@ -31,5 +34,21 @@ class Entry < ActiveRecord::Base
 
   def challenge_title
     challenge.title
+  end
+
+  def technologies_separated_by_commas
+    technologies.join ', '
+  end
+
+  def technologies_options
+    ENTRY_TECHNOLOGIES
+  end
+
+  private
+
+  def validate_technologies!
+    self.technologies = technologies.select do |technology|
+      technology.present? && technologies_options.values.flatten.include?(technology)
+    end
   end
 end

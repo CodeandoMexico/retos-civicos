@@ -17,7 +17,7 @@ feature 'Organization admin watches entry profile' do
       challenge: challenge,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: 'PHP, MySQL',
+      technologies: ['', 'PHP', 'MySQL'],
       description: 'Este reto se resuelve con tecnología'
 
     sign_in_organization_admin(organization.admin)
