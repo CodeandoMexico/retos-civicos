@@ -1,26 +1,31 @@
-<h3><%= link_to t('.go-to-challenge', challenge: @challenge.title), challenge_path(@challenge) %></h3>
+<ol class="breadcrumb">
+  <li><%= link_to @challenge.title, @challenge %></li>
+  <li class="active"><%= @entry.name %></li>
+</ol>
 
-<section id="pitch" class="unit pitch">
-  <header class="unit">
-    <%= image_tag @entry.image.small.url, width: 80, style: 'vertical-align: middle;margin-right: 15px;' %>
-    <h1 style="display:inline;"><%= @entry.name %></h1>
-  </header>
-  <section id="description" class="unit description">
-    <div class="column left">
-      <div class="content">
-        <h2><%= t(".description") %></h2>
-        <p><%= @entry.description %></p>
-        <h2><%= t(".live-demo-url") %></h2>
-        <p>Demo en línea: <%= link_to "#{@entry.live_demo_url}", @entry.live_demo_url, target: "_blank" %></p>
-      </div>
+<div class="sheet-header">
+  <h1><%= @entry.name %></h1>
+</div>
+
+<div class="sheet-section sheet-section-with-pad">
+  <div class="row">
+    <div class="col-lg-6">
+      <% if preview_url(@entry.live_demo_url).present? %>
+        <%= preview_url @entry.live_demo_url %>
+      <% else %>
+        <h3>Demo en línea</h3>
+        <%= link_to @entry.live_demo_url, @entry.live_demo_url %>
+      <% end %>
     </div>
-    <div class="column right">
-      <div class="content">
-        <h2>Empresa</h2>
-        <p><%= @entry.company_name %></p>
-        <h2>Tecnologías</h2>
-        <p><%= @entry.technologies %></p>
-      </div>
+    <div class="col-lg-6">
+      <h3><%= t(".description") %></h3>
+      <%= simple_format @entry.description %>
+
+      <h3>Empresa</h3>
+      <p><%= @entry.company_name %></p>
+
+      <h3>Tecnologías</h3>
+      <p><%= @entry.technologies_separated_by_commas %></p>
     </div>
-  </section>
-</section>
+  </div>
+</div>
