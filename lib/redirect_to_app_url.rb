@@ -15,7 +15,7 @@ class RedirectToAppUrl
 
   private
 
-  def url_to_redirect(request_url)
+  def url_to_redirect(env)
     request_url = Rack::Request.new(env).url
     request_url.gsub(/#{app_name}.herokuapp.com|#{app_name}.heroku.com/, app_url)
   end
