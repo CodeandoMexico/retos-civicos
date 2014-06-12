@@ -66,7 +66,7 @@ module Aquila
     # Prevent initializing the app during assets precompilation
     config.assets.initialize_on_precompile = false
 
-    config.middleware.use "RedirectToCodeandoMexico" if Rails.env.production?
+    config.middleware.use "RedirectToAppUrl" if Rails.env.production?
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w( dashboard.css )
