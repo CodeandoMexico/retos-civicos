@@ -7,6 +7,8 @@ class EntriesController < ApplicationController
     if !@entry.public? && !@entry.member?(current_user)
       return render status: :not_found
     end
+
+    render layout: 'aquila'
   end
 
   def new
