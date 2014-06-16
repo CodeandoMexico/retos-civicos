@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource :comment, only: [:like]
 
+  def guest
+    redirect_to signup_path, alert: t('flash.unauthorized.messages')
+  end
+
   def create
     @challenge = Challenge.find(params[:challenge_id])
     authorize! :create_or_reply_challenge_comment, @challenge
