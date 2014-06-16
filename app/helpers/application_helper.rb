@@ -35,4 +35,10 @@ module ApplicationHelper
       "http://#{url}"
     end
   end
+
+  def preview_url(url)
+    content_tag :div, class: 'url-preview js-url-preview' do
+      Onebox.preview(url_with_protocol(url)).to_s.html_safe
+    end
+  end
 end
