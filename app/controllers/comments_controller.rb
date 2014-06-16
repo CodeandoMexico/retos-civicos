@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :comment, only: [:like]
 
   def guest
-    redirect_to signup_path, alert: t('flash.unauthorized.messages')
+    redirect_to signup_path, alert: t('flash.unauthorized.message')
   end
 
   def create

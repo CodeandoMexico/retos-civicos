@@ -6,7 +6,7 @@
     <% end %>
 
     <% if !(current_user || current_organization) %>
-      <%= link_to t(".comment"), guest_challenge_comments_path(challenge) %>
+      <%= link_to t(".comment"), guest_challenge_comments_path(challenge), class: "btn btn-primary btn-lg" %>
     <% end %>
   </div>
 </div>
