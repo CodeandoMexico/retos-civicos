@@ -1,3 +1,5 @@
+@import "chosen";
+
 @import "retos-publicos/main-navbar";
 @import "retos-publicos/sheet";
 @import "retos-publicos/social-link";
@@ -5,6 +7,7 @@
 @import 'retos-publicos/challenge-points';
 @import 'retos-publicos/format-label';
 @import 'retos-publicos/comments-form';
+@import 'retos-publicos/chosen';
 
 .about-img {
   margin: auto;

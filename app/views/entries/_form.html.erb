@@ -47,7 +47,8 @@
       <span class="help-block"><%= t(".technologies-description") %></span>
     </div>
     <div class="col-sm-9">
-      <%= f.text_area :technologies, required: true, class: 'form-control', rows: 4 %>
+      <%= f.select :technologies, grouped_options_for_select(@entry.technologies_options, selected: @entry.technologies), {},
+        class: 'js-chosen form-control', multiple: true, 'data-placeholder' => 'Ruby, PostgreSQL ...' %>
     </div>
   </div>
 

@@ -27,7 +27,7 @@ feature 'Organization admin watches entries' do
       challenge: challenge_two,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: 'PHP, MySQL'
+      technologies: ['PHP', 'MySQL']
     create :entry,
       name: 'Propuesta 2',
       member: member,
@@ -36,7 +36,7 @@ feature 'Organization admin watches entries' do
       challenge: challenge_two,
       live_demo_url: 'http://otroproyecto.com',
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
-      technologies: 'Rust, Haskell'
+      technologies: ['Rust', 'Haskell']
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
@@ -74,7 +74,7 @@ feature 'Organization admin watches entries' do
       challenge: challenge_one,
       live_demo_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: 'PHP, MySQL'
+      technologies: ['PHP', 'MySQL']
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'

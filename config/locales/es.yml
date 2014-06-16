@@ -364,7 +364,7 @@ es:
       created_at: fecha
       description: descripcion
       live_demo_url: link
-      technologies: tecnologias
+      technologies_separated_by_commas: tecnologias
       member_name: participante
       public?: publica
   date:

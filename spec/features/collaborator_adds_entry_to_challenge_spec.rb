@@ -32,7 +32,11 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_company_rfc', with: args.fetch(:company_rfc)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_live_demo_url', with: args.fetch(:url)
-    fill_in 'entry_technologies', with: args.fetch(:technologies)
+
+    args.fetch(:technologies).split(", ").each do |tech|
+      select tech, from: 'entry_technologies'
+    end
+
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end
