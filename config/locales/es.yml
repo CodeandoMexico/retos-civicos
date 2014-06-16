@@ -214,6 +214,7 @@ es:
       demo: Demo
     show:
       description-title: 'Descripción'
+      challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
       steps-title: 'Etapas'
       supportus: Ayúdanos a cumplir nuestro objetivo
