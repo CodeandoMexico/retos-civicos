@@ -2,6 +2,9 @@
 ########### DEFAULT KEYS ###########
 ####################################
 
+APP_NAME:
+APP_URL:
+
 # Github
 GITHUB_KEY:
 GITHUB_SECRET:
