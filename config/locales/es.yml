@@ -154,6 +154,7 @@ es:
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
+      challenge-description: 'Descripción del reto'
       points: Puntos clave
       points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
       point1: Punto 1 (Opcional)
