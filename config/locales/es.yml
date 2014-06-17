@@ -162,6 +162,7 @@ es:
       additional_links: Referencias adicionales
       additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas.'
       additional_links-placeholder: Separados por comas
+      infographic: 'Infografía'
       dataset_id: Datasets
       dataset_id-description: Agrega un Dataset de http://datamx.io/
       activities: Actividades y Noticias
