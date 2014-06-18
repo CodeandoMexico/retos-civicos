@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature 'Collaborator adds entry to challenge' do
-  scenario 'with the right data' do
+  scenario 'on the ideas phase' do
     member = create :member
-    challenge = create :challenge
+    challenge = create :challenge, published_on: Date.new(2014,10,1)
     create :collaboration, member: member, challenge: challenge
 
     sign_in_user member
@@ -19,7 +19,8 @@ feature 'Collaborator adds entry to challenge' do
       image: app_image
     )
 
-    removed_behaivior
+    current_path.should eq challenge_path(challenge)
+    page.should have_content success_message
   end
 
   def app_image
@@ -32,38 +33,14 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_company_rfc', with: args.fetch(:company_rfc)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_live_demo_url', with: args.fetch(:url)
-
     args.fetch(:technologies).split(", ").each do |tech|
       select tech, from: 'entry_technologies'
     end
-
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end
 
-  def removed_behaivior
-    return true
-
-    page_should_have_pitch_with(
-      'Empresa de Juanito',
-      'Mi super app',
-      'Es la mejor',
-      'https://github.com/CodeandoMexico/aquila',
-      'Ruby, Haskell, Elixir, Rust'
-    )
-
-    app_should_not_be_counted_yet
-  end
-
-  def page_should_have_pitch_with(*data)
-    within '#pitch' do
-      data.each { |item| page.should have_content item }
-    end
-  end
-
-  def app_should_not_be_counted_yet
-    within '.challenge-tabs' do
-      page.should have_content '0 App'
-    end
+  def success_message
+    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta noviembre 01, 2014"
   end
 end

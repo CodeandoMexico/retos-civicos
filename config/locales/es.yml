@@ -120,7 +120,6 @@ es:
     users:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
     entries:
-      created_successfully: "¡Gracias por tu propuesta! Recuerda podrás seguir editándola hasta el cierre del reto"
       updated_successfully: La propuesta fue editada correctamente.
     unauthorized:
       message: Necesitas iniciar sesión primero

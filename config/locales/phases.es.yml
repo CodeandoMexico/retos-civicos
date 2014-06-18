@@ -1,0 +1,3 @@
+es:
+  phases:
+    entry_added: "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta %{date}"
