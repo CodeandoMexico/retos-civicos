@@ -6,6 +6,8 @@ FactoryGirl.define do
     pitch "piitch del challenge"
     association :organization
 
+    ideas_phase_due_on { 1.month.from_now }
+
     trait :inactive do
       status 'finished'
     end

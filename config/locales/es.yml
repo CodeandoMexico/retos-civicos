@@ -10,6 +10,7 @@ es:
         about: Acerca de
         description: Descripción
         pitch: Pitch
+        ideas_phase_due_on: Fecha de vencimiento de la etapa de ideas
       collaboration:
         member_id: Miembro
         user_id: Usuario
@@ -43,6 +44,7 @@ es:
         voteable_id: Voteable
     errors:
       messages:
+        blank: no puede estar en blanco
         record_invalid: 'La validación falló: %{errors}'
         taken: ya ha sido elegido
       template:
@@ -182,6 +184,7 @@ es:
       dataset_hint_text: Escriba un término de búsqueda
       dataset_no_results_text: No hay resultados
       dataset_searching_text: Buscando...
+      phases: Etapas
     send_newsletter:
       header: Mandar un newsletter
       newsletter_subject: Título del correo
