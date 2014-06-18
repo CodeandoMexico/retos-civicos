@@ -1,6 +1,6 @@
 module Phases
   def self.entry_added_message(challenge)
-    t('phases.entry_added', date: l(challenge.published_on + 31, format: :long))
+    t('phases.entry_added', date: l(challenge.ideas_phase_due_on, format: :long))
   end
 
   private

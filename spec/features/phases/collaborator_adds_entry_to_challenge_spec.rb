@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Collaborator adds entry to challenge' do
   scenario 'on the ideas phase' do
     member = create :member
-    challenge = create :challenge, published_on: Date.new(2014,10,1)
+    challenge = create :challenge, ideas_phase_due_on: Date.new(2014,11,2)
     create :collaboration, member: member, challenge: challenge
 
     sign_in_user member
@@ -41,6 +41,6 @@ feature 'Collaborator adds entry to challenge' do
   end
 
   def success_message
-    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta noviembre 01, 2014"
+    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta noviembre 02, 2014"
   end
 end
