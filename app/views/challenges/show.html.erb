@@ -33,6 +33,12 @@
   </div>
 </div>
 
+<div class="row">
+  <%= @phases.each do |phase| %>
+    <%= content_tag :div, phase, id: ('current_challenge_phase' if phase.current?), class: 'col-md-3' %>
+  <% end %>
+</div>
+
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-content">
     <%= collaborate_section(@challenge) %>
