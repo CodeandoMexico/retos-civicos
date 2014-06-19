@@ -43,7 +43,11 @@
 
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-content">
-    <%= collaborate_section(@challenge) %>
+    <% if can_edit_challenge? @challenge %>
+      <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+    <% else %>
+      <%= collaborate_section(@challenge) %>
+    <% end %>
   </div>
 </div>
 

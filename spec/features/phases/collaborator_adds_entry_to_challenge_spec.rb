@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Collaborator adds entry to challenge' do
   scenario 'on the ideas phase' do
     member = create :member
-    challenge = create :challenge, ideas_phase_due_on: Date.new(2014,11,2)
+    challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
     create :collaboration, member: member, challenge: challenge
 
     sign_in_user member
@@ -20,7 +20,15 @@ feature 'Collaborator adds entry to challenge' do
     )
 
     current_path.should eq challenge_path(challenge)
-    page.should have_content success_message
+    page.should have_content success_message(2.weeks.from_now)
+  end
+
+  scenario 'but fails because ideas phase is due' do
+    member = create :member
+    challenge = create :challenge, ideas_phase_due_on: 2.weeks.ago
+
+    visit challenge_path(challenge)
+    page.should have_css disabled_collaboration_button
   end
 
   def app_image
@@ -40,7 +48,11 @@ feature 'Collaborator adds entry to challenge' do
     click_button 'Enviar proyecto'
   end
 
-  def success_message
-    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta noviembre 02, 2014"
+  def disabled_collaboration_button
+    'a[disabled="disabled"]:contains("Envía tu propuesta")'
+  end
+
+  def success_message(date)
+    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta #{I18n.l(date.to_date, format: :long)}"
   end
 end

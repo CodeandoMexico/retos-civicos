@@ -1,5 +1,5 @@
 require 'active_support/all'
-require_relative '../../lib/phases'
+require_relative '../../app/services/phases'
 
 module Phases
   describe 'phases for dates' do
@@ -36,6 +36,13 @@ module Phases
 
       current.count.should eq 1
       current.first.to_s.should eq 'selección de ideas'
+    end
+  end
+
+  describe 'is current' do
+    it 'returns true if the asked phase is current' do
+      dates = Dates.new(1.day.from_now, 2.days.from_now)
+      Phases.is_current?(:ideas, dates)
     end
   end
 end

@@ -14,20 +14,24 @@ module ChallengesHelper
   end
 
   def collaborate_section(challenge)
-    if user_signed_in?
-      userable = current_user.userable
-      if userable == challenge.organization
-        link_to t("helpers.edit"), edit_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
-      elsif userable.has_submitted_app?(challenge)
-        link_to t("helpers.edit_entry"), edit_challenge_entry_path(challenge, userable.entry_for(challenge)), class: 'btn btn-primary'
-      elsif current_user.collaborating_in?(challenge)
-        link_to t("helpers.submit_app"), new_challenge_entry_path(challenge), class: 'btn btn-primary'
-      else
-        link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
-      end
+    if current_member && current_member.has_submitted_app?(challenge)
+      text_path = 'edit_entry'
+      link_path = edit_challenge_entry_path(challenge, current_member.entry_for(challenge))
+      method = :get
+    elsif current_member && current_member.collaborating_in?(challenge)
+      text_path = 'submit_app'
+      link_path = new_challenge_entry_path(challenge)
+      method = :get
     else
-      link_to t("helpers.collaborate"), challenge_collaborations_path(challenge), method: :post, class: 'btn btn-primary'
+      text_path = 'collaborate'
+      link_path = challenge_collaborations_path(challenge)
+      method = :post
     end
+
+    link_to t("helpers.#{text_path}"), link_path,
+      method: method,
+      class: 'btn btn-primary',
+      disabled: !Phases.is_current?(:ideas, challenge)
   end
 
   def newsletter_helper(challenge)

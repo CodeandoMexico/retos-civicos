@@ -7,6 +7,9 @@ module Phases
     [Phase.of_ideas(dates), Phase.of_ideas_selection(dates)]
   end
 
+  def self.is_current?(phase, dates)
+    for_dates(dates).select(&:current?).to_s == phase.to_s
+  end
 
   class Phase
     attr_reader :id, :start, :finish
