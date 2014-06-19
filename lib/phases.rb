@@ -1,10 +1,10 @@
 module Phases
-  def self.entry_added_message(challenge)
-    t('phases.entry_added', date: l(challenge.ideas_phase_due_on, format: :long))
+  def self.entry_added_message(dates)
+    t('phases.entry_added', date: l(dates.ideas_phase_due_on, format: :long))
   end
 
-  def self.of_challenge(challenge)
-    [Phase.of_ideas(challenge), Phase.of_ideas_selection(challenge)]
+  def self.for_dates(dates)
+    [Phase.of_ideas(dates), Phase.of_ideas_selection(dates)]
   end
 
 
@@ -13,21 +13,17 @@ module Phases
 
     def initialize(id, start, finish, translator = Phases)
       @id = id
-      @start = start
-      @finish = finish
+      @start = start.to_date
+      @finish = finish.to_date
       @translator = translator
     end
 
-    def self.of_ideas(challenge)
-      new(:ideas,
-          :start,
-          challenge.ideas_phase_due_on)
+    def self.of_ideas(dates)
+      new(:ideas, beginning_of_times, dates.ideas_phase_due_on)
     end
 
-    def self.of_ideas_selection(challenge)
-      new(:ideas_selection,
-          challenge.ideas_phase_due_on,
-          challenge.ideas_selection_phase_due_on)
+    def self.of_ideas_selection(dates)
+      new(:ideas_selection, dates.ideas_phase_due_on, dates.ideas_selection_phase_due_on)
     end
 
     def to_s
@@ -35,10 +31,18 @@ module Phases
     end
 
     def current?
-      start < Date.current < finish
+      start < current_date && current_date < finish
     end
 
     private
+
+    def current_date
+      Date.current
+    end
+
+    def self.beginning_of_times
+      Date.new(0,1,1)
+    end
 
     attr_reader :translator
   end

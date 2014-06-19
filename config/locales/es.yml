@@ -10,7 +10,8 @@ es:
         about: Acerca de
         description: Descripción
         pitch: Pitch
-        ideas_phase_due_on: Fecha de vencimiento de la etapa de ideas
+        ideas_phase_due_on: Fin de la etapa de ideas
+        ideas_selection_phase_due_on: Fin de la etapa de selección ideas
       collaboration:
         member_id: Miembro
         user_id: Usuario

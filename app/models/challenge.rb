@@ -4,7 +4,7 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
-                  :ideas_phase_due_on
+                  :ideas_phase_due_on, :ideas_selection_phase_due_on
 
   attr_accessor :dataset_file
 
@@ -22,7 +22,7 @@ class Challenge < ActiveRecord::Base
 
   belongs_to :organization
   # Validations
-  validates :description, :title, :status, :about, :pitch, :ideas_phase_due_on, presence: true
+  validates :description, :title, :status, :about, :pitch, :ideas_phase_due_on, :ideas_selection_phase_due_on, presence: true
   validates :pitch, length: { maximum: 140 }
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }

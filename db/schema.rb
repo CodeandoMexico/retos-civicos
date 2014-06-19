@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(:version => 20140618180038) do
     t.string   "title"
     t.text     "description"
     t.integer  "creator_id"
-    t.string   "status",             :default => "open"
+    t.string   "status",                       :default => "open"
     t.string   "dataset_url"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.integer  "likes_counter",      :default => 0
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "likes_counter",                :default => 0
     t.text     "first_spec"
     t.text     "second_spec"
     t.text     "third_spec"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20140618180038) do
     t.string   "entry_template_url"
     t.string   "infographic"
     t.date     "ideas_phase_due_on"
+    t.date     "ideas_selection_phase_due_on"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"

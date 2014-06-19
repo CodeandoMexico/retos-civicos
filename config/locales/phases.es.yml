@@ -1,4 +1,5 @@
 es:
   phases:
     entry_added: "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta %{date}"
-    ideas_phase: 'Ideas'
+    ideas_phase: 'ideas'
+    ideas_selection_phase: 'selección de ideas'

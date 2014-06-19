@@ -34,8 +34,10 @@
 </div>
 
 <div class="row">
-  <%= @phases.each do |phase| %>
-    <%= content_tag :div, phase, id: ('current_challenge_phase' if phase.current?), class: 'col-md-3' %>
+  <% @phases.each do |phase| %>
+    <%= content_tag :div, phase.to_s.capitalize,
+      id: ('current_challenge_phase' if phase.current?),
+      class: "col-md-3 #{'active' if phase.current?}" %>
   <% end %>
 </div>
 
