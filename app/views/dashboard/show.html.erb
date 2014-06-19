@@ -41,7 +41,9 @@
     <% @entries.each do |entry| %>
       <tr>
         <td>
-          <%= link_to entry.name, dashboard_entry_path(entry) %><br/>
+          <%= link_to entry.name, dashboard_entry_path(entry) %>
+          <%= render 'entry_status', entry: entry %>
+          <br/>
           <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
         </td>
         <td><%= entry.member.name %></td>

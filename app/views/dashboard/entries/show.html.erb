@@ -1,9 +1,19 @@
 <div class="page-header">
   <div class="pull-right">
-    <%= render 'visit_or_publish_entry', entry: @entry %>
+    <ul class="list-inline">
+      <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
+        <li><%= button_to 'Aceptar propuesta',
+          accept_dashboard_entry_url(@entry),
+          class: 'btn btn-primary',
+          confirm: '¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?' %></li>
+      <% end %>
+
+      <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
+    </ul>
   </div>
 
   <h1><%= @entry.name.capitalize %></h1>
+  <%= render 'entry_status', entry: @entry %>
 </div>
 
 <div class="l-space-bottom">

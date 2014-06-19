@@ -24,6 +24,10 @@ class Entry < ActiveRecord::Base
     self.public = true
   end
 
+  def accept!
+    self.accepted = true
+  end
+
   def member?(user)
     member == user.try(:userable)
   end

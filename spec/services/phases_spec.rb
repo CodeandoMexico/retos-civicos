@@ -44,6 +44,10 @@ module Phases
       dates = Dates.new(1.day.from_now, 2.days.from_now)
       Phases.is_current?(:ideas, dates).should be
       Phases.is_current?(:ideas_selection, dates).should_not be
+
+      dates = Dates.new(1.day.ago, 2.days.from_now)
+      Phases.is_current?(:ideas, dates).should_not be
+      Phases.is_current?(:ideas_selection, dates).should be
     end
   end
 end

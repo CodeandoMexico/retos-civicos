@@ -124,6 +124,7 @@ es:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
     entries:
       updated_successfully: La propuesta fue editada correctamente.
+      accepted_successfully: La propuesta fue aceptada satisfactoriamente
     unauthorized:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto

@@ -8,14 +8,14 @@ module Phases
   end
 
   def self.is_current?(phase, dates)
-    for_dates(dates).select(&:current?).first.to_s == phase.to_s
+    for_dates(dates).select(&:current?).first.to_sym == phase.to_sym
   end
 
   class Phase
     attr_reader :id, :start, :finish
 
     def initialize(id, start, finish, translator = Phases)
-      @id = id
+      @id = id.to_sym
       @start = start.to_date
       @finish = finish.to_date
       @translator = translator
@@ -33,8 +33,12 @@ module Phases
       translator.t("phases.#{id}_phase")
     end
 
+    def to_sym
+      id
+    end
+
     def current?
-      start < current_date && current_date < finish
+      (start..finish).cover? current_date
     end
 
     private
