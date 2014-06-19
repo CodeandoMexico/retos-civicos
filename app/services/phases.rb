@@ -8,7 +8,7 @@ module Phases
   end
 
   def self.is_current?(phase, dates)
-    for_dates(dates).select(&:current?).to_s == phase.to_s
+    for_dates(dates).select(&:current?).first.to_s == phase.to_s
   end
 
   class Phase

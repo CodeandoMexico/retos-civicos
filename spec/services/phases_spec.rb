@@ -42,7 +42,8 @@ module Phases
   describe 'is current' do
     it 'returns true if the asked phase is current' do
       dates = Dates.new(1.day.from_now, 2.days.from_now)
-      Phases.is_current?(:ideas, dates)
+      Phases.is_current?(:ideas, dates).should be
+      Phases.is_current?(:ideas_selection, dates).should_not be
     end
   end
 end

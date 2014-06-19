@@ -127,6 +127,7 @@ es:
     unauthorized:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto
+      entries_not_accepted: "El reto ya no acepta nuevas propuestas."
   challenges:
     initial_activity:
       title: Creación del reto
