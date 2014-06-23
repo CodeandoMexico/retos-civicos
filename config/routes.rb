@@ -47,6 +47,7 @@ Aquila::Application.routes.draw do
     resources :collaborations, only: [:create]
     resources :entries, except: [:destroy]
     resources :comments do
+      get :guest, on: :collection
       member do
         post :like
         post :reply

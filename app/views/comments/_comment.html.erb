@@ -67,6 +67,10 @@
             <% end %>
           </div>
         </div>
+      <% else %>
+        <% if !(current_user || current_organization) %>
+          <%= link_to t(".reply"), guest_challenge_comments_path(challenge), class: "btn btn-primary pull-right" %>
+        <% end %>
       <% end %>
     </div>
   </div>
