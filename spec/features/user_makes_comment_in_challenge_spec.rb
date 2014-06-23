@@ -57,7 +57,7 @@ feature 'User makes comment in challenge' do
   end
 
   def user_that_just_signed_up
-    User.last
+    User.order('id DESC').first
   end
 
   def page_should_have_comment(comment)

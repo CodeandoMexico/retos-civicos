@@ -157,5 +157,4 @@ class Challenge < ActiveRecord::Base
   def create_initial_activity
     self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))
   end
-
 end
