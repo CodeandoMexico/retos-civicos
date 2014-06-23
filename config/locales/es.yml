@@ -154,6 +154,7 @@ es:
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
+      challenge-description: 'Descripción del reto'
       points: Puntos clave
       points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
       point1: Punto 1 (Opcional)
@@ -162,6 +163,7 @@ es:
       additional_links: Referencias adicionales
       additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas.'
       additional_links-placeholder: Separados por comas
+      infographic: 'Infografía'
       dataset_id: Datasets
       dataset_id-description: Agrega un Dataset de http://datamx.io/
       activities: Actividades y Noticias
@@ -214,6 +216,7 @@ es:
       demo: Demo
     show:
       description-title: 'Descripción'
+      challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
       steps-title: 'Etapas'
       supportus: Ayúdanos a cumplir nuestro objetivo

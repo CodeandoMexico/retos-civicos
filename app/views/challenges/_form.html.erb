@@ -71,7 +71,7 @@
   </div>
 
   <div class="sheet-subheader">
-    <h3><%= t(".needs") %></h3>
+    <h3><%= t(".challenge-description") %></h3>
   </div>
 
   <div class="sheet-section sheet-section-with-pad">
@@ -100,6 +100,18 @@
         <%= t(".point3") %>
         <%= f.text_field :third_spec, class: 'form-control' %>
         <br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <label class="control-label"><%= t(".infographic") %></label>
+      </div>
+      <div class="col-sm-9">
+        <% if @challenge.infographic? %>
+          <%= image_tag @challenge.infographic_url, class: 'img-thumbnail l-space-bottom' %>
+        <% end %>
+        <%= f.file_field :infographic %>
       </div>
     </div>
   </div>
