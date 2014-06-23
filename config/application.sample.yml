@@ -28,6 +28,7 @@ SMTP_CONFIG_USERNAME:
 SMTP_CONFIG_PASSWORD:
 SMTP_CONFIG_DOMAIN:
 ACTION_MAILER_HOST:
+MAILER_DEFAULT_FROM: 'Codeando México <equipo@codeandomexico.org>'
 
 # Error reporting
 AIRBRAKE_KEY:

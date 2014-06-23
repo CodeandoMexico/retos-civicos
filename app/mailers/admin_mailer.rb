@@ -1,6 +1,6 @@
 #encoding: utf-8
 class AdminMailer < ActionMailer::Base
-  default from: "hubot@codeandomexico.org"
+  default from: ENV['MAILER_DEFAULT_FROM']
 
   def notify_new_organization(organization)
     @organization = organization

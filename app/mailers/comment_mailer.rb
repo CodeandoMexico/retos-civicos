@@ -1,8 +1,6 @@
 class CommentMailer < ActionMailer::Base
-
   helper :application
-
-  default from: "Codeando México <equipo@codeandomexico.org>"
+  default from: ENV['MAILER_DEFAULT_FROM']
 
   def create_comment_notification(comment_id)
     @comment = Comment.find(comment_id)
@@ -19,5 +17,4 @@ class CommentMailer < ActionMailer::Base
 
     mail to: @user.email, subject: 'Tienes una nueva respuesta en un comentario'
   end
-
 end
