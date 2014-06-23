@@ -30,7 +30,7 @@ feature 'Collaborator adds entry to challenge' do
     sign_in_user(member)
 
     visit challenge_path(challenge)
-    page.should have_css disabled_collaboration_button
+    page.should_not have_link 'Envía tu propuesta'
 
     visit new_challenge_entry_path(challenge)
     current_path.should eq challenge_path(challenge)

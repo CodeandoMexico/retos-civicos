@@ -21,7 +21,8 @@ feature 'Organization admin creates a challenge' do
       entry_template_url: 'http://google.com',
       description: 'México esta muy sucio',
       ideas_phase_due_on: 1.month.from_now.to_date,
-      ideas_selection_phase_due_on: 2.month.from_now.to_date
+      ideas_selection_phase_due_on: 2.month.from_now.to_date,
+      prototypes_phase_due_on: 3.month.from_now.to_date
     )
 
     page_should_show_challenge_with(
@@ -45,7 +46,8 @@ feature 'Organization admin creates a challenge' do
       entry_template_url: 'google.com',
       description: 'México esta muy sucio',
       ideas_phase_due_on: 1.month.from_now.to_date,
-      ideas_selection_phase_due_on: 2.month.from_now.to_date
+      ideas_selection_phase_due_on: 2.month.from_now.to_date,
+      prototypes_phase_due_on: 3.month.from_now.to_date
     )
 
     when_addding_an_entry_as(member) do
@@ -63,6 +65,7 @@ feature 'Organization admin creates a challenge' do
     fill_in 'challenge_description', with: data.fetch(:description)
     fill_in 'challenge_ideas_phase_due_on', with: data.fetch(:ideas_phase_due_on)
     fill_in 'challenge_ideas_selection_phase_due_on', with: data.fetch(:ideas_selection_phase_due_on)
+    fill_in 'challenge_prototypes_phase_due_on', with: data.fetch(:prototypes_phase_due_on)
     click_button 'Publicar'
   end
 

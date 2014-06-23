@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140619214705) do
+ActiveRecord::Schema.define(:version => 20140623193529) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20140619214705) do
     t.string   "infographic"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
+    t.date     "prototypes_phase_due_on"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"

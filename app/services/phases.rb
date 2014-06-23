@@ -4,11 +4,15 @@ module Phases
   end
 
   def self.for_dates(dates)
-    [Phase.of_ideas(dates), Phase.of_ideas_selection(dates)]
+    [Phase.of_ideas(dates),
+     Phase.of_ideas_selection(dates),
+     Phase.of_prototypes(dates)]
   end
 
   def self.is_current?(phase, dates)
-    for_dates(dates).select(&:current?).first.to_sym == phase.to_sym
+    current_phase = for_dates(dates).select(&:current?).first
+    raise 'All phases have been completed, maybe you need a new phase' unless current_phase
+    current_phase.to_sym == phase.to_sym
   end
 
   class Phase
@@ -27,6 +31,10 @@ module Phases
 
     def self.of_ideas_selection(dates)
       new(:ideas_selection, dates.ideas_phase_due_on, dates.ideas_selection_phase_due_on)
+    end
+
+    def self.of_prototypes(dates)
+      new(:prototypes, dates.ideas_selection_phase_due_on, dates.prototypes_phase_due_on)
     end
 
     def to_s
