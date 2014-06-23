@@ -14,6 +14,8 @@ module ChallengesHelper
   end
 
   def collaborate_section(challenge)
+    return unless Phases.is_current?(:ideas, challenge)
+
     if current_member && current_member.has_submitted_app?(challenge)
       text_path = 'edit_entry'
       link_path = edit_challenge_entry_path(challenge, current_member.entry_for(challenge))
@@ -28,10 +30,7 @@ module ChallengesHelper
       method = :post
     end
 
-    link_to t("helpers.#{text_path}"), link_path,
-      method: method,
-      class: 'btn btn-primary',
-      disabled: !Phases.is_current?(:ideas, challenge)
+    link_to t("helpers.#{text_path}"), link_path, method: method, class: 'btn btn-primary'
   end
 
   def newsletter_helper(challenge)

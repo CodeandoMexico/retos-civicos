@@ -53,11 +53,7 @@ feature 'Collaborator adds entry to challenge' do
     click_button 'Enviar proyecto'
   end
 
-  def disabled_collaboration_button
-    'a[disabled="disabled"]:contains("Envía tu propuesta")'
-  end
-
   def success_message(date)
-    "Has enviado la propuesta de la primer etapa con éxito. Podrás editarla hasta #{I18n.l(date.to_date, format: :long)}"
+    "Has enviado tu propuesta con éxito. Podrás editarla hasta #{I18n.l(date.to_date, format: :long)}"
   end
 end
