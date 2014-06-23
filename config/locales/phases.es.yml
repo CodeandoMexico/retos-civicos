@@ -3,3 +3,4 @@ es:
     entry_added: "Has enviado tu propuesta con éxito. Podrás editarla hasta %{date}"
     ideas_phase: 'ideas'
     ideas_selection_phase: 'selección de ideas'
+    prototypes_phase: 'prototipos'
