@@ -51,12 +51,8 @@
   </div>
 </div>
 
-<div class="sheet-section sheet-section-with-pad text-center">
-  <%= image_tag 'infografia_retos.png' %>
-</div>
-
 <div class="challenge-subheader text-center">
-  <h3><%= t('challenges.form.needs') %></h3>
+  <h3><%= t('.challenge-description') %></h3>
 </div>
 <div class="sheet-section">
   <div class="row">
@@ -84,6 +80,14 @@
       </div>
     </div>
   </div>
+  <% if @challenge.infographic? %>
+    <hr/>
+    <div class="text-center">
+      <div class="sheet-section sheet-section-with-pad text-center">
+        <%= image_tag @challenge.infographic_url %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="challenge-subheader text-center">

@@ -12,6 +12,12 @@ Aquila::Application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :challenges
+    end
+  end
+
   match 'signup' => 'pages#sign_up'
 
   resource :dashboard, only: :show, controller: :dashboard do
@@ -48,6 +54,7 @@ Aquila::Application.routes.draw do
     resources :collaborations, only: [:create]
     resources :entries, except: [:destroy]
     resources :comments do
+      get :guest, on: :collection
       member do
         post :like
         post :reply

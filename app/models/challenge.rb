@@ -4,13 +4,14 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
-                  :ideas_phase_due_on, :ideas_selection_phase_due_on
+                  :ideas_phase_due_on, :ideas_selection_phase_due_on, :infographic
 
   attr_accessor :dataset_file
 
   store :welcome_mail, accessors: [:subject, :body]
 
   mount_uploader :avatar, ChallengeAvatarUploader
+  mount_uploader :infographic, ChallengeInfographicUploader
 
   paginates_per 12
 

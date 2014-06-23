@@ -1,8 +1,6 @@
 class ChallengeMailer < ActionMailer::Base
-
   helper :application
-
-  default from: "Codeando México <equipo@codeandomexico.org>"
+  default from: ENV['MAILER_DEFAULT_FROM']
 
   def welcome(collaboration)
     challenge = collaboration.challenge
@@ -15,5 +13,4 @@ class ChallengeMailer < ActionMailer::Base
 
     mail to: @member.email, subject: subject
   end
-
 end

@@ -16,6 +16,7 @@ feature 'Organization admin creates a challenge' do
       title: 'Limpiemos México',
       pitch: 'Hagamos conciencia para un México limpio',
       image: image_fixture,
+      infographic: image_fixture,
       organization_about: 'La organización limpia',
       entry_template_url: 'http://google.com',
       description: 'México esta muy sucio',
@@ -39,6 +40,7 @@ feature 'Organization admin creates a challenge' do
       title: 'Limpiemos México',
       pitch: 'Hagamos conciencia para un México limpio',
       image: image_fixture,
+      infographic: image_fixture,
       organization_about: 'La organización limpia',
       entry_template_url: 'google.com',
       description: 'México esta muy sucio',
@@ -55,6 +57,7 @@ feature 'Organization admin creates a challenge' do
     fill_in 'challenge_title', with: data.fetch(:title)
     fill_in 'challenge_pitch', with: data.fetch(:pitch)
     attach_file 'challenge_avatar', data.fetch(:image)
+    attach_file 'challenge_infographic', data.fetch(:infographic)
     fill_in 'challenge_about', with: data.fetch(:organization_about)
     fill_in 'challenge_entry_template_url', with: data.fetch(:entry_template_url)
     fill_in 'challenge_description', with: data.fetch(:description)
