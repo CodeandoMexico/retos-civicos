@@ -29,7 +29,7 @@
           <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
         </td>
         <td><%= entry.company_name %></td>
-        <td><%= link_to truncate(entry.live_demo_url), entry.live_demo_url, target: '_blank' %></td>
+        <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
         <td><%= entry.technologies_separated_by_commas %></td>
         <td><%= render 'visit_or_publish_entry', entry: entry %></td>
       <% end %>

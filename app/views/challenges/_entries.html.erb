@@ -11,7 +11,7 @@
           <%= link_to entry.name, challenge_entry_path(challenge, entry) %>
         </h4>
         <p><%= truncate entry.description, length: 200 %></p>
-        <%= link_to t(".demo"), entry.live_demo_url if entry.live_demo_url %>
+        <%= link_to t('.idea'), entry.idea_url if entry.idea_url %>
       </div>
     </div>
   <% end %>

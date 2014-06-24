@@ -54,16 +54,16 @@
 
   <div class="form-group">
     <div class="col-sm-3">
-      <%= f.label :live_demo_url, t(".live-demo-url"), class: 'control-label' %>
+      <%= f.label :idea_url, t(".idea-url"), class: 'control-label' %>
 
       <% if @challenge.entry_template_url.present? %>
-        <span class="help-block"><%= raw t(".demo-url-description", url: url_with_protocol(@challenge.entry_template_url)) %></span>
+        <span class="help-block"><%= raw t(".idea-url-description", url: url_with_protocol(@challenge.entry_template_url)) %></span>
       <% else %>
-        <span class="help-block"><%= t(".demo-url-description-without-template") %></span>
+        <span class="help-block"><%= t(".idea-url-description-without-template") %></span>
       <% end %>
     </div>
     <div class="col-sm-9">
-      <%= f.text_field :live_demo_url, required: true, class: 'form-control' %>
+      <%= f.text_field :idea_url, required: true, class: 'form-control' %>
     </div>
   </div>
 

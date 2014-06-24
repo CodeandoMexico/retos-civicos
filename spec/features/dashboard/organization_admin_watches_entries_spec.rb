@@ -25,7 +25,7 @@ feature 'Organization admin watches entries' do
       company_name: "Empresa 1",
       company_rfc: "Empresa1RFC",
       challenge: challenge_two,
-      live_demo_url: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: ['PHP', 'MySQL']
     create :entry,
@@ -34,7 +34,7 @@ feature 'Organization admin watches entries' do
       company_name: "Empresa 2",
       company_rfc: "Empresa2RFC",
       challenge: challenge_two,
-      live_demo_url: 'http://otroproyecto.com',
+      idea_url: 'http://otroproyecto.com',
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
       technologies: ['Rust', 'Haskell']
 
@@ -49,7 +49,7 @@ feature 'Organization admin watches entries' do
       company_name: "Empresa 2",
       company_rfc: "Empresa2RFC",
       sent_at: '12 abr 20:53',
-      link: 'http://otroproyecto.com',
+      idea_url: 'http://otroproyecto.com',
       tecnologies: 'Rust, Haskell'
     )
     page_should_have_entry_with(
@@ -59,7 +59,7 @@ feature 'Organization admin watches entries' do
       company_rfc: "Empresa1RFC",
       member: 'Juanito',
       sent_at: '10 abr 20:53',
-      link: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       tecnologies: 'PHP, MySQL'
     )
   end
@@ -72,7 +72,7 @@ feature 'Organization admin watches entries' do
       company_name: 'Empresa 1',
       company_rfc: 'Empresa1RFC',
       challenge: challenge_one,
-      live_demo_url: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: ['PHP', 'MySQL']
 
@@ -85,7 +85,7 @@ feature 'Organization admin watches entries' do
       name: 'Propuesta 1',
       company_name: 'Empresa 1',
       sent_at: '10 abr 20:53',
-      link: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       tecnologies: 'PHP, MySQL'
     )
   end
@@ -107,7 +107,7 @@ feature 'Organization admin watches entries' do
       page.should have_content args.fetch(:name)
       page.should have_content args.fetch(:company_name)
       page.should have_content args.fetch(:sent_at)
-      page.should have_content args.fetch(:link)
+      page.should have_content args.fetch(:idea_url)
       page.should have_content args.fetch(:tecnologies)
     end
   end

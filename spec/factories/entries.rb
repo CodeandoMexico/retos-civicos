@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:company_name) {|n| "Company #{n}" }
     sequence(:company_rfc) {|n| "CompanyRFC#{n}" }
     description 'This is my entry!'
-    live_demo_url 'www.github.com/loqusea'
+    idea_url 'slideshare.com/loqusea'
     association :member
     association :challenge
 

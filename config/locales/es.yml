@@ -218,7 +218,7 @@ es:
     entries:
       non-entries: Anímate. Sé el primero en enviar una App.
       repo: Repo
-      demo: Demo
+      idea: Propuesta
     show:
       description-title: 'Descripción'
       challenge-description: 'Descripción del reto'
@@ -227,6 +227,7 @@ es:
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
       edit-challenge: 'Editar reto'
+      send-prototype: 'Enviar prototipo'
     comments:
       comment: Comentar
       reply: Responder
@@ -347,9 +348,9 @@ es:
       company_rfc: RFC de la empresa
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
-      live-demo-url: Link a la propuesta
-      demo-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
-      demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      idea-url: Link a la propuesta
+      idea-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      idea-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
@@ -363,6 +364,7 @@ es:
       owner: Líder del equipo
       live-demo-url: Link al Demo en vivo
       go-to-challenge: Ir al reto - %{challenge}
+      link-to-idea: Link a la propuesta
     new:
       back: Volver al reto
     csv_filename: propuestas-%{organization}-organizacion.csv
@@ -372,7 +374,7 @@ es:
       challenge_title: reto
       created_at: fecha
       description: descripcion
-      live_demo_url: link
+      idea_url: idea
       technologies_separated_by_commas: tecnologias
       member_name: participante
       public?: publica

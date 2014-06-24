@@ -14,7 +14,7 @@ feature 'Collaborator adds entry to challenge' do
       company_rfc: 'Juanito2014',
       project_name: 'Mi super app',
       description: 'Es la mejor',
-      url: 'https://github.com/CodeandoMexico/aquila',
+      idea_url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image
     )
@@ -45,7 +45,7 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_company_name', with: args.fetch(:company_name)
     fill_in 'entry_company_rfc', with: args.fetch(:company_rfc)
     fill_in 'entry_description', with: args.fetch(:description)
-    fill_in 'entry_live_demo_url', with: args.fetch(:url)
+    fill_in 'entry_idea_url', with: args.fetch(:idea_url)
     args.fetch(:technologies).split(", ").each do |tech|
       select tech, from: 'entry_technologies'
     end

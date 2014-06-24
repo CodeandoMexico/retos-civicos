@@ -1,12 +1,12 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :live_demo_url, :name, :description, :member_id, :url, :technologies, :company_name, :company_rfc
+  attr_accessible :image, :live_demo_url, :idea_url, :name, :description, :member_id, :url, :technologies, :company_name, :company_rfc
 
   belongs_to :member
   belongs_to :challenge
 
-  validates :name, :description, :live_demo_url, presence: true
+  validates :name, :description, :idea_url, presence: true
   mount_uploader :image, EntryImageUploader
   serialize :technologies, Array
   before_validation :validate_technologies!
@@ -17,7 +17,7 @@ class Entry < ActiveRecord::Base
 
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
-     :live_demo_url, :technologies_separated_by_commas, :member_name, :public?]
+     :idea_url, :technologies_separated_by_commas, :member_name, :public?]
   end
 
   def publish!

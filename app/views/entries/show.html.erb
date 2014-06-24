@@ -10,11 +10,11 @@
 <div class="sheet-section sheet-section-with-pad">
   <div class="row">
     <div class="col-lg-6">
-      <% if preview_url(@entry.live_demo_url).present? %>
-        <%= preview_url @entry.live_demo_url %>
+      <% if preview_url(@entry.idea_url).present? %>
+        <%= preview_url @entry.idea_url %>
       <% else %>
-        <h3>Demo en línea</h3>
-        <%= link_to @entry.live_demo_url, @entry.live_demo_url %>
+        <h3><%= t('.link-to-idea') %></h3>
+        <%= link_to @entry.idea_url, @entry.idea_url %>
       <% end %>
     </div>
     <div class="col-lg-6">
