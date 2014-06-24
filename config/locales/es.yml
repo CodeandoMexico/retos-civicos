@@ -325,6 +325,7 @@ es:
       name: Nombre completo
       company-name: Nombre de la Empresa
       company-rfc: RFC de la Empresa
+      company-president: Nombre del representante legal
       company-charter: Documentos de comprobación
       company-charter-description: PDF con el Acta Constitutiva de la empresa
       bio: Bio

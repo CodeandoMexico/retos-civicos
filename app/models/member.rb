@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :avatar, :email, :name, :company_name, :company_rfc,
+  attr_accessible :avatar, :email, :name, :company_name, :company_rfc, :company_president,
     :company_charter, :nickname, :bio, :user
 
   acts_as_user
