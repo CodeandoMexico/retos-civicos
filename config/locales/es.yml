@@ -228,8 +228,8 @@ es:
       mychallenge: Mi Reto
       like: Me gusta
       cancel: Cancelar
-    collaborating: Envíanos tu propuesta. Podras editarla hasta el cierre del reto.
-    collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
+    collaborating: Envíanos tu propuesta. Podrás editarla hasta el cierre del reto.
+    collaborating_error: Ocurrió un error, inténtalo de nuevo más tarde
     status:
       open: Abierto
       working_on: En desarrollo
@@ -321,16 +321,16 @@ es:
     header: Editar perfil
     form:
       submit: Actualizar
-      email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
+      email-description: Correo electrónico en donde recibirás notificaciones de los retos en los que participes
       name: Nombre completo
       company-name: Nombre de la Empresa
       company-rfc: RFC de la Empresa
-      company-charter: Documentos de comprobación (PDF)
-      company-charter-description: Acta Constitutiva de la Empresa
+      company-charter: Documentos de comprobación
+      company-charter-description: PDF con el Acta Constitutiva de la empresa
       bio: Bio
-      bio-description: Háblanos un poco sobre tí
-      avatar: Imagen perfil
-      avatar-description: Tu foto de perfil
+      bio-description: Háblanos un poco sobre tu organización
+      avatar: Imagen de perfil
+      avatar-description: Puede ser tu foto o la imagen de la empresa
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id
@@ -352,7 +352,7 @@ es:
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       image: Imagen
-      image-description: Sube una imagen de portada para tu aplicación
+      image-description: Sube una imagen de portada para tu proyecto
       description: '¿Cómo estás resolviendo el reto?'
       description-description: 'Describe en breve tu propuesta (max 1000 chars)'
       challenge: Reto
