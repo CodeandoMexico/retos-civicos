@@ -91,6 +91,11 @@ class Challenge < ActiveRecord::Base
     self[:about].to_s
   end
 
+  def days_left_to_finish
+    days = (finish_date - Date.current).to_i
+    days > 0 ? days : 0
+  end
+
   def timeline_json
     {
       "timeline" =>

@@ -15,8 +15,11 @@
     <div class="col-md-7">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
-          <div class="challenge-hightlight-status">
+          <div class="challenge-hightlight-item">
             <%= t("challenges.status.#{@challenge.status}") %>
+          </div>
+          <div class="challenge-hightlight-item">
+            <%= raw t(".days-left-to-finish", count: @challenge.days_left_to_finish) %>
           </div>
         </div>
       </div>
