@@ -21,6 +21,7 @@ es:
         live_demo_url: 'Link a la propuesta'
       member:
         collaborations: Colaboraciones
+        company_charter: Acta constitutiva
       member/user:
         avatar: Avatar de usuario
         bio: Bio de usuario
@@ -48,7 +49,7 @@ es:
       template:
         body: 'Hubo problemas con los siguientes campos:'
         header:
-          one: 1 error evito que el %{model} se guardara
+          one: "1 error evito que el %{model} se guardara"
           other: "%{count} errores evitaron que el %{model} se guardara"
       models:
         admin:
@@ -322,6 +323,10 @@ es:
       submit: Actualizar
       email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
       name: Nombre completo
+      company-name: Nombre de la Empresa
+      company-rfc: RFC de la Empresa
+      company-charter: Documentos de comprobación (PDF)
+      company-charter-description: Acta Constitutiva de la Empresa
       bio: Bio
       bio-description: Háblanos un poco sobre tí
       avatar: Imagen perfil
@@ -484,10 +489,8 @@ es:
       even: must be even
       exclusion: is reserved
       expired: has expired, please request a new one
-      extension_black_list_error: 'You are not allowed to upload %{extension} files,
-        prohibited types: %{prohibited_types}'
-      extension_white_list_error: 'You are not allowed to upload %{extension} files,
-        allowed types: %{allowed_types}'
+      extension_black_list_error: 'You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}'
+      extension_white_list_error: "sólo puede ser un archivo de tipo: %{allowed_types}"
       greater_than: must be greater than %{count}
       greater_than_or_equal_to: must be greater than or equal to %{count}
       inclusion: is not included in the list

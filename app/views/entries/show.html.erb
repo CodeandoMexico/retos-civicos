@@ -22,7 +22,7 @@
       <%= simple_format @entry.description %>
 
       <h3>Empresa</h3>
-      <p><%= @entry.company_name %></p>
+      <p><%= @entry.member.company_name %></p>
 
       <h3>Tecnologías</h3>
       <p><%= @entry.technologies_separated_by_commas %></p>
