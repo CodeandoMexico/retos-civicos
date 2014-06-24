@@ -44,3 +44,13 @@
   top: 16px;
   right: 20px;
 }
+
+.challenge-price {
+  background-color: $gray-darker;
+  color: #ffffff;
+  padding: 15px;
+
+  > img {
+    padding-right: 10px;
+  }
+}

@@ -32,6 +32,19 @@
         <h2 class="challenge-about-title"><%= t("challenges.form.created-by") %></h2>
         <p><%= @organization.name %></p>
       </div>
+
+      <% if @challenge.price.present? %>
+        <div class="challenge-price">
+          <div class="media">
+            <div class="pull-left">
+              <%= image_tag 'challenge-price.png', width: 50, class: 'media-object' %>
+            </div>
+            <div class="media-body">
+              <%= markdown @challenge.price %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
