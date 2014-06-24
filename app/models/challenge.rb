@@ -92,6 +92,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def days_left_to_finish
+    return 0 unless finish_date
     days = (finish_date - Date.current).to_i
     days > 0 ? days : 0
   end
