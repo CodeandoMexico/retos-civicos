@@ -222,6 +222,9 @@ es:
       steps-title: 'Etapas'
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
+      days-left-to-finish:
+        one: "Queda <strong>un día</strong>"
+        other: "Quedan <strong>%{count} días</strong>"
     comments:
       comment: Comentar
       reply: Responder
