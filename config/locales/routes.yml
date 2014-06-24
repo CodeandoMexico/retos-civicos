@@ -14,6 +14,7 @@ es:
   routes:
     projects: proyectos
     terms_of_service: terminos_de_servicio
+    privacy: privacidad
     challenges: retos
     comments: comentarios
     new: nuevo
