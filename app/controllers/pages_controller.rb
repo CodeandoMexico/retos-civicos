@@ -25,6 +25,10 @@ class PagesController < ApplicationController
     render layout: 'aquila'
   end
 
+  def privacy
+    render layout: 'aquila'
+  end
+
   def jobs
   end
 end
