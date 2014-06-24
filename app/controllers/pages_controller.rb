@@ -22,6 +22,7 @@ class PagesController < ApplicationController
   end
 
   def terms_of_service
+    render layout: 'aquila'
   end
 
   def jobs
