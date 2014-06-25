@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="sheet-section principal-background">
+<div class="sheet-section principal-background <%= "principal-background-white" if @challenge.price.blank? %>">
   <div class="principal">
     <div class="principal-left">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
