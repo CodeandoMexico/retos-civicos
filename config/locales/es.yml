@@ -230,6 +230,7 @@ es:
         other: "Quedan <strong>%{count} días</strong>"
     comments:
       comment: Comentar
+      non-comments: 'Por el momento no hay comentarios.'
       reply: Responder
       mychallenge: Mi Reto
       like: Me gusta

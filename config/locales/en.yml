@@ -217,6 +217,7 @@ en:
       show-more: Show more
     comments:
       comment: Leave a comment
+      non-comments: 'Currently there are no comments.'
       reply: Reply
       mychallenge: My challenge
       like: Like
