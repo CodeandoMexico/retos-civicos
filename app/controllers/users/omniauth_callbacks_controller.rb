@@ -3,6 +3,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     @auth = Authentication.find_for_provider_oauth(request.env["omniauth.auth"], current_user)
 
+    Rails.logger.debug(request.env["omniauth.auth"])
+
     if @auth.persisted?
       user = @auth.user
       sign_in user
