@@ -6,19 +6,19 @@
     <p><%= I18n.t("signup.choose_provider") %></p>
 
     <p>
-    <%= link_to user_omniauth_authorize_path(:github), class: 'btn btn-primary btn-lg btn-block' do %>
+    <%= link_to '/users/auth/github', class: 'btn btn-primary btn-lg btn-block' do %>
       <%= icon 'github' %> <%= t("signup.with_github") %>
     <% end %>
     </p>
 
     <p>
-    <%= link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-primary btn-lg btn-block' do %>
+    <%= link_to '/users/auth/twitter', class: 'btn btn-primary btn-lg btn-block' do %>
       <%= icon 'twitter' %> <%= t("signup.with_twitter") %>
     <% end %>
     </p>
 
     <p>
-    <%= link_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg btn-block' do %>
+    <%= link_to '/users/auth/linkedin', class: 'btn btn-primary btn-lg btn-block' do %>
       <%= icon 'linkedin' %> <%= t("signup.with_linkedin") %>
     <% end %>
     </p>
