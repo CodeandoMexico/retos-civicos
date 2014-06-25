@@ -488,7 +488,7 @@ es:
       carrierwave_download_error: could not be downloaded
       carrierwave_integrity_error: is not of an allowed file type
       carrierwave_processing_error: failed to be processed
-      confirmation: doesn't match confirmation
+      confirmation: y Confirmación no coinciden
       confirmation_period_expired: needs to be confirmed within %{period}, please
         request a new one
       empty: can't be empty
@@ -513,8 +513,8 @@ es:
       not_found: not found
       not_locked: was not locked
       not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: '1 error no permitió que se registrara tu %{resource}:'
+        other: "%{count} errores no permitieron que se registrara tu %{resource}:"
       odd: must be odd
       rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
         an image? Original Error: %{e}'
