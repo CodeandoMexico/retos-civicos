@@ -44,3 +44,5 @@ NEW_RELIC_KEY:
 
 # Secret key for signed cookies
 SECRET_TOKEN:
+
+GOOGLE_ANALYTICS:
