@@ -335,7 +335,7 @@ es:
       company-charter: Documentos de comprobación
       company-charter-description: PDF con el Acta Constitutiva de la empresa
       bio: Bio
-      bio-description: Háblanos un poco sobre tu organización
+      bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
       avatar: Imagen de perfil
       avatar-description: Puede ser tu foto o la imagen de la empresa
     csv_filename: participantes-%{organization}-organizacion.csv
