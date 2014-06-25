@@ -7,8 +7,15 @@ en:
     new: new
     edit: edit
     signup: signup
+    sign_up: signup
+    signin: signin
+    sign_in: signin
     about: about
+    organizations: organizations
     jobs: jobs
+    members: members
+    entries: entries
+    users: users
 
 es:
   routes:
@@ -20,6 +27,12 @@ es:
     new: nuevo
     edit: editar
     signup: registrate
+    sign_up: registrate
+    signin: ingresa
+    sign_in: ingresa
     about: acerca
     organizations: organizaciones
     jobs: unete
+    members: miembros
+    entries: entradas
+    users: usuarios
