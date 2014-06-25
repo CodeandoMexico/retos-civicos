@@ -46,11 +46,35 @@
 }
 
 .challenge-price {
-  background-color: $gray-darker;
+  background-color: $gray-dark;
   color: #ffffff;
   padding: 15px;
 
   > img {
     padding-right: 10px;
   }
+}
+
+.challenge-about {
+  background-color: #ffffff;
+}
+
+.principal-background {
+  background-color: $gray-dark;
+}
+
+.principal-background-white {
+  background-color: #ffffff !important;
+}
+
+.principal-left {
+  background-color: $gray-lighter;
+  float: left;
+  width: 60%;
+}
+
+.principal-right {
+  float: right;
+  width: 40%;
+  position: relative;
 }

@@ -10,9 +10,9 @@
     </div>
   </div>
 </div>
-<div class="sheet-section">
-  <div class="row">
-    <div class="col-md-7">
+<div class="sheet-section principal-background <%= "principal-background-white" if @challenge.price.blank? %>">
+  <div class="principal">
+    <div class="principal-left">
       <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="principal-right">
       <div class="challenge-about">
         <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
         <p><%= @challenge.about %></p>
