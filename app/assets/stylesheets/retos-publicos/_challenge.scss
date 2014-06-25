@@ -54,3 +54,23 @@
     padding-right: 10px;
   }
 }
+
+.challenge-about {
+  background-color: #ffffff;
+}
+
+.principal-background {
+  background-color: $gray-dark;
+}
+
+.principal-left {
+  background-color: $gray-lighter;
+  float: left;
+  width: 60%;
+}
+
+.principal-right {
+  float: right;
+  width: 40%;
+  position: relative;
+}
