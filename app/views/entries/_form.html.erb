@@ -50,7 +50,7 @@
   <div class="form-group">
     <div class="col-sm-3">
       <%= f.label :proposal_file, t(".entry-proposal-file"), class: 'control-label' %>
-      <span class="help-block"><%= t(".entry-proposal-file-description") %></span>
+      <span class="help-block"><%= markdown_for_additional_links t(".entry-proposal-file-description") %></span>
     </div>
     <div class="col-sm-9">
       <% if @entry.proposal_file? %>
