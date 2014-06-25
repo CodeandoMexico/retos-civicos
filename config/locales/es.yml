@@ -252,6 +252,8 @@ es:
       demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
+      entry-proposal-file: 'Propuesta'
+      entry-proposal-file-description: 'Sube un archivo con la información de tu propuesta en un archivo pdf'
       image: Imagen
       image-description: Sube una imagen de portada para tu proyecto
       description: '¿Cómo estás resolviendo el reto?'

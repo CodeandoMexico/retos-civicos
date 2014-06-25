@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140624225834) do
+ActiveRecord::Schema.define(:version => 20140625211618) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(:version => 20140624225834) do
     t.string   "title"
     t.text     "description"
     t.integer  "creator_id"
-    t.string   "status",             :default => "open"
+    t.string   "status",                       :default => "open"
     t.string   "dataset_url"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.integer  "likes_counter",      :default => 0
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "likes_counter",                :default => 0
     t.text     "first_spec"
     t.text     "second_spec"
     t.text     "third_spec"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20140624225834) do
     t.date     "finish_date"
     t.string   "entry_template_url"
     t.string   "infographic"
+    t.date     "ideas_phase_due_on"
+    t.date     "ideas_selection_phase_due_on"
     t.text     "price"
   end
 
@@ -131,6 +133,8 @@ ActiveRecord::Schema.define(:version => 20140624225834) do
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"
+    t.boolean  "accepted"
+    t.string   "proposal_file"
   end
 
   create_table "members", :force => true do |t|
