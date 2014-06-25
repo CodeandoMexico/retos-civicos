@@ -31,5 +31,9 @@
 <% end %>
 
 <div id="challenge_comments_container" class="sheet-section challenge-comments">
-  <%= render @comments, challenge: @challenge %>
+  <% if @comments.empty? %>
+    <%= t('.non-comments') %>
+  <% else %>
+    <%= render @comments, challenge: @challenge %>
+  <% end %>
 </div>
