@@ -14,7 +14,7 @@ feature 'User update his information' do
     fill_in 'member_name', with: 'Raúl Jiménez'
     fill_in 'member_company_name', with: 'Empresa de Raul'
     fill_in 'member_company_rfc', with: 'EDR101005T78'
-    attach_file 'member_company_charter', charter_path
+    # attach_file 'member_company_charter', charter_path
     fill_in 'member_bio', with: 'I live in Monterrey, N.L., Mexico'
     attach_file 'member_avatar', cmx_logo_path
 
