@@ -1,112 +1,5 @@
 ---
 es:
-  activerecord:
-    attributes:
-      admin:
-        email: Correo
-        password: Contraseña
-        password_confirmation: Confirma contraseña
-      challenge:
-        about: Acerca de
-        description: Descripción
-        pitch: Pitch
-        price: Premio
-      collaboration:
-        member_id: Miembro
-        user_id: Usuario
-      comment:
-        user: Usuario
-      entry:
-        description: Descripción
-        name: Nombre
-        live_demo_url: 'Link a la propuesta'
-      member:
-        collaborations: Colaboraciones
-        company_charter: Acta constitutiva
-      member/user:
-        avatar: Avatar de usuario
-        bio: Bio de usuario
-        email: Correo de usuario
-      organization/user:
-        bio: Bio de usuario
-        email: Correo de usuario
-      project:
-        about: Acerca de
-        description: Descripción
-        pitch: Pitch
-        title: Título
-      subscriber:
-        email: Correo
-      user:
-        email: Correo
-        password: Contraseña
-        password_confirmation: Confirma contraseña
-      vote:
-        voteable_id: Voteable
-    errors:
-      messages:
-        record_invalid: 'La validación falló: %{errors}'
-        taken: ya ha sido elegido
-      template:
-        body: 'Hubo problemas con los siguientes campos:'
-        header:
-          one: "1 error evito que el %{model} se guardara"
-          other: "%{count} errores evitaron que el %{model} se guardara"
-      models:
-        admin:
-          attributes:
-            email:
-              blank: no puede estar en blanco
-              format: es inválido
-            password:
-              confirmation: no coincide con la confirmación
-              too_short: es muy corto (mínimo 8 caracteres)
-        collaboration:
-          attributes:
-            member_id:
-              taken: ya ha sido elegido
-            user_id:
-              taken: ya ha sido elegido
-        entry:
-          attributes:
-            description:
-              blank: no puede estar en blanco
-            name:
-              blank: no puede estar en blanco
-            live_demo_url:
-              blank: no puede estar en blanco
-        member:
-          attributes:
-            collaborations:
-              invalid: es inválido
-        subscriber:
-          attributes:
-            email:
-              invalid: es inválido
-              taken: ya ha sido elegido
-        user:
-          attributes:
-            email:
-              already_confirmed: ya has sido confirmado, por favor inicia sesión
-              blank: no puede estar en blanco
-              format: Email es inválido
-              invalid: es inválido
-              taken: ya ha sido elegido
-            password:
-              blank: no puede estar en blanco
-              too_short: es muy corto (mínimo 6 caracteres)
-    models:
-      admin: Admin
-      challenge: Reto
-      collaboration: Colaboración
-      comment: Comentario
-      entry: Proyecto
-      member: Miembro
-      organization: Organización
-      project: Proyecto
-      subscriber: Subscriptor
-      user: Usuario
-      vote: Voto
   flash:
     admins:
       organizations:
@@ -478,49 +371,47 @@ es:
       month: Mes
       second: Segundo
       year: Año
-  errors:
-    dynamic_format: "%{message}"
-    format: "%{attribute} %{message}"
+  errors: &errors
+    format: ! '%{attribute} %{message}'
     messages:
-      accepted: must be accepted
-      already_confirmed: was already confirmed, please try signing in
-      blank: can't be blank
-      carrierwave_download_error: could not be downloaded
-      carrierwave_integrity_error: is not of an allowed file type
-      carrierwave_processing_error: failed to be processed
-      confirmation: y Confirmación no coinciden
-      confirmation_period_expired: needs to be confirmed within %{period}, please
-        request a new one
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      expired: has expired, please request a new one
-      extension_black_list_error: 'You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}'
-      extension_white_list_error: "sólo puede ser un archivo de tipo: %{allowed_types}"
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      mime_types_processing_error: 'Failed to process file with MIME::Types, maybe
-        not valid content-type? Original Error: %{e}'
-      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it
-        is not an image? Original Error: %{e}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      not_found: not found
-      not_locked: was not locked
-      not_saved:
-        one: '1 error no permitió que se registrara tu %{resource}:'
-        other: "%{count} errores no permitieron que se registrara tu %{resource}:"
-      odd: must be odd
-      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
-        an image? Original Error: %{e}'
-      too_long: is too long (maximum is %{count} characters)
-      too_short: is too short (minimum is %{count} characters)
-      wrong_length: is the wrong length (should be %{count} characters)
+      accepted: debe ser aceptado
+      after_today: Tiene que ser después de hoy
+      blank: no puede estar en blanco
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser un número par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual que %{count}
+      inclusion: no está incluído en la lista
+      invalid: es inválido
+      invalid_date: fecha inválida
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual que %{count}
+      less_than_end_date: debe ser menor que la fecha de fin
+      less_than_start_date: debe ser menor que la fecha de inicio
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser un número non
+      record_invalid: ! 'La validación falló: %{errors}'
+      taken: ya ha sido tomado
+      ten_numbers: Debes ingresar 10 caracteres
+      trip_cannot_be_free: El precio del viaje debe ser mayor a $0.00 MXN
+      too_long:
+        one: es demasiado largo (máximo 1 caracter)
+        other: es demasiado largo (máximo %{count} caracteres)
+      too_short:
+        one: es demasiado corto (mínimo 1 caracter)
+        other: es demasiado corto (mínimo %{count} caracteres)
+      wrong_length:
+        one: longitud errónea (debe ser de 1 caracter)
+        other: longitud errónea (debe ser de %{count} caracteres)
+    template:
+      body: ! 'Revise que los siguientes campos sean válidos:'
+      header:
+        one: ! 'El %{model} no pudo guardarse debido a 1 error'
+        other: ! 'El %{model} no pudo guardarse debido a %{count} errores'
   helpers:
     edit: Editar reto
     edit_entry: Editar propuesta
@@ -577,3 +468,73 @@ es:
       short: "%d %b %H:%M"
       csv_filename: '%d%m%y-%H%Mhrs'
     pm: pm
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+      models:
+        admin:
+          attributes:
+            email:
+              format: es inválido
+        user:
+          attributes:
+            email:
+              format: Email es inválido
+    attributes:
+      admin:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      challenge:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+        price: Premio
+        title: Título
+      collaboration:
+        member_id: Miembro
+        user_id: Usuario
+      comment:
+        user: Usuario
+      entry:
+        description: Descripción
+        name: Nombre
+        live_demo_url: 'Link a la propuesta'
+      member:
+        collaborations: Colaboraciones
+        company_charter: Acta constitutiva
+      member/user:
+        avatar: Avatar de usuario
+        bio: Bio de usuario
+        email: Correo de usuario
+      organization/user:
+        bio: Bio de usuario
+        email: Correo de usuario
+      project:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+        title: Título
+      subscriber:
+        email: Correo
+      user:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      vote:
+        voteable_id: Voteable
+    models:
+      admin: Admin
+      challenge: Reto
+      collaboration: Colaboración
+      comment: Comentario
+      entry: Proyecto
+      member: Miembro
+      organization: Organización
+      project: Proyecto
+      subscriber: Subscriptor
+      user: Usuario
+      vote: Voto
