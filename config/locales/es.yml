@@ -219,7 +219,7 @@ es:
       repo: Repo
       demo: Demo
     show:
-      description-title: 'Descripción'
+      description-title: 'El Reto'
       challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
       steps-title: 'Etapas'
