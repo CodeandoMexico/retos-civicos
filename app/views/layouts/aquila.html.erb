@@ -37,12 +37,17 @@
 
   <div class="footer">
     <div class="container text-center">
-      <%= image_tag 'mx_a_logo_footer.png', width: 200, margin:10 %>
-      <%= image_tag 'logo_usaid.png', width: 200, margin:10 %>
-      <%= image_tag 'presidencia.png', width: 200, margin:10 %><br/>
-      <%= link_to 'Términos y Condiciones', terms_of_service_path %>
-      <span>|</span>
-      <%= link_to 'Privacidad', privacy_path %>
+      <ul class="list-inline">
+        <li><%= image_tag 'mx_a_logo_footer.png', width: 135 %></li>
+        <li><%= image_tag 'logo_usaid.png', width: 250 %></li>
+        <li><%= image_tag 'presidencia.png', width: 200 %></li>
+      </ul>
+
+      <ul class="list-inline">
+        <li><%= link_to 'Privacidad', privacy_path %></li>
+        <li class="text-muted">|</li>
+        <li><%= link_to 'Términos y Condiciones', terms_of_service_path %></li>
+      </ul>
     </div>
   </div>
 </body>
