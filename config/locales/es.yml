@@ -164,6 +164,7 @@ es:
     with_github: Inicia con Github
     with_twitter: Inicia con Twitter
     with_linkedin: Inicia con LinkedIn
+    with_facebook: Inicia con Facebook
     with_email: Inicia con Email
     register_with_email: Registro con email
     login: Iniciar sesión
