@@ -14,7 +14,8 @@ feature 'Collaborator adds entry to challenge' do
       description: 'Es la mejor',
       url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
-      image: app_image
+      image: app_image,
+      proposal: entry_pdf
     )
 
     removed_behaivior
@@ -22,6 +23,10 @@ feature 'Collaborator adds entry to challenge' do
 
   def app_image
     "#{Rails.root}/spec/images/happy-face.jpg"
+  end
+
+  def entry_pdf
+    "#{Rails.root}/spec/fixtures/dummy.pdf"
   end
 
   def submit_entry_form_with(args)
@@ -33,6 +38,7 @@ feature 'Collaborator adds entry to challenge' do
       select tech, from: 'entry_technologies'
     end
 
+    attach_file 'entry_proposal_file', args.fetch(:proposal)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

@@ -252,6 +252,8 @@ es:
       demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
+      entry-proposal-file: 'Carta bajo protesta'
+      entry-proposal-file-description: 'Usando el siguiente [formato](https://docs.google.com/document/d/184pm6LyKlh_N41P-2g5zo8evRF71ydLtJb_hMGU6Av8/edit?usp=sharing), sube un PDF (máximo 3MB) con una carta bajo protesta de decir verdad'
       image: Imagen
       image-description: Sube una imagen de portada para tu proyecto
       description: '¿Cómo estás resolviendo el reto?'

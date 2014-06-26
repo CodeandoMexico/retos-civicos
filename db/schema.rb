@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140624225834) do
+ActiveRecord::Schema.define(:version => 20140625211618) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20140624225834) do
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"
+    t.string   "proposal_file"
   end
 
   create_table "members", :force => true do |t|
