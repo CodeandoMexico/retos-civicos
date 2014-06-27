@@ -11,6 +11,7 @@ gem 'pg'
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 gem 'devise', '~> 3.0.0'
 gem 'cancan'

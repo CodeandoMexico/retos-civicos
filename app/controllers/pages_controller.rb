@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def sign_up
+    @omniauth_providers = User.omniauth_providers
     render layout: 'aquila'
   end
 

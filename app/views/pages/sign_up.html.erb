@@ -5,23 +5,13 @@
   <div class="sheet-section sheet-section-with-pad">
     <p><%= I18n.t("signup.choose_provider") %></p>
 
-    <p>
-    <%= link_to '/users/auth/github', class: 'btn btn-primary btn-lg btn-block' do %>
-      <%= icon 'github' %> <%= t("signup.with_github") %>
-    <% end %>
-    </p>
-
-    <p>
-    <%= link_to '/users/auth/twitter', class: 'btn btn-primary btn-lg btn-block' do %>
-      <%= icon 'twitter' %> <%= t("signup.with_twitter") %>
-    <% end %>
-    </p>
-
-    <p>
-    <%= link_to '/users/auth/linkedin', class: 'btn btn-primary btn-lg btn-block' do %>
-      <%= icon 'linkedin' %> <%= t("signup.with_linkedin") %>
-    <% end %>
-    </p>
+    <% @omniauth_providers.each do |provider| %>
+      <p>
+      <%= link_to "/users/auth/#{provider}", class: 'btn btn-primary btn-lg btn-block' do %>
+        <%= icon provider.to_s %> <%= t("signup.with_#{provider}") %>
+      <% end %>
+      </p>
+    <% end -%>
 
     <p>
     <%= link_to new_user_session_path, class: 'btn btn-primary btn-lg btn-block' do %>
