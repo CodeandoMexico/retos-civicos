@@ -1,6 +1,5 @@
 class Authentication < ActiveRecord::Base
   attr_accessible :provider, :uid, :user_id, :public_url
-  validates_presence_of :user_id
   belongs_to :user
 
   def self.find_for_provider_oauth(omniauth, signed_in_resource = nil)
