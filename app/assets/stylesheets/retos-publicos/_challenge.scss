@@ -44,3 +44,33 @@
   top: 16px;
   right: 20px;
 }
+
+.challenge-price {
+  background-color: $gray-dark;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.challenge-about {
+  background-color: #ffffff;
+}
+
+.challenge-profile-background {
+  background-color: $gray-dark;
+}
+
+.challenge-profile-background-white {
+  background-color: #ffffff !important;
+}
+
+.challenge-profile-left {
+  background-color: $gray-lighter;
+  float: left;
+  width: 60%;
+}
+
+.challenge-profile-right {
+  float: right;
+  width: 40%;
+  position: relative;
+}

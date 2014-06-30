@@ -13,26 +13,6 @@
 
   <div class="form-group">
     <div class="col-sm-3">
-      <%= f.label :company_name, t(".company_name"), class: 'control-label' %>
-      <span class="help-block"><%= t(".company-name-description") %></span>
-    </div>
-    <div class="col-sm-9">
-      <%= f.text_field :company_name, required: true, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-3">
-      <%= f.label :company_rfc, t(".company_rfc"), class: 'control-label' %>
-      <span class="help-block"><%= t(".company-rfc-description") %></span>
-    </div>
-    <div class="col-sm-9">
-      <%= f.text_field :company_rfc, required: true, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-3">
       <%= f.label :description, t(".description"), class: 'control-label' %>
       <span class="help-block"><%= t(".description-description") %></span>
     </div>
@@ -64,6 +44,19 @@
     </div>
     <div class="col-sm-9">
       <%= f.text_field :idea_url, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :proposal_file, t(".entry-proposal-file"), class: 'control-label' %>
+      <span class="help-block"><%= markdown_for_additional_links t(".entry-proposal-file-description") %></span>
+    </div>
+    <div class="col-sm-9">
+      <% if @entry.proposal_file? %>
+        <%= link_to @entry.read_attribute(:proposal_file), @entry.proposal_file.url, class: 'l-space-bottom' %>
+      <% end %>
+      <%= f.file_field :proposal_file %>
     </div>
   </div>
 

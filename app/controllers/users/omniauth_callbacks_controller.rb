@@ -1,6 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
+    Rails.logger.debug(request.env["omniauth.auth"])
+
     @auth = Authentication.find_for_provider_oauth(request.env["omniauth.auth"], current_user)
 
     if @auth.persisted?
@@ -16,6 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   alias_method :github, :all
   alias_method :linkedin, :all
   alias_method :twitter, :all
+  alias_method :facebook, :all
 
   private
 
@@ -30,5 +33,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     end
   end
-
 end

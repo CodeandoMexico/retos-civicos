@@ -4,6 +4,8 @@ feature 'User update his information' do
   attr_reader :user, :member
 
   before do
+    other_challenge = create :challenge
+
     @user = create :user
     @member = user.userable
     @challenge = create :challenge
@@ -12,19 +14,19 @@ feature 'User update his information' do
 
   scenario 'after sign up, and fill with correct information' do
     fill_in 'member_name', with: 'Raúl Jiménez'
+    fill_in 'member_company_name', with: 'Empresa de Raul'
+    fill_in 'member_company_rfc', with: 'EDR101005T78'
+    # attach_file 'member_company_charter', charter_path
     fill_in 'member_bio', with: 'I live in Monterrey, N.L., Mexico'
-    attach_file('member_avatar', cmx_logo_path)
+    attach_file 'member_avatar', cmx_logo_path
 
     click_on 'Actualizar'
-
-    # Default aquila behavior
-    # expect(current_path).to eq challenges_path
     expect(current_path).to eq challenge_path(@challenge)
 
     click_on 'Raúl Jiménez'
     expect(page).to have_content 'Raúl Jiménez'
     expect(page).to have_content 'I live in Monterrey, N.L., Mexico'
-  end 
+  end
 
   scenario 'after sign up, and fill with incorrect information' do
     fill_in 'member_name', with: 'Raúl Jiménez'
@@ -32,7 +34,11 @@ feature 'User update his information' do
 
     click_on 'Actualizar'
     expect(current_path).to eq member_path(member)
-  end 
+  end
+
+  def charter_path
+    Rails.root.join('spec/fixtures/dummy.pdf')
+  end
 
   def cmx_logo_path
     Rails.root.join('app/assets/images/codeandomexico80.png')

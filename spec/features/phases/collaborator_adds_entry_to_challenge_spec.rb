@@ -10,13 +10,12 @@ feature 'Collaborator adds entry to challenge' do
     visit new_challenge_entry_path(challenge)
 
     submit_entry_form_with(
-      company_name: 'Empresa de Juanito',
-      company_rfc: 'Juanito2014',
       project_name: 'Mi super app',
       description: 'Es la mejor',
       idea_url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
-      image: app_image
+      image: app_image,
+      proposal: entry_pdf
     )
 
     current_path.should eq challenge_path(challenge)
@@ -36,19 +35,62 @@ feature 'Collaborator adds entry to challenge' do
     current_path.should eq challenge_path(challenge)
   end
 
+  describe 'when just one challenge exists' do
+    scenario 'it registers and then creates the entry' do
+      challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
+
+      visit challenge_path(challenge)
+      click_link 'Regístrate al reto aquí'
+
+      submit_registration_form('juanito@example.com')
+      submit_profile_form('Juanito')
+      submit_entry_form_with(
+        project_name: 'Mi super app',
+        description: 'Es la mejor',
+        idea_url: 'https://github.com/CodeandoMexico/aquila',
+        technologies: 'Ruby, Haskell, Elixir, Rust',
+        image: app_image,
+        proposal: entry_pdf
+      )
+
+      page.should have_content success_message(2.weeks.from_now)
+    end
+  end
+
   def app_image
     "#{Rails.root}/spec/images/happy-face.jpg"
   end
 
+  def entry_pdf
+    "#{Rails.root}/spec/fixtures/dummy.pdf"
+  end
+
+  def entry_create_successfully
+    'Gracias por tu propuesta'
+  end
+
+  def submit_profile_form(name)
+    fill_in 'member_name', with: name
+    click_button 'Actualizar'
+  end
+
+  def submit_registration_form(email)
+      click_link 'Inicia con Email'
+      click_link 'Regístrate aquí'
+      fill_in 'user_email', with: 'juanito@example.com'
+      fill_in 'user_password', with: 'secret'
+      fill_in 'user_password_confirmation', with: 'secret'
+      click_button 'Registrarme'
+  end
+
   def submit_entry_form_with(args)
     fill_in 'entry_name', with: args.fetch(:project_name)
-    fill_in 'entry_company_name', with: args.fetch(:company_name)
-    fill_in 'entry_company_rfc', with: args.fetch(:company_rfc)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_idea_url', with: args.fetch(:idea_url)
     args.fetch(:technologies).split(", ").each do |tech|
       select tech, from: 'entry_technologies'
     end
+    attach_file 'entry_proposal_file', args.fetch(:proposal)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

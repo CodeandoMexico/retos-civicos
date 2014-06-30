@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def sign_up
+    @omniauth_providers = User.omniauth_providers
     render layout: 'aquila'
   end
 
@@ -22,6 +23,11 @@ class PagesController < ApplicationController
   end
 
   def terms_of_service
+    render layout: 'aquila'
+  end
+
+  def privacy
+    render layout: 'aquila'
   end
 
   def jobs

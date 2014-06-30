@@ -5,7 +5,7 @@ class Challenge < ActiveRecord::Base
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
                   :ideas_phase_due_on, :ideas_selection_phase_due_on, :prototypes_phase_due_on,
-                  :infographic
+                  :infographic, :price
 
   attr_accessor :dataset_file
 
@@ -91,6 +91,12 @@ class Challenge < ActiveRecord::Base
 
   def about
     self[:about].to_s
+  end
+
+  def days_left_to_finish
+    return 0 unless finish_date
+    days = (finish_date - Date.current).to_i
+    days > 0 ? days : 0
   end
 
   def timeline_json

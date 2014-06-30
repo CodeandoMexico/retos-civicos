@@ -1,4 +1,4 @@
-<% if datasets.empty? %>
+<% if datasets.empty? && challenge.additional_links.blank? %>
   <%= t(".non-datasets") %>
 <% else %>
     <% datasets.each_slice(2) do |dataset_pair| %>
@@ -26,6 +26,12 @@
             </div>
           <% end %>
         </div>
+      </div>
+    <% end %>
+
+    <% if @challenge.additional_links.present? %>
+      <div class="additional-links">
+        <%= markdown_for_additional_links @challenge.additional_links %>
       </div>
     <% end %>
 <% end %>

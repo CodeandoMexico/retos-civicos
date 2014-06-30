@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140623193529) do
+ActiveRecord::Schema.define(:version => 20140625211618) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140623193529) do
     t.date     "finish_date"
     t.string   "entry_template_url"
     t.string   "infographic"
+    t.text     "price"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
@@ -133,14 +134,18 @@ ActiveRecord::Schema.define(:version => 20140623193529) do
     t.text     "technologies"
     t.boolean  "public",        :default => false, :null => false
     t.string   "image"
-    t.string   "company_name"
-    t.string   "company_rfc"
+    t.string   "proposal_file"
     t.boolean  "accepted"
+    t.string   "idea_url"
   end
 
   create_table "members", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "company_name"
+    t.string   "company_rfc"
+    t.string   "company_charter"
+    t.string   "company_president"
   end
 
   create_table "organizations", :force => true do |t|

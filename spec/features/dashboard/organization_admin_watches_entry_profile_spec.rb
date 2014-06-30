@@ -3,7 +3,9 @@ require 'spec_helper'
 feature 'Organization admin watches entry profile' do
   scenario 'that shows the entry deatails' do
     user = create :user, name: 'Juanito'
-    member = create :member, user: user
+    member = create :member, user: user,
+      company_name: 'Empresa de Juanito',
+      company_rfc: 'Juanito2014'
 
     organization = create :organization
     challenge = create :challenge, title: 'Reto 1', organization: organization
@@ -12,8 +14,6 @@ feature 'Organization admin watches entry profile' do
     entry = create :entry,
       name: 'Propuesta 1',
       member: member,
-      company_name: 'Empresa de Juanito',
-      company_rfc: 'Juanito2014',
       challenge: challenge,
       idea_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),

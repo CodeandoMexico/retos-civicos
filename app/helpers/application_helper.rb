@@ -1,4 +1,10 @@
 module ApplicationHelper
+  class TargetBlankRenderer < Redcarpet::Render::HTML
+    def initialize(extensions = {})
+      super extensions.merge(link_attributes: { target: "_blank" })
+    end
+  end
+
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
@@ -13,6 +19,19 @@ module ApplicationHelper
 
   def markdown(text)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+    options = {
+      underline: true,
+      space_after_headers: true,
+      highlight: true,
+      lax_spacing: true,
+      autolink: true,
+      no_intra_emphasis: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
+
+  def markdown_for_additional_links(text)
+    renderer = TargetBlankRenderer.new(hard_wrap: true, filter_html: true)
     options = {
       underline: true,
       space_after_headers: true,

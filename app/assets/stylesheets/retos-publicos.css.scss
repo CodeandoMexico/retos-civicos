@@ -9,6 +9,7 @@
 @import 'retos-publicos/comments-form';
 @import 'retos-publicos/chosen';
 @import 'retos-publicos/url-preview';
+@import 'retos-publicos/additional-links';
 
 .about-img {
   margin: auto;
@@ -16,4 +17,8 @@
 
 .l-space-bottom {
   margin-bottom: 1.5em !important;
+}
+
+.full-width-helper {
+  width: 100%;
 }

@@ -1,113 +1,5 @@
 ---
 es:
-  activerecord:
-    attributes:
-      admin:
-        email: Correo
-        password: Contraseña
-        password_confirmation: Confirma contraseña
-      challenge:
-        about: Acerca de
-        description: Descripción
-        pitch: Pitch
-        ideas_phase_due_on: Fin de la etapa de ideas
-        ideas_selection_phase_due_on: Fin de la etapa de selección ideas
-      collaboration:
-        member_id: Miembro
-        user_id: Usuario
-      comment:
-        user: Usuario
-      entry:
-        description: Descripción
-        name: Nombre
-        live_demo_url: 'Link a la propuesta'
-      member:
-        collaborations: Colaboraciones
-      member/user:
-        avatar: Avatar de usuario
-        bio: Bio de usuario
-        email: Correo de usuario
-      organization/user:
-        bio: Bio de usuario
-        email: Correo de usuario
-      project:
-        about: Acerca de
-        description: Descripción
-        pitch: Pitch
-        title: Título
-      subscriber:
-        email: Correo
-      user:
-        email: Correo
-        password: Contraseña
-        password_confirmation: Confirma contraseña
-      vote:
-        voteable_id: Voteable
-    errors:
-      messages:
-        blank: no puede estar en blanco
-        record_invalid: 'La validación falló: %{errors}'
-        taken: ya ha sido elegido
-      template:
-        body: 'Hubo problemas con los siguientes campos:'
-        header:
-          one: 1 error evito que el %{model} se guardara
-          other: "%{count} errores evitaron que el %{model} se guardara"
-      models:
-        admin:
-          attributes:
-            email:
-              blank: no puede estar en blanco
-              format: es inválido
-            password:
-              confirmation: no coincide con la confirmación
-              too_short: es muy corto (mínimo 8 caracteres)
-        collaboration:
-          attributes:
-            member_id:
-              taken: ya ha sido elegido
-            user_id:
-              taken: ya ha sido elegido
-        entry:
-          attributes:
-            description:
-              blank: no puede estar en blanco
-            name:
-              blank: no puede estar en blanco
-            live_demo_url:
-              blank: no puede estar en blanco
-        member:
-          attributes:
-            collaborations:
-              invalid: es inválido
-        subscriber:
-          attributes:
-            email:
-              invalid: es inválido
-              taken: ya ha sido elegido
-        user:
-          attributes:
-            email:
-              already_confirmed: ya has sido confirmado, por favor inicia sesión
-              blank: no puede estar en blanco
-              format: Email es inválido
-              invalid: es inválido
-              taken: ya ha sido elegido
-            password:
-              blank: no puede estar en blanco
-              too_short: es muy corto (mínimo 6 caracteres)
-    models:
-      admin: Admin
-      challenge: Reto
-      collaboration: Colaboración
-      comment: Comentario
-      entry: Proyecto
-      member: Miembro
-      organization: Organización
-      project: Proyecto
-      subscriber: Subscriptor
-      user: Usuario
-      vote: Voto
   flash:
     admins:
       organizations:
@@ -155,6 +47,7 @@ es:
       about-description: Describe brevemente de que trata el reto
       status: Estado actual del reto
       finish-date: Fecha de término
+      price-description: Describe el premio en formato Markdown
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
@@ -164,8 +57,9 @@ es:
       point1: Punto 1 (Opcional)
       point2: Punto 2 (Opcional)
       point3: Punto 3 (Opcional)
-      additional_links: Referencias adicionales
-      additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto. Nota: recuerda separar las ligas por comas.'
+      additional_links: Referencias
+      additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto.
+ <br/> Nota: Las ligas se escriben como una lista de links en formato markdown.'
       additional_links-placeholder: Separados por comas
       infographic: 'Infografía'
       dataset_id: Datasets
@@ -220,7 +114,7 @@ es:
       repo: Repo
       idea: Propuesta
     show:
-      description-title: 'Descripción'
+      description-title: 'El Reto'
       challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
       steps-title: 'Etapas'
@@ -228,14 +122,18 @@ es:
       show-more: Mostrar más
       edit-challenge: 'Editar reto'
       send-prototype: 'Enviar prototipo'
+      days-left-to-finish:
+        one: "Queda <strong>un día</strong>"
+        other: "Quedan <strong>%{count} días</strong>"
     comments:
       comment: Comentar
+      non-comments: 'Por el momento no hay comentarios.'
       reply: Responder
       mychallenge: Mi Reto
       like: Me gusta
       cancel: Cancelar
-    collaborating: Envíanos tu propuesta. Podras editarla hasta el cierre del reto.
-    collaborating_error: Ocurrio un error, intentalo de nuevo mas tarde
+    collaborating: Envíanos tu propuesta. Podrás editarla hasta el cierre del reto.
+    collaborating_error: Ocurrió un error, inténtalo de nuevo más tarde
     status:
       open: Abierto
       working_on: En desarrollo
@@ -270,6 +168,7 @@ es:
     with_github: Inicia con Github
     with_twitter: Inicia con Twitter
     with_linkedin: Inicia con LinkedIn
+    with_facebook: Inicia con Facebook
     with_email: Inicia con Email
     register_with_email: Registro con email
     login: Iniciar sesión
@@ -327,12 +226,17 @@ es:
     header: Editar perfil
     form:
       submit: Actualizar
-      email-description: Tu correo principal en donde recibirás updates de los retos en los que participes
+      email-description: Correo electrónico en donde recibirás notificaciones de los retos en los que participes
       name: Nombre completo
+      company-name: Nombre de la Empresa
+      company-rfc: RFC de la Empresa
+      company-president: Nombre del representante legal
+      company-charter: Documentos de comprobación
+      company-charter-description: PDF con el Acta Constitutiva de la empresa
       bio: Bio
-      bio-description: Háblanos un poco sobre tí
-      avatar: Imagen perfil
-      avatar-description: Tu foto de perfil
+      bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
+      avatar: Imagen de perfil
+      avatar-description: Puede ser tu foto o la imagen de la empresa
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id
@@ -353,8 +257,10 @@ es:
       idea-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
+      entry-proposal-file: 'Carta bajo protesta'
+      entry-proposal-file-description: 'Usando el siguiente [formato](https://docs.google.com/document/d/184pm6LyKlh_N41P-2g5zo8evRF71ydLtJb_hMGU6Av8/edit?usp=sharing), sube un PDF (máximo 3MB) con una carta bajo protesta de decir verdad'
       image: Imagen
-      image-description: Sube una imagen de portada para tu aplicación
+      image-description: Sube una imagen de portada para tu proyecto
       description: '¿Cómo estás resolviendo el reto?'
       description-description: 'Describe en breve tu propuesta (max 1000 chars)'
       challenge: Reto
@@ -474,56 +380,52 @@ es:
       month: Mes
       second: Segundo
       year: Año
-  errors:
-    dynamic_format: "%{message}"
-    format: "%{attribute} %{message}"
+  errors: &errors
+    format: ! '%{attribute} %{message}'
     messages:
-      accepted: must be accepted
-      already_confirmed: was already confirmed, please try signing in
-      blank: can't be blank
-      carrierwave_download_error: could not be downloaded
-      carrierwave_integrity_error: is not of an allowed file type
-      carrierwave_processing_error: failed to be processed
-      confirmation: doesn't match confirmation
-      confirmation_period_expired: needs to be confirmed within %{period}, please
-        request a new one
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      expired: has expired, please request a new one
-      extension_black_list_error: 'You are not allowed to upload %{extension} files,
-        prohibited types: %{prohibited_types}'
-      extension_white_list_error: 'You are not allowed to upload %{extension} files,
-        allowed types: %{allowed_types}'
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      mime_types_processing_error: 'Failed to process file with MIME::Types, maybe
-        not valid content-type? Original Error: %{e}'
-      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it
-        is not an image? Original Error: %{e}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      not_found: not found
-      not_locked: was not locked
-      not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
-      odd: must be odd
-      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not
-        an image? Original Error: %{e}'
-      too_long: is too long (maximum is %{count} characters)
-      too_short: is too short (minimum is %{count} characters)
-      wrong_length: is the wrong length (should be %{count} characters)
+      accepted: debe ser aceptado
+      after_today: Tiene que ser después de hoy
+      blank: no puede estar en blanco
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser un número par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual que %{count}
+      inclusion: no está incluído en la lista
+      invalid: es inválido
+      invalid_date: fecha inválida
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual que %{count}
+      less_than_end_date: debe ser menor que la fecha de fin
+      less_than_start_date: debe ser menor que la fecha de inicio
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser un número non
+      record_invalid: ! 'La validación falló: %{errors}'
+      taken: ya ha sido tomado
+      ten_numbers: Debes ingresar 10 caracteres
+      trip_cannot_be_free: El precio del viaje debe ser mayor a $0.00 MXN
+      too_long:
+        one: es demasiado largo (máximo 1 caracter)
+        other: es demasiado largo (máximo %{count} caracteres)
+      too_short:
+        one: es demasiado corto (mínimo 1 caracter)
+        other: es demasiado corto (mínimo %{count} caracteres)
+      wrong_length:
+        one: longitud errónea (debe ser de 1 caracter)
+        other: longitud errónea (debe ser de %{count} caracteres)
+    template:
+      body: ! 'Revise que los siguientes campos sean válidos:'
+      header:
+        one: ! 'El %{model} no pudo guardarse debido a 1 error'
+        other: ! 'El %{model} no pudo guardarse debido a %{count} errores'
   helpers:
     edit: Editar reto
     edit_entry: Editar propuesta
     submit_app: Envía tu propuesta
-    collaborate: Envía tu propuesta
+    collaborate: "Regístrate al reto aquí"
     send_update: Enviar newsletter
   landing:
     goal: Reunimos al mejor talento y a las organizaciones para crear la nueva generación de tecnología cívica.
@@ -531,9 +433,9 @@ es:
   number:
     currency:
       format:
-        delimiter: .
-        format: "%n %u"
-        separator: ","
+        delimiter: ","
+        format: "%u%n"
+        separator: "."
         unit: $
     format:
       delimiter: .
@@ -575,3 +477,73 @@ es:
       short: "%d %b %H:%M"
       csv_filename: '%d%m%y-%H%Mhrs'
     pm: pm
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+      models:
+        admin:
+          attributes:
+            email:
+              format: es inválido
+        user:
+          attributes:
+            email:
+              format: Email es inválido
+    attributes:
+      admin:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      challenge:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+        price: Premio
+        title: Título
+      collaboration:
+        member_id: Miembro
+        user_id: Usuario
+      comment:
+        user: Usuario
+      entry:
+        description: Descripción
+        name: Nombre
+        live_demo_url: 'Link a la propuesta'
+      member:
+        collaborations: Colaboraciones
+        company_charter: Acta constitutiva
+      member/user:
+        avatar: Avatar de usuario
+        bio: Bio de usuario
+        email: Correo de usuario
+      organization/user:
+        bio: Bio de usuario
+        email: Correo de usuario
+      project:
+        about: Acerca de
+        description: Descripción
+        pitch: Pitch
+        title: Título
+      subscriber:
+        email: Correo
+      user:
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma contraseña
+      vote:
+        voteable_id: Voteable
+    models:
+      admin: Admin
+      challenge: Reto
+      collaboration: Colaboración
+      comment: Comentario
+      entry: Proyecto
+      member: Miembro
+      organization: Organización
+      project: Proyecto
+      subscriber: Subscriptor
+      user: Usuario
+      vote: Voto

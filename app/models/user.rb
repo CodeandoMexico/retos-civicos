@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :validatable
-  devise :omniauthable, omniauth_providers: [:github, :twitter, :linkedin]
+  devise :omniauthable, omniauth_providers: [:facebook, :github, :twitter, :linkedin]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -42,17 +42,17 @@ class User < ActiveRecord::Base
 
   def self.find_or_build_with_omniauth(info)
     user = User.where(email: info.email).first
-    if not user.present?
-      # If there's no user with that email with create it with its new auth
-      user = User.new(name: info.name,
-                      nickname: info.nickname,
-                      email: info.email,
-                      password: Devise.friendly_token[0,20])
-      # Devise confirm user and skip email
-      user.skip_confirmation!
-      # It creates a Member role for the user and saves it
-      user.userable = Member.new
-    end
+    return user if user.present?
+
+    # If there's no user with that email we create it with its new auth
+    user = User.new(name: info.name,
+                    nickname: info.nickname,
+                    email: info.email,
+                    password: Devise.friendly_token[0,20])
+    # Devise confirm user and skip email
+    user.skip_confirmation!
+    # It creates a Member role for the user and saves it
+    user.userable = Member.new
     user
   end
 

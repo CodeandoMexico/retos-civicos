@@ -5,6 +5,7 @@ feature 'User makes comment in challenge' do
   attr_reader :organization, :challenge
 
   before do
+    other_challenge = create :challenge
     @organization = create :organization
     @challenge = create :challenge, organization: organization
     reset_email
@@ -17,7 +18,7 @@ feature 'User makes comment in challenge' do
     current_path.should eq '/registrate'
     sign_up_user
 
-    current_path.should eq edit_member_path(user_that_just_signed_up)
+    current_path.should eq edit_member_path(member_that_just_signed_up)
     click_button 'Actualizar'
 
     current_path.should eq challenge_path(challenge)
@@ -56,8 +57,8 @@ feature 'User makes comment in challenge' do
     click_button 'Registrarme'
   end
 
-  def user_that_just_signed_up
-    User.order('id DESC').first
+  def member_that_just_signed_up
+    User.last.userable
   end
 
   def page_should_have_comment(comment)
