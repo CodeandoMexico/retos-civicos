@@ -5,6 +5,7 @@ feature 'User makes comment in challenge' do
   attr_reader :organization, :challenge
 
   before do
+    other_challenge = create :challenge
     @organization = create :organization
     @challenge = create :challenge, organization: organization
     reset_email

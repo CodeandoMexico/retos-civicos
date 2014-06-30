@@ -4,6 +4,7 @@ feature 'Organization admin creates a challenge' do
   attr_reader :member
 
   before do
+    other_org_challenge = create :challenge
     organization = create :organization
     @member = create :member
 
@@ -64,7 +65,7 @@ feature 'Organization admin creates a challenge' do
     click_link 'Salir'
     sign_in_user(member)
     visit_last_challenge
-    first(:link, 'Envía tu propuesta').click
+    click_link 'Regístrate al reto aquí'
     yield
   end
 

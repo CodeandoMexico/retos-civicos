@@ -4,6 +4,8 @@ feature 'User update his information' do
   attr_reader :user, :member
 
   before do
+    other_challenge = create :challenge
+
     @user = create :user
     @member = user.userable
     @challenge = create :challenge

@@ -18,7 +18,29 @@ feature 'Collaborator adds entry to challenge' do
       proposal: entry_pdf
     )
 
-    removed_behaivior
+    page.should have_content entry_create_successfully
+  end
+
+  describe 'when just one challenge exists' do
+    scenario 'it registers and then creates the entry' do
+      challenge = create :challenge
+
+      visit challenge_path(challenge)
+      click_link 'Regístrate al reto aquí'
+
+      submit_registration_form('juanito@example.com')
+      submit_profile_form('Juanito')
+      submit_entry_form_with(
+        project_name: 'Mi super app',
+        description: 'Es la mejor',
+        url: 'https://github.com/CodeandoMexico/aquila',
+        technologies: 'Ruby, Haskell, Elixir, Rust',
+        image: app_image,
+        proposal: entry_pdf
+      )
+
+      page.should have_content entry_create_successfully
+    end
   end
 
   def app_image
@@ -27,6 +49,24 @@ feature 'Collaborator adds entry to challenge' do
 
   def entry_pdf
     "#{Rails.root}/spec/fixtures/dummy.pdf"
+  end
+
+  def entry_create_successfully
+    'Gracias por tu propuesta'
+  end
+
+  def submit_profile_form(name)
+    fill_in 'member_name', with: name
+    click_button 'Actualizar'
+  end
+
+  def submit_registration_form(email)
+      click_link 'Inicia con Email'
+      click_link 'Regístrate aquí'
+      fill_in 'user_email', with: 'juanito@example.com'
+      fill_in 'user_password', with: 'secret'
+      fill_in 'user_password_confirmation', with: 'secret'
+      click_button 'Registrarme'
   end
 
   def submit_entry_form_with(args)
@@ -41,30 +81,5 @@ feature 'Collaborator adds entry to challenge' do
     attach_file 'entry_proposal_file', args.fetch(:proposal)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
-  end
-
-  def removed_behaivior
-    return true
-
-    page_should_have_pitch_with(
-      'Mi super app',
-      'Es la mejor',
-      'https://github.com/CodeandoMexico/aquila',
-      'Ruby, Haskell, Elixir, Rust'
-    )
-
-    app_should_not_be_counted_yet
-  end
-
-  def page_should_have_pitch_with(*data)
-    within '#pitch' do
-      data.each { |item| page.should have_content item }
-    end
-  end
-
-  def app_should_not_be_counted_yet
-    within '.challenge-tabs' do
-      page.should have_content '0 App'
-    end
   end
 end
