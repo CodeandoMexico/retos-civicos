@@ -49,31 +49,27 @@
   background-color: $gray-dark;
   color: #ffffff;
   padding: 15px;
-
-  > img {
-    padding-right: 10px;
-  }
 }
 
 .challenge-about {
   background-color: #ffffff;
 }
 
-.principal-background {
+.challenge-profile-background {
   background-color: $gray-dark;
 }
 
-.principal-background-white {
+.challenge-profile-background-white {
   background-color: #ffffff !important;
 }
 
-.principal-left {
+.challenge-profile-left {
   background-color: $gray-lighter;
   float: left;
   width: 60%;
 }
 
-.principal-right {
+.challenge-profile-right {
   float: right;
   width: 40%;
   position: relative;

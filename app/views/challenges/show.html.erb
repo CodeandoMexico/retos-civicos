@@ -10,10 +10,10 @@
     </div>
   </div>
 </div>
-<div class="sheet-section principal-background <%= "principal-background-white" if @challenge.price.blank? %>">
-  <div class="principal">
-    <div class="principal-left">
-      <div class="challenge-profile-image" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
+<div class="sheet-section challenge-profile-background <%= "challenge-profile-background-white" if @challenge.price.blank? %>">
+  <div class="challenge-profile">
+    <div class="challenge-profile-left">
+      <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
             <%= t("challenges.status.#{@challenge.status}") %>
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="principal-right">
+    <div class="challenge-profile-right js-challenge-profile-height-master">
       <div class="challenge-about">
         <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
         <p><%= markdown_for_additional_links @challenge.about %></p>
@@ -35,11 +35,11 @@
 
       <% if @challenge.price.present? %>
         <div class="challenge-price">
-          <div class="media">
-            <div class="pull-left">
+          <div class="row">
+            <div class="col-md-2">
               <%= image_tag 'challenge-price.png', width: 50, class: 'media-object' %>
             </div>
-            <div class="media-body">
+            <div class="col-md-10">
               <%= markdown @challenge.price %>
             </div>
           </div>
