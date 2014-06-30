@@ -15,7 +15,7 @@ feature 'Collaborator adds entry to challenge' do
       url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image,
-      proposal: entry_pdf
+      letter_under_oath: entry_pdf
     )
 
     page.should have_content entry_create_successfully
@@ -36,7 +36,7 @@ feature 'Collaborator adds entry to challenge' do
         url: 'https://github.com/CodeandoMexico/aquila',
         technologies: 'Ruby, Haskell, Elixir, Rust',
         image: app_image,
-        proposal: entry_pdf
+        letter_under_oath: entry_pdf
       )
 
       page.should have_content entry_create_successfully
@@ -78,7 +78,7 @@ feature 'Collaborator adds entry to challenge' do
       select tech, from: 'entry_technologies'
     end
 
-    attach_file 'entry_proposal_file', args.fetch(:proposal)
+    attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end
