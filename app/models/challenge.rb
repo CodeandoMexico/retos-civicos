@@ -5,7 +5,7 @@ class Challenge < ActiveRecord::Base
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
                   :ideas_phase_due_on, :ideas_selection_phase_due_on, :prototypes_phase_due_on,
-                  :infographic, :price
+                  :infographic, :prize
 
   attr_accessor :dataset_file
 

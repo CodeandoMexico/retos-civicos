@@ -1,13 +1,13 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :live_demo_url, :idea_url, :name, :description, :member_id, :url, :technologies, :proposal_file
+  attr_accessible :image, :live_demo_url, :idea_url, :name, :description, :member_id, :url, :technologies, :letter_under_oath
 
   belongs_to :member
   belongs_to :challenge
 
   validates :name, :description, :idea_url, presence: true
-  mount_uploader :proposal_file, ProposalFileUploader
+  mount_uploader :letter_under_oath, LetterUnderOathUploader
   mount_uploader :image, EntryImageUploader
   serialize :technologies, Array
   before_validation :validate_technologies!

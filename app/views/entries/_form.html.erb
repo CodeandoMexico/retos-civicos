@@ -49,14 +49,14 @@
 
   <div class="form-group">
     <div class="col-sm-3">
-      <%= f.label :proposal_file, t(".entry-proposal-file"), class: 'control-label' %>
-      <span class="help-block"><%= markdown_for_additional_links t(".entry-proposal-file-description") %></span>
+      <%= f.label :letter_under_oath, t(".entry-letter-under-oath"), class: 'control-label' %>
+      <span class="help-block"><%= markdown_for_additional_links t(".entry-letter-under-oath-description") %></span>
     </div>
     <div class="col-sm-9">
-      <% if @entry.proposal_file? %>
-        <%= link_to @entry.read_attribute(:proposal_file), @entry.proposal_file.url, class: 'l-space-bottom' %>
+      <% if @entry.letter_under_oath? %>
+        <%= link_to @entry.read_attribute(:letter_under_oath), @entry.letter_under_oath.url, class: 'l-space-bottom' %>
       <% end %>
-      <%= f.file_field :proposal_file %>
+      <%= f.file_field :letter_under_oath %>
     </div>
   </div>
 

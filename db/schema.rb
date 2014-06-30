@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140625211618) do
+ActiveRecord::Schema.define(:version => 20140630221734) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(:version => 20140625211618) do
     t.date     "finish_date"
     t.string   "entry_template_url"
     t.string   "infographic"
-    t.text     "price"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
+    t.text     "prize"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"
@@ -129,14 +129,14 @@ ActiveRecord::Schema.define(:version => 20140625211618) do
     t.text     "description"
     t.integer  "member_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.text     "technologies"
-    t.boolean  "public",        :default => false, :null => false
+    t.boolean  "public",            :default => false, :null => false
     t.string   "image"
-    t.string   "proposal_file"
     t.boolean  "accepted"
     t.string   "idea_url"
+    t.string   "letter_under_oath"
   end
 
   create_table "members", :force => true do |t|
