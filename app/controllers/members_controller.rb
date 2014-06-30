@@ -9,7 +9,7 @@ class MembersController < ApplicationController
     if @member.update_attributes(params[:member])
       @member.confirm! if @member.unconfirmed_email.present?
 
-      if Challenge.count == 1
+      if Challenge.count == 1 && !@member.collaborating_in?(last_challenge)
         @member.collaborations.create(challenge: last_challenge)
         redirect_to new_challenge_entry_path(last_challenge), notice: t('challenges.collaborating')
       else
