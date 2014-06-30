@@ -46,7 +46,7 @@ es:
       about-description: Describe brevemente de que trata el reto
       status: Estado actual del reto
       finish-date: Fecha de término
-      price-description: Describe el premio en formato Markdown
+      prize-description: Describe el premio en formato Markdown
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
       needs: Necesidades del reto
@@ -253,8 +253,8 @@ es:
       demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
-      entry-proposal-file: 'Carta bajo protesta'
-      entry-proposal-file-description: 'Usando el siguiente [formato](https://docs.google.com/document/d/184pm6LyKlh_N41P-2g5zo8evRF71ydLtJb_hMGU6Av8/edit?usp=sharing), sube un PDF (máximo 3MB) con una carta bajo protesta de decir verdad'
+      entry-letter-under-oath: 'Carta bajo protesta'
+      entry-letter-under-oath-description: 'Usando el siguiente [formato](https://docs.google.com/document/d/184pm6LyKlh_N41P-2g5zo8evRF71ydLtJb_hMGU6Av8/edit?usp=sharing), sube un PDF (máximo 3MB) con una carta bajo protesta de decir verdad'
       image: Imagen
       image-description: Sube una imagen de portada para tu proyecto
       description: '¿Cómo estás resolviendo el reto?'
@@ -496,7 +496,7 @@ es:
         about: Acerca de
         description: Descripción
         pitch: Pitch
-        price: Premio
+        prize: Premio
         title: Título
       collaboration:
         member_id: Miembro
