@@ -4,7 +4,7 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
-                  :infographic, :price
+                  :infographic, :prize
 
   attr_accessor :dataset_file
 
