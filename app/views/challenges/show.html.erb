@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="sheet-section challenge-profile-background <%= "challenge-profile-background-white" if @challenge.price.blank? %>">
+<div class="sheet-section challenge-profile-background <%= "challenge-profile-background-white" if @challenge.prize.blank? %>">
   <div class="challenge-profile">
     <div class="challenge-profile-left">
       <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
@@ -33,14 +33,14 @@
         <p><%= @organization.name %></p>
       </div>
 
-      <% if @challenge.price.present? %>
-        <div class="challenge-price">
+      <% if @challenge.prize.present? %>
+        <div class="challenge-prize">
           <div class="row">
             <div class="col-md-2">
-              <%= image_tag 'challenge-price.png', width: 50, class: 'media-object' %>
+              <%= image_tag 'challenge-prize.png', width: 50, class: 'media-object' %>
             </div>
             <div class="col-md-10">
-              <%= markdown @challenge.price %>
+              <%= markdown @challenge.prize %>
             </div>
           </div>
         </div>
