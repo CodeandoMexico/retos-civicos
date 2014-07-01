@@ -1,0 +1,44 @@
+$phases-bar-total-units: 23;
+$phases-bar-unit: 100%/$phases-bar-total-units;
+$phases-bar-height: 48px;
+$phases-bar-text-height: 16px;
+
+.phases-bar {
+  border-radius: 10px;
+  height: $phases-bar-height;
+  overflow: hidden;
+}
+
+.phases-bar-milestone {
+  background: $gray-dark;
+  float: left;
+  height: 100%;
+  width: $phases-bar-unit * 1;
+}
+
+.phases-bar-phase {
+  background: #666666;
+  border-left: 1px solid $gray-dark;
+  border-right: 1px solid $gray-dark;
+  float: left;
+  height: 100%;
+  text-align: center;
+  width: $phases-bar-unit * 5;
+  position: relative;
+
+  > p {
+    color: #ffffff;
+    line-height: $phases-bar-height;
+    position: relative;
+  }
+}
+
+.phases-bar-completeness {
+  width: 0%;
+  background: $brand-dark;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: width 1s linear;
+}

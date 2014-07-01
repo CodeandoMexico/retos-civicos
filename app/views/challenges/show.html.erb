@@ -49,12 +49,33 @@
   </div>
 </div>
 
-<div class="row">
-  <% @phases.each do |phase| %>
-    <%= content_tag :div, phase.to_s.capitalize,
-      id: ('current_challenge_phase' if phase.current?),
-      class: "col-md-3 #{'active' if phase.current?}" %>
-  <% end %>
+<div class="sheet-section sheet-section-with-pad">
+  <div class="phases-bar js-phases-bar">
+    <div class="phases-bar-milestone">
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas) %>">
+      </div>
+      <p><%= @phases.present(:ideas) %></p>
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas_selection) %>">
+      </div>
+      <p><%= @phases.present(:ideas_selection) %></p>
+    </div>
+    <div class="phases-bar-milestone">
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:prototypes) %>">
+      </div>
+      <p><%= @phases.present(:prototypes) %></p>
+    </div>
+    <div class="phases-bar-phase">
+      <p>Evaluación de prototipos</p>
+    </div>
+    <div class="phases-bar-milestone">
+    </div>
+  </div>
 </div>
 
 <div class="challenge-collaborate text-center">

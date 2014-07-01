@@ -4,15 +4,50 @@ module Phases
   end
 
   def self.for_dates(dates)
-    [Phase.of_ideas(dates),
-     Phase.of_ideas_selection(dates),
-     Phase.of_prototypes(dates)]
+    PhasesForDates.new(dates)
   end
 
   def self.is_current?(phase, dates)
-    current_phase = for_dates(dates).select(&:current?).first
-    raise 'All phases have been completed, maybe you need a new phase' unless current_phase
-    current_phase.to_sym == phase.to_sym
+    for_dates(dates).current?(phase)
+  end
+
+  class PhasesForDates
+    attr_reader :ideas, :ideas_selection, :prototypes
+
+    def initialize(dates)
+      @ideas = Phase.of_ideas(dates)
+      @ideas_selection = Phase.of_ideas_selection(dates)
+      @prototypes = Phase.of_prototypes(dates)
+    end
+
+    def present(phase)
+      fetch(phase).present
+    end
+
+    def completeness_percentage_for(phase)
+      fetch(phase).completeness_percentage
+    end
+
+    def current?(phase)
+      raise 'All phases have been completed, maybe you need a new phase' unless current
+      current.to_sym == phase.to_sym
+    end
+
+    private
+
+    def all
+      { ideas: ideas,
+        ideas_selection: ideas_selection,
+        prototypes: prototypes }
+    end
+
+    def fetch(phase)
+      all.fetch(phase)
+    end
+
+    def current
+      all.values.select(&:current?).first
+    end
   end
 
   class Phase
@@ -26,7 +61,7 @@ module Phases
     end
 
     def self.of_ideas(dates)
-      new(:ideas, beginning_of_times, dates.ideas_phase_due_on)
+      new(:ideas, dates.created_at, dates.ideas_phase_due_on)
     end
 
     def self.of_ideas_selection(dates)
@@ -35,6 +70,10 @@ module Phases
 
     def self.of_prototypes(dates)
       new(:prototypes, dates.ideas_selection_phase_due_on, dates.prototypes_phase_due_on)
+    end
+
+    def present
+      to_s.capitalize
     end
 
     def to_s
@@ -49,14 +88,25 @@ module Phases
       (start..finish).cover? current_date
     end
 
+    def completeness_percentage
+      return 0 if current_date < start
+      return 100 if current_date > finish
+
+      (elapsed_days.to_f / total_days.to_f) * 100
+    end
+
     private
+
+    def elapsed_days
+      current_date - start
+    end
+
+    def total_days
+      finish - start
+    end
 
     def current_date
       Date.current
-    end
-
-    def self.beginning_of_times
-      Date.new(0,1,1)
     end
 
     attr_reader :translator
