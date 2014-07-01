@@ -52,11 +52,31 @@
 <div class="sheet-section sheet-section-with-pad">
   <div class="phases-bar js-phases-bar">
     <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-milestone">
+        <dl>
+          <dt>Lanzamiento</dt>
+          <dd>25 de junio</dd>
+        </dl>
+      </div>
     </div>
     <div class="phases-bar-phase">
       <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas) %>">
       </div>
       <p><%= @phases.present(:ideas) %></p>
+      <div class="phases-arrow phases-arrow-end">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-phase">
+        <dl>
+          <dt>Cierre Ideas</dt>
+          <dd>22 de julio</dd>
+        </dl>
+      </div>
     </div>
     <div class="phases-bar-phase">
       <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas_selection) %>">
@@ -64,16 +84,46 @@
       <p><%= @phases.present(:ideas_selection) %></p>
     </div>
     <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-milestone">
+        <dl>
+          <dt>Anuncio finalistas</dt>
+          <dd>11 de agosto</dd>
+        </dl>
+      </div>
     </div>
     <div class="phases-bar-phase">
       <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:prototypes) %>">
       </div>
       <p><%= @phases.present(:prototypes) %></p>
+      <div class="phases-arrow phases-arrow-end">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-phase">
+        <dl>
+          <dt>Cierre Protipos</dt>
+          <dd>11 de septiembre</dd>
+        </dl>
+      </div>
     </div>
     <div class="phases-bar-phase">
       <p>Evaluación de prototipos</p>
     </div>
     <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-last-milestone">
+        <dl>
+          <dt>Anuncio ganador</dt>
+          <dd>22 de septiembre</dd>
+        </dl>
+      </div>
     </div>
   </div>
 </div>
