@@ -2,6 +2,8 @@ require 'spec_helper'
 
 feature 'Collaborator adds prototype to entry' do
   scenario 'in the prototypes phase' do
+    pending
+
     member = create :member
     challenge = create :challenge,
       ideas_phase_due_on: 2.weeks.ago,

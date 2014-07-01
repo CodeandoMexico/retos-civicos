@@ -27,6 +27,11 @@ module Phases
       phases.map(&:to_s).should include 'selección de ideas'
     end
 
+    it 'has a prototypes phase' do
+      phases = Phases.for_dates(dates)
+      phases.map(&:to_s).should include 'prototipos'
+    end
+
     it 'has just one current phase' do
       dates = Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
       phases = Phases.for_dates(dates)
