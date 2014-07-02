@@ -5,104 +5,136 @@ $phases-bar-text-height: 16px;
 
 .phases-bar {
   border-radius: 10px;
-  height: $phases-bar-height;
   background: $gray-dark;
   margin-bottom: 100px;
 }
 
-@mixin phases-bar-block($units) {
-  float: left;
-  height: 100%;
-  position: relative;
-  width: $phases-bar-unit * $units;
-}
-
-.phases-bar-milestone {
-  @include phases-bar-block(1);
-}
-
-.phases-bar-milestone-date {
-  position: absolute;
-  top: 130%;
-  left: 50%;
-  width: 150px;
-}
-
 .phases-bar-phase {
-  @include phases-bar-block(5);
   background: #666666;
-  border-left: 1px solid $gray-dark;
-  border-right: 1px solid $gray-dark;
 
   > p {
     color: #ffffff;
     line-height: $phases-bar-height;
+    margin: 0;
     position: relative;
     text-align: center;
   }
 }
 
-.phases-bar-completeness {
-  width: 0%;
-  background: $brand-dark;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transition: width 1s linear;
-}
-
 .phases-date {
   position: absolute;
-  top: 140%;
   width: 150px;
 }
 
-.phases-date-milestone {
-  left: 50%;
-}
-
-.phases-date-phase {
-  left: 100%;
-}
-
-.phases-date-last-milestone {
-  left: auto;
-  right: 50%;
-  text-align: right;
-
-  .phases-date-dot {
-    left: auto;
-    right: -5px;
+.phases-bar-horizontal {
+  &.phases-bar {
+    height: $phases-bar-height;
   }
 
-  .phases-date-line {
+  @mixin phases-bar-block($units) {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: $phases-bar-unit * $units;
+  }
+
+  .phases-bar-milestone {
+    @include phases-bar-block(1);
+  }
+
+  .phases-bar-milestone-date {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    width: 150px;
+  }
+
+  .phases-bar-phase {
+    @include phases-bar-block(5);
+    border-left: 1px solid $gray-dark;
+    border-right: 1px solid $gray-dark;
+  }
+
+  .phases-bar-completeness {
+    width: 0%;
+    background: $brand-dark;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: width 1s linear;
+  }
+
+  .phases-date {
+    top: 140%;
+  }
+
+  .phases-date-milestone {
+    left: 50%;
+  }
+
+  .phases-date-phase {
+    left: 100%;
+  }
+
+  .phases-date-last-milestone {
     left: auto;
-    right: 0;
+    right: 50%;
+    text-align: right;
+
+    .phases-date-dot {
+      left: auto;
+      right: -5px;
+    }
+
+    .phases-date-line {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .phases-arrow {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 40%;
+  }
+
+  .phases-arrow-end {
+    left: 100%;
+  }
+
+  .phases-arrow-dot {
+    width: 13px;
+    height: 13px;
+    background: $brand-primary;
+    border-radius: 50px;
+    margin-left: -5px;
+  }
+
+  .phases-arrow-line {
+    width: 3px;
+    height: 30px;
+    background: $brand-primary;
   }
 }
 
-.phases-arrow {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  top: 40%;
-}
+.phases-bar-vertical {
+  &.phases-bar {
+    width: 200px;
+  }
 
-.phases-arrow-end {
-  left: 100%;
-}
+  .phases-bar-milestone {
+    height: 50px;
+    width: 200px;
+  }
 
-.phases-arrow-dot {
-  width: 13px;
-  height: 13px;
-  background: $brand-primary;
-  border-radius: 50px;
-  margin-left: -5px;
-}
+  .phases-bar-phase {
+    border-top: 1px solid $gray-dark;
+    border-bottom: 1px solid $gray-dark;
+  }
 
-.phases-arrow-line {
-  width: 3px;
-  height: 30px;
-  background: $brand-primary;
+  .phases-date {
+    left: 150%;
+  }
 }
