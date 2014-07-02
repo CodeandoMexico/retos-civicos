@@ -12,7 +12,7 @@ feature 'User watches entry' do
       challenge: challenge,
       name: 'App de prueba',
       description: 'App description',
-      live_demo_url: 'http://codeandomexico.org'
+      idea_url: 'http://codeandomexico.org'
 
     visit challenge_path(challenge)
     removed_behaivior

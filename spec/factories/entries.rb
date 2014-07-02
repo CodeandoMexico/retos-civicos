@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :entry do
     sequence(:name) {|n| "Entry No. #{n}" }
     description 'This is my entry!'
-    live_demo_url 'www.github.com/loqusea'
+    idea_url 'slideshare.com/loqusea'
     association :member
     association :challenge
 

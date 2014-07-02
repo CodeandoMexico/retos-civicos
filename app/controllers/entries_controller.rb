@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  layout 'aquila'
+
   def show
     @entry = Entry.find(params[:id])
     @challenge = @entry.challenge
@@ -7,21 +9,25 @@ class EntriesController < ApplicationController
     if !@entry.public? && !@entry.member?(current_user)
       return render status: :not_found
     end
-
-    render layout: 'aquila'
   end
 
   def new
     @challenge = Challenge.find params[:challenge_id]
-    redirect_if_has_submitted_app
+
+    if current_user.userable.has_submitted_app?(@challenge)
+      return redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.already_submited_app")
+    end
+
+    unless Phases.is_current?(:ideas, @challenge)
+      return redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.entries_not_accepted")
+    end
+
     @entry = @challenge.entries.build
-    render layout: 'aquila'
   end
 
   def edit
     @challenge = Challenge.find params[:challenge_id]
     @entry = Entry.find params[:id]
-    render layout: 'aquila'
   end
 
   def create
@@ -29,9 +35,9 @@ class EntriesController < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @entry = @challenge.entries.build(params[:entry])
     if @entry.save
-      redirect_to challenge_path(@entry.challenge), notice: I18n.t("flash.entries.created_successfully")
+      redirect_to challenge_path(@entry.challenge), notice: Phases.entry_added_message(@challenge)
     else
-      render :new, layout: 'aquila'
+      render :new
     end
   end
 
@@ -42,15 +48,7 @@ class EntriesController < ApplicationController
     if @entry.update_attributes(params[:entry])
       redirect_to challenge_path(@entry.challenge), notice: I18n.t("flash.entries.updated_successfully")
     else
-      render :edit, layout: 'aquila'
-    end
-  end
-
-  private
-
-  def redirect_if_has_submitted_app
-    if current_user.userable.has_submitted_app?(@challenge)
-      redirect_to challenge_path(@challenge), notice: I18n.t("flash.unauthorized.already_submited_app")
+      render :edit
     end
   end
 end

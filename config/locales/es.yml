@@ -15,11 +15,12 @@ es:
     users:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
     entries:
-      created_successfully: "¡Gracias por tu propuesta! Recuerda podrás seguir editándola hasta el cierre del reto"
       updated_successfully: La propuesta fue editada correctamente.
+      accepted_successfully: La propuesta fue aceptada satisfactoriamente
     unauthorized:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto
+      entries_not_accepted: "El reto ya no acepta nuevas propuestas."
   challenges:
     initial_activity:
       title: Creación del reto
@@ -82,6 +83,7 @@ es:
       dataset_hint_text: Escriba un término de búsqueda
       dataset_no_results_text: No hay resultados
       dataset_searching_text: Buscando...
+      phases: Etapas
     send_newsletter:
       header: Mandar un newsletter
       newsletter_subject: Título del correo
@@ -110,14 +112,16 @@ es:
     entries:
       non-entries: Anímate. Sé el primero en enviar una App.
       repo: Repo
-      demo: Demo
+      idea: Propuesta
     show:
       description-title: 'El Reto'
       challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
-      steps-title: 'Etapas'
+      phases: 'Etapas'
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
+      edit-challenge: 'Editar reto'
+      send-prototype: 'Enviar prototipo'
       days-left-to-finish:
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
@@ -248,9 +252,9 @@ es:
       company_rfc: RFC de la empresa
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
-      live-demo-url: Link a la propuesta
-      demo-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
-      demo-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      idea-url: Link a la propuesta
+      idea-url-description: 'Basándote en la <a href="%{url}" target="_blank">plantilla</a>, sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
+      idea-url-description-without-template: 'Sube tu propuesta a Slideshare o Google Drive y comparte aquí el URL a tu propuesta'
       technologies: Tecnologías a utilizar
       technologies-description: 'Escribe las tecnologías separadas por comas. Ejemplo: python, d3.js, postgresql, .NET'
       entry-letter-under-oath: 'Carta bajo protesta'
@@ -266,6 +270,7 @@ es:
       owner: Líder del equipo
       live-demo-url: Link al Demo en vivo
       go-to-challenge: Ir al reto - %{challenge}
+      link-to-idea: Link a la propuesta
     new:
       back: Volver al reto
     csv_filename: propuestas-%{organization}-organizacion.csv
@@ -275,7 +280,7 @@ es:
       challenge_title: reto
       created_at: fecha
       description: descripcion
-      live_demo_url: link
+      idea_url: idea
       technologies_separated_by_commas: tecnologias
       member_name: participante
       public?: publica
@@ -498,6 +503,10 @@ es:
         pitch: Pitch
         prize: Premio
         title: Título
+        starts_on: Fecha de lanzamiento
+        ideas_phase_due_on: Fecha de cierre de ideas
+        ideas_selection_phase_due_on: Fecha de anuncio de finalistas
+        prototypes_phase_due_on: Fecha de cierre de prototipos
       collaboration:
         member_id: Miembro
         user_id: Usuario

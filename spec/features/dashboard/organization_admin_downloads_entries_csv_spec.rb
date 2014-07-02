@@ -13,7 +13,7 @@ feature 'Organization admin downloads entries CSV' do
       challenge: challenge,
       name: 'Mi propuesta',
       description: 'la mejor',
-      live_demo_url: 'http://mipropuesta.com',
+      idea_url: 'http://mipropuesta.com',
       technologies: ['PHP', 'Rust'],
       created_at: Time.zone.local(2014,4,25,10,52,24)
 
@@ -28,7 +28,7 @@ feature 'Organization admin downloads entries CSV' do
       'reto' => 'Reto 1',
       'fecha' => '2014-04-25 10:52:24 -0500',
       'descripcion' => 'la mejor',
-      'link' => 'http://mipropuesta.com',
+      'idea' => 'http://mipropuesta.com',
       'tecnologias' => 'PHP, Rust',
       'participante' => 'Juanito',
       'publica' => 'true'

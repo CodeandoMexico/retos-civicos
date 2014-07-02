@@ -25,6 +25,7 @@ Aquila::Application.routes.draw do
     resources :challenges, only: :index, controller: 'dashboard/challenges'
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :publish, on: :member
+      post :accept, on: :member
     end
   end
 
@@ -52,6 +53,7 @@ Aquila::Application.routes.draw do
     resources :votes, only: [:create]
     resources :collaborations, only: [:create]
     resources :entries, except: [:destroy]
+    resources :prototypes, only: [:new, :create]
     resources :comments do
       get :guest, on: :collection
       member do

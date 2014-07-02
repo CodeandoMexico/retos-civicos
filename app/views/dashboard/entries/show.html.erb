@@ -1,9 +1,19 @@
 <div class="page-header">
   <div class="pull-right">
-    <%= render 'visit_or_publish_entry', entry: @entry %>
+    <ul class="list-inline">
+      <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
+        <li><%= button_to 'Aceptar propuesta',
+          accept_dashboard_entry_url(@entry),
+          class: 'btn btn-primary',
+          confirm: '¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?' %></li>
+      <% end %>
+
+      <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
+    </ul>
   </div>
 
   <h1><%= @entry.name.capitalize %></h1>
+  <%= render 'entry_status', entry: @entry %>
 </div>
 
 <div class="l-space-bottom">
@@ -25,7 +35,7 @@
       <%= simple_format @entry.description %>
     </div>
     <div class="l-space-bottom-large">
-      <%= preview_url @entry.live_demo_url %>
+      <%= preview_url @entry.idea_url %>
     </div>
   </div>
   <div class="col-lg-5 col-lg-offset-1">
@@ -41,8 +51,8 @@
             <td><%= @entry.member.company_rfc %></td>
           </tr>
           <tr>
-            <th>Link al demo</th>
-            <td><%= link_to truncate(@entry.live_demo_url), @entry.live_demo_url, target: '_blank' %></td>
+            <th>Propuesta</th>
+            <td><%= link_to truncate(@entry.idea_url), @entry.idea_url, target: '_blank' %></td>
           </tr>
           <tr>
             <th>Tecnologías</th>

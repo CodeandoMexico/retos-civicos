@@ -1,0 +1,13 @@
+es:
+  phases:
+    start: 'Lanzamiento'
+    entry_added: "Has enviado tu propuesta con éxito. Podrás editarla hasta %{date}"
+    ideas_phase: 'ideas'
+    ideas_due_date_title: 'Cierre Ideas'
+    ideas_selection_phase: 'selección de ideas'
+    ideas_selection_due_date_title: 'Anuncio finalistas'
+    prototypes_phase: 'prototipos'
+    prototypes_due_date_title: 'Cierre prototipos'
+  date:
+    formats:
+      phases_bar: '%d de %B'

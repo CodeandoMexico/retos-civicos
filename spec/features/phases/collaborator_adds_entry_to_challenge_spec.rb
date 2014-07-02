@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature 'Collaborator adds entry to challenge' do
-  scenario 'with the right data' do
+  scenario 'on the ideas phase' do
     member = create :member
-    challenge = create :challenge
+    challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
     create :collaboration, member: member, challenge: challenge
 
     sign_in_user member
@@ -12,18 +12,32 @@ feature 'Collaborator adds entry to challenge' do
     submit_entry_form_with(
       project_name: 'Mi super app',
       description: 'Es la mejor',
-      url: 'https://github.com/CodeandoMexico/aquila',
+      idea_url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image,
       letter_under_oath: entry_pdf
     )
 
-    page.should have_content entry_create_successfully
+    current_path.should eq challenge_path(challenge)
+    page.should have_content success_message(2.weeks.from_now)
+  end
+
+  scenario 'but fails because ideas phase is due' do
+    member = create :member
+    challenge = create :challenge, ideas_phase_due_on: 2.weeks.ago
+
+    sign_in_user(member)
+
+    visit challenge_path(challenge)
+    page.should_not have_link 'Envía tu propuesta'
+
+    visit new_challenge_entry_path(challenge)
+    current_path.should eq challenge_path(challenge)
   end
 
   describe 'when just one challenge exists' do
     scenario 'it registers and then creates the entry' do
-      challenge = create :challenge
+      challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
 
       visit challenge_path(challenge)
       click_link 'Regístrate al reto aquí'
@@ -33,13 +47,13 @@ feature 'Collaborator adds entry to challenge' do
       submit_entry_form_with(
         project_name: 'Mi super app',
         description: 'Es la mejor',
-        url: 'https://github.com/CodeandoMexico/aquila',
+        idea_url: 'https://github.com/CodeandoMexico/aquila',
         technologies: 'Ruby, Haskell, Elixir, Rust',
         image: app_image,
         letter_under_oath: entry_pdf
       )
 
-      page.should have_content entry_create_successfully
+      page.should have_content success_message(2.weeks.from_now)
     end
   end
 
@@ -72,14 +86,16 @@ feature 'Collaborator adds entry to challenge' do
   def submit_entry_form_with(args)
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
-    fill_in 'entry_live_demo_url', with: args.fetch(:url)
-
+    fill_in 'entry_idea_url', with: args.fetch(:idea_url)
     args.fetch(:technologies).split(", ").each do |tech|
       select tech, from: 'entry_technologies'
     end
-
     attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
+  end
+
+  def success_message(date)
+    "Has enviado tu propuesta con éxito. Podrás editarla hasta #{I18n.l(date.to_date, format: :long)}"
   end
 end

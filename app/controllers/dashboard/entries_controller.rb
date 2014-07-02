@@ -22,7 +22,13 @@ module Dashboard
     def publish
       entry.publish!
       entry.save
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge.id)
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id)
+    end
+
+    def accept
+      entry.accept!
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.accepted_successfully')
     end
 
     private

@@ -26,3 +26,4 @@
 
 $(document).ready ->
   $('.js-chosen').chosen()
+  $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')

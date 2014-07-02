@@ -24,6 +24,18 @@
       </ul>
     </div>
     <div class="col-lg-9 col-md-9 l-main">
+      <% if alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </div>

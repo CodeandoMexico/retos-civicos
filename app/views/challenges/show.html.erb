@@ -12,7 +12,7 @@
 </div>
 <div class="sheet-section challenge-profile-background <%= "challenge-profile-background-white" if @challenge.prize.blank? %>">
   <div class="challenge-profile">
-    <div class="challenge-profile-left">
+    <div class="challenge-profile-main">
       <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="challenge-profile-right js-challenge-profile-height-master">
+    <div class="challenge-profile-aside js-challenge-profile-height-master">
       <div class="challenge-about">
         <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
         <p><%= markdown_for_additional_links @challenge.about %></p>
@@ -51,12 +51,94 @@
 
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-content">
-    <%= collaborate_section(@challenge) %>
+    <% if can_edit_challenge? @challenge %>
+      <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+    <% elsif Phases.is_current?(:ideas, @challenge) %>
+      <%= collaborate_section(@challenge) %>
+    <% elsif Phases.is_current?(:prototypes, @challenge) %>
+      <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
 
-<div class="sheet-section sheet-section-with-pad text-center">
-  <%= image_tag 'linea_retos_big.png', class: 'full-width-helper' %>
+<div class="sheet-section sheet-section-with-pad">
+  <h3 class="text-center l-space-bottom"><%= t('.phases') %></h3>
+  <div class="phases-bar phases-bar-horizontal js-phases-bar">
+    <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-milestone">
+        <dl>
+          <dt><%= @timeline.start.title %></dt>
+          <dd><%= @timeline.start.date %></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas.completeness %>">
+      </div>
+      <p><%= @timeline.ideas.title %></p>
+      <div class="phases-arrow phases-arrow-end">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-phase">
+        <dl>
+          <dt><%= @timeline.ideas.due_date_title %></dt>
+          <dd><%= @timeline.ideas.due_date %></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas_selection.completeness %>">
+      </div>
+      <p><%= @timeline.ideas_selection.title %></p>
+    </div>
+    <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-milestone">
+        <dl>
+          <dt><%= @timeline.ideas_selection.due_date_title %></dt>
+          <dd><%= @timeline.ideas_selection.due_date %></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="phases-bar-phase">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes.completeness %>">
+      </div>
+      <p><%= @timeline.prototypes.title %></p>
+      <div class="phases-arrow phases-arrow-end">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-phase">
+        <dl>
+          <dt><%= @timeline.prototypes.due_date_title %></dt>
+          <dd><%= @timeline.prototypes.due_date %></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="phases-bar-phase">
+      <p>Evaluación de prototipos</p>
+    </div>
+    <div class="phases-bar-milestone">
+      <div class="phases-arrow">
+        <div class="phases-arrow-dot"></div>
+        <div class="phases-arrow-line"></div>
+      </div>
+      <div class="phases-date phases-date-last-milestone">
+        <dl>
+          <dt>Anuncio ganador</dt>
+          <dd>22 de septiembre</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="challenge-subheader text-center">

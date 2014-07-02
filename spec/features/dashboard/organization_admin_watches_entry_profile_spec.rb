@@ -15,7 +15,7 @@ feature 'Organization admin watches entry profile' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge,
-      live_demo_url: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: ['', 'PHP', 'MySQL'],
       description: 'Este reto se resuelve con tecnología'
@@ -33,7 +33,7 @@ feature 'Organization admin watches entry profile' do
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
       description: 'Este reto se resuelve con tecnología',
-      live_demo_link: 'http://miproyecto.com'
+      idea_url: 'http://miproyecto.com'
     )
   end
 
@@ -46,6 +46,6 @@ feature 'Organization admin watches entry profile' do
     page.should have_css "img[src='#{args.fetch(:logo)}']"
     page.should have_content args.fetch(:tecnologies)
     page.should have_content args.fetch(:description)
-    page.should have_content args.fetch(:live_demo_link)
+    page.should have_content args.fetch(:idea_url)
   end
 end

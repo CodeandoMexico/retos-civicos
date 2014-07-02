@@ -212,7 +212,7 @@ en:
     show:
       description-title: 'Description'
       datasets-title: 'Data'
-      steps-title: 'Steps'
+      phases: 'Phases'
       supportus: Help us reach our goal
       show-more: Show more
     comments:
@@ -334,9 +334,9 @@ en:
       company_rfc: Company RFC
       company-rfc-description: "To know if the company is registered"
       name-description: Project name
-      live-demo-url: Link to the proyect
-      demo-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
-      demo-url-description-without-template: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      idea-url: Link to the proyect
+      idea-url-description: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
+      idea-url-description-without-template: 'URL to the file/directory where we can find your project. (Drive, Dropbox or SkyDrive)'
       technologies: Technologies
       technologies-description: 'The technologies you are using. Example: python, d3.js, postgresql, .NET'
       image: Image

@@ -17,7 +17,7 @@ feature 'Organization admin visits dashboard' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge,
-      live_demo_url: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53)
 
     sign_in_organization_admin(organization.admin)
@@ -30,7 +30,7 @@ feature 'Organization admin visits dashboard' do
       name: 'Propuesta 1',
       member: 'Juanito',
       sent_at: '10 abr 20:53',
-      link: 'http://miproyecto.com',
+      idea_url: 'http://miproyecto.com',
       challenge: 'Reto 1'
     )
   end
@@ -48,7 +48,7 @@ feature 'Organization admin visits dashboard' do
       page.should have_content args.fetch(:name)
       page.should have_content args.fetch(:member)
       page.should have_content args.fetch(:sent_at)
-      page.should have_content args.fetch(:link)
+      page.should have_content args.fetch(:idea_url)
       page.should have_content args.fetch(:challenge)
     end
   end
