@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140630221734) do
+ActiveRecord::Schema.define(:version => 20140702190651) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -75,8 +75,9 @@ ActiveRecord::Schema.define(:version => 20140630221734) do
     t.string   "infographic"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
-    t.date     "prototypes_phase_due_on"
     t.text     "prize"
+    t.date     "prototypes_phase_due_on"
+    t.date     "starts_on"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"
@@ -135,8 +136,8 @@ ActiveRecord::Schema.define(:version => 20140630221734) do
     t.boolean  "public",            :default => false, :null => false
     t.string   "image"
     t.boolean  "accepted"
-    t.string   "idea_url"
     t.string   "letter_under_oath"
+    t.string   "idea_url"
   end
 
   create_table "members", :force => true do |t|

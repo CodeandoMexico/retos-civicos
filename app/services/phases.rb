@@ -115,7 +115,7 @@ module Phases
     end
 
     def self.of_ideas(dates)
-      new(:ideas, dates.created_at, dates.ideas_phase_due_on)
+      new(:ideas, dates.starts_on, dates.ideas_phase_due_on)
     end
 
     def self.of_ideas_selection(dates)

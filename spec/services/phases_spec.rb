@@ -6,7 +6,7 @@ module Phases
     attr_reader :dates
 
     Dates = Struct.new(
-      :created_at,
+      :starts_on,
       :ideas_phase_due_on,
       :ideas_selection_phase_due_on,
       :prototypes_phase_due_on)
