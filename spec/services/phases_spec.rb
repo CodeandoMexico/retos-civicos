@@ -106,7 +106,7 @@ module Phases
 
     before do
       dates = Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now)
-      @bar = Phases.bar(dates)
+      @bar = Phases.timeline_from_dates(dates)
     end
 
     it 'has a start date' do

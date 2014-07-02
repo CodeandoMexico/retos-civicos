@@ -3,8 +3,8 @@ module Phases
     t('phases.entry_added', date: l(dates.ideas_phase_due_on, format: :long))
   end
 
-  def self.bar(dates)
-    Bar.new(for_dates(dates), self)
+  def self.timeline_from_dates(dates)
+    Timeline.new(for_dates(dates), self)
   end
 
   def self.for_dates(dates)
@@ -15,7 +15,7 @@ module Phases
     for_dates(dates).current?(phase)
   end
 
-  class Bar
+  class Timeline
     Start = Struct.new(:date, :title)
     Phase = Struct.new(:completeness, :title, :due_date, :due_date_title)
 

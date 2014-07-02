@@ -71,30 +71,30 @@
       </div>
       <div class="phases-date phases-date-milestone">
         <dl>
-          <dt><%= @bar.start.title %></dt>
-          <dd><%= @bar.start.date %></dd>
+          <dt><%= @timeline.start.title %></dt>
+          <dd><%= @timeline.start.date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @bar.ideas.completeness %>">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas.completeness %>">
       </div>
-      <p><%= @bar.ideas.title %></p>
+      <p><%= @timeline.ideas.title %></p>
       <div class="phases-arrow phases-arrow-end">
         <div class="phases-arrow-dot"></div>
         <div class="phases-arrow-line"></div>
       </div>
       <div class="phases-date phases-date-phase">
         <dl>
-          <dt><%= @bar.ideas.due_date_title %></dt>
-          <dd><%= @bar.ideas.due_date %></dd>
+          <dt><%= @timeline.ideas.due_date_title %></dt>
+          <dd><%= @timeline.ideas.due_date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @bar.ideas_selection.completeness %>">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas_selection.completeness %>">
       </div>
-      <p><%= @bar.ideas_selection.title %></p>
+      <p><%= @timeline.ideas_selection.title %></p>
     </div>
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
@@ -103,23 +103,23 @@
       </div>
       <div class="phases-date phases-date-milestone">
         <dl>
-          <dt><%= @bar.ideas_selection.due_date_title %></dt>
-          <dd><%= @bar.ideas_selection.due_date %></dd>
+          <dt><%= @timeline.ideas_selection.due_date_title %></dt>
+          <dd><%= @timeline.ideas_selection.due_date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @bar.prototypes.completeness %>">
+      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes.completeness %>">
       </div>
-      <p><%= @bar.prototypes.title %></p>
+      <p><%= @timeline.prototypes.title %></p>
       <div class="phases-arrow phases-arrow-end">
         <div class="phases-arrow-dot"></div>
         <div class="phases-arrow-line"></div>
       </div>
       <div class="phases-date phases-date-phase">
         <dl>
-          <dt><%= @bar.prototypes.due_date_title %></dt>
-          <dd><%= @bar.prototypes.due_date %></dd>
+          <dt><%= @timeline.prototypes.due_date_title %></dt>
+          <dd><%= @timeline.prototypes.due_date %></dd>
         </dl>
       </div>
     </div>
