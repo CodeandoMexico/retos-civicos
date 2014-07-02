@@ -29,7 +29,7 @@ class ChallengesController < ApplicationController
     @entries = @challenge.entries.public
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators
-    @phases = Phases.for_dates(@challenge)
+    @bar = Phases.bar(@challenge)
 
     @collaborators_count = @collaborators.count
     @collaborators = @collaborators.order(:created_at).page(params[:page])

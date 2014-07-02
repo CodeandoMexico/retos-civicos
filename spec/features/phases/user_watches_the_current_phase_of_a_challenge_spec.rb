@@ -2,24 +2,19 @@ require 'spec_helper'
 
 feature 'User watches the current phase of a challenge' do
   scenario 'when the current phase is the ideas phase' do
-    challenge = create :challenge, ideas_phase_due_on: 1.month.from_now.to_date
-
-    visit challenge_path(challenge)
-    current_phase_should_be 'Ideas'
-  end
-
-  scenario 'when the current phase is the ideas selection phase' do
     challenge = create :challenge,
-      ideas_phase_due_on: 1.day.ago.to_date,
-      ideas_selection_phase_due_on: 1.month.from_now.to_date
+      created_at: 3.days.ago,
+      ideas_phase_due_on: 7.days.from_now.to_date
 
     visit challenge_path(challenge)
-    current_phase_should_be 'Selección de ideas'
+    save_and_open_page
+    page_should_show_completness_of_ideas_phase('30.0')
   end
 
-  def current_phase_should_be(phase)
-    within '#current_challenge_phase' do
-      page.should have_content phase
+  def page_should_show_completness_of_ideas_phase(percentage)
+    within ".phases-bar-phase:nth-child(2)" do
+      page.should have_css "[data-width='#{percentage}']"
+      page.should have_content 'Ideas'
     end
   end
 end

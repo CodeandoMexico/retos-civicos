@@ -58,30 +58,30 @@
       </div>
       <div class="phases-date phases-date-milestone">
         <dl>
-          <dt>Lanzamiento</dt>
-          <dd>25 de junio</dd>
+          <dt><%= @bar.start.title %></dt>
+          <dd><%= @bar.start.date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas) %>">
+      <div class="phases-bar-completeness" data-width="<%= @bar.ideas.completeness %>">
       </div>
-      <p><%= @phases.present(:ideas) %></p>
+      <p><%= @bar.ideas.title %></p>
       <div class="phases-arrow phases-arrow-end">
         <div class="phases-arrow-dot"></div>
         <div class="phases-arrow-line"></div>
       </div>
       <div class="phases-date phases-date-phase">
         <dl>
-          <dt>Cierre Ideas</dt>
-          <dd>22 de julio</dd>
+          <dt><%= @bar.ideas.due_date_title %></dt>
+          <dd><%= @bar.ideas.due_date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:ideas_selection) %>">
+      <div class="phases-bar-completeness" data-width="<%= @bar.ideas_selection.completeness %>">
       </div>
-      <p><%= @phases.present(:ideas_selection) %></p>
+      <p><%= @bar.ideas_selection.title %></p>
     </div>
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
@@ -90,23 +90,23 @@
       </div>
       <div class="phases-date phases-date-milestone">
         <dl>
-          <dt>Anuncio finalistas</dt>
-          <dd>11 de agosto</dd>
+          <dt><%= @bar.ideas_selection.due_date_title %></dt>
+          <dd><%= @bar.ideas_selection.due_date %></dd>
         </dl>
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @phases.completeness_percentage_for(:prototypes) %>">
+      <div class="phases-bar-completeness" data-width="<%= @bar.prototypes.completeness %>">
       </div>
-      <p><%= @phases.present(:prototypes) %></p>
+      <p><%= @bar.prototypes.title %></p>
       <div class="phases-arrow phases-arrow-end">
         <div class="phases-arrow-dot"></div>
         <div class="phases-arrow-line"></div>
       </div>
       <div class="phases-date phases-date-phase">
         <dl>
-          <dt>Cierre Protipos</dt>
-          <dd>11 de septiembre</dd>
+          <dt><%= @bar.prototypes.due_date_title %></dt>
+          <dd><%= @bar.prototypes.due_date %></dd>
         </dl>
       </div>
     </div>

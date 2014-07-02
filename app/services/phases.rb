@@ -3,12 +3,62 @@ module Phases
     t('phases.entry_added', date: l(dates.ideas_phase_due_on, format: :long))
   end
 
+  def self.bar(dates)
+    Bar.new(for_dates(dates), self)
+  end
+
   def self.for_dates(dates)
     PhasesForDates.new(dates)
   end
 
   def self.is_current?(phase, dates)
     for_dates(dates).current?(phase)
+  end
+
+  class Bar
+    Start = Struct.new(:date, :title)
+    Phase = Struct.new(:completeness, :title, :due_date, :due_date_title)
+
+    def initialize(phases, translator)
+      @phases = phases
+      @translator = translator
+    end
+
+    def start
+      Start.new l(phases.ideas.start), t('start')
+    end
+
+    def ideas
+      @ideas ||= struct_for :ideas
+    end
+
+    def ideas_selection
+      @ideas_selection ||= struct_for :ideas_selection
+    end
+
+    def prototypes
+      @prototypes ||= struct_for :prototypes
+    end
+
+    private
+
+    def struct_for(phase)
+      Phase.new(
+        phases.completeness_percentage_for(phase),
+        phases.present(phase),
+        l(phases.finish_of(phase)),
+        t("#{phase}_due_date_title"))
+    end
+
+    def t(path)
+      translator.t("phases.#{path}")
+    end
+
+    def l(date)
+      translator.l(date, format: :phases_bar)
+    end
+
+    attr_reader :phases, :translator
   end
 
   class PhasesForDates
@@ -26,6 +76,10 @@ module Phases
 
     def completeness_percentage_for(phase)
       fetch(phase).completeness_percentage
+    end
+
+    def finish_of(phase)
+      fetch(phase).finish
     end
 
     def current?(phase)

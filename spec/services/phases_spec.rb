@@ -13,6 +13,7 @@ module Phases
 
     before do
       I18n.default_locale = :es
+      I18n.load_path << File.expand_path('../../config/locales/es.yml', File.dirname(__FILE__))
       I18n.load_path << File.expand_path('../../config/locales/phases.es.yml', File.dirname(__FILE__))
       @dates = Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
     end
@@ -97,6 +98,45 @@ module Phases
       Phases.is_current?(:ideas, dates).should_not be
       Phases.is_current?(:ideas_selection, dates).should_not be
       Phases.is_current?(:prototypes, dates).should be
+    end
+  end
+
+  describe 'phases bar' do
+    attr_reader :bar
+
+    before do
+      dates = Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now)
+      @bar = Phases.bar(dates)
+    end
+
+    it 'has a start date' do
+      bar.start.date.should eq format_date(10.days.ago)
+      bar.start.title.should eq 'Lanzamiento'
+    end
+
+    it 'has ideas phase' do
+      bar.ideas.completeness.should eq 100
+      bar.ideas.title.should eq 'Ideas'
+      bar.ideas.due_date.should eq format_date(3.days.ago)
+      bar.ideas.due_date_title.should eq 'Cierre Ideas'
+    end
+
+    it 'has ideas selection phase' do
+      bar.ideas_selection.completeness.should eq 30
+      bar.ideas_selection.title.should eq 'Selección de ideas'
+      bar.ideas_selection.due_date.should eq format_date(7.days.from_now)
+      bar.ideas_selection.due_date_title.should eq 'Anuncio finalistas'
+    end
+
+    it 'has prototypes phase' do
+      bar.prototypes.completeness.should eq 0
+      bar.prototypes.title.should eq 'Prototipos'
+      bar.prototypes.due_date.should eq format_date(10.days.from_now)
+      bar.prototypes.due_date_title.should eq 'Cierre prototipos'
+    end
+
+    def format_date(date)
+      I18n.l(date.to_date, format: :phases_bar)
     end
   end
 end
