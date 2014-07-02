@@ -117,7 +117,7 @@ es:
       description-title: 'El Reto'
       challenge-description: 'Descripción del reto'
       datasets-title: 'Datos'
-      steps-title: 'Etapas'
+      phases: 'Etapas'
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
       edit-challenge: 'Editar reto'

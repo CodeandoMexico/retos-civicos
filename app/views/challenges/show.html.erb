@@ -49,7 +49,20 @@
   </div>
 </div>
 
+<div class="challenge-collaborate text-center">
+  <div class="challenge-collaborate-content">
+    <% if can_edit_challenge? @challenge %>
+      <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+    <% elsif Phases.is_current?(:ideas, @challenge) %>
+      <%= collaborate_section(@challenge) %>
+    <% elsif Phases.is_current?(:prototypes, @challenge) %>
+      <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+
 <div class="sheet-section sheet-section-with-pad">
+  <h3 class="text-center l-space-bottom"><%= t('.phases') %></h3>
   <div class="phases-bar phases-bar-horizontal js-phases-bar">
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
@@ -126,22 +139,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="challenge-collaborate text-center">
-  <div class="challenge-collaborate-content">
-    <% if can_edit_challenge? @challenge %>
-      <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
-    <% elsif Phases.is_current?(:ideas, @challenge) %>
-      <%= collaborate_section(@challenge) %>
-    <% elsif Phases.is_current?(:prototypes, @challenge) %>
-      <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-</div>
-
-<div class="sheet-section sheet-section-with-pad text-center">
-  <%= image_tag 'linea_retos_big.png', class: 'full-width-helper' %>
 </div>
 
 <div class="challenge-subheader text-center">

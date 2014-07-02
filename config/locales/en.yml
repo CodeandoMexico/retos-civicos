@@ -212,7 +212,7 @@ en:
     show:
       description-title: 'Description'
       datasets-title: 'Data'
-      steps-title: 'Steps'
+      phases: 'Phases'
       supportus: Help us reach our goal
       show-more: Show more
     comments:
