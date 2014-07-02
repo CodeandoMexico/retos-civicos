@@ -503,6 +503,10 @@ es:
         pitch: Pitch
         prize: Premio
         title: Título
+        starts_on: Fecha de lanzamiento
+        ideas_phase_due_on: Fecha de cierre de ideas
+        ideas_selection_phase_due_on: Fecha de anuncio de finalistas
+        prototypes_phase_due_on: Fecha de cierre de prototipos
       collaboration:
         member_id: Miembro
         user_id: Usuario
