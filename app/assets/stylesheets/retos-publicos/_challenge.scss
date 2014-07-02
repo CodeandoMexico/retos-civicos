@@ -63,14 +63,22 @@
   background-color: #ffffff !important;
 }
 
-.challenge-profile-left {
+.challenge-profile-main {
   background-color: $gray-lighter;
   float: left;
   width: 60%;
+
+  @media (max-width: $screen-md-min) {
+    width: 100%;
+  }
 }
 
-.challenge-profile-right {
+.challenge-profile-aside {
   float: right;
   width: 40%;
   position: relative;
+
+  @media (max-width: $screen-md-min) {
+    width: 100%;
+  }
 }

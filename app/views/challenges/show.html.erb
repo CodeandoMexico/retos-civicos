@@ -12,7 +12,7 @@
 </div>
 <div class="sheet-section challenge-profile-background <%= "challenge-profile-background-white" if @challenge.prize.blank? %>">
   <div class="challenge-profile">
-    <div class="challenge-profile-left">
+    <div class="challenge-profile-main">
       <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="challenge-profile-right js-challenge-profile-height-master">
+    <div class="challenge-profile-aside js-challenge-profile-height-master">
       <div class="challenge-about">
         <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
         <p><%= markdown_for_additional_links @challenge.about %></p>
