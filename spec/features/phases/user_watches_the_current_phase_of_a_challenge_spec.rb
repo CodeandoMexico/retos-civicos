@@ -7,7 +7,6 @@ feature 'User watches the current phase of a challenge' do
       ideas_phase_due_on: 7.days.from_now.to_date
 
     visit challenge_path(challenge)
-    save_and_open_page
     page_should_show_completness_of_ideas_phase('30.0')
   end
 
