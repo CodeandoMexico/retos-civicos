@@ -37,13 +37,14 @@ feature 'Collaborator adds entry to challenge' do
 
   describe 'when just one challenge exists' do
     scenario 'it registers and then creates the entry' do
-      challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
+      challenge = create :challenge, title: 'Reto 1', ideas_phase_due_on: 2.weeks.from_now
 
       visit challenge_path(challenge)
       click_link 'Regístrate al reto aquí'
 
       submit_registration_form('juanito@example.com')
-      submit_profile_form('Juanito')
+      click_link('Reto 1')
+      click_link('Envía tu propuesta')
       submit_entry_form_with(
         project_name: 'Mi super app',
         description: 'Es la mejor',
@@ -75,12 +76,12 @@ feature 'Collaborator adds entry to challenge' do
   end
 
   def submit_registration_form(email)
-      click_link 'Inicia con Email'
-      click_link 'Regístrate aquí'
-      fill_in 'user_email', with: 'juanito@example.com'
-      fill_in 'user_password', with: 'secret'
-      fill_in 'user_password_confirmation', with: 'secret'
-      click_button 'Registrarme'
+    click_link 'Inicia con Email'
+    click_link 'Regístrate aquí'
+    fill_in 'user_email', with: 'juanito@example.com'
+    fill_in 'user_password', with: 'secret'
+    fill_in 'user_password_confirmation', with: 'secret'
+    click_button 'Registrarme'
   end
 
   def submit_entry_form_with(args)

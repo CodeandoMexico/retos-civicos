@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
     self.create_role if self.userable.nil?
   end
 
-
   def self.find_or_build_with_omniauth(info)
     user = User.where(email: info.email).first
     return user if user.present?
