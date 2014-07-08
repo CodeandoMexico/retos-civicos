@@ -1,0 +1,23 @@
+<%= f.error_messages %>
+
+<div class="form-group">
+  <div class="col-sm-3">
+    <%= f.label :repo_url, t(".repo_url_description"), class: 'control-label' %>
+  </div>
+  <div class="col-sm-9">
+    <%= f.text_field :repo_url, required: true, class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-3">
+    <%= f.label :demo_url, t(".demo_url_description"), class: 'control-label' %>
+  </div>
+  <div class="col-sm-9">
+    <%= f.text_field :demo_url, required: true, class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-3 col-sm-9">
+    <%= f.submit t(".#{submit}"), class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>

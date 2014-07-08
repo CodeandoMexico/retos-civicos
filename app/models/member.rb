@@ -21,7 +21,12 @@ class Member < ActiveRecord::Base
   end
 
   def has_submitted_app?(challenge)
-    ! self.entry_for(challenge).nil?
+    !self.entry_for(challenge).nil?
+  end
+
+  def has_submitted_prototype_for_challenge?(challenge)
+    entry = self.entry_for(challenge)
+    entry.repo_url.present? && entry.demo_url.present?
   end
 
   def entry_for(challenge)

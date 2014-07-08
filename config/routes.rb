@@ -53,7 +53,7 @@ Aquila::Application.routes.draw do
     resources :votes, only: [:create]
     resources :collaborations, only: [:create]
     resources :entries, except: [:destroy]
-    resources :prototypes, only: [:new, :create]
+    resources :prototypes, only: [:new, :create, :edit, :update]
     resources :comments do
       get :guest, on: :collection
       member do

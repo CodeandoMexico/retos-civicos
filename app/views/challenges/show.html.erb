@@ -56,7 +56,11 @@
     <% elsif Phases.is_current?(:ideas, @challenge) %>
       <%= collaborate_section(@challenge) %>
     <% elsif Phases.is_current?(:prototypes, @challenge) %>
-      <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+      <% if current_member && current_member.has_submitted_prototype_for_challenge?(@challenge) %>
+        <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+      <% end %>
     <% end %>
   </div>
 </div>
