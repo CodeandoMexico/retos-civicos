@@ -20,7 +20,7 @@ en:
 es:
   routes:
     projects: proyectos
-    terms_of_service: terminos_de_servicio
+    terms_of_service: terminos
     privacy: privacidad
     challenges: retos
     comments: comentarios
