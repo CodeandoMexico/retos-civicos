@@ -294,6 +294,9 @@ es:
       repo_url: 'Texto del repo'
       demo_url_description: 'Descripción del demo'
       demo_url: 'Texto del demo'
+  entries_mailer:
+    entry_accepted:
+      subject: '¡Felicidades! Pasaste a la siguiente etapa'
   date:
     abbr_day_names:
     - dom
