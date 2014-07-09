@@ -6,8 +6,8 @@
     <thead>
       <tr>
         <th></th>
-        <th>Participantes</th>
-        <th>Propuestas recibidas</th>
+        <th><%= t('.total-participants') %></th>
+        <th><%= t('.total-entries') %></th>
       </tr>
     </thead>
     <tbody>
@@ -22,19 +22,19 @@
   </table>
 <% else %>
   <div class="alert alert-info">
-    No hay retos activos.
+    <%= t('.no-challenges') %>
   </div>
 <% end %>
 
-<h3 class="l-space-top-large">Ultimas propuestas recibidas</h3>
+<h3 class="l-space-top-large"><%= t('.latest-entries')%></h3>
 <% if @entries.any? %>
 <table id="entries" class="table table-striped table-vertically-centered">
   <thead>
     <tr>
       <th></th>
-      <th>Empresa</th>
-      <th>Link al proyecto</th>
-      <th>Reto</th>
+      <th><%= t('.company-name') %></th>
+      <th><%= t('.link-to-project') %></th>
+      <th><%= t('.challenge-name') %></th>
     </tr>
   </thead>
   <tbody>
@@ -55,6 +55,6 @@
 </table>
 <% else %>
   <div class="alert alert-info">
-    Aún no hay propuestas.
+    <%= t('.no-proposals') %>
   </div>
 <% end %>

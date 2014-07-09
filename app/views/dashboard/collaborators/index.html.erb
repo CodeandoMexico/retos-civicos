@@ -13,11 +13,11 @@
   <table id="collaborators" class="table table-striped table-vertically-centered">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Empresa</th>
-        <th>Email</th>
-        <th>Nickname</th>
-        <th>Fecha de registro</th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.company-name') %></th>
+        <th><%= t('.email') %></th>
+        <th><%= t('.nickname') %></th>
+        <th><%= t('.signup-date') %></th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +33,6 @@
   </table>
 <% else %>
   <div class="alert alert-info">
-    Aún no hay participantes para este reto.
+    <%= t('.no-collaborators') %>
   </div>
 <% end %>

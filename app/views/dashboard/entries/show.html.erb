@@ -2,10 +2,10 @@
   <div class="pull-right">
     <ul class="list-inline">
       <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
-        <li><%= button_to 'Aceptar propuesta',
+        <li><%= button_to t('.accept-proposal'),
           accept_dashboard_entry_url(@entry),
           class: 'btn btn-primary',
-          confirm: '¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?' %></li>
+          confirm: t('.move-next-phase') %></li>
       <% end %>
 
       <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="l-space-bottom">
-  <%= link_to "< Volver a propuestas de #{@entry.challenge.title}",
+  <%= link_to t('.go-back', title: @entry.challenge.title),
     dashboard_entries_path(challenge_id: @entry.challenge_id), class: 'pull-righ' %>
 </div>
 
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="page-header">
-      <h3>¿Como resuelve el reto?</h3>
+      <h3><%= t('.solve-challenge') %></h3>
     </div>
     <div class="l-space-bottom">
       <%= simple_format @entry.description %>
@@ -43,23 +43,23 @@
       <table class="table">
         <tbody>
           <tr>
-            <th>Empresa</th>
+            <th><%= t('.company-name') %></th>
             <td><%= @entry.member.company_name %></td>
           </tr>
           <tr>
-            <th>RFC de la Empresa</th>
+            <th><%= t('.company-rfc') %></th>
             <td><%= @entry.member.company_rfc %></td>
           </tr>
           <tr>
-            <th>Propuesta</th>
+            <th><%= t('.company-proposal') %></th>
             <td><%= link_to truncate(@entry.idea_url), @entry.idea_url, target: '_blank' %></td>
           </tr>
           <tr>
-            <th>Tecnologías</th>
+            <th><%= t('.technology') %></th>
             <td><%= @entry.technologies_separated_by_commas %></td>
           </tr>
           <tr>
-            <th>Recibida el</th>
+            <th><%= t('.received-on') %></th>
             <td><%= l(@entry.created_at, format: :long).capitalize %></td>
           </tr>
         </tbody>

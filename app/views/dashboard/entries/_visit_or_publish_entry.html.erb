@@ -1,9 +1,9 @@
 <% if entry.public? %>
-  <%= link_to 'Ver vista pública', challenge_entry_path(entry.challenge, entry),
+  <%= link_to t('.go-to-public'), challenge_entry_path(entry.challenge, entry),
     class: 'btn btn-default',
     target: '_blank' %></td>
 <% else %>
-  <%= button_to 'Hacer pública', publish_dashboard_entry_path(entry),
-    confirm: '¿Estás seguro de hacer pública esta propuesta?',
+  <%= button_to t('.make-public'), publish_dashboard_entry_path(entry),
+    confirm: t('.confirm-make-public'),
     class: 'btn btn-primary' %>
 <% end %>
