@@ -28,6 +28,7 @@ module Dashboard
     def accept
       entry.accept!
       entry.save
+      EntriesMailer.entry_accepted(entry).deliver
       redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.accepted_successfully')
     end
 
