@@ -28,4 +28,3 @@
 $(document).ready ->
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
-  setTimeout (-> $('#updated-terms-of-service').modal('show')), 300
