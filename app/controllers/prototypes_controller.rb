@@ -1,14 +1,13 @@
 class PrototypesController < ApplicationController
   layout 'aquila'
+  before_filter :load_entry
 
   def new
-    entry
   end
 
   def create
-    challenge
-    entry
-    if entry_params && entry.update_attributes(entry_params)
+    if valid_entry_params?
+      entry.update_attributes(entry_params)
       redirect_to challenge_path(challenge), notice: Phases.prototype_added_message(challenge)
     else
       render :new
@@ -16,17 +15,14 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    entry
   end
 
   def update
-    challenge
-    entry
-    if entry_params && entry.update_attributes(entry_params)
+    if valid_entry_params?
+      entry.update_attributes(entry_params)
       redirect_to challenge_path(challenge), notice: Phases.prototype_edited_message(challenge)
     else
-      redirect_to edit_challenge_prototype_path(challenge)
-      # render :edit
+      render :edit
     end
   end
 
@@ -40,8 +36,13 @@ class PrototypesController < ApplicationController
     @entry ||= current_member.entry_for(challenge)
   end
 
+  alias_method :load_entry, :entry
+
   def entry_params
-    prototype = params[:entry].slice(:repo_url, :demo_url)
-    return prototype if prototype[:repo_url].present? && prototype[:demo_url].present?
+    params[:entry].slice(:repo_url, :demo_url)
+  end
+
+  def valid_entry_params?
+    entry_params[:repo_url].present? && entry_params[:demo_url].present?
   end
 end

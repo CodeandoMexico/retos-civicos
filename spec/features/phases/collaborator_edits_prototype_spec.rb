@@ -35,9 +35,8 @@ feature 'Collaborator edits prototype' do
       repo_url: '',
       demo_url: ''
     )
-    current_path.should eq edit_challenge_prototype_path(challenge_id: challenge, id: challenge)
+    current_path.should eq challenge_prototype_path(challenge, entry)
   end
-
 
   def edited_success_message(date)
     "Has editado tu prototipo con éxito. Podrás editarlo hasta #{I18n.l(date.to_date, format: :long)}"
