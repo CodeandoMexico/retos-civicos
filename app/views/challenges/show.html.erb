@@ -173,6 +173,9 @@
           <% if @challenge.fourth_spec.present? %>
             <li><%= markdown @challenge.fourth_spec %></li>
           <% end %>
+          <% if @challenge.fifth_spec.present? %>
+            <li><%= markdown @challenge.fifth_spec %></li>
+          <% end %>
         </ul>
       </div>
     </div>
