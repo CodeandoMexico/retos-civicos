@@ -54,9 +54,7 @@ es:
       challenge-description: 'Descripción del reto'
       points: Puntos clave
       points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
-      point1: Punto 1 (Opcional)
-      point2: Punto 2 (Opcional)
-      point3: Punto 3 (Opcional)
+      point: 'Punto %{number} (Opcional)'
       additional_links: Referencias
       additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto.
  <br/> Nota: Las ligas se escriben como una lista de links en formato markdown.'
