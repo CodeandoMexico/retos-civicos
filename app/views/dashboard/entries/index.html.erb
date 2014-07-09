@@ -1,6 +1,6 @@
-<h1 class="l-space-bottom">Propuestas</h1>
+<h1 class="l-space-bottom"><%= t('.entries-title') %></h1>
 
-<%= link_to 'Exportar CSV',
+<%= link_to t('.to-csv'),
   dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv),
   class: 'btn btn-default pull-right' %>
 
@@ -14,10 +14,10 @@
     <thead>
       <tr>
         <th></th>
-        <th>Empresa</th>
-        <th>Link al proyecto</th>
-        <th>Tecnologías</th>
-        <th>¿Pública?</th>
+        <th><%= t('.company-name') %></th>
+        <th><%= t('.link-to-project') %></th>
+        <th><%= t('.technologies') %></th>
+        <th><%= t('.public') %></th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
           <%= link_to entry.name, dashboard_entry_path(entry) %>
           <%= render 'entry_status', entry: entry %>
           <br/>
-          <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
+          <small><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></small>
         </td>
         <td><%= entry.member.company_name %></td>
         <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
@@ -37,6 +37,6 @@
   </table>
 <% else %>
   <div class="alert alert-info">
-    Aún no hay propuestas para este reto.
+    <%= t('.no-proposals') %>
   </div>
 <% end %>

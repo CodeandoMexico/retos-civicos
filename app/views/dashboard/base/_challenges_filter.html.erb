@@ -1,6 +1,6 @@
 <div class="btn-group l-space-bottom">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <strong>Reto:</strong> <%= current_challenge.title %> <span class="caret"></span>
+    <strong><%= t('.challenge') %>:</strong> <%= current_challenge.title %> <span class="caret"></span>
   </button>
   <ul id="challenges_options" class="dropdown-menu" role="menu">
     <% challenges.each do |challenge| %>

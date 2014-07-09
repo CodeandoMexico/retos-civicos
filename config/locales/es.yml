@@ -194,6 +194,66 @@ es:
     truncate:
       less: ocultar
       more: ver completo
+  dashboard:
+    base:
+      challenges_filter:
+        challenge: Reto
+      entry_status:
+        entry-accepted: Aceptada
+    show:
+      total-participants: Participantes
+      total-entries: Propuestas recibidas
+      latest-entries: Últimas propuestas recibidas
+      company-name: Empresa
+      link-to-project: Link al proyecto
+      challenge-name: Reto
+      no-proposals: Aún no hay propuestas.
+      no-challenges: No hay retos activos.
+    challenges:
+      index:
+        new-challenge: Nuevo Reto
+        launch-date: Fecha de lanzamiento
+        status: Status
+        total-participants: Participantes
+        total-entries: Propuestas recibidas
+        no-proposals: Aún no hay propuestas.
+    entries:
+      index:
+        entries-title: Propuestas
+        to-csv: Exportar CSV
+        company-name: Empresa
+        link-to-project: Link al proyecto
+        technologies: Tecnologías
+        public: Pública
+        sent-date: Fecha de envío
+        no-proposals: Aún no hay propuestas.
+      show:
+        accept-proposal: Aceptar propuesta
+        move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
+        go-back: "< Volver a propuestas de %{title}"
+        solve-challenge: ¿Como resuelve el reto?
+        company-name: Empresa
+        company-rfc: RFC de la Empresa
+        company-proposal: Propuesta
+        technology: Tecnologías
+        received-on: Recibida el
+      visit_or_publish_entry:
+        go-to-public: Ver vista pública
+        make-public: Hacer pública
+        confirm-make-public: ¿Estás seguro de hacer pública esta propuesta?
+      no_challenge:
+        proposals: Propuestas
+        no-published-challenges: Aún no hay retos publicados.
+    collaborators:
+      index:
+        id: ID
+        company-name: Empresa
+        email: Email
+        nickname: Nickname
+        signup-date: Fecha de registro
+        no-collaborators: Aún no hay participantes para este reto.
+      no_challenge:
+        no-challenges: Aún no hay retos publicados.
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
