@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140702190651) do
+ActiveRecord::Schema.define(:version => 20140703214450) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(:version => 20140702190651) do
     t.boolean  "accepted"
     t.string   "letter_under_oath"
     t.string   "idea_url"
+    t.string   "repo_url"
+    t.string   "demo_url"
   end
 
   create_table "members", :force => true do |t|

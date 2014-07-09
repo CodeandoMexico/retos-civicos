@@ -121,6 +121,7 @@ es:
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
       edit-challenge: 'Editar reto'
+      edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
       days-left-to-finish:
         one: "Queda <strong>un día</strong>"
@@ -284,6 +285,15 @@ es:
       technologies_separated_by_commas: tecnologias
       member_name: participante
       public?: publica
+  prototypes:
+    form_content:
+      edit_prototype: 'Editar prototipo'
+      new_prototype: 'Enviar prototipo'
+    edit:
+      repo_url_description: 'Descripción del repo'
+      repo_url: 'Texto del repo'
+      demo_url_description: 'Descripción del demo'
+      demo_url: 'Texto del demo'
   date:
     abbr_day_names:
     - dom

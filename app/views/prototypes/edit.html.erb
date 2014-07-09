@@ -1,0 +1,9 @@
+<div class="sheet-header">
+  <h1 class="sheet-title">Enviar prototipo</h1>
+</div>
+
+<div class="sheet-section sheet-section-with-pad">
+  <%= form_for @entry, url: challenge_prototype_path(@challenge, @entry), method: :put, html: { class: 'form-horizontal' } do |f| %>
+    <%= render partial: 'form_content', locals: {f: f, submit: 'edit_prototype'} %>
+  <% end %>
+</div>

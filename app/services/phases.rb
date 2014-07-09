@@ -3,6 +3,14 @@ module Phases
     t('phases.entry_added', date: l(dates.ideas_phase_due_on, format: :long))
   end
 
+  def self.prototype_added_message(dates)
+    t('phases.prototype_added', date: l(dates.prototypes_phase_due_on, format: :long))
+  end
+
+  def self.prototype_edited_message(dates)
+    t('phases.prototype_edited', date: l(dates.prototypes_phase_due_on, format: :long))
+  end
+
   def self.timeline_from_dates(dates)
     Timeline.new(for_dates(dates), self)
   end

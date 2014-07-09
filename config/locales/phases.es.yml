@@ -2,6 +2,8 @@ es:
   phases:
     start: 'Lanzamiento'
     entry_added: "Has enviado tu propuesta con éxito. Podrás editarla hasta %{date}"
+    prototype_added: "Has enviado tu prototipo con éxito. Podrás editarlo hasta %{date}"
+    prototype_edited: "Has editado tu prototipo con éxito. Podrás editarlo hasta %{date}"
     ideas_phase: 'ideas'
     ideas_due_date_title: 'Cierre Ideas'
     ideas_selection_phase: 'selección de ideas'
