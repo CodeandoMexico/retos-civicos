@@ -26,6 +26,7 @@ class Member < ActiveRecord::Base
 
   def has_submitted_prototype_for_challenge?(challenge)
     entry = self.entry_for(challenge)
+    return false unless entry.present?
     entry.repo_url.present? && entry.demo_url.present?
   end
 
