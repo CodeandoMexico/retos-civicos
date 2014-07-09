@@ -101,14 +101,20 @@
         <span class="help-block"><%= t(".points-description") %></span>
       </div>
       <div class="col-sm-9">
-        <%= t(".point1") %>
+        <%= t(".point", number: 1) %>
         <%= f.text_field :first_spec, class: 'form-control' %>
         <br />
-        <%= t(".point2") %>
+        <%= t(".point", number: 2) %>
         <%= f.text_field :second_spec, class: 'form-control' %>
         <br />
-        <%= t(".point3") %>
+        <%= t(".point", number: 3) %>
         <%= f.text_field :third_spec, class: 'form-control' %>
+        <br />
+        <%= t(".point", number: 4) %>
+        <%= f.text_field :fourth_spec, class: 'form-control' %>
+        <br />
+        <%= t(".point", number: 5) %>
+        <%= f.text_field :fifth_spec, class: 'form-control' %>
         <br />
       </div>
     </div>
