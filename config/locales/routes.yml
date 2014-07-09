@@ -16,7 +16,7 @@ en:
     members: members
     entries: entries
     users: users
-
+    prototypes: prototypes
 es:
   routes:
     projects: proyectos
@@ -36,3 +36,4 @@ es:
     members: miembros
     entries: entradas
     users: usuarios
+    prototypes: prototipos
