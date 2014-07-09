@@ -19,6 +19,7 @@
 #= require spin
 #= require chosen.jquery
 #= require timelineJS/embed
+#= require bootstrap/modal
 #= require bootstrap/dropdown
 #= require bootstrap/tab
 #= require_tree .
@@ -27,3 +28,4 @@
 $(document).ready ->
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
+  setTimeout (-> $('#updated-terms-of-service').modal('show')), 300
