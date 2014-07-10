@@ -14,9 +14,9 @@
     <thead>
       <tr>
         <th><%= t('.id') %></th>
-        <th><%= t('.company-name') %></th>
+        <th><%= t('.name') %></th>
         <th><%= t('.email') %></th>
-        <th><%= t('.nickname') %></th>
+        <th><%= t('.company-name') %></th>
         <th><%= t('.signup-date') %></th>
       </tr>
     </thead>
@@ -26,7 +26,8 @@
           <td><%= collaborator.id %></td>
           <td><%= collaborator.name %></td>
           <td><%= collaborator.email %></td>
-          <td><%= collaborator.created_at %></td>
+          <td><%= collaborator.company_name %></td>
+          <td><%= l collaborator.created_at, format: :long %></td>
         </tr>
       <% end %>
     </tbody>

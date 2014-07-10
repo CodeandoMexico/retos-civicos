@@ -249,7 +249,7 @@ es:
         id: ID
         company-name: Empresa
         email: Email
-        nickname: Nickname
+        name: Nombre
         signup-date: Fecha de registro
         no-collaborators: Aún no hay participantes para este reto.
       no_challenge:

@@ -81,7 +81,7 @@ feature 'Organization admin watches collaborators' do
       page.should have_content args.fetch(:id)
       page.should have_content args.fetch(:name)
       page.should have_content args.fetch(:email)
-      page.should have_content args.fetch(:registered_at)
+      page.should have_content I18n.l(args.fetch(:registered_at), format: :long)
     end
   end
 end
