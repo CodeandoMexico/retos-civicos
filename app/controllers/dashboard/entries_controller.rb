@@ -36,7 +36,13 @@ module Dashboard
     private
 
     def current_challenge_entries
-      current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
+      default = current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
+
+      if params[:filter] == 'accepted'
+        default.accepted
+      else
+        default
+      end
     end
 
     def entry

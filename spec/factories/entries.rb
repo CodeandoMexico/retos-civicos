@@ -6,6 +6,10 @@ FactoryGirl.define do
     association :member
     association :challenge
 
+    trait :accepted do
+      accepted true
+    end
+
     trait :public do
       self.public true
     end
