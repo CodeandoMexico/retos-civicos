@@ -8,6 +8,7 @@ module Dashboard
       @challenges = organization_challenges
       @current_challenge = current_challenge
       @entries = current_challenge_entries
+      @current_phase = Phases.current(current_challenge)
 
       respond_to do |format|
         format.html
