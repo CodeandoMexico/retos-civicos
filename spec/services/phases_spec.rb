@@ -18,19 +18,14 @@ module Phases
       @dates = Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
     end
 
-    it 'has an ideas phase' do
-      phases = Phases.for_dates(dates)
-      phases.present(:ideas).should eq 'Ideas'
-    end
-
-    it 'has an ideas selection phase' do
-      phases = Phases.for_dates(dates)
-      phases.present(:ideas_selection).should eq 'Selección de ideas'
-    end
-
-    it 'has a prototypes phase' do
-      phases = Phases.for_dates(dates)
-      phases.present(:prototypes).should eq 'Prototipos'
+    [[:ideas, 'Ideas'],
+    [:ideas_selection, 'Selección de ideas'],
+    [:prototypes, 'Prototipos'],
+    [:prototypes_selection, 'Selección de prototipos']].each do |phase, presentation|
+      it "has a presentation for #{phase} phase" do
+        phases = Phases.for_dates(dates)
+        phases.present(phase).should eq presentation
+      end
     end
 
     it 'has a current phase' do
@@ -102,6 +97,16 @@ module Phases
       Phases.is_current?(:prototypes, dates).should be
       Phases.current(dates).should eq 'Prototipos'
     end
+
+    it 'when prototypes selection is current' do
+      dates = Dates.new(1.year.ago, 4.days.ago, 3.days.ago, 2.days.ago)
+      Phases.is_current?(:ideas, dates).should_not be
+      Phases.is_current?(:ideas_selection, dates).should_not be
+      Phases.is_current?(:prototypes, dates).should_not be
+      Phases.is_current?(:prototypes_selection, dates).should be
+      Phases.current(dates).should eq 'Selección de prototipos'
+    end
+
   end
 
   describe 'phases bar' do

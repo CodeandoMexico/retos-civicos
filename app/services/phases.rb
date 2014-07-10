@@ -74,12 +74,13 @@ module Phases
   end
 
   class PhasesForDates
-    attr_reader :ideas, :ideas_selection, :prototypes
+    attr_reader :ideas, :ideas_selection, :prototypes, :prototypes_selection
 
     def initialize(dates)
       @ideas = Phase.of_ideas(dates)
       @ideas_selection = Phase.of_ideas_selection(dates)
       @prototypes = Phase.of_prototypes(dates)
+      @prototypes_selection = Phase.of_prototypes_selection(dates)
     end
 
     def present(phase)
@@ -108,7 +109,8 @@ module Phases
     def all
       { ideas: ideas,
         ideas_selection: ideas_selection,
-        prototypes: prototypes }
+        prototypes: prototypes,
+        prototypes_selection: prototypes_selection }
     end
 
     def fetch(phase)
@@ -116,7 +118,7 @@ module Phases
     end
 
     def current
-      all.values.select(&:current?).first
+      all.values.select { |phase| phase.current? }.first
     end
   end
 
@@ -150,6 +152,11 @@ module Phases
 
     def self.of_prototypes(dates)
       new(:prototypes, dates.ideas_selection_phase_due_on, dates.prototypes_phase_due_on)
+    end
+
+    def self.of_prototypes_selection(dates)
+      date_too_long_from_now = 1000.years.from_now
+      new(:prototypes_selection, dates.prototypes_phase_due_on, date_too_long_from_now)
     end
 
     def present
