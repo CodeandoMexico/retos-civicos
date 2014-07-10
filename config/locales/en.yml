@@ -282,6 +282,11 @@ en:
     truncate:
       less: ocultar
       more: ver completo
+  dashboard:
+    base:
+      challenges_filter:
+        challenge: Challenge
+        go-to-challenge-public-view: Go to challenge public view
   users:
     welcome_new_org: 'We have received your registration, while validating your organization, you can edit the profile:'
     form:

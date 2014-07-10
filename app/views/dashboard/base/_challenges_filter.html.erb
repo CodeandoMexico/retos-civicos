@@ -1,10 +1,18 @@
-<div class="btn-group l-space-bottom">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <strong><%= t('.challenge') %>:</strong> <%= current_challenge.title %> <span class="caret"></span>
-  </button>
-  <ul id="challenges_options" class="dropdown-menu" role="menu">
-    <% challenges.each do |challenge| %>
-      <li><%= link_to challenge.title, filter_path.(challenge) %></li>
-    <% end %>
-  </ul>
+<div class="l-space-bottom">
+  <div class="btn-group">
+    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      <strong><%= t('.challenge') %>:</strong> <%= current_challenge.title %> <span class="caret"></span>
+    </a>
+    <ul id="challenges_options" class="dropdown-menu" role="menu">
+      <% challenges.each do |challenge| %>
+        <li><%= link_to challenge.title, filter_path.(challenge) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to challenge_path(current_challenge),
+    class: 'btn btn-default',
+    target: '_blank',
+    data: { toggle: 'tooltip', title: t('.go-to-challenge-public-view'), placement: 'bottom' } do %>
+    <i class="fa fa-external-link"></i>
+  <% end %>
 </div>
