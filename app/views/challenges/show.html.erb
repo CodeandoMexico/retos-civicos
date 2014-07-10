@@ -55,8 +55,8 @@
       <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
     <% elsif Phases.is_current?(:ideas, @challenge) %>
       <%= collaborate_section(@challenge) %>
-    <% elsif Phases.is_current?(:prototypes, @challenge) %>
-      <% if current_member && current_member.has_submitted_prototype_for_challenge?(@challenge) %>
+    <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
+      <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
         <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
       <% else %>
         <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
