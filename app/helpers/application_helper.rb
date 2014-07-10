@@ -47,6 +47,10 @@ module ApplicationHelper
     'active' if params[:controller] == activator
   end
 
+  def filter_class(filter)
+    'active' if params[:filter] == filter
+  end
+
   def url_with_protocol(url)
     if url[/^https?/]
       url

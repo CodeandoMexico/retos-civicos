@@ -16,6 +16,10 @@ class Entry < ActiveRecord::Base
     where public: true
   end
 
+  def self.accepted
+    where accepted: true
+  end
+
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
      :idea_url, :technologies_separated_by_commas, :member_name, :public?]

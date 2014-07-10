@@ -4,14 +4,30 @@
   dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv),
   class: 'btn btn-default pull-right' %>
 
-<%= render 'challenges_filter',
-  challenges: @challenges,
-  current_challenge: @current_challenge,
-  filter_path: ->(challenge) { dashboard_entries_path(challenge_id: challenge.id) } %>
+<div class="l-space-bottom">
+  <%= render 'challenges_filter',
+    challenges: @challenges,
+    current_challenge: @current_challenge,
+    filter_path: ->(challenge) { dashboard_entries_path(challenge_id: challenge.id) } %>
+</div>
 
 <% if @current_phase.present? %>
-  <h4><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
+  <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
 <% end %>
+
+<div id="entries_filters" class="btn-group l-space-bottom">
+  <%= link_to dashboard_entries_path(challenge_id: @current_challenge.id),
+    class: "btn btn-default #{filter_class(nil)}" do %>
+    <span id="received_entries_count"><%= @current_challenge.entries.count %></span>
+    <span>recibidas</span>
+  <% end %>
+
+  <%= link_to dashboard_entries_path(challenge_id: @current_challenge.id, filter: :accepted),
+    class: "btn btn-default #{filter_class('accepted')}" do %>
+    <span id="accepted_entries_count"><%= @current_challenge.entries.accepted.count %></span>
+    <span>aceptadas</span>
+  <% end %>
+</div>
 
 <% if @entries.any? %>
   <table id="entries" class="table table-striped table-vertically-centered">
