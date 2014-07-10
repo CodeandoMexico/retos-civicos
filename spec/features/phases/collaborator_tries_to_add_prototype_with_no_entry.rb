@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Collaborator fails to add prototype' do
+feature 'Collaborator fails to add prototype in the prototypes phase' do
   attr_reader :member, :challenge
 
   before do
@@ -14,16 +14,33 @@ feature 'Collaborator fails to add prototype' do
     visit challenge_path(challenge)
   end
 
-  scenario 'in the prototypes phase with no entry' do
+  scenario 'with no entry via a prototype button' do
     page.should_not have_link 'Enviar prototipo'
   end
 
-  scenario 'in the prototypes phase with an unaccepted entry' do
-    member_entry(false)
+  scenario 'with an unaccepted entry via a prototype button' do
+    create_member_entry(false)
     page.should_not have_link 'Enviar prototipo'
   end
 
-  def member_entry(accepted)
+  scenario 'with no entry via url' do
+    visit new_challenge_prototype_path(challenge)
+    current_path.should eq challenge_path(challenge)
+  end
+
+  scenario 'with an existent but unaccepted entry via url' do
+    create_member_entry(false)
+    visit new_challenge_prototype_path(challenge)
+    current_path.should eq challenge_path(challenge)
+  end
+
+  scenario 'with an existent and accepted entry via url' do
+    create_member_entry(true)
+    visit new_challenge_prototype_path(challenge)
+    current_path.should eq new_challenge_prototype_path(challenge)
+  end
+
+  def create_member_entry(accepted)
     entry = create :entry,
       accepted: accepted,
       challenge: challenge,
