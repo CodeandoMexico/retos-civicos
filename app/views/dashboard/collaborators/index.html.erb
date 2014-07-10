@@ -27,7 +27,7 @@
           <td><%= collaborator.name %></td>
           <td><%= collaborator.email %></td>
           <td><%= collaborator.company_name %></td>
-          <td><%= collaborator.created_at %></td>
+          <td><%= l collaborator.created_at, format: :long %></td>
         </tr>
       <% end %>
     </tbody>
