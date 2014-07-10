@@ -81,6 +81,7 @@ module Phases
   describe 'current phase' do
     it 'when ideas is current' do
       dates = Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
+      Phases.current(dates).should eq 'Ideas'
       Phases.is_current?(:ideas, dates).should be
       Phases.is_current?(:ideas_selection, dates).should_not be
       Phases.is_current?(:prototypes, dates).should_not be
@@ -90,6 +91,7 @@ module Phases
       dates = Dates.new(1.year.ago, 1.day.ago, 2.days.from_now, 3.days.from_now)
       Phases.is_current?(:ideas, dates).should_not be
       Phases.is_current?(:ideas_selection, dates).should be
+      Phases.current(dates).should eq 'Selección de ideas'
       Phases.is_current?(:prototypes, dates).should_not be
     end
 
@@ -98,6 +100,7 @@ module Phases
       Phases.is_current?(:ideas, dates).should_not be
       Phases.is_current?(:ideas_selection, dates).should_not be
       Phases.is_current?(:prototypes, dates).should be
+      Phases.current(dates).should eq 'Prototipos'
     end
   end
 

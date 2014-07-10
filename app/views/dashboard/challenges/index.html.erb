@@ -19,7 +19,7 @@
     <tbody>
       <% @challenges.each do |challenge| %>
         <tr>
-          <td><%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
+          <td><%= link_to challenge.title, dashboard_entries_path(challenge_id: challenge) %></td>
           <td><%= l challenge.created_at, format: :long %></td>
           <td><%= t("challenges.status.#{challenge.status}") %></td>
           <td><%= link_to challenge.collaborators.size, dashboard_collaborators_path(challenge_id: challenge.id) %></td>

@@ -23,6 +23,10 @@ module Phases
     for_dates(dates).current?(phase)
   end
 
+  def self.current(dates)
+    for_dates(dates).present_current
+  end
+
   class Timeline
     Start = Struct.new(:date, :title)
     Phase = Struct.new(:completeness, :title, :due_date, :due_date_title)
@@ -95,6 +99,10 @@ module Phases
       current.to_sym == phase.to_sym
     end
 
+    def present_current
+      (current || NullPhase.new).present
+    end
+
     private
 
     def all
@@ -109,6 +117,16 @@ module Phases
 
     def current
       all.values.select(&:current?).first
+    end
+  end
+
+  class NullPhase
+    def present
+      ""
+    end
+
+    def to_s
+      ""
     end
   end
 
