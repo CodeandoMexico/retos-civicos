@@ -198,6 +198,7 @@ es:
     base:
       challenges_filter:
         challenge: Reto
+        go-to-challenge-public-view: Ir a vista pública del reto
       entry_status:
         entry-accepted: Aceptada
     show:

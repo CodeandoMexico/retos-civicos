@@ -22,9 +22,11 @@
 #= require bootstrap/modal
 #= require bootstrap/dropdown
 #= require bootstrap/tab
+#= require bootstrap/tooltip
 #= require_tree .
 #= require_self
 
 $(document).ready ->
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
+  $('[data-toggle="tooltip"]').tooltip()
