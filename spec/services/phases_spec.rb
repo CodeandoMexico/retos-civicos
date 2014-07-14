@@ -48,16 +48,25 @@ describe Phases do
       percentage = example.fetch(:phases).fetch(current_phase)
 
       it "when #{current_phase} phase is at #{percentage}%" do
-        example.fetch(:phases).each do|phase, percentage|
+        example.fetch(:phases).each do |phase, percentage|
           dates = dates_for_phase(current_phase)
           Phases.completeness_percentage_for(phase, dates).should eq percentage
         end
+      end
+    end
+
+    it "before launch" do
+      dates = Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+
+      [:ideas, :ideas_selection, :prototypes, :prototypes_selection].each do |phase|
+        Phases.completeness_percentage_for(phase, dates).should eq 0
       end
     end
   end
 
   describe 'current phase' do
     phases = [:ideas, :ideas_selection, :prototypes, :prototypes_selection]
+
     phases.each do |current_phase|
       it "when #{current_phase} is current" do
         dates = dates_for_phase(current_phase)
@@ -65,6 +74,24 @@ describe Phases do
 
         Phases.is_current?(current_phase, dates).should be
         not_current_phases.each { |phase| Phases.is_current?(phase, dates).should_not be }
+      end
+    end
+
+    describe 'before launch' do
+      attr_reader :dates
+
+      before do
+        @dates = Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+      end
+
+      it "should not be" do
+        Phases.current(dates).should eq ''
+      end
+
+      phases.each do |phase|
+        it "should not be #{phase}" do
+          Phases.is_current?(phase, dates).should_not be
+        end
       end
     end
   end
