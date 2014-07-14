@@ -27,6 +27,10 @@ module Phases
     for_dates(dates).present_current
   end
 
+  def self.completeness_percentage_for(phase, dates)
+    for_dates(dates).completeness_percentage_for(phase)
+  end
+
   class Timeline
     Start = Struct.new(:date, :title)
     Phase = Struct.new(:completeness, :title, :due_date, :due_date_title)
@@ -104,6 +108,10 @@ module Phases
       (current || NullPhase.new).present
     end
 
+    def fetch(phase)
+      all.fetch(phase)
+    end
+
     private
 
     def all
@@ -111,10 +119,6 @@ module Phases
         ideas_selection: ideas_selection,
         prototypes: prototypes,
         prototypes_selection: prototypes_selection }
-    end
-
-    def fetch(phase)
-      all.fetch(phase)
     end
 
     def current
