@@ -51,11 +51,17 @@ describe Phases do
       end
     end
 
-    it "before launch" do
+    it 'before launch' do
       dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
-
       [:ideas, :ideas_selection, :prototypes, :prototypes_selection].each do |phase|
         Phases.completeness_percentage_for(phase, dates).should eq 0
+      end
+    end
+
+    it 'after finish' do
+      dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
+      [:ideas, :ideas_selection, :prototypes, :prototypes_selection].each do |phase|
+        Phases.completeness_percentage_for(phase, dates).should eq 100
       end
     end
   end
