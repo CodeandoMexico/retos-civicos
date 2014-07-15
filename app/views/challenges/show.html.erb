@@ -55,8 +55,8 @@
       <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
     <% elsif Phases.is_current?(:ideas, @challenge) %>
       <%= collaborate_section(@challenge) %>
-    <% elsif Phases.is_current?(:prototypes, @challenge) %>
-      <% if current_member && current_member.has_submitted_prototype_for_challenge?(@challenge) %>
+    <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
+      <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
         <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
       <% else %>
         <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
@@ -128,7 +128,9 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <p>Evaluación de prototipos</p>
+      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes_selection.completeness %>">
+      </div>
+      <p><%= @timeline.prototypes_selection.title %></p>
     </div>
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
@@ -137,8 +139,8 @@
       </div>
       <div class="phases-date phases-date-last-milestone">
         <dl>
-          <dt>Anuncio ganador</dt>
-          <dd>22 de septiembre</dd>
+          <dt><%= @timeline.prototypes_selection.due_date_title %></dt>
+          <dd><%= @timeline.prototypes_selection.due_date %></dd>
         </dl>
       </div>
     </div>
