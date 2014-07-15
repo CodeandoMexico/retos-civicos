@@ -53,6 +53,10 @@ class Entry < ActiveRecord::Base
     ENTRY_TECHNOLOGIES
   end
 
+  def is_the_winner?
+    self.winner == 1
+  end
+
   private
 
   def validate_technologies!

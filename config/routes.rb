@@ -26,6 +26,8 @@ Aquila::Application.routes.draw do
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :publish, on: :member
       post :accept, on: :member
+      post :winner, on: :member
+      post :remove_winner, on: :member
     end
   end
 
