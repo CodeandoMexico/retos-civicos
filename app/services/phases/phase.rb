@@ -1,5 +1,7 @@
 module Phases
   class Phase
+    PhaseStruct = Struct.new(:completeness, :title, :due_date, :due_date_title)
+
     attr_reader :id, :start, :finish
 
     def initialize(id, start, finish, translator = Phases)
@@ -22,8 +24,7 @@ module Phases
     end
 
     def self.of_prototypes_selection(dates)
-      date_too_long_from_now = 1000.years.from_now
-      new(:prototypes_selection, dates.prototypes_phase_due_on, date_too_long_from_now)
+      new(:prototypes_selection, dates.prototypes_phase_due_on, dates.finish_on)
     end
 
     def present
@@ -31,11 +32,19 @@ module Phases
     end
 
     def to_s
-      translator.t("phases.#{id}_phase")
+      translator.t("#{id}_phase")
     end
 
     def to_sym
       id
+    end
+
+    def to_struct
+      PhaseStruct.new(
+        completeness_percentage,
+        present,
+        translator.l(finish),
+        translator.t("#{id}_due_date_title"))
     end
 
     def current?
