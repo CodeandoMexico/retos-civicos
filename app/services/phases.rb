@@ -15,10 +15,6 @@ module Phases
     Timeline.new(for_dates(dates))
   end
 
-  def self.for_dates(dates)
-    PhasesForDates.new(Dates.from_record(dates))
-  end
-
   def self.dates
     Dates.members
   end
@@ -36,6 +32,10 @@ module Phases
   end
 
   private
+
+  def self.for_dates(dates)
+    PhasesForDates.new(Dates.from_record(dates))
+  end
 
   def self.t(key, options = {})
     I18n.t("phases.#{key}", options)
