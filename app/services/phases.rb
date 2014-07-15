@@ -16,7 +16,11 @@ module Phases
   end
 
   def self.for_dates(dates)
-    PhasesForDates.new(dates)
+    PhasesForDates.new(Dates.from_record(dates))
+  end
+
+  def self.dates
+    Dates.members
   end
 
   def self.is_current?(phase, dates)

@@ -6,18 +6,12 @@ require_relative '../../app/services/phases/phases_for_dates'
 require_relative '../../app/services/phases/timeline'
 
 describe Phases do
-  Dates = Struct.new(
-    :starts_on,
-    :ideas_phase_due_on,
-    :ideas_selection_phase_due_on,
-    :prototypes_phase_due_on)
-
   describe 'phases for dates' do
     attr_reader :phases
 
     before do
       configure_i18n
-      dates = Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
+      dates = Phases::Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
       @phases = Phases.for_dates(dates)
     end
 
@@ -56,7 +50,7 @@ describe Phases do
     end
 
     it "before launch" do
-      dates = Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+      dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
 
       [:ideas, :ideas_selection, :prototypes, :prototypes_selection].each do |phase|
         Phases.completeness_percentage_for(phase, dates).should eq 0
@@ -81,7 +75,7 @@ describe Phases do
       attr_reader :dates
 
       before do
-        @dates = Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+        @dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
       end
 
       it "should not be" do
@@ -100,7 +94,7 @@ describe Phases do
     attr_reader :bar
 
     before do
-      dates = Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now)
+      dates = Phases::Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now)
       @bar = Phases.timeline_from_dates(dates)
     end
 
@@ -145,10 +139,10 @@ describe Phases do
 
   def dates_for_phase(phase)
     {
-      ideas: Dates.new(6.days.ago, 4.days.from_now, many_days_from_now, many_days_from_now),
-      ideas_selection: Dates.new(many_days_ago, 3.days.ago, 7.days.from_now, many_days_from_now),
-      prototypes: Dates.new(many_days_ago, many_days_ago, 7.days.ago, 3.days.from_now),
-      prototypes_selection: Dates.new(1.year.ago, 4.days.ago, 3.days.ago, 2.days.ago)
+      ideas: Phases::Dates.new(6.days.ago, 4.days.from_now, many_days_from_now, many_days_from_now),
+      ideas_selection: Phases::Dates.new(many_days_ago, 3.days.ago, 7.days.from_now, many_days_from_now),
+      prototypes: Phases::Dates.new(many_days_ago, many_days_ago, 7.days.ago, 3.days.from_now),
+      prototypes_selection: Phases::Dates.new(1.year.ago, 4.days.ago, 3.days.ago, 2.days.ago)
     }.fetch(phase)
   end
 
