@@ -158,7 +158,7 @@ describe Phases do
     end
 
     def format_date(date)
-      I18n.l(date.to_date, format: :phases_bar)
+      I18n.l(date.to_date, format: :phases)
     end
   end
 

@@ -14,4 +14,4 @@ es:
     prototypes_selection_due_date_title: 'Anuncio ganador'
   date:
     formats:
-      phases_bar: '%d de %B'
+      phases: '%d de %B'

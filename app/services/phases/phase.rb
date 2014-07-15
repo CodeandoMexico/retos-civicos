@@ -1,5 +1,7 @@
 module Phases
   class Phase
+    PhaseStruct = Struct.new(:completeness, :title, :due_date, :due_date_title)
+
     attr_reader :id, :start, :finish
 
     def initialize(id, start, finish, translator = Phases)
@@ -30,11 +32,19 @@ module Phases
     end
 
     def to_s
-      translator.t("phases.#{id}_phase")
+      translator.t("#{id}_phase")
     end
 
     def to_sym
       id
+    end
+
+    def to_struct
+      PhaseStruct.new(
+        completeness_percentage,
+        present,
+        translator.l(finish),
+        translator.t("#{id}_due_date_title"))
     end
 
     def current?
