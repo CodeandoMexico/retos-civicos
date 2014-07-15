@@ -20,15 +20,19 @@ module Phases
   end
 
   def self.is_current?(phase, dates)
-    for_dates(dates).current?(phase)
+    for_dates(dates).fetch(phase).current?
   end
 
   def self.current(dates)
-    for_dates(dates).present_current
+    for_dates(dates).current.present
   end
 
   def self.completeness_percentage_for(phase, dates)
-    for_dates(dates).completeness_percentage_for(phase)
+    for_dates(dates).fetch(phase).completeness_percentage
+  end
+
+  def self.days_left_for_current_phase(dates)
+    for_dates(dates).current.days_left
   end
 
   private

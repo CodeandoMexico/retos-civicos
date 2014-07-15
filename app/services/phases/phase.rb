@@ -58,6 +58,10 @@ module Phases
       (elapsed_days.to_f / total_days.to_f) * 100
     end
 
+    def days_left
+      (total_days - elapsed_days).to_i
+    end
+
     private
 
     def elapsed_days
