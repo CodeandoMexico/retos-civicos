@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
   layout 'aquila'
   before_filter :load_entry
+  before_filter :member_is_able_to_add_prototype
 
   def new
   end
@@ -44,5 +45,9 @@ class PrototypesController < ApplicationController
 
   def valid_entry_params?
     entry_params[:repo_url].present? && entry_params[:demo_url].present?
+  end
+
+  def member_is_able_to_add_prototype
+    redirect_to challenge_path(challenge) unless current_member.is_able_to_submit_a_prototype?(challenge)
   end
 end
