@@ -22,8 +22,7 @@ module Phases
     end
 
     def self.of_prototypes_selection(dates)
-      date_too_long_from_now = 1000.years.from_now
-      new(:prototypes_selection, dates.prototypes_phase_due_on, date_too_long_from_now)
+      new(:prototypes_selection, dates.prototypes_phase_due_on, dates.finish_on)
     end
 
     def present

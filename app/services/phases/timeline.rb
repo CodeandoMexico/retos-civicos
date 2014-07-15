@@ -24,6 +24,10 @@ module Phases
       @prototypes ||= struct_for :prototypes
     end
 
+    def prototypes_selection
+      @prototypes_selection ||= struct_for :prototypes_selection
+    end
+
     private
 
     def struct_for(phase)

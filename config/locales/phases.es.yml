@@ -10,7 +10,8 @@ es:
     ideas_selection_due_date_title: 'Anuncio finalistas'
     prototypes_phase: 'prototipos'
     prototypes_due_date_title: 'Cierre prototipos'
-    prototypes_selection_phase: 'Selección de prototipos'
+    prototypes_selection_phase: 'Evaluación de prototipos'
+    prototypes_selection_due_date_title: 'Anuncio ganador'
   date:
     formats:
       phases_bar: '%d de %B'

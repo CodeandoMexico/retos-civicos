@@ -1,5 +1,6 @@
 require 'active_support/all'
 require_relative '../../app/services/phases'
+require_relative '../../app/services/phases/dates'
 require_relative '../../app/services/phases/null_phase'
 require_relative '../../app/services/phases/phase'
 require_relative '../../app/services/phases/phases_for_dates'
@@ -11,7 +12,7 @@ describe Phases do
 
     before do
       configure_i18n
-      dates = Phases::Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now)
+      dates = Phases::Dates.new(1.year.ago, 1.day.from_now, 2.days.from_now, 3.days.from_now, 10.days.from_now)
       @phases = Phases.for_dates(dates)
     end
 
@@ -36,7 +37,8 @@ describe Phases do
     [
       { current: :ideas, phases: { ideas: 60, ideas_selection: 0, prototypes: 0, prototypes_selection: 0 } },
       { current: :ideas_selection, phases: { ideas: 100, ideas_selection: 30, prototypes: 0, prototypes_selection: 0 } },
-      { current: :prototypes, phases: { ideas: 100, ideas_selection: 100, prototypes: 70, prototypes_selection: 0 } }
+      { current: :prototypes, phases: { ideas: 100, ideas_selection: 100, prototypes: 70, prototypes_selection: 0 } },
+      { current: :prototypes_selection, phases: { ideas: 100, ideas_selection: 100, prototypes: 100, prototypes_selection: 20 } }
     ].each do |example|
       current_phase = example.fetch(:current)
       percentage = example.fetch(:phases).fetch(current_phase)
@@ -50,7 +52,7 @@ describe Phases do
     end
 
     it "before launch" do
-      dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+      dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
 
       [:ideas, :ideas_selection, :prototypes, :prototypes_selection].each do |phase|
         Phases.completeness_percentage_for(phase, dates).should eq 0
@@ -75,7 +77,7 @@ describe Phases do
       attr_reader :dates
 
       before do
-        @dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now)
+        @dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
       end
 
       it "should not be" do
@@ -94,7 +96,7 @@ describe Phases do
     attr_reader :bar
 
     before do
-      dates = Phases::Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now)
+      dates = Phases::Dates.new(10.days.ago, 3.days.ago, 7.days.from_now, 10.days.from_now, 20.days.from_now)
       @bar = Phases.timeline_from_dates(dates)
     end
 
@@ -124,6 +126,13 @@ describe Phases do
       bar.prototypes.due_date_title.should eq 'Cierre prototipos'
     end
 
+    it 'has a prototypes selection phase' do
+      bar.prototypes_selection.completeness.should eq 0
+      bar.prototypes_selection.title.should eq 'Evaluación de prototipos'
+      bar.prototypes_selection.due_date.should eq format_date(20.days.from_now)
+      bar.prototypes_selection.due_date_title.should eq 'Anuncio ganador'
+    end
+
     def format_date(date)
       I18n.l(date.to_date, format: :phases_bar)
     end
@@ -139,10 +148,10 @@ describe Phases do
 
   def dates_for_phase(phase)
     {
-      ideas: Phases::Dates.new(6.days.ago, 4.days.from_now, many_days_from_now, many_days_from_now),
-      ideas_selection: Phases::Dates.new(many_days_ago, 3.days.ago, 7.days.from_now, many_days_from_now),
-      prototypes: Phases::Dates.new(many_days_ago, many_days_ago, 7.days.ago, 3.days.from_now),
-      prototypes_selection: Phases::Dates.new(1.year.ago, 4.days.ago, 3.days.ago, 2.days.ago)
+      ideas: Phases::Dates.new(6.days.ago, 4.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now),
+      ideas_selection: Phases::Dates.new(many_days_ago, 3.days.ago, 7.days.from_now, many_days_from_now, many_days_from_now),
+      prototypes: Phases::Dates.new(many_days_ago, many_days_ago, 7.days.ago, 3.days.from_now, many_days_from_now),
+      prototypes_selection: Phases::Dates.new(1.year.ago, 4.days.ago, 3.days.ago, 2.days.ago, 8.days.from_now)
     }.fetch(phase)
   end
 
