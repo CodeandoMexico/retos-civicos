@@ -96,6 +96,24 @@ describe Phases do
         end
       end
     end
+
+    describe 'after finish' do
+      attr_reader :dates
+
+      before do
+        @dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
+      end
+
+      it "should not be" do
+        Phases.current(dates).should eq ''
+      end
+
+      phases.each do |phase|
+        it "should not be #{phase}" do
+          Phases.is_current?(phase, dates).should_not be
+        end
+      end
+    end
   end
 
   describe 'phases bar' do
