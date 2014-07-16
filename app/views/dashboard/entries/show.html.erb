@@ -8,16 +8,18 @@
           confirm: t('.move-next-phase') %></li>
       <% end %>
 
-      <% if Phases.is_current?(:prototypes_selection, @entry.challenge) && @entry.is_the_winner? %>
-      <li><%= button_to t('.remove-winner'),
-        remove_winner_dashboard_entry_url(@entry),
-        class: 'btn btn-danger',
-        confirm: t('.remove-winner-confirmation') %></li>
-      <% else %>
-        <li><%= button_to t('.select-winner'),
-          winner_dashboard_entry_url(@entry),
-          class: 'btn btn-primary',
-          confirm: t('.select-winner-confirmation') %></li>
+      <% if Phases.is_current?(:prototypes_selection, @entry.challenge) %>
+        <% if @entry.is_the_winner? %>%>
+          <li><%= button_to t('.remove-winner'),
+            remove_winner_dashboard_entry_url(@entry),
+            class: 'btn btn-danger',
+            confirm: t('.remove-winner-confirmation') %></li>
+        <% else %>
+          <li><%= button_to t('.select-winner'),
+            winner_dashboard_entry_url(@entry),
+            class: 'btn btn-primary',
+            confirm: t('.select-winner-confirmation') %></li>
+        <% end %>
       <% end %>
       <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
     </ul>

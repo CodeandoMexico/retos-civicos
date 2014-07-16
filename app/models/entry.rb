@@ -57,6 +57,14 @@ class Entry < ActiveRecord::Base
     self.winner == 1
   end
 
+  def select_as_winner
+    self.winner = 1
+  end
+
+  def remove_as_winner
+    self.winner = nil
+  end
+
   private
 
   def validate_technologies!

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 feature 'Organization selects winner for the challenge' do
-  attr_reader :challenge, :entry, :organization
+  attr_reader :entry
 
   before do
     member = create :member
     organization = create :organization
-    @challenge = create :challenge,
+    challenge = create :challenge,
       organization: organization,
       starts_on: 5.weeks.ago,
       ideas_phase_due_on: 4.weeks.ago,
@@ -24,7 +24,7 @@ feature 'Organization selects winner for the challenge' do
 
   scenario 'in the prototypes selection phase' do
     select_winner
-    page.should have_content "Esta propuesta fue seleccionada correctamente como ganadora."
+    page.should have_content "La propuesta \"#{entry.name}\" fue seleccionada ganadora"
   end
 
   scenario 'in the prototypes selection phase, and then removes him' do
@@ -33,22 +33,9 @@ feature 'Organization selects winner for the challenge' do
     page.should have_content "A esta propuesta le fue quitada el estatus de ganadora correctamente."
   end
 
-  scenario 'in the prototypes phase, but fails because the button should not be available' do
-    challenge = create :challenge,
-      organization: organization,
-      starts_on: 5.weeks.ago,
-      ideas_phase_due_on: 4.weeks.ago,
-      ideas_selection_phase_due_on: 3.week.ago,
-      prototypes_phase_due_on: 1.week.from_now,
-      finish_on: 2.week.from_now
-
-    # should have a text that marks this as the winner, when that's done this text should be replaced to look for it
-    page.should_not have_button "Seleccionar como ganadora"
-  end
-
   def select_winner
     click_link entry.name
-    click_button "Seleccionar como ganadora"
+    click_button "Seleccionar como ganador"
   end
 
   def remove_winner

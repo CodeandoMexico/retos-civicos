@@ -34,26 +34,18 @@ module Dashboard
     end
 
     def winner
-      select_entry_as_winner
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully')
+      entry.select_as_winner
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully', name: entry.name)
     end
 
     def remove_winner
-      unselect_entry_as_winner
+      entry.remove_as_winner
+      entry.save
       redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_removed_successfully')
     end
 
     private
-
-    def select_entry_as_winner
-      entry.winner = 1
-      entry.save
-    end
-
-    def unselect_entry_as_winner
-      entry.winner = nil
-      entry.save
-    end
 
     def current_challenge_entries
       default = current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
