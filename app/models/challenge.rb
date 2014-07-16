@@ -100,6 +100,10 @@ class Challenge < ActiveRecord::Base
     days > 0 ? days : 0
   end
 
+  def collaborators_emails
+    collaborators.includes(:user).select('users.email').map(&:email)
+  end
+
   def timeline_json
     {
       "timeline" =>

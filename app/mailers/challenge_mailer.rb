@@ -13,4 +13,11 @@ class ChallengeMailer < ActionMailer::Base
 
     mail to: @member.email, subject: subject
   end
+
+  def phase_finish_reminder(collaborator_email, challenge_id)
+    challenge = Challenge.find(challenge_id)
+    mail to: collaborator_email,
+      subject: PhaseFinishReminder.mail_subject(challenge),
+      body: PhaseFinishReminder.mail_body(challenge, self)
+  end
 end

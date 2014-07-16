@@ -1,10 +1,4 @@
-require 'active_support/all'
 require_relative '../../app/services/phases'
-require_relative '../../app/services/phases/dates'
-require_relative '../../app/services/phases/null_phase'
-require_relative '../../app/services/phases/phase'
-require_relative '../../app/services/phases/phases_for_dates'
-require_relative '../../app/services/phases/timeline'
 
 describe Phases do
   describe 'phases for dates' do
