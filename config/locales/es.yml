@@ -203,6 +203,7 @@ es:
         go-to-challenge-public-view: Ir a vista pública del reto
       entry_status:
         entry-accepted: Aceptada
+        entry-winner: GANADORA
     show:
       total-participants: Participantes
       total-entries: Propuestas recibidas

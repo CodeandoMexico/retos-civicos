@@ -9,7 +9,7 @@
       <% end %>
 
       <% if Phases.is_current?(:prototypes_selection, @entry.challenge) %>
-        <% if @entry.is_the_winner? %>%>
+        <% if @entry.is_the_winner? %>
           <li><%= button_to t('.remove-winner'),
             remove_winner_dashboard_entry_url(@entry),
             class: 'btn btn-danger',

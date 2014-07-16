@@ -1,3 +1,6 @@
 <% if entry.accepted? %>
   <span class="label label-success"><%= t('.entry-accepted') %></span>
 <% end %>
+<% if entry.is_the_winner? %>
+  <span class="label label-warning"><%= t('.entry-winner') %></span>
+<% end %>
