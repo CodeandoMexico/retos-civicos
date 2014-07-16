@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140715152028) do
+ActiveRecord::Schema.define(:version => 20140715163409) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20140715152028) do
     t.string   "idea_url"
     t.string   "repo_url"
     t.string   "demo_url"
+    t.integer  "winner"
   end
 
   create_table "members", :force => true do |t|
