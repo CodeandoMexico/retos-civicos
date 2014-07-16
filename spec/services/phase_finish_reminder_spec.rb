@@ -44,12 +44,52 @@ describe PhaseFinishReminder do
     end
 
     it 'has a subject for the notification' do
-      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - 7 días para enviar tu idea"
+      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - Quedan 7 días para enviar tu idea"
     end
 
     it 'has a body for the notification' do
       PhaseFinishReminder.mail_body(challenge).should eq(
-        days_left: 7,
+        days_left_sentence: 'Quedan 7 días',
+        phase: 'ideas',
+        challenge_id: 'challenge-id'
+      )
+    end
+  end
+
+  describe 'ideas phase with one day left' do
+    attr_reader :challenge
+
+    before do
+      @challenge = build_challenge( starts_on: 3.days.ago, ideas_phase_due_on: 1.day.from_now)
+    end
+
+    it 'has a subject for the notification' do
+      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - Queda 1 día para enviar tu idea"
+    end
+
+    it 'has a body for the notification' do
+      PhaseFinishReminder.mail_body(challenge).should eq(
+        days_left_sentence: 'Queda 1 día',
+        phase: 'ideas',
+        challenge_id: 'challenge-id'
+      )
+    end
+  end
+
+  describe 'ideas phase last day' do
+    attr_reader :challenge
+
+    before do
+      @challenge = build_challenge( starts_on: 3.days.ago, ideas_phase_due_on: Date.current)
+    end
+
+    it 'has a subject for the notification' do
+      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - Hoy es el último día para enviar tu idea"
+    end
+
+    it 'has a body for the notification' do
+      PhaseFinishReminder.mail_body(challenge).should eq(
+        days_left_sentence: 'Hoy es el último día',
         phase: 'ideas',
         challenge_id: 'challenge-id'
       )
@@ -102,12 +142,12 @@ describe PhaseFinishReminder do
     end
 
     it 'has a subject for the notification' do
-      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - 4 días para enviar tu prototipo"
+      PhaseFinishReminder.mail_subject(challenge).should eq "Reto Alerta - Quedan 4 días para enviar tu prototipo"
     end
 
     it 'has a body for the notification' do
       PhaseFinishReminder.mail_body(challenge).should eq(
-        days_left: 4,
+        days_left_sentence: 'Quedan 4 días',
         phase: 'prototipos',
         challenge_id: 'challenge-id'
       )

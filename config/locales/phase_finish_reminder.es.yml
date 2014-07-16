@@ -3,4 +3,8 @@ es:
     thing_to_send:
       ideas: 'idea'
       prototypes: 'prototipo'
-    mail_subject: "%{title} - %{days_left} días para enviar tu %{thing_to_send}"
+    mail_subject: "%{title} - %{days_left_sentence} para enviar tu %{thing_to_send}"
+    days_left_sentence:
+      zero: 'Hoy es el último día'
+      one: 'Queda 1 día'
+      other: 'Quedan %{count} días'

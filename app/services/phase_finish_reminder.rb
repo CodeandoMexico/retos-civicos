@@ -41,14 +41,14 @@ module PhaseFinishReminder
       translator.t(
         'mail_subject',
         title: record.title,
-        days_left: days_left_for_current_phase,
+        days_left_sentence: days_left_sentence,
         thing_to_send: thing_to_send)
     end
 
     def mail_body
       return {} unless notifiable?
 
-      { days_left: days_left_for_current_phase,
+      { days_left_sentence: days_left_sentence,
         phase: phases.current(record).downcase,
         challenge_id: id }
     end
@@ -82,6 +82,10 @@ module PhaseFinishReminder
 
     def days_left_for_current_phase
       phases.days_left_for_current_phase(record)
+    end
+
+    def days_left_sentence
+      translator.t('days_left_sentence', count: days_left_for_current_phase)
     end
 
     attr_reader :record, :phases, :translator
