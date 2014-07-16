@@ -13,9 +13,9 @@ module PhaseFinishReminder
     challenge.mail_subject
   end
 
-  def self.mail_body(challenge, routes)
+  def self.mail_body(challenge)
     challenge = PhaseFinishReminder::Challenge.new(challenge)
-    challenge.mail_body(routes)
+    challenge.mail_body
   end
 
   private
@@ -45,15 +45,12 @@ module PhaseFinishReminder
         thing_to_send: thing_to_send)
     end
 
-    def mail_body(routes)
-      return '' unless notifiable?
+    def mail_body
+      return {} unless notifiable?
 
-      translator.t(
-        'mail_body',
-        days_left: days_left_for_current_phase,
+      { days_left: days_left_for_current_phase,
         phase: phases.current(record).downcase,
-        challenge_url: routes.challenge_url(id),
-        root_url: routes.root_url)
+        challenge_id: id }
     end
 
     def send_phase_finish_reminder_if_needed(notifier)
@@ -71,7 +68,7 @@ module PhaseFinishReminder
     end
 
     def notifiable?
-      [:ideas, :prototypes].any? { |phase| is_current_phase?(phase) } &&
+      (is_current_phase?(:ideas) || is_current_phase?(:prototypes)) &&
         days_left_for_current_phase <= 7
     end
 

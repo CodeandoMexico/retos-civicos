@@ -4,18 +4,3 @@ es:
       ideas: 'idea'
       prototypes: 'prototipo'
     mail_subject: "%{title} - %{days_left} días para enviar tu %{thing_to_send}"
-    mail_body: "
-Hola!
-
-Breve recordatorio: quedan %{days_left} días para enviar tu propuesta en la etapa de %{phase}.
-
-Dudas: escríbenos en la sección de comentarios del reto(%{challenge_url})
-Correo: info@retos.gob.mx.
-
-Retos Públicos
-retos.gob.mx(%{root_url})
-
-
-¿Ya no quieres recibir estos recordatorios?
-Puedes configurar el envío de correos de retos.gob.mx.
-"

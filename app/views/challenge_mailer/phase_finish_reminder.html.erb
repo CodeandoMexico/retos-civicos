@@ -1,0 +1,23 @@
+<p>¡Hola!</p>
+
+<p>
+Breve recordatorio:<br/>
+Quedan <strong><%= @body[:days_left] %> días</strong> para enviar tu propuesta en la etapa de <strong><%= @body[:phase] %></strong>.
+</p>
+
+<p>
+Dudas: escríbenos en la sección de comentarios del <%= link_to "reto", challenge_url(@body[:challenge_id]) %>.<br/>
+Correo: <%= mail_to "info@retos.gob.mx" %>.
+</p>
+
+<p>
+<strong>Retos Públicos</strong><br/>
+<%= link_to root_url, root_url %>
+</p>
+
+<p>
+<small>
+  ¿Ya no quieres recibir estos recordatorios?<br/>
+  Puedes configurar el envío de correos de retos.gob.mx.
+</small>
+</p>

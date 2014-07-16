@@ -21,16 +21,6 @@ describe PhaseFinishReminder do
     end
   end
 
-  class FakeRoutes
-    def self.challenge_url(challenge_id)
-      "retos.example.com/challenges/#{challenge_id}"
-    end
-
-    def self.root_url
-      "retos.example.com/"
-    end
-  end
-
   before do
     configure_i18n
     FakeMailer.clear_deliveries!
@@ -58,11 +48,10 @@ describe PhaseFinishReminder do
     end
 
     it 'has a body for the notification' do
-      PhaseFinishReminder.mail_body(challenge, FakeRoutes).should eq mail_body(
+      PhaseFinishReminder.mail_body(challenge).should eq(
         days_left: 7,
         phase: 'ideas',
-        challenge_url: 'retos.example.com/challenges/challenge-id',
-        root_url: 'retos.example.com/'
+        challenge_id: 'challenge-id'
       )
     end
   end
@@ -87,7 +76,7 @@ describe PhaseFinishReminder do
     end
 
     it 'does not have a body for the notification' do
-      PhaseFinishReminder.mail_body(challenge, FakeRoutes).should be_empty
+      PhaseFinishReminder.mail_body(challenge).should be_empty
     end
   end
 
@@ -117,11 +106,10 @@ describe PhaseFinishReminder do
     end
 
     it 'has a body for the notification' do
-      PhaseFinishReminder.mail_body(challenge, FakeRoutes).should eq mail_body(
+      PhaseFinishReminder.mail_body(challenge).should eq(
         days_left: 4,
         phase: 'prototipos',
-        challenge_url: 'retos.example.com/challenges/challenge-id',
-        root_url: 'retos.example.com/'
+        challenge_id: 'challenge-id'
       )
     end
   end
@@ -148,7 +136,7 @@ describe PhaseFinishReminder do
     end
 
     it 'does not have a body for the notification' do
-      PhaseFinishReminder.mail_body(challenge, FakeRoutes).should be_empty
+      PhaseFinishReminder.mail_body(challenge).should be_empty
     end
   end
 
@@ -165,10 +153,6 @@ describe PhaseFinishReminder do
     }.merge(options)
 
     OpenStruct.new(options)
-  end
-
-  def mail_body(args)
-    I18n.t('phase_finish_reminder.mail_body', args)
   end
 
   def configure_i18n
