@@ -57,6 +57,10 @@ class Entry < ActiveRecord::Base
     self.winner == 1
   end
 
+  def is_there_another_winner?
+    Entry.find_by_winner(1).present? && !self.is_the_winner?
+  end
+
   def select_as_winner
     self.winner = 1
   end
