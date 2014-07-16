@@ -128,7 +128,9 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <p>Evaluación de prototipos</p>
+      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes_selection.completeness %>">
+      </div>
+      <p><%= @timeline.prototypes_selection.title %></p>
     </div>
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
@@ -137,8 +139,8 @@
       </div>
       <div class="phases-date phases-date-last-milestone">
         <dl>
-          <dt>Anuncio ganador</dt>
-          <dd>22 de septiembre</dd>
+          <dt><%= @timeline.prototypes_selection.due_date_title %></dt>
+          <dd><%= @timeline.prototypes_selection.due_date %></dd>
         </dl>
       </div>
     </div>

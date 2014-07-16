@@ -22,8 +22,11 @@ module Phases
     end
 
     def current?(phase)
-      raise 'All phases have been completed, maybe you need a new phase' unless current
-      current.to_sym == phase.to_sym
+      current.present? && current.to_sym == phase.to_sym
+    end
+
+    def struct_for(phase)
+      fetch(phase).to_struct
     end
 
     def present_current
