@@ -20,7 +20,7 @@ module PhaseFinishReminder
 
   private
 
-  def self.t(key, options)
+  def self.t(key, options = {})
     I18n.t("phase_finish_reminder.#{key}", options)
   end
 
@@ -76,11 +76,7 @@ module PhaseFinishReminder
     end
 
     def thing_to_send
-      if is_current_phase?(:ideas)
-        'idea'
-      elsif is_current_phase?(:prototypes)
-        'prototipo'
-      end
+      translator.t("thing_to_send.#{phases.current_phase_id(record)}")
     end
 
     def is_current_phase?(phase)

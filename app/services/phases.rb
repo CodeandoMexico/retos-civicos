@@ -34,6 +34,10 @@ module Phases
     for_dates(dates).current.present
   end
 
+  def self.current_phase_id(dates)
+    for_dates(dates).current.id
+  end
+
   def self.completeness_percentage_for(phase, dates)
     for_dates(dates).fetch(phase).completeness_percentage
   end

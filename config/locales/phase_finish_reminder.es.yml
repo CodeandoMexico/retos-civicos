@@ -1,5 +1,8 @@
 es:
   phase_finish_reminder:
+    thing_to_send:
+      ideas: 'idea'
+      prototypes: 'prototipo'
     mail_subject: "%{title} - %{days_left} días para enviar tu %{thing_to_send}"
     mail_body: "
 Hola!
