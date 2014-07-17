@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20140716225335) do
     t.string   "idea_url"
     t.string   "repo_url"
     t.string   "demo_url"
+    t.integer  "winner"
   end
 
   create_table "members", :force => true do |t|

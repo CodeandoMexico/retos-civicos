@@ -33,6 +33,18 @@ module Dashboard
       redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.accepted_successfully')
     end
 
+    def winner
+      entry.select_as_winner
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully', name: entry.name)
+    end
+
+    def remove_winner
+      entry.remove_as_winner
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_removed_successfully')
+    end
+
     private
 
     def current_challenge_entries

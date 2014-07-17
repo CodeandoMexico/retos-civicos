@@ -17,6 +17,8 @@ es:
     entries:
       updated_successfully: La propuesta fue editada correctamente.
       accepted_successfully: La propuesta fue aceptada satisfactoriamente
+      winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
+      winner_removed_successfully: A esta propuesta le fue quitada el estatus de ganadora correctamente.
     unauthorized:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto
@@ -201,6 +203,7 @@ es:
         go-to-challenge-public-view: Ir a vista pública del reto
       entry_status:
         entry-accepted: Aceptada
+        entry-winner: GANADORA
     show:
       total-participants: Participantes
       total-entries: Propuestas recibidas
@@ -231,6 +234,10 @@ es:
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
+        select-winner: Seleccionar como ganador
+        select-winner-confirmation: ¿Estás seguro de hacer esta propuesta la ganadora del reto?
+        remove-winner: Quitar como ganadora
+        remove-winner-confirmation: ¿Estás seguro de quitar esta propuesta como la ganadora del reto?
         go-back: "< Volver a propuestas de %{title}"
         solve-challenge: ¿Como resuelve el reto?
         company-name: Empresa
