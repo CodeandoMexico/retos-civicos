@@ -30,6 +30,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: 7.days.from_now)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
+    deliveries.count.should eq 1
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Quedan 7 días para enviar tu idea',
@@ -47,6 +48,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: 1.days.from_now)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
+    deliveries.count.should eq 1
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Queda 1 día para enviar tu idea',
@@ -64,6 +66,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: Date.current)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
+    deliveries.count.should eq 1
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Hoy es el último día para enviar tu idea',
@@ -85,7 +88,7 @@ describe PhaseFinishReminder do
     )
 
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
-    FakeMailer.deliveries.should be_empty
+    deliveries.should be_empty
   end
 
   it 'notifies when the prototypes phase is about to finish' do
@@ -98,6 +101,7 @@ describe PhaseFinishReminder do
 
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
+    deliveries.count.should eq 1
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Quedan 4 días para enviar tu prototipo',
@@ -121,11 +125,14 @@ describe PhaseFinishReminder do
     )
 
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
-    FakeMailer.deliveries.should be_empty
+    deliveries.should be_empty
+  end
+
+  def deliveries
+    FakeMailer.deliveries
   end
 
   def collaborator_should_receive_email(mail_args)
-    deliveries = FakeMailer.deliveries
     deliveries.should include FakeMailer::Mail.new(*mail_args.values)
   end
 
@@ -146,7 +153,15 @@ describe PhaseFinishReminder do
         OpenStruct.new(
           id: 'no-notification-user-id',
           email: 'doesnt_want_notification@example.com',
-          phase_finish_reminder_setting: false)
+          phase_finish_reminder_setting: false),
+        OpenStruct.new(
+          id: 'no-email-user-id',
+          email: '',
+          phase_finish_reminder_setting: true),
+        OpenStruct.new(
+          id: 'nil-email-user-id',
+          email: nil,
+          phase_finish_reminder_setting: true)
       ]
     }.merge(options)
 

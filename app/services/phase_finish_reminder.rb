@@ -29,7 +29,7 @@ module PhaseFinishReminder
       return unless notifiable?
 
       record.collaborators.each do |collaborator|
-        if collaborator.phase_finish_reminder_setting
+        if can_notify_collaborator?(collaborator)
           mail_body = mail_body_for(collaborator.id)
           notifier.phase_finish_reminder(collaborator.email, mail_subject, mail_body).deliver
         end
@@ -37,6 +37,10 @@ module PhaseFinishReminder
     end
 
     private
+
+    def can_notify_collaborator?(collaborator)
+      collaborator.phase_finish_reminder_setting && collaborator.email.present?
+    end
 
     def mail_subject
       translator.t(
