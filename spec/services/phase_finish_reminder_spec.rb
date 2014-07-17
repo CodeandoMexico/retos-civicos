@@ -33,7 +33,7 @@ describe PhaseFinishReminder do
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Quedan 7 días para enviar tu idea',
-      mail_body: { days_left_sentence: 'Quedan 7 días', phase: 'ideas', challenge_id: 'challenge-id' }
+      mail_body: { collaborator_id: 'with-notification-user-id', days_left_sentence: 'Quedan 7 días', phase: 'ideas', challenge_id: 'challenge-id' }
     )
   end
 
@@ -44,7 +44,7 @@ describe PhaseFinishReminder do
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Queda 1 día para enviar tu idea',
-      mail_body: { days_left_sentence: 'Queda 1 día', phase: 'ideas', challenge_id: 'challenge-id' }
+      mail_body: { collaborator_id: 'with-notification-user-id', days_left_sentence: 'Queda 1 día', phase: 'ideas', challenge_id: 'challenge-id' }
     )
   end
 
@@ -55,7 +55,7 @@ describe PhaseFinishReminder do
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Hoy es el último día para enviar tu idea',
-      mail_body: { days_left_sentence: 'Hoy es el último día', phase: 'ideas', challenge_id: 'challenge-id' }
+      mail_body: { collaborator_id: 'with-notification-user-id', days_left_sentence: 'Hoy es el último día', phase: 'ideas', challenge_id: 'challenge-id' }
     )
   end
 
@@ -83,7 +83,7 @@ describe PhaseFinishReminder do
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Quedan 4 días para enviar tu prototipo',
-      mail_body: { days_left_sentence: 'Quedan 4 días', phase: 'prototipos', challenge_id: 'challenge-id' }
+      mail_body: { collaborator_id: 'with-notification-user-id', days_left_sentence: 'Quedan 4 días', phase: 'prototipos', challenge_id: 'challenge-id' }
     )
   end
 
@@ -115,8 +115,14 @@ describe PhaseFinishReminder do
       prototypes_phase_due_on: 25.days.from_now,
       finish_on: 35.days.from_now,
       collaborators: [
-        OpenStruct.new(email: 'wants_notification@example.com', phase_finish_reminder_setting: true),
-        OpenStruct.new(email: 'doesnt_want_notification@example.com', phase_finish_reminder_setting: false)
+        OpenStruct.new(
+          id: 'with-notification-user-id',
+          email: 'wants_notification@example.com',
+          phase_finish_reminder_setting: true),
+        OpenStruct.new(
+          id: 'no-notification-user-id',
+          email: 'doesnt_want_notification@example.com',
+          phase_finish_reminder_setting: false)
       ]
     }.merge(options)
 

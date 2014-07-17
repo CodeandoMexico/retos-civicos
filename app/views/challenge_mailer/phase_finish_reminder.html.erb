@@ -18,6 +18,6 @@ Correo: <%= mail_to "info@retos.gob.mx" %>.
 <p>
 <small>
   ¿Ya no quieres recibir estos recordatorios?<br/>
-  Puedes configurar el envío de correos de retos.gob.mx.
+  <%= link_to 'Configura el envío de correos.', edit_member_url(@body[:collaborator_id]) %>
 </small>
 </p>

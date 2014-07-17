@@ -30,6 +30,7 @@ module PhaseFinishReminder
 
       record.collaborators.each do |collaborator|
         if collaborator.phase_finish_reminder_setting
+          mail_body = mail_body_for(collaborator.id)
           notifier.phase_finish_reminder(collaborator.email, mail_subject, mail_body).deliver
         end
       end
@@ -45,8 +46,9 @@ module PhaseFinishReminder
         thing_to_send: thing_to_send)
     end
 
-    def mail_body
-      { days_left_sentence: days_left_sentence,
+    def mail_body_for(collaborator_id)
+      { collaborator_id: collaborator_id,
+        days_left_sentence: days_left_sentence,
         phase: phases.current(record).downcase,
         challenge_id: id }
     end
