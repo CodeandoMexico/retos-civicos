@@ -2,7 +2,7 @@ class Member < ActiveRecord::Base
   include Reportable
 
   attr_accessible :avatar, :email, :name, :company_name, :company_rfc, :company_president,
-    :company_charter, :nickname, :bio, :user
+    :company_charter, :nickname, :bio, :user, :phase_finish_reminder_setting
 
   acts_as_user
   paginates_per 21

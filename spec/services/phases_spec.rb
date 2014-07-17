@@ -1,10 +1,4 @@
-require 'active_support/all'
 require_relative '../../app/services/phases'
-require_relative '../../app/services/phases/dates'
-require_relative '../../app/services/phases/null_phase'
-require_relative '../../app/services/phases/phase'
-require_relative '../../app/services/phases/phases_for_dates'
-require_relative '../../app/services/phases/timeline'
 
 describe Phases do
   describe 'phases for dates' do
@@ -113,6 +107,26 @@ describe Phases do
           Phases.is_current?(phase, dates).should_not be
         end
       end
+    end
+  end
+
+  describe 'days left for current phase' do
+    { ideas: 4, ideas_selection: 7, prototypes: 3, prototypes_selection: 8 }.
+      each do |current_phase, days_left|
+      example current_phase do
+        dates = dates_for_phase(current_phase)
+        Phases.days_left_for_current_phase(dates).should eq days_left
+      end
+    end
+
+    it 'before launch' do
+      dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
+      Phases.days_left_for_current_phase(dates).should be_nan
+    end
+
+    it 'after finish' do
+      dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
+      Phases.days_left_for_current_phase(dates).should be_nan
     end
   end
 

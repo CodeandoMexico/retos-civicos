@@ -1,3 +1,10 @@
+require 'active_support/all'
+require_relative 'phases/dates'
+require_relative 'phases/null_phase'
+require_relative 'phases/phase'
+require_relative 'phases/phases_for_dates'
+require_relative 'phases/timeline'
+
 module Phases
   def self.entry_added_message(dates)
     t('entry_added', date: l(dates.ideas_phase_due_on, format: :long))
@@ -20,15 +27,23 @@ module Phases
   end
 
   def self.is_current?(phase, dates)
-    for_dates(dates).current?(phase)
+    for_dates(dates).fetch(phase).current?
   end
 
   def self.current(dates)
-    for_dates(dates).present_current
+    for_dates(dates).current.present
+  end
+
+  def self.current_phase_id(dates)
+    for_dates(dates).current.id
   end
 
   def self.completeness_percentage_for(phase, dates)
-    for_dates(dates).completeness_percentage_for(phase)
+    for_dates(dates).fetch(phase).completeness_percentage
+  end
+
+  def self.days_left_for_current_phase(dates)
+    for_dates(dates).current.days_left
   end
 
   private

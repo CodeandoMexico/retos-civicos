@@ -83,6 +83,20 @@
     </div>
 
     <div class="form-group">
+      <div class="col-sm-3">
+        <label class="control-label"><%= t('.notification_mailer') %></label>
+        <span class="help-block"><%= t(".select_notifications_that_you_wish_to_receive") %></span>
+      </div>
+      <div class="col-sm-9">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :phase_finish_reminder_setting %> <%= t('.phase_finish_reminder_setting') %>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
         <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
       </div>

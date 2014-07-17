@@ -19,7 +19,7 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
+  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member, include: :user
   has_many :activities
   has_many :entries
 

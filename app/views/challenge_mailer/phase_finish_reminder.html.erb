@@ -1,0 +1,26 @@
+<p>¡Hola!</p>
+
+<p>
+Breve recordatorio:<br/>
+<strong><%= @body[:days_left_sentence] %></strong>
+<span>para enviar tu propuesta en la etapa de</span>
+<strong><%= @body[:phase] %></strong> a
+<%= link_to @body[:challenge_title], challenge_url(@body[:challenge_id]) %>.
+</p>
+
+<p>
+Dudas: escríbenos en la sección de comentarios del <%= link_to "reto", challenge_url(@body[:challenge_id]) %>.<br/>
+Correo: <%= mail_to "info@retos.gob.mx" %>.
+</p>
+
+<p>
+<strong>Retos Públicos</strong><br/>
+<%= link_to root_url, root_url %>
+</p>
+
+<p>
+<small>
+  ¿Ya no quieres recibir estos recordatorios?<br/>
+  <%= link_to 'Configura el envío de correos.', edit_member_url(@body[:collaborator_id]) %>
+</small>
+</p>

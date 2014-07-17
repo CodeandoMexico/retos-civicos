@@ -13,4 +13,9 @@ class ChallengeMailer < ActionMailer::Base
 
     mail to: @member.email, subject: subject
   end
+
+  def phase_finish_reminder(collaborator_email, mail_subject, mail_body)
+    @body = mail_body
+    mail to: collaborator_email, subject: mail_subject
+  end
 end

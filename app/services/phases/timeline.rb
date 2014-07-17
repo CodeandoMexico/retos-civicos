@@ -8,25 +8,23 @@ module Phases
     end
 
     def start
-      Start.new(
-        translator.l(phases.ideas.start),
-        translator.t('start'))
+      Start.new(translator.l(phases.ideas.start), translator.t('start'))
     end
 
     def ideas
-      @ideas ||= phases.struct_for(:ideas)
+      @ideas ||= phases.fetch(:ideas).to_struct
     end
 
     def ideas_selection
-      @ideas_selection ||= phases.struct_for(:ideas_selection)
+      @ideas_selection ||= phases.fetch(:ideas_selection).to_struct
     end
 
     def prototypes
-      @prototypes ||= phases.struct_for(:prototypes)
+      @prototypes ||= phases.fetch(:prototypes).to_struct
     end
 
     def prototypes_selection
-      @prototypes_selection ||= phases.struct_for(:prototypes_selection)
+      @prototypes_selection ||= phases.fetch(:prototypes_selection).to_struct
     end
 
     private
