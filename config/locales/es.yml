@@ -299,6 +299,7 @@ es:
       avatar-description: Puede ser tu foto o la imagen de la empresa
       phase_finish_reminder_setting: 'Recordatorios de envío de propuesta en la última semana.'
       notification_mailer: 'Envío de correos'
+      select_notifications_that_you_wish_to_receive: 'Selecciona si deseas recibir correos de notificación'
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id
