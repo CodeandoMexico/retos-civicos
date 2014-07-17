@@ -11,10 +11,20 @@ feature 'Collaborator receives phase finish reminder' do
     member_should_receive_phase_finish_reminder(member)
   end
 
+  scenario 'just if the user accepts to receive phase finish reminders' do
+    member = create :member, phase_finish_reminder_setting: false
+    challenge = create :challenge, ideas_phase_due_on: 7.days.from_now
+    collaboration = create :collaboration, member: member, challenge: challenge
+
+    reset_email
+    send_phase_finish_reminders!
+    member_should_not_receive_phase_finish_reminder
+  end
+
   scenario 'but just at the right time' do
-    user = create :user
+    member = create :member
     challenge = create :challenge, ideas_phase_due_on: 8.days.from_now
-    collaboration = create :collaboration, user: user, challenge: challenge
+    collaboration = create :collaboration, member: member, challenge: challenge
 
     reset_email
     send_phase_finish_reminders!

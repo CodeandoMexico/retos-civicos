@@ -19,7 +19,7 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member
+  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member, include: :user
   has_many :activities
   has_many :entries
 
@@ -98,10 +98,6 @@ class Challenge < ActiveRecord::Base
     return 0 unless finish_date
     days = (finish_date - Date.current).to_i
     days > 0 ? days : 0
-  end
-
-  def collaborators_emails
-    collaborators.includes(:user).select('users.email').map(&:email)
   end
 
   def timeline_json

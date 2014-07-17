@@ -56,8 +56,10 @@ module PhaseFinishReminder
     def send_phase_finish_reminder_if_needed(notifier)
       return unless notifiable?
 
-      record.collaborators_emails.each do |collaborator_email|
-        notifier.phase_finish_reminder(collaborator_email, id).deliver
+      record.collaborators.each do |collaborator|
+        if collaborator.phase_finish_reminder_setting
+          notifier.phase_finish_reminder(collaborator.email, id).deliver
+        end
       end
     end
 

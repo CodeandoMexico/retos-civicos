@@ -37,10 +37,9 @@ describe PhaseFinishReminder do
       PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
       deliveries = FakeMailer.deliveries
-      deliveries.length.should eq 3
-      deliveries.should include FakeMailer::Mail.new('uno@example.com', challenge.id)
-      deliveries.should include FakeMailer::Mail.new('dos@example.com', challenge.id)
-      deliveries.should include FakeMailer::Mail.new('tres@example.com', challenge.id)
+      deliveries.length.should eq 1
+      deliveries.should include FakeMailer::Mail.new('wants_notification@example.com', challenge.id)
+      deliveries.should_not include FakeMailer::Mail.new('doesnt_want_notification@example.com', challenge.id)
     end
 
     it 'has a subject for the notification' do
@@ -135,10 +134,9 @@ describe PhaseFinishReminder do
       PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
       deliveries = FakeMailer.deliveries
-      deliveries.length.should eq 3
-      deliveries.should include FakeMailer::Mail.new('uno@example.com', challenge.id)
-      deliveries.should include FakeMailer::Mail.new('dos@example.com', challenge.id)
-      deliveries.should include FakeMailer::Mail.new('tres@example.com', challenge.id)
+      deliveries.length.should eq 1
+      deliveries.should include FakeMailer::Mail.new('wants_notification@example.com', challenge.id)
+      deliveries.should_not include FakeMailer::Mail.new('doesnt_want_notification@example.com', challenge.id)
     end
 
     it 'has a subject for the notification' do
@@ -189,7 +187,10 @@ describe PhaseFinishReminder do
       ideas_selection_phase_due_on: 15.days.from_now,
       prototypes_phase_due_on: 25.days.from_now,
       finish_on: 35.days.from_now,
-      collaborators_emails: ['uno@example.com', 'dos@example.com', 'tres@example.com']
+      collaborators: [
+        OpenStruct.new(email: 'wants_notification@example.com', phase_finish_reminder_setting: true),
+        OpenStruct.new(email: 'doesnt_want_notification@example.com', phase_finish_reminder_setting: false)
+      ]
     }.merge(options)
 
     OpenStruct.new(options)

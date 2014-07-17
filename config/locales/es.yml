@@ -297,6 +297,8 @@ es:
       bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
       avatar: Imagen de perfil
       avatar-description: Puede ser tu foto o la imagen de la empresa
+      phase_finish_reminder_setting: 'Recordatorios de envío de propuesta en la última semana.'
+      notification_mailer: 'Envío de correos'
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id
