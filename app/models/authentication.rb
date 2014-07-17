@@ -52,7 +52,7 @@ class Authentication < ActiveRecord::Base
     unless auth.present?
       if signed_in_resource
         # If there's a user signed in it builds a new authentication
-        auth = self.create_with_twitter(omniauth, user)
+        auth = self.create_with_twitter(omniauth, signed_in_resource)
       else
         user = User.new(name: omniauth.info.name, nickname: omniauth.info.nickname)
         # Devise confirm user and skip email
