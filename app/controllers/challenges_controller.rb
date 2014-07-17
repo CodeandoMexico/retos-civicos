@@ -30,6 +30,8 @@ class ChallengesController < ApplicationController
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators
     @timeline = Phases.timeline_from_dates(@challenge)
+    @current_phase_title = Phases.current_phase_title(@challenge)
+    @days_left_for_current_phase = Phases.days_left_for_current_phase(@challenge)
 
     @collaborators_count = @collaborators.count
     @collaborators = @collaborators.order(:created_at).page(params[:page])
