@@ -50,7 +50,8 @@ module PhaseFinishReminder
       { collaborator_id: collaborator_id,
         days_left_sentence: days_left_sentence,
         phase: phases.current(record).downcase,
-        challenge_id: id }
+        challenge_id: id,
+        challenge_title: record.title }
     end
 
     def id

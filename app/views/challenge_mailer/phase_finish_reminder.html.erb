@@ -2,7 +2,10 @@
 
 <p>
 Breve recordatorio:<br/>
-<strong><%= @body[:days_left_sentence] %></strong> para enviar tu propuesta en la etapa de <strong><%= @body[:phase] %></strong>.
+<strong><%= @body[:days_left_sentence] %></strong>
+<span>para enviar tu propuesta en la etapa de</span>
+<strong><%= @body[:phase] %></strong> a
+<%= link_to @body[:challenge_title], challenge_url(@body[:challenge_id]) %>.
 </p>
 
 <p>
