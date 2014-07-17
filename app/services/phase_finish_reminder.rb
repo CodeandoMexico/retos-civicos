@@ -8,16 +8,6 @@ module PhaseFinishReminder
     end
   end
 
-  def self.mail_subject(challenge)
-    challenge = PhaseFinishReminder::Challenge.new(challenge)
-    challenge.mail_subject
-  end
-
-  def self.mail_body(challenge)
-    challenge = PhaseFinishReminder::Challenge.new(challenge)
-    challenge.mail_body
-  end
-
   private
 
   def self.t(key, options = {})
@@ -35,9 +25,19 @@ module PhaseFinishReminder
       records.map { |record| new(record) }
     end
 
-    def mail_subject
-      return '' unless notifiable?
+    def send_phase_finish_reminder_if_needed(notifier)
+      return unless notifiable?
 
+      record.collaborators.each do |collaborator|
+        if collaborator.phase_finish_reminder_setting
+          notifier.phase_finish_reminder(collaborator.email, mail_subject, mail_body).deliver
+        end
+      end
+    end
+
+    private
+
+    def mail_subject
       translator.t(
         'mail_subject',
         title: record.title,
@@ -46,24 +46,10 @@ module PhaseFinishReminder
     end
 
     def mail_body
-      return {} unless notifiable?
-
       { days_left_sentence: days_left_sentence,
         phase: phases.current(record).downcase,
         challenge_id: id }
     end
-
-    def send_phase_finish_reminder_if_needed(notifier)
-      return unless notifiable?
-
-      record.collaborators.each do |collaborator|
-        if collaborator.phase_finish_reminder_setting
-          notifier.phase_finish_reminder(collaborator.email, id).deliver
-        end
-      end
-    end
-
-    private
 
     def id
       record.id
