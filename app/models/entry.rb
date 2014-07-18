@@ -7,6 +7,7 @@ class Entry < ActiveRecord::Base
   belongs_to :challenge
 
   validates :name, :description, :idea_url, presence: true
+  validate :idea_url_has_to_be_a_valid_url
   mount_uploader :letter_under_oath, LetterUnderOathUploader
   mount_uploader :image, EntryImageUploader
   serialize :technologies, Array
@@ -75,5 +76,12 @@ class Entry < ActiveRecord::Base
     self.technologies = technologies.select do |technology|
       technology.present? && technologies_options.values.flatten.include?(technology)
     end
+  end
+
+  def idea_url_has_to_be_a_valid_url
+    uri = URI(self.idea_url)
+    errors.add(:idea_url, :invalid) unless uri.host.present?
+  rescue URI::InvalidURIError
+    errors.add(:idea_url, :invalid)
   end
 end

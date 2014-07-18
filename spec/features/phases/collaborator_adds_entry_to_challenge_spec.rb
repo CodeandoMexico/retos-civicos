@@ -22,6 +22,27 @@ feature 'Collaborator adds entry to challenge' do
     page.should have_content success_message(2.weeks.from_now)
   end
 
+  scenario 'but fails because there is not a valid idea url' do
+    member = create :member
+    challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
+    create :collaboration, member: member, challenge: challenge
+
+    sign_in_user member
+    visit new_challenge_entry_path(challenge)
+
+    submit_entry_form_with(
+      project_name: 'Mi super app',
+      description: 'Es la mejor',
+      idea_url: 'esteesunurlinvalido',
+      technologies: 'Ruby, Haskell, Elixir, Rust',
+      image: app_image,
+      letter_under_oath: entry_pdf
+    )
+
+    current_path.should eq challenge_entries_path(challenge)
+    page.should have_content 'Link a la propuesta es inválido'
+  end
+
   scenario 'but fails because ideas phase is due' do
     member = create :member
     challenge = create :challenge, ideas_phase_due_on: 2.weeks.ago

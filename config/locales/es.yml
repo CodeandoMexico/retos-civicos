@@ -598,6 +598,7 @@ es:
       entry:
         description: Descripción
         name: Nombre
+        idea_url: Link a la propuesta
         live_demo_url: 'Link a la propuesta'
       member:
         collaborations: Colaboraciones
