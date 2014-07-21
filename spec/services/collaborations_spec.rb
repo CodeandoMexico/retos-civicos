@@ -90,6 +90,20 @@ describe Collaborations do
         deliveries.should include welcome_email_to('juanito@example.com', collaboration)
       end
 
+      it 'but not when no collaboration is created' do
+        member = MemberRecord.new('juanito@example.com')
+        Collaborations.challenges_store.push(build_challenge(welcome_mail: 'Hola!'))
+
+        create_after_registration(member)
+        collaborations.count.should eq 1
+        FakeChallengeMailer.clear_deliveries!
+
+
+        create_after_registration(member)
+        collaborations.count.should eq 1
+        deliveries.should be_empty
+      end
+
       it 'but not when the user has no email' do
         member = MemberRecord.new('')
         Collaborations.challenges_store.push(build_challenge(welcome_mail: 'Hola!'))

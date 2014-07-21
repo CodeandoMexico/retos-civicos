@@ -3,7 +3,7 @@ module Collaborations
     return if challenges_store.count != 1
 
     create_without_email(member, last_challenge).tap do |record|
-      if member.email.present? && last_challenge.welcome_mail.present?
+      if able_to_send_welcome_message?(record, member, last_challenge)
         mailer.welcome(member.email, record).deliver
       end
     end
@@ -20,6 +20,10 @@ module Collaborations
   end
 
   private
+
+  def self.able_to_send_welcome_message?(record, member, challenge)
+    record && member.email.present? && challenge.welcome_mail.present?
+  end
 
   def self.exists_collaboration?(member, challenge)
     store.find_by_member_id_and_challenge_id(member.id, challenge.id)
