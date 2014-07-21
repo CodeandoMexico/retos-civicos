@@ -1,3 +1,4 @@
+require_relative '../../app/services/phases'
 require_relative '../../app/services/collaborations'
 
 describe Collaborations do
@@ -7,13 +8,14 @@ describe Collaborations do
     Collaborations.config = {
       store: FakeCollaborationsStore.new,
       mailer: FakeChallengeMailer.new,
-      challenges_store: FakeChallengeStore.new
+      challenges_store: FakeChallengeStore.new,
+      phases: Phases
     }
   end
 
   it 'creates collaboration without sending email' do
     member = MemberRecord.new('juanito@example.com')
-    challenge = ChallengeRecord.new(welcome_mail: 'Hola')
+    challenge = build_challenge(welcome_mail: 'Hola')
 
     Collaborations.create_without_email(member, challenge)
     collaborations.should include collaboration_for(member, challenge)
@@ -22,12 +24,21 @@ describe Collaborations do
 
   it 'does not create a collaboration if there is one already' do
     member = MemberRecord.new('juanito@example.com')
-    challenge = ChallengeRecord.new(welcome_mail: 'Hola')
+    challenge = build_challenge(welcome_mail: 'Hola')
 
     Collaborations.create_without_email(member, challenge)
     Collaborations.create_without_email(member, challenge)
 
     collaborations.count.should eq 1
+  end
+
+  it 'does not create a collaborations on challenge if the ideas phase is not current' do
+    member = MemberRecord.new('juanito@example.com')
+    challenge = build_challenge(welcome_mail: 'Hola', ideas_phase_due_on: 2.days.ago)
+
+    Collaborations.create_without_email(member, challenge)
+    collaborations.should be_empty
+    deliveries.should be_empty
   end
 
   describe 'creates collaboration after registration' do
@@ -38,21 +49,21 @@ describe Collaborations do
     end
 
     it 'creates the collaboration if just one challenge exists' do
-      Collaborations.challenges_store.push(ChallengeRecord.new)
+      Collaborations.challenges_store.push(build_challenge)
 
       create_after_registration(member)
       collaborations.should include collaboration_for(member, last_challenge)
     end
 
     it 'does not create a collaboration if more than one challenge exist' do
-      Collaborations.challenges_store.push(ChallengeRecord.new, ChallengeRecord.new)
+      Collaborations.challenges_store.push(build_challenge, build_challenge)
 
       create_after_registration(member)
       collaborations.should be_empty
     end
 
     it 'does not create a collaboration if there is one already' do
-      Collaborations.challenges_store.push(ChallengeRecord.new)
+      Collaborations.challenges_store.push(build_challenge)
 
       create_after_registration(member)
       create_after_registration(member)
@@ -60,10 +71,20 @@ describe Collaborations do
       collaborations.count.should eq 1
     end
 
+    it 'does not create a collaborations on challenge if the ideas phase is not current' do
+      member = MemberRecord.new('juanito@example.com')
+      challenge = build_challenge(ideas_phase_due_on: 2.days.ago)
+      Collaborations.challenges_store.push(challenge)
+
+      create_after_registration(member)
+      collaborations.should be_empty
+      deliveries.should be_empty
+    end
+
     describe 'and sends welcome email' do
       it 'when the member and challenge have email' do
         member = MemberRecord.new('juanito@example.com')
-        Collaborations.challenges_store.push(ChallengeRecord.new(welcome_mail: 'Hola!'))
+        Collaborations.challenges_store.push(build_challenge(welcome_mail: 'Hola!'))
 
         collaboration = create_after_registration(member)
         deliveries.should include welcome_email_to('juanito@example.com', collaboration)
@@ -71,7 +92,7 @@ describe Collaborations do
 
       it 'but not when the user has no email' do
         member = MemberRecord.new('')
-        Collaborations.challenges_store.push(ChallengeRecord.new(welcome_mail: 'Hola!'))
+        Collaborations.challenges_store.push(build_challenge(welcome_mail: 'Hola!'))
 
         collaboration = create_after_registration(member)
         deliveries.should be_empty
@@ -79,7 +100,7 @@ describe Collaborations do
 
       it 'but not when the challenge has no welcome mail' do
         member = MemberRecord.new('juanito@example.com')
-        Collaborations.challenges_store.push(ChallengeRecord.new(welcome_mail: ''))
+        Collaborations.challenges_store.push(build_challenge(welcome_mail: ''))
 
         collaboration = create_after_registration(member)
         deliveries.should be_empty
@@ -96,13 +117,7 @@ describe Collaborations do
     end
   end
 
-  class ChallengeRecord
-    attr_reader :id, :welcome_mail
-
-    def initialize(welcome_mail: '')
-      @id = SecureRandom.uuid
-      @welcome_mail = welcome_mail
-    end
+  class ChallengeRecord < OpenStruct
   end
 
   class FakeCollaborationsStore
@@ -161,6 +176,20 @@ describe Collaborations do
     def deliver
       FakeChallengeMailer.deliveries << self
     end
+  end
+
+  def build_challenge(options = {})
+    options = {
+      id: SecureRandom.uuid,
+      starts_on: 3.days.ago,
+      ideas_phase_due_on: 7.days.from_now,
+      ideas_selection_phase_due_on: 15.days.from_now,
+      prototypes_phase_due_on: 25.days.from_now,
+      finish_on: 35.days.from_now,
+      welcome_mail: ''
+    }.merge(options)
+
+    ChallengeRecord.new(options)
   end
 
   def create_after_registration(member)

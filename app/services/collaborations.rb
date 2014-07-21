@@ -1,9 +1,8 @@
 module Collaborations
   def self.create_after_registration(member)
     return if challenges_store.count != 1
-    return if exists_collaboration?(member, last_challenge)
 
-    store.create(member_id: member.id, challenge_id: last_challenge.id).tap do |record|
+    create_without_email(member, last_challenge).tap do |record|
       if member.email.present? && last_challenge.welcome_mail.present?
         mailer.welcome(member.email, record).deliver
       end
@@ -12,6 +11,7 @@ module Collaborations
 
   def self.create_without_email(member, challenge)
     return if exists_collaboration?(member, challenge)
+    return unless phases.is_current?(:ideas, challenge)
     store.create(member_id: member.id, challenge_id: challenge.id)
   end
 
@@ -29,7 +29,8 @@ module Collaborations
     @@config ||= {
       store: ::Collaboration,
       mailer: ChallengeMailer,
-      challenges_store: ::Challenge
+      challenges_store: ::Challenge,
+      phases: Phases
     }
   end
 
@@ -43,6 +44,10 @@ module Collaborations
 
   def self.mailer
     config.fetch(:mailer)
+  end
+
+  def self.phases
+    config.fetch(:phases)
   end
 
   def self.last_challenge
