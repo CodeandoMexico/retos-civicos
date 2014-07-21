@@ -1,6 +1,6 @@
 module Phases
   class NullPhase
-    def present
+    def title
       ""
     end
 

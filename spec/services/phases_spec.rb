@@ -80,8 +80,8 @@ describe Phases do
         @dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
       end
 
-      it "should not be" do
-        Phases.current(dates).should eq ''
+      it "should not have title" do
+        Phases.current_phase_title(dates).should eq ''
       end
 
       phases.each do |phase|
@@ -98,8 +98,8 @@ describe Phases do
         @dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
       end
 
-      it "should not be" do
-        Phases.current(dates).should eq ''
+      it "should not have title" do
+        Phases.current_phase_title(dates).should eq ''
       end
 
       phases.each do |phase|

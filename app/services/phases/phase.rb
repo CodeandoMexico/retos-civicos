@@ -27,7 +27,7 @@ module Phases
       new(:prototypes_selection, dates.prototypes_phase_due_on, dates.finish_on)
     end
 
-    def present
+    def title
       to_s.capitalize
     end
 
@@ -42,7 +42,7 @@ module Phases
     def to_struct
       PhaseStruct.new(
         completeness_percentage,
-        present,
+        title,
         translator.l(finish),
         translator.t("#{id}_due_date_title"))
     end
