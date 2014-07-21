@@ -2,7 +2,7 @@ class ChallengeMailer < ActionMailer::Base
   helper :application
   default from: ENV['MAILER_DEFAULT_FROM']
 
-  def welcome(collaboration)
+  def welcome(email, collaboration)
     challenge = collaboration.challenge
     @org = challenge.organization
     @member = collaboration.member
@@ -11,7 +11,7 @@ class ChallengeMailer < ActionMailer::Base
     subject = challenge.welcome_mail[:subject]
     @body = challenge.welcome_mail[:body]
 
-    mail to: @member.email, subject: subject
+    mail to: email, subject: subject
   end
 
   def phase_finish_reminder(collaborator_email, mail_subject, mail_body)

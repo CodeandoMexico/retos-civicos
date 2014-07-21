@@ -4,8 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   after_filter :create_member_collaboration, only: :create
 
   def create_member_collaboration
-    if current_member && Challenge.count == 1
-      current_member.collaborations.create(challenge: last_challenge)
-    end
+    Collaborations.create_after_registration(current_member)
   end
 end
