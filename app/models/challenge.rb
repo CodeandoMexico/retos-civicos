@@ -53,6 +53,10 @@ class Challenge < ActiveRecord::Base
     order('challenge_count desc')
   }
 
+  def self.last_created
+    Challenge.order('created_at desc').first
+  end
+
   # Additionals
   acts_as_voteable
   acts_as_commentable

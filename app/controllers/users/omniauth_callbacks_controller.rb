@@ -8,6 +8,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @auth.persisted?
       user = @auth.user
       sign_in user
+
+      Collaborations.create_after_registration(current_member)
       redirect_after_sign_in_with_oauth_for(user)
     else
       session["devise.omniauth_data"] = request.env["omniauth.auth"]

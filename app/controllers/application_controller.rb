@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def last_challenge
-    @last_challenge ||= Challenge.order('created_at desc').first
+    @last_challenge ||= Challenge.last_created
   end
 
   helper_method :last_challenge

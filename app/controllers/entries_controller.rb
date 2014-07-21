@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   layout 'aquila'
+  before_filter :authenticate_user!, only: :new
 
   def show
     @entry = Entry.find(params[:id])
