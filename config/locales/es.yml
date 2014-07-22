@@ -127,6 +127,7 @@ es:
       edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
       days-left-to-finish:
+        zero: "Último día"
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
     comments:
