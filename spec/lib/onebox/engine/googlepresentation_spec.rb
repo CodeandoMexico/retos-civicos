@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Onebox::Engine::GooglePresentationOnebox do
-  let(:link) { "https://docs.google.com/presentation/d/1FdgQlDjvFDdEKjhx_Evkk12hoqrfNQf3vQDzrX-2ZKc/pub?start=false&loop=false&delayms=3000" }
+  let(:link) { "https://docs.google.com/presentation/d/1FdgQlDjvFDdEKjhx_Evkk12hoqrfNQf3vQDzrX-2ZKc/" }
   let(:html) { described_class.new(link).to_html }
 
   it "has the URL to the resource" do
