@@ -123,7 +123,7 @@ es:
       edit-challenge: 'Editar reto'
       total-number-of-entries:
         one: "%{count} propuesta recibida"
-        other: "%{count} propuestas recibidas"
+        other: "Estamos evaluando y seleccionando las %{count} ideas recibidas"
       edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
       days-left-to-finish:

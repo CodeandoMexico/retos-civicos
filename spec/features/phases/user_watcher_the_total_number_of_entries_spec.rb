@@ -8,7 +8,7 @@ feature 'User watches the current phase of a challenge when the current phase is
       prototypes_phase_due_on: 2.week.from_now
 
     visit challenge_path(challenge)
-    page.should have_content '0 propuestas recibidas'
+    page.should have_content 'Estamos evaluando y seleccionando las 0 ideas recibidas'
   end
 
   scenario 'anyone should see the total number of entries' do
