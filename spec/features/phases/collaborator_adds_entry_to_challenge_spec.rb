@@ -33,7 +33,7 @@ feature 'Collaborator adds entry to challenge' do
     submit_entry_form_with(
       project_name: 'Mi super app',
       description: 'Es la mejor',
-      idea_url: 'este es un url invalido',
+      idea_url: 'esteesunurlinvalido',
       technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image,
       letter_under_oath: entry_pdf

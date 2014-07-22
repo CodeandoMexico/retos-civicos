@@ -25,14 +25,14 @@ feature 'Organization admin watches entries' do
       name: 'Propuesta 1',
       member: member,
       challenge: challenge_two,
-      idea_url: 'http://miproyecto.com',
+      idea_url: 'http://google.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: ['PHP', 'MySQL']
     create :entry,
       name: 'Propuesta 2',
       member: member,
       challenge: challenge_two,
-      idea_url: 'http://otroproyecto.com',
+      idea_url: 'http://google.com',
       created_at: Time.zone.local(2013, 4, 12, 20, 53),
       technologies: ['Rust', 'Haskell']
 
@@ -47,7 +47,7 @@ feature 'Organization admin watches entries' do
       company_name: "Empresa 1",
       company_rfc: "Empresa1RFC",
       sent_at: '12 abr 20:53',
-      idea_url: 'http://otroproyecto.com',
+      idea_url: 'http://google.com',
       tecnologies: 'Rust, Haskell'
     )
     page_should_have_entry_with(
@@ -57,7 +57,7 @@ feature 'Organization admin watches entries' do
       company_rfc: "Empresa1RFC",
       member: 'Juanito',
       sent_at: '10 abr 20:53',
-      idea_url: 'http://miproyecto.com',
+      idea_url: 'http://google.com',
       tecnologies: 'PHP, MySQL'
     )
   end
@@ -69,7 +69,7 @@ feature 'Organization admin watches entries' do
       member: member,
       name: 'Propuesta 1',
       challenge: challenge_one,
-      idea_url: 'http://miproyecto.com',
+      idea_url: 'http://google.com',
       created_at: Time.zone.local(2013, 4, 10, 20, 53),
       technologies: ['PHP', 'MySQL']
 
@@ -82,7 +82,7 @@ feature 'Organization admin watches entries' do
       name: 'Propuesta 1',
       company_name: 'Empresa 1',
       sent_at: '10 abr 20:53',
-      idea_url: 'http://miproyecto.com',
+      idea_url: 'http://google.com',
       tecnologies: 'PHP, MySQL'
     )
   end
