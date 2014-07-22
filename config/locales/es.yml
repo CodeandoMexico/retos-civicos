@@ -121,6 +121,9 @@ es:
       supportus: Ayúdanos a cumplir nuestro objetivo
       show-more: Mostrar más
       edit-challenge: 'Editar reto'
+      total-number-of-entries:
+        one: "%{count} propuesta recibida"
+        other: "Estamos evaluando y seleccionando las %{count} ideas recibidas"
       edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
       days-left-to-finish:
