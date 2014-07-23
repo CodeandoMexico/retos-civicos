@@ -63,6 +63,11 @@
       <% end %>
     <% end %>
   </div>
+  <div class="challenge-collaborate-banner">
+    <% if Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
+      <h3 style="color:white;"><%= t('.total-number-of-entries', count: Entry.count) %></h3>
+    <% end %>
+  </div>
 </div>
 
 <div class="sheet-section sheet-section-with-pad">
