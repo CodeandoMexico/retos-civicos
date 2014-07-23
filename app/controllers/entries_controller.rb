@@ -59,6 +59,6 @@ class EntriesController < ApplicationController
 
   def member_is_able_to_edit_entry?
     @challenge = Challenge.find params[:challenge_id]
-    redirect_to challenge_path(@challenge) unless current_member.is_able_to_edit_entry?(@challenge)
+    redirect_to(challenge_path(@challenge), alert: I18n.t("flash.entries.phase_due")) unless current_member.is_able_to_edit_entry?(@challenge)
   end
 end
