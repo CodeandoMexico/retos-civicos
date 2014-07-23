@@ -4,6 +4,10 @@
   dashboard_collaborators_path(challenge_id: @current_challenge.id, format: :csv),
   class: 'btn btn-default pull-right' %>
 
+<%= link_to 'Enviar email a todos',
+  new_dashboard_email(challenge_id: @current_challenge.id),
+  class: 'btn btn-default pull-right' %>
+
 <div class="l-space-bottom">
   <%= render 'challenges_filter',
     challenges: @challenges,
