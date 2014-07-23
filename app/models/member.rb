@@ -20,6 +20,10 @@ class Member < ActiveRecord::Base
     name || nickname || email
   end
 
+  def is_able_to_edit_entry?(challenge)
+    self.has_submitted_app?(challenge) && Phases.is_current?(:ideas, challenge)
+  end
+
   def is_able_to_submit_a_prototype?(challenge)
     self.has_submitted_app?(challenge) && self.entry_has_been_accepted?(challenge) && Phases.is_current?(:prototypes, challenge)
   end
