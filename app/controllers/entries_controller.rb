@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
   def edit
     @challenge = Challenge.find params[:challenge_id]
     @entry = Entry.find params[:id]
+    authorize! :update, @entry
   end
 
   def create
