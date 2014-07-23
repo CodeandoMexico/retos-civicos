@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   layout 'aquila'
   before_filter :authenticate_user!, only: :new
+  before_filter :member_is_able_to_edit_entry?, only: [:edit, :update]
 
   def show
     @entry = Entry.find(params[:id])
@@ -52,5 +53,12 @@ class EntriesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def member_is_able_to_edit_entry?
+    @challenge = Challenge.find params[:challenge_id]
+    redirect_to(challenge_path(@challenge), alert: I18n.t("flash.entries.phase_due")) unless current_member.is_able_to_edit_entry?(@challenge)
   end
 end

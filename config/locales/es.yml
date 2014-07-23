@@ -15,6 +15,7 @@ es:
     users:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
     entries:
+      phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
       accepted_successfully: La propuesta fue aceptada satisfactoriamente
       winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
