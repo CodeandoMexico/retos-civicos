@@ -21,9 +21,10 @@ Aquila::Application.routes.draw do
   match 'signup' => 'pages#sign_up'
 
   resource :dashboard, only: :show, controller: :dashboard do
-    resources :emails, only: [:new, :create], controller: 'dashboard/mailers'
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
-    resources :challenges, only: :index, controller: 'dashboard/challenges'
+    resources :challenges, only: :index, controller: 'dashboard/challenges' do
+      resources :emails, only: [:new, :create], controller: 'dashboard/mailers'
+    end
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :publish, on: :member
       post :accept, on: :member

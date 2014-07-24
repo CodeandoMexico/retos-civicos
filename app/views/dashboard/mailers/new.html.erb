@@ -1,13 +1,6 @@
 <h1 class="l-space-bottom">Participantes</h1>
 
-<div class="l-space-bottom">
-  <%= render 'challenges_filter',
-    challenges: @challenges,
-    current_challenge: @current_challenge,
-    filter_path: ->(challenge) { dashboard_collaborators_path(challenge_id: challenge.id) } %>
-</div>
-
-<%= form_for(dashboard_emails_path, url: {action: "create"}) do |f| %>
+<%= form_for(dashboard_challenge_emails_path(@current_challenge), url: {action: "create"}) do |f| %>
   <div class="form-group" style="padding-bottom:3em;">
     <div class="col-sm-3">
       <%= f.label @email[:subject], "Título del correo", class: 'control-label' %>
