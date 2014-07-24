@@ -1,8 +1,9 @@
 <h1 class="l-space-bottom">Participantes</h1>
+<h3 class="l-space-bottom">Enviar email a todos</h3>
 
-<%= form_for(dashboard_challenge_emails_path(@current_challenge), url: {action: "create"}) do |f| %>
+<%= form_for dashboard_challenge_emails_path(@current_challenge), url: { action: "create" } do |f| %>
   <div class="form-group" style="padding-bottom:3em;">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="padding-left:0px;">
       <%= f.label @email[:subject], "Título del correo", class: 'control-label' %>
     </div>
     <div class="col-sm-9">
@@ -10,8 +11,9 @@
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="padding-left:0px;">
       <%= f.label @email[:body], "Cuerpo del mensaje", class: 'control-label' %>
+      <span class="help-block"><%= "Puedes usar Markdown para formatear el mensaje" %></span>
     </div>
     <div class="col-sm-9">
       <%= f.text_area @email[:body], id: "email[body]", name: "email[body]", class: 'form-control' %>
