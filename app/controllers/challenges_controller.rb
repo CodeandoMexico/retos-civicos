@@ -25,7 +25,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
     @organization = @challenge.organization
-    @comments = @challenge.root_comments.sort_parents
+    @comments = @challenge.root_comments.sort_parents.page(params[:page]).per(10)
     @entries = @challenge.entries.public
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators

@@ -196,7 +196,7 @@ es:
     failure: Intenta de nuevo
     voted: Tu voto se ha registrado
     comment:
-      reply: 'Comentar '
+      reply: 'Responder'
       cancel: Cancelar
     truncate:
       less: ocultar
