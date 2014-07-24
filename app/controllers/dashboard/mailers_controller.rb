@@ -7,9 +7,7 @@ module Dashboard
 
     def create
       if valid_email_params?
-        current_challenge.collaborators.each do |collaborator|
-          ChallengeMailer.custom_message_to_all_collaborators(collaborator.email, email_params[:subject], email_params[:body]).deliver
-        end
+        send_email_to_collaborators
         redirect_to dashboard_collaborators_path, notice: "El correo ha sido enviado exitosamente."
       else
         redirect_to new_dashboard_email_path, alert: "Verifica que hayas llenado todos los campos."
@@ -17,6 +15,12 @@ module Dashboard
     end
 
     private
+
+    def send_email_to_collaborators
+      current_challenge.collaborators.each do |collaborator|
+        ChallengeMailer.delay.custom_message_to_all_collaborators(collaborator.email, email_params[:subject], email_params[:body])
+      end
+    end
 
     def prepare_everything
       @email = { subject: "", body: "" }

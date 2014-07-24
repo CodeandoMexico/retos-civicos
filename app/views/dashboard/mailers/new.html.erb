@@ -7,26 +7,26 @@
     filter_path: ->(challenge) { dashboard_collaborators_path(challenge_id: challenge.id) } %>
 </div>
 
-<%= form_tag(dashboard_emails_path, method: :post) do %>
-  <div class="form-group">
+<%= form_for(dashboard_emails_path, url: {action: "create"}) do |f| %>
+  <div class="form-group" style="padding-bottom:3em;">
     <div class="col-sm-3">
-      <%= label_tag @email[:subject], "Título del correo", class: 'control-label' %>
+      <%= f.label @email[:subject], "Título del correo", class: 'control-label' %>
     </div>
     <div class="col-sm-9">
-      <%= text_field_tag @email[:subject], "", id: "email[subject]", name: "email[subject]", class: 'form-control' %>
+      <%= f.text_field @email[:subject], id: "email[subject]", name: "email[subject]", class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-3">
-      <%= label_tag @email[:body], "Cuerpo del mensaje", class: 'control-label' %>
+      <%= f.label @email[:body], "Cuerpo del mensaje", class: 'control-label' %>
     </div>
     <div class="col-sm-9">
-      <%= text_area_tag @email[:body], "", id: "email[body]", name: "email[body]", class: 'form-control' %>
+      <%= f.text_area @email[:body], id: "email[body]", name: "email[body]", class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <%= submit_tag "Enviar", class: 'btn btn-primary btn-lg pull-right' %>
+      <%= f.submit "Enviar", class: 'btn btn-primary btn-lg pull-right', style: "margin-top:1em;" %>
     </div>
   </div>
 <% end %>
