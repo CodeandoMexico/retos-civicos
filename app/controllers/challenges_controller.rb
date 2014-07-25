@@ -25,7 +25,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
     @organization = @challenge.organization
-    @comments = @challenge.root_comments.sort_parents.page(params[:page]).per(10)
+    @comments = fetch_comments
     @entries = @challenge.entries.public
     @datasets = @challenge.datasets_id
     @collaborators = @challenge.collaborators
@@ -94,6 +94,14 @@ class ChallengesController < ApplicationController
   end
 
   private
+
+  def fetch_comments
+    comments_per_page = 10
+    current_page = params[:page]
+    # r = most recent and v = vote count
+    return @challenge.root_comments.most_recent.page(current_page).per(comments_per_page) if params[:order_by] == 'recent'
+    @challenge.root_comments.sort_parents.page(current_page).per(comments_per_page)
+  end
 
   def save_location
     store_location unless user_signed_in?

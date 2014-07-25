@@ -132,6 +132,9 @@ es:
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
     comments:
+      order_by: "Ordenar por: "
+      vote_count: Votos
+      most_recent: Más recientes
       comment: Comentar
       non-comments: 'Por el momento no hay comentarios.'
       reply: Responder

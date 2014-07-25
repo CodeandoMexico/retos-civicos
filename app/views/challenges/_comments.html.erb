@@ -36,9 +36,17 @@
       <%= t('.non-comments') %>
     </div>
   <% else %>
-    <%= render @comments, challenge: @challenge %>
+    <div class="text-right">
+      <%= t('.order_by') %>
+      <%= link_to t('.vote_count'), challenge_path(@challenge, anchor:"challenge_comments_container", order_by: "votes") %>
+      <span> | </span>
+      <%= link_to t('.most_recent'), challenge_path(@challenge, anchor:"challenge_comments_container", order_by: "recent") %>
+    </div>
+    <div class="comment-container">
+      <%= render @comments, challenge: @challenge %>
+    </div>
     <div class="text-center">
-      <%= paginate @comments %>
+      <%= paginate @comments, params: { anchor: 'challenge_comments_container' } %>
     </div>
   <% end %>
 </div>
