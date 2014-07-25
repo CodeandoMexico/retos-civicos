@@ -38,6 +38,7 @@ class EntriesController < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @entry = @challenge.entries.build(params[:entry])
     if @entry.save
+      EntriesMailer.delay.send_entry_confirmation_mail_to(@entry, @challenge, current_member)
       redirect_to challenge_path(@entry.challenge), notice: Phases.entry_added_message(@challenge)
     else
       render :new

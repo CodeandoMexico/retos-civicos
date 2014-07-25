@@ -5,6 +5,7 @@ feature 'Collaborator adds entry to challenge' do
     member = create :member
     challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
     create :collaboration, member: member, challenge: challenge
+    mailer.clear
 
     sign_in_user member
     visit new_challenge_entry_path(challenge)
@@ -20,6 +21,7 @@ feature 'Collaborator adds entry to challenge' do
 
     current_path.should eq challenge_path(challenge)
     page.should have_content success_message(2.weeks.from_now)
+    mailer.count.should eq 1
   end
 
   scenario 'but fails because there is not a valid idea url' do
@@ -77,6 +79,10 @@ feature 'Collaborator adds entry to challenge' do
 
       page.should have_content success_message(2.weeks.from_now)
     end
+  end
+
+  def mailer
+    ActionMailer::Base.deliveries
   end
 
   def app_image
