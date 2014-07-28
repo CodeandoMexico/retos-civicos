@@ -16,6 +16,7 @@ class Comment < ActiveRecord::Base
 
   # Dafault scopes to show comments threads
   scope :sort_parents, order('comments.votes_counter DESC, created_at DESC')
+  scope :most_recent, order('created_at DESC')
 
   # Embeddables
   auto_html_for :body do
