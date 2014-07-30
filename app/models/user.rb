@@ -59,6 +59,12 @@ class User < ActiveRecord::Base
     name.blank? ? (nickname.blank? ? email : nickname) : name
   end
 
+  def display_name
+    return name if name.present?
+    return nickname if nickname.present?
+    ""
+  end
+
   #Ex: member?, organization?
   ROLES.each do |role|
     define_method "#{role}?" do

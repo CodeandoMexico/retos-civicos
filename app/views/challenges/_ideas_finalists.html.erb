@@ -1,43 +1,24 @@
 <div class="row finalists-container">
   <h3 class="finalist-title">Finalistas</h3>
-  <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-2 no-padding">
-    <div class="finalist">
-      <%= image_tag 'retos_challenge_avatar.png' %>
-      <p>
-        Nombre del equipo
-      </p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
-    <div class="finalist">
-      <%= image_tag 'retos_challenge_avatar.png' %>
-      <p>
-        Nombre del equipo
-      </p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
-    <div class="finalist">
-      <%= image_tag 'retos_challenge_avatar.png' %>
-      <p>
-        Nombre del equipo
-      </p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
-    <div class="finalist">
-      <%= image_tag 'retos_challenge_avatar.png' %>
-      <p>
-        Nombre del equipo
-      </p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
-    <div class="finalist">
-      <%= image_tag 'retos_challenge_avatar.png' %>
-      <p>
-        Nombre del equipo
-      </p>
-    </div>
-  </div>
+  <!--  col-md-offset-1 -->
+  <% @finalists.each_with_index do |item, index| %>
+    <%= link_to challenge_entry_path(@challenge, item) do %>
+      <% if index %  5 == 0 %>
+        <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-2 no-padding">
+      <% else %>
+        <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
+      <% end %>
+          <div class="finalist">
+            <% if item.image_url %>
+              <%= image_tag item.image_url%>
+            <% else %>
+              <%= image_tag 'retos_challenge_avatar.png' %>
+            <% end %>
+            <p><%= item.member.user.display_name %></p>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+
+
 </div>
