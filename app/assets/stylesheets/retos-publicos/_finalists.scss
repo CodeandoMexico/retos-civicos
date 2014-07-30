@@ -1,18 +1,37 @@
+.finalists-container {
+  margin-bottom: 20px;
+}
+
 .finalists {
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.finalist-title {
+  color: #005E06;
+}
+
+.no-padding {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .finalist {
   max-width: 100%;
   margin: 5px;
 
-}
+  p {
+    background-color: #333333;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    text-transform:uppercase;
+  }
 
-.finalist-name {
-  background-color: black;
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 100%;
+  img {
+    width: 100%;
+    height: 130px;
+  }
+
 }
