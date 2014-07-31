@@ -8,7 +8,7 @@ class ChallengesController < ApplicationController
     # comment next two lines to enable aquila default behavior
     # TO-DO: remove next line. is a temporary redirect to avoid crash on DB clean state
     return redirect_to about_path if Challenge.count.zero?
-    return redirect_to challenge_path(last_challenge)
+    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
 
     ch = Challenge.recent
     ch = Challenge.active if params[:active]

@@ -164,6 +164,9 @@ class Challenge < ActiveRecord::Base
     end
   end
 
+  def self.has_only_one_challenge?
+    self.count == 1
+  end
 
   private
 
