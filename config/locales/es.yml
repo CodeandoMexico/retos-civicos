@@ -131,6 +131,9 @@ es:
         zero: "Último día"
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
+    ideas_finalists:
+      finalists: Finalistas
+      about_the_team: Sobre el equipo
     comments:
       order_by: "Ordenar por: "
       vote_count: Votos
@@ -349,6 +352,9 @@ es:
       live-demo-url: Link al Demo en vivo
       go-to-challenge: Ir al reto - %{challenge}
       link-to-idea: Link a la propuesta
+      section-name: Participantes
+      finalist: Finalista
+      about_the_team: Sobre el equipo
     new:
       back: Volver al reto
     csv_filename: propuestas-%{organization}-organizacion.csv

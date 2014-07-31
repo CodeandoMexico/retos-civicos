@@ -17,7 +17,12 @@ class Member < ActiveRecord::Base
   end
 
   def to_s
-    name || nickname || email
+    return case
+      when company_name.present? then company_name
+      when name.present? then name
+      when nickname.present? then nickname
+      else ""
+      end
   end
 
   def is_able_to_edit_entry?(challenge)
