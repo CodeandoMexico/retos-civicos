@@ -62,6 +62,10 @@
       <div class="challenge-collaborate-content">
         <%= collaborate_section(@challenge) %>
       </div>
+    <% elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
+      <div class="challenge-collaborate-banner">
+          <h3 style="color:white;"><%= t('.total-number-of-entries', count: Entry.count) %></h3>
+      </div>
     <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
       <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
         <div class="challenge-collaborate-content">
@@ -72,11 +76,6 @@
           <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
         </div>
       <% end %>
-    <% end %>
-  </div>
-  <div class="challenge-collaborate-banner">
-    <% if Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
-      <h3 style="color:white;"><%= t('.total-number-of-entries', count: Entry.count) %></h3>
     <% end %>
   </div>
 </div>

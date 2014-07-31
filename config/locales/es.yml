@@ -354,7 +354,7 @@ es:
       link-to-idea: Link a la propuesta
       section-name: Participantes
       finalist: Finalista
-      about_the_team: Sobre el equipo
+      how_is_the_challenge_being_solved: ¿Cómo resuelve el reto?
     new:
       back: Volver al reto
     csv_filename: propuestas-%{organization}-organizacion.csv
