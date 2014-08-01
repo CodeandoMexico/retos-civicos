@@ -1,6 +1,6 @@
 .challenge-item {
   background-size: cover;
-  border: 1px solid #ffffff;
+  border: 3px solid #eeeeee;
   display: block;
   height: 300px;
   margin: 1.5em 0;
@@ -24,6 +24,10 @@
     background-color: $brand-primary;
     width: 90%;
   }
+}
+
+.challenge-item:hover {
+  border: 3px solid #11ad00;
 }
 
 .challenge-item-content {
