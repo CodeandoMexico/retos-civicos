@@ -104,6 +104,10 @@ class Challenge < ActiveRecord::Base
     days > 0 ? days : 0
   end
 
+  def has_finished?
+    Date.current > finish_date
+  end
+
   def timeline_json
     {
       "timeline" =>
@@ -164,6 +168,21 @@ class Challenge < ActiveRecord::Base
     end
   end
 
+  def has_a_winner?
+    Entry.where(challenge_id:self, winner:true).count > 0
+  end
+
+  def has_finalists?
+    Entry.where(challenge_id:self, accepted:true).count > 0
+  end
+
+  def current_winner
+    Entry.where(challenge_id:self, winner:true).first if self.has_a_winner?
+  end
+
+  def current_finalists
+    Entry.where(challenge_id:self, accepted: true).select { |e| e != self.current_winner }
+  end
 
   private
 

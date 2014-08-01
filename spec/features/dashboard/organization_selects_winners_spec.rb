@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 feature 'Organization selects winner for the challenge' do
-  attr_reader :entry
+  attr_reader :entry, :challenge
 
   before do
     member = create :member
     organization = create :organization
-    challenge = create :challenge,
+    @challenge = create :challenge,
       organization: organization,
       starts_on: 5.weeks.ago,
       ideas_phase_due_on: 4.weeks.ago,
       ideas_selection_phase_due_on: 3.week.ago,
       prototypes_phase_due_on: 2.week.ago,
-      finish_on: 2.week.from_now
+      finish_date: 2.week.ago
     @entry = create :entry,
       accepted: true,
       challenge: challenge,
@@ -33,6 +33,17 @@ feature 'Organization selects winner for the challenge' do
     page.should have_content "A esta propuesta le fue quitada el estatus de ganadora correctamente."
   end
 
+  scenario 'and the challenge page should show the finalists and the winner' do
+    select_winner
+    add_finalist_entries(4)
+
+    visit challenge_path(challenge)
+    save_and_open_page
+    page.should have_content "Ganador"
+    page.should have_content entry.name
+    page.should have_content "Finalistas"
+  end
+
   def select_winner
     click_link entry.name
     click_button "Seleccionar como ganador"
@@ -41,5 +52,20 @@ feature 'Organization selects winner for the challenge' do
   def remove_winner
     click_link entry.name
     click_button "Quitar como ganadora"
+  end
+
+  def add_finalist_entries(number_of_entries)
+    (1..number_of_entries).each do
+      create_new_entry
+    end
+  end
+
+  def create_new_entry
+    create :entry, accepted: true, challenge: challenge, member: (create :member)
+  end
+
+  def many_day_went_by_and_the_challenge_is_finished(ch)
+    ch.finish_date = 1.week.ago
+    ch.save
   end
 end
