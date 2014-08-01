@@ -164,6 +164,10 @@ class Challenge < ActiveRecord::Base
     end
   end
 
+  def current_phase_title
+    Phases.current_phase_title(self)
+  end
+
   def self.has_only_one_challenge?
     self.count == 1
   end

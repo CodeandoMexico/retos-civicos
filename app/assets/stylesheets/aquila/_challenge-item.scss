@@ -2,9 +2,21 @@
   background-size: cover;
   border: 1px solid #ffffff;
   display: block;
-  height: 250px;
+  height: 300px;
   margin: 1.5em 0;
   position: relative;
+
+  .row {
+    padding: 0em;
+    background: #333333;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
   h3 {
     padding: 0.5em;

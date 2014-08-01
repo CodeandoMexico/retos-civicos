@@ -1,19 +1,23 @@
 <%= link_to organization_challenge_path(challenge.organization.id, challenge),
   class: 'challenge-item',
-  style: "background-image: url(#{challenge.avatar_url(:small)})" do %>
+  style: "background-image: url(#{challenge.avatar_url(:small)});border:0px;" do %>
   <div class="challenge-item-content">
-    <h3><%= challenge.title.truncate(60) %></h3>
+
     <div class="row">
-      <div class="col-md-5">
-        <div class="challenge-item-block">
-          <span><%= t('pages.index.get_involved') %></span>
-        </div>
+      <div class="col-md-7 background-light-green">
+        <p class="text-white text-bold"><%= challenge.title.truncate(60) %></p>
       </div>
-      <div class="col-md-7">
-        <div class="challenge-item-block">
-          <strong><%= challenge.collaborators.count %></strong>
-          <span><%= t("challenges.resources.collaborators") %></span>
-        </div>
+      <div class="col-md-5">
+        <p class="text-white text-light text-small text-center"><%= t(".number-of-collaborators", count: challenge.collaborators.count) %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7 background-dark-green">
+        <p class="text-white text-light"><%= challenge.organization %></p>
+      </div>
+      <div class="col-md-5">
+        <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>
       </div>
     </div>
   </div>
