@@ -38,7 +38,6 @@ feature 'Organization selects winner for the challenge' do
     add_finalist_entries(4)
 
     visit challenge_path(challenge)
-    save_and_open_page
     page.should have_content "Ganador"
     page.should have_content entry.name
     page.should have_content "Finalistas"
