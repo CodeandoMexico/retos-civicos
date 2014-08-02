@@ -1,5 +1,5 @@
-<div class="row finalists-container">
-  <h3 class="finalist-title">Ganador</h3>
+<div class="row finalists-container background-winner">
+  <h3 class="finalist-title" style="text-transform:uppercase;"><%= t(".winner") %></h3>
   <%= link_to challenge_entry_path(@challenge, @winner) do %>
       <div class="col-xs-6 col-sm-6 col-md-2 col-centered no-padding">
         <div class="finalist">
@@ -12,10 +12,14 @@
         </div>
       </div>
   <% end %>
+  <h3 class="finalist-title"><%= @winner.name %></h3>
+  <h3 class="finalist-title" style="color:black;font-size:24px;"><%= @winner.member %></h3>
 </div>
 
 <div class="row finalists-container">
-  <h3 class="finalist-title"><%= t(".finalists") %></h3>
+  <div class="challenge-subheader text-center" style="margin-bottom:3em;">
+    <h3><%= t(".finalists") %></h3>
+  </div>
   <% @finalists.each_with_index do |entry, index| %>
     <%= link_to challenge_entry_path(@challenge, entry) do %>
       <% if index %  5 == 0 %>
