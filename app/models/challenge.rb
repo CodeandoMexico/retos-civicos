@@ -169,7 +169,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def has_a_winner?
-    Entry.where(challenge_id:self, winner:true).count > 0
+    Entry.where(challenge_id:self, winner:1).count > 0
   end
 
   def has_finalists?
@@ -177,7 +177,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_winner
-    Entry.where(challenge_id:self, winner:true).first if self.has_a_winner?
+    Entry.where(challenge_id:self, winner:1).first if self.has_a_winner?
   end
 
   def current_finalists
