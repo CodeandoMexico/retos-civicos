@@ -22,9 +22,19 @@
   background: $green;
 }
 
+.image-xsmall {
+  width: 35px;
+  height: 45px;
+}
+
 .image-medium {
   width: 200px;
   height: 150px;
+}
+
+.image-full {
+  width: 100%;
+  height: 400px;
 }
 
 .bottom-margin-large {

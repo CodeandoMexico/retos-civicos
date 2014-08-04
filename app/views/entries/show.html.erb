@@ -12,6 +12,9 @@
   <div class="row">
     <div class="col-md-7">
       <% if preview_url(@entry.idea_url).present? %>
+        <div class="sheet-header sheet-header-small team-name">
+          <h3 class="header-entry finalist-title text-small" style="text-transform:capitalize;"><%= @entry.name %></h3>
+        </div>
         <%= preview_url @entry.idea_url %>
       <% else %>
         <h3><%= t('.link-to-idea') %></h3>
@@ -25,9 +28,27 @@
         <%= image_tag 'retos_challenge_avatar.png' %>
       <% end %>
 
-      <h3 class="finalist-title bottom-margin-large"><%= t('.finalist') %></h3>
+      <% if @entry.is_the_winner? %>
+        <h3 class="finalist-title bottom-margin-large">
+          <%= image_tag "challenge-prize.png", class: "image-xsmall", style: "margin-top:10px;" %>
+          <%= t('.winner') %>
+        </h3>
+      <% else %>
+        <h3 class="finalist-title bottom-margin-large"><%= t('.finalist') %></h3>
+      <% end %>
+
       <h4 class="text-green bottom-margin-medium"><%= t(".how_is_the_challenge_being_solved") %></h4>
       <%= simple_format @entry.description %>
+
+      <% if @entry.is_the_winner? && @entry.repo_url.present? %>
+        <h3 class="finalist-title bottom-margin-large"><%= t('.link-to-repository') %></h3>
+        <%= simple_format @entry.repo_url %>
+      <% end %>
+
+      <% if @entry.is_the_winner? && @entry.demo_url.present? %>
+        <h3 class="finalist-title bottom-margin-large"><%= t('.live-demo-url') %></h3>
+        <%= simple_format @entry.demo_url %>
+      <% end %>
     </div>
   </div>
 </div>

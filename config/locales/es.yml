@@ -352,8 +352,10 @@ es:
       live-demo-url: Link al Demo en vivo
       go-to-challenge: Ir al reto - %{challenge}
       link-to-idea: Link a la propuesta
+      link-to-repository: Link al repositorio del código
       section-name: Participantes
       finalist: Finalista
+      winner: Ganador
       how_is_the_challenge_being_solved: ¿Cómo resuelve el reto?
     new:
       back: Volver al reto
