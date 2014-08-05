@@ -50,22 +50,32 @@
 </div>
 
 <div class="challenge-collaborate text-center">
-  <div class="challenge-collaborate-content">
+  <div class="challenge-collaborate-container">
+    <% if Phases.is_current?(:prototypes, @challenge) %>
+      <%= render 'ideas_finalists' %>
+    <% end %>
     <% if can_edit_challenge? @challenge %>
-      <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+      <div class="challenge-collaborate-content">
+        <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+      </div>
     <% elsif Phases.is_current?(:ideas, @challenge) %>
-      <%= collaborate_section(@challenge) %>
+      <div class="challenge-collaborate-content">
+        <%= collaborate_section(@challenge) %>
+      </div>
+    <% elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
+      <div class="challenge-collaborate-banner">
+          <h3 style="color:white;"><%= t('.total-number-of-entries', count: Entry.count) %></h3>
+      </div>
     <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
       <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
-        <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+        <div class="challenge-collaborate-content">
+          <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+        </div>
       <% else %>
-        <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+        <div class="challenge-collaborate-content">
+          <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
-  <div class="challenge-collaborate-banner">
-    <% if Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
-      <h3 style="color:white;"><%= t('.total-number-of-entries', count: Entry.count) %></h3>
     <% end %>
   </div>
 </div>

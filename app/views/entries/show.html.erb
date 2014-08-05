@@ -1,15 +1,16 @@
-<ol class="breadcrumb">
-  <li><%= link_to @challenge.title, @challenge %></li>
-  <li class="active"><%= @entry.name %></li>
-</ol>
-
-<div class="sheet-header">
-  <h1><%= @entry.name %></h1>
+<div class="sheet-header padding-small">
+  <span class="header-entry header-entry-first"><%= @challenge.title %></span>
+  <span class="header-entry text-white">| <%= t(".section-name") %></span>
 </div>
+
+<div class="sheet-header team-name">
+  <h3 class="header-entry finalist-title"><%= @entry.member %></h3>
+</div>
+
 
 <div class="sheet-section sheet-section-with-pad">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-7">
       <% if preview_url(@entry.idea_url).present? %>
         <%= preview_url @entry.idea_url %>
       <% else %>
@@ -17,15 +18,16 @@
         <%= link_to @entry.idea_url, @entry.idea_url %>
       <% end %>
     </div>
-    <div class="col-lg-6">
-      <h3><%= t(".description") %></h3>
+    <div class="col-md-5">
+      <% if @entry.image_url %>
+        <%= image_tag @entry.image_url, class: "image-medium"%>
+      <% else %>
+        <%= image_tag 'retos_challenge_avatar.png' %>
+      <% end %>
+
+      <h3 class="finalist-title bottom-margin-large"><%= t('.finalist') %></h3>
+      <h4 class="text-green bottom-margin-medium"><%= t(".how_is_the_challenge_being_solved") %></h4>
       <%= simple_format @entry.description %>
-
-      <h3>Empresa</h3>
-      <p><%= @entry.member.company_name %></p>
-
-      <h3>Tecnologías</h3>
-      <p><%= @entry.technologies_separated_by_commas %></p>
     </div>
   </div>
 </div>

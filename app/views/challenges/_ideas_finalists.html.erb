@@ -1,0 +1,21 @@
+<div class="row finalists-container">
+  <h3 class="finalist-title"><%= t(".finalists") %></h3>
+  <% @finalists.each_with_index do |entry, index| %>
+    <%= link_to challenge_entry_path(@challenge, entry) do %>
+      <% if index %  5 == 0 %>
+        <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-2 no-padding">
+      <% else %>
+        <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
+      <% end %>
+          <div class="finalist">
+            <% if entry.image_url %>
+              <%= image_tag entry.image_url%>
+            <% else %>
+              <%= image_tag 'retos_challenge_avatar.png' %>
+            <% end %>
+            <p style="margin:0px;"><%= entry.member %></p>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>
