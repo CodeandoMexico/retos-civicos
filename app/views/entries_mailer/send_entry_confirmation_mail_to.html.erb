@@ -1,0 +1,11 @@
+<p>¡Hola!</p>
+<p>
+  Te confirmamos que recibimos idea exitosamente para el reto
+  <%= link_to @challenge.title, challenge_path(@challenge) %>.
+  Tienes hasta el <%= @timeline.ideas.due_date %> para editarla.
+</p>
+<p>
+  ¡Mucha suerte!<br>
+  <strong>Retos Públicos</strong><br>
+  <%= link_to "retos.gob.mx", root_url %>
+</p>
