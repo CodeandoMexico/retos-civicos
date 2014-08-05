@@ -1,0 +1,27 @@
+<h1 class="l-space-bottom"><%= t('.view-title') %></h1>
+<h3 class="l-space-bottom"><%= t('.view-subtitle') %></h3>
+
+<%= form_for dashboard_challenge_emails_path(@current_challenge), url: { action: "create" } do |f| %>
+  <div class="form-group" style="padding-bottom:3em;">
+    <div class="col-sm-3" style="padding-left:0px;">
+      <%= f.label @email[:subject], t('.mail-subject-label'), class: 'control-label' %>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field @email[:subject], id: "email[subject]", name: "email[subject]", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3" style="padding-left:0px;">
+      <%= f.label @email[:body], t('.mail-body-label'), class: 'control-label' %>
+      <span class="help-block"><%= t('.mail-body-helper') %></span>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_area @email[:body], id: "email[body]", name: "email[body]", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg pull-right', style: "margin-top:1em;" %>
+    </div>
+  </div>
+<% end %>

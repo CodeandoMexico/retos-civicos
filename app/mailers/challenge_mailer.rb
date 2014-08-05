@@ -18,4 +18,9 @@ class ChallengeMailer < ActionMailer::Base
     @body = mail_body
     mail to: collaborator_email, subject: mail_subject
   end
+
+  def custom_message_to_all_collaborators(collaborator_email, subject, body)
+    @body = body
+    mail to: collaborator_email, subject: subject
+  end
 end

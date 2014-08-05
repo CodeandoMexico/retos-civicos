@@ -229,6 +229,14 @@ es:
         total-participants: Participantes
         total-entries: Propuestas recibidas
         no-proposals: Aún no hay propuestas.
+    mailers:
+      new:
+        view-title: Participantes
+        view-subtitle: Enviar email a todos
+        mail-subject-label: Título del correo
+        mail-body-label: Cuerpo del mensaje
+        mail-body-helper: Puedes usar Markdown para formatear el mensaje.
+        submit: Enviar
     entries:
       index:
         entries-title: Propuestas
