@@ -184,6 +184,14 @@ class Challenge < ActiveRecord::Base
     Entry.where(challenge_id:self, accepted: true).select { |e| e != self.current_winner }
   end
 
+  def current_phase_title
+    Phases.current_phase_title(self)
+  end
+
+  def self.has_only_one_challenge?
+    self.count == 1
+  end
+
   private
 
   def create_initial_activity

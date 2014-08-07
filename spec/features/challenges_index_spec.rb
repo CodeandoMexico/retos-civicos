@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Challenges page filter" do
+feature "Challenges page" do
 
   let!(:active_ch) { FactoryGirl.create(:challenge) }
   let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
@@ -8,8 +8,8 @@ feature "Challenges page filter" do
   let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
 
   before do
-    double(Challenge.paginates_per(2))
-    visit challenges_path
+    # double(Challenge.paginates_per(2))
+    # visit challenges_path
   end
 
   scenario "Default filter is by date" do
@@ -51,5 +51,24 @@ feature "Challenges page filter" do
     click_link("Más recientes")
     page.should have_content(cancelled_ch.title)
     page.should_not have_content(active_ch.title)
+  end
+
+  scenario "There are multiple challenges" do
+    visit root_path
+    current_path.should eq root_path
+    save_and_open_page
+  end
+
+  scenario "There's only one challenge" do
+    only_one_challenge_left
+
+    visit root_path
+    current_path.should eq challenge_path(active_ch)
+  end
+
+  def only_one_challenge_left
+    working_on_ch.destroy
+    finished_ch.destroy
+    cancelled_ch.destroy
   end
 end

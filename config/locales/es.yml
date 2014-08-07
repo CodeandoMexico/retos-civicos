@@ -1,4 +1,3 @@
----
 es:
   flash:
     admins:
@@ -137,6 +136,8 @@ es:
     ideas_finalists:
       finalists: Finalistas
       about_the_team: Sobre el equipo
+    challenge:
+      number-of-collaborators: "%{count} participantes"
     comments:
       order_by: "Ordenar por: "
       vote_count: Votos
