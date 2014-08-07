@@ -11,6 +11,7 @@ FactoryGirl.define do
     ideas_selection_phase_due_on { 2.months.from_now.to_date }
     prototypes_phase_due_on { 3.months.from_now.to_date }
     finish_on { 4.months.from_now.to_date }
+    finish_date { 4.months.from_now.to_date }
 
     trait :inactive do
       status 'finished'

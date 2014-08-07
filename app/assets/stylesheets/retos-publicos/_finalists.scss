@@ -35,5 +35,15 @@
     width: 100%;
     height: 130px;
   }
+}
 
+.col-centered {
+    display:inline-block;
+    float:none;
+    margin-right:-4px;
+}
+
+.background-winner {
+  background: url("texture-winner.png") no-repeat;
+  background-size: 100%;
 }

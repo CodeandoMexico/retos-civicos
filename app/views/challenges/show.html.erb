@@ -51,9 +51,14 @@
 
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-container">
-    <% if Phases.is_current?(:prototypes, @challenge) %>
+    <% if @challenge.has_finished? && @challenge.has_a_winner? %>
+      <%= render 'finalists_and_winner' %>
+    <% end %>
+
+    <% if Phases.is_current?(:prototypes, @challenge) && @challenge.has_finalists? %>
       <%= render 'ideas_finalists' %>
     <% end %>
+
     <% if can_edit_challenge? @challenge %>
       <div class="challenge-collaborate-content">
         <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
