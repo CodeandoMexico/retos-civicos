@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Organization selects winner for the challenge' do
-  attr_reader :entry, :challenge
+  attr_reader :challenge, :entry
 
   before do
     member = create :member
@@ -25,6 +25,9 @@ feature 'Organization selects winner for the challenge' do
   scenario 'in the prototypes selection phase' do
     select_winner
     page.should have_content "La propuesta \"#{entry.name}\" fue seleccionada ganadora"
+    visit challenge_entry_path(challenge, entry)
+    page.should have_content "Ganador"
+    page.should have_content entry.name
   end
 
   scenario 'in the prototypes selection phase, and then removes him' do
