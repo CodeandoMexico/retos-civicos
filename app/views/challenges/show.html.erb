@@ -26,10 +26,10 @@
     </div>
     <div class="challenge-profile-aside js-challenge-profile-height-master">
       <div class="challenge-about">
-        <h2 class="challenge-about-title"><%= t(".description-title") %></h2>
+        <h2 class="pitch"><%= @challenge.pitch %></h2>
         <p><%= markdown_for_additional_links @challenge.about %></p>
 
-        <h2 class="challenge-about-title"><%= t("challenges.form.created-by") %></h2>
+        <h2 class="title"><%= t("challenges.form.created-by") %></h2>
         <p><%= @organization.name %></p>
       </div>
 
