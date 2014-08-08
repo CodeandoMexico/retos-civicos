@@ -13,11 +13,12 @@
     </div>
 
     <div class="row">
-      <div class="col-md-7 background-dark-green">
-        <p class="text-white text-light"><%= challenge.organization %></p>
+      <div class="col-md-7 background-dark-green" style="padding-bottom:10px;">
+        <p class="text-white text-light" style="margin-top:20px;"><%= challenge.organization %></p>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5" style="padding-bottom:10px;">
         <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>
+        <%= render 'mini_phase_bar', challenge: challenge %>
       </div>
     </div>
   </div>
