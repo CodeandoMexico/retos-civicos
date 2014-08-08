@@ -11,8 +11,7 @@ feature 'Organization selects winner for the challenge' do
       starts_on: 5.weeks.ago,
       ideas_phase_due_on: 4.weeks.ago,
       ideas_selection_phase_due_on: 3.week.ago,
-      prototypes_phase_due_on: 2.week.ago,
-      finish_date: 2.week.ago
+      prototypes_phase_due_on: 2.week.ago
     @entry = create :entry,
       accepted: true,
       challenge: challenge,
@@ -66,8 +65,4 @@ feature 'Organization selects winner for the challenge' do
     create :entry, accepted: true, challenge: challenge, member: (create :member)
   end
 
-  def many_day_went_by_and_the_challenge_is_finished(ch)
-    ch.finish_date = 1.week.ago
-    ch.save
-  end
 end
