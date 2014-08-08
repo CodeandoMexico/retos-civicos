@@ -43,7 +43,7 @@ class Challenge < ActiveRecord::Base
   }
 
   scope :recent, lambda {
-    where(['starts_on <= ?', DateTime.now]).order('created_at DESC')
+    where(['starts_on <= ?', Date.current]).order('created_at DESC')
   }
 
   scope :popular, lambda {
