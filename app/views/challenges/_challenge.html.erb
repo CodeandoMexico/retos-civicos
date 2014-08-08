@@ -18,12 +18,7 @@
       </div>
       <div class="col-md-5" style="padding-bottom:10px;">
         <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-2 challenge-phase-bar challenge-green-bar"></div>
-          <div class="col-md-2 challenge-phase-bar challenge-green-bar"></div>
-          <div class="col-md-2 challenge-phase-bar challenge-green-bar"></div>
-          <div class="col-md-2 challenge-phase-bar challenge-black-bar"></div>
-        </div>
+        <%= render 'mini_phase_bar', challenge: challenge %>
       </div>
     </div>
   </div>
