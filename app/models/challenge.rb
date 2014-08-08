@@ -3,7 +3,7 @@ class Challenge < ActiveRecord::Base
 
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
-                  :pitch, :avatar, :about, :activities_attributes, :dataset_file, :finish_date, :entry_template_url,
+                  :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
                   :infographic, :prize
 
   attr_accessible(*Phases.dates)
@@ -98,14 +98,8 @@ class Challenge < ActiveRecord::Base
     self[:about].to_s
   end
 
-  def days_left_to_finish
-    return 0 unless finish_date
-    days = (finish_date - Date.current).to_i
-    days > 0 ? days : 0
-  end
-
   def has_finished?
-    Date.current > finish_date
+    Date.current > finish_on
   end
 
   def timeline_json
