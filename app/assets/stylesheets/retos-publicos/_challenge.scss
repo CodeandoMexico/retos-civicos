@@ -20,11 +20,6 @@
   }
 }
 
-.challenge-about-title {
-  color: $brand-primary;
-  font-size: 1.3em;
-}
-
 .challenge-subheader {
   background-color: $gray-dark;
   color: $brand-primary;
@@ -53,6 +48,16 @@
 
 .challenge-about {
   background-color: #ffffff;
+
+  .pitch {
+    color: $brand-primary;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+  }
+  .title {
+    color: $brand-primary;
+    font-size: 1.3em;
+  }
 }
 
 .challenge-profile-background {

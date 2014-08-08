@@ -41,14 +41,13 @@ es:
       header: Editar Reto
     form:
       title: Título de tu reto
-      pitch: Invitación
-      pitch-description: Escribe en un solo enunciado una frase para motivar a que las personas participen en el reto. Ej. 'Hagamos conciencia para tener un México limpio'
+      pitch: El reto
+      pitch-description: Escribe en un solo enunciado una frase que describe el reto
       avatar: Imagen
       avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
-      about: Sobre el reto
+      about: Breve descripción
       about-description: Describe brevemente de que trata el reto
       status: Estado actual del reto
-      finish-date: Fecha de término
       prize-description: Describe el premio en formato Markdown
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
@@ -72,7 +71,7 @@ es:
       description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
       comments: Comentarios
       resources: Recursos y Datos
-      created-by: Secretaría(s)
+      created-by: Convoca
       welcome_mail: Correo de bienvenida
       welcome_mail_subject: Título del correo
       welcome_mail_subject-description: Subject del email. Escribe algo breve para
