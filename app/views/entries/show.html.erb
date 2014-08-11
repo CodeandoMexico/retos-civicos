@@ -36,7 +36,10 @@
           <%= t('.winner') %>
         </h3>
       <% else %>
-        <h3 class="finalist-title bottom-margin-large"><%= t('.finalist') %></h3>
+        <h3 class="finalist-title bottom-margin-large">
+          <%= image_tag "finalistas.png", width: "50px", height: "35px", style: "margin-top:-10px;" %>
+          <%= t('.finalist') %>
+        </h3>
       <% end %>
 
       <h4 class="text-green bottom-margin-medium"><%= t(".how_is_the_challenge_being_solved") %></h4>
