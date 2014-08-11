@@ -13,6 +13,8 @@
   <li class="<%= check_filter('inactive') %>"><%= link_to t('.inactive'), challenges_path(inactive: 1) %></li>
 </ul> -->
 
+<h2 class="text-center text-light-green" style="margin-bottom:1em;"><%= t(".main_index_header") %></h2>
+
 <div id="challenges_list" class="row">
   <% @challenges.each do |challenge| %>
     <div class="col-sm-6 col-md-4">
