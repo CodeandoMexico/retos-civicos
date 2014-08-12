@@ -56,7 +56,6 @@ feature "Challenges page" do
   scenario "There are multiple challenges" do
     visit root_path
     current_path.should eq root_path
-    save_and_open_page
   end
 
   scenario "There's only one challenge" do
