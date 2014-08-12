@@ -126,6 +126,8 @@ es:
         other: "Estamos evaluando y seleccionando las %{count} ideas recibidas"
       edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
+      has_not_started: 'No ha comenzado'
+      has_finished: 'Concluido'
       days-left-to-finish:
         zero: "Último día"
         one: "Queda <strong>un día</strong>"
