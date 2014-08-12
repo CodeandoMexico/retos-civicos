@@ -20,9 +20,7 @@ describe 'Organization admin emails collaborators of a challenge' do
     fill_in 'email[subject]', with: 'Titulo del correo'
     fill_in 'email[body]', with: 'Contenido del correo'
 
-    # save_and_open_page
     expect { click_on 'Enviar' }.to change { ActionMailer::Base.deliveries.count }.by(2)
-
   end
 
   def create_a_member_with_a_collaboration(name)

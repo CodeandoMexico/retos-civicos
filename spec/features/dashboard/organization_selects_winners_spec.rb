@@ -11,8 +11,7 @@ feature 'Organization selects winner for the challenge' do
       starts_on: 5.weeks.ago,
       ideas_phase_due_on: 4.weeks.ago,
       ideas_selection_phase_due_on: 3.week.ago,
-      prototypes_phase_due_on: 2.week.ago,
-      finish_date: 2.week.ago
+      prototypes_phase_due_on: 2.week.ago
     @entry = create :entry,
       accepted: true,
       challenge: challenge,
@@ -39,6 +38,7 @@ feature 'Organization selects winner for the challenge' do
   scenario 'and the challenge page should show the finalists and the winner' do
     select_winner
     add_finalist_entries(4)
+    challenge_has_finished
 
     visit challenge_path(challenge)
     page.should have_content "Ganador"
@@ -62,12 +62,13 @@ feature 'Organization selects winner for the challenge' do
     end
   end
 
+  def challenge_has_finished
+    challenge.finish_on = 1.week.ago
+    challenge.save
+  end
+
   def create_new_entry
     create :entry, accepted: true, challenge: challenge, member: (create :member)
   end
 
-  def many_day_went_by_and_the_challenge_is_finished(ch)
-    ch.finish_date = 1.week.ago
-    ch.save
-  end
 end

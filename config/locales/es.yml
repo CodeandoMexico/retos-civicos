@@ -34,6 +34,7 @@ es:
       inactive: Concluidos
       popular: Más populares
       recent: Más recientes
+      main_index_header: Democratizar el gasto público para la innovación digital
     like: Me gusta
     new:
       header: Nuevo Reto
@@ -125,6 +126,8 @@ es:
         other: "Estamos evaluando y seleccionando las %{count} ideas recibidas"
       edit-prototype: 'Editar prototipo'
       send-prototype: 'Enviar prototipo'
+      has_not_started: 'No ha comenzado'
+      has_finished: 'Concluido'
       days-left-to-finish:
         zero: "Último día"
         one: "Queda <strong>un día</strong>"

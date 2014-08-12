@@ -60,6 +60,16 @@
         <%= f.text_field :entry_template_url, class: 'form-control' %>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :status, t(".status"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.select(:status, status_for_challenge, class: 'form-control') %>
+      </div>
+    </div>
+
   </div>
 
   <div class="sheet-subheader">
