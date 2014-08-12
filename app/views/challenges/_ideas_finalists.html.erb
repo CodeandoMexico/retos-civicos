@@ -3,9 +3,9 @@
   <% @finalists.each_with_index do |entry, index| %>
     <%= link_to challenge_entry_path(@challenge, entry) do %>
       <% if index %  5 == 0 %>
-        <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-2 no-padding">
+        <div class="col-md-offset-2 col-xs-12 col-sm-4 col-sm-offset-4 col-md-2 no-padding">
       <% else %>
-        <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-2 no-padding">
       <% end %>
           <div class="finalist">
             <% if entry.image_url %>
