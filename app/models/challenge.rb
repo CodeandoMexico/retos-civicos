@@ -39,7 +39,11 @@ class Challenge < ActiveRecord::Base
   }
 
   scope :inactive, lambda {
-    where("status = 'finished' OR status = 'cancelled'")
+    where("status = 'finished' OR status = 'cancelled' OR status = 'private'")
+  }
+
+  scope :private, lambda {
+    where("status = 'private'")
   }
 
   scope :recent, lambda {
@@ -70,7 +74,7 @@ class Challenge < ActiveRecord::Base
     link target: "_blank", rel: "nofollow"
   end
 
-  STATUS = [:open, :working_on, :cancelled, :finished]
+  STATUS = [:private, :open, :working_on, :cancelled, :finished]
 
   def to_param
     "#{id}-#{title}".parameterize

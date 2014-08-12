@@ -10,7 +10,7 @@ class ChallengesController < ApplicationController
     return redirect_to about_path if Challenge.count.zero?
     return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
 
-    ch = Challenge.recent
+    ch = Challenge.active.recent
     ch = Challenge.active if params[:active]
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
