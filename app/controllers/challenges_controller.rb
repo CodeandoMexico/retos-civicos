@@ -24,21 +24,26 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
-    @organization = @challenge.organization
-    @comments = fetch_comments
-    @entries = @challenge.entries.public
-    @datasets = @challenge.datasets_id
-    @collaborators = @challenge.collaborators
-    @timeline = Phases.timeline_from_dates(@challenge)
-    @current_phase_title = Phases.current_phase_title(@challenge)
-    @days_left_for_current_phase = Phases.days_left_for_current_phase(@challenge)
 
-    @collaborators_count = @collaborators.count
-    @collaborators = @collaborators.order(:created_at).page(params[:page])
+    if @challenge.is_public? || User.is_admin_of_challenge(@challenge, current_organization)
+      @organization = @challenge.organization
+      @comments = fetch_comments
+      @entries = @challenge.entries.public
+      @datasets = @challenge.datasets_id
+      @collaborators = @challenge.collaborators
+      @timeline = Phases.timeline_from_dates(@challenge)
+      @current_phase_title = Phases.current_phase_title(@challenge)
+      @days_left_for_current_phase = Phases.days_left_for_current_phase(@challenge)
 
-    @winner = @challenge.current_winner
-    @finalists = @challenge.current_finalists
-    render layout: 'aquila'
+      @collaborators_count = @collaborators.count
+      @collaborators = @collaborators.order(:created_at).page(params[:page])
+
+      @winner = @challenge.current_winner
+      @finalists = @challenge.current_finalists
+      return render layout: 'aquila'
+    end
+
+    return render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
   def edit

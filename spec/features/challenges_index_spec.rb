@@ -6,6 +6,7 @@ feature "Challenges page" do
   let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
   let!(:finished_ch) { FactoryGirl.create(:challenge, status: 'finished') }
   let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
+  let!(:private_ch) { FactoryGirl.create(:challenge, status: 'private') }
 
   before do
     # double(Challenge.paginates_per(2))
@@ -56,7 +57,6 @@ feature "Challenges page" do
   scenario "There are multiple challenges" do
     visit root_path
     current_path.should eq root_path
-    save_and_open_page
   end
 
   scenario "There's only one challenge" do
@@ -70,5 +70,6 @@ feature "Challenges page" do
     working_on_ch.destroy
     finished_ch.destroy
     cancelled_ch.destroy
+    private_ch.destroy
   end
 end

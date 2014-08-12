@@ -39,7 +39,7 @@ class Challenge < ActiveRecord::Base
   }
 
   scope :inactive, lambda {
-    where("status = 'finished' OR status = 'cancelled' OR status = 'private'")
+    where("status = 'finished' OR status = 'cancelled'")
   }
 
   scope :private, lambda {
@@ -187,7 +187,12 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.has_only_one_challenge?
-    self.count == 1
+    # self.count == 1
+    where("status = 'open' OR status = 'working_on'").count == 1
+  end
+
+  def is_public?
+    self.status == 'open' || self.status == 'working_on'
   end
 
   private
