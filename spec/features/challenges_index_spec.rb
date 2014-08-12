@@ -8,6 +8,7 @@ feature "Challenges page" do
   let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
   let!(:finished_ch) { FactoryGirl.create(:challenge, status: 'finished') }
   let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
+  let!(:private_ch) { FactoryGirl.create(:challenge, status: 'private') }
 
   before do
     # double(Challenge.paginates_per(2))
@@ -63,8 +64,8 @@ feature "Challenges page" do
     page.should have_content starts_today_ch.title
     page.should have_content active_ch.title
     page.should have_content working_on_ch.title
-    page.should have_content finished_ch.title
-    page.should have_content cancelled_ch.title
+    # page.should have_content finished_ch.title
+    # page.should have_content cancelled_ch.title
   end
 
   scenario "There's only one challenge" do
@@ -80,5 +81,6 @@ feature "Challenges page" do
     working_on_ch.destroy
     finished_ch.destroy
     cancelled_ch.destroy
+    private_ch.destroy
   end
 end
