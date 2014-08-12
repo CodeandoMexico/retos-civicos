@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
     @challenge = @entry.challenge
     @user = @entry.member
 
-    if !@entry.public? && !@entry.member?(current_user)
+    if !@entry.public?
       return render status: :not_found
     end
   end
