@@ -120,6 +120,10 @@ class User < ActiveRecord::Base
     self.created_at == self.updated_at
   end
 
+  def self.is_admin_of_challenge(challenge, current_organization)
+      current_organization.present? && current_organization.id == challenge.organization.id
+  end
+
   private
 
   def fetch_twitter_avatar

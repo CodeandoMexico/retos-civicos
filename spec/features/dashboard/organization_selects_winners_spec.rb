@@ -38,6 +38,7 @@ feature 'Organization selects winner for the challenge' do
   scenario 'and the challenge page should show the finalists and the winner' do
     select_winner
     add_finalist_entries(4)
+    challenge_has_finished
 
     visit challenge_path(challenge)
     page.should have_content "Ganador"
@@ -59,6 +60,11 @@ feature 'Organization selects winner for the challenge' do
     (1..number_of_entries).each do
       create_new_entry
     end
+  end
+
+  def challenge_has_finished
+    challenge.finish_on = 1.week.ago
+    challenge.save
   end
 
   def create_new_entry

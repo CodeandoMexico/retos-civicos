@@ -42,6 +42,10 @@ class Challenge < ActiveRecord::Base
     where("status = 'finished' OR status = 'cancelled'")
   }
 
+  scope :private, lambda {
+    where("status = 'private'")
+  }
+
   scope :recent, lambda {
     where(['starts_on <= ?', Date.current]).order('created_at DESC')
   }
@@ -70,7 +74,7 @@ class Challenge < ActiveRecord::Base
     link target: "_blank", rel: "nofollow"
   end
 
-  STATUS = [:open, :working_on, :cancelled, :finished]
+  STATUS = [:private, :open, :working_on, :cancelled, :finished]
 
   def to_param
     "#{id}-#{title}".parameterize
@@ -183,7 +187,12 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.has_only_one_challenge?
-    self.count == 1
+    # self.count == 1
+    where("status = 'open' OR status = 'working_on'").count == 1
+  end
+
+  def is_public?
+    self.status == 'open' || self.status == 'working_on'
   end
 
   private
