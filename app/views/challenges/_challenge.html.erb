@@ -8,7 +8,7 @@
     <div class="challenge-item-index-photo row">
       <div class="row">
         <div class="col-md-7 col-sm-12 background-light-green">
-          <p class="text-white text-bold text-center"><%= challenge.title.truncate(25) %></p>
+          <p class="text-white text-bold text-center challenge-index-title"><%= challenge.title.truncate(60) %></p>
         </div>
         <div class="col-md-5 hidden-sm hidden-xs">
           <% if challenge.collaborators.count.zero? %>
