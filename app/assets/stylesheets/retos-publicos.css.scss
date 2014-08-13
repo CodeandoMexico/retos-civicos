@@ -16,6 +16,12 @@ $green: #00e15a;
 @import 'retos-publicos/finalists';
 @import 'retos-publicos/entry';
 
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em
+}
+
 .about-img {
   margin: auto;
 }
@@ -65,4 +71,10 @@ $green: #00e15a;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.landing {
+  background-color: $green;
+  width: 100%;
+  padding: 3em 0;
 }
