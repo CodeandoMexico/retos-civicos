@@ -23,7 +23,8 @@ class PagesController < ApplicationController
   end
 
   def terms_of_service
-    render layout: 'aquila'
+    # TODO: This 404 raising is temporal. remove this and render the normal layout
+    raise ActionController::RoutingError.new('Not Found')
   end
 
   def privacy
