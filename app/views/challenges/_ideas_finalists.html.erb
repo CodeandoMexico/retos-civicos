@@ -5,7 +5,7 @@
   <% @finalists.each_with_index do |entry, index| %>
     <%= link_to challenge_entry_path(@challenge, entry) do %>
       <% if index %  5 == 0 %>
-        <div class="col-md-offset-2 col-md-2 no-padding">
+        <div class="col-md-offset-1 col-md-2 no-padding">
       <% else %>
         <div class="col-md-2 no-padding">
       <% end %>
