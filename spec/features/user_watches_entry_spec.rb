@@ -18,6 +18,24 @@ feature 'User watches entry' do
     removed_behaivior
   end
 
+  scenario 'but return not found' do
+    member = new_member
+    organization = new_organization
+    challenge = create :challenge, title: 'Reto 1', organization: organization
+    collaboration = create :collaboration, challenge: challenge, member: member
+
+    entry = create :entry,
+      public: false,
+      member: member,
+      challenge: challenge,
+      name: 'App de prueba',
+      description: 'App description',
+      idea_url: 'http://codeandomexico.org'
+
+    visit challenge_entry_path(challenge, entry)
+    page.status_code.should eq 404
+  end
+
   def page_should_have_entry(entry)
     within '#entries_tab_pane' do
       page.should have_content entry.fetch(:name)
