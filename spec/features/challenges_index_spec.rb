@@ -64,8 +64,8 @@ feature "Challenges page" do
     page.should have_content starts_today_ch.title
     page.should have_content active_ch.title
     page.should have_content working_on_ch.title
-    page.should have_content finished_ch.title
-    page.should have_content cancelled_ch.title
+    # page.should have_content finished_ch.title
+    # page.should have_content cancelled_ch.title
   end
 
   scenario "There's only one challenge" do

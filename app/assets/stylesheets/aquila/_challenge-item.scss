@@ -2,7 +2,6 @@
   background-size: cover;
   border: 3px solid #eeeeee;
   display: block;
-  height: 300px;
   margin: 1.5em 0;
   position: relative;
 
@@ -32,6 +31,10 @@
 
 .challenge-item-content {
   position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.challenge-item-index-photo {
   bottom: 0;
   width: 100%;
 }

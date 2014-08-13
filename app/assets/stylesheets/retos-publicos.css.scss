@@ -78,3 +78,8 @@ $browser-context: 16; // Default
   width: 100%;
   padding: 3em 0;
 }
+
+.challenge-index-title{
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -16,11 +16,19 @@
       <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
+          <% if @challenge.is_active? %>
             <%= t("challenges.status.#{@current_phase_title}") %>
+          <% elsif !@challenge.has_started? %>
+            <%= t(".has_not_started") %>
+          <% elsif @challenge.has_finished? %>
+            <%= t(".has_finished") %>
+          <% end %>
           </div>
+          <% if @challenge.is_active? %>
           <div class="challenge-hightlight-item">
             <%= raw t(".days-left-to-finish", count: @days_left_for_current_phase) %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

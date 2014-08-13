@@ -1,25 +1,33 @@
-<%= link_to organization_challenge_path(challenge.organization.id, challenge),
-  class: 'challenge-item',
-  style: "background-image: url(#{challenge.avatar_url(:small)});" do %>
-  <div class="challenge-item-content">
-
-    <div class="row">
-      <div class="col-md-7 background-light-green">
-        <p class="text-white text-bold"><%= challenge.title.truncate(60) %></p>
-      </div>
-      <div class="col-md-5">
-        <p class="text-white text-light text-small text-center"><%= t(".number-of-collaborators", count: challenge.collaborators.count) %></p>
-      </div>
+<div class="col-md-4">
+  <%= link_to organization_challenge_path(challenge.organization.id, challenge),
+    class: 'challenge-item' do %>
+    <div class="row foto">
+      <%= image_tag challenge.avatar_url, class:"img-responsive" %>
     </div>
 
-    <div class="row">
-      <div class="col-md-7 background-dark-green" style="padding-bottom:10px;">
-        <p class="text-white text-light" style="margin-top:20px;"><%= challenge.organization %></p>
+    <div class="challenge-item-index-photo row">
+      <div class="row">
+        <div class="col-md-7 col-sm-12 background-light-green">
+          <p class="text-white text-bold text-center challenge-index-title"><%= challenge.title.truncate(60) %></p>
+        </div>
+        <div class="col-md-5 hidden-sm hidden-xs">
+          <% if challenge.collaborators.count.zero? %>
+            <p class="text-white text-light text-small text-center"><%= t(".collaborate") %></p>
+          <% else %>
+            <p class="text-white text-light text-small text-center"><%= t(".number-of-collaborators", count: challenge.collaborators.count) %></p>
+          <% end %>
+        </div>
       </div>
-      <div class="col-md-5" style="padding-bottom:10px;">
-        <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>
-        <%= render 'mini_phase_bar', challenge: challenge %>
+
+      <div class="row">
+        <div class="col-md-7 col-sm-12 background-dark-green" style="padding-bottom:10px;">
+          <p class="text-white text-light text-center" style="margin-top:20px;"><%= challenge.organization.slug.upcase %></p>
+        </div>
+        <div class="col-md-5" style="padding-bottom:10px;">
+          <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>
+          <%= render 'mini_phase_bar', challenge: challenge %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

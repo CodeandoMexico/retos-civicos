@@ -102,6 +102,14 @@ class Challenge < ActiveRecord::Base
     self[:about].to_s
   end
 
+  def is_active?
+    starts_on <= Date.current && Date.current <= finish_on
+  end
+
+  def has_started?
+    Date.current >= starts_on
+  end
+
   def has_finished?
     Date.current > finish_on
   end
