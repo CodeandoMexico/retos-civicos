@@ -23,15 +23,15 @@
   <% @finalists.each_with_index do |entry, index| %>
     <%= link_to challenge_entry_path(@challenge, entry) do %>
       <% if index %  5 == 0 %>
-        <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-2 no-padding">
+        <div class="col-md-offset-2 col-xs-12 col-md-2 no-padding">
       <% else %>
-        <div class="col-xs-12 col-sm-12 col-md-2 no-padding">
+        <div class="col-xs-12 col-md-2 no-padding">
       <% end %>
           <div class="finalist">
             <% if entry.image_url %>
-              <%= image_tag entry.image_url%>
+              <%= image_tag entry.image_url, class: 'img-responsive' %>
             <% else %>
-              <%= image_tag 'retos_challenge_avatar.png' %>
+              <%= image_tag 'retos_challenge_avatar.png', class: 'img-responsive' %>
             <% end %>
             <p style="margin:0px;"><%= entry.member %></p>
           </div>
