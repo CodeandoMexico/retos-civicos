@@ -8,16 +8,20 @@
     <div class="challenge-item-index-photo row">
       <div class="row">
         <div class="col-md-7 col-sm-12 background-light-green">
-          <p class="text-white text-bold text-center"><%= challenge.title.truncate(20) %></p>
+          <p class="text-white text-bold text-center"><%= challenge.title.truncate(25) %></p>
         </div>
         <div class="col-md-5 hidden-sm hidden-xs">
-          <p class="text-white text-light text-small text-center"><%= t(".number-of-collaborators", count: challenge.collaborators.count) %></p>
+          <% if challenge.collaborators.count.zero? %>
+            <p class="text-white text-light text-small text-center"><%= t(".collaborate") %></p>
+          <% else %>
+            <p class="text-white text-light text-small text-center"><%= t(".number-of-collaborators", count: challenge.collaborators.count) %></p>
+          <% end %>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-7 col-sm-12 background-dark-green" style="padding-bottom:10px;">
-          <p class="text-white text-light text-center" style="margin-top:20px;"><%= challenge.organization.name.truncate(15) %></p>
+          <p class="text-white text-light text-center" style="margin-top:20px;"><%= challenge.organization.slug.upcase %></p>
         </div>
         <div class="col-md-5" style="padding-bottom:10px;">
           <p class="text-light-green text-bold text-small text-center"><%= challenge.current_phase_title %></p>

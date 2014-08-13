@@ -8,7 +8,7 @@ class ChallengeAvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process :resize_to_fit => [300, 180]
+    process :resize_to_fit => [355, 180]
   end
 
   def extension_white_list

@@ -140,6 +140,7 @@ es:
       about_the_team: Sobre el equipo
     challenge:
       number-of-collaborators: "%{count} participantes"
+      collaborate: ¡Participa!
     comments:
       order_by: "Ordenar por: "
       vote_count: Votos
