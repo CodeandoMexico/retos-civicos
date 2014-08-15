@@ -38,7 +38,7 @@
         <p><%= markdown_for_additional_links @challenge.about %></p>
 
         <h2 class="title"><%= t("challenges.form.created-by") %></h2>
-        <p><%= @organization.name %></p>
+        <p><%= image_tag @organization.image_url(:profile) %></p>
       </div>
 
       <% if @challenge.prize.present? %>
