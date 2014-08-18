@@ -1,8 +1,10 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :email, :bio, :nickname, :accepting_subscribers, :avatar
+  attr_accessible :name, :email, :bio, :nickname, :accepting_subscribers, :avatar, :website
 
   has_many :challenges
   has_many :subscribers
+
+  validates :website, url: { allow_blank: true }, on: :update
 
   acts_as_user
 

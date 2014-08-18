@@ -535,6 +535,7 @@ es:
       header:
         one: ! 'El %{model} no pudo guardarse debido a 1 error'
         other: ! 'El %{model} no pudo guardarse debido a %{count} errores'
+    url: 'no es un URL válido'
   helpers:
     edit: Editar reto
     edit_entry: Editar propuesta
@@ -606,6 +607,7 @@ es:
           attributes:
             email:
               format: Email es inválido
+            invalid: es inválido
     attributes:
       admin:
         email: Correo
