@@ -33,6 +33,16 @@
 
     <div class="form-group">
       <div class="col-sm-3">
+        <%= f.label :website, t(".website"), class: 'control-label' %>
+        <span class="help-block"><%= t(".website-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :website, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
         <%= f.label :avatar, t(".avatar"), class: 'control-label' %>
       </div>
       <div class="col-sm-9">

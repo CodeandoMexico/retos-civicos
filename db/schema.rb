@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140808005250) do
+ActiveRecord::Schema.define(:version => 20140817233616) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20140808005250) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "website"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

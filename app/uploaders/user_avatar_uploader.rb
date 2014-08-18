@@ -25,4 +25,8 @@ class UserAvatarUploader < CarrierWave::Uploader::Base
     "uploads/user_avatar/#{model.id}"
   end
 
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
 end

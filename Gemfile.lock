@@ -368,6 +368,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    validate_url (0.2.2)
+      activemodel (>= 3.0.0)
+      addressable
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -440,4 +443,5 @@ DEPENDENCIES
   twitter (~> 5.8.0)
   uglifier (>= 1.0.3)
   unicorn
+  validate_url
   zurb-foundation (~> 3.2.0)

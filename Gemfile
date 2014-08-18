@@ -75,6 +75,7 @@ gem 'delayed_job_active_record'
 gem 'redcarpet'
 gem 'figaro'
 gem 'onebox', '~> 1.2'
+gem 'validate_url'
 
 # Console tools
 gem 'ruby-progressbar'
