@@ -1,0 +1,23 @@
+.header-banner {
+  background-color: #eee;
+  height: 45px;
+  padding-top: 5px;
+}
+
+.header-gobierno-logo {
+  display: inline-block;
+}
+
+.header-social-links {
+  display: inline-block;
+  float: right;
+  font-size: 1em;
+  padding-right: 2%;
+  margin-top: 4px;
+}
+
+.header-social-link {
+  color: $brand-primary;
+  margin: 5px;
+  font-size: 1.5em;
+}

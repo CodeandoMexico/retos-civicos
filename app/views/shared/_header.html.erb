@@ -1,3 +1,15 @@
+<div class="header-banner">
+  <div class="container">
+    <div class="header-gobierno-logo">
+      <%= image_tag 'gobieron-republica.png', alt: 'gobierno de la república' %>
+    </div>
+    <div class="header-social-links">
+      <%= link_to "<i class='fa fa-twitter'></i>".html_safe, "http://twitter.com/home?status=Emprendedores cívicos colaboraran con el Gobierno de la República para resolver los retos del país", class: 'header-social-link', target: "_blank" %>
+      <%= link_to "<i class='fa fa-facebook'></i>".html_safe, "http://www.facebook.com/sharer/sharer.php?p[url]=http://retos.gob.mx&p[title]=#Retos Públicos&p[description]=Emprendedores cívicos colaboraran con el Gobierno de la República para resolver los retos del país", class: 'header-social-link', target: "_blank" %>
+    </div>
+  </div>
+</div>
+
 <div class="main-navbar">
   <div class="container">
     <%= link_to root_url, class: 'main-navbar-logo' do %>
