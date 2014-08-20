@@ -19,7 +19,7 @@ gem 'github_api'
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
-gem 'ckan', :github => 'CodeandoMexico/CKAN-rb'
+gem 'ckan', github: 'CodeandoMexico/CKAN-rb'
 
 group :test do
   gem 'shoulda-matchers'
@@ -45,7 +45,7 @@ end
 
 group :development do
   gem 'thin'
-	gem 'debugger'
+  gem 'debugger'
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'better_errors'
@@ -65,7 +65,7 @@ gem 'sanitize'
 gem 'auto_html'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-tokeninput-rails', :github => 'acrogenesis/jquery-tokeninput-rails'
+gem 'jquery-tokeninput-rails', github: 'acrogenesis/jquery-tokeninput-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
 gem 'dynamic_form'
