@@ -5,7 +5,7 @@ feature 'Organization admin updates organization profile' do
     organization = create :organization
     sign_in_organization_admin(organization.admin)
 
-    click_on 'Configuración'
+    click_on 'Editar Perfil'
     fill_in 'organization_name', with: 'Updated org name'
     click_button 'Actualizar'
 
