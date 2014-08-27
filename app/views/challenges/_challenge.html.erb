@@ -7,7 +7,7 @@
 
     <div class="challenge-item-index-photo row">
       <div class="row">
-        <div class="col-md-7 col-sm-12 background-light-green">
+        <div class="col-md-7 col-sm-12 background-light-green small-sides-padding">
           <p class="text-white text-bold text-center challenge-index-title"><%= challenge.title.truncate(60) %></p>
         </div>
         <div class="col-md-5 hidden-sm hidden-xs">
@@ -31,3 +31,6 @@
     </div>
   <% end %>
 </div>
+<script>
+  jQuery(".challenge-index-title").fitText(1.4, { maxFontSize: '16px' })
+</script>
