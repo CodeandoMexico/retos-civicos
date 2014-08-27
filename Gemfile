@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.19'
 
 gem 'foreman'
 gem 'pg'
@@ -48,7 +48,7 @@ end
 
 group :development do
   gem 'thin'
-  gem 'debugger'
+  gem 'debugger2'
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'better_errors'
