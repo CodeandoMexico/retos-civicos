@@ -7,6 +7,9 @@ gem 'rails', '3.2.18'
 gem 'foreman'
 gem 'pg'
 
+# Heroku compability
+gem 'rails_12factor'
+
 # OAuth providers
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
