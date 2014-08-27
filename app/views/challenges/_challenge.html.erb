@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 col-sm-12">
   <%= link_to organization_challenge_path(challenge.organization.id, challenge),
     class: 'challenge-item' do %>
     <div class="row foto">
@@ -7,7 +7,7 @@
 
     <div class="challenge-item-index-photo row">
       <div class="row">
-        <div class="col-md-7 col-sm-12 background-light-green">
+        <div class="col-md-7 col-sm-12 background-light-green small-sides-padding">
           <p class="text-white text-bold text-center challenge-index-title"><%= challenge.title.truncate(60) %></p>
         </div>
         <div class="col-md-5 hidden-sm hidden-xs">

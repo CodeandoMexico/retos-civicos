@@ -21,8 +21,12 @@
 <% end %>
 
 <div id="challenges_list" class="row">
-  <% @challenges.each do |challenge| %>
-      <%= render challenge %>
+  <% @challenges_group.each do |challenge_group| %>
+    <div class="row">
+      <% challenge_group.each do |challenge| %>
+        <%= render challenge %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 

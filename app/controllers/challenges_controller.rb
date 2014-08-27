@@ -15,6 +15,7 @@ class ChallengesController < ApplicationController
     ch = Challenge.inactive if params[:inactive]
     ch = Challenge.popular if params[:popular]
     @challenges = ch.page(params[:page])
+    @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
 
