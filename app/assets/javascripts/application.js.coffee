@@ -30,5 +30,4 @@ $(document).ready ->
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
   $('[data-toggle="tooltip"]').tooltip()
-  $(".challenge-index-title").fitText 1.4,
-  maxFontSize: "16px"
+  $(".challenge-index-title").fitText 1.4, maxFontSize: "16px"

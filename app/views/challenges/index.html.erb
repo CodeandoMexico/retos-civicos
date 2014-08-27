@@ -21,8 +21,14 @@
 <% end %>
 
 <div id="challenges_list" class="row">
-  <% @challenges.each do |challenge| %>
-      <%= render challenge %>
+  <% @challenges.each_with_index do |challenge, index| %>
+    <% if index % 3 == 0 %>
+      <div class="row">
+    <% end %>
+    <%= render challenge %>
+    <% if index % 3 == 2 || @challenges.count == index + 1 %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
