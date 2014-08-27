@@ -8,7 +8,7 @@ gem 'foreman'
 gem 'pg'
 
 # Heroku compability
-gem 'rails_12factor'
+gem 'rails_12factor', group: [:staging, :production]
 
 # OAuth providers
 gem 'omniauth-github'
