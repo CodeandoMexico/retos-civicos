@@ -3,6 +3,7 @@ $green: #00e15a;
 @import "chosen";
 
 @import "retos-publicos/main-navbar";
+@import "retos-publicos/landing";
 @import "retos-publicos/sheet";
 @import "retos-publicos/social-link";
 @import "retos-publicos/challenge";
@@ -77,20 +78,4 @@ $browser-context: 16; // Default
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.landing {
-  background-color: $green;
-  width: 100%;
-  padding: 3em 0;
-}
-
-.challenge-index-title{
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.org-index-title {
-  margin-top: 20px!important;
-  text-transform: uppercase;
 }

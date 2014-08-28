@@ -17,6 +17,8 @@
   <div id="intro" class="landing">
     <%= image_tag "logos-horizontal/retos_logo_horizontal-01.png", class: "image-center img-responsive" %>
     <h3 class="text-center text-white" style="margin-bottom:1em;"><%= t(".main_index_header") %></h4>
+    <a href='#' id='player-trigger' data-toggle="modal" data-target="#modal-player"><i class="text-white fa fa-play-circle-o" id="player-icon" ></i></a>
+    <%= render "pages/video_intro" %>
   </div>
 <% end %>
 
