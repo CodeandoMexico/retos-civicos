@@ -26,115 +26,166 @@ $phases-bar-text-height: 16px;
   width: 150px;
 }
 
-.phases-bar-horizontal {
-  &.phases-bar {
-    height: $phases-bar-height;
-  }
-
-  @mixin phases-bar-block($units) {
-    float: left;
-    height: 100%;
-    position: relative;
-    width: $phases-bar-unit * $units;
-  }
-
-  .phases-bar-milestone {
-    @include phases-bar-block(1);
-  }
-
-  .phases-bar-milestone-date {
-    position: absolute;
-    top: 130%;
-    left: 50%;
-    width: 150px;
-  }
-
-  .phases-bar-phase {
-    @include phases-bar-block(5);
-    border-left: 1px solid $gray-dark;
-    border-right: 1px solid $gray-dark;
-  }
-
-  .phases-bar-completeness {
-    width: 0%;
-    background: $brand-dark;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    top: 0;
-    transition: width 1s linear;
-  }
-
-  .phases-date {
-    top: 140%;
-  }
-
-  .phases-date-milestone {
-    left: 50%;
-  }
-
-  .phases-date-phase {
-    left: 100%;
-  }
-
-  .phases-date-last-milestone {
-    left: auto;
-    right: 50%;
-    text-align: right;
-
-    .phases-date-dot {
-      left: auto;
-      right: -5px;
+@media (min-width: $screen-md-min) {
+  .phases-bar {
+    &.phases-bar {
+      height: $phases-bar-height;
     }
 
-    .phases-date-line {
-      left: auto;
-      right: 0;
+    @mixin phases-bar-block($units) {
+      float: left;
+      height: 100%;
+      position: relative;
+      width: $phases-bar-unit * $units;
     }
-  }
 
-  .phases-arrow {
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    top: 40%;
-  }
+    .phases-bar-milestone {
+      @include phases-bar-block(1);
+    }
 
-  .phases-arrow-end {
-    left: 100%;
-  }
+    .phases-bar-milestone-date {
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      width: 150px;
+    }
 
-  .phases-arrow-dot {
-    width: 13px;
-    height: 13px;
-    background: $brand-primary;
-    border-radius: 50px;
-    margin-left: -5px;
-  }
+    .phases-bar-phase {
+      @include phases-bar-block(5);
+      border-left: 1px solid $gray-dark;
+      border-right: 1px solid $gray-dark;
+    }
 
-  .phases-arrow-line {
-    width: 3px;
-    height: 30px;
-    background: $brand-primary;
+    .phases-bar-completeness {
+      width: 0%;
+      height: 100% !important;
+      background: $brand-dark;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: width 1s linear;
+    }
+
+    .phases-date {
+      top: 140%;
+    }
+
+    .phases-date-milestone {
+      left: 50%;
+    }
+
+    .phases-date-phase {
+      left: 100%;
+    }
+
+    .phases-date-last-milestone {
+      left: auto;
+      right: 50%;
+      text-align: right;
+
+      .phases-date-dot {
+        left: auto;
+        right: -5px;
+      }
+
+      .phases-date-line {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .phases-arrow {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 40%;
+    }
+
+    .phases-arrow-end {
+      left: 100%;
+    }
+
+    .phases-arrow-dot {
+      width: 13px;
+      height: 13px;
+      background: $brand-primary;
+      border-radius: 50px;
+      margin-left: -5px;
+    }
+
+    .phases-arrow-line {
+      width: 3px;
+      height: 30px;
+      background: $brand-primary;
+    }
   }
 }
 
-.phases-bar-vertical {
-  &.phases-bar {
-    width: 200px;
-  }
+@media (max-width: $screen-md-min) {
+  .phases-bar {
+    &.phases-bar {
+      width: 200px;
+      left: 15%;
+      position: relative;
+    }
 
-  .phases-bar-milestone {
-    height: 50px;
-    width: 200px;
-  }
+    .phases-bar-milestone {
+      height: 50px;
+      width: 200px;
+      position: relative;
+    }
 
-  .phases-bar-phase {
-    border-top: 1px solid $gray-dark;
-    border-bottom: 1px solid $gray-dark;
-  }
+    .phases-arrow {
+      position: absolute;
+      z-index: 2;
+      right: -9%;
+      top: 40%;
+    }
 
-  .phases-date {
-    left: 150%;
+    .phases-arrow-end {
+      right: -9%;
+      top: 42px;
+    }
+
+    .phases-arrow-dot {
+      width: 13px;
+      height: 13px;
+      background: $brand-primary;
+      border-radius: 50px;
+      margin-left: -5px;
+    }
+
+    .phases-arrow-line {
+      height: 3px;
+      width: 30px;
+      position: relative;
+      top: -7.5px;
+      background: $brand-primary;
+    }
+
+    .phases-bar-phase {
+      border-top: 1px solid $gray-dark;
+      border-bottom: 1px solid $gray-dark;
+      position: relative;
+    }
+    .phases-bar-completeness {
+      width: 100% !important;
+      height: 0;
+      background: $brand-dark;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: height 1s linear;
+    }
+
+    .phases-date {
+      left: 230px;
+      top: 7px;
+    }
+    .phases-date-phase {
+      top: 30px;
+    }
   }
 }

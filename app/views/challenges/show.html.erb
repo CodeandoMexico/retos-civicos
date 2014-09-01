@@ -95,7 +95,7 @@
 
 <div class="sheet-section sheet-section-with-pad">
   <h3 class="text-center l-space-bottom"><%= t('.phases') %></h3>
-  <div class="phases-bar phases-bar-horizontal js-phases-bar">
+  <div class="phases-bar phases-bar js-phases-bar">
     <div class="phases-bar-milestone">
       <div class="phases-arrow">
         <div class="phases-arrow-dot"></div>
@@ -109,7 +109,7 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas.completeness %>">
+      <div class="phases-bar-completeness" data-size="<%= @timeline.ideas.completeness %>">
       </div>
       <p><%= @timeline.ideas.title %></p>
       <div class="phases-arrow phases-arrow-end">
@@ -124,7 +124,7 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @timeline.ideas_selection.completeness %>">
+      <div class="phases-bar-completeness" data-size="<%= @timeline.ideas_selection.completeness %>">
       </div>
       <p><%= @timeline.ideas_selection.title %></p>
     </div>
@@ -141,7 +141,7 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes.completeness %>">
+      <div class="phases-bar-completeness" data-size="<%= @timeline.prototypes.completeness %>">
       </div>
       <p><%= @timeline.prototypes.title %></p>
       <div class="phases-arrow phases-arrow-end">
@@ -156,7 +156,7 @@
       </div>
     </div>
     <div class="phases-bar-phase">
-      <div class="phases-bar-completeness" data-width="<%= @timeline.prototypes_selection.completeness %>">
+      <div class="phases-bar-completeness" data-size="<%= @timeline.prototypes_selection.completeness %>">
       </div>
       <p><%= @timeline.prototypes_selection.title %></p>
     </div>
