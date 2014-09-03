@@ -44,10 +44,10 @@
       <% if @challenge.prize.present? %>
         <div class="challenge-prize">
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-xs-2">
               <%= image_tag 'challenge-prize.png', width: 50, class: 'media-object' %>
             </div>
-            <div class="col-md-10">
+            <div id="challenge-prize-description" class="col-xs-10">
               <%= markdown @challenge.prize %>
             </div>
           </div>
