@@ -9,24 +9,22 @@
 }
 
 .main-navbar-menu {
-  float: right;
-  list-style: none;
-  margin: 0;
-  padding: 1em;
-
   > li {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
     font-weight: bold;
     text-shadow: 0 1px #eeeeee;
 
     > a {
-      color: $brand-dark;
+      color: $brand-dark !important;
     }
   }
 }
 
 .main-navbar-menu-last {
   border-left: 1px solid #eeeeee;
+}
+@media (max-width: $screen-sm-min) {
+  .main-navbar-menu-last {
+    border-left: none;
+    border-top: 1px solid #eeeeee;
+  }
 }

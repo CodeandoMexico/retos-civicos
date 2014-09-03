@@ -23,6 +23,7 @@
 #= require bootstrap/dropdown
 #= require bootstrap/tab
 #= require bootstrap/tooltip
+#= require bootstrap/collapse
 #= require_tree .
 #= require_self
 
