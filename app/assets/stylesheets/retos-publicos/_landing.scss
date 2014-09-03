@@ -1,0 +1,23 @@
+.landing {
+  background-color: $green;
+  width: 100%;
+  padding: 3em 0 2em 0;
+  text-align: center;
+}
+
+.challenge-index-title{
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.org-index-title {
+  margin-top: 20px!important;
+  text-transform: uppercase;
+}
+
+#player-icon {
+  font-size: 3em;
+  &:hover {
+    color: #f7f2f2;
+  }
+}

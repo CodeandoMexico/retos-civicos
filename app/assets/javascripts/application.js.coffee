@@ -33,3 +33,11 @@ $(document).ready ->
   $('[data-toggle="tooltip"]').tooltip()
   $(".challenge-index-title").fitText 1.4, maxFontSize: "16px"
   $("#challenge-prize-description").fitText 1.2, maxFontSize: "17px"
+
+  $('#player-trigger').on 'click', ->
+    $('#modal-player').modal('toggle')
+    false
+
+  # Stop video when closing the modal
+  $('#modal-player').on 'hidden.bs.modal', ->
+    $("#modal-player iframe").attr("src", $("#modal-player iframe").attr("src"))
