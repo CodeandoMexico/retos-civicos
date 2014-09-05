@@ -36,7 +36,7 @@
       <div class="challenge-about">
         <h2 class="pitch"><%= @challenge.pitch %></h2>
         <p><%= markdown_for_additional_links @challenge.about %></p>
-
+        <p><%= link_to t('challenges.form.assessment-methodology'), @challenge.assessment_methodology if @challenge.assessment_methodology %></p>
         <h2 class="title"><%= t("challenges.form.created-by") %></h2>
         <p><%= link_to image_tag(@organization.image_url(:profile)), @organization.website, target: '_blank' %></p>
       </div>
