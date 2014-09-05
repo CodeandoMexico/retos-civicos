@@ -70,6 +70,16 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :assessment_methodology, t(".assessment-methodology"), class: 'control-label' %>
+        <span class="help-block"><%= t(".assessment-methodology-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :assessment_methodology, class: 'form-control' %>
+      </div>
+    </div>
+
   </div>
 
   <div class="sheet-subheader">

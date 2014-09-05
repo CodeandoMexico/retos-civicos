@@ -150,6 +150,8 @@ en:
       finish-date: End date
       entry-template-url: App template link
       entry-template-url-description: Link to a template that will help the members to send their apps.
+      assessment-methodology: Assessment Methodology
+      assessment-methodology-description: Link to Assessment Methodology
       needs: Challenge needs
       points: Key goals
       points-description: What are the main goals of this challenge? Try to be concise.

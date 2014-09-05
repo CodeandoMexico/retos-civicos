@@ -52,6 +52,8 @@ es:
       prize-description: Describe el premio en formato Markdown
       entry-template-url: Link plantilla de propuesta
       entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
+      assessment-methodology: Metodología de Evaluación
+      assessment-methodology-description: Link a Metodología de Evaluación
       needs: Necesidades del reto
       challenge-description: 'Descripción del reto'
       points: Puntos clave
