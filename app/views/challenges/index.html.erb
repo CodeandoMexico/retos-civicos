@@ -1,6 +1,8 @@
 <% if can? :create, Challenge %>
-  <div id="new_challenge" class="pull-right">
-    <%= link_to t('.new_challenge'), new_organization_challenge_path(current_organization), class: 'btn btn-lg btn-primary' %>
+  <div class="row">
+    <div id="new_challenge" class="pull-right">
+      <%= link_to t('.new_challenge'), new_organization_challenge_path(current_organization), class: 'btn btn-lg btn-primary' %>
+    </div>
   </div>
 <% end %>
 
