@@ -10,6 +10,7 @@
 
   > .btn {
     @extend .btn-block;
+    margin-bottom: 20px;
     background-color: $brand-dark;
     border: none;
     border-radius: 0;
