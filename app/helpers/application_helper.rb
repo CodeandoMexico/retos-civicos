@@ -5,6 +5,14 @@ module ApplicationHelper
     end
   end
 
+  def image_url(source)
+    abs_path = image_path(source)
+    unless abs_path =~ /^http/
+      abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}"
+    end
+   abs_path
+  end
+
   # Dynamic current userable method depending on the user's role
   # Example: if current_user is a member you can simply call current_member
   User::ROLES.each do |role|
