@@ -37,12 +37,14 @@ feature "Commenting on challenge" do
     reset_email
 
     visit organization_challenge_path(challenge.organization, challenge)
-    within '#challenge_comments_container' do
+    within '.challenge-subheader-comments' do
       click_link 'Comentar'
+    end
+    within '#new_comment' do
       fill_in 'comment[body]', with: 'This is my comment!'
       click_button 'Comentar'
     end
-    page.should have_content 'Gracias por tus comentarios'
+    page.should have_content 'This is my comment!'
     ActionMailer::Base.deliveries.size.should be 1
   end
 end
