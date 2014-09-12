@@ -57,7 +57,6 @@ end
 
 group :production do
   gem 'unicorn'
-  gem "memcachier"
 end
 
 gem 'kaminari'
@@ -94,3 +93,4 @@ gem 'rack-no-www'
 gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
+gem "memcachier"
