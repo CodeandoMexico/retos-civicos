@@ -260,6 +260,7 @@ es:
         public: Pública
         sent-date: Fecha de envío
         no-proposals: Aún no hay propuestas.
+        entry-email: Email
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -270,6 +271,7 @@ es:
         go-back: "< Volver a propuestas de %{title}"
         solve-challenge: ¿Como resuelve el reto?
         company-name: Empresa
+        entry-email: Email
         company-rfc: RFC de la Empresa
         company-proposal: Propuesta
         technology: Tecnologías
@@ -387,6 +389,10 @@ es:
       idea_url: idea
       technologies_separated_by_commas: tecnologias
       member_name: participante
+      member_id: participante_id
+      member_company: empresa
+      member_email: email
+      letter_under_oath_present?: carta_legal_enviada
       public?: publica
   prototypes:
     form_content:

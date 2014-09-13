@@ -35,6 +35,7 @@
       <tr>
         <th></th>
         <th><%= t('.company-name') %></th>
+        <th><%= t('.entry-email') %></th>
         <th><%= t('.link-to-project') %></th>
         <th><%= t('.technologies') %></th>
         <th><%= t('.public') %></th>
@@ -49,6 +50,7 @@
           <small><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></small>
         </td>
         <td><%= entry.member.company_name %></td>
+        <td><%= truncate(entry.member.email, length: 25) %></td>
         <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
         <td><%= entry.technologies_separated_by_commas %></td>
         <td><%= render 'visit_or_publish_entry', entry: entry %></td>

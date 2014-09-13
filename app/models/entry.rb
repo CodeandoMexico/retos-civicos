@@ -23,7 +23,8 @@ class Entry < ActiveRecord::Base
 
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
-     :idea_url, :technologies_separated_by_commas, :member_name, :public?]
+     :idea_url, :technologies_separated_by_commas, :member_name,
+     :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
   end
 
   def publish!
@@ -40,6 +41,22 @@ class Entry < ActiveRecord::Base
 
   def member_name
     member.name
+  end
+
+  def member_id
+    member.id
+  end
+
+  def member_company
+    member.company_name
+  end
+
+  def member_email
+    member.email
+  end
+
+  def letter_under_oath_present?
+    letter_under_oath.present?
   end
 
   def challenge_title
