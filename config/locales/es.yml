@@ -389,6 +389,10 @@ es:
       idea_url: idea
       technologies_separated_by_commas: tecnologias
       member_name: participante
+      member_id: participante_id
+      member_company: empresa
+      member_email: email
+      letter_under_oath_present?: carta_legal_enviada
       public?: publica
   prototypes:
     form_content:
