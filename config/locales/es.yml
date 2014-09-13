@@ -260,6 +260,7 @@ es:
         public: Pública
         sent-date: Fecha de envío
         no-proposals: Aún no hay propuestas.
+        entry-email: Email
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -270,6 +271,7 @@ es:
         go-back: "< Volver a propuestas de %{title}"
         solve-challenge: ¿Como resuelve el reto?
         company-name: Empresa
+        entry-email: Email
         company-rfc: RFC de la Empresa
         company-proposal: Propuesta
         technology: Tecnologías
