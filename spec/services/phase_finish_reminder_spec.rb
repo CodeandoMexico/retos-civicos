@@ -30,7 +30,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: 7.days.from_now)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
-    deliveries.count.should eq 1
+    deliveries.count.should eq 2
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Quedan 7 días para enviar tu idea',
@@ -48,7 +48,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: 1.days.from_now)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
-    deliveries.count.should eq 1
+    deliveries.count.should eq 2
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Queda 1 día para enviar tu idea',
@@ -66,7 +66,7 @@ describe PhaseFinishReminder do
     challenge = build_challenge(starts_on: 3.days.ago, ideas_phase_due_on: Date.current)
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
-    deliveries.count.should eq 1
+    deliveries.count.should eq 2
     collaborator_should_receive_email(
       email: 'wants_notification@example.com',
       mail_subject: 'Reto Alerta - Hoy es el último día para enviar tu idea',
@@ -99,14 +99,16 @@ describe PhaseFinishReminder do
       prototypes_phase_due_on: 4.days.from_now
     )
 
+    add_entry_accepted_info(challenge.collaborators)
+
     PhaseFinishReminder.notify_collaborators_of_challenges([challenge], FakeMailer.new)
 
     deliveries.count.should eq 1
     collaborator_should_receive_email(
-      email: 'wants_notification@example.com',
+      email: 'entry_submitted@example.com',
       mail_subject: 'Reto Alerta - Quedan 4 días para enviar tu prototipo',
       mail_body: {
-        collaborator_id: 'with-notification-user-id',
+        collaborator_id: 'submit-prototype-user-id',
         days_left_sentence: 'Quedan 4 días',
         phase: 'prototipos',
         challenge_id: 'challenge-id',
@@ -149,23 +151,44 @@ describe PhaseFinishReminder do
         OpenStruct.new(
           id: 'with-notification-user-id',
           email: 'wants_notification@example.com',
+          entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true),
         OpenStruct.new(
           id: 'no-notification-user-id',
           email: 'doesnt_want_notification@example.com',
+          entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: false),
         OpenStruct.new(
           id: 'no-email-user-id',
           email: '',
+          entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true),
         OpenStruct.new(
           id: 'nil-email-user-id',
           email: nil,
+          entry_has_been_accepted?: nil,
+          phase_finish_reminder_setting: true),
+        OpenStruct.new(
+          id: 'submit-prototype-user-id',
+          email: 'entry_submitted@example.com',
+          entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true)
       ]
     }.merge(options)
 
     OpenStruct.new(options)
+  end
+
+  def add_entry_accepted_info(collaborators)
+      collaborators.each do |c|
+        def c.entry_has_been_accepted?(y)
+          false
+        end
+      end
+      last = collaborators.last
+      def last.entry_has_been_accepted?(y)
+        true
+      end
   end
 
   def configure_i18n

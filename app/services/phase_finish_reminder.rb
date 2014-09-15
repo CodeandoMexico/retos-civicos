@@ -39,7 +39,11 @@ module PhaseFinishReminder
     private
 
     def can_notify_collaborator?(collaborator)
-      collaborator.phase_finish_reminder_setting && collaborator.email.present?
+      email_registered_and_should_receive_notifications = collaborator.phase_finish_reminder_setting && collaborator.email.present?
+      # if there is another validation for other phase add here yout method
+      return email_registered_and_should_receive_notifications if is_current_phase?(:ideas)
+      return email_registered_and_should_receive_notifications && collaborator.entry_has_been_accepted?(record) if is_current_phase?(:prototypes)
+      false
     end
 
     def mail_subject
