@@ -35,6 +35,7 @@ ENTRY_TECHNOLOGIES = {
     'Elixir',
     'Erlang',
     'F#',
+    'GML',
     'Go',
     'Groovy',
     'Hack',
