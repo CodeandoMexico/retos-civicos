@@ -66,7 +66,7 @@ feature 'Collaborator adds entry to challenge' do
       click_link 'Regístrate al reto aquí'
 
       submit_registration_form('juanito@example.com')
-      click_link('Reto 1')
+      submit_profile_form('juanito')
       click_link('Envía tu propuesta')
       submit_entry_form_with(
         project_name: 'Mi super app',
