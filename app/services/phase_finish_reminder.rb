@@ -41,9 +41,15 @@ module PhaseFinishReminder
     def can_notify_collaborator?(collaborator)
       email_registered_and_should_receive_notifications = collaborator.phase_finish_reminder_setting && collaborator.email.present?
       # if there is another validation for other phase add here yout method
-      return email_registered_and_should_receive_notifications if is_current_phase?(:ideas)
-      return email_registered_and_should_receive_notifications && collaborator.entry_has_been_accepted?(record) if is_current_phase?(:prototypes)
-      false
+      if is_current_phase?(:ideas)
+        email_registered_and_should_receive_notifications
+      elsif is_current_phase?(:prototypes)
+        collaborator.has_submitted_app?(record) && collaborator.entry_has_been_accepted?(record) &&
+          email_registered_and_should_receive_notifications
+      else
+        # Any other phase than ideas or prototypes it doesn't send a reminder
+        false
+      end
     end
 
     def mail_subject

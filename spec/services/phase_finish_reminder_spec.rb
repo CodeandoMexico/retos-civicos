@@ -151,26 +151,31 @@ describe PhaseFinishReminder do
         OpenStruct.new(
           id: 'with-notification-user-id',
           email: 'wants_notification@example.com',
+          has_submitted_app?: false,
           entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true),
         OpenStruct.new(
           id: 'no-notification-user-id',
           email: 'doesnt_want_notification@example.com',
+          has_submitted_app?: false,
           entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: false),
         OpenStruct.new(
           id: 'no-email-user-id',
           email: '',
+          has_submitted_app?: false,
           entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true),
         OpenStruct.new(
           id: 'nil-email-user-id',
           email: nil,
+          has_submitted_app?: false,
           entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true),
         OpenStruct.new(
           id: 'submit-prototype-user-id',
           email: 'entry_submitted@example.com',
+          has_submitted_app?: true,
           entry_has_been_accepted?: nil,
           phase_finish_reminder_setting: true)
       ]
@@ -182,9 +187,11 @@ describe PhaseFinishReminder do
   def add_entry_accepted_info(collaborators)
       collaborators.each do |c|
         def c.entry_has_been_accepted?(y) false end
+        def c.has_submitted_app?(y) false end
       end
       last = collaborators.last
       def last.entry_has_been_accepted?(y) true end
+      def last.has_submitted_app?(y) true end
   end
 
   def configure_i18n
