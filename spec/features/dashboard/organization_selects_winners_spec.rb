@@ -11,7 +11,8 @@ feature 'Organization selects winner for the challenge' do
       starts_on: 5.weeks.ago,
       ideas_phase_due_on: 4.weeks.ago,
       ideas_selection_phase_due_on: 3.week.ago,
-      prototypes_phase_due_on: 2.week.ago
+      prototypes_phase_due_on: 2.week.ago,
+      finish_on: 1.days.from_now
     @entry = create :entry,
       accepted: true,
       challenge: challenge,
@@ -24,7 +25,10 @@ feature 'Organization selects winner for the challenge' do
   scenario 'in the prototypes selection phase' do
     select_winner
     page.should have_content "La propuesta \"#{entry.name}\" fue seleccionada ganadora"
-    visit challenge_entry_path(challenge, entry)
+    challenge.finish_on = 1.day.ago
+    challenge.save
+    visit challenge_path(challenge)
+
     page.should have_content "Ganador"
     page.should have_content entry.name
   end
