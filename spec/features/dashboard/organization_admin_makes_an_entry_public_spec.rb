@@ -8,7 +8,7 @@ feature 'Organization admin makes an entry public' do
     @member = create :member, user: user
     @organization = create :organization
     @challenge = create :challenge, title: 'Reto 1', organization: organization
-    @entry = create :entry, name: 'Mi propuesta', challenge: challenge, member: member
+    @entry = create :entry, name: 'Mi propuesta', challenge: challenge, member: member, description: 'lo resuelvo'
   end
 
   scenario 'in the entries list' do
@@ -22,7 +22,7 @@ feature 'Organization admin makes an entry public' do
     current_full_path.should eq dashboard_entries_path(challenge_id: challenge.id)
 
     click_link 'Ver vista pública'
-    page.should have_content entry.name
+    page.should have_content entry.description
     current_path.should eq challenge_entry_path(challenge, entry)
   end
 
