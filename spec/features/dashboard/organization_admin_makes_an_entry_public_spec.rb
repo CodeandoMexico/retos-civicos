@@ -29,12 +29,11 @@ feature 'Organization admin makes an entry public' do
   scenario 'in the entry page' do
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
-    click_link 'Mi propuesta'
+    click_link entry.name
 
     click_button 'Hacer pública'
     click_link 'Ver vista pública'
-
-    page.should have_content entry.name
+    page.should have_content entry.description
     current_path.should eq challenge_entry_path(challenge, entry)
   end
 
