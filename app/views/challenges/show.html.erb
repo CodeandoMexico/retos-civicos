@@ -62,7 +62,7 @@
       <%= render 'finalists_and_winner' %>
     <% end %>
 
-    <% if Phases.is_current?(:prototypes, @challenge) && @challenge.has_finalists? %>
+    <% if (Phases.is_current?(:prototypes, @challenge) || Phases.is_current?(:prototypes_selection, @challenge)) && @challenge.has_finalists? %>
       <%= render 'ideas_finalists' %>
     <% end %>
 
