@@ -1,6 +1,5 @@
-#encoding: utf-8
+# encoding: utf-8
 class Challenge < ActiveRecord::Base
-
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
@@ -22,6 +21,7 @@ class Challenge < ActiveRecord::Base
   has_many :collaborators, through: :collaborations, class_name: "Member", source: :member, include: :user
   has_many :activities
   has_many :entries
+  has_many :datasets
 
   belongs_to :organization
   # Validations
@@ -31,7 +31,8 @@ class Challenge < ActiveRecord::Base
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
-  after_create :create_initial_activity
+  after_create :create_initial_activity, :create_or_update_datasets
+  after_update :create_or_update_datasets
 
   #Scopes
   scope :active, lambda {
@@ -143,34 +144,22 @@ class Challenge < ActiveRecord::Base
   end
 
   def datasets_id
-    if self.dataset_id
-      self.dataset_id.split(',')
+    if dataset_id
+      dataset_id.split(',')
     else
       []
     end
   end
 
-  def dataset_info(d)
-    response = CKAN::Action::action_get("package_show", { "id" => d } )
-    response['result']
-  end
-
   def prepopulate_dataset_id
-    if self.dataset_id
-      datos = {}
-      datos_json = ""
-      c = 0
-      self.datasets_id.each do |d|
-        c += 1
-        response = CKAN::Action::action_get("package_show", { "id" => d } )
-        datos['id'] = d
-        datos['title'] = response['result']['title']
-        datos_json += datos.to_json
-        datos_json += "," unless c == self.datasets_id.count
+    data = []
+    if datasets
+      datasets.each do |d|
+        data << d.tokenizer_hash
       end
-      datos_json.html_safe
+      data.to_json.tr('[]', '').html_safe
     else
-      ""
+      ''
     end
   end
 
@@ -212,6 +201,24 @@ class Challenge < ActiveRecord::Base
   end
 
   private
+
+  def create_or_update_datasets
+    datasets_id.each do |d|
+      response = CKAN::Action.action_get('package_show', 'id' => d)
+      result = response['result']
+      dataset = Dataset.find_or_initialize_by_guid(d)
+      dataset.update_attributes(guid: d, title: result['title'], name: result['name'],
+                     format: result['resources'][0]['format'], notes: result['notes'], challenge_id: id)
+      remove_datasets
+    end
+  end
+
+  def remove_datasets
+    to_remove = datasets - datasets.find_all_by_guid(datasets_id)
+    to_remove.each do |remove|
+      Dataset.delete(remove)
+    end
+  end
 
   def create_initial_activity
     self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))

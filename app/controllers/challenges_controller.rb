@@ -30,7 +30,7 @@ class ChallengesController < ApplicationController
       @organization = @challenge.organization
       @comments = fetch_comments
       @entries = @challenge.entries.public
-      @datasets = @challenge.datasets_id
+      @datasets = @challenge.datasets
       @collaborators = @challenge.collaborators
       @timeline = Phases.timeline_from_dates(@challenge)
       @current_phase_title = Phases.current_phase_title(@challenge)
