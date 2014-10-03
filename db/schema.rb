@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140905160910) do
+ActiveRecord::Schema.define(:version => 20140922185334) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(:version => 20140905160910) do
     t.string   "dataset_id"
     t.string   "entry_template_url"
     t.string   "infographic"
-    t.text     "prize"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
+    t.text     "prize"
     t.date     "starts_on"
     t.text     "fourth_spec"
     t.text     "fifth_spec"
@@ -138,9 +138,9 @@ ActiveRecord::Schema.define(:version => 20140905160910) do
     t.text     "technologies"
     t.boolean  "public",            :default => false, :null => false
     t.string   "image"
-    t.string   "letter_under_oath"
     t.boolean  "accepted"
     t.string   "idea_url"
+    t.string   "letter_under_oath"
     t.string   "repo_url"
     t.string   "demo_url"
     t.integer  "winner"
@@ -163,6 +163,16 @@ ActiveRecord::Schema.define(:version => 20140905160910) do
     t.boolean  "accepting_subscribers", :default => false
     t.string   "slug"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "skills", :force => true do |t|
     t.string   "name"
