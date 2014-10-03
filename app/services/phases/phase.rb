@@ -48,7 +48,7 @@ module Phases
     end
 
     def current?
-      start < current_date && current_date <= finish
+      start <= current_date && current_date <= finish
     end
 
     def completeness_percentage
