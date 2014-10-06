@@ -5,6 +5,9 @@ module Dashboard
     def new
     end
 
+    def finalists
+    end
+
     def create
       if valid_email_params?
         send_email_to_collaborators
