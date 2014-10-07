@@ -8,6 +8,10 @@
   new_dashboard_challenge_email_path(@current_challenge),
   class: 'btn btn-default pull-right' %>
 
+<%= link_to 'Enviar email a finalistas',
+  finalists_new_dashboard_challenge_email_path(@current_challenge),
+  class: 'btn btn-default pull-right' if @current_challenge.has_finalists? %>
+
 <div class="l-space-bottom">
   <%= render 'challenges_filter',
     challenges: @challenges,

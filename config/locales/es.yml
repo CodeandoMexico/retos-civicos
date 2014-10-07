@@ -245,7 +245,14 @@ es:
     mailers:
       new:
         view-title: Participantes
-        view-subtitle: Enviar email a todos
+        view-subtitle: Enviar email a participantes
+        mail-subject-label: Título del correo
+        mail-body-label: Cuerpo del mensaje
+        mail-body-helper: Puedes usar Markdown para formatear el mensaje.
+        submit: Enviar
+      finalists:
+        view-title: Participantes
+        view-subtitle: Enviar email a finalistas
         mail-subject-label: Título del correo
         mail-body-label: Cuerpo del mensaje
         mail-body-helper: Puedes usar Markdown para formatear el mensaje.
