@@ -246,13 +246,10 @@ es:
       new:
         view-title: Participantes
         view-subtitle: Enviar email a participantes
-        mail-subject-label: Título del correo
-        mail-body-label: Cuerpo del mensaje
-        mail-body-helper: Puedes usar Markdown para formatear el mensaje.
-        submit: Enviar
       finalists:
         view-title: Participantes
         view-subtitle: Enviar email a finalistas
+      email_form:
         mail-subject-label: Título del correo
         mail-body-label: Cuerpo del mensaje
         mail-body-helper: Puedes usar Markdown para formatear el mensaje.
