@@ -7,10 +7,27 @@ describe 'Organization admin emails collaborators of a challenge' do
   let(:organization_admin) { create :user, userable: organization }
   let(:challenge) { create :challenge, :open, organization: organization }
 
+  it 'only to selected finalists' do
+    member_one = create_a_member_with_a_collaboration('John Deliver').member
+    member_two = create_a_member_with_a_collaboration('Mike Deliver').member
+    create :entry, :accepted, challenge: challenge, member: member_one
+    create :entry, :accepted, challenge: challenge, member: member_two
+
+    sign_in_organization_admin(organization_admin)
+    click_link 'Participantes'
+    click_link 'Enviar email a finalistas'
+
+    uncheck "members_#{member_one.id}"
+
+    fill_in 'email[subject]', with: 'Titulo del correo'
+    fill_in 'email[body]', with: 'Contenido del correo'
+
+    expect { click_on 'Enviar' }.to change { ActionMailer::Base.deliveries.count }.by(1)
+  end
 
   it 'only to registered users' do
-    create_a_member_with_a_collaboration("John Deliver")
-    create_a_member_with_a_collaboration("Mike Deliver")
+    create_a_member_with_a_collaboration('John Deliver')
+    create_a_member_with_a_collaboration('Mike Deliver')
     create_a_member_without_a_collaboration
 
     sign_in_organization_admin(organization_admin)
