@@ -41,7 +41,7 @@ describe 'Organization admin emails collaborators of a challenge' do
   end
 
   def create_a_member_with_a_collaboration(name)
-    tmp_user = create :user, name: 'Juan Deliver'
+    tmp_user = create :user, name: name
     tmp_member = create :member, user: tmp_user
     create :collaboration, member: tmp_member, challenge: challenge
   end
