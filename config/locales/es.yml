@@ -1,5 +1,9 @@
 es:
   flash:
+    mailers:
+      create:
+        notice: El correo ha sido enviado exitosamente.
+        alert: Verifica que hayas llenado todos los campos.
     admins:
       organizations:
         accredited: Organización acreditada correctamente. Recibirán un correo de confirmación.
@@ -249,6 +253,10 @@ es:
       finalists:
         view-title: Participantes
         view-subtitle: Enviar email a finalistas
+        representative-header: Representante
+        company-header: Empresa
+        link-to-proyect-header: Link al proyecto
+        include-in-email-header: ¿Incluir en email?
       email_form:
         mail-subject-label: Título del correo
         mail-body-label: Cuerpo del mensaje

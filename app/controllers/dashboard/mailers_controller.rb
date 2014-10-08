@@ -13,9 +13,9 @@ module Dashboard
         collaborators = Member.find_all_by_id(parse_members) if params[:members]
         collaborators ||= current_challenge.collaborators
         send_email_to_collaborators(collaborators)
-        redirect_to dashboard_collaborators_path, notice: 'El correo ha sido enviado exitosamente.'
+        redirect_to dashboard_collaborators_path, notice: t('flash.mailers.create.notice')
       else
-        redirect_to new_dashboard_email_path, alert: 'Verifica que hayas llenado todos los campos.'
+        redirect_to new_dashboard_email_path, alert: t('flash.mailers.create.alert')
       end
     end
 
