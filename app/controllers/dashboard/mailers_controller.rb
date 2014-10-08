@@ -10,7 +10,7 @@ module Dashboard
 
     def create
       if valid_email_params?
-        collaborators = Member.find_all_by_id(params[:members].reject { |_k, v| v == '0' }.keys) if params[:members]
+        collaborators = Member.find_all_by_id(parse_members) if params[:members]
         collaborators ||= current_challenge.collaborators
         send_email_to_collaborators(collaborators)
         redirect_to dashboard_collaborators_path, notice: 'El correo ha sido enviado exitosamente.'
@@ -20,6 +20,10 @@ module Dashboard
     end
 
     private
+
+    def parse_members
+      params[:members].reject { |_k, v| v == '0' }.keys
+    end
 
     def send_email_to_collaborators(collaborators)
       collaborators.each do |collaborator|
