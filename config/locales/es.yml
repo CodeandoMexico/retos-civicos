@@ -254,8 +254,10 @@ es:
         view-title: Participantes
         view-subtitle: Enviar email a finalistas
         representative-header: Representante
+        email: Correo
         company-header: Empresa
         link-to-proyect-header: Link al proyecto
+        entry: Propuesta
         include-in-email-header: ¿Incluir en email?
       email_form:
         mail-subject-label: Título del correo
@@ -297,7 +299,7 @@ es:
         no-published-challenges: Aún no hay retos publicados.
     collaborators:
       index:
-        export-csv:Exportar CSV
+        export-csv: Exportar CSV
         email-everyone: Enviar email a todos
         email-finalists: Enviar email a finalistas
         id: ID

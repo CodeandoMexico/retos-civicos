@@ -187,7 +187,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_finalists
-    Entry.where(challenge_id:self, accepted: true).select { |e| e != self.current_winner }
+    Entry.includes(:member).where(challenge_id:self, accepted: true).select { |e| e != self.current_winner }
   end
 
   def current_phase_title
