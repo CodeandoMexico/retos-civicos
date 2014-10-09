@@ -297,6 +297,9 @@ es:
         no-published-challenges: Aún no hay retos publicados.
     collaborators:
       index:
+        export-csv:Exportar CSV
+        email-everyone: Enviar email a todos
+        email-finalists: Enviar email a finalistas
         id: ID
         company-name: Empresa
         email: Email

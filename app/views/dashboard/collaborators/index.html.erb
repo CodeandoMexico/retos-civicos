@@ -1,14 +1,14 @@
 <h1 class="l-space-bottom">Participantes</h1>
 
-<%= link_to 'Exportar CSV',
+<%= link_to t('.export-csv'),
   dashboard_collaborators_path(challenge_id: @current_challenge.id, format: :csv),
   class: 'btn btn-default pull-right' %>
 
-<%= link_to 'Enviar email a todos',
+<%= link_to t('.email-everyone'),
   new_dashboard_challenge_email_path(@current_challenge),
   class: 'btn btn-default pull-right' %>
 
-<%= link_to 'Enviar email a finalistas',
+<%= link_to t('.email-finalists'),
   finalists_new_dashboard_challenge_email_path(@current_challenge),
   class: 'btn btn-default pull-right' if @current_challenge.has_finalists? %>
 
