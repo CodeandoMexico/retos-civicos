@@ -8,6 +8,9 @@ module Dashboard
     def finalists
     end
 
+    def participants
+    end
+
     def create
       if valid_email_params?
         collaborators = Member.find_all_by_id(parse_members) if params[:members]

@@ -250,6 +250,9 @@ es:
       new:
         view-title: Participantes
         view-subtitle: Enviar email a participantes
+      participants:
+        view-title: Participantes
+        view-subtitle: Enviar email a participantes con propuesta
       finalists:
         view-title: Participantes
         view-subtitle: Enviar email a finalistas
@@ -302,6 +305,7 @@ es:
         export-csv: Exportar CSV
         email-everyone: Enviar email a todos
         email-finalists: Enviar email a finalistas
+        email-participants: Enviar email a particpantes
         id: ID
         company-name: Empresa
         email: Email

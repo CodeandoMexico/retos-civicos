@@ -4,6 +4,10 @@
   dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv),
   class: 'btn btn-default pull-right' %>
 
+<%= link_to t('.email-participants'),
+  participants_new_dashboard_challenge_email_path(@current_challenge),
+  class: 'btn btn-default pull-right' if @current_challenge.has_participants? %>
+
 <div class="l-space-bottom">
   <%= render 'challenges_filter',
     challenges: @challenges,
