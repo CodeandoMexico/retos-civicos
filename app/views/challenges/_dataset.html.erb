@@ -1,9 +1,0 @@
-<% @datasets.each do |d| %>
-  <div class="dataset-teaser">
-    <span class="dataset-teaser-logo format-label" property="dc:format" data-format="<%= d.format.downcase %>"><%= d.format.downcase %></span>
-    <div class='dataset-teaser-info dataset-teaser-info-datasets' >
-      <%= link_to d.title, "http://datamx.io/dataset/#{d.name}", target:"_blank" %>
-      <p><%= d.notes.truncate(100) %></p>
-    </div>
-  </div>
-<% end %>
