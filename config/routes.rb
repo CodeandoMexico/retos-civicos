@@ -23,7 +23,9 @@ Aquila::Application.routes.draw do
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: :index, controller: 'dashboard/challenges' do
-      resources :emails, only: [:new, :create], controller: 'dashboard/mailers'
+      resources :emails, only: [:new, :create], controller: 'dashboard/mailers' do
+        get :finalists, to: 'dashboard/mailers', as: 'finalists', on: :new
+      end
     end
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :publish, on: :member

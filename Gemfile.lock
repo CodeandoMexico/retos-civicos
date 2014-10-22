@@ -1,15 +1,15 @@
 GIT
+  remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
+  revision: e9e8ac23cb961b47931d6f26d68c24993457d5dc
+  specs:
+    jquery-tokeninput-rails (1.6.2)
+
+GIT
   remote: git://github.com/CodeandoMexico/CKAN-rb.git
   revision: 35e451ff641079e8d5e2f7258735a12928036ed0
   specs:
     ckan (0.0.3)
       rest-client (~> 1.6.0)
-
-GIT
-  remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
-  revision: 591e7444983696829860292667046fb5048e1b3a
-  specs:
-    jquery-tokeninput-rails (1.6.1)
 
 GEM
   remote: https://rubygems.org/
