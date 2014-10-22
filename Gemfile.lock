@@ -1,15 +1,15 @@
 GIT
+  remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
+  revision: 591e7444983696829860292667046fb5048e1b3a
+  specs:
+    jquery-tokeninput-rails (1.6.1)
+
+GIT
   remote: git://github.com/CodeandoMexico/CKAN-rb.git
   revision: 35e451ff641079e8d5e2f7258735a12928036ed0
   specs:
     ckan (0.0.3)
       rest-client (~> 1.6.0)
-
-GIT
-  remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
-  revision: 591e7444983696829860292667046fb5048e1b3a
-  specs:
-    jquery-tokeninput-rails (1.6.1)
 
 GEM
   remote: https://rubygems.org/
@@ -171,7 +171,6 @@ GEM
       activesupport (>= 2.3.14)
       rack
     hashie (2.1.1)
-    hexpress (1.2.0)
     hike (1.2.3)
     hirb (0.7.1)
     http (0.5.0)
@@ -204,23 +203,23 @@ GEM
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
-    mini_portile (0.5.3)
+    mini_portile (0.6.0)
     modular-scale (1.0.6)
       compass (>= 0.12.1)
       sass (>= 3.2.0)
       sassy-math (>= 1.5)
-    moneta (0.7.20)
+    moneta (0.8.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mustache (0.99.5)
+    mustache (0.99.6)
     naught (1.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     newrelic_rpm (3.8.0.218)
-    nokogiri (1.6.2)
-      mini_portile (~> 0.5.2)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
     oauth (0.4.7)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
@@ -249,8 +248,7 @@ GEM
     omniauth-twitter (1.0.1)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
-    onebox (1.3.4)
-      hexpress (~> 1.2)
+    onebox (1.5.3)
       moneta (~> 0.7)
       multi_json (~> 1.7)
       mustache (~> 0.99)
