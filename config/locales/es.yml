@@ -278,6 +278,7 @@ es:
         sent-date: Fecha de envío
         no-proposals: Aún no hay propuestas.
         entry-email: Email
+        email-participants: Email a participantes
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -305,7 +306,6 @@ es:
         export-csv: Exportar CSV
         email-everyone: Enviar email a todos
         email-finalists: Enviar email a finalistas
-        email-participants: Enviar email a particpantes
         id: ID
         company-name: Empresa
         email: Email
