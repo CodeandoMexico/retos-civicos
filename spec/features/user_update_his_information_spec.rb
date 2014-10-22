@@ -21,7 +21,7 @@ feature 'User update his information' do
     attach_file 'member_avatar', cmx_logo_path
 
     click_on 'Actualizar'
-    expect(current_path).to eq challenge_path(@challenge)
+    expect(current_path).to eq challenges_path
 
     click_on 'Raúl Jiménez'
     expect(page).to have_content 'Raúl Jiménez'
