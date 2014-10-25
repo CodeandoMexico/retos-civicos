@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
     @challenge = @entry.challenge
     @user = @entry.member
 
-    return render :file => 'public/404.html', :status => :not_found, :layout => false if !@entry.public?
+    return render :file => 'public/404', :status => :not_found, :layout => false if !@entry.public?
   end
 
   def new

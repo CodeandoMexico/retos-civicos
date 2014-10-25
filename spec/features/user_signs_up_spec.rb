@@ -10,7 +10,7 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      page.should have_link('Regístrate al reto aquí')
+      page.should have_link('Juanito')
     end
   end
 

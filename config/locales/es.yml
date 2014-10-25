@@ -1,5 +1,9 @@
 es:
   flash:
+    mailers:
+      create:
+        notice: El correo ha sido enviado exitosamente.
+        alert: Verifica que hayas llenado todos los campos.
     admins:
       organizations:
         accredited: Organización acreditada correctamente. Recibirán un correo de confirmación.
@@ -245,7 +249,20 @@ es:
     mailers:
       new:
         view-title: Participantes
-        view-subtitle: Enviar email a todos
+        view-subtitle: Enviar email a participantes
+      participants:
+        view-title: Participantes
+        view-subtitle: Enviar email a participantes con propuesta
+      finalists:
+        view-title: Participantes
+        view-subtitle: Enviar email a finalistas
+        representative-header: Representante
+        email: Correo
+        company-header: Empresa
+        link-to-proyect-header: Link al proyecto
+        entry: Propuesta
+        include-in-email-header: ¿Incluir en email?
+      email_form:
         mail-subject-label: Título del correo
         mail-body-label: Cuerpo del mensaje
         mail-body-helper: Puedes usar Markdown para formatear el mensaje.
@@ -261,6 +278,7 @@ es:
         sent-date: Fecha de envío
         no-proposals: Aún no hay propuestas.
         entry-email: Email
+        email-participants: Email a participantes
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -285,6 +303,9 @@ es:
         no-published-challenges: Aún no hay retos publicados.
     collaborators:
       index:
+        export-csv: Exportar CSV
+        email-everyone: Enviar email a todos
+        email-finalists: Enviar email a finalistas
         id: ID
         company-name: Empresa
         email: Email

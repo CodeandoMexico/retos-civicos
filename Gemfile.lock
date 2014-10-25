@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/acrogenesis/jquery-tokeninput-rails.git
-  revision: 591e7444983696829860292667046fb5048e1b3a
+  revision: e9e8ac23cb961b47931d6f26d68c24993457d5dc
   specs:
-    jquery-tokeninput-rails (1.6.1)
+    jquery-tokeninput-rails (1.6.2)
 
 GIT
   remote: git://github.com/CodeandoMexico/CKAN-rb.git
@@ -46,7 +46,7 @@ GEM
       activesupport (>= 3.0)
       awesome_nested_set (>= 2.0)
     addressable (2.3.6)
-    airbrake (3.1.16)
+    airbrake (4.1.0)
       builder
       multi_json
     arel (3.0.3)
@@ -68,7 +68,7 @@ GEM
     buftok (0.2.0)
     builder (3.0.4)
     cancan (1.6.10)
-    capybara (2.2.1)
+    capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)

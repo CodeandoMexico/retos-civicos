@@ -5,19 +5,31 @@ module Dashboard
     def new
     end
 
+    def finalists
+    end
+
+    def participants
+    end
+
     def create
       if valid_email_params?
-        send_email_to_collaborators
-        redirect_to dashboard_collaborators_path, notice: "El correo ha sido enviado exitosamente."
+        collaborators = Member.find_all_by_id(parse_members) if params[:members]
+        collaborators ||= current_challenge.collaborators
+        send_email_to_collaborators(collaborators)
+        redirect_to dashboard_collaborators_path, notice: t('flash.mailers.create.notice')
       else
-        redirect_to new_dashboard_email_path, alert: "Verifica que hayas llenado todos los campos."
+        redirect_to new_dashboard_email_path, alert: t('flash.mailers.create.alert')
       end
     end
 
     private
 
-    def send_email_to_collaborators
-      current_challenge.collaborators.each do |collaborator|
+    def parse_members
+      params[:members].reject { |_k, v| v == '0' }.keys
+    end
+
+    def send_email_to_collaborators(collaborators)
+      collaborators.each do |collaborator|
         ChallengeMailer.delay.custom_message_to_all_collaborators(collaborator.email, email_params[:subject], email_params[:body])
       end
     end

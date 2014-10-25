@@ -17,6 +17,7 @@ en:
     entries: entries
     users: users
     prototypes: prototypes
+    finalists: finalists
 es:
   routes:
     projects: proyectos
@@ -37,3 +38,4 @@ es:
     entries: entradas
     users: usuarios
     prototypes: prototipos
+    finalists: finalistas

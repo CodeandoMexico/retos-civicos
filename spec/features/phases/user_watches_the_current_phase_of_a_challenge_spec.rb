@@ -21,8 +21,8 @@ feature 'User watches the current phase of a challenge' do
   end
 
   def page_should_show_completness_of_ideas_phase(percentage)
-    within ".phases-bar-phase:nth-child(2)" do
-      page.should have_css "[data-width='#{percentage}']"
+    within '.phases-bar-phase:nth-child(2)' do
+      page.should have_css "[data-size='#{percentage}']"
       page.should have_content 'Ideas'
     end
   end

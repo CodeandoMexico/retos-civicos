@@ -13,7 +13,7 @@
     <tbody>
       <% @challenges.each do |challenge| %>
         <tr>
-          <td><%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
+          <td><%= link_to icon('pencil-square-o'), edit_organization_challenge_path(current_member, challenge) %> | <%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
           <td><%= challenge.collaborators.size %></td>
           <td><%= challenge.entries.size %></td>
         </tr>
