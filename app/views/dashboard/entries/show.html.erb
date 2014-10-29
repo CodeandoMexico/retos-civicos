@@ -21,6 +21,7 @@
             confirm: t('.select-winner-confirmation') %></li>
         <% end %>
       <% end %>
+      <li><%= render 'mark_entry_as_valid_or_invalid', entry: @entry %></li>
       <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
     </ul>
   </div>

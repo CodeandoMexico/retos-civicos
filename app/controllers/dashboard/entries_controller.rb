@@ -20,6 +20,18 @@ module Dashboard
       @entry = entry
     end
 
+    def mark_valid
+      entry.mark_as_valid!
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_valid_successfully')
+    end
+
+    def mark_invalid
+      entry.mark_as_invalid!
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully')
+    end
+
     def publish
       entry.publish!
       entry.save
