@@ -14,4 +14,12 @@ class EntriesMailer < ActionMailer::Base
     @timeline = Phases.timeline_from_dates(challenge)
     mail to: member.email, subject: "Recibimos tu idea con éxito"
   end
+
+  def entry_has_been_marked_as_invalid(entry)
+    @entry = entry
+    @challenge = entry.challenge
+    @contact_email = ENV['MAILER_DEFAULT_FROM']
+
+    mail to: entry.member.email, subject: "Ha habido un problema con tu propuesta"
+  end
 end

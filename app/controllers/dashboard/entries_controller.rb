@@ -28,7 +28,9 @@ module Dashboard
 
     def mark_invalid
       entry.mark_as_invalid!
-      entry.save
+      if entry.save
+        EntriesMailer.delay.entry_has_been_marked_as_invalid(entry)
+      end
       redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully')
     end
 
