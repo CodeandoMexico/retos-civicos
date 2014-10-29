@@ -20,8 +20,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to root_url, class: 'main-navbar-logo' do %>
+      <%= link_to root_url, class: 'hidden-xs main-navbar-logo' do %>
         <%= image_tag 'logos-horizontal/retos_logo_horizontal-03.png', alt: t('layout.header') %>
+      <% end %>
+      <%= link_to root_url, class: 'visible-xs-block main-small-navbar-logo' do %>
+        <%= image_tag 'r-retos.png', alt: t('layout.header') %>
       <% end %>
     </div>
 

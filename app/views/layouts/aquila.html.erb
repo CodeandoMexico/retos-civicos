@@ -40,22 +40,29 @@
   </div>
 
   <div class="footer">
-    <div class="container text-center">
-      <ul class="list-inline">
-        <li><%= image_tag 'logo_usaid.png', width: 200 %></li>
-        <li><%= link_to(image_tag('logo_cmx.png', width: 180), 'http://codeandomexico.org', target: '_blank') %></li>
-      </ul>
-      <ul class="list-inline">
-        <li><%= link_to(image_tag('mx_a_logo_footer.png', width: 135, style:"margin-left:40px;"), 'http://mxabierto.tumblr.com', target: '_blank') %></li>
-        <li><%= link_to(image_tag('presidencia.png', width: 200, style:"margin-left:30px;"), 'http://www.presidencia.gob.mx', target: '_blank') %></li>
-      </ul>
-
-      <ul class="list-inline">
-        <li><%= link_to 'Aviso de Privacidad', privacy_path %></li>
-        <li class="text-muted">|</li>
-        <li><%= link_to 'Términos y condiciones', terms_of_service_path %></li>
-      </ul>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-centered">
+          <div class=""><%= image_tag 'logo_usaid.png', width: 200 %></div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-centered">
+          <div class=""><%= link_to(image_tag('logo_cmx.png', width: 180), 'http://codeandomexico.org', target: '_blank') %></div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-centered">
+          <div class=""><%= link_to(image_tag('mx_a_logo_footer.png', width: 135, style:"margin-left:40px;"), 'http://mxabierto.tumblr.com', target: '_blank') %></div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-centered">
+          <div class=""><%= link_to(image_tag('presidencia.png', width: 200, style:"margin-left:30px;"), 'http://www.presidencia.gob.mx', target: '_blank') %></div>
+        </div>
+      </div>
     </div>
+    <ul class="list-inline text-center">
+      <li><%= link_to 'Aviso de Privacidad', privacy_path %></li>
+      <li class="text-muted">|</li>
+      <li><%= link_to 'Términos y condiciones', terms_of_service_path %></li>
+    </ul>
   </div>
 </body>
 </html>

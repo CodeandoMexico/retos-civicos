@@ -199,7 +199,11 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_phase_title
-    Phases.current_phase_title(self)
+    if has_finished?
+      I18n.t('challenges.show.has_finished')
+    else
+      Phases.current_phase_title(self)
+    end
   end
 
   def self.has_only_one_challenge?

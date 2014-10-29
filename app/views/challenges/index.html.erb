@@ -25,6 +25,7 @@
 <% end %>
 
 <div id="challenges_list" class="row">
+  <div class="col-sm-12">
   <% @challenges_group.each do |challenge_group| %>
     <div class="row">
       <% challenge_group.each do |challenge| %>
@@ -32,6 +33,7 @@
       <% end %>
     </div>
   <% end %>
+  </div>
 </div>
 
 <div id="paginator">
