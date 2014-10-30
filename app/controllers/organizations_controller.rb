@@ -2,13 +2,18 @@ class OrganizationsController < ApplicationController
   authorize_resource
 
   def show
-    @organization = Organization.find_by_slug!(params[:organization_slug])
+    @organization = Organization.find_by_slug(params[:organization_slug])
 
-    if @organization.has_only_one_challenge?
-      @challenge = @organization.challenges.active.first
-      redirect_to @challenge
+    if @organization.present?
+      if @organization.has_only_one_challenge?
+        @challenge = @organization.challenges.active.first
+        redirect_to @challenge
+      else
+        @challenges = @organization.challenges.active
+      end
     else
-      @challenges = @organization.challenges.active
+      # redirect to 404
+      return render :file => 'public/404', :status => :not_found, :layout => false
     end
   end
 

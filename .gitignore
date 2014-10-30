@@ -32,3 +32,6 @@ tags
 
 # Ignore application configuration
 /config/application.yml
+
+.ruby-gemset
+.ruby-version
