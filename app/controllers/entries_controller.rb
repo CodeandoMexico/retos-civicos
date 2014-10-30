@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   layout 'aquila'
-  before_filter :authenticate_user!, only: :new
+  before_filter :authenticate_user!, except: [:show]
   before_filter :member_is_able_to_edit_entry?, only: [:edit, :update]
 
   def show
