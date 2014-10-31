@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   helper_method :last_challenge
 
   def record_not_found
-    return render :file => 'public/404', :status => :not_found, :layout => false
+    render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
   private
