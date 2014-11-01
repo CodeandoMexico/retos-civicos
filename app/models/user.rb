@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     not self.userable_type.blank?
   end
 
+  def organization?
+    userable_type == "Organization"
+  end
+
   def has_twitter_auth?
     not self.authentications.where(provider: 'twitter').blank?
   end

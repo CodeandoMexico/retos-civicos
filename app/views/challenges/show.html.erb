@@ -66,28 +66,29 @@
       <%= render 'ideas_finalists' %>
     <% end %>
 
-    <% if current_member && current_member.userable_type == "Organization" %>
-    <% elsif can_edit_challenge? @challenge %>
-      <div class="challenge-collaborate-content">
-        <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
-      </div>
-    <% elsif Phases.is_current?(:ideas, @challenge) %>
-      <div class="challenge-collaborate-content">
-        <%= collaborate_section(@challenge) %>
-      </div>
-    <% elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
-      <div class="challenge-collaborate-banner">
-          <h3 style="color:white;"><%= t('.total-number-of-entries', count: @challenge.entries.count) %></h3>
-      </div>
-    <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
-      <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
+    <% if user_not_logged_in_or_is_not_an_organization @challenge %>
+      <% if can_edit_challenge? @challenge %>
         <div class="challenge-collaborate-content">
-          <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+          <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
         </div>
-      <% else %>
+      <% elsif Phases.is_current?(:ideas, @challenge) %>
         <div class="challenge-collaborate-content">
-          <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+          <%= collaborate_section(@challenge) %>
         </div>
+      <% elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge) %>
+        <div class="challenge-collaborate-banner">
+            <h3 style="color:white;"><%= t('.total-number-of-entries', count: @challenge.entries.count) %></h3>
+        </div>
+      <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
+        <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
+          <div class="challenge-collaborate-content">
+            <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+          </div>
+        <% else %>
+          <div class="challenge-collaborate-content">
+            <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
