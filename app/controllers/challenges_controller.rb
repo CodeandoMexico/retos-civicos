@@ -44,7 +44,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    return render :file => 'public/404', :status => :not_found, :layout => false
+    return render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
   def edit
