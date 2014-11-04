@@ -18,6 +18,7 @@ module Dashboard
 
     def show
       @entry = entry
+      @finalists_count = @entry.challenge.current_finalists.count
     end
 
     def publish

@@ -1,7 +1,7 @@
 <div class="page-header">
   <div class="pull-right">
     <ul class="list-inline">
-      <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
+      <% if (Phases.is_current?(:ideas_selection, @entry.challenge) || @finalists_count < 5 ) && !@entry.accepted? %>
         <li><%= button_to t('.accept-proposal'),
           accept_dashboard_entry_url(@entry),
           class: 'btn btn-primary',
