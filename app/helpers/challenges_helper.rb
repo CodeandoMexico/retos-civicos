@@ -13,8 +13,8 @@ module ChallengesHelper
     challenge.organization == current_organization
   end
 
-  def user_not_logged_in_or_is_not_an_organization(challenge)
-    can_edit_challenge?(challenge) || current_member.blank? || !current_member.organization?
+  def user_is_able_to_collaborate?(challenge)
+    can_edit_challenge?(challenge) || current_member.blank? || (!current_member.organization? && !current_member.judge?)
   end
 
   def collaborate_section(challenge)
