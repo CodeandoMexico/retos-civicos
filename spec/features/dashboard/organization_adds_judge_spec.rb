@@ -13,14 +13,22 @@ feature 'Admin logs into jury section' do
     sign_in_organization_admin(organization_admin)
   end
 
-  scenario 'user clicks on a challenge and sends invitation to a judge' do
+  scenario 'user clicks on a challenge and sends invitation to a judge with invalid information' do
     click_link 'Jurado'
-    invite_new_judge
+    invite_new_judge('Juez 1', 'correo_incorrecto@.com')
+    expect(page).to have_content 'El usuario no pudo guardarse'
   end
 
-  def invite_new_judge
+  scenario 'user clicks on a challenge and sends invitation to a judge with invalid information' do
+    click_link 'Jurado'
+    invite_new_judge('Juez 1', 'correo@valido.com')
+    expect(page).to have_content 'El juez ha sido invitado satisfactoriamente'
+  end
+
+  def invite_new_judge(name, email)
     click_on 'Agregar juez'
-    fill_in 'judge_email', with: 'nuevo@juez.com'
-    click_on 'Agregar'
+    fill_in 'user_name', with: name
+    fill_in 'user_email', with: email
+    click_on 'Agregar jurado'
   end
 end

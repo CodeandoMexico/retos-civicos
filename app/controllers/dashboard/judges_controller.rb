@@ -14,7 +14,7 @@ module Dashboard
 
       @user.userable = Judge.new
       if @user.save
-        redirect_to dashboard_judges_path
+        redirect_to dashboard_judges_path, notice: t('flash.judge.saved_successfully')
       else
         render :new
       end

@@ -1,5 +1,7 @@
 es:
   flash:
+    judge:
+      saved_successfully: El juez ha sido invitado satisfactoriamente
     mailers:
       create:
         notice: El correo ha sido enviado exitosamente.
@@ -333,6 +335,8 @@ es:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
       form:
+        name: Nombre
+        email: Correo electrónico
         submit: Agregar jurado
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
