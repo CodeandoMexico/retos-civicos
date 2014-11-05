@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  ROLES = ["member", "organization"]
+  ROLES = ["member", "organization", "judge"]
 
   attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role, :website
 
@@ -74,6 +74,10 @@ class User < ActiveRecord::Base
     userable_type == "Organization"
   end
 
+  def judge?
+    userable_type == "Judge"
+  end
+
   def has_twitter_auth?
     not self.authentications.where(provider: 'twitter').blank?
   end
@@ -113,6 +117,8 @@ class User < ActiveRecord::Base
   def create_role(params = {})
     if params[:organization].present?
       self.userable = Organization.new
+    elsif params[:judge].present?
+      self.userable = Judge.new
     else
       self.userable = Member.new
     end

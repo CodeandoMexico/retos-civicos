@@ -1,0 +1,9 @@
+<h3 class="text-muted l-space-bottom"><%= organization.name %></h3>
+<ul class="sidebar-nav">
+  <li><%= link_to 'Evaluaciones', dashboard_challenges_path, class: tab_class('dashboard/challenges') %></li>
+</ul>
+<hr/>
+<ul class="sidebar-subnav">
+  <li><%= link_to 'Editar Perfil', edit_organization_path(organization) %></li>
+  <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+</ul>

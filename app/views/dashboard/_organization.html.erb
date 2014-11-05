@@ -1,0 +1,13 @@
+<h3 class="text-muted l-space-bottom"><%= organization.name %></h3>
+<ul class="sidebar-nav">
+  <li><%= link_to 'Dashboard', dashboard_path, class: tab_class('dashboard') %></li>
+  <li><%= link_to 'Retos', dashboard_challenges_path, class: tab_class('dashboard/challenges') %></li>
+  <li><%= link_to 'Propuestas', dashboard_entries_path, class: tab_class('dashboard/entries') %></li>
+  <li><%= link_to 'Participantes', dashboard_collaborators_path, class: tab_class('dashboard/collaborators') %></li>
+  <li><%= link_to 'Jurado', dashboard_judges_path, class: tab_class('dashboard/judges') %></li>
+</ul>
+<hr/>
+<ul class="sidebar-subnav">
+  <li><%= link_to 'Editar Perfil', edit_organization_path(organization) %></li>
+  <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+</ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141029185347) do
+ActiveRecord::Schema.define(:version => 20141104205822) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -158,6 +158,12 @@ ActiveRecord::Schema.define(:version => 20141029185347) do
     t.string   "demo_url"
     t.integer  "winner"
     t.boolean  "is_valid",          :default => true
+  end
+
+  create_table "judges", :force => true do |t|
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "company_name"
   end
 
   create_table "members", :force => true do |t|

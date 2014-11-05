@@ -328,6 +328,12 @@ es:
         no-collaborators: Aún no hay participantes para este reto.
       no_challenge:
         no-challenges: Aún no hay retos publicados.
+    judges:
+      index:
+        no_judges: No hay jueces registrados
+        new_judge: Agregar juez
+      form:
+        submit: Agregar jurado
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
