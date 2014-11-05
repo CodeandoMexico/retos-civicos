@@ -387,6 +387,8 @@ es:
       submit: Enviar
     no_challenge:
       no_challenges: No tienes retos asignados
+      form:
+        submit: Agregar jurado
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:

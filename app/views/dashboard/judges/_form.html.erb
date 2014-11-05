@@ -3,7 +3,6 @@
     <%= f.error_messages %>
 
     <%= hidden_field_tag "challenge_id", @current_challenge.id %>
-
     <div class="form-group">
       <div class="col-sm-3">
         <%= f.label :name, t(".name"), class: 'control-label' %>
@@ -16,12 +15,12 @@
     <div class="form-group">
       <div class="col-sm-3">
         <%= f.label :email, t(".email"), class: 'control-label' %>
+        <span class="help-block"><%= t(".email-description") %></span>
       </div>
       <div class="col-sm-9">
         <%= f.text_field :email, class: 'form-control' %>
       </div>
     </div>
-
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
         <%= f.submit t('.submit'), class: 'btn btn-default pull-right' %>

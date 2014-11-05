@@ -31,7 +31,7 @@ module Dashboard
     def set_current_challenge
       @current_challenge = current_challenge
     end
-    
+
     def create_new_user
       @user = User.new(params[:user])
       @user.password = @user.email
