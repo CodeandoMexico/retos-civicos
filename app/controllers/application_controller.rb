@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     return dashboard_url if resource.organization?
+    return judge_path(resource.userable) if resource.judge?
     return edit_current_user_path(resource.userable) if resource.just_created?
     session[:return_to] || challenges_path
   end

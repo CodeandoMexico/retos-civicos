@@ -4,9 +4,6 @@ module Dashboard
       @judges = Judge.all
     end
 
-    def show
-    end
-
     def new
       @user = User.new
     end
