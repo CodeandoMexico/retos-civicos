@@ -3,12 +3,15 @@ module Dashboard
     before_filter :require_current_challenge, only: [:index, :new, :create]
     before_filter :set_current_challenge
 
+<<<<<<< HEAD
     def index
       @challenges = organization.challenges.
         order('created_at DESC')
       @judges = current_challenge_judges
     end
 
+=======
+>>>>>>> user is no able to log in to it's panel
     def new
       @user = User.new
     end

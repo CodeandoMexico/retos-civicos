@@ -7,50 +7,46 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- brand -->
+          <%= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- left side of the navbar -->
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Evaluaciones', evaluations_path, class: tab_class('evaluations') %></li>
+          </ul>
+          <!-- right side of the navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Perfil', edit_judge_path(current_user.userable) %></li>
+                <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <!-- brand -->
-        <%= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
+      <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <!-- left side of the navbar -->
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'Evaluaciones', evaluations_path, class: tab_class('evaluations') %></li>
-        </ul>
-        <!-- right side of the navbar -->
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to 'Perfil', edit_judge_path(current_user.userable) %></li>
-              <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
-        </ul>
+      <% end %>
+
+      <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
       </div>
+      <% end %>
+
+      <%= yield %>
     </div>
-  </nav>
-
-  <div class="container">
-    <% if alert %>
-    <div class="alert alert-danger">
-      <%= alert %>
-    </div>
-    <% end %>
-
-    <% if notice %>
-    <div class="alert alert-success">
-      <%= notice %>
-    </div>
-    <% end %>
-
-    <%= yield %>
-  </div>
-
-
-</body>
+  </body>
 </html>
