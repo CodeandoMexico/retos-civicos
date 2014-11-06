@@ -361,6 +361,7 @@ es:
         new_judge: Agregar juez
       edit:
         title: Perfil
+<<<<<<< HEAD
       request_permission_for_challenge:
         title: "\"%{name}\" solicita acceso a:"
         read_challenge_information: "Lectura a la información del reto"
@@ -391,9 +392,14 @@ es:
       submit: Enviar
     no_challenge:
       no_challenges: No tienes retos asignados
+=======
+>>>>>>> judge is now able to edit it's profile
       form:
         name: Nombre
         email: Correo electrónico
+        company_name: Empresa
+        email-description: Email de la persona con la que estaremos en contacto
+        bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar jurado
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
