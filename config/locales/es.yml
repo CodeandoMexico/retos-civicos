@@ -21,6 +21,8 @@ es:
       updated: Listo para participar!
     users:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
+      updated: La información ha sido guardada.
+      error: La información no ha sido guardada.
     entries:
       phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
@@ -334,9 +336,14 @@ es:
       index:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
+      edit:
+        title: Perfil
       form:
         name: Nombre
         email: Correo electrónico
+        company_name: Empresa
+        email-description: Email de la persona con la que estaremos en contacto
+        bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar jurado
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
@@ -366,6 +373,19 @@ es:
       title: Titulo del mensaje
       message: Añade tu mensaje aquí
       submit: Mandar
+  judges:
+    index:
+      no_judges: No hay jueces registrados
+      new_judge: Agregar juez
+    edit:
+      title: Perfil
+    form:
+      name: Nombre
+      company_name: Empresa
+      email: Correo electrónico
+      email-description: Email de la persona con la que estaremos en contacto
+      bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
+      submit: Guardar
   members:
     header: Editar perfil
     form:
