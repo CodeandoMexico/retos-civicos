@@ -22,6 +22,8 @@ class Challenge < ActiveRecord::Base
   has_many :activities
   has_many :entries
   has_many :datasets
+  has_many :evaluations
+  has_many :judges, through: :evaluations
 
   belongs_to :organization
   # Validations
