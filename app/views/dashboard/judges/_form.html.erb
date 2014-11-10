@@ -2,6 +2,8 @@
   <div class="sheet-section sheet-section-with-pad">
     <%= f.error_messages %>
 
+    <%= hidden_field_tag "challenge_id", @current_challenge.id %>
+
     <div class="form-group">
       <div class="col-sm-3">
         <%= f.label :name, t(".name"), class: 'control-label' %>

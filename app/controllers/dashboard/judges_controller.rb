@@ -1,7 +1,12 @@
 module Dashboard
   class JudgesController < Dashboard::BaseController
+    before_filter :require_current_challenge, only: [:index, :new, :create]
+    before_filter :set_current_challenge
+
     def index
-      @judges = Judge.all
+      @challenges = organization.challenges.
+        order('created_at DESC')
+      @judges = current_challenge_judges
     end
 
     def new
@@ -14,10 +19,21 @@ module Dashboard
 
       @user.userable = Judge.new
       if @user.save
+        current_challenge.evaluations.create(judge_id: @user.userable.id)
         redirect_to dashboard_judges_path, notice: t('flash.judge.saved_successfully')
       else
         render :new
       end
+    end
+
+    private
+
+    def current_challenge_judges
+      current_challenge.judges.order('created_at DESC')
+    end
+
+    def set_current_challenge
+      @current_challenge = current_challenge
     end
   end
 end

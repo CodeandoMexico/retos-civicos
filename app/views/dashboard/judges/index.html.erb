@@ -1,7 +1,14 @@
 <h1>Jurado</h1>
 
+<div class="l-space-bottom">
+  <%= render 'challenges_filter',
+    challenges: @challenges,
+    current_challenge: @current_challenge,
+    filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) } %>
+</div>
+
 <div class="clearfix l-space-bottom">
-  <%= link_to t('.new_judge'), new_dashboard_judge_path,
+  <%= link_to t('.new_judge'), new_dashboard_judge_path(challenge_id: @current_challenge.id),
     class: 'btn btn-primary pull-right' %>
 </div>
 

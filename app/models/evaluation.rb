@@ -1,6 +1,5 @@
 class Evaluation < ActiveRecord::Base
-  attr_accessible :evaluation_file
-
-  belongs_to :challenges
-  belongs_to :judges
+  attr_accessible :evaluation_file, :judge_id, :challenge_id
+  belongs_to :challenge
+  belongs_to :judge
 end
