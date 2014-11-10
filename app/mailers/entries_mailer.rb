@@ -13,12 +13,12 @@ class EntriesMailer < ActionMailer::Base
     @challenge = entry.challenge
     @contact_email = ENV['MAILER_DEFAULT_FROM']
 
-    mail to: entry.member.email
+    mail to: entry.member.email, subject: 'Recibimos tu prototipo con éxito'
   end
 
   def send_entry_confirmation_mail_to(challenge, member)
     @challenge = challenge
     @timeline = Phases.timeline_from_dates(challenge)
-    mail to: member.email, subject: "Recibimos tu idea con éxito"
+    mail to: member.email, subject: 'Recibimos tu idea con éxito'
   end
 end
