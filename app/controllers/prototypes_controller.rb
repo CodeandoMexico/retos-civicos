@@ -9,6 +9,7 @@ class PrototypesController < ApplicationController
   def create
     if valid_entry_params?
       entry.update_attributes(entry_params)
+      EntriesMailer.prototype_sent(entry).deliver
       redirect_to challenge_path(challenge), notice: Phases.prototype_added_message(challenge)
     else
       render :new
