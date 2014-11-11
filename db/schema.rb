@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140922185334) do
+ActiveRecord::Schema.define(:version => 20141001162149) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(:version => 20140922185334) do
     t.string   "dataset_id"
     t.string   "entry_template_url"
     t.string   "infographic"
+    t.text     "prize"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
-    t.text     "prize"
     t.date     "starts_on"
     t.text     "fourth_spec"
     t.text     "fifth_spec"
@@ -111,6 +111,19 @@ ActiveRecord::Schema.define(:version => 20140922185334) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "datasets", :force => true do |t|
+    t.integer  "challenge_id"
+    t.string   "guid"
+    t.string   "format"
+    t.string   "title"
+    t.string   "name"
+    t.string   "notes"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "datasets", ["guid"], :name => "index_datasets_on_guid"
+
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
@@ -133,27 +146,27 @@ ActiveRecord::Schema.define(:version => 20140922185334) do
     t.text     "description"
     t.integer  "member_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.text     "technologies"
-    t.boolean  "public",            :default => false, :null => false
+    t.boolean  "public",                       :default => false, :null => false
     t.string   "image"
+    t.string   "letter_under_oath"
     t.boolean  "accepted"
     t.string   "idea_url"
-    t.string   "letter_under_oath"
     t.string   "repo_url"
     t.string   "demo_url"
     t.integer  "winner"
   end
 
   create_table "members", :force => true do |t|
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.string   "company_name"
     t.string   "company_rfc"
     t.string   "company_charter"
     t.string   "company_president"
-    t.boolean  "phase_finish_reminder_setting", :default => true, :null => false
+    t.boolean  "phase_finish_reminder_setting", :default => true,  :null => false
   end
 
   create_table "organizations", :force => true do |t|
