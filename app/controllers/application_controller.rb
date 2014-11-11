@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   before_filter :set_locale
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   rescue_from CanCan::AccessDenied do |exception|
     store_location(self.request.env["HTTP_REFERER"])
@@ -37,6 +38,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :last_challenge
+
+  def record_not_found
+    render :file => 'public/404.html', :status => :not_found, :layout => false
+  end
 
   private
 
