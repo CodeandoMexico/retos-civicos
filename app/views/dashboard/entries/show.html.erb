@@ -1,28 +1,34 @@
 <div class="page-header">
   <div class="pull-right">
     <ul class="list-inline">
-      <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
-        <li><%= button_to t('.accept-proposal'),
-          accept_dashboard_entry_url(@entry),
-          class: 'btn btn-primary',
-          confirm: t('.move-next-phase') %></li>
+      <% if !@entry.is_invalid? %>
+
+        <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
+          <li><%= button_to t('.accept-proposal'),
+            accept_dashboard_entry_url(@entry),
+            class: 'btn btn-primary',
+            confirm: t('.move-next-phase') %></li>
+        <% end %>
+
+        <% if Phases.is_current?(:prototypes_selection, @entry.challenge) && !@entry.is_there_another_winner? %>
+          <% if @entry.is_the_winner? %>
+            <li><%= button_to t('.remove-winner'),
+              remove_winner_dashboard_entry_url(@entry),
+              class: 'btn btn-danger',
+              confirm: t('.remove-winner-confirmation') %></li>
+          <% else %>
+            <li><%= button_to t('.select-winner'),
+              winner_dashboard_entry_url(@entry),
+              class: 'btn btn-primary',
+              confirm: t('.select-winner-confirmation') %></li>
+          <% end %>
+        <% end %>
+
+        <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
+
       <% end %>
 
-      <% if Phases.is_current?(:prototypes_selection, @entry.challenge) && !@entry.is_there_another_winner? %>
-        <% if @entry.is_the_winner? %>
-          <li><%= button_to t('.remove-winner'),
-            remove_winner_dashboard_entry_url(@entry),
-            class: 'btn btn-danger',
-            confirm: t('.remove-winner-confirmation') %></li>
-        <% else %>
-          <li><%= button_to t('.select-winner'),
-            winner_dashboard_entry_url(@entry),
-            class: 'btn btn-primary',
-            confirm: t('.select-winner-confirmation') %></li>
-        <% end %>
-      <% end %>
-      <li><%= render 'mark_entry_as_valid_or_invalid', entry: @entry %></li>
-      <li><%= render 'visit_or_publish_entry', entry: @entry %></li>
+      <li><%= render('mark_entry_as_valid_or_invalid', entry: @entry) unless (@entry.accepted? || @entry.is_the_winner?) %></li>
     </ul>
   </div>
 
