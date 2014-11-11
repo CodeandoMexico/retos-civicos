@@ -231,6 +231,7 @@ es:
       entry_status:
         entry-accepted: Aceptada
         entry-winner: GANADORA
+        entry-invalid: Inválida
     show:
       total-participants: Participantes
       total-entries: Propuestas recibidas
