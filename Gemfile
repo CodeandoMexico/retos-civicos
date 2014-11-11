@@ -79,6 +79,7 @@ gem 'redcarpet'
 gem 'figaro'
 gem 'onebox', '~> 1.2'
 gem 'validate_url'
+gem 'rack-utf8_sanitizer'
 
 # Console tools
 gem 'ruby-progressbar'
