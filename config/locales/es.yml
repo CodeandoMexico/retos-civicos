@@ -332,6 +332,7 @@ es:
       bio: Descripción
       bio-description: 140 caracteres sobre la organización
       email-description: Email de la persona con la que estaremos en contacto
+      slug-description: "Identificador encontrar una organización a través del url"
       avatar: Imagen de perfil
     show:
       email_placeholder: Tu correo electrónico preferido
