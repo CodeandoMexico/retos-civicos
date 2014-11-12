@@ -9,7 +9,7 @@ class EntriesMailer < ActionMailer::Base
     mail to: entry.member.email
   end
 
-  def prototype_sent(entry)
+  def send_prototype_confirmation(entry)
     @challenge = entry.challenge
     @contact_email = ENV['MAILER_DEFAULT_FROM']
 
