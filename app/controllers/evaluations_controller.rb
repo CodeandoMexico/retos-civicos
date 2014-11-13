@@ -5,7 +5,7 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :require_current_challenge, only: :index
 
   def index
-    @judge = Judge.find(params[:judge_id])
+    @judge = current_user.userable
     @challenges = @judge.challenges.order('created_at DESC')
     @current_challenge = current_challenge
     @entries = current_challenge_entries
