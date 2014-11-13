@@ -4,7 +4,7 @@
   <%= render 'challenges_filter',
     challenges: @challenges,
     current_challenge: @current_challenge,
-    filter_path: ->(challenge) { evaluations_path(@judge, challenge_id: challenge.id) } %>
+    filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
 </div>
 
 <% if @current_phase.present? %>
