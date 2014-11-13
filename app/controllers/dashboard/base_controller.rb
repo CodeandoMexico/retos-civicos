@@ -17,10 +17,6 @@ module Dashboard
       redirect_to challenges_path unless current_user
     end
 
-    def authenticate_organization_admin!
-      redirect_to challenges_path unless (current_user.organization? || current_user.judge?)
-    end
-
     helper_method :organization
 
     def organization

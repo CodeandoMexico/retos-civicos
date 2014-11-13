@@ -15,7 +15,7 @@ class EvaluationsController < Dashboard::BaseController
   private
 
   def authenticate_judge!
-    current_user.judge?
+    redirect_to challenges_path unless current_user.judge?
   end
 
   def current_challenge_entries

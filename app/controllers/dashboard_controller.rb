@@ -1,5 +1,6 @@
 class DashboardController < Dashboard::BaseController
   layout 'dashboard'
+  before_filter :authenticate_organization!
 
   def show
     @challenges = top_five(organization_challenges)
@@ -19,5 +20,11 @@ class DashboardController < Dashboard::BaseController
 
   def top_five(relation)
     relation.order('created_at DESC').limit(5)
+  end
+
+  private
+
+  def authenticate_organization!
+    redirect_to challenges_path unless current_user.organization?
   end
 end
