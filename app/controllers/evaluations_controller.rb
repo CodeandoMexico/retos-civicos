@@ -43,5 +43,4 @@ class EvaluationsController < Dashboard::BaseController
     @evaluation = @judge.evaluations.find_by_challenge_id(current_challenge.id)
     @current_challenge = current_challenge
   end
-
 end
