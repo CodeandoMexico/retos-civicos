@@ -39,7 +39,7 @@ Aquila::Application.routes.draw do
     resources :judges, only: [:index, :new, :create], controller: 'dashboard/judges'
   end
 
-  resources :judges, only: [:show, :edit, :update] do
+  resources :judges, only: [:edit, :update] do
     resources :evaluations
   end
 

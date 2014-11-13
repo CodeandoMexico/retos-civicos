@@ -1,0 +1,44 @@
+<h1>Evaluaciones</h1>
+
+<div class="l-space-bottom">
+  <%= render 'challenges_filter',
+    challenges: @challenges,
+    current_challenge: @current_challenge,
+    filter_path: ->(challenge) { judge_evaluations_path(@judge, challenge_id: challenge.id) } %>
+</div>
+
+<% if @current_phase.present? %>
+  <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
+<% end %>
+
+<% if @entries.any? %>
+  <table id="entries" class="table table-striped table-vertically-centered">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t('.company-name') %></th>
+        <th><%= t('.entry-email') %></th>
+        <th><%= t('.link-to-project') %></th>
+        <th><%= t('.technologies') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= content_tag_for :tr, @entries do |entry| %>
+        <td>
+          <%= link_to entry.name, dashboard_entry_path(entry) %>
+          <%= render 'entry_status', entry: entry %>
+          <br/>
+          <small><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></small>
+        </td>
+        <td><%= entry.member.company_name %></td>
+        <td><%= truncate(entry.member.email, length: 25) %></td>
+        <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
+        <td><%= entry.technologies_separated_by_commas %></td>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info">
+    <%= t('.no-proposals') %>
+  </div>
+<% end %>
