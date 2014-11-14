@@ -401,6 +401,17 @@ es:
         email-description: Email de la persona con la que estaremos en contacto
         bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar jurado
+  evaluations:
+    index:
+      company_name: Empresa
+      entry_email: correo electrónico
+      link_to_project: Liga al proyecto
+      technologies: Tecnologías
+      submit_evaluation: Importar evaluación
+    new:
+      new_evaluation: Evaluar Reto
+    form:
+      evaluation_file: Archivo con resultados
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
