@@ -7,7 +7,6 @@ class EvaluationsController < Dashboard::BaseController
 
   def index
     @challenges = @judge.challenges.order('created_at DESC')
-    @current_challenge = current_challenge
     @entries = current_challenge_entries
     @current_phase = Phases.current_phase_title(current_challenge)
   end
@@ -16,8 +15,6 @@ class EvaluationsController < Dashboard::BaseController
   end
 
   def update
-    # @evaluation.update_attributes(params[:evaluation])
-    # raise @evaluation.inspect
     if @evaluation.update_attributes(params[:evaluation])
       redirect_to evaluations_path
     else
@@ -44,6 +41,7 @@ class EvaluationsController < Dashboard::BaseController
   def set_judge_and_evaluation
     @judge = current_user.userable
     @evaluation = @judge.evaluations.find_by_challenge_id(current_challenge.id)
+    @current_challenge = current_challenge
   end
 
 end

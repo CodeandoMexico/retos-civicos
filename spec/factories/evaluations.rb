@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :evaluation do
+    association :challenge
+    association :judge
     evaluation_file "MyString"
   end
 end
