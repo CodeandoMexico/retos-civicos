@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141001162149) do
+ActiveRecord::Schema.define(:version => 20141107211607) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(:version => 20141001162149) do
     t.string   "dataset_id"
     t.string   "entry_template_url"
     t.string   "infographic"
-    t.text     "prize"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
+    t.text     "prize"
     t.date     "starts_on"
     t.text     "fourth_spec"
     t.text     "fifth_spec"
@@ -146,27 +146,42 @@ ActiveRecord::Schema.define(:version => 20141001162149) do
     t.text     "description"
     t.integer  "member_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.text     "technologies"
-    t.boolean  "public",                       :default => false, :null => false
+    t.boolean  "public",            :default => false, :null => false
     t.string   "image"
-    t.string   "letter_under_oath"
     t.boolean  "accepted"
     t.string   "idea_url"
+    t.string   "letter_under_oath"
     t.string   "repo_url"
     t.string   "demo_url"
     t.integer  "winner"
+    t.boolean  "is_valid",          :default => true
+  end
+
+  create_table "evaluations", :force => true do |t|
+    t.string   "evaluation_file"
+    t.integer  "challenge_id"
+    t.integer  "judge_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "judges", :force => true do |t|
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "company_name"
   end
 
   create_table "members", :force => true do |t|
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.string   "company_name"
     t.string   "company_rfc"
     t.string   "company_charter"
     t.string   "company_president"
-    t.boolean  "phase_finish_reminder_setting", :default => true,  :null => false
+    t.boolean  "phase_finish_reminder_setting", :default => true, :null => false
   end
 
   create_table "organizations", :force => true do |t|
