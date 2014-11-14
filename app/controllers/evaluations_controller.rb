@@ -3,17 +3,26 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :authenticate_user!
   before_filter :authenticate_judge!
   before_filter :require_current_challenge, only: :index
+  before_filter :set_judge_and_evaluation, only: [:index, :edit, :update]
 
   def index
-    @judge = current_user.userable
     @challenges = @judge.challenges.order('created_at DESC')
     @current_challenge = current_challenge
     @entries = current_challenge_entries
     @current_phase = Phases.current_phase_title(current_challenge)
   end
 
-  def new
-    @evaluation = Evaluation.new
+  def edit
+  end
+
+  def update
+    # @evaluation.update_attributes(params[:evaluation])
+    # raise @evaluation.inspect
+    if @evaluation.update_attributes(params[:evaluation])
+      redirect_to evaluations_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -30,6 +39,11 @@ class EvaluationsController < Dashboard::BaseController
     else
       default
     end
+  end
+
+  def set_judge_and_evaluation
+    @judge = current_user.userable
+    @evaluation = @judge.evaluations.find_by_challenge_id(current_challenge.id)
   end
 
 end
