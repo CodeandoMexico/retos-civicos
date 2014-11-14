@@ -12,6 +12,10 @@ class EvaluationsController < Dashboard::BaseController
     @current_phase = Phases.current_phase_title(current_challenge)
   end
 
+  def new
+    @evaluation = Evaluation.new
+  end
+
   private
 
   def authenticate_judge!

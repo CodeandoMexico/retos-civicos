@@ -1,5 +1,9 @@
 <h1>Evaluaciones</h1>
 
+<%= link_to t('.submit_evaluation'),
+  new_evaluation_path(challenge_id: @current_challenge.id),
+  class: 'btn btn-default pull-right' %>
+
 <div class="l-space-bottom">
   <%= render 'challenges_filter',
     challenges: @challenges,

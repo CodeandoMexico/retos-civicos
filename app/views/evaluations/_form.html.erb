@@ -1,0 +1,10 @@
+<%= form_for @evaluation, html: { class: 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :evaluation_file, t('.evaluation_file'), class: 'control-label' %>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :evaluation_file, required: true, class: 'form-control' %>
+    </div>
+  </div>
+<% end %>

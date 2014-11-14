@@ -40,7 +40,7 @@ Aquila::Application.routes.draw do
   end
 
   resources :judges, only: [:edit, :update]
-  resources :evaluations
+  resources :evaluations, only: [:index, :new, :create]
 
   resources :organizations, only: [:update, :edit] do
     member do
