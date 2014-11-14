@@ -409,10 +409,12 @@ es:
       technologies: Tecnologías
       submit_evaluation: Importar evaluación
     edit:
-      new_evaluation: Evaluar Reto
+      new_evaluation: Evaluar
     form:
       evaluation_file: Archivo con resultados
       submit: Enviar
+    no_challenge:
+      no_challenges: No tienes retos asignados
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
