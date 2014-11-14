@@ -408,10 +408,11 @@ es:
       link_to_project: Liga al proyecto
       technologies: Tecnologías
       submit_evaluation: Importar evaluación
-    new:
+    edit:
       new_evaluation: Evaluar Reto
     form:
       evaluation_file: Archivo con resultados
+      submit: Enviar
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
