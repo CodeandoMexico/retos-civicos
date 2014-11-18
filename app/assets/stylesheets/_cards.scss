@@ -1,0 +1,62 @@
+$base_padding: 10px;
+$base_margin: 30px;
+$gray: #DCDCDC;
+
+.base--header {
+  margin-bottom: $base_margin;
+h4 {
+    text-align: center;
+    padding-top: $base_padding;
+    font-size: 18px;
+  }
+}
+
+.base--body {
+  margin-bottom: $base_margin;
+  border-bottom: 1px solid $gray;
+}
+
+.base--footer {
+}
+
+
+.deck {
+  margin: 50px;
+  padding: $base_padding;
+
+  .permission__card {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .header {
+      @extend .base--header;
+    }
+
+    .body {
+      @extend .base--body;
+      ul {
+        list-style-type: none;
+        padding-left: 0px;
+        margin-bottom: 0px;
+
+        li {
+          padding-top: $base_padding * 2;
+          padding-bottom: $base_padding * 2;
+          border-top: 1px solid $gray;
+        }
+      }
+    }
+
+    .footer {
+      @extend .base--footer;
+      font-size: 12px;
+
+      .actions {
+        float: right;
+        display: inline-block;
+      }
+    }
+
+  }
+}

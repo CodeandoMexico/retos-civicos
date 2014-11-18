@@ -338,6 +338,14 @@ es:
         new_judge: Agregar juez
       edit:
         title: Perfil
+      request_permission_for_challenge:
+        title: "\"%{name}\" solicita acceso a:"
+        read_challenge_information: "Lectura a la información del reto"
+        read_entries_information: "Lectura a la información de las propuestas del reto"
+        evaluate_a_challenge: "Evaluar un reto"
+        footer_caption: "Al aceptar estás otorgando los permisos mencionados previamente al juez."
+        submit: Acepto
+        cancel: Cancelar
       form:
         name: Nombre
         email: Correo electrónico

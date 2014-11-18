@@ -14,11 +14,10 @@ module Dashboard
     end
 
     def create
-      @user = User.new(params[:user])
-      @user.password = @user.email
-
-      @user.userable = Judge.new
-      if @user.save
+      if judge_already_exists
+        @judge_challenges = @judge.challenges
+        render :request_permission_for_challenge
+      elsif create_new_user
         current_challenge.evaluations.create(judge_id: @user.userable.id)
         redirect_to dashboard_judges_path, notice: t('flash.judge.saved_successfully')
       else
@@ -34,6 +33,18 @@ module Dashboard
 
     def set_current_challenge
       @current_challenge = current_challenge
+    end
+
+    def judge_already_exists
+      @user = User.find_by_email(params[:user][:email])
+      @judge = @user.userable if @user.judge?
+    end
+
+    def create_new_user
+      @user = User.new(params[:user])
+      @user.password = @user.email
+      @user.userable = Judge.new
+      @user.save
     end
   end
 end

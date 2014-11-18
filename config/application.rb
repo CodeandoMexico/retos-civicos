@@ -69,7 +69,7 @@ module Aquila
     config.middleware.use "RedirectToAppUrl" if Rails.env.production?
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( dashboard.css )
+    config.assets.precompile += %w( dashboard.css judge.css )
 
     # Strip the www to prevent crash with subdomains
     if Rails.env.production? or Rails.env.staging?

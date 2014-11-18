@@ -1,0 +1,26 @@
+<%= form_for @judge, url: { path: dashboard_judges_path, action: :create }, html: { class: 'form-horizontal' } do |f| %>
+  <div class="deck">
+    <div class="permission__card">
+      <div class="header">
+        <h4 class="title"><%= t('.title', name: @judge.name) %></h4>
+      </div>
+
+      <div class="body">
+        <ul>
+          <li><%= t('.read_challenge_information') %></li>
+          <li><%= t('.read_entries_information') %></li>
+          <li><%= t('.evaluate_a_challenge') %></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p class="l-space-bottom"><%= t('.footer_caption') %></p>
+
+        <div class="actions">
+          <%= link_to t('.cancel'), dashboard_judges_path, class: 'btn btn-default' %>
+          <%= f.submit t('.submit'), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
