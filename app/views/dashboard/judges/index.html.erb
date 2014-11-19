@@ -8,7 +8,7 @@
 </div>
 
 <div class="clearfix l-space-bottom">
-  <%= link_to t('.new_judge'), new_dashboard_judge_path(challenge_id: @current_challenge.id),
+  <%= link_to t('.new_judge'), new_dashboard_challenge_evaluation_path(@current_challenge),
     class: 'btn btn-primary pull-right' %>
 </div>
 

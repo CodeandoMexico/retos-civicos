@@ -332,6 +332,21 @@ es:
         no-collaborators: Aún no hay participantes para este reto.
       no_challenge:
         no-challenges: Aún no hay retos publicados.
+    evaluations:
+      show:
+        title: "\"%{name}\" solicita acceso a:"
+        read_challenge_information: "Lectura a la información del reto"
+        read_entries_information: "Lectura a la información de las propuestas del reto"
+        evaluate_a_challenge: "Evaluar un reto"
+        footer_caption: "Al aceptar estás otorgando los permisos mencionados previamente al juez."
+        submit: Acepto
+        cancel: Cancelar
+        challenges: Retos en los que actualmente participa el juez
+      new:
+        title: Crear evaluación
+      form:
+        email: Correo electrónico
+        submit: Crear
     judges:
       index:
         no_judges: No hay jueces registrados

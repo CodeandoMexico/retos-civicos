@@ -1,0 +1,48 @@
+<%= form_tag dashboard_challenge_evaluations_path(@challenge) do %>
+  <%= hidden_field_tag "challenge_id", @challenge.id %>
+  <%= hidden_field_tag "judge_id", @judge.id %>
+
+  <div class="deck">
+    <div class="list__card">
+      <div class="header">
+        <h4 class="title"><%= t('.title', name: @judge.name) %></h4>
+      </div>
+
+      <div class="body">
+        <ul>
+          <li><%= t('.read_challenge_information') %></li>
+          <li><%= t('.read_entries_information') %></li>
+          <li><%= t('.evaluate_a_challenge') %></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p class="l-space-bottom"><%= t('.footer_caption') %></p>
+
+        <div class="actions">
+          <%= link_to t('.cancel'), dashboard_judges_path, class: 'btn btn-default' %>
+          <%= submit_tag t('.submit'), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<% if @judge.challenges.any? %>
+  <div class="deck">
+    <div class="list__card">
+      <div class="header">
+        <h4 class="title"><%= t('.challenges') %></h4>
+      </div>
+
+      <div class="body">
+        <ul>
+          <% @judge.challenges.each do |c| %>
+            <li><%= c.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

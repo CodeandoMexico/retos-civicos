@@ -4,5 +4,5 @@ class Evaluation < ActiveRecord::Base
   belongs_to :judge
 
   mount_uploader :evaluation_file, EvaluationFileUploader
-  validates :evaluation_file, presence: true, on: :update
+  validates :challenge_id, uniqueness: { scope: :judge_id }
 end

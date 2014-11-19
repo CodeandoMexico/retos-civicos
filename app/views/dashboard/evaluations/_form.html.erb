@@ -1,0 +1,19 @@
+<%= form_tag dashboard_challenge_search_judge_path(@challenge), class: 'form-horizontal' do %>
+  <div class="sheet-section sheet-section-with-pad">
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= label_tag :email, t(".email"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-9">
+        <%= email_field_tag :email, nil, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= submit_tag t('.submit'), class: 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+<% end %>

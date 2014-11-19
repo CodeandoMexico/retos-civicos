@@ -27,6 +27,9 @@ Aquila::Application.routes.draw do
         get :finalists, to: 'dashboard/mailers', as: 'finalists', on: :new
         get :participants, to: 'dashboard/mailers', as: 'participants', on: :new
       end
+
+      post :search_judge, controller: 'dashboard/evaluations'
+      resources :evaluations, only: [:show, :new, :create], controller: 'dashboard/evaluations'
     end
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :mark_valid, on: :member

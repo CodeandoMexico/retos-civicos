@@ -54,7 +54,9 @@ h4 {
 
       .actions {
         float: right;
-        display: inline-block;
+        form {
+          display: inline-block;
+        }
       }
     }
 
