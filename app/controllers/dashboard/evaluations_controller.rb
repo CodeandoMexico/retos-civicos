@@ -18,7 +18,7 @@ module Dashboard
           render :show
         else
           # user is a collaborator or an organization
-          redirect_to new_dashboard_judge_path(challenge_id: @challenge), alert: t('.user_cannot_be_added_as_a_judge')
+          redirect_to new_dashboard_judge_path(challenge_id: @challenge), alert: t('flash.judge.user_cannot_be_added_as_a_judge')
         end
       else
         redirect_to new_dashboard_judge_path(challenge_id: @challenge), alert: t('flash.judge.does_not_exist')

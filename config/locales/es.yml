@@ -1,7 +1,11 @@
 es:
   flash:
     judge:
-      saved_successfully: El juez ha sido invitado satisfactoriamente
+      user_cannot_be_added_as_a_judge: El usuario no puede ser agregado ya que su correo pertenece a un miembro o una organización.
+      does_not_exist: El usuario aún no existe, favor de crearle una cuenta.
+      saved_successfully: El juez ha sido invitado satisfactoriamente.
+      added_succesfully_for_this_challenge: El juez ha sido invitado a evaluar el reto.
+      evaluation_already_exists_for_this_challenge: El juez ya ha sido invitado previamente a evaluar el reto.
     mailers:
       create:
         notice: El correo ha sido enviado exitosamente.
