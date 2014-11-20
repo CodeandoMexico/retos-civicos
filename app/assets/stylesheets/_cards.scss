@@ -1,6 +1,15 @@
-$base_padding: 10px;
-$base_margin: 30px;
+$base_padding: 20px;
+$base_margin: 20px; // this value should be equal to the base_padding
 $gray: #DCDCDC;
+$grey-200: #EEEEEE;
+$grey-600: #757575;
+
+
+h1 {
+  color: $grey-600;
+  font-weight: 300;
+  margin: $base_margin;
+}
 
 .base--header {
   margin-bottom: $base_margin;
@@ -19,12 +28,63 @@ h4 {
 .base--footer {
 }
 
+.base--card {
+  padding: $base_padding;
+}
+
 
 .deck {
-  margin: 50px;
-  padding: $base_padding;
+
+  .actions__card {
+    @extend .base--card;
+  }
+
+  .table__card {
+    @extend .base--card;
+
+    ul {
+      list-style-type: none;
+      padding: 0px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .table--row {
+      padding: 15px;
+      background-color: white;
+      margin-bottom: 2px;
+
+      .table--column {
+        float: left;
+        min-height: 1px;
+      }
+
+      .title {
+        @extend .table--column;
+        width: 30%;
+        font-weight: bold;
+      }
+      .subtitle {
+        @extend .table--column;
+        width: 70%;
+      }
+      .footer {
+        font-size: 12px;
+      }
+
+      &:hover {
+        border: 1px solid $brand-primary;
+      }
+    }
+  }
 
   .list__card {
+    @extend .base--card;
+    background-color: white;
+    margin: 50px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;

@@ -379,6 +379,7 @@ es:
       link_to_project: Liga al proyecto
       technologies: Tecnologías
       submit_evaluation: Importar evaluación
+      no-proposals: No hay entradas en este reto.
     edit:
       new_evaluation: Evaluar
     form:

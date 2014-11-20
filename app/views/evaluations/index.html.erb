@@ -1,48 +1,42 @@
 <h1>Evaluaciones</h1>
 
-<%= link_to t('.submit_evaluation'),
-  edit_evaluation_path(@evaluation, challenge_id: @current_challenge.id),
-  class: 'btn btn-default pull-right' %>
+<div class="deck">
 
-<div class="l-space-bottom">
-  <%= render 'challenges_filter',
-    challenges: @challenges,
-    current_challenge: @current_challenge,
-    filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
-</div>
+  <div class="actions__card">
+    <%= link_to t('.submit_evaluation'),
+      edit_evaluation_path(@evaluation, challenge_id: @current_challenge.id),
+      class: 'btn btn-default pull-right' %>
 
-<% if @current_phase.present? %>
-  <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
-<% end %>
+    <div class="l-space-bottom">
+      <%= render 'challenges_filter',
+        challenges: @challenges,
+        current_challenge: @current_challenge,
+        filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
+    </div>
 
-<% if @entries.any? %>
-  <table id="entries" class="table table-striped table-vertically-centered">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= t('.company_name') %></th>
-        <th><%= t('.entry_email') %></th>
-        <th><%= t('.link_to_project') %></th>
-        <th><%= t('.technologies') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= content_tag_for :tr, @entries do |entry| %>
-        <td>
-          <%= link_to entry.name, dashboard_entry_path(entry) %>
-          <%= render 'entry_status', entry: entry %>
-          <br/>
-          <small><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></small>
-        </td>
-        <td><%= entry.member.company_name %></td>
-        <td><%= truncate(entry.member.email, length: 25) %></td>
-        <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
-        <td><%= entry.technologies_separated_by_commas %></td>
+    <% if @current_phase.present? %>
+      <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
+    <% end %>
+  </div>
+
+  <% if @entries.any? %>
+  <div class="table__card">
+    <ul>
+      <% @entries.each do |entry| %>
+        <%= link_to dashboard_entry_path(entry) do %>
+        <li class="table--row">
+          <div class="title"><%= entry.member.email %></div>
+          <div class="subtitle"><%= entry.name %></div>
+          <div class="footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+        </li>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
+    </ul>
+  </div>
+  <% else %>
   <div class="alert alert-info">
     <%= t('.no-proposals') %>
   </div>
-<% end %>
+  <% end %>
+
+</div>
