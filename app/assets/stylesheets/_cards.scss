@@ -4,7 +4,6 @@ $gray: #DCDCDC;
 $grey-200: #EEEEEE;
 $grey-600: #757575;
 
-
 h1 {
   color: $grey-600;
   font-weight: 300;
@@ -45,6 +44,10 @@ h3 {
 
 .deck *{
   box-sizing: border-box;
+}
+
+.base--card {
+  padding: $base_padding;
 }
 
 

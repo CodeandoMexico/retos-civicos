@@ -46,7 +46,9 @@
       </div>
       <% end %>
 
-      <%= yield %>
+    <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
     </div>
   </body>
 </html>
