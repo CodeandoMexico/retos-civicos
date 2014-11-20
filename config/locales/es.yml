@@ -371,7 +371,7 @@ es:
         company_name: Empresa
         email-description: Email de la persona con la que estaremos en contacto
         bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
-        submit: Agregar jurado
+        submit: Agregar juez
   evaluations:
     index:
       company_name: Empresa

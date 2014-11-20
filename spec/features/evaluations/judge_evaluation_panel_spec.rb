@@ -1,6 +1,7 @@
 require 'spec_helper'
 feature 'Judge' do
   attr_reader :judge_with_no_evaluations, :judge_with_evaluations, :challenge_without_evaluations, :challenge_with_evaluations, :evaluation
+  
   before do
     @judge_with_no_evaluations = create :judge
     @judge_with_evaluations = create :judge
