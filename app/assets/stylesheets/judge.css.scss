@@ -3,70 +3,13 @@ $brand-primary: #11ad00;
 @import 'bootstrap';
 @import "cards";
 
-html {
-  overflow: hidden;
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+
+  background-color: $grey-200;
 }
 
-html, body, .l-dashboard, .l-sidebar, .l-main {
-  height: 100%;
-}
-
-.l-main {
-  overflow: scroll;
-}
-
-.table-vertically-centered {
-  > thead > tr > td, > tbody > tr > td {
-    vertical-align: middle;
-  }
-}
-
-.l-space-bottom {
-  margin-bottom: 1.5em !important;
-}
-
-.l-space-bottom-large {
-  margin-bottom: 2.5em !important;
-}
-
-.l-space-top-large {
-  margin-top: 2.5em !important;
-}
-
-.brand {
-  width: 100%;
-}
-
-.sidebar {
-  border-right: 1px solid $gray-lighter;
-}
-
-.sidebar-nav {
-  font-size: 1.4em;
-  line-height: 2;
-  list-style: none;
-  padding: 0;
-
-  > li > a {
-    display: block;
-    padding: 1em;
-
-    &:hover {
-      color: $brand-primary;
-      background: $gray-lighter;
-      text-decoration: none;
-    }
-
-    &.active {
-      background: $brand-primary;
-      color: #ffffff;
-    }
-  }
-}
-
-.sidebar-subnav {
-  font-size: 1.2em;
-  line-height: 2.5;
-  list-style: none;
-  padding: 0;
+.navbar-default {
+  background-color: #FFFFFF;
 }
