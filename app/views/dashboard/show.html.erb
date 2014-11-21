@@ -1,60 +1,50 @@
-<h1 class="l-space-bottom">Dashboard</h1>
+<h1>Dashboard</h1>
 
-<h3>Retos Activos</h3>
-<% if @challenges.any? %>
-  <table id="challenges" class="table table-striped table-vertically-centered">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= t('.total-participants') %></th>
-        <th><%= t('.total-entries') %></th>
-      </tr>
-    </thead>
-    <tbody>
+
+
+<div class="deck">
+  <!-- Active Challenges -->
+  <h3>Retos Activos</h3>
+  <% if @challenges.any? %>
+  <div class="table__card">
+    <ul>
       <% @challenges.each do |challenge| %>
-        <tr>
-          <td><%= link_to icon('pencil-square-o'), edit_organization_challenge_path(current_member, challenge) %> | <%= link_to challenge.title, challenge_path(challenge), target: '_blank' %></td>
-          <td><%= challenge.collaborators.size %></td>
-          <td><%= challenge.entries.size %></td>
-        </tr>
+      <%= link_to challenge_path(challenge), target: "_blank" do %>
+      <li class="table--row">
+        <div class="title"><%= challenge.title %></div>
+        <div class="subtitle"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
+        <div class="footer"><%= t('.status') %>: <%= t("challenges.status.#{challenge.status}") %></div>
+      </li>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <div class="alert alert-info">
-    <%= t('.no-challenges') %>
+      <% end %>
+    </ul>
   </div>
-<% end %>
-
-<h3 class="l-space-top-large"><%= t('.latest-entries')%></h3>
-<% if @entries.any? %>
-  <table id="entries" class="table table-striped table-vertically-centered">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= t('.company-name') %></th>
-        <th><%= t('.link-to-project') %></th>
-        <th><%= t('.challenge-name') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @entries.each do |entry| %>
-        <tr>
-          <td>
-            <%= link_to entry.name, dashboard_entry_path(entry) %>
-            <%= render 'entry_status', entry: entry %>
-            <br/>
-            <small>Fecha envío: <%= l(entry.created_at, format: :short)%></small>
-          </td>
-          <td><%= entry.member.name %></td>
-          <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
-          <td><%= entry.challenge.title %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
+  <% else %>
   <div class="alert alert-info">
     <%= t('.no-proposals') %>
   </div>
-<% end %>
+  <% end %>
+
+  <!-- Latest entries -->
+  <h3><%= t('.latest-entries')%></h3>
+
+  <% if @entries.any? %>
+  <div class="table__card">
+    <ul>
+      <% @entries.each do |entry| %>
+      <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
+      <li class="table--row">
+        <div class="title"><%= entry.member.email %></div>
+        <div class="subtitle"><%= entry.name %></div>
+        <div class="footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <% else %>
+  <div class="alert alert-info">
+    <%= t('.no-proposals') %>
+  </div>
+  <% end %>
+</div>

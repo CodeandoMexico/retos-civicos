@@ -8,27 +8,61 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container-fluid l-dashboard">
-    <div class="col-lg-3 col-md-3 l-sidebar sidebar">
-      <h1 class="l-space-bottom"><%= link_to image_tag('logos-horizontal/retos_logo_horizontal-04.png', class: 'brand', alt: 'Retos públicos'), root_path %></h1>
-      <h3 class="text-muted l-space-bottom"><%= organization.name %></h3>
-      <ul class="sidebar-nav">
-        <li><%= link_to 'Dashboard', dashboard_path, class: tab_class('dashboard') %></li>
-        <li><%= link_to 'Retos', dashboard_challenges_path, class: tab_class('dashboard/challenges') %></li>
-        <li><%= link_to 'Propuestas', dashboard_entries_path, class: tab_class('dashboard/entries') %></li>
-        <li><%= link_to 'Participantes', dashboard_collaborators_path, class: tab_class('dashboard/collaborators') %></li>
-        <li><%= link_to 'Jurado', dashboard_judges_path, class: tab_class('dashboard/judges') %></li>
-      </ul>
-      <hr/>
-      <ul class="sidebar-subnav">
-        <li><%= link_to 'Editar Perfil', edit_organization_path(organization) %></li>
-        <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
-      </ul>
-    </div>
-    <div class="col-lg-9 col-md-9 l-main">
-      <%= display_flash_messages %>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- brand -->
+          <a class="navbar-brand" href="#">Organizaci&oacute;n</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- left side of the navbar -->
+          <ul class="nav navbar-nav">
+            <%= content_tag :li, class: tab_class('dashboard') do %>
+              <%= link_to 'Dashboard', dashboard_path %>
+            <% end %>
+            <%= content_tag :li, class: tab_class('dashboard/challenges') do %>
+              <%= link_to 'Retos', dashboard_challenges_path %>
+            <% end %>
+            <%= content_tag :li, class: tab_class('dashboard/entries') do %>
+              <%= link_to 'Propuestas', dashboard_entries_path %>
+            <% end %>
+            <%= content_tag :li, class: tab_class('dashboard/collaborators') do %>
+              <%= link_to 'Participantes', dashboard_collaborators_path %>
+            <% end %>
+            <%= content_tag :li, class: tab_class('dashboard/judges') do %>
+              <%= link_to 'Jurado', dashboard_judges_path %>
+            <% end %>
+          </ul>
+          <!-- right side of the navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Perfil', edit_organization_path(organization) %></li>
+                <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+      <% end %>
+
+      <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
+
   </div>
 </body>
 </html>

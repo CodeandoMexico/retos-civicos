@@ -11,6 +11,13 @@ h1 {
   margin: $base_margin;
 }
 
+h3 {
+  color: $grey-600;
+  font-weight: 300;
+  margin: $base_margin;
+}
+
+
 .base--header {
   margin-bottom: $base_margin;
 h4 {
@@ -73,6 +80,7 @@ h4 {
       }
       .footer {
         font-size: 12px;
+        min-height: 1px;
       }
 
       &:hover {
