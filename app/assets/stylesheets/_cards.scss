@@ -1,4 +1,4 @@
-$base_padding: 20px;
+$base_padding: 12px;
 $base_margin: 20px; // this value should be equal to the base_padding
 $gray: #DCDCDC;
 $grey-200: #EEEEEE;
@@ -8,50 +8,58 @@ $grey-600: #757575;
 h1 {
   color: $grey-600;
   font-weight: 300;
-  margin: $base_margin;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin;
 }
 
 h3 {
   color: $grey-600;
   font-weight: 300;
-  margin: $base_margin;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin;
 }
 
 
-.base--header {
-  margin-bottom: $base_margin;
-h4 {
-    text-align: center;
-    padding-top: $base_padding;
-    font-size: 18px;
+.card--column {
+  float: left;
+  min-height: 1px;
+  padding: $base_padding;
+  width: 30%;
+}
+
+.card--row {
+  margin-bottom: 2px;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    clear:both;
   }
 }
 
-.base--body {
-  margin-bottom: $base_margin;
-  border-bottom: 1px solid $gray;
-}
-
-.base--footer {
-}
-
 .base--card {
-  padding: $base_padding;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin * 2;
+}
+
+.deck *{
+  box-sizing: border-box;
 }
 
 
 .deck {
-
-  .actions__card {
-    @extend .base--card;
-  }
+  margin-top: $base_margin;
+  margin-bottom: $base_margin * 4;
+  width : 100%;
+  max-width : 1200px;
 
   .table__card {
     @extend .base--card;
-
     ul {
       list-style-type: none;
       padding: 0px;
+      margin: 0px;
     }
 
     a {
@@ -60,27 +68,22 @@ h4 {
     }
 
     .table--row {
-      padding: 15px;
+      @extend .card--row;
       background-color: white;
-      margin-bottom: 2px;
 
-      .table--column {
-        float: left;
-        min-height: 1px;
-      }
-
-      .title {
-        @extend .table--column;
+      .row--title {
+        @extend .card--column;
         width: 30%;
         font-weight: bold;
       }
-      .subtitle {
-        @extend .table--column;
-        width: 70%;
+      .row--subtitle {
+        @extend .card--column;
+        width: 50%;
       }
-      .footer {
+      .row--footer {
+        @extend .card--column;
+        width: 20%;
         font-size: 12px;
-        min-height: 1px;
       }
 
       &:hover {
@@ -89,8 +92,48 @@ h4 {
     }
   }
 
+  .actions__card {
+    @extend .card--row;
+    .action--title {
+      @extend .card--column;
+      padding-left: 0;
+      width: 30%;
+    }
+
+    .action--list {
+      @extend .card--column;
+      padding-right: 0;
+      width: 70%;
+      .action-element {
+        display: inline;
+        float:right;
+      }
+    }
+
+  }
+
+
+  // Refactor the list card
+  .base--header {
+    margin-bottom: $base_margin;
+    h4 {
+      text-align: center;
+      padding-top: $base_padding;
+      font-size: 18px;
+    }
+  }
+
+  .base--body {
+    margin-bottom: $base_margin;
+    border-bottom: 1px solid $gray;
+  }
+
+  .base--footer {
+  }
+
+
+
   .list__card {
-    @extend .base--card;
     background-color: white;
     margin: 50px;
     width: 60%;

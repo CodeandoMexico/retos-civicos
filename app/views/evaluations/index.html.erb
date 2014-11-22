@@ -25,9 +25,9 @@
       <% @entries.each do |entry| %>
         <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
         <li class="table--row">
-          <div class="title"><%= entry.member.email %></div>
-          <div class="subtitle"><%= entry.name %></div>
-          <div class="footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+          <div class="row--title"><%= entry.member.email %></div>
+          <div class="row--subtitle"><%= entry.name %></div>
+          <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
         </li>
         <% end %>
       <% end %>
