@@ -47,9 +47,13 @@ h3 {
 }
 
 .base--card {
-  padding: $base_padding;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin * 2;
 }
 
+.deck *{
+  box-sizing: border-box;
+}
 
 .deck {
   margin-top: $base_margin;
@@ -87,7 +91,6 @@ h3 {
         @extend .card--column;
         width: 20%;
         font-size: 12px;
-        min-height: 1px;
       }
 
       &:hover {
@@ -135,7 +138,6 @@ h3 {
 
 
   .list__card {
-    @extend .base--card;
     background-color: white;
 
     .header {
