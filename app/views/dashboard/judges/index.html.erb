@@ -1,36 +1,34 @@
-<h1>Jurado</h1>
-
-<div class="l-space-bottom">
-  <%= render 'challenges_filter',
-    challenges: @challenges,
-    current_challenge: @current_challenge,
-    filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) } %>
-</div>
-
-<div class="clearfix l-space-bottom">
-  <%= link_to t('.new_judge'), new_dashboard_challenge_evaluation_path(@current_challenge),
-    class: 'btn btn-primary pull-right' %>
-</div>
-
-<% if @judges.any? %>
-  <table id="judges" class="table table-striped table-vertically-centered">
-    <thead>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.email') %></th>
-        <th><%= t('.company_name') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= content_tag_for :tr, @judges do |judge| %>
-        <td><%= judge.name %></td>
-        <td><%= judge.email %></td>
-        <td><%= judge.company_name %></td>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <div class="alert alert-info">
-    <%= t('.no_judges') %>
+<div class="deck">
+  <div class="actions__card">
+    <div class="action--title">
+      <%= render 'challenges_filter',
+      challenges: @challenges,
+      current_challenge: @current_challenge,
+      filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) } %>
+    </div>
+    <div class="action--list">
+      <%= link_to t('.new_judge'), new_dashboard_challenge_evaluation_path(@current_challenge),
+      class: 'btn btn-default action-element' %>
+    </div>
   </div>
-<% end %>
+
+  <% if @judges.any? %>
+  <div class="table__card">
+    <ul>
+      <% @judges.each do |judge| %>
+      <li class="table--row">
+        <div class="row--title"><%= judge.email %></div>
+        <div class="row--subtitle"><%= judge.name %></div>
+        <div class="row--footer"><%= judge.company_name %></div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% else %>
+  <div class="alert alert-info">
+    <%= t('.no-proposals') %>
+  </div>
+  <% end %>
+
+
+</div>
