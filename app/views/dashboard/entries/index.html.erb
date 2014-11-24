@@ -1,5 +1,5 @@
 <% if @current_phase.present? %>
-  <h3 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h3>
+  <h3><span class="label label-info">Etapa: <%= @current_phase %></span></h3>
 <% end %>
 
 <div class="deck">
@@ -47,28 +47,25 @@
     </div>
   </div>
 
+
+  <% if @entries.any? %>
   <div class="table__card">
-
-    <% if @entries.any? %>
-    <div class="table__card">
-      <ul>
-        <% @entries.each do |entry| %>
-        <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
-        <li class="table--row">
-          <div class="row--title"><%= entry.member.email %></div>
-          <div class="row--subtitle"><%= entry.name %><%= render 'entry_status', entry: entry %></div>
-          <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
-        </li>
-        <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
-    <% end %>
-
+    <ul>
+      <% @entries.each do |entry| %>
+      <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
+      <li class="table--row">
+        <div class="row--title"><%= entry.member.email %></div>
+        <div class="row--subtitle"><%= entry.name %><%= render 'entry_status', entry: entry %></div>
+        <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
   </div>
-
+  <% else %>
+  <div class="alert alert-info">
+    <%= t('.no-proposals') %>
+  </div>
+  <% end %>
+  
 </div>
