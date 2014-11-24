@@ -9,7 +9,7 @@ module Dashboard
     def show
     end
 
-    def search_judge
+    def request_permission_for_challenge
       @user = User.find_by_email(params[:email])
       @judge = @user.userable if @user && @user.judge?
 

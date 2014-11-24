@@ -1,5 +1,4 @@
-<h1 class="l-space-bottom"><%= t('.view-title') %></h1>
-<h3 class="l-space-bottom"><%= t('.view-subtitle') %></h3>
+<h3><%= t('.view-subtitle') %></h3>
 
 <%= form_for dashboard_challenge_emails_path(@current_challenge), url: { action: "create" } do |f| %>
   <% @current_challenge.current_participants.each do |entry| %>

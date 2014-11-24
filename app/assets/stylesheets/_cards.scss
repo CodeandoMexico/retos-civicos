@@ -129,17 +129,10 @@ h3 {
     border-bottom: 1px solid $gray;
   }
 
-  .base--footer {
-  }
-
-
 
   .list__card {
+    @extend .base--card;
     background-color: white;
-    margin: 50px;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
 
     .header {
       @extend .base--header;
@@ -149,8 +142,8 @@ h3 {
       @extend .base--body;
       ul {
         list-style-type: none;
-        padding-left: 0px;
-        margin-bottom: 0px;
+        padding-left: 40px;
+        padding-right: 40px;
 
         li {
           padding-top: $base_padding * 2;
@@ -163,14 +156,11 @@ h3 {
     .footer {
       @extend .base--footer;
       font-size: 12px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: $base_padding * 2;
+      padding-bottom: $base_padding * 2;
 
-      .actions {
-        float: right;
-        form {
-          display: inline-block;
-        }
-      }
     }
-
   }
 }
