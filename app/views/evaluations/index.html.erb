@@ -1,5 +1,3 @@
-<h1>Evaluaciones</h1>
-
 <div class="deck">
 
   <div class="actions__card">
@@ -7,12 +5,10 @@
       edit_evaluation_path(@evaluation, challenge_id: @current_challenge.id),
       class: 'btn btn-default pull-right' %>
 
-    <div class="l-space-bottom">
-      <%= render 'challenges_filter',
-        challenges: @challenges,
-        current_challenge: @current_challenge,
-        filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
-    </div>
+    <%= render 'challenges_filter',
+      challenges: @challenges,
+      current_challenge: @current_challenge,
+      filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
 
     <% if @current_phase.present? %>
       <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
