@@ -138,6 +138,7 @@ h3 {
 
 
   .list__card {
+    @extend .base--card;
     background-color: white;
 
     .header {
