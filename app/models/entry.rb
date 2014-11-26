@@ -27,6 +27,18 @@ class Entry < ActiveRecord::Base
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
   end
 
+  def is_invalid?
+    !self.is_valid
+  end
+
+  def mark_as_valid!
+    self.is_valid = true
+  end
+
+  def mark_as_invalid!
+    self.is_valid = false
+  end
+
   def publish!
     self.public = true
   end

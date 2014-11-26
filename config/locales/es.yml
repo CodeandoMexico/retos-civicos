@@ -21,6 +21,8 @@ es:
       phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
       accepted_successfully: La propuesta fue aceptada satisfactoriamente
+      marked_as_invalid_successfully: La propuesta fue marcada inválida
+      marked_as_valid_successfully: La propuesta fue marcada válida
       winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
       winner_removed_successfully: A esta propuesta le fue quitada el estatus de ganadora correctamente.
     unauthorized:
@@ -229,6 +231,7 @@ es:
       entry_status:
         entry-accepted: Aceptada
         entry-winner: GANADORA
+        entry-invalid: Inválida
     show:
       total-participants: Participantes
       total-entries: Propuestas recibidas
@@ -294,6 +297,11 @@ es:
         company-proposal: Propuesta
         technology: Tecnologías
         received-on: Recibida el
+      mark_entry_as_valid_or_invalid:
+        mark_as_invalid: Marcar inválida
+        mark_as_valid: Marcar válida
+        confirm_mark_invalid: ¿Estás seguro de que quieres marcar esta entrada como inválida?
+        confirm_mark_valid: ¿Estás seguro de que quieres marcar esta entrada como válida?
       visit_or_publish_entry:
         go-to-public: Ver vista pública
         make-public: Hacer pública

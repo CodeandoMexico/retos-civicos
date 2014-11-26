@@ -5,3 +5,7 @@
     <span class="label label-success"><%= t('.entry-accepted') %></span>
   <% end %>
 <% end %>
+
+<% if entry.is_invalid? %>
+  <span class="label label-warning"><%= t('.entry-invalid') %></span>
+<% end %>

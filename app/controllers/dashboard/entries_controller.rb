@@ -21,6 +21,20 @@ module Dashboard
       @finalists_count = @entry.challenge.current_finalists.count
     end
 
+    def mark_valid
+      entry.mark_as_valid!
+      entry.save
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_valid_successfully')
+    end
+
+    def mark_invalid
+      entry.mark_as_invalid!
+      if entry.save
+        EntriesMailer.delay.entry_has_been_marked_as_invalid(entry)
+      end
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully')
+    end
+
     def publish
       entry.publish!
       entry.save
