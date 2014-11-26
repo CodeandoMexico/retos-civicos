@@ -9,6 +9,7 @@ class PrototypesController < ApplicationController
   def create
     if valid_entry_params?
       entry.update_attributes(entry_params)
+      EntriesMailer.delay.send_prototype_confirmation(entry)
       redirect_to challenge_path(challenge), notice: Phases.prototype_added_message(challenge)
     else
       render :new
