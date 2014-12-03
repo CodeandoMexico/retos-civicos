@@ -168,7 +168,7 @@ describe Phases do
       bar.prototypes_selection.completeness.should eq 0
       bar.prototypes_selection.title.should eq 'Evaluación de prototipos'
       bar.prototypes_selection.due_date.should eq format_date(20.days.from_now)
-      bar.prototypes_selection.due_date_title.should eq 'Anuncio ganador'
+      bar.prototypes_selection.due_date_title.should eq 'Cierre del reto'
     end
 
     def format_date(date)
