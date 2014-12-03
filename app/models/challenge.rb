@@ -112,7 +112,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def has_finished?
-    Date.current > finish_on
+    Date.current >= finish_on
   end
 
   def timeline_json
