@@ -1,0 +1,8 @@
+<p>Hola,</p>
+
+<p>
+  Una cuenta de juez ha sido generada para ti. Por favor crea una
+  <%= link_to "nueva contraseña",
+      edit_user_password_url(initial: true, reset_password_token: @user.reset_password_token)
+  %> para protegerla.
+</p>

@@ -34,9 +34,11 @@ module Dashboard
 
     def create_new_user
       @user = User.new(params[:user])
-      @user.password = @user.email
+      @user.password = User.reset_password_token
+      @user.reset_password_token = User.reset_password_token
+      @user.reset_password_sent_at = Time.now
       @user.userable = Judge.new
-      @user.save
+      JudgeMailer.new_account(@user).deliver if @user.save
     end
   end
 end
