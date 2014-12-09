@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Admin tries to add a judge to a challenge and' do
   attr_reader :organization, :challenge
-  
+
   before do
     @organization = create :organization
     @challenge = create :challenge, organization: organization
@@ -43,7 +43,8 @@ feature 'Admin tries to add a judge to a challenge and' do
     create_judge_with(name: 'this judge should now exist', email: email)
     sign_out_organization(organization)
 
-    sign_in_judge(email)
+    change_password_and_log_in email
+
     expect(page).to have_content 'Evaluaciones'
     expect(page).to have_content "#{challenge.title}"
   end
@@ -55,6 +56,14 @@ feature 'Admin tries to add a judge to a challenge and' do
     create_judge_with(name: 'this judge should now exist', email: email)
 
     expect(page).to have_content 'Correo ya ha sido tomado'
+  end
+
+  def change_password_and_log_in(email)
+    u = User.find_by_email(email)
+    visit edit_user_password_path(initial: true, reset_password_token: u.reset_password_token)
+    fill_in 'user[password]', with: email
+    fill_in 'user[password_confirmation]', with: email
+    click_button 'Cambiar mi password'
   end
 
   def sign_out_organization(organization)
