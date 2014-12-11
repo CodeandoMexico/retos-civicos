@@ -44,9 +44,10 @@ module Dashboard
       @challenge.evaluation_criteria = params[:criteria]
 
       if @challenge.save
-        redirect_to dashboard_judges_path, notice: t('flash.challenges.criteria.criteria_successfully_defined')
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: t('flash.challenges.criteria.criteria_successfully_defined')
       else
-        render :new_criteria, alert: t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
+        flash.now[:alert] = t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
+        render :new_criteria
       end
     end
 

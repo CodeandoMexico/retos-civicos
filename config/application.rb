@@ -81,5 +81,8 @@ module Aquila
     config.cache_store = :dalli_store
 
     config.middleware.insert 0, Rack::UTF8Sanitizer
+
+    # Add extended core clases
+    config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
   end
 end

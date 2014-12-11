@@ -95,11 +95,15 @@ class Challenge < ActiveRecord::Base
   end
 
   def criteria_must_be_valid
+    ponderation_counter = 0
     self.evaluation_criteria.each do |criteria|
-      if criteria[:description].blank? || criteria[:value].blank?
+      if criteria[:description].blank? || !criteria[:value].is_number?
         return errors.add(:evaluation_criteria, 'Los criterios no están correctamente definidos')
+      else
+        ponderation_counter = ponderation_counter + criteria[:value].to_f
       end
     end
+    return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.') if ponderation_counter != 100
   end
 
   def cancel!
