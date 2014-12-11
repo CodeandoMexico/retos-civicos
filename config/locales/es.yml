@@ -140,6 +140,8 @@ es:
         zero: "Último día"
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
+      disclaimer: "Estimado participante: %{organization_name} está haciendo lo posible por entregar los resultados
+        de ganadores a la brevedad. Las fechas exactas las comunicaremos directamente y el ganador se anunciará en este sitio."
     finalists_and_winner:
       winner: Ganador
       finalists: Finalistas
