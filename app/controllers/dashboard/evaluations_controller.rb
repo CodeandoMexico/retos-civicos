@@ -35,17 +35,18 @@ module Dashboard
     end
 
     def new_criteria
-      @challenge.evaluation_criteria = Array.new(10, {description: nil, value: nil})
+      if @challenge.evaluation_criteria.blank?
+        @challenge.evaluation_criteria = Array.new(10, {description: nil, value: nil})
+      end
     end
 
     def create_criteria
       @challenge.evaluation_criteria = params[:criteria]
-      raise @challenge.evaluation_criteria.inspect
-      # need to add a validate action to the model
+
       if @challenge.save
-        # raise 1.inspect.params
+        redirect_to dashboard_judges_path, notice: t('flash.challenges.criteria.criteria_successfully_defined')
       else
-        render :new_criteria, alert: t('flash.challenge.please_check_that_all_criteria_fields_for_any_errors')
+        render :new_criteria, alert: t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
       end
     end
 
