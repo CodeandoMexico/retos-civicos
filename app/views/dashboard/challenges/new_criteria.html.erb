@@ -9,8 +9,8 @@
       <%= label_tag t('.criteria', idx: idx + 1), nil,  class: 'control-label' %>
     </div>
     <div class="col-sm-9" >
-      <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: 'Descripción del criterio', class: 'form-control', style:'display:inline;width:69%;', required:true %>
-      <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: 'Ponderación (Valor entre 1 - 100)', class: 'form-control', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+      <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true %>
+      <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
     </div>
   </div>
   <% end %>

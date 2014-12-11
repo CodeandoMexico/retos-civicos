@@ -267,6 +267,11 @@ es:
         total-participants: Participantes
         total-entries: Propuestas recibidas
         no-proposals: Aún no hay propuestas.
+      new_criteria:
+        criteria: "Criterio %{idx}"
+        save_criteria: Guardar
+        criteria_description: Descripción del criterio
+        value_description: Valor entre 1 y 100
     mailers:
       new:
         view-title: Participantes
@@ -352,9 +357,6 @@ es:
         challenges: Retos en los que actualmente participa el juez
       new:
         title: Crear evaluación
-      new_criteria:
-        criteria: "Criterio %{idx}"
-        save_criteria: Guardar
       form:
         email: Correo electrónico
         submit: Crear

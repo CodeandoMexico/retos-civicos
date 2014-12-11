@@ -29,9 +29,9 @@ Aquila::Application.routes.draw do
       end
 
       post :request_permission_for_challenge, controller: 'dashboard/evaluations'
-      get :new_criteria, controller: 'dashboard/evaluations'
-      post :create_criteria, controller: 'dashboard/evaluations'
-      
+      get :new_criteria, controller: 'dashboard/challenges'
+      post :create_criteria, controller: 'dashboard/challenges'
+
       resources :evaluations, only: [:show, :new, :create], controller: 'dashboard/evaluations'
     end
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
