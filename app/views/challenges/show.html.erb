@@ -58,8 +58,12 @@
 
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-container">
-    <% if @challenge.has_finished? && @challenge.has_a_winner? %>
-      <%= render 'finalists_and_winner' %>
+    <% if @challenge.has_finished? %>
+      <% if @challenge.has_a_winner? %>
+          <%= render 'finalists_and_winner' %>
+      <% else %>
+          <%= render 'ideas_finalists' %>
+      <% end %>
     <% end %>
 
     <% if (Phases.is_current?(:prototypes, @challenge) || Phases.is_current?(:prototypes_selection, @challenge)) && @challenge.has_finalists? %>
@@ -177,9 +181,9 @@
   <% if @challenge.has_finished? && !@challenge.has_a_winner? %>
     <div class="row">
       <div class="col-xs-12">
-        <p class="disclaimer">
-          Estimado participante. El equipo de Retos Públicos junto con las dependencias participantes está haciendo lo posible por entregar los resultados de ganadores a la brevedad. Las fechas exactas las comunicaremos directamente y el ganador se anunciará, como siempre, en este sitio.
-        </p>
+        <div class="alert alert-warning">
+          <p class="disclaimer"><%= t('.disclaimer', organization_name: @organization.name)%></p>
+        </div>
       </div>
     </div>
   <% end %>
