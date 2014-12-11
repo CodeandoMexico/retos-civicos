@@ -348,6 +348,9 @@ es:
         challenges: Retos en los que actualmente participa el juez
       new:
         title: Crear evaluación
+      new_criteria:
+        criteria: "Criterio %{idx}"
+        save_criteria: Guardar
       form:
         email: Correo electrónico
         submit: Crear
@@ -355,6 +358,7 @@ es:
       index:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
+        define_criteria: Criterios de evaluación
       edit:
         title: Perfil
       request_permission_for_challenge:

@@ -1,0 +1,19 @@
+<h3>Define los criterios</h3>
+<%= form_tag dashboard_challenge_create_criteria_path(@challenge), class: "form-horizontal" do |f| %>
+
+
+  <% @challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
+
+  <div class="form-group">
+    <div class="col-sm-3" >
+      <%= label_tag t('.criteria', idx: idx + 1), nil,  class: 'control-label' %>
+    </div>
+    <div class="col-sm-9" >
+      <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: 'Descripción del criterio', class: 'form-control', style:'display:inline;width:69%;', required:true %>
+      <%= text_field_tag 'criteria[][value]', criteria[:value], placeholder: 'Valor', class: 'form-control', style:'display:inline;width:30%;', required:true %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
+<% end %>

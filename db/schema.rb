@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141107211607) do
+ActiveRecord::Schema.define(:version => 20141210221854) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20141107211607) do
     t.text     "fifth_spec"
     t.date     "finish_on"
     t.string   "assessment_methodology"
+    t.text     "evaluation_criteria"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"

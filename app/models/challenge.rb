@@ -3,13 +3,14 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology
+                  :infographic, :prize, :assessment_methodology, :evaluation_criteria
 
   attr_accessible(*Phases.dates)
 
   attr_accessor :dataset_file
 
   store :welcome_mail, accessors: [:subject, :body]
+  serialize :evaluation_criteria, Array
 
   mount_uploader :avatar, ChallengeAvatarUploader
   mount_uploader :infographic, ChallengeInfographicUploader
@@ -30,6 +31,7 @@ class Challenge < ActiveRecord::Base
   validates :description, :title, :status, :about, :pitch, presence: true
   validates(*Phases.dates, presence: true)
   validates :pitch, length: { maximum: 140 }
+  validate :criteria_must_be_valid, on: :update, if: :criteria_must_be_present
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
@@ -86,6 +88,18 @@ class Challenge < ActiveRecord::Base
 
   def to_param
     "#{id}-#{title}".parameterize
+  end
+
+  def criteria_must_be_present
+    self.evaluation_criteria.present?
+  end
+
+  def criteria_must_be_valid
+    self.evaluation_criteria.each do |criteria|
+      if criteria[:description].blank? || criteria[:value].blank?
+        return errors.add(:evaluation_criteria, 'Los criterios no están correctamente definidos')
+      end
+    end
   end
 
   def cancel!
