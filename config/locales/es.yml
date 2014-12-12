@@ -144,6 +144,7 @@ es:
         de ganadores a la brevedad. Las fechas exactas las comunicaremos directamente y el ganador se anunciará en este sitio."
     finalists_and_winner:
       winner: Ganador
+      winners: Ganadores
       finalists: Finalistas
     ideas_finalists:
       finalists: Finalistas
@@ -408,6 +409,7 @@ es:
       section-name: Participantes
       finalist: Finalista
       winner: Ganador
+      winners: Ganadores
       how_is_the_challenge_being_solved: ¿Cómo resuelve el reto?
     new:
       back: Volver al reto
