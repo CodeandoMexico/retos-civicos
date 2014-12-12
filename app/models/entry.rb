@@ -87,8 +87,8 @@ class Entry < ActiveRecord::Base
     self.winner == 1
   end
 
-  def is_there_another_winner?
-    Entry.find_by_winner(1).present? && !self.is_the_winner?
+  def more_than_3_winners?
+    challenge.entries.where(winner: 1).count > 3
   end
 
   def select_as_winner

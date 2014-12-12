@@ -175,8 +175,12 @@ class Challenge < ActiveRecord::Base
     Entry.where(challenge_id: self, accepted: true).count > 0
   end
 
-  def current_winner
-    Entry.where(challenge_id: self, winner: 1).first if self.has_a_winner?
+  def current_winners
+    if self.has_a_winner?
+      Entry.where(challenge_id: self, winner: 1)
+    else
+      []
+    end
   end
 
   def current_participants
@@ -184,7 +188,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_finalists
-    Entry.includes(:member).where(challenge_id: self, accepted: true).select { |e| e != self.current_winner }
+    Entry.includes(:member).where(challenge_id: self, accepted: true) - current_winners
   end
 
   def current_phase_title

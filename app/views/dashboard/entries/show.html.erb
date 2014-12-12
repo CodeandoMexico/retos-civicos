@@ -10,7 +10,7 @@
             confirm: t('.move-next-phase') %></li>
         <% end %>
 
-        <% if Phases.is_current?(:prototypes_selection, @entry.challenge) && !@entry.is_there_another_winner? %>
+        <% if Phases.is_current?(:prototypes_selection, @entry.challenge) && !@entry.more_than_3_winners? %>
           <% if @entry.is_the_winner? %>
             <li><%= button_to t('.remove-winner'),
               remove_winner_dashboard_entry_url(@entry),
