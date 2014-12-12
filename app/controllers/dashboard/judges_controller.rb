@@ -7,6 +7,7 @@ module Dashboard
       @challenges = organization.challenges.
         order('created_at DESC')
       @judges = current_challenge_judges
+      flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
     end
 
     def new

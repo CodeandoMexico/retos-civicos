@@ -42,7 +42,8 @@ es:
       entries_not_accepted: "El reto ya no acepta nuevas propuestas."
     challenges:
       criteria:
-        criteria_successfully_defined: Los critierios han sido actualizados correctamente.
+        critieria_has_not_been_defined_yet: Los criterios aún no han sido definidos, los puedes dar de alta desde el panel de acciones.
+        criteria_successfully_defined: Los criterios han sido actualizados correctamente.
         please_check_that_all_criteria_fields_for_any_errors: Por favor revisa que todos los campos han sido llenados correctamente y la suma de las ponderaciones sea 100.
   challenges:
     initial_activity:
