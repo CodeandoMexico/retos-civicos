@@ -26,8 +26,8 @@ module Phases
     Dates.members
   end
 
-  def self.is_current?(phase, dates)
-    for_dates(dates).fetch(phase).current?
+  def self.is_current?(phase, challenge)
+    for_dates(challenge).fetch(phase).current?
   end
 
   def self.current_phase_title(dates)
@@ -48,8 +48,8 @@ module Phases
 
   private
 
-  def self.for_dates(dates)
-    PhasesForDates.new(Dates.from_record(dates))
+  def self.for_dates(challenge)
+    PhasesForDates.new(Dates.from_record(challenge))
   end
 
   def self.t(key, options = {})

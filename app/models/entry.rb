@@ -12,6 +12,7 @@ class Entry < ActiveRecord::Base
   mount_uploader :image, EntryImageUploader
   serialize :technologies, Array
   before_validation :validate_technologies!
+  after_update :limit_3_winner_entries
 
   def self.public
     where public: true
@@ -25,6 +26,12 @@ class Entry < ActiveRecord::Base
     [:id, :name, :challenge_title, :created_at, :description,
      :idea_url, :technologies_separated_by_commas, :member_name,
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
+  end
+
+  def limit_3_winner_entries
+    if challenge.current_winners.count > 3
+      fail 'En un reto solamente se pueden seleccionar hasta 3 ganadores'
+    end
   end
 
   def is_invalid?
@@ -87,8 +94,8 @@ class Entry < ActiveRecord::Base
     self.winner == 1
   end
 
-  def is_there_another_winner?
-    Entry.find_by_winner(1).present? && !self.is_the_winner?
+  def more_than_3_winners?
+    challenge.entries.where(winner: 1).count > 3
   end
 
   def select_as_winner

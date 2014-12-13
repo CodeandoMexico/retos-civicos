@@ -50,8 +50,12 @@ module Dashboard
 
     def winner
       entry.select_as_winner
-      entry.save
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully', name: entry.name)
+      begin
+        entry.save
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully', name: entry.name)
+      rescue
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), alert: t('flash.entries.no_more_than_3_winners', name: entry.name)
+      end
     end
 
     def remove_winner

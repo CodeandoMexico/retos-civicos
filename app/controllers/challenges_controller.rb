@@ -39,7 +39,7 @@ class ChallengesController < ApplicationController
       @collaborators_count = @collaborators.count
       @collaborators = @collaborators.order(:created_at).page(params[:page])
 
-      @winner = @challenge.current_winner
+      @winners = @challenge.current_winners
       @finalists = @challenge.current_finalists
       return render layout: 'aquila'
     end

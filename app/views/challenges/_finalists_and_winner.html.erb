@@ -1,40 +1,44 @@
 <div class="row finalists-container background-winner">
-  <h3 class="finalist-title" style="text-transform:uppercase;"><%= t(".winner") %></h3>
-  <%= link_to challenge_entry_path(@challenge, @winner) do %>
-      <div class="col-xs-6 col-sm-6 col-md-2 col-centered no-padding">
+  <h3 class="finalist-title" style="text-transform:uppercase;"><%= @winners.count > 1 ? t('.winners') : t('.winner') %></h3>
+  <% @winners.each do |winner| %>
+    <div class="col-xs-6 col-sm-6 col-md-2 col-centered no-padding">
+      <%= link_to challenge_entry_path(@challenge, winner) do %>
         <div class="finalist">
-          <% if @winner.image_url %>
-            <%= image_tag @winner.image_url, class: 'img-responsive' %>
+          <% if winner.image_url %>
+            <%= image_tag winner.image_url, class: 'img-responsive' %>
           <% else %>
             <%= image_tag 'retos_challenge_avatar.png', class: 'img-responsive' %>
           <% end %>
-          <p style="margin:0px;"><%= @winner.member %></p>
+          <p style="margin:0px;"><%= winner.member %></p>
         </div>
-      </div>
+      <% end %>
+      <h3 class="finalist-title"><%= winner.name %></h3>
+    </div>
   <% end %>
-  <h3 class="finalist-title"><%= @winner.name %></h3>
 </div>
 
-<div class="row finalists-container">
-  <div class="challenge-subheader text-center" style="margin-bottom:3em;">
-    <h3><%= t(".finalists") %></h3>
-  </div>
-  <% @finalists.each_with_index do |entry, index| %>
-    <%= link_to challenge_entry_path(@challenge, entry) do %>
-      <% if index %  5 == 0 %>
-        <div class="col-md-offset-1 col-xs-12 col-md-2 no-padding">
-      <% else %>
-        <div class="col-xs-12 col-md-2 no-padding">
-      <% end %>
-          <div class="finalist">
-            <% if entry.image_url %>
-              <%= image_tag entry.image_url, class: 'img-responsive' %>
-            <% else %>
-              <%= image_tag 'retos_challenge_avatar.png', class: 'img-responsive' %>
-            <% end %>
-            <p style="margin:0px;"><%= entry.member %></p>
+<% if !@finalists.empty? %>
+  <div class="row finalists-container">
+    <div class="challenge-subheader text-center" style="margin-bottom:3em;">
+      <h3><%= t(".finalists") %></h3>
+    </div>
+    <% @finalists.each_with_index do |entry, index| %>
+      <%= link_to challenge_entry_path(@challenge, entry) do %>
+        <% if index %  5 == 0 %>
+          <div class="col-md-offset-1 col-xs-12 col-md-2 no-padding">
+        <% else %>
+          <div class="col-xs-12 col-md-2 no-padding">
+        <% end %>
+            <div class="finalist">
+              <% if entry.image_url %>
+                <%= image_tag entry.image_url, class: 'img-responsive' %>
+              <% else %>
+                <%= image_tag 'retos_challenge_avatar.png', class: 'img-responsive' %>
+              <% end %>
+              <p style="margin:0px;"><%= entry.member %></p>
+            </div>
           </div>
-        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

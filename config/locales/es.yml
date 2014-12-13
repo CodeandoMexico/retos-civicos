@@ -25,6 +25,7 @@ es:
       marked_as_valid_successfully: La propuesta fue marcada válida
       winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
       winner_removed_successfully: A esta propuesta le fue quitada el estatus de ganadora correctamente.
+      no_more_than_3_winners: En un reto solamente se pueden seleccionar hasta 3 ganadores
     unauthorized:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto
@@ -144,6 +145,7 @@ es:
         de ganadores a la brevedad. Las fechas exactas las comunicaremos directamente y el ganador se anunciará en este sitio."
     finalists_and_winner:
       winner: Ganador
+      winners: Ganadores
       finalists: Finalistas
     ideas_finalists:
       finalists: Finalistas
@@ -408,6 +410,7 @@ es:
       section-name: Participantes
       finalist: Finalista
       winner: Ganador
+      winners: Ganadores
       how_is_the_challenge_being_solved: ¿Cómo resuelve el reto?
     new:
       back: Volver al reto
