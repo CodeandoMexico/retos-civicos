@@ -42,3 +42,7 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="row challenge-collaborate-content">
+  <%= link_to( t('challenges.form.assessment-methodology'), @challenge.assessment_methodology, class: 'btn btn-primary') unless @challenge.assessment_methodology.blank? %>
+</div>
