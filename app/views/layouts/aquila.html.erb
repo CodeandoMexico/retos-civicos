@@ -16,22 +16,11 @@
 <body>
   <div class="wrapper">
     <%= render 'shared/header' %>
-
     <%= yield :landing %>
 
     <div class="main">
       <div class="container">
-        <% if alert %>
-          <div class="alert alert-danger">
-            <%= alert %>
-          </div>
-        <% end %>
-
-        <% if notice %>
-          <div class="alert alert-success">
-            <%= notice %>
-          </div>
-        <% end %>
+        <%= display_flash_messages %>
 
         <%= yield %>
       </div>
