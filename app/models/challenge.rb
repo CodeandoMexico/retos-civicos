@@ -62,6 +62,11 @@ class Challenge < ActiveRecord::Base
     Challenge.order('created_at desc').first
   end
 
+  def self.missing_winner_challenges(args)
+    challenges = Challenge.where(organization_id: args[:organization]).where('finish_on <= ?', Date.current)
+    challenges.reject! { |c| c if c.has_a_winner? }
+  end
+
   # Additionals
   acts_as_voteable
   acts_as_commentable
