@@ -9,7 +9,7 @@ module Dashboard
       challenges = Challenge.missing_winner_challenges(organization: current_organization)
       flash.now[:alert] = [] unless flash.now[:alert]
       challenges.each do |challenge|
-        flash.now[:alert] << "El reto #{challenge.title} necesita seleccionar un ganador. Ve a #{view_context.link_to 'seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)}."
+        flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
       end
     end
 

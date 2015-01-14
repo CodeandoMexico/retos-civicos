@@ -7,6 +7,8 @@ es:
     admins:
       organizations:
         accredited: Organización acreditada correctamente. Recibirán un correo de confirmación.
+    base:
+      select-winner: El reto %{title} necesita seleccionar un ganador. Ve a %{link}.
     organizations:
       updated: Perfil de organización actualizada correctamente.
       welcome_new_subscriber: Gracias por suscribirte! Te prometemos buenas noticias, no spam.
