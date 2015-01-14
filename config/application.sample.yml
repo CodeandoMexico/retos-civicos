@@ -52,4 +52,4 @@ SECRET_TOKEN:
 GOOGLE_ANALYTICS:
 
 # Host assets elsewhere
-ASSET_HOST: //d1fdwekg6kqzqf.cloudfront.net
+ASSET_HOST: # Starts with // e.g.: //d121.cloudfront.net
