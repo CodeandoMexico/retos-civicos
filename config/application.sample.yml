@@ -50,3 +50,6 @@ NEW_RELIC_KEY:
 SECRET_TOKEN:
 
 GOOGLE_ANALYTICS:
+
+# Host assets elsewhere
+ASSET_HOST: //d1fdwekg6kqzqf.cloudfront.net
