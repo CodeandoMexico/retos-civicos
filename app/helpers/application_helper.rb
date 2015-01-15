@@ -72,4 +72,38 @@ module ApplicationHelper
       Onebox.preview(url_with_protocol(url)).to_s.html_safe
     end
   end
+
+  DEFAULT_KEY_MATCHING = {
+    alert:      :danger,
+    notice:     :success,
+    info:       :info,
+    secondary:  :info,
+    success:    :success,
+    error:      :danger,
+    warning:    :warning
+  }
+
+  def display_flash_messages
+    flash.reduce '' do |message, (key, value)|
+      if value.is_a?(Array)
+        value.each do |val|
+          message += build_message(key: key, value: val, key_match: DEFAULT_KEY_MATCHING)
+        end
+        message
+      else
+        build_message(key: key, value: value, key_match: DEFAULT_KEY_MATCHING)
+      end
+    end.html_safe
+  end
+
+  private
+
+  def build_message(args)
+    html = content_tag :div, data: { alert: '' }, class: "alert alert-#{args[:key_match][args[:key].to_sym] || :standard} alert-dismissible" do
+      raw "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+           <span aria-hidden='true'>&times;</span></button>
+           #{args[:value]}"
+    end
+    html.html_safe
+  end
 end
