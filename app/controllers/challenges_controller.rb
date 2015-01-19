@@ -3,18 +3,10 @@ class ChallengesController < ApplicationController
 
   before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
+  before_filter :index_redirects, only: :index
 
   def index
-    # comment next two lines to enable aquila default behavior
-    # TO-DO: remove next line. is a temporary redirect to avoid crash on DB clean state
-    return redirect_to about_path if Challenge.count.zero?
-    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
-
-    ch = Challenge.active.recent
-    ch = Challenge.active if params[:active]
-    ch = Challenge.inactive if params[:inactive]
-    ch = Challenge.popular if params[:popular]
-    @challenges = ch.page(params[:page])
+    @challenges = Challenge.active.recent.page(params[:page])
     @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
@@ -103,6 +95,11 @@ class ChallengesController < ApplicationController
   end
 
   private
+
+  def index_redirects
+    return redirect_to about_path if Challenge.count.zero?
+    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
+  end
 
   def fetch_comments
     comments_per_page = 10
