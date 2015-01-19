@@ -30,8 +30,8 @@ module Phases
     for_dates(challenge).fetch(phase).current?
   end
 
-  def self.current_phase_title(dates)
-    for_dates(dates).current.title
+  def self.current_phase_title(challenge)
+    for_dates(challenge).current.title
   end
 
   def self.current_phase_id(dates)
