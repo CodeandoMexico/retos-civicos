@@ -25,7 +25,7 @@ class ChallengesController < ApplicationController
       @datasets = @challenge.datasets
       @collaborators = @challenge.collaborators
       @timeline = Phases.timeline_from_dates(@challenge)
-      @current_phase_title = Phases.current_phase_title(@challenge)
+      @current_phase_title = Phases.current_phase_title(@challenge).title
       @days_left_for_current_phase = Phases.days_left_for_current_phase(@challenge)
 
       @collaborators_count = @collaborators.count
