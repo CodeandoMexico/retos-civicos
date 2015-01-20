@@ -14,7 +14,7 @@ module Phases
     end
 
     def current
-      all.values.select { |phase| phase.current? }.first || NullPhase.new
+      all.values.select(&:current?).first || NullPhase.new
     end
 
     private

@@ -196,12 +196,14 @@ class Challenge < ActiveRecord::Base
     Entry.includes(:member).where(challenge_id: self, accepted: true) - current_winners
   end
 
-  def current_phase_title
+  def current_phase_title(args = nil)
     if has_finished?
-      I18n.t('challenges.show.has_finished')
+      phase = I18n.t('challenges.show.has_finished')
     else
-      Phases.current_phase_title(self)
+      phase = Phases.current_phase_title(self)
+      phase = 'Eval. de prototipos' if phase == 'Evaluación de prototipos' && args[:small]
     end
+    phase
   end
 
   def self.has_only_one_challenge?
