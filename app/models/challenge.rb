@@ -201,7 +201,7 @@ class Challenge < ActiveRecord::Base
       phase = I18n.t('challenges.show.has_finished')
     else
       phase = Phases.current_phase_title(self)
-      phase = 'Eval. de prototipos' if phase == 'Evaluación de prototipos' && args[:small]
+      phase = I18n.t('phases.prototypes_selection_phase_small') if phase == I18n.t('phases.prototypes_selection_phase') && args[:small]
     end
     phase
   end
