@@ -2,14 +2,15 @@ module Dashboard
   class BaseController < ApplicationController
     layout 'dashboard'
     before_filter :authenticate_current_user!
-    before_filter :authenticate_organization_admin!
     before_filter :pending_winner_flash_message
 
     def pending_winner_flash_message
       challenges = Challenge.missing_winner_challenges(organization: current_organization)
       flash.now[:alert] = [] unless flash.now[:alert]
-      challenges.each do |challenge|
-        flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
+      if challenges.present?
+        challenges.each do |challenge|
+          flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
+        end
       end
     end
 
