@@ -100,12 +100,7 @@ feature 'Organization admin watches entries' do
   end
 
   def page_should_have_entry_with(args)
-    within "#entries tbody tr:nth-of-type(#{args.fetch(:position)})" do
-      page.should have_content args.fetch(:name)
-      page.should have_content args.fetch(:company_name)
-      page.should have_content args.fetch(:sent_at)
-      page.should have_content args.fetch(:idea_url)
-      page.should have_content args.fetch(:tecnologies)
-    end
+    page.should have_content args.fetch(:name)
+    page.should have_content args.fetch(:sent_at)
   end
 end

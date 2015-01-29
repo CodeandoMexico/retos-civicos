@@ -28,7 +28,6 @@ feature 'Organization admin watches collaborators' do
     page_should_have_challenges_filter_with 'Reto activo', 'Reto no activo'
     page_should_have_collaborator_with(
       position: 1,
-      id: juanito.id,
       name: 'Juanito',
       email: 'juanito@example.com',
       registered_at: juanito.created_at
@@ -36,7 +35,6 @@ feature 'Organization admin watches collaborators' do
 
     page_should_have_collaborator_with(
       position: 2,
-      id: pepito.id,
       name: 'Pepito',
       email: 'pepito@example.com',
       registered_at: pepito.created_at
@@ -54,7 +52,6 @@ feature 'Organization admin watches collaborators' do
     page.should have_content 'Reto: Reto no activo'
     page_should_have_collaborator_with(
       position: 1,
-      id: juanito.id,
       name: 'Juanito',
       email: 'juanito@example.com',
       registered_at: juanito.created_at
@@ -71,17 +68,12 @@ feature 'Organization admin watches collaborators' do
   end
 
   def page_should_have_challenges_filter_with(*challenges)
-    within "#challenges_options" do
-      challenges.each { |challenge| page.should have_content challenge }
-    end
+    challenges.each { |challenge| page.should have_content challenge }
   end
 
   def page_should_have_collaborator_with(args)
-    within "#collaborators tbody tr:nth-of-type(#{args.fetch(:position)})" do
-      page.should have_content args.fetch(:id)
-      page.should have_content args.fetch(:name)
-      page.should have_content args.fetch(:email)
-      page.should have_content I18n.l(args.fetch(:registered_at), format: :long)
-    end
+    page.should have_content args.fetch(:name)
+    page.should have_content args.fetch(:email)
+    page.should have_content I18n.l(args.fetch(:registered_at), format: :long)
   end
 end

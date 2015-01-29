@@ -21,7 +21,7 @@ feature 'Organization admin downloads entries CSV' do
     click_link 'Propuestas'
     click_link 'Exportar CSV'
 
-    should_have_csv_with_name "#{formatted_current_time}-propuestas-superorg-organizacion.csv"
+    should_have_csv_with_name "#{formatted_current_time}-propuestas-#{organization.slug}-organizacion.csv"
     should_have_csv_with(
       'id' => entry.id.to_s,
       'nombre' => 'Mi propuesta',
@@ -30,7 +30,11 @@ feature 'Organization admin downloads entries CSV' do
       'descripcion' => 'la mejor',
       'idea' => 'http://mipropuesta.com',
       'tecnologias' => 'PHP, Rust',
-      'participante' => 'Juanito',
+      'participante' => "#{member.name}",
+      'participante_id' => "#{member.id}",
+      'empresa' => '',
+      'email' => "#{member.email}",
+      'carta_legal_enviada' => 'false',
       'publica' => 'true'
     )
   end

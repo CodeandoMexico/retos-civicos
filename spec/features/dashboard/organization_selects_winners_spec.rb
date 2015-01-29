@@ -52,6 +52,7 @@ feature 'Organization selects winner for the challenge' do
 
   def select_winner
     click_link entry.name
+    save_and_open_page
     click_button "Seleccionar como ganador"
   end
 

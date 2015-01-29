@@ -35,7 +35,6 @@ feature 'Organization admin watches challenges' do
     page_should_have_challenge_with(
       position: 1,
       title: 'Reto en desarrollo',
-      released_at: 'abril 10, 2013 20:53',
       status: 'En desarrollo',
       collaborators: 1,
       entries: 0
@@ -44,7 +43,6 @@ feature 'Organization admin watches challenges' do
     page_should_have_challenge_with(
       position: 2,
       title: 'Reto abierto',
-      released_at: 'abril 10, 2013 20:53',
       status: 'Abierto',
       collaborators: 0,
       entries: 0
@@ -53,7 +51,6 @@ feature 'Organization admin watches challenges' do
     page_should_have_challenge_with(
       position: 3,
       title: 'Reto concluido',
-      released_at: 'abril 10, 2013 20:53',
       status: 'Concluido',
       collaborators: 1,
       entries: 1
@@ -61,12 +58,9 @@ feature 'Organization admin watches challenges' do
   end
 
   def page_should_have_challenge_with(args)
-    within "#challenges tbody tr:nth-of-type(#{args.fetch(:position)})" do
-      page.should have_content args.fetch(:title)
-      page.should have_content args.fetch(:released_at)
-      page.should have_content args.fetch(:status)
-      page.should have_content args.fetch(:collaborators)
-      page.should have_content args.fetch(:entries)
-    end
+    page.should have_content args.fetch(:title)
+    page.should have_content args.fetch(:status)
+    page.should have_content args.fetch(:collaborators)
+    page.should have_content args.fetch(:entries)
   end
 end
