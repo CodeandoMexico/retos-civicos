@@ -35,20 +35,18 @@
 
     <div class="container">
       <% if alert %>
-      <div class="alert alert-danger">
-        <%= alert %>
-      </div>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
       <% end %>
 
       <% if notice %>
-      <div class="alert alert-success">
-        <%= notice %>
-      </div>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
       <% end %>
 
-    <% if notice %>
-    <div class="alert alert-success">
-      <%= notice %>
+      <%= yield %>
     </div>
   </body>
 </html>

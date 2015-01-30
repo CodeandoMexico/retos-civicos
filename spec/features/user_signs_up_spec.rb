@@ -10,7 +10,8 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      page.should have_link('Juanito')
+      # page.should have_link('Juanito')
+      expect(page).to have_link 'Juanito'
     end
   end
 
@@ -24,7 +25,9 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      page.should have_link('Envía tu propuesta')
+      # save_and_open_page
+      # page.should have_link('Envía tu propuesta')
+      expect(page).to have_link 'Envía tu propuesta'
       mail_for_collaboration_should_be_sent_to('juanito@example.com')
     end
   end

@@ -16,7 +16,8 @@ feature 'Organization admin accepts entry' do
 
     page.should have_content 'La propuesta fue aceptada satisfactoriamente'
     entry_author_should_receive_an_accepted_entry_email(entry)
-    within_entry(entry) { page.should have_content 'Aceptada' }
+    expect(page).to have_content entry.name
+    expect(page).to have_content 'Aceptada'
 
     visit dashboard_entry_path(entry)
     page.should_not have_button 'Aceptar propuesta'
@@ -38,9 +39,5 @@ feature 'Organization admin accepts entry' do
     email = ActionMailer::Base.deliveries.last || :no_email
     email.to.should include entry.member.email
     email.subject.should include 'Pasaste a la siguiente etapa'
-  end
-
-  def within_entry(entry)
-    within("#entry_#{entry.id}") { yield }
   end
 end
