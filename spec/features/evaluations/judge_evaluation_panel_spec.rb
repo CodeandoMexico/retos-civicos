@@ -29,49 +29,8 @@ feature 'Judge' do
     expect(page).to have_content "Challenge With Evaluations"
   end
 
-
-  scenario 'submits an valid (csv) evaluation file for a challenge' do
-    sign_in_user judge_with_evaluations
-    visit_evaluation_panel
-
-    submit_a_evaluation_file_with(
-      challenge_title: challenge_with_evaluations.title,
-      evaluation_file: evaluation_csv_file
-    )
-    expect(current_path).to eq evaluations_path
-  end
-
-  scenario 'submits an invalid (pdf) evaluation file for a challenge' do
-    sign_in_user judge_with_evaluations
-    visit_evaluation_panel
-
-    submit_a_evaluation_file_with(
-      challenge_title: challenge_with_evaluations.title,
-      evaluation_file: evaluation_pdf_file
-    )
-    expect(current_path).to eq evaluation_path(evaluation)
-  end
-
-  def submit_a_evaluation_file_with(args)
-    click_link args.fetch(:challenge_title)
-    click_link 'Importar evaluación'
-    expect(page).to have_content args.fetch(:challenge_title)
-
-
-    attach_file 'evaluation_evaluation_file', args.fetch(:evaluation_file)
-    click_button 'Enviar'
-  end
-
   def visit_evaluation_panel
     click_link 'Evaluaciones'
     expect(current_path).to eq evaluations_path
-  end
-
-  def evaluation_csv_file
-    "#{Rails.root}/spec/fixtures/dummy.csv"
-  end
-
-  def evaluation_pdf_file
-    "#{Rails.root}/spec/fixtures/dummy.pdf"
   end
 end

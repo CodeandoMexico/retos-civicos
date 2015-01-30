@@ -1,9 +1,5 @@
 <div class="deck">
   <div class="actions__card">
-    <%= link_to t('.submit_evaluation'),
-      edit_evaluation_path(@evaluation, challenge_id: @current_challenge.id),
-      class: 'btn btn-default pull-right' %>
-
     <%= render 'challenges_filter',
       challenges: @challenges,
       current_challenge: @current_challenge,
