@@ -46,6 +46,7 @@ feature 'Admin tries to add a judge to a challenge and' do
     change_password_and_log_in email
 
     expect(page).to have_content 'Evaluaciones'
+    expect(page).to have_content I18n.t('devise.passwords.updated')
     expect(page).to have_content "#{challenge.title}"
   end
 
@@ -63,7 +64,7 @@ feature 'Admin tries to add a judge to a challenge and' do
     visit edit_user_password_path(initial: true, reset_password_token: u.reset_password_token)
     fill_in 'user[password]', with: email
     fill_in 'user[password_confirmation]', with: email
-    click_button 'Cambiar mi password'
+    click_on 'Cambiar mi password'
   end
 
   def sign_out_organization(organization)

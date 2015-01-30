@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :organization do
-    slug 'superorg'
+    sequence(:slug) { |i| "challenge_slug_#{i}"}
     association :user, name: 'Super Org'
   end
 end

@@ -36,20 +36,13 @@ feature 'Organization admin visits dashboard' do
   end
 
   def page_should_have_challenge_with(args)
-    within "#challenges" do
-      page.should have_content args.fetch(:title)
-      page.should have_content args.fetch(:collaborators)
-      page.should have_content args.fetch(:entries)
-    end
+    page.should have_content args.fetch(:title)
+    page.should have_content args.fetch(:collaborators)
+    page.should have_content args.fetch(:entries)
   end
 
   def page_should_have_entry_with(args)
-    within "#entries" do
-      page.should have_content args.fetch(:name)
-      page.should have_content args.fetch(:member)
-      page.should have_content args.fetch(:sent_at)
-      page.should have_content args.fetch(:idea_url)
-      page.should have_content args.fetch(:challenge)
-    end
+    page.should have_content args.fetch(:name)
+    page.should have_content args.fetch(:sent_at)
   end
 end
