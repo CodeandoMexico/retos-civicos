@@ -3,23 +3,12 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :authenticate_user!
   before_filter :authenticate_judge!
   before_filter :require_current_challenge, only: :index
-  before_filter :set_judge_and_evaluation, only: [:index, :edit, :update]
+  before_filter :set_judge_and_evaluation, only: :index
 
   def index
     @challenges = @judge.challenges.order('created_at DESC')
     @entries = current_challenge_entries
     @current_phase = Phases.current_phase_title(current_challenge)
-  end
-
-  def edit
-  end
-
-  def update
-    if @evaluation.update_attributes(params[:evaluation])
-      redirect_to evaluations_path
-    else
-      render :edit
-    end
   end
 
   private
