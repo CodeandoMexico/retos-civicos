@@ -3,6 +3,7 @@ require 'csv'
 module Dashboard
   class EntriesController < Dashboard::BaseController
     before_filter :require_current_challenge, only: :index
+    load_and_authorize_resource
 
     def index
       @challenges = organization_challenges
