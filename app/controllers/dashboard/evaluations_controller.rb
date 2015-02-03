@@ -2,6 +2,7 @@ module Dashboard
   class EvaluationsController < Dashboard::BaseController
     before_filter :set_challenge
     before_filter :set_judge, only: :create
+    load_and_authorize_resource
 
     def new
     end

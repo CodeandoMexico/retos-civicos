@@ -2,6 +2,7 @@ module Dashboard
   class JudgesController < Dashboard::BaseController
     before_filter :require_current_challenge, only: [:index, :new, :create]
     before_filter :set_current_challenge
+    load_and_authorize_resource
 
     def index
       @challenges = organization.challenges.

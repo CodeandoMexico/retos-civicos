@@ -1,6 +1,7 @@
 module Dashboard
   class ChallengesController < Dashboard::BaseController
     before_filter :set_challenge, only: [:new_criteria, :create_criteria]
+    load_and_authorize_resource
 
     def index
       @challenges = organization.challenges.
