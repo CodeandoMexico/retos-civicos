@@ -59,6 +59,10 @@ class Ability
       can [:update], Judge do |judge|
         judge.id == user.userable.id
       end
+
+      can [:manage], ReportCard do |report_card|
+        report_card.evaluation.judge == user.userable.id
+      end
     end
 
     if user.member?
