@@ -18,7 +18,7 @@ module Dashboard
         send_email_to_collaborators(collaborators)
         redirect_to dashboard_collaborators_path, notice: t('flash.mailers.create.notice')
       else
-        redirect_to new_dashboard_email_path, alert: t('flash.mailers.create.alert')
+        redirect_to new_dashboard_challenge_email_path(current_challenge), alert: t('flash.mailers.create.alert')
       end
     end
 
