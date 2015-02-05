@@ -6,6 +6,7 @@ es:
       saved_successfully: El juez ha sido invitado satisfactoriamente.
       added_succesfully_for_this_challenge: El juez ha sido invitado a evaluar el reto.
       evaluation_already_exists_for_this_challenge: El juez ya ha sido invitado previamente a evaluar el reto.
+      criteria_has_not_been_set_for_this_challenge: Los criterios no han sido aún actualizados por el administrador del reto. Para más informes, %{email}.
     mailers:
       create:
         notice: El correo ha sido enviado exitosamente.

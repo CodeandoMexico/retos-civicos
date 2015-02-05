@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :challenge
+  has_many :report_cards
+  has_many :evaluations, through: :report_cards
 
   validates :name, :description, :idea_url, presence: true
   validate :idea_url_has_to_be_a_valid_url

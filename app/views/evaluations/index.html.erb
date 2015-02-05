@@ -5,6 +5,10 @@
       current_challenge: @current_challenge,
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
 
+    <%= link_to t('.start_evaluation'),
+        evaluation_start_path(@evaluation),
+        class: 'btn btn-default pull-right' %>
+
     <% if @current_phase.present? %>
       <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
     <% end %>
@@ -14,13 +18,13 @@
   <div class="table__card">
     <ul>
       <% @entries.each do |entry| %>
-        <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
+        <%#= link_to dashboard_entry_path(entry), target: "_blank" do %>
         <li class="table--row">
           <div class="row--title"><%= entry.member.email %></div>
           <div class="row--subtitle"><%= entry.name %></div>
           <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
         </li>
-        <% end %>
+        <%# end %>
       <% end %>
     </ul>
   </div>
