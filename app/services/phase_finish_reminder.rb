@@ -63,7 +63,7 @@ module PhaseFinishReminder
     def mail_body_for(collaborator_id)
       { collaborator_id: collaborator_id,
         days_left_sentence: days_left_sentence,
-        phase: phases.current_phase_title(record).downcase,
+        phase: phases.current_phase_title(record).title.downcase,
         challenge_id: id,
         challenge_title: record.title }
     end

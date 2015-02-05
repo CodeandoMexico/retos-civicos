@@ -11,6 +11,7 @@ es:
     prototypes_phase: 'prototipos'
     prototypes_due_date_title: 'Cierre prototipos'
     prototypes_selection_phase: 'Evaluación de prototipos'
+    prototypes_selection_phase_small: 'Eval. de prototipos'
     prototypes_selection_due_date_title: 'Cierre del reto'
   date:
     formats:

@@ -81,7 +81,7 @@ describe Phases do
       end
 
       it "should not have title" do
-        Phases.current_phase_title(dates).should eq ''
+        Phases.current_phase_title(dates).title.should eq ''
       end
 
       phases.each do |phase|
@@ -99,7 +99,7 @@ describe Phases do
       end
 
       it "should not have title" do
-        Phases.current_phase_title(dates).should eq ''
+        Phases.current_phase_title(dates).title.should eq ''
       end
 
       phases.each do |phase|

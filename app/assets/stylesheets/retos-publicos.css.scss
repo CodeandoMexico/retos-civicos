@@ -28,6 +28,10 @@ $browser-context: 16; // Default
   margin: auto;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 .small-sides-padding {
   padding-left: 5px;
   padding-right: 5px;
