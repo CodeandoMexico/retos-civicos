@@ -161,14 +161,6 @@ ActiveRecord::Schema.define(:version => 20150203220334) do
     t.boolean  "is_valid",          :default => true
   end
 
-  create_table "entry_report_cards", :force => true do |t|
-    t.integer  "evaluation_id"
-    t.integer  "entry_id"
-    t.text     "grades"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "evaluations", :force => true do |t|
     t.integer  "challenge_id"
     t.integer  "judge_id"
