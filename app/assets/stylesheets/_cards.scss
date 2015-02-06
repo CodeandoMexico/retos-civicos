@@ -1,8 +1,7 @@
+@import "colors";
+
 $base_padding: 12px;
 $base_margin: 20px; // this value should be equal to the base_padding
-$gray: #DCDCDC;
-$grey-200: #EEEEEE;
-$grey-600: #757575;
 
 h1 {
   color: $grey-600;

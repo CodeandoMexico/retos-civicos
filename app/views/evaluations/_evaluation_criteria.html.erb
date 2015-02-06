@@ -1,0 +1,17 @@
+<h3><%= t('.evaluate_the_entry') %></h3>
+<%= form_tag dashboard_challenge_create_criteria_path(@current_challenge), class: "form-horizontal" do |f| %>
+  <% @current_challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
+
+    <div class="form-group">
+      <div class="col-sm-3" >
+        <%= label_tag t('.criteria', idx: idx + 1), nil,  class: 'control-label' %>
+      </div>
+      <div class="col-sm-9" >
+        <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true %>
+        <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
+<% end %>

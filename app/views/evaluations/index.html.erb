@@ -5,9 +5,6 @@
       current_challenge: @current_challenge,
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
 
-    <%= link_to t('.start_evaluation'),
-        evaluation_start_path(@evaluation),
-        class: 'btn btn-default pull-right' %>
 
     <% if @current_phase.present? %>
       <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
@@ -15,23 +12,19 @@
   </div>
 
   <% if @entries.any? %>
-  <div class="table__card">
-    <ul>
+    <div class="row">
       <% @entries.each do |entry| %>
-        <%#= link_to dashboard_entry_path(entry), target: "_blank" do %>
-        <li class="table--row">
-          <div class="row--title"><%= entry.member.email %></div>
-          <div class="row--subtitle"><%= entry.name %></div>
-          <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
-        </li>
-        <%# end %>
+        <div class="col-sm-12 col-md-6">
+          <%= render 'entry_minimum', entry: entry %>
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+          <%= render 'evaluation_criteria', entry: @evaluation.challenge.evaluation_criteria %>
+        </div>
       <% end %>
-    </ul>
-  </div>
+    </div>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-proposals') %>
-  </div>
+      <%= render 'shared/empty_resource', message: t('.there_are_no_entries_to_evaluate_for_this_challenge') %>
   <% end %>
 
 </div>
