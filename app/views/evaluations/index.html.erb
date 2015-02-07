@@ -11,17 +11,15 @@
     <% end %>
   </div>
 
-  <% if @entries.any? %>
+  <% if @current_entry.any? %>
     <div class="row">
-      <% @entries.each do |entry| %>
-        <div class="col-sm-12 col-md-6">
-          <%= render 'entry_minimum', entry: entry %>
-        </div>
+      <div class="col-sm-12 col-md-6">
+        <%= render 'entry_minimum', entry: entry %>
+      </div>
 
-        <div class="col-sm-12 col-md-6">
-          <%= render 'evaluation_criteria', entry: @evaluation.challenge.evaluation_criteria %>
-        </div>
-      <% end %>
+      <div class="col-sm-12 col-md-6">
+        <%= render 'evaluation_criteria', entry: @evaluation.challenge.evaluation_criteria %>
+      </div>
     </div>
   <% else %>
       <%= render 'shared/empty_resource', message: t('.there_are_no_entries_to_evaluate_for_this_challenge') %>

@@ -30,6 +30,14 @@ class Entry < ActiveRecord::Base
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
   end
 
+  def next_entry
+    challenge.entries.where("id > ?", id).first
+  end
+
+  def prev_entry
+    challenge.entries.where("id < ?", id).last
+  end
+
   def limit_3_winner_entries
     if challenge.current_winners.count > 3
       fail 'En un reto solamente se pueden seleccionar hasta 3 ganadores'

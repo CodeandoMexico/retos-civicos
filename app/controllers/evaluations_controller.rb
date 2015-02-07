@@ -7,20 +7,14 @@ class EvaluationsController < Dashboard::BaseController
 
   def index
     @challenges = @judge.challenges.order('created_at DESC')
-    @entries = current_challenge_entries
+    # @entries = current_challenge_entries
+    # @entries = @evaluation.challenge.entries
     @current_phase = Phases.current_phase_title(current_challenge)
-  end
 
-  def start
-    # Prepare all the evaluations so that we can evaluate them
-    # raise @current_challenge
-    @entries = @evaluation.challenge.entries
-    if @current_challenge.evaluation_criteria.present?
-      ReportCard.initialize_from_entries(@evaluation, @entries)
-    else
-      redirect_to evaluations_path(challenge_id: @current_challenge.id),
-        alert: I18n.t('flash.judge.criteria_has_not_been_set_for_this_challenge', email: @current_challenge.organization.email)
-    end
+    @current_entry ||= @evaluation.challenge.entries.first
+    @current_report_card = ReportCard.where(evaluation: @evaluation, entry: @current_entry) ||
+                           ReportCard.create(evaluation: @evaluation, entry: @current_entry)
+    raise @current_entry.inspect
   end
 
   private
@@ -29,15 +23,15 @@ class EvaluationsController < Dashboard::BaseController
     redirect_to challenges_path unless current_user.judge?
   end
 
-  def current_challenge_entries
-    default = current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
-
-    if params[:filter] == 'accepted'
-      default.accepted
-    else
-      default
-    end
-  end
+  # def current_challenge_entries
+  #   default = current_challenge.entries.order('created_at DESC').includes(:challenge, member: :user)
+  #
+  #   if params[:filter] == 'accepted'
+  #     default.accepted
+  #   else
+  #     default
+  #   end
+  # end
 
   def set_judge_and_evaluation
     @judge = current_user.userable

@@ -1,6 +1,8 @@
 <h3><%= t('.summary') %></h3>
 <%= simple_format entry.description %>
-<%= preview_url entry.idea_url %>
+<div class="embed-responsive embed-responsive-4by3">
+  <%= preview_url entry.idea_url %>
+</div>
 <table class="table">
   <tbody>
     <tr>

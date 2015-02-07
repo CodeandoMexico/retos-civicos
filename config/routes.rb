@@ -47,7 +47,6 @@ Aquila::Application.routes.draw do
 
   resources :judges, only: [:edit, :update]
   resources :evaluations, only: [:index, :show] do
-    get :start
     resources :report_cards, except: [:destroy]
   end
 
