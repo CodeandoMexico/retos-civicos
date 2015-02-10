@@ -11,14 +11,14 @@
     <% end %>
   </div>
 
-  <% if @current_entry.any? %>
+  <% if @entry %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <%= render 'entry_minimum', entry: entry %>
+        <%= render 'entry_minimum', entry: @entry %>
       </div>
 
       <div class="col-sm-12 col-md-6">
-        <%= render 'evaluation_criteria', entry: @evaluation.challenge.evaluation_criteria %>
+        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card %>
       </div>
     </div>
   <% else %>

@@ -11,10 +11,10 @@ class EvaluationsController < Dashboard::BaseController
     # @entries = @evaluation.challenge.entries
     @current_phase = Phases.current_phase_title(current_challenge)
 
-    @current_entry ||= @evaluation.challenge.entries.first
-    @current_report_card = ReportCard.where(evaluation: @evaluation, entry: @current_entry) ||
-                           ReportCard.create(evaluation: @evaluation, entry: @current_entry)
-    raise @current_entry.inspect
+    @entry ||= @evaluation.challenge.entries.first
+    @report_card = ReportCard.find_or_create_by_evaluation_id_and_entry_id(evaluation_id: @evaluation, entry_id: @entry) do |report_card|
+      report_card.create(evaluation_id: @evaluation, entry_id: @entry, grades: @entry.challenge.evaluation_criteria )
+    end
   end
 
   private

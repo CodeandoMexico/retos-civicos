@@ -1,13 +1,14 @@
 <h3><%= t('.evaluate_the_entry') %></h3>
-<%= form_tag dashboard_challenge_create_criteria_path(@current_challenge), class: "form-horizontal" do |f| %>
+<%= form_tag evaluation_report_card_path(evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
   <% @current_challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
 
     <div class="form-group">
-      <div class="col-sm-3" >
+      <div class="col-sm-6" >
         <%= label_tag criteria[:description], nil,  class: 'control-label' %>
       </div>
-      <div class="col-sm-9" >
-        <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+      <div class="col-sm-6" >
+        <%= hidden_field_tag 'criteria[][description]', criteria[:description] %>
+        <%= number_field_tag 'criteria[][value]', placeholder: t('.value_description'), class: 'form-control', min: 1, max: 100, required:true %>
       </div>
     </div>
   <% end %>

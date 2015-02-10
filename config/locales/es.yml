@@ -398,6 +398,8 @@ es:
     form:
       evaluation_file: Archivo con resultados
       submit: Enviar
+    evaluation_criteria:
+      save_criteria: Evaluar
     no_challenge:
       no_challenges: No tienes retos asignados
   users:
