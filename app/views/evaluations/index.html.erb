@@ -12,6 +12,8 @@
   </div>
 
   <% if @entry %>
+    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, next: @entry), class: 'btn btn-default' %>
+    <%= link_to t('.previous_entry'), evaluations_path(challenge_id: @current_challenge, prev: @entry), class: 'btn btn-default' %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <%= render 'entry_minimum', entry: @entry %>

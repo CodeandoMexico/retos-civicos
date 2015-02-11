@@ -30,11 +30,11 @@ class Entry < ActiveRecord::Base
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
   end
 
-  def next_entry
+  def next
     challenge.entries.where("id > ?", id).first
   end
 
-  def prev_entry
+  def prev
     challenge.entries.where("id < ?", id).last
   end
 

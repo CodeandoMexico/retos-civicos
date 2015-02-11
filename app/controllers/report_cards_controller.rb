@@ -6,9 +6,9 @@ class ReportCardsController < ApplicationController
   def update
     # raise params.inspect
     if @report_card.save
-      flash[:notice] = I18n.t('evaluation_has_ben_saved_successfully')
+      flash[:notice] = I18n.t('report_cards.evaluation_has_ben_saved_successfully')
     else
-      flash[:alert] = I18n.t('there_was_an_error_while_saving_the_evaluation')
+      flash[:alert] = I18n.t('report_cards.there_was_an_error_while_saving_the_evaluation')
     end
 
     redirect_to evaluations_path
