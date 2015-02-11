@@ -38,27 +38,17 @@ feature 'Judge enters the evaluations panel and' do
     # for this scenario we're using a challenge_with_criteria
     click_on evaluation_with_criteria.challenge.title
 
-    expect(page).to have_content entries[0].name
-    set_criteria_fields_to 5
-    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
-    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
-    save_and_open_page
+    evaluate(entries[0], 3)
+    expect(page).to_not have_content I18n.t('evaluations.index.previous_entry')
     click_on I18n.t('evaluations.index.next_entry')
 
-    expect(page).to have_content entries[1].name
-    set_criteria_fields_to 5
-    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
-    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
-    save_and_open_page
-    click_on I18n.t('evaluations.index.next_entry')
-    save_and_open_page
+    evaluate(entries[1], 4)
+    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
     click_on I18n.t('evaluations.index.next_entry')
 
-    expect(page).to have_content entries[2].name
-    set_criteria_fields_to 5
-    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
-    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
-    # click_on I18n.t('evaluations.index.next_entry')
+    evaluate(entries[2], 5)
+    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
+    expect(page).to_not have_content I18n.t('evaluations.index.next_entry')
   end
 
   scenario 'starts a evaluating when a challenge has no criteria been set.' do
@@ -69,5 +59,12 @@ feature 'Judge enters the evaluations panel and' do
 
   def set_criteria_fields_to(grade)
     10.times { |idx| all(:css, "#criteria__value")[idx].set(grade) }
+  end
+
+  def evaluate(entry, grade)
+    expect(page).to have_content entry.name
+    set_criteria_fields_to grade
+    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
+    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
   end
 end
