@@ -18,7 +18,7 @@ feature 'Judge enters the evaluations panel and' do
               member: new_member,
               name: "Propuesta #{idx}",
               description: "This is a description #{idx}",
-              idea_url: 'http://mipropuesta.com',
+              idea_url: 'http://google.com',
               technologies: ['PHP', 'Rust'],
               created_at: Time.zone.local(2014,4,25,10,52,24)
             )}
@@ -37,15 +37,28 @@ feature 'Judge enters the evaluations panel and' do
   scenario 'starts a evaluating the all entries for a challenge.' do
     # for this scenario we're using a challenge_with_criteria
     click_on evaluation_with_criteria.challenge.title
+
+    expect(page).to have_content entries[0].name
     set_criteria_fields_to 5
-
     click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
-
     expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
+    save_and_open_page
     click_on I18n.t('evaluations.index.next_entry')
-    # raise evaluation_with_criteria.report_cards.inspect
-    # raise ReportCard.pluck(:grades).inspect
-    # save_and_open_page
+
+    expect(page).to have_content entries[1].name
+    set_criteria_fields_to 5
+    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
+    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
+    save_and_open_page
+    click_on I18n.t('evaluations.index.next_entry')
+    save_and_open_page
+    click_on I18n.t('evaluations.index.next_entry')
+
+    expect(page).to have_content entries[2].name
+    set_criteria_fields_to 5
+    click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
+    expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
+    # click_on I18n.t('evaluations.index.next_entry')
   end
 
   scenario 'starts a evaluating when a challenge has no criteria been set.' do

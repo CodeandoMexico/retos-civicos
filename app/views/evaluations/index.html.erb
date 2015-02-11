@@ -11,16 +11,23 @@
     <% end %>
   </div>
 
+
+  <% if @prev_entry %>
+    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default' %>
+  <% end %>
+
+  <% if @next_entry %>
+    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default' %>
+  <% end %>
+
   <% if @entry %>
-    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, next: @entry), class: 'btn btn-default' %>
-    <%= link_to t('.previous_entry'), evaluations_path(challenge_id: @current_challenge, prev: @entry), class: 'btn btn-default' %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <%= render 'entry_minimum', entry: @entry %>
       </div>
 
       <div class="col-sm-12 col-md-6">
-        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card %>
+        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card, entry: @entry %>
       </div>
     </div>
   <% else %>

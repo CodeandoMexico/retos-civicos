@@ -36,14 +36,19 @@ class EvaluationsController < Dashboard::BaseController
   # end
 
   def set_entry
-    @entry = Entry.find(params[:next] || params[:prev])
-    if params[:next]
-      @entry = @entry.next
-    elsif params[:prev]
-      @entry = @entry.prev
+    @entries ||= @evaluation.challenge.entries
+
+    if params[:entry_id]
+      @entry = Entry.find(params[:entry_id])
+      @next_entry = @entry.next
+      @prev_entry = @entry.prev
+    elsif @entries.any?
+      @entry = @entries.order("id ASC").first
+      @next_entry = @entry.next
+      @prev_entry = @entry.prev
     end
 
-    @entry ||= @evaluation.challenge.entries.order("id ASC").first
+    # raise @next_entry.inspect
   end
 
   def set_judge_and_evaluation
