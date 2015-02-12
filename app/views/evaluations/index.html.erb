@@ -14,7 +14,7 @@
   <div class="table__card">
     <ul>
       <% @entries.each do |entry| %>
-        <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
+        <%= link_to dashboard_entry_path(entry) do %>
         <li class="table--row">
           <div class="row--title"><%= entry.member.email %></div>
           <div class="row--subtitle"><%= entry.name %></div>

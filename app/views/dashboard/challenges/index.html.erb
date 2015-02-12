@@ -11,7 +11,7 @@
   <div class="table__card">
     <ul>
       <% @challenges.each do |challenge| %>
-      <%= link_to challenge_path(challenge), target: "_blank" do %>
+      <%= link_to challenge_path(challenge) do %>
       <li class="table--row">
         <div class="row--title"><%= challenge.title %></div>
         <div class="row--subtitle"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
