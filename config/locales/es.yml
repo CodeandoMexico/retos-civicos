@@ -401,6 +401,7 @@ es:
       evaluation_file: Archivo con resultados
       submit: Enviar
     evaluation_criteria:
+      value_description: 0-5
       save_criteria: Evaluar
     no_challenge:
       no_challenges: No tienes retos asignados

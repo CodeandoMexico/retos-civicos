@@ -1,14 +1,14 @@
 <h3><%= t('.evaluate_the_entry') %></h3>
 <%= form_tag evaluation_report_card_path(evaluation, report_card, entry_id: entry), method: :put, class: "form-horizontal" do |f| %>
-  <% @current_challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
+  <% @report_card.grades.each_with_index do |grade, idx| %>
 
     <div class="form-group">
       <div class="col-sm-6" >
-        <%= label_tag criteria[:description], nil,  class: 'control-label' %>
+        <%= label_tag grade[:description], nil,  class: 'control-label' %>
       </div>
       <div class="col-sm-6" >
-        <%= hidden_field_tag 'criteria[][description]', criteria[:description] %>
-        <%= number_field_tag 'criteria[][value]', placeholder: t('.value_description'), class: 'form-control', min: 1, max: 100, required:true %>
+        <%= hidden_field_tag 'grades[][description]', grade[:description] %>
+        <%= number_field_tag 'grades[][value]', grade[:value], placeholder: t('.value_description'), class: 'form-control', min: 0, max: 5, required:true %>
       </div>
     </div>
   <% end %>

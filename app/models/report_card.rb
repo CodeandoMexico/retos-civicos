@@ -3,4 +3,6 @@ class ReportCard < ActiveRecord::Base
 
   belongs_to :evaluation
   belongs_to :entry
+
+  serialize :grades, Array
 end

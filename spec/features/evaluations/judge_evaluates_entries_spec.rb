@@ -18,7 +18,7 @@ feature 'Judge enters the evaluations panel and' do
               member: new_member,
               name: "Propuesta #{idx}",
               description: "This is a description #{idx}",
-              idea_url: 'http://google.com',
+              idea_url: 'http://localhost:3000',
               technologies: ['PHP', 'Rust'],
               created_at: Time.zone.local(2014,4,25,10,52,24)
             )}
@@ -39,16 +39,17 @@ feature 'Judge enters the evaluations panel and' do
     click_on evaluation_with_criteria.challenge.title
 
     evaluate(entries[0], 3)
-    expect(page).to_not have_content I18n.t('evaluations.index.previous_entry')
-    click_on I18n.t('evaluations.index.next_entry')
+    page_should_not_have_prev_entry_link
+    navigate_to_next_entry
 
     evaluate(entries[1], 4)
-    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
-    click_on I18n.t('evaluations.index.next_entry')
+    page_should_have_prev_entry_link
+    page_should_have_next_entry_link
+    navigate_to_next_entry
 
     evaluate(entries[2], 5)
-    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
-    expect(page).to_not have_content I18n.t('evaluations.index.next_entry')
+    page_should_have_prev_entry_link
+    page_should_not_have_next_entry_link
   end
 
   scenario 'starts a evaluating when a challenge has no criteria been set.' do
@@ -58,7 +59,7 @@ feature 'Judge enters the evaluations panel and' do
   end
 
   def set_criteria_fields_to(grade)
-    10.times { |idx| all(:css, "#criteria__value")[idx].set(grade) }
+    10.times { |idx| all(:css, "#grades__value")[idx].set(grade) }
   end
 
   def evaluate(entry, grade)
@@ -66,5 +67,26 @@ feature 'Judge enters the evaluations panel and' do
     set_criteria_fields_to grade
     click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
     expect(page).to have_content I18n.t('report_cards.evaluation_has_ben_saved_successfully')
+    expect(page).to have_content grade
+  end
+
+  def navigate_to_next_entry
+    click_on I18n.t('evaluations.index.next_entry')
+  end
+
+  def page_should_have_next_entry_link
+    expect(page).to have_content I18n.t('evaluations.index.next_entry')
+  end
+
+  def page_should_have_prev_entry_link
+    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
+  end
+
+  def page_should_not_have_next_entry_link
+    expect(page).to_not have_content I18n.t('evaluations.index.next_entry')
+  end
+
+  def page_should_not_have_prev_entry_link
+    expect(page).to_not have_content I18n.t('evaluations.index.previous_entry')
   end
 end
