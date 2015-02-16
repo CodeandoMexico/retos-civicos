@@ -15,7 +15,7 @@
             <div class="row--title"><%= challenge.title %></div>
             <div class="row--subtitle row--challenge"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
             <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
-            <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge) %> | <%= link_to icon('eye'), challenge_path(challenge) %></div>
+            <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
           </li>
         <% end %>
       </ul>
