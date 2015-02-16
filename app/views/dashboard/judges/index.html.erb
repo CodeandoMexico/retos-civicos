@@ -1,5 +1,5 @@
 <div class="deck">
-  <div class="actions__card">
+  <div class="actions--card">
     <div class="action--title">
       <%= render 'challenges_filter',
       challenges: @challenges,
@@ -27,7 +27,7 @@
   </div>
 
   <% if @judges.any? %>
-  <div class="table__card">
+  <div class="table--card">
     <ul>
       <% @judges.each do |judge| %>
       <li class="table--row">

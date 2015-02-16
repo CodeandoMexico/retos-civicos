@@ -1,5 +1,5 @@
 <div class="deck">
-  <div class="actions__card">
+  <div class="actions--card">
     <%= render 'challenges_filter',
       challenges: @challenges,
       current_challenge: @current_challenge,
@@ -11,7 +11,7 @@
   </div>
 
   <% if @entries.any? %>
-  <div class="table__card">
+  <div class="table--card">
     <ul>
       <% @entries.each do |entry| %>
         <%= link_to dashboard_entry_path(entry) do %>
