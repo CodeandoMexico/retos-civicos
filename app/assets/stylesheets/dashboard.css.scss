@@ -3,6 +3,7 @@ $brand-primary: #11ad00;
 @import 'bootstrap';
 @import 'cards';
 @import 'token-input';
+@import 'jquery.ui.datepicker';
 
 body {
   background-color: $grey-200;
