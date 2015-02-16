@@ -16,7 +16,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
+    @challenge = Challenge.find(params[:id], include: [:comment_threads, { collaborators: { user: :authentications } }])
 
     if @challenge.is_public? || User.is_admin_of_challenge(@challenge, current_organization)
       @organization = @challenge.organization
@@ -36,7 +36,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    return render :file => 'public/404.html', :status => :not_found, :layout => false
+    render file: 'public/404.html', status: :not_found, layout: false
   end
 
   def edit
