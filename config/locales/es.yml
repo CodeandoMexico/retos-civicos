@@ -392,6 +392,7 @@ es:
       technologies: Tecnologías
       submit_evaluation: Importar evaluación
       start_evaluation: Comenzar a evaluar
+      no_evaluation_criteria: No se han definido los criterios de evaluación para este reto.
       there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
       previous_entry: Anterior
       next_entry: Siguiente
@@ -403,6 +404,9 @@ es:
     evaluation_criteria:
       value_description: 0-5
       save_criteria: Evaluar
+      evaluate_the_entry: Evaluación
+    entry_minimum:
+      summary: Resumen
     no_challenge:
       no_challenges: No tienes retos asignados
   report_cards:

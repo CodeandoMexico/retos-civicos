@@ -12,15 +12,15 @@
   </div>
 
 
-  <% if @prev_entry %>
-    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default' %>
-  <% end %>
-
   <% if @next_entry %>
-    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default' %>
+    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;'%>
   <% end %>
 
-  <% if @entry %>
+  <% if @prev_entry %>
+    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right' %>
+  <% end %>
+
+  <% if @entry && @current_challenge.criteria_must_be_present %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <%= render 'entry_minimum', entry: @entry %>
@@ -30,6 +30,8 @@
         <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card, entry: @entry %>
       </div>
     </div>
+  <% elsif !@current_challenge.criteria_must_be_present %>
+      <%= render 'shared/empty_resource', message: t('.no_evaluation_criteria') %>
   <% else %>
       <%= render 'shared/empty_resource', message: t('.there_are_no_entries_to_evaluate_for_this_challenge') %>
   <% end %>

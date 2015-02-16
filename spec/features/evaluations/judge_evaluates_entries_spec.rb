@@ -55,7 +55,7 @@ feature 'Judge enters the evaluations panel and' do
   scenario 'starts a evaluating when a challenge has no criteria been set.' do
     # for this scenario we're using a challenge_with_no_criteria
     click_on evaluation_with_no_criteria.challenge.title
-    expect(page).to have_content I18n.t('evaluations.index.there_are_no_entries_to_evaluate_for_this_challenge', email: organization.email)
+    expect(page).to have_content I18n.t('evaluations.index.no_evaluation_criteria', email: organization.email)
   end
 
   def set_criteria_fields_to(grade)
