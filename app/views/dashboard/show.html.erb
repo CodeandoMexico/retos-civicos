@@ -2,45 +2,41 @@
   <!-- Active Challenges -->
   <h3>Retos Activos</h3>
   <% if @challenges.any? %>
-  <div class="table__card">
-    <ul>
-      <% @challenges.each do |challenge| %>
-      <%= link_to challenge_path(challenge) do %>
-      <li class="table--row">
-        <div class="row--title"><%= challenge.title %></div>
-        <div class="row--subtitle"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
-        <div class="row--footer"><%= t('.status') %>: <%= t("challenges.status.#{challenge.status}") %></div>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+    <div class="table--card">
+      <ul>
+        <% @challenges.each do |challenge| %>
+          <li class="table--row">
+            <div class="row--title"><%= link_to challenge.title, challenge_path(challenge) %></div>
+            <div class="row--subtitle"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
+            <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-proposals') %>
-  </div>
+    <div class="alert alert-info">
+      <%= t('.no-proposals') %>
+    </div>
   <% end %>
 
   <!-- Latest entries -->
   <h3><%= t('.latest-entries')%></h3>
 
   <% if @entries.any? %>
-  <div class="table__card">
-    <ul>
-      <% @entries.each do |entry| %>
-      <%= link_to dashboard_entry_path(entry) do %>
-      <li class="table--row">
-        <div class="row--title"><%= entry.member.company_name || entry.member.name %></div>
-        <div class="row--subtitle"><%= entry.name %></div>
-        <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+    <div class="table--card">
+      <ul>
+        <% @entries.each do |entry| %>
+          <li class="table--row">
+            <div class="row--title"><%= link_to((entry.member.company_name || entry.member.name), dashboard_entry_path(entry)) %></div>
+            <div class="row--subtitle"><%= entry.name %></div>
+            <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-proposals') %>
-  </div>
+    <div class="alert alert-info">
+      <%= t('.no-proposals') %>
+    </div>
   <% end %>
 </div>
