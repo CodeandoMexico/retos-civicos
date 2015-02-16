@@ -4,25 +4,25 @@ feature 'Organization admin watches entry profile' do
   scenario 'that shows the entry deatails' do
     user = create :user, name: 'Juanito'
     member = create :member, user: user,
-      company_name: 'Empresa de Juanito',
-      company_rfc: 'Juanito2014'
+                             company_name: 'Empresa de Juanito',
+                             company_rfc: 'Juanito2014'
 
     organization = create :organization
     challenge = create :challenge, title: 'Reto 1', organization: organization
     create :collaboration, member: member, challenge: challenge
 
     entry = create :entry,
-      name: 'Propuesta 1',
-      member: member,
-      challenge: challenge,
-      idea_url: 'http://miproyecto.com',
-      created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: ['', 'PHP', 'MySQL'],
-      description: 'Este reto se resuelve con tecnología'
+                   name: 'Propuesta 1',
+                   member: member,
+                   challenge: challenge,
+                   idea_url: 'http://miproyecto.com',
+                   created_at: Time.zone.local(2013, 4, 10, 20, 53),
+                   technologies: ['', 'PHP', 'MySQL'],
+                   description: 'Este reto se resuelve con tecnología'
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
-    click_link 'Propuesta 1'
+    click_link entry.member.email
 
     page_should_have_entry_with(
       name: 'Propuesta 1',

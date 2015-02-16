@@ -25,8 +25,6 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      # save_and_open_page
-      # page.should have_link('Envía tu propuesta')
       expect(page).to have_link 'Envía tu propuesta'
       mail_for_collaboration_should_be_sent_to('juanito@example.com')
     end
@@ -45,7 +43,7 @@ feature 'User signs up' do
   end
 
   def submit_registration_form(email)
-    fill_in 'user_email', with: 'juanito@example.com'
+    fill_in 'user_email', with: email
     fill_in 'user_password', with: 'secret'
     fill_in 'user_password_confirmation', with: 'secret'
     click_button 'Registrarme'
