@@ -2,6 +2,7 @@ $brand-primary: #11ad00;
 
 @import 'bootstrap';
 @import 'cards';
+@import 'token-input';
 
 body {
   background-color: $grey-200;

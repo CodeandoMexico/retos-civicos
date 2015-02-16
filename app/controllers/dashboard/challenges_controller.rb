@@ -8,6 +8,13 @@ module Dashboard
                     .order('created_at DESC').includes(:collaborators, :entries)
     end
 
+    def new
+    end
+
+    def edit
+      @activity = @challenge.activities.build
+    end
+
     def new_criteria
       return unless @challenge.evaluation_criteria.blank?
       @challenge.evaluation_criteria = Array.new(10, description: nil, value: nil)

@@ -6,7 +6,7 @@ feature 'Organization admin adds phases dates to challenge' do
     challenge = create :challenge, organization: organization
 
     sign_in_organization_admin(organization.admin)
-    visit edit_organization_challenge_path(organization, challenge)
+    visit edit_dashboard_challenge_path(challenge)
 
     fill_in 'challenge_starts_on', with: '2014-05-08'
     fill_in 'challenge_ideas_phase_due_on', with: '2014-06-08'
@@ -15,7 +15,7 @@ feature 'Organization admin adds phases dates to challenge' do
     fill_in 'challenge_finish_on', with: '2014-09-08'
     click_button 'Publicar'
 
-    visit edit_organization_challenge_path(organization, challenge)
+    visit edit_dashboard_challenge_path(challenge)
     page.should have_field 'challenge_starts_on', with: '2014-05-08'
     page.should have_field 'challenge_ideas_phase_due_on', with: '2014-06-08'
     page.should have_field 'challenge_ideas_selection_phase_due_on', with: '2014-07-08'

@@ -11,10 +11,6 @@ class ChallengesController < ApplicationController
     render layout: 'aquila'
   end
 
-  def new
-    render layout: 'aquila'
-  end
-
   def show
     @challenge = Challenge.find(params[:id], include: [:comment_threads, { collaborators: { user: :authentications } }])
 
@@ -37,11 +33,6 @@ class ChallengesController < ApplicationController
     end
 
     render file: 'public/404.html', status: :not_found, layout: false
-  end
-
-  def edit
-    @activity = @challenge.activities.build
-    render layout: 'aquila'
   end
 
   def create

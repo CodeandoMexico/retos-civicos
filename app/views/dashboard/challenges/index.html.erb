@@ -2,7 +2,7 @@
   <div class="actions--card">
     <div class="action--title"></div>
     <div class="action--list">
-      <%= link_to t('.new-challenge'), new_organization_challenge_path(organization),
+      <%= link_to t('.new-challenge'), new_dashboard_challenge_path,
       class: 'btn btn-default action-element' %>
     </div>
   </div>
@@ -15,7 +15,7 @@
             <div class="row--title"><%= challenge.title %></div>
             <div class="row--subtitle row--challenge"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
             <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
-            <div class="row--tools"><%= link_to icon('edit'), edit_organization_challenge_path(current_organization, challenge) %> | <%= link_to icon('eye'), challenge_path(challenge) %></div>
+            <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge) %> | <%= link_to icon('eye'), challenge_path(challenge) %></div>
           </li>
         <% end %>
       </ul>

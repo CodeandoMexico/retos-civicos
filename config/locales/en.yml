@@ -134,54 +134,6 @@ en:
       popular: Most Popular
       recent: Recent
     like: Like
-    new:
-      header: New Challenge
-    edit:
-      header: Edit Challenge
-    form:
-      title: Name your challenge
-      pitch: One line description
-      pitch-description: Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'.
-      avatar: Image
-      avatar-description: Choose wisely. A descriptive and high-quality image will catch more eyes.
-      about: About the challenge
-      about-description: Describe briefly what the challenge is about.
-      status: Challenge status
-      finish-date: End date
-      entry-template-url: App template link
-      entry-template-url-description: Link to a template that will help the members to send their apps.
-      assessment-methodology: Assessment Methodology
-      assessment-methodology-description: Link to Assessment Methodology
-      needs: Challenge needs
-      points: Key goals
-      points-description: What are the main goals of this challenge? Try to be concise.
-      point1: First point (Optional)
-      point2: Second point (Optional)
-      point3: Third point (Optional)
-      additional_links: References
-      additional_links-description: Share some web site links which might complement your problem description or solution. Separate links with commas.
-      additional_links-placeholder: Split by commas
-      dataset_id: Datasets
-      dataset_id-description: Add a Dataset from http://catalogo.datos.gob.mx/
-      activities: News and recent activity
-      activities-description: Relevant milestones in the challenge
-      activities-title: Title
-      submit: Publish
-      description: What is the problem to solve?
-      description-description: Describe the problem and why is so important to solve it.
-      comments: Notes and comments
-      resources: Data and external resources
-      created-by: Created by
-      welcome_mail: Welcome Mail
-      welcome_mail_subject: Título del correo
-      welcome_mail_subject-description: Participants will receive this email when
-        they sign up to the challenge. Write something short to get their attention
-      welcome_mail_body: Message Body
-      welcome_mail_body-description: You can send instructions and next steps of the
-        challenge. All the valuable information.
-      dataset_hint_text: Type in a search term
-      dataset_no_results_text: No results
-      dataset_searching_text: Searching...
     send_newsletter:
       header: Send a newsletter
       newsletter_subject: Message Subject
@@ -289,6 +241,55 @@ en:
       challenges_filter:
         challenge: Challenge
         go-to-challenge-public-view: Go to challenge public view
+    challenges:
+      new:
+        header: New Challenge
+      edit:
+        header: Edit Challenge
+      form:
+        title: Name your challenge
+        pitch: One line description
+        pitch-description: Captivate your audience in just one line, e.g. 'Let's build an open platform for e-learning'.
+        avatar: Image
+        avatar-description: Choose wisely. A descriptive and high-quality image will catch more eyes.
+        about: About the challenge
+        about-description: Describe briefly what the challenge is about.
+        status: Challenge status
+        finish-date: End date
+        entry-template-url: App template link
+        entry-template-url-description: Link to a template that will help the members to send their apps.
+        assessment-methodology: Assessment Methodology
+        assessment-methodology-description: Link to Assessment Methodology
+        needs: Challenge needs
+        points: Key goals
+        points-description: What are the main goals of this challenge? Try to be concise.
+        point1: First point (Optional)
+        point2: Second point (Optional)
+        point3: Third point (Optional)
+        additional_links: References
+        additional_links-description: Share some web site links which might complement your problem description or solution. Separate links with commas.
+        additional_links-placeholder: Split by commas
+        dataset_id: Datasets
+        dataset_id-description: Add a Dataset from http://catalogo.datos.gob.mx/
+        activities: News and recent activity
+        activities-description: Relevant milestones in the challenge
+        activities-title: Title
+        submit: Publish
+        description: What is the problem to solve?
+        description-description: Describe the problem and why is so important to solve it.
+        comments: Notes and comments
+        resources: Data and external resources
+        created-by: Created by
+        welcome_mail: Welcome Mail
+        welcome_mail_subject: Título del correo
+        welcome_mail_subject-description: Participants will receive this email when
+          they sign up to the challenge. Write something short to get their attention
+        welcome_mail_body: Message Body
+        welcome_mail_body-description: You can send instructions and next steps of the
+          challenge. All the valuable information.
+        dataset_hint_text: Type in a search term
+        dataset_no_results_text: No results
+        dataset_searching_text: Searching...
   users:
     welcome_new_org: 'We have received your registration, while validating your organization, you can edit the profile:'
     form:

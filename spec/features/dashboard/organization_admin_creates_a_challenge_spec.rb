@@ -9,7 +9,7 @@ feature 'Organization admin creates a challenge' do
     @member = create :member
 
     sign_in_organization_admin(organization.admin)
-    visit new_organization_challenge_path(organization)
+    visit new_dashboard_challenge_path
   end
 
   scenario 'with good params' do
