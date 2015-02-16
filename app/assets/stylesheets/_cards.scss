@@ -75,12 +75,21 @@ h3 {
       .row--subtitle {
         @extend %card--column;
         width: 50%;
+
+        &.row--challenge {
+          width: 40%;
+        }
       }
 
       .row--footer {
         @extend %card--column;
         font-size: 12px;
         width: 20%;
+      }
+
+      .row--tools {
+        @extend %card--column;
+        width: 10%;
       }
 
     }
