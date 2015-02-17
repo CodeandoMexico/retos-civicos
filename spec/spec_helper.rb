@@ -37,6 +37,9 @@ RSpec.configure do |config|
   config.include SessionHelpers, type: :feature
   config.include UserHelpers
   config.include MailerHelpers
+  # Model helpers
+  config.include EntriesHelpers
+  config.include EvaluationHelpers
   config.include FactoryGirl::Syntax::Methods
 
   # Database cleaner setup

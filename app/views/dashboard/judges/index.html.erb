@@ -30,11 +30,13 @@
   <div class="table--card">
     <ul>
       <% @judges.each do |judge| %>
-      <li class="table--row">
-        <div class="row--title"><%= judge.email %></div>
-        <div class="row--subtitle"><%= judge.name %></div>
-        <div class="row--footer"><%= judge.company_name %></div>
-      </li>
+        <%= link_to dashboard_judge_path(judge, challenge_id: @current_challenge.id), id: "judge_#{judge.id}" do %>
+          <li class="table--row">
+            <div class="row--title"><%= judge.email %></div>
+            <div class="row--subtitle"><%= judge.name %></div>
+            <div class="row--footer"><%= judge.company_name %></div>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
