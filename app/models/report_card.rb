@@ -7,14 +7,30 @@ class ReportCard < ActiveRecord::Base
   serialize :grades, Array
 
   validate :criteria_is_present, on: :create
-  validate :grades_must_be_valid, on: :update
+  validate :validate_grades, on: :update
 
-  def grades_must_be_valid
-    self.grades.each do |g|
-      if grade_is_valid? g[:value]
-        return errors.add(:grades, 'Las evaluaciones deben ser un número definido del 0 al 5.')
+  def average_score
+    max_score = 5.0
+    total_score = 0
+
+    if criteria_is_present && grades_are_present? && grades_are_valid?
+      self.grades.each_with_index do |g, idx|
+        individual_score = (Integer(g[:value]) / max_score) * Integer(self.evaluation.challenge.evaluation_criteria[idx][:value])
+        total_score = total_score + individual_score
       end
+
+      average_score = total_score / self.evaluation.challenge.evaluation_criteria.length
+    else
+      nil
     end
+  end
+
+  def validate_grades
+    return errors.add(:grades, 'Las evaluaciones deben ser un número definido del 0 al 5.') if !grades_are_valid?
+  end
+
+  def grades_are_present?
+    self.grades.present?
   end
 
   def criteria_is_present
@@ -29,9 +45,21 @@ class ReportCard < ActiveRecord::Base
     end
   end
 
+  def grades_are_valid?
+    if grades_are_present?
+      self.grades.each do |g|
+        if grade_is_invalid? g[:value]
+          return false
+        end
+      end
+      return true
+    end
+    false
+  end
+
   private
 
-  def grade_is_valid?(grade, min=0, max=5)
+  def grade_is_invalid?(grade, min=0, max=5)
     grade.nil? || !grade.is_number? || Integer(grade) < 0 || Integer(grade) > 5
   end
 end

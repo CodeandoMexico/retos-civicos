@@ -1,0 +1,21 @@
+<div class="deck">
+  <% if @evaluation.report_cards.any? %>
+    <div class="table--card">
+      <ul>
+        <% @evaluation.report_cards.each do |report_card| %>
+          <%= link_to "#", id: "report_card_#{report_card.id}" do %>
+            <li class="table--row">
+              <div class="row--title"><%= report_card.entry.name %></div>
+              <div class="row--subtitle"><%= report_card.entry.description %></div>
+              <div class="row--footer"><%= t('.average_score') %>: <%= report_card.average_score || "N/A" %></div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="alert alert-info">
+      <%= render 'shared/empty_resource', message: t('.no_report_cards_available_for_this_evaluation') %>
+    </div>
+  <% end %>
+</div>

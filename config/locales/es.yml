@@ -367,6 +367,8 @@ es:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
         define_criteria: Criterios de evaluación
+      show:
+        no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:
         title: Perfil
       request_permission_for_challenge:

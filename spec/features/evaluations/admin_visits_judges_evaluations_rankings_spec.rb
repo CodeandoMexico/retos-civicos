@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Admin enters evaluations panel and' do
-  attr_reader :judge, :challenge_with_criteria
+  attr_reader :judge, :challenge_with_criteria, :entries, :evaluation_with_criteria
 
   before do
     # users
@@ -10,23 +10,30 @@ feature 'Admin enters evaluations panel and' do
     admin = create :user, userable: organization
 
     # different challenges types
-    # challenge_with_no_criteria = create :challenge, organization: organization
     challenge_with_criteria = create :challenge, :with_criteria, organization: organization
 
     # different evaluations
-    # @evaluation_with_no_criteria = create :evaluation, challenge: challenge_with_no_criteria, judge: @judge
     @evaluation_with_criteria = create :evaluation, challenge: challenge_with_criteria, judge: @judge
 
     @entries = entries_with_different_members(3, challenge_with_criteria)
     sign_in_organization_admin(admin)
   end
 
-  scenario 'clicks on a judge' do
+  scenario 'clicks on a judge who has been accepted in an evaluation with no report cards' do
+    visit_jury_path
+    expect(page).to have_content I18n.t('dashboard.judges.show.no_report_cards_available_for_this_evaluation')
+  end
+
+  scenario 'clicks on a judge who has been accepted in an evaluation with three report cards' do
+    report_cards = evaluate_all_entries_with(judge, evaluation_with_criteria, entries, 5)
+
+    visit_jury_path
+    expect(page).to_not have_content I18n.t('dashboard.judges.show.no_report_cards_available_for_this_evaluation')
+  end
+
+  def visit_jury_path
     visit dashboard_path
     click_on 'Jurado'
-    # click_link challenge_with_criteria
-
     click_link "judge_#{judge.id}"
-    save_and_open_page
   end
 end
