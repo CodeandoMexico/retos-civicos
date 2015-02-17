@@ -45,7 +45,7 @@ module Dashboard
         challenges.each do |challenge|
           flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
         end
-          flash.now[:alert] = flash[:alert].join("<br>").html_safe
+          flash.now[:alert] = flash[:alert].join("<br>").html_safe if flash[:alert].kind_of?(Array)
       end
     end
   end

@@ -6,6 +6,7 @@ es:
       saved_successfully: El juez ha sido invitado satisfactoriamente.
       added_succesfully_for_this_challenge: El juez ha sido invitado a evaluar el reto.
       evaluation_already_exists_for_this_challenge: El juez ya ha sido invitado previamente a evaluar el reto.
+      criteria_has_not_been_set_for_this_challenge: Los criterios no han sido aún actualizados por el administrador del reto. Para más informes, %{email}.
     mailers:
       create:
         notice: El correo ha sido enviado exitosamente.
@@ -390,35 +391,27 @@ es:
       link_to_project: Liga al proyecto
       technologies: Tecnologías
       submit_evaluation: Importar evaluación
-      no-proposals: No hay entradas en este reto.
+      start_evaluation: Comenzar a evaluar
+      no_evaluation_criteria: No se han definido los criterios de evaluación para este reto.
+      there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
+      previous_entry: Anterior
+      next_entry: Siguiente
     edit:
       new_evaluation: Evaluar
     form:
       evaluation_file: Archivo con resultados
       submit: Enviar
+    evaluation_criteria:
+      value_description: 0-5
+      save_criteria: Evaluar
+      evaluate_the_entry: Evaluación
+    entry_minimum:
+      summary: Resumen
     no_challenge:
       no_challenges: No tienes retos asignados
-      form:
-        name: Nombre
-        email: Correo electrónico
-        company_name: Empresa
-        email-description: Email de la persona con la que estaremos en contacto
-        bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
-        submit: Agregar jurado
-  evaluations:
-    index:
-      company_name: Empresa
-      entry_email: correo electrónico
-      link_to_project: Liga al proyecto
-      technologies: Tecnologías
-      submit_evaluation: Importar evaluación
-    edit:
-      new_evaluation: Evaluar
-    form:
-      evaluation_file: Archivo con resultados
-      submit: Enviar
-    no_challenge:
-      no_challenges: No tienes retos asignados
+  report_cards:
+    there_was_an_error_while_saving_the_evaluation: Hubo un error al guardar tu evaluación.
+    evaluation_has_ben_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:

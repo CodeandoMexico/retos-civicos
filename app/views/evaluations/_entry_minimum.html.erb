@@ -1,0 +1,34 @@
+<h3><%= t('.summary') %></h3>
+<h4><%= entry.name %></h4>
+<%= simple_format entry.description %>
+<div class="embed-responsive embed-responsive-4by3">
+  <%= preview_url entry.idea_url %>
+</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th><%= t('.company-name') %></th>
+      <td><%= entry.member.company_name %></td>
+    </tr>
+    <tr>
+      <th><%= t('.entry-email') %></th>
+      <td><%= entry.member.email %></td>
+    </tr>
+    <tr>
+      <th><%= t('.company-rfc') %></th>
+      <td><%= entry.member.company_rfc %></td>
+    </tr>
+    <tr>
+      <th><%= t('.company-proposal') %></th>
+      <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
+    </tr>
+    <tr>
+      <th><%= t('.technology') %></th>
+      <td><%= entry.technologies_separated_by_commas %></td>
+    </tr>
+    <tr>
+      <th><%= t('.received-on') %></th>
+      <td><%= l(entry.created_at, format: :long).capitalize %></td>
+    </tr>
+  </tbody>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150130203205) do
+ActiveRecord::Schema.define(:version => 20150203220334) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -190,6 +190,14 @@ ActiveRecord::Schema.define(:version => 20150130203205) do
     t.boolean  "accredited",            :default => false
     t.boolean  "accepting_subscribers", :default => false
     t.string   "slug"
+  end
+
+  create_table "report_cards", :force => true do |t|
+    t.integer  "evaluation_id"
+    t.integer  "entry_id"
+    t.text     "grades"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "sessions", :force => true do |t|

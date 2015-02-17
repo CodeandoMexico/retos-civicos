@@ -1,0 +1,17 @@
+<h3><%= t('.evaluate_the_entry') %></h3>
+<%= form_tag evaluation_report_card_path(evaluation, report_card, entry_id: entry), method: :put, class: "form-horizontal" do |f| %>
+  <% @report_card.grades.each_with_index do |grade, idx| %>
+
+    <div class="form-group">
+      <div class="col-sm-6" >
+        <%= label_tag grade[:description], nil,  class: 'control-label' %>
+      </div>
+      <div class="col-sm-6" >
+        <%= hidden_field_tag 'grades[][description]', grade[:description] %>
+        <%= number_field_tag 'grades[][value]', grade[:value], placeholder: t('.value_description'), class: 'form-control', min: 0, max: 5, required:true %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
+<% end %>

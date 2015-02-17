@@ -5,29 +5,34 @@
       current_challenge: @current_challenge,
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
 
+
     <% if @current_phase.present? %>
       <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
     <% end %>
   </div>
 
-  <% if @entries.any? %>
-  <div class="table--card">
-    <ul>
-      <% @entries.each do |entry| %>
-        <%= link_to dashboard_entry_path(entry) do %>
-        <li class="table--row">
-          <div class="row--title"><%= entry.member.email %></div>
-          <div class="row--subtitle"><%= entry.name %></div>
-          <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <% if @next_entry %>
+    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;'%>
+  <% end %>
+
+  <% if @prev_entry %>
+    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right' %>
+  <% end %>
+
+  <% if @entry && @current_challenge.criteria_must_be_present %>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= render 'entry_minimum', entry: @entry %>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card, entry: @entry %>
+      </div>
+    </div>
+  <% elsif !@current_challenge.criteria_must_be_present %>
+      <%= render 'shared/empty_resource', message: t('.no_evaluation_criteria') %>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-proposals') %>
-  </div>
+      <%= render 'shared/empty_resource', message: t('.there_are_no_entries_to_evaluate_for_this_challenge') %>
   <% end %>
 
 </div>

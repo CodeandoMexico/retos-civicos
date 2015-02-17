@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :challenge
+  has_many :report_cards
+  has_many :evaluations, through: :report_cards
 
   validates :name, :description, :idea_url, presence: true
   validate :idea_url_has_to_be_a_valid_url
@@ -26,6 +28,14 @@ class Entry < ActiveRecord::Base
     [:id, :name, :challenge_title, :created_at, :description,
      :idea_url, :technologies_separated_by_commas, :member_name,
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
+  end
+
+  def next
+    challenge.entries.where("id > ?", id).first
+  end
+
+  def prev
+    challenge.entries.where("id < ?", id).last
   end
 
   def limit_3_winner_entries
