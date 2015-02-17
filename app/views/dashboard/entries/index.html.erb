@@ -4,7 +4,7 @@
 
 <div class="deck">
 
-  <div class="actions__card">
+  <div class="actions--card">
     <div class="action--title">
       <%= render 'challenges_filter',
       challenges: @challenges,
@@ -49,23 +49,21 @@
 
 
   <% if @entries.any? %>
-  <div class="table__card">
-    <ul>
-      <% @entries.each do |entry| %>
-      <%= link_to dashboard_entry_path(entry), target: "_blank" do %>
-      <li class="table--row">
-        <div class="row--title"><%= entry.member.email %></div>
-        <div class="row--subtitle"><%= entry.name %><%= render 'entry_status', entry: entry %></div>
-        <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+    <div class="table--card">
+      <ul>
+        <% @entries.each do |entry| %>
+          <li class="table--row">
+            <div class="row--title"><%= link_to entry.member.email, dashboard_entry_path(entry) %></div>
+            <div class="row--subtitle"><%= entry.name %><%= render 'entry_status', entry: entry %></div>
+            <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-proposals') %>
-  </div>
+    <div class="alert alert-info">
+      <%= t('.no-proposals') %>
+    </div>
   <% end %>
 
 </div>

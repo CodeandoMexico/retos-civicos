@@ -33,7 +33,7 @@ module Phases
 
     def to_s(args = {})
       if args[:small]
-        translator.t("#{id}_phase_small")
+        translator.t("#{id}_phase_small", default: translator.t("#{id}_phase"))
       else
         translator.t("#{id}_phase")
       end

@@ -10,7 +10,7 @@ feature "Challenges Datasets" do
   end
 
   scenario "Add and view dataset of a challenge", js: true do
-    # visit edit_organization_challenge_path(organization, challenge)
+    # visit edit_dashboard_challenge_path(challenge)
     #
     # #agregar un dataset
     # save_and_open_page

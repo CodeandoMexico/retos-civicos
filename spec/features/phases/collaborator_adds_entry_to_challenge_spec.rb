@@ -105,7 +105,7 @@ feature 'Collaborator adds entry to challenge' do
   def submit_registration_form(email)
     click_link 'Inicia con Email'
     click_link 'Regístrate aquí'
-    fill_in 'user_email', with: 'juanito@example.com'
+    fill_in 'user_email', with: email
     fill_in 'user_password', with: 'secret'
     fill_in 'user_password_confirmation', with: 'secret'
     click_button 'Registrarme'
@@ -115,7 +115,7 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_idea_url', with: args.fetch(:idea_url)
-    args.fetch(:technologies).split(", ").each do |tech|
+    args.fetch(:technologies).split(', ').each do |tech|
       select tech, from: 'entry_technologies'
     end
     attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)

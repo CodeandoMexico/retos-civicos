@@ -54,13 +54,13 @@ feature 'Organization selects winner for the challenge' do
   end
 
   def select_as_winner(entry)
-    click_link entry.name
-    click_button "Seleccionar como ganador"
+    click_link entry.member.email
+    click_button 'Seleccionar como ganador'
   end
 
   def remove_entry_as_winner(entry)
-    click_link entry.name
-    click_button "Quitar como ganadora"
+    click_link entry.member.email
+    click_button 'Quitar como ganadora'
   end
 
   def add_finalist_entries(number_of_entries)
