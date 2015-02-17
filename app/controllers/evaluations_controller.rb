@@ -15,15 +15,11 @@ class EvaluationsController < Dashboard::BaseController
   private
 
   def fetch_report_card(evaluation, entry)
-    ReportCard.where(evaluation_id: evaluation, entry_id: entry).first ||
+    ReportCard.find_by_evaluation_id_and_entry_id(evaluation, entry) ||
     ReportCard.create! do |r|
       r.evaluation_id = evaluation.id
       r.entry_id = entry.id
-      r.grades = evaluation.challenge.evaluation_criteria.map do |criteria|
-        grade = criteria.deep_dup
-        grade[:value] = nil
-        grade
-      end
+      r.grades = ReportCard.duplicate_criteria(evaluation.challenge.evaluation_criteria)
     end
   end
 

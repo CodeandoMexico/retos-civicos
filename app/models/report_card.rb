@@ -21,6 +21,14 @@ class ReportCard < ActiveRecord::Base
     self.evaluation.challenge.evaluation_criteria.present?
   end
 
+  def self.duplicate_criteria(criteria)
+    criteria.map do |c|
+      grade = c.deep_dup
+      grade[:value] = nil
+      grade
+    end
+  end
+
   private
 
   def grade_is_valid?(grade, min=0, max=5)
