@@ -1,11 +1,13 @@
 class ReportCard < ActiveRecord::Base
   attr_accessible :grades, :evaluation_id, :entry_id
 
+  serialize :grades, Array
+
+  # associations
   belongs_to :evaluation
   belongs_to :entry
 
-  serialize :grades, Array
-
+  # validations
   validate :criteria_is_present, on: :create
   validate :validate_grades, on: :update
 

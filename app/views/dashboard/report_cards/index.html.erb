@@ -8,6 +8,19 @@
                { title: 'Something awesome 2', path: '#'},
                { title: 'Something awesome 4', path: '#'}
              ]
-
    %>
+
+   <% if @current_challenge.evaluations.any? %>
+     <div class="table--card">
+       <ul>
+         <% @current_challenge.evaluations.each do |evaluation| %>
+           <li class="table--row">
+             <div class="row--title"><%= evaluation.judge.name %></div>
+             <div class="row--subtitle"><%= evaluation.judge.name %></div>
+             <div class="row--footer">Progreso: <%= evaluation.number_of_entries_graded %> de <%= evaluation.report_cards.count %> <%= humanize_evaluation_status(evaluation.status) %></div>
+           </li>
+         <% end %>
+       </ul>
+     </div>
+   <% end %>
 </div>

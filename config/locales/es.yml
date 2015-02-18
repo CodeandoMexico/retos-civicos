@@ -387,6 +387,10 @@ es:
         bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar juez
   evaluations:
+    status:
+      has_not_started: No ha comenzado
+      still_evaluating: Evaluando
+      finished: Ha terminado
     index:
       company_name: Empresa
       entry_email: correo electrónico
