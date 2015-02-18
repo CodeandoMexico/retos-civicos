@@ -17,7 +17,7 @@
            <li class="table--row">
              <div class="row--title"><%= evaluation.judge.name %></div>
              <div class="row--subtitle"><%= evaluation.judge.name %></div>
-             <div class="row--footer">Progreso: <%= evaluation.number_of_entries_graded %> de <%= evaluation.report_cards.count %> <%= humanize_evaluation_status(evaluation.status) %></div>
+             <div class="row--footer"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, @current_challenge.entries.count) %></div>
            </li>
          <% end %>
        </ul>

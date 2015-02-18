@@ -389,7 +389,7 @@ es:
   evaluations:
     status:
       has_not_started: No ha comenzado
-      still_evaluating: Evaluando
+      still_evaluating: "Evaluando: %{entries_evaluated} de %{total_entries}"
       finished: Ha terminado
     index:
       company_name: Empresa

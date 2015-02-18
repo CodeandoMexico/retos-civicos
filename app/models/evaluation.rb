@@ -16,18 +16,18 @@ class Evaluation < ActiveRecord::Base
 
     # how many entries are left to be evaluated?
     case entries_left_to_evaluate
-    when entries.count then 0
-    when (1..entries.count-1) then 1
+    when challenge.entries.count then 0
+    when (1..challenge.entries.count-1) then 1
     when 0 then 2
     end
   end
 
   def number_of_entries_graded
     # let's return the number of entries graded
-    report_cards.map { |r| r.criteria_and_grades_are_valid? ? 1 : 0 }.reduce(:+)
+    report_cards.map { |r| r.criteria_and_grades_are_valid? ? 1 : 0 }.reduce(:+) || 0
   end
 
   def entries_left_to_evaluate
-    entries.count - number_of_entries_graded
+    challenge.entries.count - number_of_entries_graded
   end
 end
