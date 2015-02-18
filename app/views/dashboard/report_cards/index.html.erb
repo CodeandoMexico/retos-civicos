@@ -1,0 +1,13 @@
+<div class="deck">
+  <%= render 'shared/challenges_card',
+             challenges: @challenges,
+             current_challenge: @current_challenge,
+             filter_path: ->(challenge) { dashboard_report_cards_path(challenge_id: challenge.id) },
+             actions: [
+               { title: 'Something awesome 1', path: '#'},
+               { title: 'Something awesome 2', path: '#'},
+               { title: 'Something awesome 4', path: '#'}
+             ]
+
+   %>
+</div>

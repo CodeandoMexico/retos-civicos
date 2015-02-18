@@ -39,6 +39,8 @@ class Challenge < ActiveRecord::Base
   after_update :create_or_update_datasets
 
   #Scopes
+  scope :sorted, lambda { order('created_at DESC') }
+
   scope :active, lambda {
     where("status = 'open' OR status = 'working_on'")
   }
