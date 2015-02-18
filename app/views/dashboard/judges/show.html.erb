@@ -3,13 +3,11 @@
     <div class="table--card">
       <ul>
         <% @evaluation.report_cards.each do |report_card| %>
-          <%= link_to "#", id: "report_card_#{report_card.id}" do %>
-            <li class="table--row">
-              <div class="row--title"><%= report_card.entry.name %></div>
-              <div class="row--subtitle"><%= report_card.entry.description %></div>
-              <div class="row--footer"><%= t('.average_score') %>: <%= report_card.average_score || "N/A" %></div>
-            </li>
-          <% end %>
+          <li class="table--row">
+            <div class="row--title"><%= report_card.entry.name %></div>
+            <div class="row--subtitle"><%= report_card.entry.description %></div>
+            <div class="row--footer"><%= t('.score') %>: <%= report_card.total_score || "N/A" %></div>
+          </li>
         <% end %>
       </ul>
     </div>

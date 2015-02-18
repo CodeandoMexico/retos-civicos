@@ -9,24 +9,24 @@ class ReportCard < ActiveRecord::Base
   validate :criteria_is_present, on: :create
   validate :validate_grades, on: :update
 
+  def total_score
+    sum_grades if criteria_and_grades_are_valid?
+  end
+
   def average_score
-    max_score = 5.0
-    total_score = 0
+    compute_average_score(sum_grades) if criteria_and_grades_are_valid?
+  end
 
-    if criteria_is_present && grades_are_present? && grades_are_valid?
-      self.grades.each_with_index do |g, idx|
-        individual_score = (Integer(g[:value]) / max_score) * Integer(self.evaluation.challenge.evaluation_criteria[idx][:value])
-        total_score = total_score + individual_score
-      end
-
-      average_score = total_score / self.evaluation.challenge.evaluation_criteria.length
-    else
-      nil
-    end
+  def compute_average_score(total_score)
+    total_score / self.evaluation.challenge.evaluation_criteria.length
   end
 
   def validate_grades
     return errors.add(:grades, 'Las evaluaciones deben ser un número definido del 0 al 5.') if !grades_are_valid?
+  end
+
+  def criteria_and_grades_are_valid?
+    criteria_is_present && grades_are_present? && grades_are_valid?
   end
 
   def grades_are_present?
@@ -39,7 +39,7 @@ class ReportCard < ActiveRecord::Base
 
   def self.duplicate_criteria(criteria)
     criteria.map do |c|
-      grade = c.deep_dup
+      grade = c.deep_dup.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
       grade[:value] = nil
       grade
     end
@@ -48,9 +48,7 @@ class ReportCard < ActiveRecord::Base
   def grades_are_valid?
     if grades_are_present?
       self.grades.each do |g|
-        if grade_is_invalid? g[:value]
-          return false
-        end
+        return false if grade_is_invalid? g[:value]
       end
       return true
     end
@@ -59,7 +57,19 @@ class ReportCard < ActiveRecord::Base
 
   private
 
+  def sum_grades
+    total_score = 0
+    self.grades.each_with_index do |g, idx|
+      total_score = total_score + individual_score(g[:value], self.evaluation.challenge.evaluation_criteria[idx]["value"])
+    end
+    total_score
+  end
+
   def grade_is_invalid?(grade, min=0, max=5)
-    grade.nil? || !grade.is_number? || Integer(grade) < 0 || Integer(grade) > 5
+    grade.nil? || !String(grade).is_number? || Integer(grade) < 0 || Integer(grade) > 5
+  end
+
+  def individual_score(entry_grade, challenge_evaluation_criteria)
+    Integer(entry_grade) / MAX_EVALUATION_SCORE * Integer(challenge_evaluation_criteria)
   end
 end

@@ -28,7 +28,16 @@ feature 'Admin enters evaluations panel and' do
     report_cards = evaluate_all_entries_with(judge, evaluation_with_criteria, entries, 5)
 
     visit_jury_path
+    expect_page_to_have_all_entries_info(report_cards)
     expect(page).to_not have_content I18n.t('dashboard.judges.show.no_report_cards_available_for_this_evaluation')
+  end
+
+  def expect_page_to_have_all_entries_info(report_cards)
+    report_cards.each do |r|
+      expect(page).to have_content r.entry.name
+      expect(page).to have_content r.entry.description
+      expect(page).to have_content r.total_score
+    end
   end
 
   def visit_jury_path

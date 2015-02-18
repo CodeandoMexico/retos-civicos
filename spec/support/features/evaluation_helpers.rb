@@ -20,6 +20,6 @@ module EvaluationHelpers
 
   def fetch_new_grades(challenge, grade_for_each_criteria)
     grades = ReportCard.duplicate_criteria(challenge.evaluation_criteria)
-    grades.map { |g| g[:value] = grade_for_each_criteria }
+    grades.map { |g| g[:value] = grade_for_each_criteria; g }
   end
 end
