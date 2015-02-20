@@ -12,7 +12,7 @@
 
    <!-- Criteria must be defined so that we show the ranking summary -->
    <% if @current_challenge.has_valid_criteria? && @current_challenge.has_evaluations? %>
-    <%= render 'show_ranking_summary', challenge: @current_challenge %>
+    <%#= render 'show_ranking_summary', challenge: @current_challenge %>
    <% elsif !@current_challenge.has_valid_criteria? %>
      <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
    <% elsif !@current_challenge.has_evaluations? %>

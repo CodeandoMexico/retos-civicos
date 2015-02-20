@@ -367,6 +367,8 @@ es:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
         define_criteria: Criterios de evaluación
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
       show:
         no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:
