@@ -41,7 +41,7 @@ class ReportCard < ActiveRecord::Base
 
   def self.duplicate_criteria(criteria)
     criteria.map do |c|
-      grade = c.deep_dup.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+      grade = c.deep_dup
       grade[:value] = nil
       grade
     end
@@ -62,7 +62,7 @@ class ReportCard < ActiveRecord::Base
   def sum_grades
     total_score = 0
     self.grades.each_with_index do |g, idx|
-      total_score = total_score + individual_score(g[:value], self.evaluation.challenge.evaluation_criteria[idx]["value"])
+      total_score = total_score + individual_score(g[:value], self.evaluation.challenge.evaluation_criteria[idx][:value])
     end
     total_score
   end

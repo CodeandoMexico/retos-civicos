@@ -386,6 +386,10 @@ es:
         email-description: Email de la persona con la que estaremos en contacto
         bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar juez
+    report_cards:
+      index:
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
   evaluations:
     status:
       has_not_started: No ha comenzado

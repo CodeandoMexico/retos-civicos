@@ -92,6 +92,14 @@ class Challenge < ActiveRecord::Base
     "#{id}-#{title}".parameterize
   end
 
+  def has_valid_criteria?
+    self.criteria_must_be_present && self.criteria_must_be_valid.nil?
+  end
+
+  def has_evaluations?
+    self.evaluations.present?
+  end
+
   def criteria_must_be_present
     self.evaluation_criteria.present?
   end

@@ -10,17 +10,14 @@
              ]
    %>
 
-   <% if @current_challenge.evaluations.any? %>
-     <div class="table--card">
-       <ul>
-         <% @current_challenge.evaluations.each do |evaluation| %>
-           <li class="table--row">
-             <div class="row--title"><%= evaluation.judge.name %></div>
-             <div class="row--subtitle"><%= evaluation.judge.name %></div>
-             <div class="row--footer"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, @current_challenge.entries.count) %></div>
-           </li>
-         <% end %>
-       </ul>
-     </div>
+   <!-- Criteria must be defined so that we show the ranking summary -->
+   <% if @current_challenge.has_valid_criteria? && @current_challenge.has_evaluations? %>
+    <%= render 'show_ranking_summary', challenge: @current_challenge %>
+   <% elsif !@current_challenge.has_valid_criteria? %>
+     <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
+   <% elsif !@current_challenge.has_evaluations? %>
+     <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
+   <% else %>
+     <%= render 'shared/empty_resource', message: t('.there_has_been_an_error_when_processing_your_request') %>
    <% end %>
 </div>

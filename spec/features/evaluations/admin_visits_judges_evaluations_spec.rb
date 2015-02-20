@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Admin enters evaluations panel and' do
-  attr_reader :judge, :challenge_with_criteria, :entries, :evaluation_with_criteria
+  attr_reader :judge, :entries, :evaluation_with_criteria
 
   before do
     # users
@@ -25,7 +25,7 @@ feature 'Admin enters evaluations panel and' do
   end
 
   scenario 'clicks on a judge who has been accepted in an evaluation with three report cards' do
-    report_cards = evaluate_all_entries_with(judge, evaluation_with_criteria, entries, 5)
+    report_cards = evaluate_all_entries_with(evaluation_with_criteria, entries, 5)
 
     visit_jury_path
     expect_page_to_have_all_entries_info(report_cards)
