@@ -4,8 +4,8 @@ module Dashboard
   class EntriesController < Dashboard::BaseController
     before_filter :require_current_challenge, only: :index
     load_and_authorize_resource
-
     def index
+      add_crumb 'Propuestas'
       @challenges = organization_challenges
       @current_challenge = current_challenge
       @entries = current_challenge_entries
@@ -18,7 +18,9 @@ module Dashboard
     end
 
     def show
+      add_crumb 'Propuestas', dashboard_entries_path(challenge_id: entry.challenge_id)
       @entry = entry
+      add_crumb entry.name
       @finalists_count = @entry.challenge.current_finalists.count
     end
 

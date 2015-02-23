@@ -5,6 +5,8 @@ module Dashboard
     load_and_authorize_resource
 
     def new
+      add_crumb 'Jurado', dashboard_judges_path(challenge_id: params[:challenge_id].to_i)
+      add_crumb 'Crear evaluación'
     end
 
     def show

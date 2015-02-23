@@ -4,18 +4,25 @@ module Dashboard
     load_and_authorize_resource
 
     def index
+      add_crumb 'Retos', '/dashboard/retos'
       @challenges = organization.challenges
                     .order('created_at DESC').includes(:collaborators, :entries)
     end
 
     def new
+      add_crumb 'Retos', '/dashboard/retos'
+      add_crumb 'Nuevo'
     end
 
     def edit
+      add_crumb 'Retos', '/dashboard/retos'
+      add_crumb 'Editar'
       @activity = @challenge.activities.build
     end
 
     def new_criteria
+      add_crumb 'Jurado', '/dashboard/jueces'
+      add_crumb 'Definición de criterios'
       return unless @challenge.evaluation_criteria.blank?
       @challenge.evaluation_criteria = Array.new(10, description: nil, value: nil)
     end

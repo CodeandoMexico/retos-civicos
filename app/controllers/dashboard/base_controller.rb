@@ -3,6 +3,7 @@ module Dashboard
     layout 'dashboard'
     before_filter :authenticate_current_user!
     before_filter :pending_winner_flash_message
+    add_crumb 'Dashboard', '/dashboard'
 
     def pending_winner_flash_message
       fetch_pending_challenges_flash_messages_for(current_organization) if current_user.organization?

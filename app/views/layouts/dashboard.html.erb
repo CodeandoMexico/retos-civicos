@@ -62,6 +62,7 @@
         <%= notice %>
       </div>
       <% end %>
+      <%= render_crumbs format: :html_list, ul_class: 'breadcrumb', last_crumb_linked: false %>
 
       <%= yield %>
     </div>

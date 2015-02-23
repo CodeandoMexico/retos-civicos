@@ -13,7 +13,7 @@
         <% @challenges.each do |challenge| %>
           <li class="table--row">
             <div class="row--title"><%= challenge.title %></div>
-            <div class="row--subtitle row--challenge"><%= challenge.collaborators.size %> participantes &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= challenge.entries.size %> propuestas</div>
+            <div class="row--subtitle row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
             <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
             <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
           </li>

@@ -1,7 +1,7 @@
 @import "colors";
 
-$base_padding: 12px;
-$base_margin: 20px; // this value should be equal to the base_padding
+$base-padding: 12px;
+$base-margin: 20px; // this value should be equal to the base_padding
 
 h1 {
   color: $grey-600;
@@ -57,7 +57,7 @@ h3 {
     }
 
     a {
-      color: inherit;
+      // color: inherit;
       // text-decoration: none;
     }
 
@@ -91,6 +91,9 @@ h3 {
         width: 10%;
       }
 
+      &:hover {
+        background-color: #e7e7e7;
+      }
     }
   }
 
