@@ -57,7 +57,6 @@ feature 'Judge enters the evaluations panel and' do
   end
 
   def check_for_updated_criteria
-    save_and_open_page
     10.times { |idx| expect(page).to have_content "New criteria #{idx+1}" }
   end
 
@@ -73,7 +72,6 @@ feature 'Judge enters the evaluations panel and' do
 
   def update_criteria_fields
     10.times { |idx| all(:css, "#criteria__description")[idx].set("New criteria #{idx+1}") }
-    save_and_open_page
     click_on 'Guardar'
   end
 
