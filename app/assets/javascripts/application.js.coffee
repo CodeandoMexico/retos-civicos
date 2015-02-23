@@ -42,3 +42,5 @@ $(document).ready ->
   # Stop video when closing the modal
   $('#modal-player').on 'hidden.bs.modal', ->
     $("#modal-player iframe").attr("src", $("#modal-player iframe").attr("src"))
+  addEventHandlers()
+  calculatePercentage()
