@@ -41,8 +41,8 @@ feature 'Admin enters results panel and' do
   scenario 'shows a message that ranking cannot be computed because there are still judges left to evaluate entries' do
     judges_evaluate_all_entries
     visit_results_path_for(challenge_with_criteria)
-    # save_and_open_page
     expect(page).to have_content I18n.t('dashboard.report_cards.show_ranking_summary.scores')
+    expect_page_to_have_final_scores(entries)
   end
 
   def judges_evaluate_some_entries_but_not_all_of_them
@@ -55,6 +55,13 @@ feature 'Admin enters results panel and' do
     evaluate_all_entries_with(evaluations[0], entries, 5, entries.length)
     evaluate_all_entries_with(evaluations[1], entries, 4, entries.length)
     evaluate_all_entries_with(evaluations[2], entries, 3, entries.length)
+  end
+
+  def expect_page_to_have_final_scores(entries)
+    # let's check that the method is howing a result coming from the entry method
+    entries.each { |e| expect(page).to have_content e.final_score }
+    # now let's check that it's the correct result
+    expect(page).to have_content "80"
   end
 
   def expect_page_to_have_all_evaluations_content
