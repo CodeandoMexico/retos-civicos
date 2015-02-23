@@ -28,7 +28,7 @@ module Dashboard
     end
 
     def create_criteria
-      @challenge.evaluation_criteria = params[:criteria]
+      @challenge.evaluation_criteria = fetch_criteria
 
       if @challenge.save
         redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: t('flash.challenges.criteria.criteria_successfully_defined')
@@ -39,6 +39,10 @@ module Dashboard
     end
 
     private
+
+    def fetch_criteria
+      params[:criteria].map{ |c| c.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo} }
+    end
 
     def set_challenge
       @challenge = Challenge.find(params['challenge_id'])

@@ -42,6 +42,7 @@ class Ability
       # Judges access
       can [:read, :create, :update], Judge
       can [:manage], Evaluation
+      can [:read], ReportCard
     end
 
     if user.judge?

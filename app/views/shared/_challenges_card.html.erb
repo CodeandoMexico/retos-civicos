@@ -1,0 +1,23 @@
+<div class="actions--card">
+  <div class="action--title">
+    <%= render 'challenges_filter',
+    challenges: challenges,
+    current_challenge: current_challenge,
+    filter_path: filter_path %>
+  </div>
+
+  <% if actions.present? %>
+    <div class="action--list">
+      <div class="btn-group action-element">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          Acciones <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <% actions.each do |action| %>
+            <li><%= link_to action[:title], action[:path] %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>

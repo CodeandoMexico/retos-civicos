@@ -32,6 +32,9 @@
             <%= content_tag :li, class: tab_class('dashboard/judges') do %>
               <%= link_to 'Jurado', dashboard_judges_path %>
             <% end %>
+            <%= content_tag :li, class: tab_class('dashboard/report_cards') do %>
+              <%= link_to 'Resultados', dashboard_report_cards_path %>
+            <% end %>
           </ul>
           <!-- right side of the navbar -->
           <ul class="nav navbar-nav navbar-right">
