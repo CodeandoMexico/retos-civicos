@@ -427,7 +427,8 @@ es:
       no_challenges: No tienes retos asignados
   report_cards:
     there_was_an_error_while_saving_the_evaluation: Hubo un error al guardar tu evaluación.
-    evaluation_has_ben_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
+    evaluation_has_been_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
+    evaluation_has_been_saved_successfully_go_to_next: La evaluación de esta entrada ha sido guardada satisfactoriamente. <a href="%{href}">Evalúa la siguiente.</a>
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:

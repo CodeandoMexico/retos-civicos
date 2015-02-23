@@ -5,7 +5,13 @@ class ReportCardsController < ApplicationController
 
   def update
     if @report_card.update_attributes(grades:params[:grades])
-      flash[:notice] = I18n.t('report_cards.evaluation_has_ben_saved_successfully')
+      flash[:notice] = if @report_card.entry.next.nil?
+        I18n.t('report_cards.evaluation_has_been_saved_successfully')
+      else
+        I18n.t('report_cards.evaluation_has_been_saved_successfully_go_to_next',
+              href: evaluations_path(challenge_id: @report_card.evaluation.challenge,
+                            entry_id:  @report_card.entry.next))
+      end
     else
       flash[:alert] = I18n.t('report_cards.there_was_an_error_while_saving_the_evaluation')
     end
