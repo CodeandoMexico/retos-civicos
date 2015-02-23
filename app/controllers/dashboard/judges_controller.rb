@@ -3,6 +3,7 @@ module Dashboard
     before_filter :require_current_challenge, only: [:index, :new, :create]
     before_filter :set_current_challenge
     load_and_authorize_resource
+    add_crumb 'Jurado'
 
     def index
       @challenges = organization.challenges.

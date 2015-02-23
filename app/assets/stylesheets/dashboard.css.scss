@@ -1,1 +1,5 @@
 @import 'panel';
+
+.breadcrumb > li:last-child {
+  color: #777;
+}

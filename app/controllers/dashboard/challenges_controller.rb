@@ -3,15 +3,18 @@ module Dashboard
     before_filter :set_challenge, only: [:new_criteria, :create_criteria]
     load_and_authorize_resource
 
+    add_crumb 'Retos', '/dashboard/retos'
     def index
       @challenges = organization.challenges
                     .order('created_at DESC').includes(:collaborators, :entries)
     end
 
     def new
+      add_crumb 'Nuevo'
     end
 
     def edit
+      add_crumb 'Editar'
       @activity = @challenge.activities.build
     end
 
