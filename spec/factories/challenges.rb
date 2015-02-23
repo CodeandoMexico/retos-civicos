@@ -30,16 +30,16 @@ FactoryGirl.define do
 
     trait :with_criteria do
       evaluation_criteria { [
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"},
-        {"description"=>"Criterio", "value"=>"10"}]
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"}]
       }
     end
   end

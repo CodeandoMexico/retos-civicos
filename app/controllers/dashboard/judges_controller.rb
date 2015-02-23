@@ -11,6 +11,11 @@ module Dashboard
       flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
     end
 
+    def show
+      @judge = Judge.find(params[:id])
+      @evaluation = Evaluation.find_by_judge_id_and_challenge_id(@judge, @current_challenge)
+    end
+
     def new
       @user = User.new
     end

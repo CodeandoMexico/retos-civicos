@@ -30,6 +30,11 @@ class Entry < ActiveRecord::Base
      :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
   end
 
+  def final_score
+    # This method should return the final score for a entry
+    (self.report_cards.map { |r| r.total_score }.reduce(:+)) * 1.0 / self.report_cards.count
+  end
+
   def next
     challenge.entries.where("id > ?", id).first
   end

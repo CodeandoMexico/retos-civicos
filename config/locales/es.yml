@@ -367,6 +367,10 @@ es:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
         define_criteria: Criterios de evaluación
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+      show:
+        no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:
         title: Perfil
       request_permission_for_challenge:
@@ -384,7 +388,19 @@ es:
         email-description: Email de la persona con la que estaremos en contacto
         bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
         submit: Agregar juez
+    report_cards:
+      index:
+        we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries: No podemos mostrar el ranking hasta que todos los jueces hayan terminado de evaluar las entradas.
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+      show_ranking_summary:
+        scores: Calificaciones finales
+        final_score: "Calificación: %{final_score}"
   evaluations:
+    status:
+      has_not_started: No ha comenzado
+      still_evaluating: "Evaluando: %{entries_evaluated} de %{total_entries}"
+      finished: Ha terminado
     index:
       company_name: Empresa
       entry_email: correo electrónico
@@ -411,7 +427,8 @@ es:
       no_challenges: No tienes retos asignados
   report_cards:
     there_was_an_error_while_saving_the_evaluation: Hubo un error al guardar tu evaluación.
-    evaluation_has_ben_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
+    evaluation_has_been_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
+    evaluation_has_been_saved_successfully_go_to_next: La evaluación de esta entrada ha sido guardada satisfactoriamente. <a href="%{href}">Evalúa la siguiente.</a>
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
