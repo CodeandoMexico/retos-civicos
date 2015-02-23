@@ -44,7 +44,6 @@ feature 'Admin enters evaluations panel and' do
   scenario 'it display no judges have been selected to evaluate this challenge' do
     visit_judges_challenge_path_for(challenge_with_no_judges)
     expect(page).to have_content I18n.t('dashboard.judges.index.no_judges_have_been_selected_to_evaluate_this_challenge')
-    save_and_open_page
   end
 
   scenario 'displays status of the different judges that have evaluated their entries' do

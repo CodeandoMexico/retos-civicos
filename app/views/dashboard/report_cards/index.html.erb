@@ -4,19 +4,21 @@
              current_challenge: @current_challenge,
              filter_path: ->(challenge) { dashboard_report_cards_path(challenge_id: challenge.id) },
              actions: [
-               { title: 'Something awesome 1', path: '#'},
-               { title: 'Something awesome 2', path: '#'},
-               { title: 'Something awesome 4', path: '#'}
+              #  { title: 'Something awesome 1', path: '#'},
+              #  { title: 'Something awesome 2', path: '#'},
+              #  { title: 'Something awesome 4', path: '#'}
              ]
    %>
 
    <!-- Criteria must be defined so that we show the ranking summary -->
-   <% if @current_challenge.has_valid_criteria? && @current_challenge.has_evaluations? %>
-    <%#= render 'show_ranking_summary', challenge: @current_challenge %>
+   <% if @current_challenge.ready_to_rank_entries? %>
+    <%= render 'show_ranking_summary', challenge: @current_challenge %>
    <% elsif !@current_challenge.has_valid_criteria? %>
      <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
    <% elsif !@current_challenge.has_evaluations? %>
      <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
+   <% elsif !@current_challenge.finished_evaluating? %>
+     <%= render 'shared/empty_resource', message: t('.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries') %>
    <% else %>
      <%= render 'shared/empty_resource', message: t('.there_has_been_an_error_when_processing_your_request') %>
    <% end %>

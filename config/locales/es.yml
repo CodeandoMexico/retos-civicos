@@ -390,8 +390,12 @@ es:
         submit: Agregar juez
     report_cards:
       index:
+        we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries: No podemos mostrar el ranking hasta que todos los jueces hayan terminado de evaluar las entradas.
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+      show_ranking_summary:
+        scores: Calificaciones finales
+        final_score: "Calificación: %{final_score}"
   evaluations:
     status:
       has_not_started: No ha comenzado

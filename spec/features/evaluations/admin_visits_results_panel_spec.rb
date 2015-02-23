@@ -32,16 +32,29 @@ feature 'Admin enters results panel and' do
     expect(page).to have_content I18n.t('dashboard.report_cards.index.no_judges_have_been_selected_to_evaluate_this_challenge')
   end
 
-  scenario 'clicks on a judge who has been accepted in an evaluation with three report cards' do
-    judges_evaluate_entries
+  scenario 'shows a message that ranking cannot be computed because there are still judges left to evaluate entries' do
+    judges_evaluate_some_entries_but_not_all_of_them
     visit_results_path_for(challenge_with_criteria)
-    expect_page_to_have_all_evaluations_content
+    expect(page).to have_content I18n.t('dashboard.report_cards.index.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries')
   end
 
-  def judges_evaluate_entries
+  scenario 'shows a message that ranking cannot be computed because there are still judges left to evaluate entries' do
+    judges_evaluate_all_entries
+    visit_results_path_for(challenge_with_criteria)
+    # save_and_open_page
+    expect(page).to have_content I18n.t('dashboard.report_cards.show_ranking_summary.scores')
+  end
+
+  def judges_evaluate_some_entries_but_not_all_of_them
     evaluate_all_entries_with(evaluations[0], entries, 5, entries.length)
     evaluate_all_entries_with(evaluations[1], entries, 4, 1)
     evaluate_all_entries_with(evaluations[2], entries, 3, 0)
+  end
+
+  def judges_evaluate_all_entries
+    evaluate_all_entries_with(evaluations[0], entries, 5, entries.length)
+    evaluate_all_entries_with(evaluations[1], entries, 4, entries.length)
+    evaluate_all_entries_with(evaluations[2], entries, 3, entries.length)
   end
 
   def expect_page_to_have_all_evaluations_content

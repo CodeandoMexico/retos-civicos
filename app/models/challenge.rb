@@ -92,6 +92,21 @@ class Challenge < ActiveRecord::Base
     "#{id}-#{title}".parameterize
   end
 
+  def sort_entries_by_scores
+    self.entries.sort! { |a, b| b.final_score <=> a.final_score }
+  end
+
+  def ready_to_rank_entries?
+    self.has_valid_criteria? && self.has_evaluations? && self.finished_evaluating?
+  end
+
+  def finished_evaluating?
+    self.evaluations.each do |evaluation|
+      return false if evaluation.status < 2
+    end
+    true
+  end
+
   def has_valid_criteria?
     self.criteria_must_be_present && self.criteria_must_be_valid.nil?
   end
