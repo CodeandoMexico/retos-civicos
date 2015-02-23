@@ -57,6 +57,13 @@ class ReportCard < ActiveRecord::Base
     false
   end
 
+  def update_criteria_description(new_criteria)
+    self.grades.each_with_index do |g, idx|
+      g[:description] = new_criteria[idx][:description]
+    end
+    self.update_attribute('grades', self.grades)
+  end
+
   private
 
   def sum_grades

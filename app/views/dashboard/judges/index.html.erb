@@ -4,9 +4,8 @@
              current_challenge: @current_challenge,
              filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) },
              actions: [
-               { title: 'Something awesome 1', path: '#'},
-               { title: 'Something awesome 2', path: '#'},
-               { title: 'Something awesome 4', path: '#'}
+               { title: t('.new_judge'), path: new_dashboard_challenge_evaluation_path(@current_challenge) },
+               { title: t('.define_criteria'), path: dashboard_challenge_new_criteria_path(@current_challenge)},
              ]
    %>
 

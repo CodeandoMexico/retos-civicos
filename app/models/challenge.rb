@@ -36,7 +36,7 @@ class Challenge < ActiveRecord::Base
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
   after_create :create_initial_activity, :create_or_update_datasets
-  after_update :create_or_update_datasets
+  after_update :create_or_update_datasets, :update_report_cards
 
   #Scopes
   scope :sorted, lambda { order('created_at DESC') }
@@ -260,6 +260,12 @@ class Challenge < ActiveRecord::Base
   end
 
   private
+
+  def update_report_cards
+    self.evaluations.each do |e|
+      e.report_cards.each { |r| r.update_criteria_description(self.evaluation_criteria) }
+    end
+  end
 
   def create_or_update_datasets
     datasets_id.each do |d|
