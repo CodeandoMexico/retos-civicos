@@ -15,7 +15,7 @@ class ReportCardsController < ApplicationController
     else
       flash[:alert] = I18n.t('report_cards.there_was_an_error_while_saving_the_evaluation')
     end
-    redirect_to evaluations_path(challenge_id: @current_challenge, entry_id: params[:entry_id])
+    redirect_to evaluations_path(challenge_id: @report_card.evaluation.challenge, entry_id: @report_card.entry)
   end
 
   private
