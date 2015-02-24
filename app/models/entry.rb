@@ -36,11 +36,11 @@ class Entry < ActiveRecord::Base
   end
 
   def next
-    challenge.entries.where("id > ?", id).first
+    challenge.entries.where("id > ?", id).order('id ASC').first
   end
 
   def prev
-    challenge.entries.where("id < ?", id).last
+    challenge.entries.where("id < ?", id).order('id ASC').last
   end
 
   def limit_3_winner_entries
