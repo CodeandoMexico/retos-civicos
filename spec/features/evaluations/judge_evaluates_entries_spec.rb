@@ -14,6 +14,9 @@ feature 'Judge enters the evaluations panel and' do
     @evaluation_with_criteria = create :evaluation, challenge: challenge_with_criteria, judge: @judge
     @entries = entries_with_different_members(3, challenge_with_criteria)
 
+    # manually create the report cards
+    @evaluation_with_criteria.initialize_report_cards
+
     sign_in_user(@judge)
   end
 

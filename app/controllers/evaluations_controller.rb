@@ -15,12 +15,15 @@ class EvaluationsController < Dashboard::BaseController
   private
 
   def fetch_report_card(evaluation, entry)
-    ReportCard.find_by_evaluation_id_and_entry_id(evaluation, entry) ||
-    ReportCard.create! do |r|
-      r.evaluation_id = evaluation.id
-      r.entry_id = entry.id
-      r.grades = ReportCard.duplicate_criteria(evaluation.challenge.evaluation_criteria)
-    end
+    ReportCard.find_by_evaluation_id_and_entry_id(evaluation, entry) # ||
+    # the create should be only be used as a fail safe, for instance an entry which
+    # has been manually created, in theory this code should be seldom used
+    # this is a prone to errors with misuse
+    # ReportCard.create! do |r|
+    #   r.evaluation_id = evaluation.id
+    #   r.entry_id = entry.id
+    #   r.grades = ReportCard.duplicate_criteria(evaluation.challenge.evaluation_criteria)
+    # end
   end
 
   def authenticate_judge!
