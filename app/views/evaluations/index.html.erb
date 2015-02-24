@@ -26,7 +26,7 @@
       </div>
 
       <div class="col-sm-12 col-md-6">
-        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card, entry: @entry %>
+        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card %>
       </div>
     </div>
   <% elsif !@current_challenge.criteria_must_be_present %>
