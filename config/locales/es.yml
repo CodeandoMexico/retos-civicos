@@ -349,7 +349,7 @@ es:
         no-challenges: Aún no hay retos publicados.
     evaluations:
       show:
-        title: "\"%{name}\" solicita acceso a:"
+        title: "\"%{name}\" tendrá acceso a:"
         read_challenge_information: "Lectura a la información del reto"
         read_entries_information: "Lectura a la información de las propuestas del reto"
         evaluate_a_challenge: "Evaluar un reto"
@@ -358,11 +358,13 @@ es:
         cancel: Cancelar
         challenges: Retos en los que actualmente participa el juez
       new:
-        title: Crear evaluación
+        title: Invitar juez a la evaluación
       form:
         email: Correo electrónico
         submit: Crear
     judges:
+      show_evaluations_summary:
+        evaluation_committee: Comité de evaluación
       index:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
@@ -374,7 +376,7 @@ es:
       edit:
         title: Perfil
       request_permission_for_challenge:
-        title: "\"%{name}\" solicita acceso a:"
+        title: "\"%{name}\" tendrá acceso a:"
         read_challenge_information: "Lectura a la información del reto"
         read_entries_information: "Lectura a la información de las propuestas del reto"
         evaluate_a_challenge: "Evaluar un reto"
