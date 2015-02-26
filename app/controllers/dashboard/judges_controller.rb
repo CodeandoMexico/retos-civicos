@@ -46,6 +46,7 @@ module Dashboard
       @user.reset_password_token = User.reset_password_token
       @user.reset_password_sent_at = Time.now
       @user.userable = Judge.new
+      @user.skip_confirmation!
       JudgeMailer.new_account(@user).deliver if @user.save
     end
   end
