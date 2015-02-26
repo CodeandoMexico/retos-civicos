@@ -21,7 +21,7 @@
 
   <% if @entry && @current_challenge.criteria_must_be_present %>
     <!-- render progress bar -->
-    <%= render 'shared/progress_bar_with_percentage', value_now: 0, total_value: 10 %>
+    <%= render 'shared/progress_bar_with_percentage', value_now: @evaluation.number_of_entries_graded, total_value: @evaluation.total_number_of_entries %>
 
     <!-- render entry and it's buttons -->
     <%= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @next_entry %>
