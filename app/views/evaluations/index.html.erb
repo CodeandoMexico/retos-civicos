@@ -11,15 +11,22 @@
     <% end %>
   </div>
 
-  <% if @next_entry %>
-    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;'%>
-  <% end %>
+  <%# if @next_entry %>
+    <%#= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @next_entry %>
+  <%# end %>
 
-  <% if @prev_entry %>
-    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right' %>
-  <% end %>
+  <%# if @prev_entry %>
+    <%#= link_to(t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right') if @prev_entry %>
+  <%# end %>
 
   <% if @entry && @current_challenge.criteria_must_be_present %>
+    <!-- render progress bar -->
+    <%= render 'shared/progress_bar_with_percentage', value_now: 0, total_value: 10 %>
+
+    <!-- render entry and it's buttons -->
+    <%= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @next_entry %>
+    <%= link_to(t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right') if @prev_entry %>
+
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <%= render 'entry_minimum', entry: @entry %>
