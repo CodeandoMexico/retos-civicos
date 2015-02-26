@@ -35,6 +35,10 @@ class Evaluation < ActiveRecord::Base
     challenge.entries.count - number_of_entries_graded
   end
 
+  def total_number_of_entries
+    challenge.entries.count
+  end
+
   private
 
   def new_report_card(entry)
