@@ -1,16 +1,13 @@
-$brand-primary: #11ad00;
-
+@import 'colors';
 @import 'bootstrap';
 @import 'cards';
 @import 'bootstrap_overrides';
 
 body {
-  min-height: 2000px;
   padding-top: 70px;
-
   background-color: $grey-200;
 }
 
 .navbar-default {
-  background-color: #FFFFFF;
+  background-color: $white;
 }

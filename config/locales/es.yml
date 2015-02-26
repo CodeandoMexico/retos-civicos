@@ -404,12 +404,7 @@ es:
       still_evaluating: "Evaluando: %{entries_evaluated} de %{total_entries}"
       finished: Ha terminado
     index:
-      company_name: Empresa
-      entry_email: correo electrónico
-      link_to_project: Liga al proyecto
-      technologies: Tecnologías
-      submit_evaluation: Importar evaluación
-      start_evaluation: Comenzar a evaluar
+      number_of_evaluated_entries: "Total de propuestas evaluadas: %{number_of_entries}"
       no_evaluation_criteria: No se han definido los criterios de evaluación para este reto.
       there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
       previous_entry: Anterior
@@ -424,6 +419,12 @@ es:
       save_criteria: Evaluar
       evaluate_the_entry: Evaluación
     entry_minimum:
+      company_name: Empresa
+      company_rfc: RFC de la Compañía
+      entry_email: Correo electrónico
+      link_to_project: Liga al proyecto
+      technologies: Tecnologías
+      received_on: Recibida
       summary: Resumen
     no_challenge:
       no_challenges: No tienes retos asignados

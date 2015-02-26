@@ -8,6 +8,7 @@
 
   <% if @entry && @current_challenge.criteria_must_be_present %>
     <!-- render progress bar -->
+    <h5> <%= t('.number_of_evaluated_entries', number_of_entries: @evaluation.number_of_entries_graded) %></h5>
     <%= render 'shared/progress_bar_with_percentage', value_now: @evaluation.number_of_entries_graded, total_value: @evaluation.total_number_of_entries %>
 
     <!-- render entry and it's buttons -->
@@ -19,7 +20,7 @@
         <%= render 'entry_minimum', entry: @entry %>
       </div>
 
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-5 col-md-offset-1">
         <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card %>
       </div>
     </div>
