@@ -105,7 +105,7 @@ module ApplicationHelper
   end
 
   def compute_percentage(value, total)
-    value * 100.0 / total
+    (value * 100.0 / total).ceil()
   end
 
   private

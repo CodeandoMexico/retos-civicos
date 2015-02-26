@@ -4,20 +4,7 @@
       challenges: @challenges,
       current_challenge: @current_challenge,
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
-
-
-    <% if @current_phase.present? %>
-      <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
-    <% end %>
   </div>
-
-  <%# if @next_entry %>
-    <%#= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @next_entry %>
-  <%# end %>
-
-  <%# if @prev_entry %>
-    <%#= link_to(t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right') if @prev_entry %>
-  <%# end %>
 
   <% if @entry && @current_challenge.criteria_must_be_present %>
     <!-- render progress bar -->

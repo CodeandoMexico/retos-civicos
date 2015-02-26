@@ -8,7 +8,6 @@ class EvaluationsController < Dashboard::BaseController
 
   def index
     @challenges = @judge.challenges.order('created_at DESC')
-    @current_phase = Phases.current_phase_title(current_challenge)
     @report_card = fetch_report_card(@evaluation, @entry) if @entry
   end
 
