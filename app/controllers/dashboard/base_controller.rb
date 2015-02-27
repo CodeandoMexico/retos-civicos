@@ -6,11 +6,7 @@ module Dashboard
     before_filter :pending_winner_flash_message
 
     def pending_winner_flash_message
-      challenges = Challenge.missing_winner_challenges(organization: current_organization)
-      flash.now[:alert] = [] unless flash.now[:alert]
-      challenges.each do |challenge|
-        flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
-      end
+      fetch_pending_challenges_flash_messages_for(current_organization) if current_user.organization?
     end
 
     def authenticate_current_user!
@@ -45,6 +41,17 @@ module Dashboard
     def dashboard_csv_for(record_class, collection)
       reporter = CsvReporter.new(record_class, collection, translator: self)
       reporter.report_for_organization(organization)
+    end
+
+    def fetch_pending_challenges_flash_messages_for(organization)
+      challenges = Challenge.missing_winner_challenges(organization: current_organization)
+      if challenges.present?
+        flash.now[:alert] ||= []
+        challenges.each do |challenge|
+          flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
+        end
+          flash.now[:alert] = flash[:alert].join("<br>").html_safe if flash[:alert].kind_of?(Array)
+      end
     end
   end
 end
