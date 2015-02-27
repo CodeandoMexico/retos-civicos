@@ -12,6 +12,7 @@ class ReportCardsController < ApplicationController
               href: evaluations_path(challenge_id: @report_card.evaluation.challenge,
                             entry_id:  @report_card.entry.next))
       end
+      OrganizationMailer.judge_finished_evaluating(@report_card.evaluation).deliver if @report_card.evaluation.status == FINISHED_EVALUATING_CHALLENGE
     else
       flash[:alert] = I18n.t('report_cards.there_was_an_error_while_saving_the_evaluation')
     end
