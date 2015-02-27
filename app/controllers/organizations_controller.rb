@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
       end
     else
       # redirect to 404
-      return render :file => 'public/404', :status => :not_found, :layout => false
+      return render :file => 'public/404.html', :status => :not_found, :layout => false
     end
   end
 
