@@ -2,6 +2,6 @@
 
 <p>
   El juez <strong><%= @evaluation.judge.name || @evaluation.judge.email %></strong>
-  a terminado de evaluar el reto: <strong>@evaluation.challenge.title</strong>.
-  Entra al <%= link_to "panel" dashboard_url %> para ver  los resultados.
+  a terminado de evaluar el reto: <strong><%= @evaluation.challenge.title %></strong>.
+  Entra al <%= link_to "panel", dashboard_url %> para ver  los resultados.
 </p>

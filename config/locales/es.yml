@@ -399,6 +399,8 @@ es:
         scores: Calificaciones finales
         final_score: "Calificación: %{final_score}"
   evaluations:
+    mailer:
+      a_judge_has_finished_evaluating_a_challenge: "Un juez ha terminado de evaluar el reto: %{challenge}."
     status:
       has_not_started: No ha comenzado
       still_evaluating: "Evaluando: %{entries_evaluated} de %{total_entries}"
