@@ -6,7 +6,7 @@
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
   </div>
 
-  <% if @entry && @current_challenge.criteria_must_be_present %>
+  <% if @entry && @current_challenge.criteria_must_be_present && @report_card %>
     <!-- render progress bar -->
     <h5> <%= t('.number_of_evaluated_entries', number_of_entries: @evaluation.number_of_entries_graded) %></h5>
     <%= render 'shared/progress_bar_with_percentage', value_now: @evaluation.number_of_entries_graded, total_value: @evaluation.total_number_of_entries %>
