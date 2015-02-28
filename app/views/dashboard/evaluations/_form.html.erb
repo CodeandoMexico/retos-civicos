@@ -1,0 +1,17 @@
+<%= form_tag dashboard_challenge_request_permission_for_challenge_path(@challenge), class: 'form-horizontal' do %>
+  <div class="sheet-section sheet-section-with-pad">
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= label_tag :email, t(".email"), class: 'control-label' %>
+      </div>
+      <div class="col-sm-8">
+        <%= email_field_tag :email, nil, class: 'form-control' %>
+      </div>
+      <div class="col-sm-1">
+        <%= submit_tag t('.submit'), class: 'btn btn-default'%>
+      </div>
+    </div>
+
+  </div>
+<% end %>

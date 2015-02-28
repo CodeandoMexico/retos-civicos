@@ -1,5 +1,12 @@
 es:
   flash:
+    judge:
+      user_cannot_be_added_as_a_judge: El usuario no puede ser agregado ya que su correo pertenece a un miembro o una organización.
+      does_not_exist: El usuario aún no existe, favor de crearle una cuenta.
+      saved_successfully: El juez ha sido invitado satisfactoriamente.
+      added_succesfully_for_this_challenge: El juez ha sido invitado a evaluar el reto.
+      evaluation_already_exists_for_this_challenge: El juez ya ha sido invitado previamente a evaluar el reto.
+      criteria_has_not_been_set_for_this_challenge: Los criterios no han sido aún actualizados por el administrador del reto. Para más informes, %{email}.
     mailers:
       create:
         notice: El correo ha sido enviado exitosamente.
@@ -19,6 +26,8 @@ es:
       updated: Listo para participar!
     users:
       welcome_and_edit_profile: ¡Bienvenido! Edita tu perfil antes de colaborar.
+      updated: La información ha sido guardada.
+      error: La información no ha sido guardada.
     entries:
       phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
@@ -32,6 +41,11 @@ es:
       message: Necesitas iniciar sesión primero
       already_submited_app: Ya has enviado tu aplicación a este reto
       entries_not_accepted: "El reto ya no acepta nuevas propuestas."
+    challenges:
+      criteria:
+        critieria_has_not_been_defined_yet: Los criterios aún no han sido definidos, los puedes dar de alta desde el panel de acciones.
+        criteria_successfully_defined: Los criterios han sido actualizados correctamente.
+        please_check_that_all_criteria_fields_for_any_errors: Por favor revisa que todos los campos han sido llenados correctamente y la suma de las ponderaciones sea 100.
   challenges:
     initial_activity:
       title: Creación del reto
@@ -45,56 +59,6 @@ es:
       recent: Más recientes
       main_index_header: Democratizar el gasto público para la innovación digital
     like: Me gusta
-    new:
-      header: Nuevo Reto
-    edit:
-      header: Editar Reto
-    form:
-      title: Título de tu reto
-      pitch: El reto
-      pitch-description: Escribe en un solo enunciado una frase que describe el reto
-      avatar: Imagen
-      avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
-      about: Breve descripción
-      about-description: Describe brevemente de que trata el reto
-      status: Estado actual del reto
-      prize-description: Describe el premio en formato Markdown
-      entry-template-url: Link plantilla de propuesta
-      entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
-      assessment-methodology: Metodología de Evaluación
-      assessment-methodology-description: Link a Metodología de Evaluación
-      needs: Necesidades del reto
-      challenge-description: 'Descripción del reto'
-      points: Puntos clave
-      points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
-      point: 'Punto %{number} (Opcional)'
-      additional_links: Referencias
-      additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto.
- <br/> Nota: Las ligas se escriben como una lista de links en formato markdown.'
-      additional_links-placeholder: Separados por comas
-      infographic: 'Infografía'
-      dataset_id: Datasets
-      dataset_id-description: Agrega un Dataset de http://catalogo.datos.gob.mx/
-      activities: Actividades y Noticias
-      activities-description: Eventos relevantes del reto
-      activities-title: Título
-      submit: Publicar
-      description: "¿Cuál es el problema a enfrentar?"
-      description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
-      comments: Comentarios
-      resources: Recursos y Datos
-      created-by: Convoca
-      welcome_mail: Correo de bienvenida
-      welcome_mail_subject: Título del correo
-      welcome_mail_subject-description: Subject del email. Escribe algo breve para
-        llamar su atención
-      welcome_mail_body: Cuerpo del mensaje
-      welcome_mail_body-description: Puedes enviarles las instrucciones y siguientes
-        pasos del reto. Toda la información valiosa.
-      dataset_hint_text: Escriba un término de búsqueda
-      dataset_no_results_text: No hay resultados
-      dataset_searching_text: Buscando...
-      phases: Etapas
     send_newsletter:
       header: Mandar un newsletter
       newsletter_subject: Título del correo
@@ -255,6 +219,61 @@ es:
         total-participants: Participantes
         total-entries: Propuestas recibidas
         no-proposals: Aún no hay propuestas.
+      new_criteria:
+        criteria: "Criterio %{idx}"
+        save_criteria: Guardar
+        criteria_description: Descripción del criterio
+        value_description: Valor entre 1 y 100
+      new:
+        header: Nuevo Reto
+      edit:
+        header: Editar Reto
+      form:
+        title: Título de tu reto
+        pitch: El reto
+        pitch-description: Escribe en un solo enunciado una frase que describe el reto
+        avatar: Imagen
+        avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
+        about: Breve descripción
+        about-description: Describe brevemente de que trata el reto
+        status: Estado actual del reto
+        prize-description: Describe el premio en formato Markdown
+        entry-template-url: Link plantilla de propuesta
+        entry-template-url-description: Link a plantilla de apoyo para participantes en el envio de su propuesta.
+        assessment-methodology: Metodología de Evaluación
+        assessment-methodology-description: Link a Metodología de Evaluación
+        needs: Necesidades del reto
+        challenge-description: 'Descripción del reto'
+        points: Puntos clave
+        points-description: En base a lo descrito, redacta los puntos clave sobre tus necesidades actuales. Te pedimos ser breve.
+        point: 'Punto %{number} (Opcional)'
+        additional_links: Referencias
+        additional_links-description: 'Comparte algunas ligas a páginas web que tengan soluciones similares a tu problema, algún recurso que sirva para inspirar a los colaboradores o datos que ayuden al desarrollo del reto.
+   <br/> Nota: Las ligas se escriben como una lista de links en formato markdown.'
+        additional_links-placeholder: Separados por comas
+        infographic: 'Infografía'
+        dataset_id: Datasets
+        dataset_id-description: Agrega un Dataset de http://catalogo.datos.gob.mx/
+        activities: Actividades y Noticias
+        activities-description: Eventos relevantes del reto
+        activities-title: Título
+        submit: Publicar
+        description: "¿Cuál es el problema a enfrentar?"
+        description-description: Relata cual ha sido el problema que han tenido y menciona la importancia de resolver dicho problema.
+        comments: Comentarios
+        resources: Recursos y Datos
+        created-by: Convoca
+        welcome_mail: Correo de bienvenida
+        welcome_mail_subject: Título del correo
+        welcome_mail_subject-description: Subject del email. Escribe algo breve para
+          llamar su atención
+        welcome_mail_body: Cuerpo del mensaje
+        welcome_mail_body-description: Puedes enviarles las instrucciones y siguientes
+          pasos del reto. Toda la información valiosa.
+        dataset_hint_text: Escriba un término de búsqueda
+        dataset_no_results_text: No hay resultados
+        dataset_searching_text: Buscando...
+        phases: Etapas
     mailers:
       new:
         view-title: Participantes
@@ -328,6 +347,93 @@ es:
         no-collaborators: Aún no hay participantes para este reto.
       no_challenge:
         no-challenges: Aún no hay retos publicados.
+    evaluations:
+      show:
+        title: "\"%{name}\" tendrá acceso a:"
+        read_challenge_information: "Lectura a la información del reto"
+        read_entries_information: "Lectura a la información de las propuestas del reto"
+        evaluate_a_challenge: "Evaluar un reto"
+        footer_caption: "Al aceptar estás otorgando los permisos mencionados previamente al juez."
+        submit: Acepto
+        cancel: Cancelar
+        challenges: Retos en los que actualmente participa el juez
+      new:
+        title: Invitar juez a la evaluación
+      form:
+        email: Correo electrónico
+        submit: Invitar
+    judges:
+      show_evaluations_summary:
+        evaluation_committee: Comité de evaluación
+      index:
+        no_judges: No hay jueces registrados
+        new_judge: Agregar juez
+        define_criteria: Criterios de evaluación
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+      show:
+        no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
+      edit:
+        title: Perfil
+      request_permission_for_challenge:
+        title: "\"%{name}\" tendrá acceso a:"
+        read_challenge_information: "Lectura a la información del reto"
+        read_entries_information: "Lectura a la información de las propuestas del reto"
+        evaluate_a_challenge: "Evaluar un reto"
+        footer_caption: "Al aceptar estás otorgando los permisos mencionados previamente al juez."
+        submit: Acepto
+        cancel: Cancelar
+      form:
+        name: Nombre
+        email: Correo electrónico
+        company_name: Empresa
+        email-description: Email de la persona con la que estaremos en contacto
+        bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
+        submit: Agregar juez
+    report_cards:
+      index:
+        we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries: No podemos mostrar el ranking hasta que todos los jueces hayan terminado de evaluar las entradas.
+        no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
+        no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+      show_ranking_summary:
+        scores: Calificaciones finales
+        final_score: "Calificación: %{final_score}"
+  evaluations:
+    mailer:
+      a_judge_has_finished_evaluating_a_challenge: "Un juez ha terminado de evaluar el reto: %{challenge}."
+    status:
+      has_not_started: No ha comenzado
+      still_evaluating: "Evaluando: %{entries_evaluated} de %{total_entries}"
+      finished: Ha terminado
+    index:
+      number_of_evaluated_entries: "Total de propuestas evaluadas: %{number_of_entries}"
+      no_evaluation_criteria: No se han definido los criterios de evaluación para este reto.
+      there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
+      previous_entry: Anterior
+      next_entry: Siguiente
+    edit:
+      new_evaluation: Evaluar
+    form:
+      evaluation_file: Archivo con resultados
+      submit: Enviar
+    evaluation_criteria:
+      value_description: 0-5
+      save_criteria: Evaluar
+      evaluate_the_entry: Evaluación
+    entry_minimum:
+      company_name: Empresa
+      company_rfc: RFC de la Compañía
+      entry_email: Correo electrónico
+      link_to_project: Liga al proyecto
+      technologies: Tecnologías
+      received_on: Recibida
+      summary: Resumen
+    no_challenge:
+      no_challenges: No tienes retos asignados
+  report_cards:
+    there_was_an_error_while_saving_the_evaluation: Hubo un error al guardar tu evaluación.
+    evaluation_has_been_saved_successfully: La evaluación de esta entrada ha sido guardada satisfactoriamente.
+    evaluation_has_been_saved_successfully_go_to_next: La evaluación de esta entrada ha sido guardada satisfactoriamente. <a href="%{href}">Evalúa la siguiente.</a>
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
@@ -356,6 +462,19 @@ es:
       title: Titulo del mensaje
       message: Añade tu mensaje aquí
       submit: Mandar
+  judges:
+    index:
+      no_judges: No hay jueces registrados
+      new_judge: Agregar juez
+    edit:
+      title: Perfil
+    form:
+      name: Nombre
+      company_name: Empresa
+      email: Correo electrónico
+      email-description: Email de la persona con la que estaremos en contacto
+      bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
+      submit: Guardar
   members:
     header: Editar perfil
     form:

@@ -1,6 +1,7 @@
 module Dashboard
   class CollaboratorsController < Dashboard::BaseController
     before_filter :require_current_challenge, only: :index
+    add_crumb 'Participantes'
 
     def index
       @challenges = organization_challenges

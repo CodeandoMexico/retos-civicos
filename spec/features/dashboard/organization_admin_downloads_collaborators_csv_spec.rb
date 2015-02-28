@@ -12,7 +12,7 @@ feature 'Organization admin downloads collaborators csv' do
     click_link 'Participantes'
     click_link 'Exportar CSV'
 
-    should_have_csv_with_name "#{formatted_current_time}-participantes-superorg-organizacion.csv"
+    should_have_csv_with_name "#{formatted_current_time}-participantes-#{organization.slug}-organizacion.csv"
     should_send_csv_with(
       'id' => juanito.id.to_s,
       'nombre' => 'Juanito',

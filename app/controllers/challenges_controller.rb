@@ -3,28 +3,16 @@ class ChallengesController < ApplicationController
 
   before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
+  before_filter :index_redirects, only: :index
 
   def index
-    # comment next two lines to enable aquila default behavior
-    # TO-DO: remove next line. is a temporary redirect to avoid crash on DB clean state
-    return redirect_to about_path if Challenge.count.zero?
-    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
-
-    ch = Challenge.active.recent
-    ch = Challenge.active if params[:active]
-    ch = Challenge.inactive if params[:inactive]
-    ch = Challenge.popular if params[:popular]
-    @challenges = ch.page(params[:page])
+    @challenges = Challenge.active.recent.page(params[:page])
     @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
 
-  def new
-    render layout: 'aquila'
-  end
-
   def show
-    @challenge = Challenge.find(params[:id], include: [:comment_threads, { :collaborators => { :user => :authentications }}])
+    @challenge = Challenge.find(params[:id], include: [:comment_threads, { collaborators: { user: :authentications } }])
 
     if @challenge.is_public? || User.is_admin_of_challenge(@challenge, current_organization)
       @organization = @challenge.organization
@@ -33,7 +21,7 @@ class ChallengesController < ApplicationController
       @datasets = @challenge.datasets
       @collaborators = @challenge.collaborators
       @timeline = Phases.timeline_from_dates(@challenge)
-      @current_phase_title = Phases.current_phase_title(@challenge)
+      @current_phase_title = Phases.current_phase_title(@challenge).title
       @days_left_for_current_phase = Phases.days_left_for_current_phase(@challenge)
 
       @collaborators_count = @collaborators.count
@@ -44,12 +32,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    return render :file => 'public/404', :status => :not_found, :layout => false
-  end
-
-  def edit
-    @activity = @challenge.activities.build
-    render layout: 'aquila'
+    render file: 'public/404.html', status: :not_found, layout: false
   end
 
   def create
@@ -103,6 +86,11 @@ class ChallengesController < ApplicationController
   end
 
   private
+
+  def index_redirects
+    return redirect_to about_path if Challenge.count.zero?
+    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
+  end
 
   def fetch_comments
     comments_per_page = 10

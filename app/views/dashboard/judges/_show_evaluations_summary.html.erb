@@ -1,0 +1,42 @@
+<!-- Panel sections for kpis -->
+<!-- <div class="kpi-container row">
+   <div class="col-md-4 col-lg-4">
+     <div class="panel panel-default">
+       <div class="kpi-content panel-body">
+         <strong>Estatus de evaluación: </strong><span>Evaluando</span>
+       </div>
+     </div>
+   </div>
+   <div class="col-md-4 col-lg-4">
+     <div class="panel panel-default">
+       <div class="kpi-content panel-body">
+         <strong>Jueces en evaluación: </strong><span>0 de 2</span>
+       </div>
+     </div>
+   </div>
+   <div class="col-md-4 col-lg-4">
+     <div class="panel panel-default">
+       <div class="kpi-content panel-body">
+         <strong>Propuestas evaluadas: </strong><span>2 de 6</span>
+       </div>
+     </div>
+   </div>
+ </div> -->
+
+<!-- Evaluation sections -->
+<% if challenge.evaluations.any? %>
+  <h3><%= t('.evaluation_committee') %></h3>
+  <div class="table--card">
+    <ul>
+      <% challenge.evaluations.each do |evaluation| %>
+        <%= link_to dashboard_judge_path(evaluation.judge, challenge_id: @current_challenge.id), id: "judge_#{evaluation.judge.id}" do %>
+          <li class="table--row">
+            <div class="row--title"><%= evaluation.judge.email %></div>
+            <div class="row--subtitle"><%= evaluation.judge.name %></div>
+            <div class="row--footer"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, challenge.entries.count) %></div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

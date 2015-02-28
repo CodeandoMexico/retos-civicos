@@ -15,54 +15,42 @@ feature 'Organization admin filters entries' do
   scenario 'with: received' do
     sign_in_organization_admin(organization.admin)
     visit dashboard_entries_path
-    click_filter 'recibidas'
+    click_filter 'Recibidas'
 
-    current_filter_should_be 'recibidas'
+    current_filter_should_be 'Recibidas'
     received_entries_count_should_eq 2
     accepted_entries_count_should_eq 1
-    list_should_show not_accepted_entry
-    list_should_show accepted_entry
+
+    expect(page).to have_content accepted_entry.name
+    expect(page).to have_content not_accepted_entry.name
   end
 
   scenario 'with: accepted' do
     sign_in_organization_admin(organization.admin)
     visit dashboard_entries_path
-    click_filter 'aceptadas'
+    click_filter 'Aceptadas'
 
-    current_filter_should_be 'aceptadas'
+    current_filter_should_be 'Aceptadas'
     received_entries_count_should_eq 2
     accepted_entries_count_should_eq 1
-    list_should_show accepted_entry
-    list_should_not_show not_accepted_entry
+
+    expect(page).to have_content accepted_entry.name
+    expect(page).to_not have_content not_accepted_entry.name
   end
 
   def click_filter(text)
     click_link text
   end
 
-  def list_should_show(entry)
-    page.should have_css "#entry_#{entry.id}"
-  end
-
-  def list_should_not_show(entry)
-    page.should_not have_css "#entry_#{entry.id}"
-  end
-
   def current_filter_should_be(text)
-    within "#entries_filters .active" do
-      page.should have_content text
-    end
+    page.should have_content text
   end
 
   def received_entries_count_should_eq(count)
-    within "#received_entries_count" do
-      page.should have_content count.to_s
-    end
+    page.should have_content count.to_s
   end
 
   def accepted_entries_count_should_eq(count)
-    within "#accepted_entries_count" do
-      page.should have_content count.to_s
-    end
+    page.should have_content count.to_s
   end
 end

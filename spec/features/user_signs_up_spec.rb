@@ -10,7 +10,8 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      page.should have_link('Juanito')
+      # page.should have_link('Juanito')
+      expect(page).to have_link 'Juanito'
     end
   end
 
@@ -24,7 +25,16 @@ feature 'User signs up' do
       visit_registration_form
       submit_registration_form('juanito@example.com')
       submit_profile_form('Juanito')
-      page.should have_link('Envía tu propuesta')
+      click_link 'Envía tu propuesta'
+      submit_entry_form_with(
+        project_name: 'Mi super app',
+        description: 'Es la mejor',
+        idea_url: 'https://github.com/CodeandoMexico/aquila',
+        technologies: 'Ruby, Haskell, Elixir, Rust',
+        image: "#{Rails.root}/spec/images/happy-face.jpg",
+        letter_under_oath: "#{Rails.root}/spec/fixtures/dummy.pdf"
+      )
+
       mail_for_collaboration_should_be_sent_to('juanito@example.com')
     end
   end
@@ -42,7 +52,7 @@ feature 'User signs up' do
   end
 
   def submit_registration_form(email)
-    fill_in 'user_email', with: 'juanito@example.com'
+    fill_in 'user_email', with: email
     fill_in 'user_password', with: 'secret'
     fill_in 'user_password_confirmation', with: 'secret'
     click_button 'Registrarme'
@@ -51,5 +61,17 @@ feature 'User signs up' do
   def submit_profile_form(name)
     fill_in 'member_name', with: name
     click_button 'Actualizar'
+  end
+
+  def submit_entry_form_with(args)
+    fill_in 'entry_name', with: args.fetch(:project_name)
+    fill_in 'entry_description', with: args.fetch(:description)
+    fill_in 'entry_idea_url', with: args.fetch(:idea_url)
+    args.fetch(:technologies).split(', ').each do |tech|
+      select tech, from: 'entry_technologies'
+    end
+    attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)
+    attach_file 'entry_image', args.fetch(:image)
+    click_button 'Enviar proyecto'
   end
 end

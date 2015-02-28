@@ -35,7 +35,7 @@ feature 'Organization admin' do
   end
 
   def visit_organization_profile
-    click_link "Editar Perfil"
+    click_link "Perfil"
   end
 
   def change_slug_information_with(new_slug)

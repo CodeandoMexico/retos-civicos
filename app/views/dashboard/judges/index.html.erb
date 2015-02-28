@@ -1,0 +1,22 @@
+<div class="deck">
+  <%= render 'shared/challenges_card',
+             challenges: @challenges,
+             current_challenge: @current_challenge,
+             filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) },
+             actions: [
+               { title: t('.new_judge'), path: new_dashboard_challenge_evaluation_path(@current_challenge) },
+               { title: t('.define_criteria'), path: dashboard_challenge_new_criteria_path(@current_challenge)},
+             ]
+   %>
+
+   <!-- Criteria must be defined so that we show the ranking summary -->
+   <% if @current_challenge.has_valid_criteria? && @current_challenge.has_evaluations? %>
+    <%= render 'show_evaluations_summary', challenge: @current_challenge %>
+   <% elsif !@current_challenge.has_valid_criteria? %>
+     <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
+   <% elsif !@current_challenge.has_evaluations? %>
+     <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
+   <% else %>
+     <%= render 'shared/empty_resource', message: t('.there_has_been_an_error_when_processing_your_request') %>
+   <% end %>
+</div>

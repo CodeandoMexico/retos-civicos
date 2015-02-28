@@ -69,7 +69,7 @@ module Aquila
     config.middleware.use "RedirectToAppUrl" if Rails.env.production?
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( dashboard.css )
+    config.assets.precompile += %w( dashboard.css judge.css )
 
     # Strip the www to prevent crash with subdomains
     if Rails.env.production? or Rails.env.staging?
@@ -81,5 +81,8 @@ module Aquila
     config.cache_store = :dalli_store
 
     config.middleware.insert 0, Rack::UTF8Sanitizer
+
+    # Add extended core clases
+    config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
   end
 end

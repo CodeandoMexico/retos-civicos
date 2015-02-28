@@ -3,13 +3,14 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology
+                  :infographic, :prize, :assessment_methodology, :evaluation_criteria
 
   attr_accessible(*Phases.dates)
 
   attr_accessor :dataset_file
 
   store :welcome_mail, accessors: [:subject, :body]
+  serialize :evaluation_criteria, Array
 
   mount_uploader :avatar, ChallengeAvatarUploader
   mount_uploader :infographic, ChallengeInfographicUploader
@@ -22,19 +23,24 @@ class Challenge < ActiveRecord::Base
   has_many :activities
   has_many :entries
   has_many :datasets
+  has_many :evaluations
+  has_many :judges, through: :evaluations
 
   belongs_to :organization
   # Validations
   validates :description, :title, :status, :about, :pitch, presence: true
   validates(*Phases.dates, presence: true)
   validates :pitch, length: { maximum: 140 }
+  validate :criteria_must_be_valid, on: :update, if: :criteria_must_be_present
 
   accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
 
   after_create :create_initial_activity, :create_or_update_datasets
-  after_update :create_or_update_datasets
+  after_update :create_or_update_datasets, :update_report_cards
 
   #Scopes
+  scope :sorted, lambda { order('created_at DESC') }
+
   scope :active, lambda {
     where("status = 'open' OR status = 'working_on'")
   }
@@ -84,6 +90,45 @@ class Challenge < ActiveRecord::Base
 
   def to_param
     "#{id}-#{title}".parameterize
+  end
+
+  def sort_entries_by_scores
+    self.entries.sort! { |a, b| b.final_score <=> a.final_score }
+  end
+
+  def ready_to_rank_entries?
+    self.has_valid_criteria? && self.has_evaluations? && self.finished_evaluating?
+  end
+
+  def finished_evaluating?
+    self.evaluations.each do |evaluation|
+      return false if evaluation.status < 2
+    end
+    true
+  end
+
+  def has_valid_criteria?
+    self.criteria_must_be_present && self.criteria_must_be_valid.nil?
+  end
+
+  def has_evaluations?
+    self.evaluations.present?
+  end
+
+  def criteria_must_be_present
+    self.evaluation_criteria.present?
+  end
+
+  def criteria_must_be_valid
+    ponderation_counter = 0
+    self.evaluation_criteria.each do |criteria|
+      if criteria[:description].blank? || !criteria[:value].is_number?
+        return errors.add(:evaluation_criteria, 'Los criterios no están correctamente definidos')
+      else
+        ponderation_counter = ponderation_counter + criteria[:value].to_f
+      end
+    end
+    return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.') if ponderation_counter != 100
   end
 
   def cancel!
@@ -196,12 +241,13 @@ class Challenge < ActiveRecord::Base
     Entry.includes(:member).where(challenge_id: self, accepted: true) - current_winners
   end
 
-  def current_phase_title
+  def current_phase_title(args = {})
     if has_finished?
-      I18n.t('challenges.show.has_finished')
+      phase = I18n.t('challenges.show.has_finished')
     else
-      Phases.current_phase_title(self)
+      phase = Phases.current_phase_title(self).title(args)
     end
+    phase
   end
 
   def self.has_only_one_challenge?
@@ -214,6 +260,12 @@ class Challenge < ActiveRecord::Base
   end
 
   private
+
+  def update_report_cards
+    self.evaluations.each do |e|
+      e.report_cards.each { |r| r.update_criteria_description(self.evaluation_criteria) }
+    end
+  end
 
   def create_or_update_datasets
     datasets_id.each do |d|

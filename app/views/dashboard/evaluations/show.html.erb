@@ -1,0 +1,59 @@
+<div class="row">
+  <% if @judge.challenges.any? %>
+  <div class="col-sm-12 col-md-6 col-sm-6">
+    <div class="deck">
+      <div class="list--card">
+        <div class="header">
+          <h4 class="title"><%= t('.challenges') %></h4>
+        </div>
+
+        <div class="body">
+          <ul>
+            <% @judge.challenges.each do |c| %>
+            <li><%= c.title %></li>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="col-sm-12 col-md-6 col-sm-6">
+
+    <%= form_tag dashboard_challenge_evaluations_path(@challenge) do %>
+      <%= hidden_field_tag "challenge_id", @challenge.id %>
+      <%= hidden_field_tag "judge_id", @judge.id %>
+
+      <div class="deck">
+        <div class="list--card">
+          <div class="header">
+            <h4 class="title"><%= t('.title', name: @judge.name) %></h4>
+          </div>
+
+          <div class="body">
+            <ul>
+              <li><%= t('.read_challenge_information') %></li>
+              <li><%= t('.read_entries_information') %></li>
+              <li><%= t('.evaluate_a_challenge') %></li>
+            </ul>
+          </div>
+
+          <div class="footer">
+            <p><%= t('.footer_caption') %></p>
+
+          </div>
+        </div>
+
+        <div class="actions--card">
+          <div class="action--title"></div>
+          <div class="action--list">
+            <%= submit_tag t('.submit'), class: 'btn btn-default action-element'%>
+            <%= link_to t('.cancel'), dashboard_judges_path, class: 'btn btn-danger action-element' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -23,6 +23,7 @@ gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
 gem 'ckan', github: 'CodeandoMexico/CKAN-rb'
+gem 'crummy', '~> 1.8.0'
 
 group :test do
   gem 'shoulda-matchers'
@@ -94,4 +95,4 @@ gem 'rack-no-www'
 gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
-gem "memcachier"
+gem 'memcachier'

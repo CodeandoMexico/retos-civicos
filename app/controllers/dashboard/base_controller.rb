@@ -2,8 +2,8 @@ module Dashboard
   class BaseController < ApplicationController
     layout 'dashboard'
     before_filter :authenticate_current_user!
-    before_filter :authenticate_organization_admin!
     before_filter :pending_winner_flash_message
+    add_crumb 'Dashboard', '/dashboard'
 
     def pending_winner_flash_message
       fetch_pending_challenges_flash_messages_for(current_organization) if current_user.organization?
@@ -11,10 +11,6 @@ module Dashboard
 
     def authenticate_current_user!
       redirect_to challenges_path unless current_user
-    end
-
-    def authenticate_organization_admin!
-      redirect_to challenges_path unless current_user.organization?
     end
 
     helper_method :organization

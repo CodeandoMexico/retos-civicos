@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :read, :update, :mark_valid, :mark_invalid, :publish, :accept, :winner, :remove_winner, to: :all_entries_actions
     user ||= User.new
 
     # Visitor access
@@ -17,6 +18,11 @@ class Ability
         challenge.organization.id == user.userable.id
       end
 
+      can [:manage], Challenge do |challenge|
+        challenge.organization_id == user.userable.id
+      end
+      can [:like], Challenge
+
       #Comment access
       can [:like], Comment do |comment|
         comment.user.id != user.id && !user.voted_on?(comment)
@@ -28,10 +34,36 @@ class Ability
       end
 
       can [:create, :reply], Comment
-      can [:create_or_reply_challenge_comment], Challenge do |challenge|
-        challenge.organization_id == user.userable.id
+      # Entries access
+      can [:all_entries_actions], Entry do |entry|
+        entry.challenge.organization_id == user.userable.id
       end
-      can [:like], Challenge
+
+      # Judges access
+      can [:read, :create, :update], Judge
+      can [:manage], Evaluation
+      can [:read], ReportCard
+    end
+
+    if user.judge?
+      # evaluation access
+      can [:new, :create, :update], Evaluation do |evaluation|
+        evaluation.judge_id == user.userable.id
+      end
+
+      # Entries access
+      # should this be limited only to evaluation entries?
+      can [:read], Entry do |entry|
+        # raise "judge".inspect
+      end
+
+      can [:update], Judge do |judge|
+        judge.id == user.userable.id
+      end
+
+      can [:manage], ReportCard do |report_card|
+        report_card.evaluation.judge == user.userable.id
+      end
     end
 
     if user.member?

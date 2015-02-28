@@ -27,5 +27,20 @@ FactoryGirl.define do
     trait :working_on do
       status 'working_on'
     end
+
+    trait :with_criteria do
+      evaluation_criteria { [
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"},
+        { description: "Criterio", value: "10"}]
+      }
+    end
   end
 end

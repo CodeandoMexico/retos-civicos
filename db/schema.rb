@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141029185347) do
+ActiveRecord::Schema.define(:version => 20150203220334) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -72,15 +72,16 @@ ActiveRecord::Schema.define(:version => 20141029185347) do
     t.string   "dataset_id"
     t.string   "entry_template_url"
     t.string   "infographic"
-    t.text     "prize"
     t.date     "ideas_phase_due_on"
     t.date     "ideas_selection_phase_due_on"
     t.date     "prototypes_phase_due_on"
+    t.text     "prize"
     t.date     "starts_on"
     t.text     "fourth_spec"
     t.text     "fifth_spec"
     t.date     "finish_on"
     t.string   "assessment_methodology"
+    t.text     "evaluation_criteria"
   end
 
   add_index "challenges", ["organization_id"], :name => "index_challenges_on_organization_id"
@@ -151,13 +152,26 @@ ActiveRecord::Schema.define(:version => 20141029185347) do
     t.text     "technologies"
     t.boolean  "public",            :default => false, :null => false
     t.string   "image"
-    t.string   "letter_under_oath"
     t.boolean  "accepted"
     t.string   "idea_url"
+    t.string   "letter_under_oath"
     t.string   "repo_url"
     t.string   "demo_url"
     t.integer  "winner"
     t.boolean  "is_valid",          :default => true
+  end
+
+  create_table "evaluations", :force => true do |t|
+    t.integer  "challenge_id"
+    t.integer  "judge_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "judges", :force => true do |t|
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "company_name"
   end
 
   create_table "members", :force => true do |t|
@@ -176,6 +190,14 @@ ActiveRecord::Schema.define(:version => 20141029185347) do
     t.boolean  "accredited",            :default => false
     t.boolean  "accepting_subscribers", :default => false
     t.string   "slug"
+  end
+
+  create_table "report_cards", :force => true do |t|
+    t.integer  "evaluation_id"
+    t.integer  "entry_id"
+    t.text     "grades"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "sessions", :force => true do |t|

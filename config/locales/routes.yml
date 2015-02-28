@@ -39,3 +39,7 @@ es:
     users: usuarios
     prototypes: prototipos
     finalists: finalistas
+    judges: jueces
+    judge: juez
+    evaluation: evaluacion
+    evaluations: evaluaciones

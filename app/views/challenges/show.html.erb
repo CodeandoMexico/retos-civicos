@@ -16,13 +16,7 @@
       <div class="challenge-profile-image js-challenge-profile-height-slave" style="background-image: url(<%= @challenge.avatar_url(:profile) %>)">
         <div class="challenge-hightlight">
           <div class="challenge-hightlight-item">
-          <% if @challenge.is_active? %>
-            <%= t("challenges.status.#{@current_phase_title}") %>
-          <% elsif !@challenge.has_started? %>
-            <%= t(".has_not_started") %>
-          <% elsif @challenge.has_finished? %>
-            <%= t(".has_finished") %>
-          <% end %>
+            <%= @challenge.current_phase_title %>
           </div>
           <% if @challenge.is_active? %>
           <div class="challenge-hightlight-item">
@@ -68,10 +62,10 @@
       <%= render 'ideas_finalists' %>
     <% end %>
 
-    <% if user_not_logged_in_or_is_not_an_organization @challenge %>
+    <% if user_is_able_to_collaborate? @challenge %>
       <% if can_edit_challenge? @challenge %>
         <div class="challenge-collaborate-content">
-          <%= link_to t('.edit-challenge'), edit_organization_challenge_path(current_organization, @challenge), class: 'btn btn-primary' %>
+          <%= link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-primary' %>
         </div>
       <% elsif Phases.is_current?(:ideas, @challenge) %>
         <div class="challenge-collaborate-content">

@@ -22,11 +22,17 @@ Aquila::Application.routes.draw do
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
-    resources :challenges, only: :index, controller: 'dashboard/challenges' do
+    resources :challenges, only: [:index, :new, :edit], controller: 'dashboard/challenges' do
       resources :emails, only: [:new, :create], controller: 'dashboard/mailers' do
         get :finalists, to: 'dashboard/mailers', as: 'finalists', on: :new
         get :participants, to: 'dashboard/mailers', as: 'participants', on: :new
       end
+
+      post :request_permission_for_challenge, controller: 'dashboard/evaluations'
+      get :new_criteria, controller: 'dashboard/challenges'
+      post :create_criteria, controller: 'dashboard/challenges'
+
+      resources :evaluations, only: [:show, :new, :create], controller: 'dashboard/evaluations'
     end
     resources :entries, only: [:show, :index], controller: 'dashboard/entries' do
       post :mark_valid, on: :member
@@ -36,6 +42,13 @@ Aquila::Application.routes.draw do
       post :winner, on: :member
       post :remove_winner, on: :member
     end
+    resources :judges, only: [:index, :new, :create, :show], controller: 'dashboard/judges'
+    resources :report_cards, only: :index, controller: 'dashboard/report_cards'
+  end
+
+  resources :judges, only: [:edit, :update]
+  resources :evaluations, only: [:index, :show] do
+    resources :report_cards, except: [:new, :create, :destroy]
   end
 
   resources :organizations, only: [:update, :edit] do
@@ -43,7 +56,7 @@ Aquila::Application.routes.draw do
       get :subscribers_list
     end
     resources :subscribers, only: [:create]
-    resources :challenges, except: [:index] do
+    resources :challenges, except: [:index, :new, :edit] do
       member do
         get :timeline
       end

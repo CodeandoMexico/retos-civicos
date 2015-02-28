@@ -96,6 +96,7 @@ GEM
     compass-rails (1.1.7)
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
+    crummy (1.8.0)
     daemons (1.1.9)
     dalli (2.7.2)
     database_cleaner (1.2.0)
@@ -404,6 +405,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass
   compass-rails
+  crummy (~> 1.8.0)
   dalli
   database_cleaner
   debugger2

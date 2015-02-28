@@ -41,7 +41,7 @@ es:
         submit: 'Envíame instrucciones para cambiar password'
       edit:
         title: 'Cambia tu password'
-        submit: 'Cambar mi password'
+        submit: 'Cambiar mi password'
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
       signed_up: "¡Bienvenido! Has sido identificado."

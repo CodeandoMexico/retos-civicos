@@ -27,12 +27,16 @@ module Phases
       new(:prototypes_selection, dates.prototypes_phase_due_on, dates.finish_on)
     end
 
-    def title
-      to_s.capitalize
+    def title(args = {})
+      to_s(args).capitalize
     end
 
-    def to_s
-      translator.t("#{id}_phase")
+    def to_s(args = {})
+      if args[:small]
+        translator.t("#{id}_phase_small", default: translator.t("#{id}_phase"))
+      else
+        translator.t("#{id}_phase")
+      end
     end
 
     def to_sym
