@@ -34,12 +34,10 @@ class EvaluationsController < Dashboard::BaseController
 
     if params[:entry_id]
       @entry = Entry.find(params[:entry_id])
-      @next_entry = @entry.next
-      @prev_entry = @entry.prev
+      fetch_navigation_entries
     elsif @entries.any?
       @entry = @entries.order("id ASC").first
-      @next_entry = @entry.next
-      @prev_entry = @entry.prev
+      fetch_navigation_entries
     end
   end
 
@@ -47,5 +45,10 @@ class EvaluationsController < Dashboard::BaseController
     @judge = current_user.userable
     @current_challenge = current_challenge
     @evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
+  end
+
+  def fetch_navigation_entries
+    @next_entry = @entry.next
+    @prev_entry = @entry.prev
   end
 end

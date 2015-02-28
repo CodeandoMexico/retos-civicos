@@ -20,9 +20,9 @@ class Evaluation < ActiveRecord::Base
 
     # how many entries are left to be evaluated?
     case entries_left_to_evaluate
-    when challenge.entries.count then 0
-    when (1..challenge.entries.count-1) then 1
-    when 0 then 2
+    when challenge.entries.count then NOT_STARTED_EVALUATING_CHALLENGE
+    when (1..challenge.entries.count-1) then STARTED_EVALUATING_CHALLENGE
+    when 0 then FINISHED_EVALUATING_CHALLENGE
     end
   end
 
