@@ -361,7 +361,7 @@ es:
         title: Invitar juez a la evaluación
       form:
         email: Correo electrónico
-        submit: Crear
+        submit: Invitar
     judges:
       show_evaluations_summary:
         evaluation_committee: Comité de evaluación
