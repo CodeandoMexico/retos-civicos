@@ -4,29 +4,24 @@
       challenges: @challenges,
       current_challenge: @current_challenge,
       filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
-
-
-    <% if @current_phase.present? %>
-      <h4 class="l-space-bottom"><span class="label label-info">Etapa: <%= @current_phase %></span></h4>
-    <% end %>
   </div>
 
-  <% if @next_entry %>
-    <%= link_to t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;'%>
-  <% end %>
+  <% if @entry && @current_challenge.criteria_must_be_present && @report_card %>
+    <!-- render progress bar -->
+    <h5> <%= t('.number_of_evaluated_entries', number_of_entries: @evaluation.number_of_entries_graded) %></h5>
+    <%= render 'shared/progress_bar_with_percentage', value_now: @evaluation.number_of_entries_graded, total_value: @evaluation.total_number_of_entries %>
 
-  <% if @prev_entry %>
-    <%= link_to t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right' %>
-  <% end %>
+    <!-- render entry and it's buttons -->
+    <%= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, entry_id: @next_entry), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @next_entry %>
+    <%= link_to(t('.previous_entry'),evaluations_path(challenge_id: @current_challenge, entry_id: @prev_entry), class: 'btn btn-default pull-right') if @prev_entry %>
 
-  <% if @entry && @current_challenge.criteria_must_be_present %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <%= render 'entry_minimum', entry: @entry %>
       </div>
 
-      <div class="col-sm-12 col-md-6">
-        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card, entry: @entry %>
+      <div class="col-sm-12 col-md-5 col-md-offset-1">
+        <%= render 'evaluation_criteria', evaluation: @evaluation, report_card: @report_card %>
       </div>
     </div>
   <% elsif !@current_challenge.criteria_must_be_present %>

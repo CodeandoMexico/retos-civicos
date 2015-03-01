@@ -23,7 +23,7 @@ module Dashboard
 
     def create
       if create_new_user
-        current_challenge.evaluations.create(judge_id: @user.userable.id)
+        current_challenge.evaluations.create!(judge_id: @user.userable.id).initialize_report_cards
         redirect_to dashboard_judges_path, notice: t('flash.judge.saved_successfully')
       else
         render :new
@@ -46,6 +46,7 @@ module Dashboard
       @user.reset_password_token = User.reset_password_token
       @user.reset_password_sent_at = Time.now
       @user.userable = Judge.new
+      @user.skip_confirmation!
       JudgeMailer.new_account(@user).deliver if @user.save
     end
   end

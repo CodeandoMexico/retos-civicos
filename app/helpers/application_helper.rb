@@ -100,6 +100,14 @@ module ApplicationHelper
     end.html_safe
   end
 
+  def humanize_percentage(value, total)
+    "#{compute_percentage(value, total)}%"
+  end
+
+  def compute_percentage(value, total)
+    (value * 100.0 / total).ceil()
+  end
+
   private
 
   def build_message(args)

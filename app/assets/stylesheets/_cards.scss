@@ -17,6 +17,12 @@ h3 {
   margin-top: $base-margin;
 }
 
+h5 {
+  color: $grey-600;
+  font-weight: 400;
+  margin-bottom: $base-margin;
+  margin-top: $base-margin;
+}
 
 %card--column {
   float: left;

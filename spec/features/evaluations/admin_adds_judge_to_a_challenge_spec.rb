@@ -15,7 +15,7 @@ feature 'Admin tries to add a judge to a challenge and' do
 
     add_judge_to_challenge_with(email: email)
 
-    expect(page).to have_content "\"#{judge.name}\" solicita acceso a"
+    expect(page).to have_content I18n.t('dashboard.evaluations.show.title', name: judge.name)
     click_button 'Acepto'
 
     expect(page).to have_content 'El juez ha sido invitado a evaluar el reto.'

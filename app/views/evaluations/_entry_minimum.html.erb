@@ -7,27 +7,27 @@
 <table class="table">
   <tbody>
     <tr>
-      <th><%= t('.company-name') %></th>
+      <th><%= t('.company_name') %></th>
       <td><%= entry.member.company_name %></td>
     </tr>
     <tr>
-      <th><%= t('.entry-email') %></th>
+      <th><%= t('.entry_email') %></th>
       <td><%= entry.member.email %></td>
     </tr>
     <tr>
-      <th><%= t('.company-rfc') %></th>
+      <th><%= t('.company_rfc') %></th>
       <td><%= entry.member.company_rfc %></td>
     </tr>
     <tr>
-      <th><%= t('.company-proposal') %></th>
+      <th><%= t('.link_to_project') %></th>
       <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
     </tr>
     <tr>
-      <th><%= t('.technology') %></th>
+      <th><%= t('.technologies') %></th>
       <td><%= entry.technologies_separated_by_commas %></td>
     </tr>
     <tr>
-      <th><%= t('.received-on') %></th>
+      <th><%= t('.received_on') %></th>
       <td><%= l(entry.created_at, format: :long).capitalize %></td>
     </tr>
   </tbody>
