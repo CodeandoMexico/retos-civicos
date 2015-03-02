@@ -17,7 +17,7 @@
       <%= label_tag t('.comments_label'), nil, class: 'control-label' %>
     </div>
     <div class="col-sm-6" >
-      <%= text_area_tag 'comments', nil, placeholder: t('.comments_description'), class: 'form-control' %>
+      <%= text_area_tag 'comments', @report_card.comments, placeholder: t('.comments_description'), class: 'form-control' %>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
       <%= label_tag t('.feedback_label'), nil, class: 'control-label' %>
     </div>
     <div class="col-sm-6" >
-      <%= text_area_tag 'feedback', nil,  placeholder: t('.feedback_description'), class: 'form-control' %>
+      <%= text_area_tag 'feedback', @report_card.feedback,  placeholder: t('.feedback_description'), class: 'form-control' %>
     </div>
   </div>
 
