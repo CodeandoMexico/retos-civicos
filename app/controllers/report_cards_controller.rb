@@ -4,7 +4,8 @@ class ReportCardsController < ApplicationController
   before_filter :set_evaluation, only: :update
 
   def update
-    if @report_card.update_attributes(grades:params[:grades])
+    debugger
+    if @report_card.update_attributes(grades: params[:grades], comments: params[:comments], feedback: params[:feedback])
       flash[:notice] = if @report_card.entry.next.nil?
         I18n.t('report_cards.evaluation_has_been_saved_successfully')
       else

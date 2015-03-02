@@ -420,6 +420,10 @@ es:
       value_description: 0-5
       save_criteria: Evaluar
       evaluate_the_entry: Evaluación
+      comments_label: Comentarios
+      comments_description: "Comentarios positivos o generales"
+      feedback_label: "Retroalimentación"
+      feedback_description: "Áreas de oportunidad"
     entry_minimum:
       company_name: Empresa
       company_rfc: RFC de la Compañía
