@@ -82,7 +82,7 @@ feature 'Admin tries to add a judge to a challenge and' do
     click_link 'Jurado'
     click_link 'Agregar juez'
     fill_in 'email', with: args.fetch(:email)
-    click_button 'Crear'
+    click_button 'Invitar'
   end
 
   def create_judge_with(args)
