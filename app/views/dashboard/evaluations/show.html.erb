@@ -50,7 +50,7 @@
           <div class="action--title"></div>
           <div class="action--list">
             <%= submit_tag t('.submit'), class: 'btn btn-default action-element'%>
-            <%= link_to t('.cancel'), dashboard_judges_path, class: 'btn btn-danger action-element' %>
+            <%= link_to t('.cancel'), dashboard_judges_path(challenge_id: @challenge), class: 'btn btn-danger action-element' %>
           </div>
         </div>
       </div>
