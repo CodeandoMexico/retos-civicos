@@ -20,6 +20,7 @@ feature 'Admin tries to add a judge to a challenge and' do
 
     expect(page).to have_content 'El juez ha sido invitado a evaluar el reto.'
     expect(page).to have_content "Reto: #{challenge.title}"
+    expect(current_path).to eq dashboard_judges_path(challenge_id: challenge)
   end
 
   scenario 'and the judge already exists and HAS previous evaluations and ALSO already is evaluating the challenge' do
@@ -34,6 +35,7 @@ feature 'Admin tries to add a judge to a challenge and' do
     click_button 'Acepto'
 
     expect(page).to have_content 'El juez ya ha sido invitado previamente a evaluar el reto.'
+    expect(current_path).to eq new_dashboard_judge_path(challenge_id: challenge)
   end
 
   scenario 'and the judge is not created in the system yet' do
@@ -41,6 +43,7 @@ feature 'Admin tries to add a judge to a challenge and' do
 
     add_judge_to_challenge_with(email: email)
     create_judge_with(name: 'this judge should now exist', email: email)
+    expect(current_path).to eq dashboard_judges_path(challenge_id: challenge)
     sign_out_organization(organization)
 
     change_password_and_log_in email
@@ -89,5 +92,10 @@ feature 'Admin tries to add a judge to a challenge and' do
     fill_in 'user_name', with: args.fetch(:name)
     fill_in 'user_email', with: args.fetch(:email)
     click_button 'Agregar juez'
+  end
+
+  def current_path
+    uri = URI.parse(current_url)
+    "#{uri.path}?#{uri.query}"
   end
 end

@@ -24,7 +24,7 @@ module Dashboard
     def create
       if create_new_user
         current_challenge.evaluations.create!(judge_id: @user.userable.id).initialize_report_cards
-        redirect_to dashboard_judges_path, notice: t('flash.judge.saved_successfully')
+        redirect_to dashboard_judges_path(challenge_id: @current_challenge), notice: t('flash.judge.saved_successfully')
       else
         render :new
       end
