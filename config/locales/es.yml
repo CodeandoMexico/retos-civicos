@@ -396,8 +396,12 @@ es:
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
       show_ranking_summary:
+        entry: Propuesta
+        business: Negocio
+        legal_representative: Representante
+        email: Correo electrónico
+        score: Calificación
         scores: Calificaciones finales
-        final_score: "Calificación: %{final_score}"
   evaluations:
     mailer:
       a_judge_has_finished_evaluating_a_challenge: "Un juez ha terminado de evaluar el reto: %{challenge}."
