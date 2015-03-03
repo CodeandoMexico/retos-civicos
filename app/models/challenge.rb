@@ -93,7 +93,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def sort_entries_by_scores
-    self.entries.sort! { |a, b| b.final_score <=> a.final_score }
+    self.entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
   end
 
   def ready_to_rank_entries?
