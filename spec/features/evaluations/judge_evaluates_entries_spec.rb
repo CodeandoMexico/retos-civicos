@@ -39,14 +39,18 @@ feature 'Judge enters the evaluations panel and' do
     expect(page).to have_content "34%"
     navigate_to_next_entry
 
-    evaluate(entries[1], 4)
+    # this entry will have comment
+    comments = 'Example comments'
+    evaluate(entries[1], 4, comments: comments)
     expect(page).to have_content "67%"
     page_should_have_prev_entry_link
     page_should_have_next_entry_link
 
     navigate_to_next_entry
 
-    evaluate(entries[2], 5)
+    # this entry will have feedback
+    feedback = 'Example feedback'
+    evaluate(entries[2], 5, feedback: feedback)
     expect(page).to have_content "100%"
     page_should_have_prev_entry_link
 
@@ -80,32 +84,7 @@ feature 'Judge enters the evaluations panel and' do
     click_link 'Cerrar sesión'
   end
 
-  def update_criteria_fields
-    10.times { |idx| all(:css, "#criteria__description")[idx].set("New criteria #{idx+1}") }
-    click_on 'Guardar'
-  end
-
-  def set_criteria_fields_to(grade)
-    10.times { |idx| all(:css, "#grades__value")[idx].set(grade) }
-  end
-
   def navigate_to_next_entry
     click_on I18n.t('evaluations.index.next_entry')
-  end
-
-  def page_should_have_next_entry_link
-    expect(page).to have_content I18n.t('evaluations.index.next_entry')
-  end
-
-  def page_should_have_prev_entry_link
-    expect(page).to have_content I18n.t('evaluations.index.previous_entry')
-  end
-
-  def page_should_not_have_next_entry_link
-    expect(page).to_not have_content I18n.t('evaluations.index.next_entry')
-  end
-
-  def page_should_not_have_prev_entry_link
-    expect(page).to_not have_content I18n.t('evaluations.index.previous_entry')
   end
 end
