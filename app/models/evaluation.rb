@@ -36,7 +36,6 @@ class Evaluation < ActiveRecord::Base
   end
 
   def total_number_of_entries
-    # challenge.entries.count
     self.report_cards.count
   end
 

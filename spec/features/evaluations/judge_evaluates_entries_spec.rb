@@ -25,6 +25,7 @@ feature 'Judge enters the evaluations panel and' do
     # for this scenario we're using a challenge_with_criteria
     click_on evaluation_with_criteria.challenge.title
 
+    # minus two 'cause there are two invalid entries
     expect(evaluation_with_criteria.entries.count).to eq entries.length - 2
     expect(page).to have_content entries.first.name
   end
