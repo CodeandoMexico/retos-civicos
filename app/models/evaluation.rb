@@ -9,7 +9,7 @@ class Evaluation < ActiveRecord::Base
   validates :challenge_id, uniqueness: { scope: :judge_id }
 
   def initialize_report_cards
-    self.challenge.entries.each { |e| new_report_card(e) }
+    self.challenge.entries.each { |e| verify_and_create_report_card_from(e) }
   end
 
   def status
@@ -20,8 +20,8 @@ class Evaluation < ActiveRecord::Base
 
     # how many entries are left to be evaluated?
     case entries_left_to_evaluate
-    when challenge.entries.count then NOT_STARTED_EVALUATING_CHALLENGE
-    when (1..challenge.entries.count-1) then STARTED_EVALUATING_CHALLENGE
+    when self.total_number_of_entries then NOT_STARTED_EVALUATING_CHALLENGE
+    when (1..self.total_number_of_entries-1) then STARTED_EVALUATING_CHALLENGE
     when 0 then FINISHED_EVALUATING_CHALLENGE
     end
   end
@@ -32,11 +32,16 @@ class Evaluation < ActiveRecord::Base
   end
 
   def entries_left_to_evaluate
-    challenge.entries.count - number_of_entries_graded
+    self.total_number_of_entries - number_of_entries_graded
   end
 
   def total_number_of_entries
-    challenge.entries.count
+    # challenge.entries.count
+    self.report_cards.count
+  end
+
+  def verify_and_create_report_card_from(entry)
+    new_report_card(entry) if entry.is_valid?
   end
 
   private
