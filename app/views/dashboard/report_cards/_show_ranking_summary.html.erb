@@ -31,9 +31,11 @@
       <% challenge.sort_entries_by_scores.each_with_index do |entry, idx| %>
         <%#= link_to dashboard_judge_path(evaluation.judge, challenge_id: @current_challenge.id), id: "judge_#{evaluation.judge.id}" do %>
           <li class="table--row">
-            <div class="row--title"><%= "\##{idx + 1} #{entry.name}" %></div>
-            <div class="row--subtitle"><%= entry.description %></div>
-            <div class="row--footer"><%= t('.final_score', final_score: entry.final_score ) %></div>
+            <div class="row--20"><%= "\##{idx + 1} #{entry.name}" %></div>
+            <div class="row--20"><%= member_business(entry.member) %></div>
+            <div class="row--20"><%= member_legal(entry.member) %></div>
+            <div class="row--20"><%= member_email(entry.member) %></div>
+            <div class="row--20"><%= t('.final_score', final_score: entry.final_score ) %></div>
           </li>
         <%# end %>
       <% end %>

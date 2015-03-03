@@ -97,6 +97,11 @@ h5 {
         width: 10%;
       }
 
+      .row--20 {
+        @extend %card--column;
+        width: 20%;
+      }
+
       &:hover {
         background-color: #e7e7e7;
       }
