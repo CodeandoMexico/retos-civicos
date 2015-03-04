@@ -5,6 +5,7 @@ class ReportCardsController < ApplicationController
 
   def update
     # TODO: Refactor this update attributes to be more secure
+    authorize! :update, @report_card
     if @report_card.update_attributes(grades: params[:grades], comments: params[:comments], feedback: params[:feedback])
       flash[:notice] = if @report_card.next.nil?
         I18n.t('report_cards.evaluation_has_been_saved_successfully')
