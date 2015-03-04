@@ -19,6 +19,7 @@ class EvaluationsController < Dashboard::BaseController
       evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
       ReportCard.where(evaluation_id: evaluation).order('id ASC').first
     end
+    authorize! :read, @report_card
   end
 
   def authenticate_judge!

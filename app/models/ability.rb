@@ -61,8 +61,8 @@ class Ability
         judge.id == user.userable.id
       end
 
-      can [:manage], ReportCard do |report_card|
-        report_card.evaluation.judge == user.userable.id
+      can [:read, :update], ReportCard do |report_card|
+        report_card.evaluation.judge.id == user.userable.id
       end
     end
 
