@@ -32,9 +32,9 @@ es:
       phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
       accepted_successfully: La propuesta fue aceptada satisfactoriamente
-      marked_as_invalid_successfully: La propuesta fue marcada inválida
+      marked_as_invalid_successfully: "La propuesta \"%{name}\" fue marcada inválida."
       mark_entry_as_invalid_failed: La propuesta no fue marcada como inválida por falta de una razón.
-      marked_as_valid_successfully: La propuesta fue marcada válida
+      marked_as_valid_successfully: "La propuesta \"%{name}\" fue marcada válida."
       winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
       winner_removed_successfully: A esta propuesta le fue quitada el estatus de ganadora correctamente.
       no_more_than_3_winners: En un reto solamente se pueden seleccionar hasta 3 ganadores

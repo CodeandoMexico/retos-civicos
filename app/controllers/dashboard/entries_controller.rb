@@ -25,16 +25,14 @@ module Dashboard
     end
 
     def mark_valid
-      entry.mark_as_valid!
-      entry.save
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_valid_successfully')
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_valid_successfully', name: entry.name) if entry.mark_as_valid!
     end
 
     def mark_invalid
       if entry.mark_as_invalid!(params[:message])
         # do we need to do something here?
         # EntriesMailer.delay.entry_has_been_marked_as_invalid(entry)
-        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully')
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully', name: entry.name)
       else
         redirect_to dashboard_entry_path(entry), alert: t('flash.entries.mark_entry_as_invalid_failed')
       end
