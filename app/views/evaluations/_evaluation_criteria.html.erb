@@ -1,5 +1,5 @@
 <h3><%= t('.evaluate_the_entry') %></h3>
-<%= form_tag evaluation_report_card_path(evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
+<%= form_tag evaluation_report_card_path(report_card.evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
   <% @report_card.grades.each_with_index do |grade, idx| %>
 
     <div class="form-group">

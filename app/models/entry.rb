@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :challenge
-  has_many :report_cards
+  has_many :report_cards, order: 'id ASC'
   has_many :evaluations, through: :report_cards
 
   validates :name, :description, :idea_url, presence: true
@@ -36,7 +36,7 @@ class Entry < ActiveRecord::Base
   end
 
   def next
-    challenge.entries.where("id > ?", id).order('id ASC').first
+    challenge.entries.where(is_valid: true).where("id > ?", id).order('id ASC').first
   end
 
   def prev
@@ -53,11 +53,16 @@ class Entry < ActiveRecord::Base
     !self.is_valid
   end
 
+  def is_valid?
+    self.is_valid
+  end
+
   def mark_as_valid!
     self.is_valid = true
   end
 
   def mark_as_invalid!
+    self.report_cards.destroy_all
     self.is_valid = false
   end
 

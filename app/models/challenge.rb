@@ -21,9 +21,9 @@ class Challenge < ActiveRecord::Base
   has_many :collaborations
   has_many :collaborators, through: :collaborations, class_name: "Member", source: :member, include: :user
   has_many :activities
-  has_many :entries
+  has_many :entries, order: 'id ASC'
   has_many :datasets
-  has_many :evaluations
+  has_many :evaluations, order: 'id ASC'
   has_many :judges, through: :evaluations
 
   belongs_to :organization
@@ -93,7 +93,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def sort_entries_by_scores
-    self.entries.sort! { |a, b| b.final_score <=> a.final_score }
+    self.entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
   end
 
   def ready_to_rank_entries?
