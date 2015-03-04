@@ -31,7 +31,7 @@ module Dashboard
     def create
       if Evaluation.where(judge_id: @judge.id, challenge_id: @challenge.id).empty?
         @challenge.evaluations.create!(judge_id: @judge.id).initialize_report_cards
-        redirect_to dashboard_judges_path, notice: t('flash.judge.added_succesfully_for_this_challenge')
+        redirect_to dashboard_judges_path(challenge_id: @challenge), notice: t('flash.judge.added_succesfully_for_this_challenge')
       else
         redirect_to new_dashboard_judge_path(challenge_id: @challenge), alert: t('flash.judge.evaluation_already_exists_for_this_challenge')
       end

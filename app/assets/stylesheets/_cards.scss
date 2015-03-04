@@ -3,25 +3,24 @@
 $base-padding: 12px;
 $base-margin: 20px; // this value should be equal to the base_padding
 
-h1 {
+%title--header {
   color: $grey-600;
   font-weight: 300;
   margin-bottom: $base-margin;
   margin-top: $base-margin;
+}
+
+h1 {
+  @extend %title--header;
 }
 
 h3 {
-  color: $grey-600;
-  font-weight: 300;
-  margin-bottom: $base-margin;
-  margin-top: $base-margin;
+  @extend %title--header;
 }
 
 h5 {
-  color: $grey-600;
+  @extend %title--header;
   font-weight: 400;
-  margin-bottom: $base-margin;
-  margin-top: $base-margin;
 }
 
 %card--column {
@@ -97,9 +96,40 @@ h5 {
         width: 10%;
       }
 
+      .row--20 {
+        @extend %card--column;
+        width: 20%;
+      }
+
       &:hover {
         background-color: #e7e7e7;
       }
+    }
+  }
+
+  .table--header {
+    @extend %card--row;
+    background-color: $dashboard-background;
+
+    %table--header {
+      @extend %card--column;
+      @extend %title--header;
+      margin-bottom: $base-margin / 2 ;
+      margin-top: 0;
+    }
+    .header--10 {
+      @extend %table--header;
+      width: 10%;
+    }
+
+    .header--20 {
+      @extend %table--header;
+      width: 20%;
+    }
+
+      .header--30 {
+      @extend %table--header;
+      width: 30%;
     }
   }
 
