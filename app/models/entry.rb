@@ -61,9 +61,14 @@ class Entry < ActiveRecord::Base
     self.is_valid = true
   end
 
-  def mark_as_invalid!
-    self.report_cards.destroy_all
+  def mark_as_invalid!(message)
+    # we need a reason for this message to be blank
+    return false if message.blank?
+    # destroy all report cards that belong to this entry
+    # it has now been marked as invalid
     self.is_valid = false
+    self.save!
+    self.report_cards.destroy_all
   end
 
   def publish!
