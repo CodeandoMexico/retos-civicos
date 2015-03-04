@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :challenge
-  has_many :report_cards
+  has_many :report_cards, order: 'id ASC'
   has_many :evaluations, through: :report_cards
 
   validates :name, :description, :idea_url, presence: true
