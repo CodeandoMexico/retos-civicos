@@ -98,7 +98,7 @@ feature 'Judge enters the evaluations panel and' do
   end
 
   def mark_entry_as_invalid(entry)
-    entry.mark_as_invalid!
+    entry.mark_as_invalid!("An invalid reason message")
   end
 
   def check_for_updated_criteria

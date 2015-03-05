@@ -69,7 +69,7 @@ feature 'Admin logs into jury section' do
   # new judge helpers
   def submit_email_for_challenge(email)
     fill_in 'email', with: email
-    click_on 'Crear'
+    click_on 'Invitar'
   end
 
   def create_new_judge(new_user_name, new_user_email)
