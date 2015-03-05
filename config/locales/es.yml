@@ -308,6 +308,7 @@ es:
         no-proposals: Aún no hay propuestas.
         entry-email: Email
         email-participants: Email a participantes
+        entry_invalid: Inválida
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
