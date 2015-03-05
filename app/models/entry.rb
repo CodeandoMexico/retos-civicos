@@ -69,7 +69,7 @@ class Entry < ActiveRecord::Base
     # we need a reason for this invalid_reason to be blank
     return false if message.blank?
     # destroy all report cards that belong to this entry
-    # it has now been marked as invalid
+    # 'cause it has now been marked as invalid
     self.is_valid = false
     self.invalid_reason = message
     self.save!

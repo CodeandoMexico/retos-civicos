@@ -1,11 +1,23 @@
-<p>Hola <%= @entry.member.name %>,</p>
-
-<p>Hemos detectado un problema en la propuesta que enviaste del reto "<%= @challenge.title %>".</p>
-
-<p>Para saber más por favor contáctanos a <strong><%= @contact_email %></strong>.</p>
+<p>Hola <%= @entry.member.representative %>,</p>
 
 <p>
-  ¡Mucha suerte!<br>
+  Tu propuesta en el Reto "<%= @challenge.title %>", ha sido marcada como inválida,
+  por los siguientes motivos:
+</p>
+
+<ul>
+  <li><%= @entry.invalid_reason %></li>
+</ul>
+
+<p>
+  Esto significa que no cumple con los criterios básicos para ser evaluada por el comité de evaluación.
+  Te recomendamos revisar la <%= link_to "convocatoria", challenge_url(@challenge) %>
+  de nuevo, y nos contactes en caso tengas cualquier duda.
+</p>
+
+<p>
+  ¡Mucha suerte en tus próximas participaciones!<br>
+  Saludos, <br>
   <strong>Retos Públicos</strong><br>
-  <%= link_to "retos.gob.mx", root_url %>
+  <%= link_to 'retos.datos.gob.mx', root_url %>
 </p>
