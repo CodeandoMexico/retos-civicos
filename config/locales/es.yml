@@ -32,8 +32,9 @@ es:
       phase_due: El tiempo para editar la propuesta ya pasó. El reto se encuentra en etapa de selección.
       updated_successfully: La propuesta fue editada correctamente.
       accepted_successfully: La propuesta fue aceptada satisfactoriamente
-      marked_as_invalid_successfully: La propuesta fue marcada inválida
-      marked_as_valid_successfully: La propuesta fue marcada válida
+      marked_as_invalid_successfully: "La propuesta \"%{name}\" fue marcada inválida."
+      mark_entry_as_invalid_failed: La propuesta no fue marcada como inválida por falta de una razón.
+      marked_as_valid_successfully: "La propuesta \"%{name}\" fue marcada válida."
       winner_selected_successfully: "La propuesta \"%{name}\" fue seleccionada ganadora."
       winner_removed_successfully: A esta propuesta le fue quitada el estatus de ganadora correctamente.
       no_more_than_3_winners: En un reto solamente se pueden seleccionar hasta 3 ganadores
@@ -307,6 +308,7 @@ es:
         no-proposals: Aún no hay propuestas.
         entry-email: Email
         email-participants: Email a participantes
+        entry_invalid: Inválida
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -323,7 +325,9 @@ es:
         technology: Tecnologías
         received-on: Recibida el
       mark_entry_as_valid_or_invalid:
+        reasons: Específica aquí la razón.
         mark_as_invalid: Marcar inválida
+        cancel: Cancelar
         mark_as_valid: Marcar válida
         confirm_mark_invalid: ¿Estás seguro de que quieres marcar esta entrada como inválida?
         confirm_mark_valid: ¿Estás seguro de que quieres marcar esta entrada como válida?

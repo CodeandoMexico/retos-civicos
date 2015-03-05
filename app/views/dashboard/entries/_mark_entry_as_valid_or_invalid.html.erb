@@ -3,7 +3,21 @@
     confirm: t('.confirm_mark_valid'),
     class: 'btn btn-default' %>
 <% else %>
-  <%= button_to t('.mark_as_invalid'), mark_invalid_dashboard_entry_path(entry),
-    confirm: t('.confirm_mark_invalid'),
-    class: 'btn btn-default' %>
+  <button rel="popover" data-placement="bottom" data-original-title="¿Razón?" class="btn btn-default"><%= t('.mark_as_invalid') %></button>
+  <!-- popover to specify a reason why the entry has been marked as invalid -->
+  <div id="popover_content_wrapper" style="display: none">
+    <%= form_tag mark_invalid_dashboard_entry_path(entry) do %>
+      <div class="row">
+        <div class="col-xs-12" style="margin-bottom:15px;">
+          <%= text_area_tag :message, nil, placeholder: t('.reasons'), size: '500x3', class: 'form-control' %>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-block btn-default" onclick="$('[rel=popover]').popover('hide');"><%= t('.cancel') %></a>
+        </div>
+        <div class="col-xs-6">
+          <%= submit_tag t('.mark_as_invalid'), class: 'btn btn-block btn-danger' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
