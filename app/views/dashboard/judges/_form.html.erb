@@ -1,4 +1,4 @@
-<%= form_for @user, url: { path: dashboard_judges_path, action: :create }, html: { class: 'form-horizontal' } do |f| %>
+<%= form_for @user, url: { path: dashboard_judges_path(challenge_id: @current_challenge), action: :create }, html: { class: 'form-horizontal' } do |f| %>
   <div class="sheet-section sheet-section-with-pad">
     <%= f.error_messages %>
 

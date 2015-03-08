@@ -1,5 +1,5 @@
 class ReportCard < ActiveRecord::Base
-  attr_accessible :grades, :evaluation_id, :entry_id
+  attr_accessible :grades, :comments, :feedback, :evaluation_id, :entry_id
 
   serialize :grades, Array
 
@@ -10,6 +10,14 @@ class ReportCard < ActiveRecord::Base
   # validations
   validate :criteria_is_present, on: :create
   validate :validate_grades, on: :update
+
+  def next
+    self.evaluation.report_cards.where("id > ?", id).order('id ASC').first
+  end
+
+  def previous
+    self.evaluation.report_cards.where("id < ?", id).order('id ASC').last
+  end
 
   def total_score
     sum_grades if criteria_and_grades_are_valid?

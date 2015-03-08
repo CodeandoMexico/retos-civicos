@@ -25,6 +25,7 @@
 #= require bootstrap/tooltip
 #= require bootstrap/collapse
 #= require bootstrap/alert
+#= require bootstrap/popover
 #= require_tree .
 #= require_self
 

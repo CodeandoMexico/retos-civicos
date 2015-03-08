@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150203220334) do
+ActiveRecord::Schema.define(:version => 20150304233131) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20150203220334) do
     t.string   "demo_url"
     t.integer  "winner"
     t.boolean  "is_valid",          :default => true
+    t.text     "invalid_reason"
   end
 
   create_table "evaluations", :force => true do |t|
@@ -198,6 +199,8 @@ ActiveRecord::Schema.define(:version => 20150203220334) do
     t.text     "grades"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "comments"
+    t.text     "feedback"
   end
 
   create_table "sessions", :force => true do |t|

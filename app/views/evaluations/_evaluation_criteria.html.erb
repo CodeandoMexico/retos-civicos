@@ -1,5 +1,5 @@
 <h3><%= t('.evaluate_the_entry') %></h3>
-<%= form_tag evaluation_report_card_path(evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
+<%= form_tag evaluation_report_card_path(report_card.evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
   <% @report_card.grades.each_with_index do |grade, idx| %>
 
     <div class="form-group">
@@ -12,6 +12,23 @@
       </div>
     </div>
   <% end %>
+  <div class="form-group">
+    <div class="col-sm-6" >
+      <%= label_tag t('.comments_label'), nil, class: 'control-label' %>
+    </div>
+    <div class="col-sm-6" >
+      <%= text_area_tag 'comments', @report_card.comments, placeholder: t('.comments_description'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-6" >
+      <%= label_tag t('.feedback_label'), nil, class: 'control-label' %>
+    </div>
+    <div class="col-sm-6" >
+      <%= text_area_tag 'feedback', @report_card.feedback,  placeholder: t('.feedback_description'), class: 'form-control' %>
+    </div>
+  </div>
 
   <%= submit_tag t('.save_criteria'), class: "btn btn-primary btn-lg pull-right" %>
 <% end %>

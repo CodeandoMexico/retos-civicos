@@ -25,6 +25,17 @@ class Member < ActiveRecord::Base
       end
   end
 
+  def representative
+    # to-do clean this a little bit and merge with to_s
+    return case
+      when company_president.present? then company_president
+      when company_name.present? then company_name
+      when name.present? then name
+      when nickname.present? then nickname
+      else ""
+      end
+  end
+
   def is_able_to_edit_entry?(challenge)
     self.has_submitted_app?(challenge) && Phases.is_current?(:ideas, challenge)
   end

@@ -1,11 +1,13 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :live_demo_url, :idea_url, :name, :description, :member_id, :url, :technologies, :letter_under_oath, :repo_url, :demo_url
+  attr_accessible :image, :live_demo_url, :idea_url, :name, :description,
+                  :member_id, :url, :technologies, :letter_under_oath,
+                  :repo_url, :demo_url, :invalid_reason
 
   belongs_to :member
   belongs_to :challenge
-  has_many :report_cards
+  has_many :report_cards, order: 'id ASC'
   has_many :evaluations, through: :report_cards
 
   validates :name, :description, :idea_url, presence: true
@@ -36,7 +38,7 @@ class Entry < ActiveRecord::Base
   end
 
   def next
-    challenge.entries.where("id > ?", id).order('id ASC').first
+    challenge.entries.where(is_valid: true).where("id > ?", id).order('id ASC').first
   end
 
   def prev
@@ -53,12 +55,25 @@ class Entry < ActiveRecord::Base
     !self.is_valid
   end
 
-  def mark_as_valid!
-    self.is_valid = true
+  def is_valid?
+    self.is_valid
   end
 
-  def mark_as_invalid!
+  def mark_as_valid!
+    self.is_valid = true
+    self.invalid_reason = nil
+    self.save!
+  end
+
+  def mark_as_invalid!(message)
+    # we need a reason for this invalid_reason to be blank
+    return false if message.blank?
+    # destroy all report cards that belong to this entry
+    # 'cause it has now been marked as invalid
     self.is_valid = false
+    self.invalid_reason = message
+    self.save!
+    self.report_cards.destroy_all
   end
 
   def publish!

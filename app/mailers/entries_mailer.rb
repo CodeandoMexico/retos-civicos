@@ -27,6 +27,6 @@ class EntriesMailer < ActionMailer::Base
     @challenge = entry.challenge
     @contact_email = ENV['MAILER_DEFAULT_FROM']
 
-    mail to: entry.member.email, subject: "Ha habido un problema con tu propuesta"
+    mail to: entry.member.email, subject: "Tu propuesta en el Reto #{@challenge.title}"
   end
 end
