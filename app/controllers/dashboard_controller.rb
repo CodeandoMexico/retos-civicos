@@ -4,7 +4,7 @@ class DashboardController < Dashboard::BaseController
 
   def show
     @challenges = top_five(organization_challenges)
-    @entries = top_five(organization_entries)
+    @entries = top_five(organization_entries).map { |e| EntryDecorator.new(e) }
   end
 
   private
