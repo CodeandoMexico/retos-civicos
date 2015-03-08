@@ -42,11 +42,15 @@ module Dashboard
     def fetch_pending_challenges_flash_messages_for(organization)
       challenges = Challenge.missing_winner_challenges(organization: current_organization)
       if challenges.present?
-        flash.now[:alert] ||= []
+        if flash.now[:alert].present?
+          flash.now[:alert] = [flash.now[:alert]]
+        else
+          flash.now[:alert] ||= []
+        end
         challenges.each do |challenge|
           flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
         end
-          flash.now[:alert] = flash[:alert].join("<br>").html_safe if flash[:alert].kind_of?(Array)
+        flash.now[:alert] = flash[:alert].join('<br>').html_safe if flash[:alert].kind_of?(Array)
       end
     end
   end
