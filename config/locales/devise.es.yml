@@ -60,7 +60,7 @@ es:
         email: 'Email'
         password: 'Contraseña'
         submit: 'Entrar'
-      signed_in: "Has ingresado iniciado sesión."
+      signed_in: "Has iniciado sesión correctamente."
       signed_out: "Has cerrado la sesión."
     unlocks:
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo desbloquear tu cuenta."
