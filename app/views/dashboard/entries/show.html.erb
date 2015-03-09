@@ -62,6 +62,7 @@
     <div class="panel panel-default">
       <table class="table">
         <tbody>
+          <tr colspan="2"><th><h4>Propuesta</h4></th></tr>
           <tr>
             <th><%= t('.company-name') %></th>
             <td><%= @entry.member.company_name %></td>
@@ -89,5 +90,22 @@
         </tbody>
       </table>
     </div>
+    <% if Phases.is_current?(:prototypes, @entry.challenge) || Phases.is_current?(:prototypes_selection, @entry.challenge) || @entry.challenge.has_finished? %>
+      <div class="panel panel-default">
+        <table class="table">
+          <tbody>
+            <tr colspan="2"><th><h4>Prototipo</h4></th></tr>
+            <tr>
+              <th><%= t('.repo-url') %></th>
+              <td><%= link_to @entry.repo_url %></td>
+            </tr>
+            <tr>
+              <th><%= t('.demo-url') %></th>
+              <td><%= link_to @entry.demo_url %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>
