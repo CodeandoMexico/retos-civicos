@@ -55,7 +55,7 @@
           <li class="table--row">
             <div class="row--title">
               <%= link_to(entry.owner_name, dashboard_entry_path(entry)) %>
-              <%= content_tag(:span, t('.entry_invalid'), class: 'label label-warning') if entry.is_invalid? %>
+              <%= render 'entry_status', entry: entry %>
             </div>
             <div class="row--subtitle"><%= entry.name %></div>
             <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
