@@ -324,6 +324,8 @@ es:
         company-proposal: Propuesta
         technology: Tecnologías
         received-on: Recibida el
+        repo-url: URL del repositorio
+        demo-url: URL del demo
       mark_entry_as_valid_or_invalid:
         reasons: Específica aquí la razón.
         mark_as_invalid: Marcar inválida
