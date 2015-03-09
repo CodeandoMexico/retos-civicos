@@ -17,6 +17,7 @@ class Entry < ActiveRecord::Base
   serialize :technologies, Array
   before_validation :validate_technologies!
   after_update :limit_3_winner_entries
+  after_create :initialize_report_cards
 
   def self.public
     where public: true
@@ -137,6 +138,10 @@ class Entry < ActiveRecord::Base
   end
 
   private
+
+  def initialize_report_cards
+    self.challenge.evaluations.each { |e| e.verify_and_create_report_card_from(self) }
+  end
 
   def validate_technologies!
     self.technologies = technologies.select do |technology|
