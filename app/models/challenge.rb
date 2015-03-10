@@ -97,7 +97,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def ready_to_rank_entries?
-    self.has_valid_criteria? && self.has_evaluations? && self.finished_evaluating?
+    self.has_valid_criteria? && self.has_evaluations?
   end
 
   def finished_evaluating?

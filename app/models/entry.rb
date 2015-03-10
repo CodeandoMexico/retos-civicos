@@ -34,8 +34,15 @@ class Entry < ActiveRecord::Base
   end
 
   def final_score
-    # This method should return the final score for a entry
-    (self.report_cards.map { |r| r.total_score }.reduce(:+)) * 1.0 / self.report_cards.count
+    # This method should return the final score for a entry or nil
+    # of he hasn't finished yet
+    report_cards_score = self.report_cards.map { |r| r.total_score }
+
+    # remove nil values
+    report_cards_score.select! { |n| !n.nil? }
+
+    # we need to compute for the quantity of evaluated report cards
+    report_cards_score.reduce(:+) * 1.0 / report_cards_score.count
   end
 
   def next

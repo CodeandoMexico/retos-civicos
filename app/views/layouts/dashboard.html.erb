@@ -62,6 +62,13 @@
         <%= notice %>
       </div>
       <% end %>
+
+      <% if flash[:warning] %>
+      <div class="alert alert-warning">
+        <%= flash[:warning] %>
+      </div>
+      <% end %>
+
       <%= render_crumbs format: :html_list, ul_class: 'breadcrumb', last_crumb_linked: false %>
 
       <%= yield %>

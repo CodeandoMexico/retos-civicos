@@ -17,8 +17,8 @@
      <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
    <% elsif !@current_challenge.has_evaluations? %>
      <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
-   <% elsif !@current_challenge.finished_evaluating? %>
-     <%= render 'shared/empty_resource', message: t('.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries') %>
+   <%# elsif !@current_challenge.finished_evaluating? %>
+     <%#= render 'shared/empty_resource', message: t('.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries') %>
    <% else %>
      <%= render 'shared/empty_resource', message: t('.there_has_been_an_error_when_processing_your_request') %>
    <% end %>
