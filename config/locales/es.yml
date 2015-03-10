@@ -372,6 +372,10 @@ es:
     judges:
       show_evaluations_summary:
         evaluation_committee: Comité de evaluación
+        email: Correo electrónico
+        name: Nombre
+        evaluation_status: Estatus de evaluación
+        actions: Acciones
       index:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
