@@ -42,7 +42,9 @@ Aquila::Application.routes.draw do
       post :winner, on: :member
       post :remove_winner, on: :member
     end
-    resources :judges, only: [:index, :new, :create, :show], controller: 'dashboard/judges'
+    resources :judges, only: [:index, :new, :create, :show], controller: 'dashboard/judges' do
+      resources :evaluations, only: :destroy, controller: 'dashboard/evaluations'
+    end
     resources :report_cards, only: :index, controller: 'dashboard/report_cards'
   end
 

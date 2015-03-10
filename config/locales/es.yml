@@ -1,5 +1,8 @@
 es:
   flash:
+    evaluation:
+      evaluation_removed_successfully_from_the_challenge: Se pudo eliminar la evaluación satisfactoriamente.
+      there_was_an_issue_removing_the_evaluation_from_the_challenge: Hubo un error al tratar de eliminar la evaluación.
     judge:
       user_cannot_be_added_as_a_judge: El usuario no puede ser agregado ya que su correo pertenece a un miembro o una organización.
       does_not_exist: El usuario aún no existe, favor de crearle una cuenta.
@@ -371,6 +374,10 @@ es:
     judges:
       show_evaluations_summary:
         evaluation_committee: Comité de evaluación
+        email: Correo electrónico
+        name: Nombre
+        evaluation_status: Estatus de evaluación
+        actions: Acciones
       index:
         no_judges: No hay jueces registrados
         new_judge: Agregar juez
