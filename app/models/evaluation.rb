@@ -12,6 +12,11 @@ class Evaluation < ActiveRecord::Base
     self.challenge.entries.each { |e| verify_and_create_report_card_from(e) }
   end
 
+  def self_destruct
+    self.report_cards.destroy_all
+    self.destroy
+  end
+
   def status
     # this method return an integer
     # 0: Has not started to evaluate entries
