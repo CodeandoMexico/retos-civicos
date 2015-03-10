@@ -19,6 +19,7 @@
               <%= link_to icon('eye'),
                   dashboard_judge_path(evaluation.judge,
                   challenge_id: @current_challenge.id),
+                  id: "judge_#{evaluation.judge.id}",
                   title: 'Ver calificaciones' %> |
               <%= link_to icon('trash-o'),
                   dashboard_judge_evaluation_path(evaluation.judge, evaluation),

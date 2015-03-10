@@ -10,10 +10,10 @@ feature 'Judge enters the evaluations panel and' do
     challenge_with_no_criteria = create :challenge, organization: organization
     challenge_with_criteria = create :challenge, :with_criteria, organization: organization
 
-    @evaluation_with_no_criteria = create :evaluation, challenge: challenge_with_no_criteria, judge: @judge
-    @evaluation_with_criteria = create :evaluation, challenge: challenge_with_criteria, judge: @judge
     @entries = entries_with_different_members(3, challenge_with_criteria)
     @entries.concat invalid_entries_in_challenge(2, challenge_with_criteria)
+    @evaluation_with_no_criteria = create :evaluation, challenge: challenge_with_no_criteria, judge: @judge
+    @evaluation_with_criteria = create :evaluation, challenge: challenge_with_criteria, judge: @judge
 
     # manually create the report cards
     @evaluation_with_criteria.initialize_report_cards
