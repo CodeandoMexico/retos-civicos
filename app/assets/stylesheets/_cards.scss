@@ -96,9 +96,54 @@ h5 {
         width: 10%;
       }
 
+      .row--10 {
+        @extend %card--column;
+        width: 10%;
+      }
+
       .row--20 {
         @extend %card--column;
         width: 20%;
+      }
+
+      .row--30 {
+        @extend %card--column;
+        width: 30%;
+      }
+
+      .row--40 {
+        @extend %card--column;
+        width: 40%;
+      }
+
+      .row--50 {
+        @extend %card--column;
+        width: 50%;
+      }
+
+      .row--60 {
+        @extend %card--column;
+        width: 60%;
+      }
+
+      .row--70 {
+        @extend %card--column;
+        width: 70%;
+      }
+
+      .row--80 {
+        @extend %card--column;
+        width: 80%;
+      }
+
+      .row--90 {
+        @extend %card--column;
+        width: 90%;
+      }
+
+      .row--100 {
+        @extend %card--column;
+        width: 100%;
       }
 
       &:hover {
@@ -127,9 +172,44 @@ h5 {
       width: 20%;
     }
 
-      .header--30 {
+    .header--30 {
       @extend %table--header;
       width: 30%;
+    }
+
+    .header--40 {
+      @extend %table--header;
+      width: 40%;
+    }
+
+    .header--50 {
+      @extend %table--header;
+      width: 50%;
+    }
+
+    .header--60 {
+      @extend %table--header;
+      width: 60%;
+    }
+
+    .header--70 {
+      @extend %table--header;
+      width: 70%;
+    }
+
+    .header--80 {
+      @extend %table--header;
+      width: 80%;
+    }
+
+    .header--90 {
+      @extend %table--header;
+      width: 90%;
+    }
+
+    .header--100 {
+      @extend %table--header;
+      width: 100%;
     }
   }
 

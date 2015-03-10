@@ -1,6 +1,6 @@
 module Dashboard
   class EvaluationsController < Dashboard::BaseController
-    before_filter :set_challenge
+    before_filter :set_challenge, except: :destroy
     before_filter :set_judge, only: :create
     load_and_authorize_resource
 
@@ -34,6 +34,16 @@ module Dashboard
         redirect_to dashboard_judges_path(challenge_id: @challenge), notice: t('flash.judge.added_succesfully_for_this_challenge')
       else
         redirect_to new_dashboard_judge_path(challenge_id: @challenge), alert: t('flash.judge.evaluation_already_exists_for_this_challenge')
+      end
+    end
+
+    def destroy
+      evaluation = Evaluation.find(params[:id])
+      challenge = evaluation.challenge
+      if evaluation.self_destruct
+        redirect_to dashboard_judges_path(challenge_id: challenge), notice: t('flash.evaluation.evaluation_removed_successfully_from_the_challenge')
+      else
+        redirect_to dashboard_judges_path(challenge_id: challenge), alert: t('flash.evaluation.there_was_an_issue_removing_the_evaluation_from_the_challenge')
       end
     end
 
