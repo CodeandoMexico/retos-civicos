@@ -44,6 +44,7 @@ Aquila::Application.routes.draw do
     end
     resources :judges, only: [:index, :new, :create, :show], controller: 'dashboard/judges' do
       resources :evaluations, only: :destroy, controller: 'dashboard/evaluations'
+      resources :report_cards, only: [:show], controller: 'dashboard/report_cards'
     end
     resources :report_cards, only: :index, controller: 'dashboard/report_cards'
   end

@@ -30,6 +30,13 @@ feature 'Admin enters evaluations panel and' do
     pending
   end
 
+  scenario 'clicks on a judges report card to show detail' do
+    report_card_to_check = @entries.first.report_cards.first
+    visit_judge_path(judges.first)
+    click_link "report_card[#{report_card_to_check.id}]"
+    report_card_to_check.grades.map { |g| expect(page).to have_content g[:description] }
+  end
+
   scenario 'clicks on a judge who has been accepted in an evaluation with three report cards' do
     report_cards = evaluate_all_entries_with(evaluations[0], entries, 5)
 

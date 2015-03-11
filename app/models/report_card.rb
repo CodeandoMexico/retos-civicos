@@ -72,21 +72,21 @@ class ReportCard < ActiveRecord::Base
     self.update_attribute('grades', self.grades)
   end
 
+  def self.individual_score(entry_grade, challenge_evaluation_criteria)
+    Integer(entry_grade) / MAX_EVALUATION_SCORE * Integer(challenge_evaluation_criteria)
+  end
+
   private
 
   def sum_grades
     total_score = 0
     self.grades.each_with_index do |g, idx|
-      total_score = total_score + individual_score(g[:value], self.evaluation.challenge.evaluation_criteria[idx][:value])
+      total_score = total_score + self.class.individual_score(g[:value], self.evaluation.challenge.evaluation_criteria[idx][:value])
     end
     total_score
   end
 
   def grade_is_invalid?(grade, min=0, max=5)
     grade.nil? || !String(grade).is_number? || Integer(grade) < 0 || Integer(grade) > 5
-  end
-
-  def individual_score(entry_grade, challenge_evaluation_criteria)
-    Integer(entry_grade) / MAX_EVALUATION_SCORE * Integer(challenge_evaluation_criteria)
   end
 end
