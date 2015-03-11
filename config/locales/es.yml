@@ -408,6 +408,7 @@ es:
         we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries: No podemos mostrar el ranking hasta que todos los jueces hayan terminado de evaluar las entradas.
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+        not_all_judges_are_finished_evaluating: Aún quedan jueces que no han evaluado todas las entradas, los rankings y resultados pueden cambiar conforme más jueces terminen de evaluar.
       show_ranking_summary:
         entry: Propuesta
         business: Negocio
