@@ -10,7 +10,7 @@ module Dashboard
     end
 
     def show
-      @report_card = ReportCard.find(params[:id])
+      @report_card =  ReportCardDecorator.new(ReportCard.find(params[:id]))
     end
 
     private

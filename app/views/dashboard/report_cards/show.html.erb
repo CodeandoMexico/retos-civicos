@@ -8,7 +8,7 @@
       <tr>
         <td><%= g[:description] %></td>
         <td>
-          <%= grade_process(
+          <%= @report_card.grade_process(
             g[:value],
             @report_card.evaluation.challenge.evaluation_criteria[idx][:value])
           %>
