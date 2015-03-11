@@ -14,7 +14,7 @@
           <li class="table--row">
             <div class="row--30"><%= evaluation.judge.email %></div>
             <div class="row--20"><%= evaluation.judge.name %></div>
-            <div class="row--30"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, challenge.entries.count) %></div>
+            <div class="row--30"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, evaluation.total_number_of_entries) %></div>
             <div class="row--20">
               <%= link_to icon('eye'),
                   dashboard_judge_path(evaluation.judge,
