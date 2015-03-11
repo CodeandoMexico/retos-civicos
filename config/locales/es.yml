@@ -409,6 +409,10 @@ es:
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
         not_all_judges_are_finished_evaluating: Aún quedan jueces que no han evaluado todas las entradas, los rankings y resultados pueden cambiar conforme más jueces terminen de evaluar.
+      show:
+        criteria_name: Criterio
+        score_assigned: Calificación (juez / max / normalizada)
+        total: Total
       show_ranking_summary:
         entry: Propuesta
         business: Negocio

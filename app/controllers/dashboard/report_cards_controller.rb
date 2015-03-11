@@ -9,6 +9,10 @@ module Dashboard
                         nil
     end
 
+    def show
+      @report_card = ReportCard.find(params[:id])
+    end
+
     private
 
     def set_current_challenge
