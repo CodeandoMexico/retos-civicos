@@ -312,6 +312,10 @@ es:
         entry-email: Email
         email-participants: Email a participantes
         entry_invalid: Inválida
+        legal_representative: Representante legal
+        entry_name: Nombre
+        submitted_date: Fecha de entrega
+        actions: Acciones
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
