@@ -228,6 +228,7 @@ es:
         phase: Fase
         actions: Acciones
       new_criteria:
+        instructions: Instrucciones para los jueces
         criteria: "Criterio %{idx}"
         save_criteria: Guardar
         criteria_description: Descripción del criterio

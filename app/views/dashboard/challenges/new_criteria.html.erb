@@ -7,6 +7,14 @@
 <div class="row">
   <div class="col-sm-12">
     <%= form_tag dashboard_challenge_create_criteria_path(@challenge), class: "form-horizontal" do |f| %>
+      <div class="form-group">
+        <div class="col-sm-3">
+          <%= label_tag t('.instructions'), nil,  class: 'control-label' %>
+        </div>
+        <div class="col-sm-9">
+          <%= text_area_tag :evaluation_instructions, @challenge.evaluation_instructions,  class: 'form-control', placeholder: 'Escribe las instrucciones para los jueces que evaluarán el reto.' %>
+        </div>
+      </div>
       <% @challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
         <div class="form-group">
           <div class="col-sm-3" >
@@ -18,7 +26,7 @@
           </div>
         </div>
       <% end %>
-      <div class="row">
+      <div class="form-group">
         <div class="col-sm-2 pull-right">
           <span class="percentage-container">Porcentaje total: <span class="total-percentage"></span></span>
         </div>
