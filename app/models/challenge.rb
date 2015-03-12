@@ -3,7 +3,8 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology, :evaluation_criteria
+                  :infographic, :prize, :assessment_methodology, :evaluation_criteria,
+                  :evaluation_instructions
 
   attr_accessible(*Phases.dates)
 
