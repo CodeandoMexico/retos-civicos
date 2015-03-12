@@ -223,6 +223,10 @@ es:
         total-participants: Participantes
         total-entries: Propuestas recibidas
         no-proposals: Aún no hay propuestas.
+        challenge_title: Nombre del reto
+        members_vs_entries: Participantes y propuestas
+        phase: Fase
+        actions: Acciones
       new_criteria:
         criteria: "Criterio %{idx}"
         save_criteria: Guardar
