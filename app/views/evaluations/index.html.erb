@@ -1,9 +1,26 @@
 <div class="deck">
   <div class="actions--card">
-    <%= render 'challenges_filter',
-      challenges: @challenges,
-      current_challenge: @current_challenge,
-      filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
+    <div class="action--title">
+      <%= render 'challenges_filter',
+        challenges: @challenges,
+        current_challenge: @current_challenge,
+        filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) } %>
+    </div>
+    <div class="action--list">
+      <div class="action-element">
+        <!-- Let's show the instructions button -->
+        <%= content_tag :button,
+              t('.instructions_popover_button'),
+              "rel" => "popover",
+              "data-placement" => "bottom",
+              "data-original-title" => t('.instructions_popover_title'),
+              "class" => "btn btn-default"
+        %>
+        <div id="popover_content_wrapper" style="display: none">
+          <%= content_tag :p, @current_challenge.evaluation_instructions %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <% if @report_card && @current_challenge.criteria_must_be_present %>
