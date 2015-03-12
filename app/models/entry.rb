@@ -41,8 +41,12 @@ class Entry < ActiveRecord::Base
     # remove nil values
     report_cards_score.select! { |n| !n.nil? }
 
-    # we need to compute for the quantity of evaluated report cards
-    report_cards_score.reduce(:+) * 1.0 / report_cards_score.count
+    if report_cards_score.present?
+      # we need to compute for the quantity of evaluated report cards
+      report_cards_score.reduce(:+) * 1.0 / report_cards_score.count
+    else
+      0.0
+    end
   end
 
   def next

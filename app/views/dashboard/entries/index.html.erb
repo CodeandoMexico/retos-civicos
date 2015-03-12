@@ -51,22 +51,31 @@
   <% if @entries.any? %>
     <div class="table--card">
       <ul>
+        <li class="table--header">
+          <%= content_tag :div, t('.legal_representative'), class: 'header--30' %>
+          <%= content_tag :div, t('.entry_name'), class: 'header--30' %>
+          <%= content_tag :div, t('.submitted_date'), class: 'header--30' %>
+          <%= content_tag :div, t('.actions'), class: 'header--10' %>
+        </li>
         <% @entries.each do |entry| %>
           <li class="table--row">
-            <div class="row--title">
-              <%= link_to(entry.owner_name, dashboard_entry_path(entry)) %>
+            <div class="row--30">
+              <%= entry.owner_name %>
               <%= render 'entry_status', entry: entry %>
             </div>
-            <div class="row--subtitle"><%= entry.name %></div>
-            <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+            <div class="row--30"><%= entry.name %></div>
+            <div class="row--30"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+            <div class="row--10">
+              <%= link_to icon('eye'),
+                  dashboard_entry_path(entry),
+                  id: "entry__#{entry.id}",
+                  title: 'Ver propuestas' %>
+            </div>
           </li>
         <% end %>
       </ul>
     </div>
   <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
+    <%= render 'shared/empty_resource', message: t('.no-proposals') %>
   <% end %>
-
 </div>

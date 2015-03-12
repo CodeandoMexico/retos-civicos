@@ -36,9 +36,7 @@
       </ul>
     </div>
   <% else %>
-  <div class="alert alert-info">
-    <%= t('.no-collaborators') %>
-  </div>
+    <%= render 'shared/empty_resource', message: t('.no-collaborators') %>
   <% end %>
 
 </div>

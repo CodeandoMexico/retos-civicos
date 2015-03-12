@@ -10,19 +10,23 @@
   <% if @challenges.any? %>
     <div class="table--card">
       <ul>
+        <li class="table--header">
+          <%= content_tag :div, t('.challenge_title'), class: 'header--30' %>
+          <%= content_tag :div, t('.members_vs_entries'), class: 'header--40' %>
+          <%= content_tag :div, t('.phase'), class: 'header--20' %>
+          <%= content_tag :div, t('.actions'), class: 'header--10' %>
+        </li>
         <% @challenges.each do |challenge| %>
           <li class="table--row">
-            <div class="row--title"><%= challenge.title %></div>
-            <div class="row--subtitle row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
-            <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
-            <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
+            <div class="row--30"><%= challenge.title %></div>
+            <div class="row--40 row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
+            <div class="row--20">Fase: <%= challenge.current_phase_title %></div>
+            <div class="row--10"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
           </li>
         <% end %>
       </ul>
     </div>
   <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
+    <%= render 'shared/empty_resource', message: t('.no_challenges') %>
   <% end %>
 </div>
