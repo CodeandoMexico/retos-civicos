@@ -1,23 +1,28 @@
 <div class="deck">
   <!-- Active Challenges -->
   <h3>Retos Activos</h3>
+
   <% if @challenges.any? %>
     <div class="table--card">
       <ul>
+        <li class="table--header">
+          <%= content_tag :div, t('dashboard.challenges.index.challenge_title'), class: 'header--30' %>
+          <%= content_tag :div, t('dashboard.challenges.index.members_vs_entries'), class: 'header--40' %>
+          <%= content_tag :div, t('dashboard.challenges.index.phase'), class: 'header--20' %>
+          <%= content_tag :div, t('dashboard.challenges.index.actions'), class: 'header--10' %>
+        </li>
         <% @challenges.each do |challenge| %>
           <li class="table--row">
-            <div class="row--title"><%= challenge.title %></div>
-            <div class="row--subtitle row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
-            <div class="row--footer">Fase: <%= challenge.current_phase_title %></div>
-            <div class="row--tools"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
+            <div class="row--30"><%= challenge.title %></div>
+            <div class="row--40 row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
+            <div class="row--20">Fase: <%= challenge.current_phase_title %></div>
+            <div class="row--10"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
           </li>
         <% end %>
       </ul>
     </div>
   <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
+    <%= render 'shared/empty_resource', message: t('.no_challenges') %>
   <% end %>
 
   <!-- Latest entries -->
@@ -26,18 +31,31 @@
   <% if @entries.any? %>
     <div class="table--card">
       <ul>
+        <li class="table--header">
+          <%= content_tag :div, t('dashboard.entries.index.legal_representative'), class: 'header--30' %>
+          <%= content_tag :div, t('dashboard.entries.index.entry_name'), class: 'header--30' %>
+          <%= content_tag :div, t('dashboard.entries.index.submitted_date'), class: 'header--30' %>
+          <%= content_tag :div, t('dashboard.entries.index.actions'), class: 'header--10' %>
+        </li>
         <% @entries.each do |entry| %>
           <li class="table--row">
-            <div class="row--title"><%= link_to(entry.owner_name, dashboard_entry_path(entry)) %></div>
-            <div class="row--subtitle"><%= entry.name %></div>
-            <div class="row--footer"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+            <div class="row--30">
+              <%= entry.owner_name %>
+              <%= render 'entry_status', entry: entry %>
+            </div>
+            <div class="row--30"><%= entry.name %></div>
+            <div class="row--30"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>
+            <div class="row--10">
+              <%= link_to icon('eye'),
+                  dashboard_entry_path(entry),
+                  id: "entry__#{entry.id}",
+                  title: 'Ver propuestas' %>
+            </div>
           </li>
         <% end %>
       </ul>
     </div>
   <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
+    <%= render 'shared/empty_resource', message: t('.no-proposals') %>
   <% end %>
 </div>

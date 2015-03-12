@@ -27,8 +27,6 @@
       </ul>
     </div>
   <% else %>
-    <div class="alert alert-info">
-      <%= t('.no-proposals') %>
-    </div>
+    <%= render 'shared/empty_resource', message: t('.no_challenges') %>
   <% end %>
 </div>
