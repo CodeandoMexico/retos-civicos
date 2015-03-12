@@ -17,7 +17,7 @@
               "class" => "btn btn-default"
         %>
         <div id="popover_content_wrapper" style="display: none">
-          <%= content_tag :p, @current_challenge.evaluation_instructions %>
+          <%= content_tag :p, markdown_for_additional_links(@current_challenge.evaluation_instructions) %>
         </div>
       </div>
     </div>
