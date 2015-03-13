@@ -161,9 +161,11 @@ class Entry < ActiveRecord::Base
   end
 
   def idea_url_has_to_be_a_valid_url
-    uri = URI(self.idea_url)
+    uri = URI(idea_url)
     uri = URI("http://#{uri}") if uri.scheme.nil?
-    Net::HTTP.get_response(uri).is_a?(Net::HTTPSuccess)
+    response = Net::HTTP.get_response(uri)
+    response.is_a?(Net::HTTPSuccess)
+    self.idea_url = response.uri.to_s
     errors.add(:idea_url, :invalid) unless uri.host.present?
   rescue URI::InvalidURIError
     errors.add(:idea_url, :invalid)
