@@ -442,6 +442,8 @@ es:
       there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
       previous_entry: Anterior
       next_entry: Siguiente
+      instructions_popover_button: Instrucciones
+      instructions_popover_title: Consideraciones al evaluar propuestas
     edit:
       new_evaluation: Evaluar
     form:
