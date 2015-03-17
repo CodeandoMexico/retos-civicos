@@ -1,0 +1,18 @@
+Hola <%= @user.name %>,
+
+<p>
+  Has sido invitado a formar parte del comité de evaluación del Reto
+  <%= @evaluation.challenge.title %> de <%= @evaluation.challenge.organization.name %>.
+</p>
+
+<p>
+  A continuación algunas consideraciones importantes para la  evaluación definidas para este reto:
+</p>
+
+<p>
+  <%= markdown_for_additional_links(@evaluation.challenge.evaluation_instructions) %>
+</p>
+
+<p>
+  ¡Gracias por formar parte de Retos Públicos!
+</p>

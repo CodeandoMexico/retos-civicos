@@ -7,6 +7,7 @@ class Evaluation < ActiveRecord::Base
   has_many :entries, through: :report_cards
 
   validates :challenge_id, uniqueness: { scope: :judge_id }
+  after_create :send_email_to_judge
 
   def initialize_report_cards
     self.challenge.entries.each { |e| verify_and_create_report_card_from(e) }
@@ -49,6 +50,10 @@ class Evaluation < ActiveRecord::Base
   end
 
   private
+
+  def send_email_to_judge
+    JudgeMailer.invited_to_challenge(self).deliver
+  end
 
   def new_report_card(entry)
     ReportCard.create! do |r|
