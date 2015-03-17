@@ -2,9 +2,9 @@
 <%= form_tag evaluation_report_card_path(report_card.evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
   <% @report_card.grades.each_with_index do |grade, idx| %>
 
-    <div class="form-group">
+    <div class="form-group evaluation__criteria">
       <div class="col-sm-6" >
-        <%= label_tag grade[:description], nil,  class: 'control-label' %>
+        <%= label_tag grade[:description], nil,  class: 'control-label', style: 'margin-top:0px;' %>
       </div>
       <div class="col-sm-6" >
         <%= hidden_field_tag 'grades[][description]', grade[:description] %>

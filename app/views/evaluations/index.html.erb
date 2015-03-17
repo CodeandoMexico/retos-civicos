@@ -28,8 +28,10 @@
     <h5> <%= t('.number_of_evaluated_entries', number_of_entries: @report_card.evaluation.number_of_entries_graded) %></h5>
     <%= render 'shared/progress_bar_with_percentage', value_now: @report_card.evaluation.number_of_entries_graded, total_value: @report_card.evaluation.total_number_of_entries %>
 
-    <%= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, report_card_id: @report_card.next), class: 'btn btn-default pull-right', style: 'margin-left:10px;') if @report_card.next %>
-    <%= link_to(t('.previous_entry'), evaluations_path(challenge_id: @current_challenge, report_card_id: @report_card.previous), class: 'btn btn-default pull-right') if @report_card.previous %>
+    <div class="row" style="margin: 0;">
+      <%= link_to(t('.next_entry'), evaluations_path(challenge_id: @current_challenge, report_card_id: @report_card.next), class: 'btn btn-default btn-sm pull-right', style: 'margin-left:10px;background-color:#337ab7;border-color:#2e6da4;color:white;') if @report_card.next %>
+      <%= link_to(t('.previous_entry'), evaluations_path(challenge_id: @current_challenge, report_card_id: @report_card.previous), class: 'btn btn-default btn-sm pull-right') if @report_card.previous %>
+    </div>
 
     <div class="row">
       <div class="col-sm-12 col-md-6">

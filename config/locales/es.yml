@@ -458,13 +458,15 @@ es:
       feedback_label: "Retroalimentación"
       feedback_description: "Áreas de oportunidad"
     entry_minimum:
+      entry_name: Nombre
+      entry_description: Descripción
       company_name: Empresa
       company_rfc: RFC de la Compañía
       entry_email: Correo electrónico
       link_to_project: Liga al proyecto
       technologies: Tecnologías
       received_on: Recibida
-      summary: Resumen
+      summary: Resumen de la propuesta
     no_challenge:
       no_challenges: No tienes retos asignados
   report_cards:
