@@ -427,13 +427,6 @@ es:
         criteria_name: Criterio
         score_assigned: Calificación (juez / max / normalizada)
         total: Total
-      show_ranking_summary:
-        entry: Propuesta
-        business: Negocio
-        legal_representative: Representante
-        email: Correo electrónico
-        score: Calificación
-        scores: Calificaciones finales
   evaluations:
     mailer:
       a_judge_has_finished_evaluating_a_challenge: "Un juez ha terminado de evaluar el reto: %{challenge}."
@@ -783,6 +776,13 @@ es:
           mb: MB
           tb: TB
   shared:
+    show_ranking_summary:
+      entry: Propuesta
+      business: Negocio
+      legal_representative: Representante
+      email: Correo electrónico
+      score: Calificación
+      scores: Calificaciones finales
     footer:
       about_us: Sobre Codeando México
       contact_us: Escríbenos
