@@ -50,6 +50,9 @@ es:
         critieria_has_not_been_defined_yet: Los criterios aún no han sido definidos, los puedes dar de alta desde el panel de acciones.
         criteria_successfully_defined: Los criterios han sido actualizados correctamente.
         please_check_that_all_criteria_fields_for_any_errors: Por favor revisa que todos los campos han sido llenados correctamente y la suma de las ponderaciones sea 100.
+      evaluation:
+        evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
+        evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
   challenges:
     initial_activity:
       title: Creación del reto
@@ -393,6 +396,8 @@ es:
         define_criteria: Criterios de evaluación
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+        close_evaluation: Cerrar evaluaciones
+        close_evaluation_confirmation_message: ¿Estás seguro? Los jueces ya no podrán modificar sus evaluaciones para este reto.
       show:
         no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:

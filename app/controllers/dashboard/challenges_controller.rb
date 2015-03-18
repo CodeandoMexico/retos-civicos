@@ -1,6 +1,6 @@
 module Dashboard
   class ChallengesController < Dashboard::BaseController
-    before_filter :set_challenge, only: [:new_criteria, :create_criteria]
+    before_filter :set_challenge, only: [:new_criteria, :create_criteria, :close_evaluation]
     load_and_authorize_resource
 
     def index
@@ -36,6 +36,14 @@ module Dashboard
       else
         flash.now[:alert] = t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
         render :new_criteria
+      end
+    end
+
+    def close_evaluation
+      if @challenge.close_evaluation
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: t('flash.challenges.evaluation.evaluation_successfully_closed')
+      else
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), alert: t('flash.challenges.evaluation.evaluation_could_not_be_closed')
       end
     end
 
