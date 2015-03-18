@@ -4,8 +4,20 @@
              current_challenge: @current_challenge,
              filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) },
              actions: [
-               { title: t('.new_judge'), path: new_dashboard_challenge_evaluation_path(@current_challenge) },
-               { title: t('.define_criteria'), path: dashboard_challenge_new_criteria_path(@current_challenge)},
+               {
+                 title: t('.define_criteria'),
+                 path: dashboard_challenge_new_criteria_path(@current_challenge)
+               },
+               { title: t('.new_judge'),
+                 path: new_dashboard_challenge_evaluation_path(@current_challenge),
+                 condition: @current_challenge.criteria_must_be_present
+               },
+               {
+                 title: t('.close_evaluation'),
+                 path: dashboard_challenge_close_evaluation_path(@current_challenge),
+                 confirmation: t('.close_evaluation_confirmation_message'),
+                 condition: @current_challenge.evaluations_opened?
+               }
              ]
    %>
 

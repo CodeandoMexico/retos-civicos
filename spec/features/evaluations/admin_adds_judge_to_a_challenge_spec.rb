@@ -5,7 +5,7 @@ feature 'Admin tries to add a judge to a challenge and' do
 
   before do
     @organization = create :organization
-    @challenge = create :challenge, organization: organization
+    @challenge = create :challenge, :with_criteria, organization: organization
     sign_in_organization_admin(organization.admin)
   end
 

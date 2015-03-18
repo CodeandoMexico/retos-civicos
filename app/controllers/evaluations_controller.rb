@@ -3,7 +3,7 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :authenticate_user!
   before_filter :authenticate_judge!
   before_filter :require_current_challenge, only: :index
-  before_filter :set_judge_and_challenge, only: [:index, :start]
+  before_filter :set_judge_and_challenge, only: :index
   before_filter :set_report_card, only: :index
 
   def index
@@ -19,7 +19,7 @@ class EvaluationsController < Dashboard::BaseController
       evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
       ReportCard.where(evaluation_id: evaluation).order('id ASC').first
     end
-    authorize! :read, @report_card
+    authorize! :read, @report_card if @report_card.present?
   end
 
   def authenticate_judge!

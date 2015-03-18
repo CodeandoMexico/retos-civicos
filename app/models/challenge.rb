@@ -4,7 +4,7 @@ class Challenge < ActiveRecord::Base
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
                   :infographic, :prize, :assessment_methodology, :evaluation_criteria,
-                  :evaluation_instructions
+                  :evaluation_instructions, :evaluations_opened
 
   attr_accessible(*Phases.dates)
 
@@ -91,6 +91,11 @@ class Challenge < ActiveRecord::Base
 
   def to_param
     "#{id}-#{title}".parameterize
+  end
+
+  def close_evaluation
+    self.evaluations_opened = false
+    self.save
   end
 
   def sort_entries_by_scores
