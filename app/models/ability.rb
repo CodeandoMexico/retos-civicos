@@ -46,6 +46,9 @@ class Ability
     end
 
     if user.judge?
+      # challenge access
+      can [:read], Challenge
+
       # evaluation access
       can [:new, :create, :update], Evaluation do |evaluation|
         evaluation.judge_id == user.userable.id
@@ -53,9 +56,7 @@ class Ability
 
       # Entries access
       # should this be limited only to evaluation entries?
-      can [:read], Entry do |entry|
-        # raise "judge".inspect
-      end
+      can [:read], Entry
 
       can [:update], Judge do |judge|
         judge.id == user.userable.id

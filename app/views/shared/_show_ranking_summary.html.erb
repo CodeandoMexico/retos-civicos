@@ -11,15 +11,13 @@
           <%= content_tag :div, t('.score'), class: 'header--20' %>
         </li>
       <% challenge.sort_entries_by_scores.each_with_index do |entry, idx| %>
-        <%#= link_to dashboard_judge_path(evaluation.judge, challenge_id: @current_challenge.id), id: "judge_#{evaluation.judge.id}" do %>
-          <li class="table--row">
-            <div class="row--20"><%= content_tag :strong, "\##{idx + 1} #{entry.name}" %></div>
-            <div class="row--20"><%= member_business(entry.member) %></div>
-            <div class="row--20"><%= member_legal(entry.member) %></div>
-            <div class="row--20"><%= member_email(entry.member) %></div>
-            <div class="row--20"><%= entry.final_score %></div>
-          </li>
-        <%# end %>
+        <li class="table--row">
+          <div class="row--20"><%= content_tag :strong, "\##{idx + 1} #{entry.name}" %></div>
+          <div class="row--20"><%= member_business(entry.member) %></div>
+          <div class="row--20"><%= member_legal(entry.member) %></div>
+          <div class="row--20"><%= member_email(entry.member) %></div>
+          <div class="row--20"><%= entry.final_score %></div>
+        </li>
       <% end %>
     </ul>
   </div>
