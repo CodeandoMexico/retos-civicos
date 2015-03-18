@@ -35,13 +35,13 @@ feature 'Admin enters results panel and' do
   scenario 'shows a message that ranking cannot be computed because there are still judges left to evaluate entries' do
     judges_evaluate_some_entries_but_not_all_of_them
     visit_results_path_for(challenge_with_criteria)
-    expect(page).to have_content I18n.t('dashboard.report_cards.index.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries')
+    expect(page).to have_content I18n.t('dashboard.report_cards.index.not_all_judges_are_finished_evaluating')
   end
 
   scenario 'shows a message that ranking cannot be computed because there are still judges left to evaluate entries' do
     judges_evaluate_all_entries
     visit_results_path_for(challenge_with_criteria)
-    expect(page).to have_content I18n.t('dashboard.report_cards.show_ranking_summary.scores')
+    expect(page).to have_content I18n.t('shared.show_ranking_summary.scores')
     expect_page_to_have_final_scores(entries)
   end
 

@@ -5,6 +5,7 @@ FactoryGirl.define do
     about "este es mi test"
     pitch "piitch del challenge"
     association :organization
+    evaluation_instructions "Instructions defined here."
 
     starts_on { 1.day.ago.to_date }
     ideas_phase_due_on { 1.month.from_now.to_date }

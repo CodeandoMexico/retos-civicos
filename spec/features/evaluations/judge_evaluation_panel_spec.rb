@@ -7,8 +7,8 @@ feature 'Judge' do
 
     organization = create :organization
 
-    @challenge_without_evaluations = create :challenge, title: 'Challenge Without Evaluations', organization: organization
-    @challenge_with_evaluations = create :challenge, title: 'Challenge With Evaluations', organization: organization
+    @challenge_without_evaluations = create :challenge, :with_criteria, title: 'Challenge Without Evaluations', organization: organization
+    @challenge_with_evaluations = create :challenge, :with_criteria, title: 'Challenge With Evaluations', organization: organization
     @evaluation = create :evaluation, challenge: challenge_with_evaluations, judge: @judge_with_evaluations
 
     another_challenge_with_evaluations = create :challenge, title: 'Another Random Challenge That Also Has Evaluations', organization: organization
