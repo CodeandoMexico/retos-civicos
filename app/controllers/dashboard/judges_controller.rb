@@ -10,6 +10,7 @@ module Dashboard
         order('created_at DESC')
       @judges = current_challenge_judges
       flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
+      flash.now[:warning] = t('flash.challenges.evaluation.evaluation_has_been_closed') unless @current_challenge.evaluations_opened
     end
 
     def show

@@ -53,6 +53,7 @@ es:
       evaluation:
         evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
+        evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
   challenges:
     initial_activity:
       title: Creación del reto
