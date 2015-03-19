@@ -90,7 +90,14 @@
         </tbody>
       </table>
     </div>
-    <% if Phases.is_current?(:prototypes, @entry.challenge) || Phases.is_current?(:prototypes_selection, @entry.challenge) || @entry.challenge.has_finished? %>
+    
+    <!-- Prototypes panel -->
+    <% if (Phases.is_current?(:prototypes, @entry.challenge) ||
+          Phases.is_current?(:prototypes_selection, @entry.challenge) ||
+          @entry.challenge.has_finished?) &&
+          @entry.is_valid? &&
+          @entry.accepted?
+      %>
       <div class="panel panel-default">
         <table class="table">
           <tbody>
