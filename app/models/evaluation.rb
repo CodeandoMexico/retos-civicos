@@ -18,6 +18,10 @@ class Evaluation < ActiveRecord::Base
     self.destroy
   end
 
+  def finished?
+    self.status == 2
+  end
+
   def status
     # this method return an integer
     # 0: Has not started to evaluate entries
