@@ -23,9 +23,7 @@
     </div>
   </div>
 
-  <% if !@current_challenge.evaluations_opened && @current_challenge.criteria_must_be_present %>
-    <%= render 'shared/show_ranking_summary', challenge: @current_challenge %>
-  <% elsif @report_card && @current_challenge.criteria_must_be_present %>
+  <% if @report_card && @current_challenge.criteria_must_be_present %>
     <!-- render progress bar -->
     <h5> <%= t('.number_of_evaluated_entries', number_of_entries: @report_card.evaluation.number_of_entries_graded) %></h5>
     <%= render 'shared/progress_bar_with_percentage', value_now: @report_card.evaluation.number_of_entries_graded, total_value: @report_card.evaluation.total_number_of_entries %>

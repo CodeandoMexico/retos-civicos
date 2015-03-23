@@ -783,6 +783,7 @@ es:
       email: Correo electrónico
       score: Calificación
       scores: Calificaciones finales
+      judge_score: Calificación propia
     footer:
       about_us: Sobre Codeando México
       contact_us: Escríbenos

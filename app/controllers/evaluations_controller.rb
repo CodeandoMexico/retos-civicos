@@ -3,13 +3,20 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :authenticate_user!
   before_filter :authenticate_judge!
   before_filter :require_current_challenge, only: :index
-  before_filter :set_judge_and_current_challenge, only: :index
+  before_filter :set_judge_and_current_challenge, only: [:index, :show]
   before_filter :set_challenges, only: [:index, :show]
   before_filter :set_report_card, only: :index
   before_filter :set_evaluation, only: :index
 
   def index
-    return redirect_to evaluation_url(@evaluation) if @evaluation.finished?
+    if !@current_challenge.evaluations_opened? || (@evaluation.finished? && !params[:edit])
+      return redirect_to evaluation_url(@evaluation, challenge_id: @current_challenge.id)
+    end
+  end
+
+  def show
+    @evaluation = Evaluation.find(params[:id])
+    @report_cards = ReportCard.where(evaluation_id: @evaluation.id)
   end
 
   private
