@@ -8,17 +8,35 @@
           <%= content_tag :div, t('.business'), class: 'header--20' %>
           <%= content_tag :div, t('.legal_representative'), class: 'header--20' %>
           <%= content_tag :div, t('.email'), class: 'header--20' %>
-          <%= content_tag :div, t('.score'), class: 'header--20' %>
+          <% if current_user.judge? %>
+            <%= content_tag :div, t('.judge_score'), class: 'header--10' %>
+            <%= content_tag :div, t('.score'), class: 'header--10' %>
+          <% else %>
+            <%= content_tag :div, t('.score'), class: 'header--20' %>
+          <% end %>
         </li>
-      <% challenge.sort_entries_by_scores.each_with_index do |entry, idx| %>
-        <li class="table--row">
-          <div class="row--20"><%= content_tag :strong, "\##{idx + 1} #{entry.name}" %></div>
-          <div class="row--20"><%= member_business(entry.member) %></div>
-          <div class="row--20"><%= member_legal(entry.member) %></div>
-          <div class="row--20"><%= member_email(entry.member) %></div>
-          <div class="row--20"><%= entry.final_score %></div>
-        </li>
-      <% end %>
+        <% if current_user.judge? %>
+          <% @report_cards.each do |report_card| %>
+            <li class="table--row">
+              <div class="row--20"><%= content_tag :strong, report_card.entry.name %></div>
+              <div class="row--20"><%= member_business(report_card.entry.member) %></div>
+              <div class="row--20"><%= member_legal(report_card.entry.member) %></div>
+              <div class="row--20"><%= member_email(report_card.entry.member) %></div>
+              <div class="row--10"><%= report_card.total_score || 'N/A' %></div>
+              <div class="row--10"><%= report_card.entry.final_score %></div>
+            </li>
+          <% end %>
+        <% else %>
+          <% challenge.sort_entries_by_scores.each_with_index do |entry, idx| %>
+            <li class="table--row">
+              <div class="row--20"><%= content_tag :strong, "\##{idx + 1} #{entry.name}" %></div>
+              <div class="row--20"><%= member_business(entry.member) %></div>
+              <div class="row--20"><%= member_legal(entry.member) %></div>
+              <div class="row--20"><%= member_email(entry.member) %></div>
+              <div class="row--20"><%= entry.final_score %></div>
+            </li>
+          <% end %>
+        <% end %>
     </ul>
   </div>
 <% end %>
