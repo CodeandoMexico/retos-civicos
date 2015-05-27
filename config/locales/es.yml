@@ -399,6 +399,7 @@ es:
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
         close_evaluation: Cerrar evaluaciones
         close_evaluation_confirmation_message: ¿Estás seguro? Los jueces ya no podrán modificar sus evaluaciones para este reto.
+        export_csv: Exportar CSV
       show:
         no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:
