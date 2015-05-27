@@ -89,6 +89,22 @@ class Challenge < ActiveRecord::Base
 
   STATUS = [:private, :open, :working_on, :cancelled, :finished]
 
+  def export_evaluations(opts={})
+    CSV.generate(opts) do |csv|
+      criteria_field_names = self.evaluation_criteria.map { |criteria| criteria[:description] }
+      # name of the csv column fields
+      csv << ['Juez', 'Equipo'] + criteria_field_names + ['Comentarios']
+      self.evaluations.each do |e|
+        e.report_cards.each do |r|
+          # let's fetch the grades first
+          grades = r.grades.map { |criteria| criteria[:value] }
+          # output to the csv
+          csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
+        end
+      end
+    end
+  end
+
   def to_param
     "#{id}-#{title}".parameterize
   end

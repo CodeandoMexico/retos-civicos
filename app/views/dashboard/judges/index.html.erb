@@ -5,6 +5,10 @@
              filter_path: ->(challenge) { dashboard_judges_path(challenge_id: challenge.id) },
              actions: [
                {
+                 title: t('.export_csv'),
+                 path: dashboard_judges_path(challenge_id: @current_challenge.id, format: :csv)
+               },
+               {
                  title: t('.define_criteria'),
                  path: dashboard_challenge_new_criteria_path(@current_challenge)
                },
@@ -17,7 +21,7 @@
                  path: dashboard_challenge_close_evaluation_path(@current_challenge),
                  confirmation: t('.close_evaluation_confirmation_message'),
                  condition: @current_challenge.evaluations_opened?
-               }
+               },
              ]
    %>
 
