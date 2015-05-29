@@ -2,11 +2,24 @@
   <% if @evaluation.report_cards.any? %>
     <div class="table--card">
       <ul>
+        <li class="table--header">
+          <%= content_tag :div, t('.entry_name'), class: 'header--20' %>
+          <%= content_tag :div, t('.description'), class: 'header--40' %>
+          <%= content_tag :div, t('.score'), class: 'header--20' %>
+          <%= content_tag :div, t('.actions'), class: 'header--20' %>
+        </li>
         <% @evaluation.report_cards.each do |report_card| %>
           <li class="table--row">
-            <div class="row--title"><%= report_card.entry.name %></div>
-            <div class="row--subtitle"><%= report_card.entry.description %></div>
-            <div class="row--footer"><%= t('.score') %>: <%= report_card.total_score || "N/A" %></div>
+            <div class="row--20"><%= report_card.entry.name %></div>
+            <div class="row--40"><%= report_card.entry.description %></div>
+            <div class="row--20"><%= t('.score') %>: <%= report_card.total_score || "N/A" %></div>
+            <div class="row--20">
+              <%= link_to icon('eye'),
+                  dashboard_judge_report_card_path(report_card.evaluation.judge,
+                  report_card, challenge_id: @current_challenge.id),
+                  id: "report_card[#{report_card.id}]",
+                  title: 'Ver calificaciones' %>
+            </div>
           </li>
         <% end %>
       </ul>

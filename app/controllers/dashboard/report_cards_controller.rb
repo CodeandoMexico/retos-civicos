@@ -4,6 +4,13 @@ module Dashboard
 
     def index
       @challenges = organization.challenges.sorted
+      flash[:warning] = (@current_challenge.ready_to_rank_entries? && !@current_challenge.finished_evaluating?) ?
+                        I18n.t('dashboard.report_cards.index.not_all_judges_are_finished_evaluating') :
+                        nil
+    end
+
+    def show
+      @report_card =  ReportCardDecorator.new(ReportCard.find(params[:id]))
     end
 
     private

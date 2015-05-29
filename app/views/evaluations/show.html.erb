@@ -1,0 +1,19 @@
+<div class="deck">
+    <%= render 'shared/challenges_card',
+               challenges: @challenges,
+               current_challenge: @current_challenge,
+               filter_path: ->(challenge) { evaluations_path(challenge_id: challenge.id) },
+               actions: [
+                 {
+                   title: 'Editar reto',
+                   path: evaluations_path(challenge_id: @current_challenge.id, edit: 'true')
+                 }
+               ]
+     %>
+
+  <!-- Render the summary of the scores -->
+  <%= render 'shared/show_ranking_summary',
+             challenge: @current_challenge,
+             report_cards: @report_cards
+   %>
+</div>

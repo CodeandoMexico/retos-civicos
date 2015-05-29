@@ -2,13 +2,13 @@
 <%= form_tag evaluation_report_card_path(report_card.evaluation, report_card), method: :put, class: "form-horizontal" do |f| %>
   <% @report_card.grades.each_with_index do |grade, idx| %>
 
-    <div class="form-group">
+    <div class="form-group evaluation__criteria">
       <div class="col-sm-6" >
-        <%= label_tag grade[:description], nil,  class: 'control-label' %>
+        <%= label_tag grade[:description], nil,  class: 'control-label', style: 'margin-top:0px;' %>
       </div>
       <div class="col-sm-6" >
         <%= hidden_field_tag 'grades[][description]', grade[:description] %>
-        <%= number_field_tag 'grades[][value]', grade[:value], placeholder: t('.value_description'), class: 'form-control', min: 0, max: 5, required:true %>
+        <%= number_field_tag 'grades[][value]', grade[:value], placeholder: t('.value_description'), class: 'form-control', min: 0, max: 5, required:true, disabled: !@current_challenge.evaluations_opened? %>
       </div>
     </div>
   <% end %>
@@ -17,7 +17,7 @@
       <%= label_tag t('.comments_label'), nil, class: 'control-label' %>
     </div>
     <div class="col-sm-6" >
-      <%= text_area_tag 'comments', @report_card.comments, placeholder: t('.comments_description'), class: 'form-control' %>
+      <%= text_area_tag 'comments', @report_card.comments, placeholder: t('.comments_description'), class: 'form-control', disabled: !@current_challenge.evaluations_opened? %>
     </div>
   </div>
 
@@ -26,9 +26,9 @@
       <%= label_tag t('.feedback_label'), nil, class: 'control-label' %>
     </div>
     <div class="col-sm-6" >
-      <%= text_area_tag 'feedback', @report_card.feedback,  placeholder: t('.feedback_description'), class: 'form-control' %>
+      <%= text_area_tag 'feedback', @report_card.feedback,  placeholder: t('.feedback_description'), class: 'form-control', disabled: !@current_challenge.evaluations_opened? %>
     </div>
   </div>
 
-  <%= submit_tag t('.save_criteria'), class: "btn btn-primary btn-lg pull-right" %>
+  <%= submit_tag t('.save_criteria'), class: "btn btn-primary btn-lg pull-right", disabled: !@current_challenge.evaluations_opened? %>
 <% end %>

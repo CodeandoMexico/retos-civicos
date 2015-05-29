@@ -1,0 +1,23 @@
+<table class="table">
+  <theader>
+    <%= content_tag :th, t('.criteria_name') %>
+    <%= content_tag :th, t('.score_assigned') %>
+  </theader>
+  <tbody>
+    <% @report_card.grades.each_with_index do |g, idx| %>
+      <tr>
+        <td><%= g[:description] %></td>
+        <td>
+          <%= @report_card.grade_process(
+            g[:value],
+            @report_card.evaluation.challenge.evaluation_criteria[idx][:value])
+          %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td><strong><%= t('.total') %></strong></td>
+      <td><strong><%= @report_card.total_score || 'N/A' %></strong></td>
+    </tr>
+  </tbody>
+</table>

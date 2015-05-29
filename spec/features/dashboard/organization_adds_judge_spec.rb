@@ -8,7 +8,7 @@ feature 'Admin logs into jury section' do
 
     organization = create :organization
     organization_admin = create :user, userable: organization
-    challenge = create :challenge, title: @challenge_name, organization: organization
+    challenge = create :challenge, :with_criteria, title: @challenge_name, organization: organization
 
     @judge = create :judge, email: 'judge@site.com'
 

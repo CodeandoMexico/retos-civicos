@@ -14,7 +14,16 @@
         </button>
         <ul class="dropdown-menu" role="menu">
           <% actions.each do |action| %>
-            <li><%= link_to action[:title], action[:path] %></li>
+
+            <!-- defined the condition manually to be only truth, for stability issues -->
+            <% if action[:condition].nil? || action[:condition] == true %>
+              <% if action[:confirmation].nil? %>
+                <%= content_tag :li, link_to(action[:title], action[:path]) %>
+              <% else %>
+                <%= content_tag :li, link_to(action[:title], action[:path], confirm: action[:confirmation]) %>
+              <% end %>
+            <% end %>
+
           <% end %>
         </ul>
       </div>

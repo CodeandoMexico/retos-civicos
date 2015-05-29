@@ -34,8 +34,19 @@ class Entry < ActiveRecord::Base
   end
 
   def final_score
-    # This method should return the final score for a entry
-    (self.report_cards.map { |r| r.total_score }.reduce(:+)) * 1.0 / self.report_cards.count
+    # This method should return the final score for a entry or nil
+    # of he hasn't finished yet
+    report_cards_score = self.report_cards.map { |r| r.total_score }
+
+    # remove nil values
+    report_cards_score.select! { |n| !n.nil? }
+
+    if report_cards_score.present?
+      # we need to compute for the quantity of evaluated report cards
+      report_cards_score.reduce(:+) * 1.0 / report_cards_score.count
+    else
+      0.0
+    end
   end
 
   def next
@@ -150,9 +161,11 @@ class Entry < ActiveRecord::Base
   end
 
   def idea_url_has_to_be_a_valid_url
-    uri = URI(self.idea_url)
+    uri = URI(idea_url)
     uri = URI("http://#{uri}") if uri.scheme.nil?
-    Net::HTTP.get_response(uri).is_a?(Net::HTTPSuccess)
+    response = Net::HTTP.get_response(uri)
+    response.is_a?(Net::HTTPSuccess)
+    self.idea_url = response.uri.to_s
     errors.add(:idea_url, :invalid) unless uri.host.present?
   rescue URI::InvalidURIError
     errors.add(:idea_url, :invalid)

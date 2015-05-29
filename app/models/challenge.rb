@@ -3,7 +3,8 @@ class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology, :evaluation_criteria
+                  :infographic, :prize, :assessment_methodology, :evaluation_criteria,
+                  :evaluation_instructions, :evaluations_opened
 
   attr_accessible(*Phases.dates)
 
@@ -88,8 +89,29 @@ class Challenge < ActiveRecord::Base
 
   STATUS = [:private, :open, :working_on, :cancelled, :finished]
 
+  def export_evaluations(opts={})
+    CSV.generate(opts) do |csv|
+      criteria_field_names = self.evaluation_criteria.map { |criteria| criteria[:description] }
+      # name of the csv column fields
+      csv << ['Juez', 'Equipo'] + criteria_field_names + ['Comentarios']
+      self.evaluations.each do |e|
+        e.report_cards.each do |r|
+          # let's fetch the grades first
+          grades = r.grades.map { |criteria| criteria[:value] }
+          # output to the csv
+          csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
+        end
+      end
+    end
+  end
+
   def to_param
     "#{id}-#{title}".parameterize
+  end
+
+  def close_evaluation
+    self.evaluations_opened = false
+    self.save
   end
 
   def sort_entries_by_scores
@@ -97,7 +119,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def ready_to_rank_entries?
-    self.has_valid_criteria? && self.has_evaluations? && self.finished_evaluating?
+    self.has_valid_criteria? && self.has_evaluations?
   end
 
   def finished_evaluating?

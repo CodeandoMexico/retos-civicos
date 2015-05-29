@@ -9,7 +9,14 @@ module Dashboard
       @challenges = organization.challenges.
         order('created_at DESC')
       @judges = current_challenge_judges
-      flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
+      respond_to do |format|
+        format.html do
+          flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
+          flash.now[:warning] = t('flash.challenges.evaluation.evaluation_has_been_closed') unless @current_challenge.evaluations_opened
+        end
+
+        format.csv { send_data @current_challenge.export_evaluations, filename: "propuestas_por_juez.csv" }
+      end
     end
 
     def show

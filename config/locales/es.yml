@@ -50,6 +50,10 @@ es:
         critieria_has_not_been_defined_yet: Los criterios aún no han sido definidos, los puedes dar de alta desde el panel de acciones.
         criteria_successfully_defined: Los criterios han sido actualizados correctamente.
         please_check_that_all_criteria_fields_for_any_errors: Por favor revisa que todos los campos han sido llenados correctamente y la suma de las ponderaciones sea 100.
+      evaluation:
+        evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
+        evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
+        evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
   challenges:
     initial_activity:
       title: Creación del reto
@@ -223,7 +227,12 @@ es:
         total-participants: Participantes
         total-entries: Propuestas recibidas
         no-proposals: Aún no hay propuestas.
+        challenge_title: Nombre del reto
+        members_vs_entries: Participantes y propuestas
+        phase: Fase
+        actions: Acciones
       new_criteria:
+        instructions: Instrucciones para los jueces
         criteria: "Criterio %{idx}"
         save_criteria: Guardar
         criteria_description: Descripción del criterio
@@ -312,6 +321,10 @@ es:
         entry-email: Email
         email-participants: Email a participantes
         entry_invalid: Inválida
+        legal_representative: Representante legal
+        entry_name: Nombre
+        submitted_date: Fecha de entrega
+        actions: Acciones
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
@@ -384,6 +397,9 @@ es:
         define_criteria: Criterios de evaluación
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
+        close_evaluation: Cerrar evaluaciones
+        close_evaluation_confirmation_message: ¿Estás seguro? Los jueces ya no podrán modificar sus evaluaciones para este reto.
+        export_csv: Exportar CSV
       show:
         no_report_cards_available_for_this_evaluation: Aún no hay calificaciones por este jurado.
       edit:
@@ -408,13 +424,11 @@ es:
         we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries: No podemos mostrar el ranking hasta que todos los jueces hayan terminado de evaluar las entradas.
         no_criteria_has_been_defined_for_this_challenge: Los criterios aún no han sido definidos para este reto.
         no_judges_have_been_selected_to_evaluate_this_challenge: No ha sido seleccionado el jurado para evaluar el reto.
-      show_ranking_summary:
-        entry: Propuesta
-        business: Negocio
-        legal_representative: Representante
-        email: Correo electrónico
-        score: Calificación
-        scores: Calificaciones finales
+        not_all_judges_are_finished_evaluating: Aún quedan jueces que no han evaluado todas las entradas, los rankings y resultados pueden cambiar conforme más jueces terminen de evaluar.
+      show:
+        criteria_name: Criterio
+        score_assigned: Calificación (juez / max / normalizada)
+        total: Total
   evaluations:
     mailer:
       a_judge_has_finished_evaluating_a_challenge: "Un juez ha terminado de evaluar el reto: %{challenge}."
@@ -428,6 +442,7 @@ es:
       there_are_no_entries_to_evaluate_for_this_challenge: No se han encontrado entradas para evaluar en este reto.
       previous_entry: Anterior
       next_entry: Siguiente
+      instructions_popover_title: Consideraciones al evaluar propuestas
     edit:
       new_evaluation: Evaluar
     form:
@@ -442,13 +457,15 @@ es:
       feedback_label: "Retroalimentación"
       feedback_description: "Áreas de oportunidad"
     entry_minimum:
+      entry_name: Nombre
+      entry_description: Descripción
       company_name: Empresa
       company_rfc: RFC de la Compañía
       entry_email: Correo electrónico
       link_to_project: Liga al proyecto
       technologies: Tecnologías
       received_on: Recibida
-      summary: Resumen
+      summary: Resumen de la propuesta
     no_challenge:
       no_challenges: No tienes retos asignados
   report_cards:
@@ -760,6 +777,14 @@ es:
           mb: MB
           tb: TB
   shared:
+    show_ranking_summary:
+      entry: Propuesta
+      business: Negocio
+      legal_representative: Representante
+      email: Correo electrónico
+      score: Calificación
+      scores: Calificaciones finales
+      judge_score: Calificación propia
     footer:
       about_us: Sobre Codeando México
       contact_us: Escríbenos
