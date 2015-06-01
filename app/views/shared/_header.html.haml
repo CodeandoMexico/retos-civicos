@@ -1,32 +1,16 @@
-.header-banner
-  .container
-    .header-gobierno-logo= image_tag 'gobieron-republica.png', alt: 'gobierno de la república'
-    .header-social-links
-      = link_to "<i class='fa fa-twitter'></i>".html_safe, "https://twitter.com/intent/tweet?text=Emprendedores%20c%C3%ADvicos%20colaboraran%20con%20el%20Gobierno%20de%20la%20República%20para%20resolver%20los%20retos%20del%20pa%C3%ADs%3A%20retos.gob.mx&hashtags=RetosPúblicos", class: 'header-social-link', target: "_blank"
-      = link_to "<i class='fa fa-facebook'></i>".html_safe, "http://www.facebook.com/sharer/sharer.php?p[url]=http://retos.gob.mx&p[title]=#Retos Públicos&p[description]=Emprendedores cívicos colaboraran con el Gobierno de la República para resolver los retos del país", class: 'header-social-link', target: "_blank"
-
-%nav.navbar.navbar-default.main-navbar{ role: "navigation" }
-  .container
-    <!-- Brand and toggle get grouped for better mobile display -->
+%nav.navbar.navbar-default
+  .container-fluid
     .navbar-header
-      %button.navbar-toggle.collapsed{ type: "button", 'data-toggle'=> "collapse", 'data-target'=> "#bs-example-navbar-collapse-1" }
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to root_url, class: 'hidden-xs main-navbar-logo' do
-        = image_tag 'logos-horizontal/retos_logo_horizontal-03.png', alt: t('layout.header')
-      = link_to root_url, class: 'visible-xs-block main-small-navbar-logo' do
-        = image_tag 'r-retos.png', alt: t('layout.header')
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right.main-navbar-menu
-        %li= link_to t('layout.index_link'), challenges_url
-        %li= link_to t('layout.about'), about_path
-
-        - if current_user
-          %li.main-navbar-menu-last= link_to current_user, edit_current_user_path(current_user.userable)
-          %li= link_to t('layout.sign_out'), destroy_user_session_path, method: :delete
-        - else
-          %li.main-navbar-menu-last= link_to t('layout.sign_in'), signup_path
+      = link_to "CodeandoMéxico", '#', class: 'navbar-brand'
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{ href: "#" } Participa
+        %li
+          %a{ href: "#" } Hackers
+        %li
+          %a{ href: "#" } Ciudades
+        %li
+          %a{ href: "#" } Aplicaciones
+        %li
+          %a{ href: "#" } Acerca

@@ -1,0 +1,18 @@
+/* Button component */
+
+// Colors
+$button_default_color: #82AF34;
+$default_text_color: #FFFFFF;
+$button_padding_vertical: 15px;
+$button_padding_horizontal: 40px;
+
+.btn {
+  padding: $button_padding_vertical $button_padding_horizontal $button_padding_vertical $button_padding_horizontal !important;
+}
+
+.btn-default {
+  background-color: $button_default_color;
+  color: $default_text_color;
+}
+
+// #intro > div > div.actions > div > div:nth-child(2) > a

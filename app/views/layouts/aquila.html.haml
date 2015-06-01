@@ -13,30 +13,11 @@
     %link{ href: 'http://fonts.googleapis.com/css?family=Open+Sans:400,700,300', rel:'stylesheet', type: 'text/css' }
     = render 'google_analytics'
   %body
-    .wrapper
+    #header
       = render 'shared/header'
+    #main
       = yield :landing
-
-      .main
-        .container
-          = display_flash_messages
-          = yield
-      .push
-
-    .footer
       .container
-        .row.text-center
-          .col-xs-12.col-sm-4.col-md-3.col-centered
-            %div= image_tag 'logo_usaid.png', width: 200
-          .col-xs-12.col-sm-4.col-md-3.col-centered
-            %div= link_to image_tag('logo_cmx.png', width: 180), 'http://codeandomexico.org', target: '_blank'
-
-        .row.text-center
-          .col-xs-12.col-sm-4.col-md-3.col-centered
-            %div= link_to image_tag('mx_a_logo_footer.png', width: 135, style:"margin-left:40px;"), 'http://mxabierto.tumblr.com', target: '_blank'
-          .col-xs-12.col-sm-4.col-md-3.col-centered
-            %div= link_to image_tag('presidencia.png', width: 200, style:"margin-left:30px;"), 'http://www.presidencia.gob.mx', target: '_blank'
-      %ul.list-inline.text-center
-        %li= link_to 'Aviso de Privacidad', privacy_path
-        %li.text-muted |
-        %li= link_to 'Términos y condiciones', terms_of_service_path
+        = display_flash_messages
+        = yield
+    #footer

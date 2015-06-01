@@ -1,0 +1,35 @@
+/* Landing component */
+
+// Background
+$landing_image_background: url('//localhost:3000/assets/placeholder.jpg');
+
+// Container
+$landing_container_width: 100%;
+$landing_container_height: 400px;
+
+// Colors
+$landing_default_color: #FFFFFF;
+
+#intro {
+  width: $landing_container_width;
+  height: $landing_container_height;
+  background-image: $landing_image_background;
+  background-size: cover;
+  color: $landing_default_color;
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 970px;
+    padding-top: 100px;
+
+    .actions {
+      margin-top: 30px;
+      a {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+  }
+}

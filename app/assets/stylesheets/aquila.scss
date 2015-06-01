@@ -1,0 +1,10 @@
+@import "bootstrap";
+
+// Custom components
+@import "components/navbar";
+@import "components/button";
+@import "components/landing";
+
+// Main and wrappers
+$body_padding_right: 130px;
+$body_padding_left: 130px;
