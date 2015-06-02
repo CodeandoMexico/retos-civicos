@@ -1,21 +1,42 @@
-@import "colors";
+@import "defaults/colors";
 
 .challenge{
-
-  .widget{
-    .medium {
+  // widget styles
+  margin-bottom: 20px;
+  &.widget{
+    &.medium {
       // styles for medium size challenge component
       h2 {
         color: $dark_blue;
       }
-      p {
+      p, span {
         color: $medium_grey;
       }
 
       .photo {
-        height: 500px !important;
-        width: 400px !important;
+        height: 190px;
+        overflow: hidden;
+        position: relative;
         background-size: cover;
+        border-radius: 8px;
+
+        .title{
+          background-color: $light_green;
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          padding: 10px 10px 10px 10px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+
+          opacity: 0.9;
+          filter: alpha(opacity=90); /* For IE8 and earlier */
+          p{
+            color: white;
+            text-align: right;
+            margin:0;
+          }
+        }
       }
     }
   }

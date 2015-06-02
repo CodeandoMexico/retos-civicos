@@ -1,21 +1,62 @@
 - content_for :landing do
-  #intro
-    .content
-      .title
-        = image_tag 'retoscivicos.png', width: '450px'
-      .subtitle
-        %h4
-          Un espacio de innovación abierta de interacción entre organizaciones
-          de la Sociedad Civil y la comunidad tecnológica para proponer soluciones
-          a temas cívicos.
-      .actions
-        = link_to 'Lanza un reto', '#', class: 'btn btn-default'
-        = link_to 'Ver retos activos', '#', class: 'btn btn-default'
+  .content
+    .title
+      = image_tag 'retoscivicos.png', width: '450px'
+    .subtitle
+      %h4
+        Un espacio de innovación abierta de interacción entre organizaciones
+        de la Sociedad Civil y la comunidad tecnológica para proponer soluciones
+        a temas cívicos.
+    .actions
+      = link_to 'Lanza un reto', '#', class: 'btn btn-default'
+      = link_to 'Ver retos activos', '#', class: 'btn btn-default'
 
-#challenges__wrapper
-  .row.challenge.widget.medium
-    .col-xs-12.col-md-4.photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
-    .col-xs-12.col-md-4.content
+.row.challenge.widget.medium
+  .col-xs-12.col-md-4
+    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+      .title
+        %p Creado por: IFAI
+  .col-xs-12.col-md-8
+    .content
+      %h2 Aplicación móvil "Infancia Cuenta"
+      %p Hagamos visible la situación de la infancia en México.
+      .timeline
+        %span Ideas
+        %span Progressbar
+
+.row.challenge.widget.medium
+  .col-xs-12.col-md-4
+    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+      .title
+        %p Creado por: IFAI
+  .col-xs-12.col-md-8
+    .content
+      %h2 Aplicación móvil "Infancia Cuenta"
+      %p Hagamos visible la situación de la infancia en México.
+      .timeline
+        %span Ideas
+        %span Progressbar
+
+.row.challenge.widget.medium
+  .col-xs-12.col-md-4
+    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+      .title
+        %p Creado por: IFAI
+  .col-xs-12.col-md-8
+    .content
+      %h2 Aplicación móvil "Infancia Cuenta"
+      %p Hagamos visible la situación de la infancia en México.
+      .timeline
+        %span Ideas
+        %span Progressbar
+
+.row.challenge.widget.medium
+  .col-xs-12.col-md-4
+    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+      .title
+        %p Creado por: IFAI
+  .col-xs-12.col-md-8
+    .content
       %h2 Aplicación móvil "Infancia Cuenta"
       %p Hagamos visible la situación de la infancia en México.
       .timeline

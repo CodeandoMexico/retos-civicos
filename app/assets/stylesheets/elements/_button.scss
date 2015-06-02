@@ -8,6 +8,8 @@ $button_padding_horizontal: 40px;
 
 .btn {
   padding: $button_padding_vertical $button_padding_horizontal $button_padding_vertical $button_padding_horizontal !important;
+  border: 0;
+  border-radius: 3px;
 }
 
 .btn-default {
