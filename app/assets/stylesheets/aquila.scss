@@ -1,8 +1,10 @@
 @import "bootstrap";
 
-// Custom components
+// Elements
+@import "elements/button";
+
+// Components
 @import "components/navbar";
-@import "components/button";
 @import "components/landing";
 
 // Main and wrappers
