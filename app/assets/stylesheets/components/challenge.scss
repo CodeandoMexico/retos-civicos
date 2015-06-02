@@ -1,0 +1,22 @@
+@import "colors";
+
+.challenge{
+
+  .widget{
+    .medium {
+      // styles for medium size challenge component
+      h2 {
+        color: $dark_blue;
+      }
+      p {
+        color: $medium_grey;
+      }
+
+      .photo {
+        height: 500px !important;
+        width: 400px !important;
+        background-size: cover;
+      }
+    }
+  }
+}
