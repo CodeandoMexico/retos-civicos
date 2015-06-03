@@ -16,8 +16,7 @@
     #header
       = render 'shared/header'
     #main
-      #intro
-        = yield :landing
+      = yield :landing
       .container
         = display_flash_messages
         = yield
