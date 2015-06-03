@@ -34,22 +34,6 @@ class ChallengesController < ApplicationController
     render file: 'public/404.html', status: :not_found, layout: false
   end
 
-  def create
-    if @challenge.save
-      redirect_to organization_challenge_path(@challenge.organization, @challenge)
-    else
-      render :new, layout: 'aquila'
-    end
-  end
-
-  def update
-    if @challenge.update_attributes(params[:challenge])
-      redirect_to organization_challenge_path(@challenge.organization, @challenge)
-    else
-      render :edit, layout: 'aquila'
-    end
-  end
-
   def cancel
     @challenge = current_organization.challenges.find(params[:id])
     @challenge.cancel!

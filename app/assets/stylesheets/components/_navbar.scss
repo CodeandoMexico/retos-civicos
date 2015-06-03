@@ -5,8 +5,6 @@ $navbar_default_links_color: $dark_blue;
 // Paddings
 $navbar_padding_top: 50px;
 $navbar_padding_bottom: 50px;
-$navbar_padding_right: 130px;
-$navbar_padding_left: 130px;
 
 // Margins
 $navbar_margin_bottom: 0;
@@ -15,8 +13,6 @@ $navbar_margin_bottom: 0;
 nav {
   padding-top: $navbar_padding_top;
   padding-bottom: $navbar_padding_bottom;
-  padding-right: $navbar_padding_right;
-  padding-left: $navbar_padding_left;
 
   margin-bottom: $navbar_margin_bottom !important;
   border: 0 !important;

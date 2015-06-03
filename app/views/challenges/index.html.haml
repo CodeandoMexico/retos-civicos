@@ -11,54 +11,19 @@
       = link_to 'Lanza un reto', '#', class: 'btn btn-default'
       = link_to 'Ver retos activos', '#', class: 'btn btn-default'
 
-.row.challenge.widget.medium
-  .col-xs-12.col-md-4
-    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
-      .title
-        %p Creado por: IFAI
-  .col-xs-12.col-md-8
-    .content
-      %h2 Aplicación móvil "Infancia Cuenta"
-      %p Hagamos visible la situación de la infancia en México.
-      .timeline
-        %span Ideas
-        %span Progressbar
-
-.row.challenge.widget.medium
-  .col-xs-12.col-md-4
-    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
-      .title
-        %p Creado por: IFAI
-  .col-xs-12.col-md-8
-    .content
-      %h2 Aplicación móvil "Infancia Cuenta"
-      %p Hagamos visible la situación de la infancia en México.
-      .timeline
-        %span Ideas
-        %span Progressbar
-
-.row.challenge.widget.medium
-  .col-xs-12.col-md-4
-    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
-      .title
-        %p Creado por: IFAI
-  .col-xs-12.col-md-8
-    .content
-      %h2 Aplicación móvil "Infancia Cuenta"
-      %p Hagamos visible la situación de la infancia en México.
-      .timeline
-        %span Ideas
-        %span Progressbar
-
-.row.challenge.widget.medium
-  .col-xs-12.col-md-4
-    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
-      .title
-        %p Creado por: IFAI
-  .col-xs-12.col-md-8
-    .content
-      %h2 Aplicación móvil "Infancia Cuenta"
-      %p Hagamos visible la situación de la infancia en México.
-      .timeline
-        %span Ideas
-        %span Progressbar
+- @challenges.each do |challenge|
+  .row.challenge.widget.medium
+    .col-xs-12.col-md-4
+      .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+        .title
+          %p
+            Creado por:
+            = challenge.title
+    .col-xs-12.col-md-8
+      .content
+        %h2= challenge.title
+        %p= challenge.description
+        .timeline
+          %span
+            = challenge.current_phase_title
+            = render 'shared/progress_bar', type: :widget, value_now: 5, total_value: 10

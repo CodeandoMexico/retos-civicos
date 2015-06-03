@@ -7,8 +7,6 @@ $footer_background_color: $light_grey;
 // Paddings
 $footer_padding_top: 50px;
 $footer_padding_bottom: 50px;
-$footer_padding_right: 130px;
-$footer_padding_left: 130px;
 
 // Links
 $link_header_padding_bottom: 15px;
@@ -19,9 +17,6 @@ $link_header_border: 1px solid #E0E0E0;
 
   padding-top: $footer_padding_top;
   padding-bottom: $footer_padding_bottom;
-  padding-right: $footer_padding_right;
-  padding-left: $footer_padding_left;
-
 
   .info__links{
     margin-bottom: 30px;

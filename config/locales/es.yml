@@ -231,6 +231,7 @@ es:
         members_vs_entries: Participantes y propuestas
         phase: Fase
         actions: Acciones
+        no-challenges: No hay retos.
       new_criteria:
         instructions: Instrucciones para los jueces
         criteria: "Criterio %{idx}"
