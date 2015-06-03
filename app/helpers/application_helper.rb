@@ -108,6 +108,14 @@ module ApplicationHelper
     (value * 100.0 / total).ceil()
   end
 
+  def challenge_completion_percentage_for(challenge)
+    if Phases.is_current?(:ideas, challenge) then 25
+    elsif Phases.is_current?(:ideas_selection, challenge) then 50
+    elsif Phases.is_current?(:prototypes, challenge) then 75
+    elsif Phases.is_current?(:prototypes_selection, challenge) then 100
+    end
+  end
+
   private
 
   def build_message(args)
