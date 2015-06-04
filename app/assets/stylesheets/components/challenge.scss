@@ -18,6 +18,10 @@
     border-bottom: $border;
   }
 
+  &.timeline {
+    color: $dark_grey;
+  }
+
   &.content {
     ul {
       color: $medium_grey;
