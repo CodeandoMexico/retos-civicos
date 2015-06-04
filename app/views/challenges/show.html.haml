@@ -1,0 +1,125 @@
+.challenge.heading
+  %h1= @challenge.title
+  %p= @challenge.pitch
+
+.challenge.photo
+  = image_tag 'placeholder.jpg'
+
+.challenge.authors
+  %p
+    Creado por: IFAI |
+    Patrocinado por: Banco Mundial
+
+.challenge.details
+  .row
+    .col-xs-12.col-sm-2
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span 93 Participantes
+
+    .col-xs-12.col-sm-2
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span 14 Propuestas
+
+    .col-xs-12.col-sm-2
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span 14 Propuestas
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span Premio $75,000 MXN
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span 17 días para concluir etapa de ideas
+
+.challenge.action.text-center
+  = link_to '¡Participa ahora!', '#', class: 'btn btn-default'
+
+.challenge.timeline
+  .phases-bar.phases-bar.js-phases-bar
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-milestone
+        %dl
+          %dt= @timeline.start.title
+          %dd= @timeline.start.date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.ideas.completeness}" }
+      %p= @timeline.ideas.title
+      .phases-arrow.phases-arrow-end
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-phase
+        %dl
+          %dt= @timeline.ideas.due_date_title
+          %dd= @timeline.ideas.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=>"#{@timeline.ideas_selection.completeness}" }
+      %p= @timeline.ideas_selection.title
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-milestone
+        %dl
+          %dt= @timeline.ideas_selection.due_date_title
+          %dd= @timeline.ideas_selection.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes.completeness}" }
+      %p= @timeline.prototypes.title
+      .phases-arrow.phases-arrow-end
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-phase
+        %dl
+          %dt= @timeline.prototypes.due_date_title
+          %dd= @timeline.prototypes.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes_selection.completeness}" }
+      %p= @timeline.prototypes_selection.title
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-last-milestone
+        %dl
+          %dt= @timeline.prototypes_selection.due_date_title
+          %dd= @timeline.prototypes_selection.due_date
+  - if @challenge.has_finished? && !@challenge.has_a_winner?
+    .row
+      .col-xs-12
+        .alert.alert-warning
+          %p.disclaimer= t('.disclaimer', organization_name: @organization.name)
+
+.challenge.content
+  %h3 Objetivos del reto
+  %p= markdown_for_additional_links @challenge.description
+
+  %h5 Puntos clave:
+  %ul
+    - if @challenge.first_spec.present?
+      %li= markdown @challenge.first_spec
+
+    - if @challenge.second_spec.present?
+      %li= markdown @challenge.second_spec
+
+    - if @challenge.third_spec.present?
+      %li= markdown @challenge.third_spec
+
+    - if @challenge.fourth_spec.present?
+      %li= markdown @challenge.fourth_spec
+
+    - if @challenge.fifth_spec.present?
+      %li= markdown @challenge.fifth_spec
+
+  -# %h3 Datos y recursos
+  -# %p= markdown_for_additional_links @challenge.description
+
+  -# %h3 Criterios y comité de evaluación
+  -# %p= markdown_for_additional_links @challenge.description
+
+.challenge.comments
+  %h3 Comentarios
+  = render 'comments', challenge: @challenge

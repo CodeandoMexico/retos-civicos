@@ -1,0 +1,5 @@
+@mixin heading($size, $color) {
+  color: $color;
+  font-size: $size;
+  font-size: bold;
+}
