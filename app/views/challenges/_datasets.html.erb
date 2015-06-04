@@ -1,6 +1,7 @@
 <% if @datasets.empty? && @challenge.additional_links.blank? %>
   <%= t(".non-datasets") %>
 <% else %>
+    <h3>Datos y recursos</h3>
     <% @datasets.each_slice(2) do |dataset_pair| %>
       <div class="dataset-pair">
         <div class="row">
