@@ -1,5 +1,6 @@
 /* Footer */
 @import "defaults/colors";
+@import "defaults/variables";
 
 // Navbar default colors
 $footer_background_color: $light_grey;
@@ -10,7 +11,6 @@ $footer_padding_bottom: 50px;
 
 // Links
 $link_header_padding_bottom: 15px;
-$link_header_border: 1px solid #E0E0E0;
 
 #footer{
   background-color: $footer_background_color;
@@ -18,20 +18,20 @@ $link_header_border: 1px solid #E0E0E0;
   padding-top: $footer_padding_top;
   padding-bottom: $footer_padding_bottom;
 
-  .info__links{
+  .info__links {
     margin-bottom: 30px;
   }
 
-  p{
+  p {
     color: $medium_grey;
     &.header {
       color: $dark_grey;
       padding-bottom: $link_header_padding_bottom;
-      border-bottom: $link_header_border;
+      border-bottom: $border;
     }
   }
 
-  ul{
+  ul {
     padding: 0;
     list-style-type: none;
     li{
