@@ -2,35 +2,36 @@
   %h1= @challenge.title
   %p= @challenge.pitch
 
-.challenge.photo
+.challenge.details
   = image_tag 'placeholder.jpg'
-
-.challenge.authors
   %p
     Creado por: IFAI |
     Patrocinado por: Banco Mundial
 
-.challenge.details
   .row
-    .col-xs-12.col-sm-2
+    .col-xs-12.col-sm-3
       %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
-      %span 93 Participantes
-
-    .col-xs-12.col-sm-2
-      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
-      %span 14 Propuestas
-
-    .col-xs-12.col-sm-2
-      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
-      %span 14 Propuestas
+      %span
+        = @challenge.collaborators.count
+        Participantes
 
     .col-xs-12.col-sm-3
       %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
-      %span Premio $75,000 MXN
+      %span
+        = @challenge.entries.count
+        Propuestas
 
     .col-xs-12.col-sm-3
       %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
-      %span 17 días para concluir etapa de ideas
+      %span
+        Premio
+        = @challenge.prize
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span
+        = Phases.days_left_for_current_phase(@challenge)
+        días para concluir etapa de ideas
 
 .challenge.action.text-center
   = link_to '¡Participa ahora!', '#', class: 'btn btn-default'
@@ -93,10 +94,11 @@
         .alert.alert-warning
           %p.disclaimer= t('.disclaimer', organization_name: @organization.name)
 
-.challenge.content
+.challenge.description
   %h3 Objetivos del reto
   %p= markdown_for_additional_links @challenge.description
 
+.challenge.specs
   %h5 Puntos clave:
   %ul
     - if @challenge.first_spec.present?
@@ -114,12 +116,14 @@
     - if @challenge.fifth_spec.present?
       %li= markdown @challenge.fifth_spec
 
-  -# %h3 Datos y recursos
-  -# %p= markdown_for_additional_links @challenge.description
 
+.challenge.datasets
+  = render 'datasets', challenge: @challenge, datasets: @datasets
+
+-# .challenge.jury
   -# %h3 Criterios y comité de evaluación
   -# %p= markdown_for_additional_links @challenge.description
 
 .challenge.comments
-  %h3 Comentarios
+  %h3 Conversación
   = render 'comments', challenge: @challenge
