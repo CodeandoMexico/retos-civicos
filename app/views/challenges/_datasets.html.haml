@@ -1,0 +1,19 @@
+
+- if @datasets.empty? && @challenge.additional_links.blank?
+  = t(".non-datasets")
+- else
+  %h3 Datos y recursos
+  - @datasets.each_slice(2) do |dataset_pair|
+    - dataset_pair.each do |dataset|
+      - dataset_url = "http://datamx.io/dataset/#{dataset.name}"
+      .media{ "data-dataset-teaser"=> "" }
+        = link_to dataset_url, class: 'pull-left' do
+          .format-label.media-object{ property: "dc:format", "data-format"=> "#{dataset.format.downcase}" }
+            = dataset.format.downcase
+        .media-body
+          %h4.media-heading
+            = link_to dataset.title, dataset_url, class: 'dataset-title', target:"_blank"
+          = dataset.notes.truncate(100)
+
+  - if @challenge.additional_links.present?
+    = markdown_for_additional_links @challenge.additional_links
