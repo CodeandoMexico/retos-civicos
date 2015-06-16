@@ -1,0 +1,14 @@
+%h1.text-center= t("signup.login")
+.social_container
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .form-group
+      = f.label :email, t('.email')
+      = f.email_field :email, class: 'form-control', autofocus: true
+
+    .form-group
+      = f.label :password, t('.password')
+      = f.password_field :password, class: 'form-control'
+
+    .form-group
+      = f.submit t('.submit'), class: 'btn btn-default btn-lg'
+    = render "devise/shared/links"

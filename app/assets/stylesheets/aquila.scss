@@ -1,5 +1,4 @@
 @import "chosen";
-
 @import "bootstrap";
 
 // Elements
@@ -7,9 +6,10 @@
 @import "elements/text_wrappers";
 
 // Components
+@import "components/chosen";
 @import "components/navbar";
 @import "components/footer";
 @import "components/landing";
 @import "components/challenge";
 @import "components/phases_bar";
-@import "components/chosen";
+@import "components/social";
