@@ -171,6 +171,8 @@ GEM
     gravatar-ultimate (2.0.0)
       activesupport (>= 2.3.14)
       rack
+    haml (4.0.6)
+      tilt
     hashie (2.1.1)
     hike (1.2.3)
     hirb (0.7.1)
@@ -419,6 +421,7 @@ DEPENDENCIES
   foreman
   github_api
   gravatar-ultimate
+  haml
   hirb
   jquery-rails
   jquery-tokeninput-rails!

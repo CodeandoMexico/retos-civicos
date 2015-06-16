@@ -1,0 +1,16 @@
+.row.challenge.widget.medium
+  .col-xs-12.col-md-4
+    .photo{ style: "background-image: url('//localhost:3000/assets/placeholder.jpg')" }
+      .title
+        %p
+          Creado por:
+          = challenge.title
+  .col-xs-12.col-md-8
+    .content
+      %h2= link_to challenge.title, challenge_path(challenge)
+      %p= challenge.description
+      .timeline{ style: 'overflow: hidden;'}
+        %span
+          = challenge.current_phase_title
+        .progress{ style: 'display:inline-block;margin:0;width:150px;border-radius:10px;'}
+          .progress-bar{ role:'progressbar', "aria-valuenow"=> "#{challenge_completion_percentage_for(challenge)}", "aria-valuemin"=> '0', "aria-valuemax"=> '100', style:"min-width: 3em; width:#{challenge_completion_percentage_for(challenge)}%;" }

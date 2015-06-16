@@ -7,6 +7,8 @@ gem 'rails', '3.2.19'
 gem 'foreman'
 gem 'pg'
 
+gem 'haml'
+
 # Heroku compability
 gem 'rails_12factor', group: [:staging, :production]
 

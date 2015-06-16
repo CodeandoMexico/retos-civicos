@@ -1,0 +1,24 @@
+// Navbar default colors
+$navbar_background_color: $light_grey;
+$navbar_default_links_color: $dark_blue;
+
+// Paddings
+$navbar_padding_top: 50px;
+$navbar_padding_bottom: 50px;
+
+// Margins
+$navbar_margin_bottom: 0;
+
+
+nav {
+  padding-top: $navbar_padding_top;
+  padding-bottom: $navbar_padding_bottom;
+
+  margin-bottom: $navbar_margin_bottom !important;
+  border: 0 !important;
+}
+
+#navbar > ul > li > a {
+  background-color: none;
+  color: $navbar_default_links_color;
+}

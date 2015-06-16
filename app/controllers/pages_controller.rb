@@ -1,10 +1,5 @@
 class PagesController < ApplicationController
-
-  layout "page"
-
-  def index
-    @challenges = Challenge.recent.limit(3)
-  end
+  layout "aquila"
 
   def sign_up
     @omniauth_providers = User.omniauth_providers

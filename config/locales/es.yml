@@ -158,16 +158,16 @@ es:
       info: Retos Públicos es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
       download: DESCARGAR DOCUMENTO
   layout:
-    header: Retos públicos
+    header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
     brief: Una plataforma que reúne talento para resolver problemáticas de impacto social.
     about: Acerca de
     sign_in: Iniciar Sesión
     sign_out: Salir
-    index_link: Retos
-    welcome: Hola
-    description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
+    # index_link: Inicio
+    # welcome: Hola
+    # description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
   terms_of_service: Términos de Servicio
   signup:
     choose_provider: Selecciona alguno de los siguientes servicios para iniciar sesión
@@ -231,6 +231,7 @@ es:
         members_vs_entries: Participantes y propuestas
         phase: Fase
         actions: Acciones
+        no-challenges: No hay retos.
       new_criteria:
         instructions: Instrucciones para los jueces
         criteria: "Criterio %{idx}"

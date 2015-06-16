@@ -1,0 +1,8 @@
+@import 'partials/panel';
+@import 'partials/kpis';
+@import 'token-input';
+@import 'jquery.ui.datepicker';
+
+.breadcrumb > li:last-child {
+  color: #777;
+}
