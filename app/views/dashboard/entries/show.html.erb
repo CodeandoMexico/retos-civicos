@@ -7,7 +7,7 @@
         <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
           <li><%= button_to t('.accept-proposal'),
             accept_dashboard_entry_url(@entry),
-            class: 'btn btn-primary',
+            class: 'btn btn-default',
             confirm: t('.move-next-phase') %></li>
         <% end %>
 
@@ -20,7 +20,7 @@
           <% else %>
             <li><%= button_to t('.select-winner'),
               winner_dashboard_entry_url(@entry),
-              class: 'btn btn-primary',
+              class: 'btn btn-default',
               confirm: t('.select-winner-confirmation') %></li>
           <% end %>
         <% end %>
@@ -90,7 +90,7 @@
         </tbody>
       </table>
     </div>
-    
+
     <!-- Prototypes panel -->
     <% if (Phases.is_current?(:prototypes, @entry.challenge) ||
           Phases.is_current?(:prototypes_selection, @entry.challenge) ||

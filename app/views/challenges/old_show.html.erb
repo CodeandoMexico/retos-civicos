@@ -65,7 +65,7 @@
     <% if user_is_able_to_collaborate? @challenge %>
       <% if can_edit_challenge? @challenge %>
         <div class="challenge-collaborate-content">
-          <%= link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-primary' %>
+          <%= link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-default' %>
         </div>
       <% elsif Phases.is_current?(:ideas, @challenge) %>
         <div class="challenge-collaborate-content">
@@ -78,11 +78,11 @@
       <% elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge) %>
         <% if current_member.has_submitted_prototype_for_challenge?(@challenge) %>
           <div class="challenge-collaborate-content">
-            <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+            <%= link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-default' %>
           </div>
         <% else %>
           <div class="challenge-collaborate-content">
-            <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-primary' %>
+            <%= link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-default' %>
           </div>
         <% end %>
       <% end %>

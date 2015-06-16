@@ -47,7 +47,7 @@
       <% end %>
 
       <% if can? :create_or_reply_challenge_comment, challenge %>
-        <%= link_to t('.reply'), '#', class: 'btn btn-primary pull-right js-open-reply-form' %>
+        <%= link_to t('.reply'), '#', class: 'btn btn-default pull-right js-open-reply-form' %>
         <div class="media reply-item reply-form js-reply-form">
           <div class="pull-left">
             <%= image_tag current_user.image_url(:thumb), class: 'avatar-thumb media-object' %>
@@ -62,14 +62,14 @@
               <%= form.text_area :body, class: 'comments-form-body', rows: 2 %>
               <div class="text-right">
                 <%= link_to t('.cancel'), '#', class: 'btn text-muted js-close-reply-form' %>
-                <%= form.submit t('.reply'), class: 'btn btn-primary' %>
+                <%= form.submit t('.reply'), class: 'btn btn-default' %>
               </div>
             <% end %>
           </div>
         </div>
       <% else %>
         <% if !(current_user || current_organization) %>
-          <%= link_to t(".reply"), guest_challenge_comments_path(challenge), class: "btn btn-primary pull-right" %>
+          <%= link_to t(".reply"), guest_challenge_comments_path(challenge), class: "btn btn-default pull-right" %>
         <% end %>
       <% end %>
     </div>

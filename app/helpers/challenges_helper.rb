@@ -32,12 +32,12 @@ module ChallengesHelper
       method = :post
     end
 
-    link_to t("helpers.#{text_path}"), link_path, method: method, class: 'btn btn-primary'
+    link_to t("helpers.#{text_path}"), link_path, method: method, class: 'btn btn-default'
   end
 
   def newsletter_helper(challenge)
     if user_signed_in? and current_user.userable == challenge.organization
-      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-primary'
+      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-default'
     end
   end
 
