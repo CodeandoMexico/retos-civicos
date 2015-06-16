@@ -18,7 +18,6 @@
 #= require jquery.jtruncate.pack
 #= require spin
 #= require chosen.jquery
-#= require timelineJS/embed
 #= require bootstrap/modal
 #= require bootstrap/dropdown
 #= require bootstrap/tab
