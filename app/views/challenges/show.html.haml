@@ -34,7 +34,24 @@
         días para concluir etapa de ideas
 
 .challenge.action.text-center
-  = link_to '¡Participa ahora!', '#', class: 'btn btn-default'
+  - if user_is_able_to_collaborate? @challenge
+    - if can_edit_challenge? @challenge
+      .challenge-collaborate-content
+        = link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-default'
+    - elsif Phases.is_current?(:ideas, @challenge)
+      .challenge-collaborate-content
+        = collaborate_section(@challenge)
+    - elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge)
+      .challenge-collaborate-banner
+        %h3{ style: "color:white;" }= t('.total-number-of-entries', count: @challenge.entries.count)
+    - elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge)
+      - if current_member.has_submitted_prototype_for_challenge?(@challenge)
+        .challenge-collaborate-content
+          = link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-default'
+      - else
+        .challenge-collaborate-content
+          = link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-default'
+
 
 .challenge.timeline
   .phases-bar.phases-bar.js-phases-bar
