@@ -59,7 +59,7 @@
             <%= form_for [challenge, Comment.new], method: :post,
               url: reply_challenge_comment_path(challenge, comment, parent: comment) do |form| %>
 
-              <%= form.text_area :body, class: 'comments-form-body', rows: 2 %>
+              <%= form.text_area :body, class: 'form-control', rows: 3, style: 'margin-bottom:30px;' %>
               <div class="text-right">
                 <%= link_to t('.cancel'), '#', class: 'btn text-muted js-close-reply-form' %>
                 <%= form.submit t('.reply'), class: 'btn btn-default' %>

@@ -19,7 +19,7 @@
       <div class="media-body">
         <h4 class="media-heading comment-item-title"><%= current_user %></h4>
         <small>- <%= l Time.zone.now, format: :long %></small>
-        <%= form.text_area :body, class: 'comments-form-body', rows: 3 %>
+        <%= form.text_area :body, class: 'form-control', rows: 3, style: 'margin-bottom:30px;' %>
         <div class="text-right">
           <%= link_to t('.cancel'), '#', class: 'btn btn-lg js-close-comments-form' %>
           <%= form.submit t(".comment"), class: 'btn btn-default btn-lg', :disable_with => "Comentando..." %>
