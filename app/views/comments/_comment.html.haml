@@ -1,0 +1,59 @@
+.comment-item
+  .pull-left.votes
+    - if can? :like, comment
+      %div.sort
+        = link_to like_challenge_comment_path(challenge, comment, like: true), method: :post, remote: true do
+          %span.fa.fa-sort-up
+      %div{id:"comment_#{comment.id}"}= comment.votes_counter
+      %div.sort
+        = link_to like_challenge_comment_path(@challenge, comment), method: :post, remote: true  do
+          %span.fa.fa-sort-down
+    - else
+      .sort.text-muted
+        %span.fa.fa-sort-up
+        %div{id:"comment_#{comment.id}"}= comment.votes_counter
+        %span.fa.fa-sort-down
+
+  .media
+    = link_to comment.user.profile_url, class: 'pull-left', target: '_blank' do
+      = image_tag comment.user.image_url(:thumb), class: 'avatar-thumb media-object'
+
+    .media-body
+      .comment-item-body
+        %h4.media-heading.comment-item-title= link_to comment.user, comment.user.profile_url, target: '_blank'
+        %small.text-muted
+          -
+          = l comment.created_at, format: :short
+        %p= comment.body_html
+
+      - comment.children.each do |comment|
+        .media.reply-item
+          = link_to comment.user.profile_url, class: 'pull-left', target: '_blank' do
+            = image_tag comment.user.image_url(:thumb), class: 'avatar-thumb media-object'
+          .media-body
+            %h4.media-heading.comment-item-title= link_to comment.user, comment.user.profile_url, target: '_blank'
+            %small.text-muted
+              -
+              = l comment.created_at, format: :short
+            %p= comment.body_html
+
+      - if can? :create_or_reply_challenge_comment, challenge
+        = link_to t('.reply'), '#', class: 'btn btn-default pull-right js-open-reply-form'
+        .media.reply-item.reply-form.js-reply-form
+          .pull-left
+            = image_tag current_user.image_url(:thumb), class: 'avatar-thumb media-object'
+
+          .media-body
+            %h4.media-heading.comment-item-title= current_user
+            %small.text-muted
+              -
+              = l Time.zone.now, format: :short
+            = form_for [challenge, Comment.new], method: :post, url: reply_challenge_comment_path(challenge, comment, parent: comment) do |form|
+
+              = form.text_area :body, class: 'form-control', rows: 3, style: 'margin-bottom:30px;'
+              .text-right
+                = link_to t('.cancel'), '#', class: 'btn text-muted js-close-reply-form'
+                = form.submit t('.reply'), class: 'btn btn-default'
+      - else
+        - if !(current_user || current_organization)
+          = link_to t(".reply"), guest_challenge_comments_path(challenge), class: "btn btn-default pull-right"
