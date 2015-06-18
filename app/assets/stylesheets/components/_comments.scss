@@ -1,10 +1,12 @@
-
-// Comment boxes
+.default_comment_text {
+  color: $light_green;
+}
 
 .media-body {
   margin-top: 15px;
   h4 { color: $light_green; }
 }
+
 .avatar-thumb.media-object {
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -12,3 +14,14 @@
 }
 
 .sort{ margin: 10px; }
+
+// Comment link
+.new_comment, .counter, .js-open-reply-form {
+  @extend .default_comment_text;
+}
+
+.media-heading {
+  a {
+    @extend .default_comment_text;
+  }
+}

@@ -1,9 +1,9 @@
-.comment-item
+.comment-item.text-right
   - if can? :create_or_reply_challenge_comment, challenge
-    = link_to t(".comment"), "#", class: "text-right js-open-comments-form"
+    = link_to t(".comment"), "#", class: "js-open-comments-form new_comment"
   - else
     - if !(current_user || current_organization)
-      = link_to t(".comment"), guest_challenge_comments_path(challenge), class: ""
+      = link_to t(".comment"), guest_challenge_comments_path(challenge), class: "new_comment"
 
 - if can? :create_or_reply_challenge_comment, challenge
   = form_for [challenge, Comment.new], remote: true, html: { class: 'comments-form' } do |form|
@@ -25,7 +25,8 @@
     #no_challenges
       = t('.non-comments')
   - else
-    .text-right
+    -# Order comments
+    -# .text-right
       = t('.order_by')
       = link_to t('.vote_count'), challenge_path(@challenge, anchor:"challenge_comments_container", order_by: "votes")
       %span |
