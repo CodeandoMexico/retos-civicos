@@ -44,3 +44,7 @@ $(document).ready ->
     $("#modal-player iframe").attr("src", $("#modal-player iframe").attr("src"))
   addEventHandlers()
   calculatePercentage()
+
+  # for the scroller to work on each element it has to be registered
+  # scroll from source to destination
+  scroller('#active_challenges', '#challenges__container') # source, destination
