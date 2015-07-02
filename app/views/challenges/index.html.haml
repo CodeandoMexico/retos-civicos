@@ -10,7 +10,8 @@
           a temas cívicos.
       .actions
         = link_to 'Lanza un reto', '#', class: 'btn btn-default'
-        = link_to 'Ver retos activos', '#', class: 'btn btn-default'
+        = link_to 'Ver retos activos', '#challenges__container', class: 'btn btn-default', id: 'active_challenges'
 
-- @challenges.each do |challenge|
-  = render 'challenge_widget', challenge: challenge
+#challenges__container
+  - @challenges.each do |challenge|
+    = render 'challenge_widget', challenge: challenge
