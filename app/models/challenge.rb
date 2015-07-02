@@ -187,6 +187,14 @@ class Challenge < ActiveRecord::Base
     Date.current >= finish_on
   end
 
+  def specs?
+    self.first_spec.present? ||
+    self.second_spec.present? ||
+    self.third_spec.present? ||
+    self.fourth_spec.present? ||
+    self.fifth_spec.present?
+  end
+
   def timeline_json
     {
       "timeline" =>
