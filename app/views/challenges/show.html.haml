@@ -5,8 +5,8 @@
 .challenge.details
   = image_tag 'placeholder.jpg'
   %p
-    Creado por: IFAI |
-    Patrocinado por: Banco Mundial
+    Creado por: @challenge.organization |
+    -# Patrocinado por: Banco Mundial
 
   .row
     .col-xs-12.col-sm-3
@@ -115,23 +115,24 @@
   %h3 Objetivos del reto
   %p= markdown_for_additional_links @challenge.description
 
-.challenge.specs
-  %h5 Puntos clave:
-  %ul
-    - if @challenge.first_spec.present?
-      %li= markdown @challenge.first_spec
+- if @challenge.specs?
+  .challenge.specs
+    %h5 Puntos clave:
+    %ul
+      - if @challenge.first_spec.present?
+        %li= markdown @challenge.first_spec
 
-    - if @challenge.second_spec.present?
-      %li= markdown @challenge.second_spec
+      - if @challenge.second_spec.present?
+        %li= markdown @challenge.second_spec
 
-    - if @challenge.third_spec.present?
-      %li= markdown @challenge.third_spec
+      - if @challenge.third_spec.present?
+        %li= markdown @challenge.third_spec
 
-    - if @challenge.fourth_spec.present?
-      %li= markdown @challenge.fourth_spec
+      - if @challenge.fourth_spec.present?
+        %li= markdown @challenge.fourth_spec
 
-    - if @challenge.fifth_spec.present?
-      %li= markdown @challenge.fifth_spec
+      - if @challenge.fifth_spec.present?
+        %li= markdown @challenge.fifth_spec
 
 
 .challenge.datasets
@@ -145,5 +146,5 @@
   %h3 Conversación
   = render 'comments', challenge: @challenge
 
-.challenge.newsletter
+-# .challenge.newsletter
   = render 'newsletter', challenge: @challenge
