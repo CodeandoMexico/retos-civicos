@@ -5,7 +5,9 @@
 .challenge.details
   = image_tag 'placeholder.jpg'
   %p
-    Creado por: @challenge.organization |
+    %span
+      Creado por:
+      = @challenge.organization
     -# Patrocinado por: Banco Mundial
 
   .row
