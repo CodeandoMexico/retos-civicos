@@ -59,6 +59,8 @@ end
 
 group :production do
   gem 'unicorn'
+  # access to font assets on a cdn
+  gem 'font_assets'
 end
 
 gem 'kaminari'
