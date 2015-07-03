@@ -39,8 +39,12 @@
       h2, a {
         margin-top: 0;
         font-size: 20px;
-        font-weight: bold;
+        // font-weight: bold;
         color: $dark_blue;
+      }
+
+      a {
+        font-family: 'LeagueSpartan-Bold';
       }
       p, span {
         color: $medium_grey;

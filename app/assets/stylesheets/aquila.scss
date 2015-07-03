@@ -1,6 +1,10 @@
 @import "chosen";
 @import "bootstrap";
 
+// Defaults
+@import "fonts/muli-light";
+@import "fonts/league-spartan";
+
 // Elements
 @import "elements/button";
 @import "elements/text_wrappers";
@@ -19,7 +23,3 @@
 
 // Utilities
 @import "defaults/utilities";
-
-body {
-  font-family: Montserrat;
-}

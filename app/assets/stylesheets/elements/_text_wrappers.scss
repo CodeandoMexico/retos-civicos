@@ -8,7 +8,8 @@ h1 { @include heading(32px, $dark_blue); }
 h3 { @include heading(22px, $dark_blue); }
 h5 { @include heading(18px, $medium_grey); }
 
-/* Paragraph and spans */
-p, span {
+/* Paragraph, spans and links */
+p, span, a {
+  font-family: 'Muli-Light';
   color: $default_text_color;
 }

@@ -60,6 +60,8 @@ module Aquila
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.font_assets.origin = '*'
+    
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
@@ -70,6 +72,8 @@ module Aquila
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w( dashboard.css judge.css )
+    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+    # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Strip the www to prevent crash with subdomains
     if Rails.env.production? or Rails.env.staging?
