@@ -35,26 +35,6 @@
         = Phases.days_left_for_current_phase(@challenge)
         días para concluir etapa de ideas
 
-.challenge.action.text-center
-  - if user_is_able_to_collaborate? @challenge
-    - if can_edit_challenge? @challenge
-      .challenge-collaborate-content
-        = link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-default'
-    - elsif Phases.is_current?(:ideas, @challenge)
-      .challenge-collaborate-content
-        = collaborate_section(@challenge)
-    - elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge)
-      .challenge-collaborate-banner
-        %h3{ style: "color:white;" }= t('.total-number-of-entries', count: @challenge.entries.count)
-    - elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge)
-      - if current_member.has_submitted_prototype_for_challenge?(@challenge)
-        .challenge-collaborate-content
-          = link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-default'
-      - else
-        .challenge-collaborate-content
-          = link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-default'
-
-
 .challenge.timeline
   .phases-bar.phases-bar.js-phases-bar
     .phases-bar-milestone
@@ -113,32 +93,73 @@
         .alert.alert-warning
           %p.disclaimer= t('.disclaimer', organization_name: @organization.name)
 
-.challenge.description
-  %h3 Objetivos del reto
-  %p= markdown_for_additional_links @challenge.description
-
-- if @challenge.specs?
-  .challenge.specs
-    %h5 Puntos clave:
-    %ul
-      - if @challenge.first_spec.present?
-        %li= markdown @challenge.first_spec
-
-      - if @challenge.second_spec.present?
-        %li= markdown @challenge.second_spec
-
-      - if @challenge.third_spec.present?
-        %li= markdown @challenge.third_spec
-
-      - if @challenge.fourth_spec.present?
-        %li= markdown @challenge.fourth_spec
-
-      - if @challenge.fifth_spec.present?
-        %li= markdown @challenge.fifth_spec
+.challenge.action.text-center
+  - if user_is_able_to_collaborate? @challenge
+    - if can_edit_challenge? @challenge
+      .challenge-collaborate-content
+        = link_to t('.edit-challenge'), edit_dashboard_challenge_path(@challenge), class: 'btn btn-default'
+    - elsif Phases.is_current?(:ideas, @challenge)
+      .challenge-collaborate-content
+        = collaborate_section(@challenge)
+    - elsif Phases.is_current?(:ideas_selection, @challenge) && !can_edit_challenge?(@challenge)
+      .challenge-collaborate-banner
+        %h3{ style: "color:white;" }= t('.total-number-of-entries', count: @challenge.entries.count)
+    - elsif Phases.is_current?(:prototypes, @challenge) && current_member && current_member.is_able_to_submit_a_prototype?(@challenge)
+      - if current_member.has_submitted_prototype_for_challenge?(@challenge)
+        .challenge-collaborate-content
+          = link_to t('.edit-prototype'), edit_challenge_prototype_path(@challenge), class: 'btn btn-default'
+      - else
+        .challenge-collaborate-content
+          = link_to t('.send-prototype'), new_challenge_prototype_path(@challenge), class: 'btn btn-default'
 
 
-.challenge.datasets
-  = render 'datasets', challenge: @challenge, datasets: @datasets
+.challenge.tabs
+  -# button groups
+  .btn-group.btn-group-justified{ role: 'group' }
+    %a.btn.btn-default{'href' => "#challenge__abstract", 'data-toggle' => 'tab' }
+      %div{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'title' => "Inicio" }
+        Inicio
+    %a.btn.btn-default{'href' => "#challenge__documentation", 'data-toggle' => 'tab' }
+      %div{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'title' => "Documentación" }
+        Documentación
+    %a.btn.btn-default{'href' => "#challenge__prize", 'data-toggle' => 'tab' }
+      %div{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'title' => "Premios" }
+        Premios
+    %a.btn.btn-default{'href' => "#challenge__news", 'data-toggle' => 'tab' }
+      %div{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'title' => "Noticias" }
+        Noticias
+
+
+.tab-content
+  .tab-pane.fade.in{ id: "challenge__abstract" }
+    .challenge.description
+      %h3 Objetivos del reto
+      %p= markdown_for_additional_links @challenge.description
+
+    - if @challenge.specs?
+      .challenge.specs
+        %h5 Puntos clave:
+        %ul
+          - if @challenge.first_spec.present?
+            %li= markdown @challenge.first_spec
+
+          - if @challenge.second_spec.present?
+            %li= markdown @challenge.second_spec
+
+          - if @challenge.third_spec.present?
+            %li= markdown @challenge.third_spec
+
+          - if @challenge.fourth_spec.present?
+            %li= markdown @challenge.fourth_spec
+
+          - if @challenge.fifth_spec.present?
+            %li= markdown @challenge.fifth_spec
+
+
+.tab-content
+  .tab-pane.fade.in{ id: "challenge__documentation" }
+    .challenge.datasets
+      = render 'datasets', challenge: @challenge, datasets: @datasets
 
 -# .challenge.jury
   -# %h3 Criterios y comité de evaluación
