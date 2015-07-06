@@ -1,6 +1,5 @@
-
 - if @datasets.empty? && @challenge.additional_links.blank?
-  = t(".non-datasets")
+  %p= t(".non-datasets")
 - else
   %h3 Datos y recursos
   - @datasets.each_slice(2) do |dataset_pair|

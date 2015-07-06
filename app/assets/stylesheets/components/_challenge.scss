@@ -29,6 +29,28 @@
       padding-left: 14px;
     }
   }
+
+  &.tabs {
+    border: 1px solid $light-green;
+    border-radius: $border-radius-default;
+
+    a.btn.btn-default {
+      background-color: #fff;
+      color: $light_green;
+
+      &:hover {
+        color: #fff;
+        background-color: $light_green;
+      }
+
+      &.active {
+        color: #fff;
+        background-color: $light_green;
+        box-shadow: none;
+      }
+
+    }
+  }
 }
 
 // widget styles
