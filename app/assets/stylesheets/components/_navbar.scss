@@ -16,6 +16,10 @@ nav {
 
   margin-bottom: $navbar_margin_bottom !important;
   border: 0 !important;
+
+  span {
+    color: $navbar_default_links_color;
+  }
 }
 
 #navbar > ul > li > a {

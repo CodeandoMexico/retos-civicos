@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-
+  layout 'aquila'
+  
   def edit
   end
 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     if current_user.update_attributes(params[:user])
       redirect_to edit_current_user_path(current_user.userable), notice: t('flash.users.welcome_and_edit_profile')
     else
-      render :define_role 
+      render :define_role
     end
   end
 

@@ -1,0 +1,6 @@
+es:
+  header:
+    user:
+      profile: Perfil
+      log_in: Inicia sesión
+      log_out: Cerrar sesión

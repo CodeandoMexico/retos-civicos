@@ -14,7 +14,6 @@
 #= require jquery_ujs
 #= require jquery.tokeninput
 #= require jquery.ui.datepicker
-#= require foundation
 #= require jquery.jtruncate.pack
 #= require spin
 #= require chosen.jquery
@@ -29,6 +28,7 @@
 #= require_self
 
 $(document).ready ->
+  $('dropdown-toggle').dropdown()
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
   $('[data-toggle="tooltip"]').tooltip()
