@@ -1,0 +1,24 @@
+.form_container
+  = form_for @user do |f|
+    = f.error_messages
+
+    .form-group
+      = f.label :name, t('.name')
+      = f.text_field :name, class: 'form-control'
+
+    .form-group
+      = f.label :email, t('.email')
+      = f.text_field :email, class: 'form-control'
+
+    .form-group
+      = f.label :bio, t('.bio')
+      %p= t('.bio-description')
+      = f.text_area :bio, class: 'form-control', rows: 5
+
+    .form-group
+      = f.label :avatar, t('.avatar')
+      %p= t('.avatar-description')
+      = image_tag @user.image_url(:profile)
+
+    .form-group
+      = f.submit t('.submit'), class: 'btn btn-default'

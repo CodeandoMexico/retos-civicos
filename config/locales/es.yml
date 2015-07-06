@@ -476,7 +476,12 @@ es:
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
-      bio-description: 140 caracteres sobre ti
+      name: Nombre
+      email: Correo electrónico
+      bio: Bio
+      bio-description: 140 caracteres sobre tí
+      avatar: Avatar
+      avatar-description: Esta es tu imagen de perfil.
       submit: Actualizar
     define_role:
       complete_register: Completar registro
