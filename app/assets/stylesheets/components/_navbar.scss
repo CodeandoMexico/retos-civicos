@@ -26,3 +26,14 @@ nav {
   background-color: none;
   color: $navbar_default_links_color;
 }
+
+ul.dropdown-menu > li{
+  a {
+    color: $navbar_default_links_color;
+  }
+
+  a:hover {
+    background-color: $navbar_default_links_color;
+    color: #fff;
+  }
+}
