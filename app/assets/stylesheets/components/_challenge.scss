@@ -43,6 +43,12 @@
         background-color: $light_green;
       }
 
+      &.active {
+        color: #fff;
+        background-color: $light_green;
+        box-shadow: none;
+      }
+
     }
   }
 }
