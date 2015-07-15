@@ -119,7 +119,7 @@ module ApplicationHelper
   private
 
   def build_message(args)
-    html = content_tag :div, data: { alert: '' }, class: "alert alert-#{args[:key_match][args[:key].to_sym] || :standard} alert-dismissible" do
+    html = content_tag :div, data: { alert: '' }, class: "alert alert-#{args[:key_match][args[:key].to_sym] || :standard} alert-dismissible", style: 'margin: 15px 0 15px 0' do
       raw "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
            <span aria-hidden='true'>&times;</span></button>
            #{args[:value]}"
