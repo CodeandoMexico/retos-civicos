@@ -8,9 +8,7 @@
 }
 
 .avatar-thumb.media-object {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  @extend .avatar;
 }
 
 .sort{ margin: 10px; }

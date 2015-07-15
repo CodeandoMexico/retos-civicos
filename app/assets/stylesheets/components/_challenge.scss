@@ -100,3 +100,24 @@
     }
   }
 }
+
+// avatar tooltip
+.challenge__collaborator {
+  .tooltip {
+    background-color: $light_grey !important;
+    opacity: 1 !important;
+
+    .tooltip-content {
+      padding: 15px;
+      p {
+        margin-bottom: 0;
+        font-size: 14px;
+        &.name{
+          font-weight: bold;
+          margin-bottom: 5px;
+          color: $dark_blue;
+        }
+      }
+    }
+  }
+}
