@@ -1,7 +1,0 @@
-<% if collaborators.blank? %>
-  <%= t(".non-collaboration") %>
-<% else %>
-  <% collaborators.each do |collaborator| %>
-    <%= render 'collaborator', collaborator: collaborator %>
-  <% end %>
-<% end %>
