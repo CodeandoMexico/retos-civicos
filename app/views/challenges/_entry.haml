@@ -1,7 +1,7 @@
 .entry.widget.col-sm-12.col-md-6
   .row
     .col-sm-3.image
-      = image_tag 'entry_placeholder.png'
+      = image_tag entry.image_url
     .col-sm-9.content
       %h5= truncate(entry.name, length: 30)
       %p= truncate(entry.member.to_s, length: 60)
