@@ -1,0 +1,57 @@
+.challenge.timeline
+  .phases-bar.phases-bar.js-phases-bar
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-milestone
+        %dl
+          %dt= @timeline.start.title
+          %dd= @timeline.start.date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.ideas.completeness}" }
+      %p= @timeline.ideas.title
+      .phases-arrow.phases-arrow-end
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-phase
+        %dl
+          %dt= @timeline.ideas.due_date_title
+          %dd= @timeline.ideas.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=>"#{@timeline.ideas_selection.completeness}" }
+      %p= @timeline.ideas_selection.title
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-milestone
+        %dl
+          %dt= @timeline.ideas_selection.due_date_title
+          %dd= @timeline.ideas_selection.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes.completeness}" }
+      %p= @timeline.prototypes.title
+      .phases-arrow.phases-arrow-end
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-phase
+        %dl
+          %dt= @timeline.prototypes.due_date_title
+          %dd= @timeline.prototypes.due_date
+    .phases-bar-phase
+      .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes_selection.completeness}" }
+      %p= @timeline.prototypes_selection.title
+    .phases-bar-milestone
+      .phases-arrow
+        .phases-arrow-dot
+        .phases-arrow-line
+      .phases-date.phases-date-last-milestone
+        %dl
+          %dt= @timeline.prototypes_selection.due_date_title
+          %dd= @timeline.prototypes_selection.due_date
+  - if @challenge.has_finished? && !@challenge.has_a_winner?
+    .row
+      .col-xs-12
+        .alert.alert-warning
+          %p.disclaimer= t('.disclaimer', organization_name: @organization.name)

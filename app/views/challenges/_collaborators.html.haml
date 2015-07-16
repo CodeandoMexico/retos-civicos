@@ -1,0 +1,6 @@
+- if collaborators.blank?
+  %p= t(".non-collaboration")
+- else
+  .row
+    - collaborators.each do |collaborator|
+      = render 'collaborator', collaborator: collaborator

@@ -1,0 +1,26 @@
+/* Challenge */
+@import "defaults/colors";
+@import "defaults/variables";
+
+.entry {
+  &.widget {
+    margin-bottom: 30px;
+
+    img {
+      width: 140px;
+      height: 85px;
+      border-radius: $border-radius-image-default;
+    }
+
+    .content {
+      padding-left: 25px;
+      h5 { @include heading(18px, $dark_blue, 5px); }
+
+      .resources {
+        a { color: $light_green; }
+        span { color: $light_grey; }
+      }
+    }
+
+  }
+}

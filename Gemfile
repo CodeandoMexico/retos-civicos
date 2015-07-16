@@ -7,6 +7,8 @@ gem 'rails', '3.2.19'
 gem 'foreman'
 gem 'pg'
 
+gem 'haml'
+
 # Heroku compability
 gem 'rails_12factor', group: [:staging, :production]
 
@@ -43,7 +45,6 @@ group :assets do
   gem 'zurb-foundation',  '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'timelineJS-rails', '~> 1.1.1'
-  gem 'bootstrap-sass', '~> 3.1.1'
   gem 'font-awesome-sass'
 end
 
@@ -81,6 +82,7 @@ gem 'figaro'
 gem 'onebox', '~> 1.2'
 gem 'validate_url'
 gem 'rack-utf8_sanitizer'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 # Console tools
 gem 'ruby-progressbar'
@@ -96,3 +98,4 @@ gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
 gem 'memcachier'
+gem 'font_assets'

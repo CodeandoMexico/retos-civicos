@@ -1,0 +1,42 @@
+/* Footer */
+@import "defaults/colors";
+@import "defaults/variables";
+
+// Navbar default colors
+$footer_background_color: $light_grey;
+
+// Paddings
+$footer_padding_top: 50px;
+$footer_padding_bottom: 50px;
+
+// Links
+$link_header_padding_bottom: 15px;
+
+#footer{
+  background-color: $footer_background_color;
+
+  padding-top: $footer_padding_top;
+  padding-bottom: $footer_padding_bottom;
+
+  .info__links {
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: $medium_grey;
+    &.header {
+      color: $dark_grey;
+      padding-bottom: $link_header_padding_bottom;
+      border-bottom: $border;
+    }
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    li{
+      color: $medium_grey;
+      margin-bottom: 15px;
+    }
+  }
+}

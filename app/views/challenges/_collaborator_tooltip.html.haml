@@ -1,0 +1,9 @@
+.tooltip{ role:"tooltip"}
+  .tooltip-content
+    %p.name= collaborator
+    %p
+      Participando:
+      = collaborator.challenges.count
+    %p
+      Miembro desde:
+      = collaborator.created_at.strftime("%b, %y")

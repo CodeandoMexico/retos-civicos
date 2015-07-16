@@ -1,0 +1,52 @@
+.challenge.heading
+  %h1= @challenge.title
+  %p= @challenge.pitch
+
+.challenge.details
+  = image_tag 'placeholder.jpg'
+  %p
+    %span
+      Creado por:
+      = @challenge.organization
+    -# Patrocinado por: Banco Mundial
+
+  .row
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span
+        = @challenge.collaborators.count
+        Participantes
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span
+        = @challenge.entries.count
+        Propuestas
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span
+        Premio
+        = @challenge.prize
+
+    .col-xs-12.col-sm-3
+      %span.glyphicon.glyphicon-user{ "aria-hidden"=> "true" }
+      %span
+        = Phases.days_left_for_current_phase(@challenge)
+        días para concluir etapa de ideas
+
+-# Challenge timeline
+= render 'challenge_timeline'
+
+-# Member actions
+= render 'challenge_actions'
+
+-# Submenu with challenge main info like general, prize, etc.
+= render 'challenge_submenu'
+
+.challenge.comments
+  %h3 Conversación
+  = render 'comments', challenge: @challenge
+
+-# .challenge.newsletter
+  = render 'newsletter', challenge: @challenge

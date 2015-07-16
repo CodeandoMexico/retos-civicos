@@ -70,6 +70,8 @@ module Aquila
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w( dashboard.css judge.css )
+    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+    # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Strip the www to prevent crash with subdomains
     if Rails.env.production? or Rails.env.staging?
