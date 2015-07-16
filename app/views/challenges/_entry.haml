@@ -1,0 +1,20 @@
+.entry.widget.col-sm-12.col-md-6
+  .row
+    .col-sm-3.image
+      = image_tag entry.image_url
+    .col-sm-9.content
+      %h5= truncate(entry.name, length: 30)
+      %p= truncate(entry.member.to_s, length: 60)
+      .resources
+        = link_to 'Repo', entry.repo_url
+        %span &nbsp; | &nbsp;
+        = link_to 'Demo', entry.demo_url
+
+-# .media
+  = link_to challenge_entry_path(@challenge, entry), class: 'pull-left' do
+    = image_tag entry.image.small.url, class: 'media-object', width: 80
+  .media-body
+    %h4.media-heading
+      = link_to entry.name, challenge_entry_path(@challenge, entry)
+    %p= truncate entry.description, length: 200
+    = link_to t('.idea'), entry.idea_url if entry.idea_url

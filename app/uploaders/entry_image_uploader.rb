@@ -8,7 +8,7 @@ class EntryImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path('retos_challenge_avatar.png')
+    ActionController::Base.helpers.asset_path('entry_placeholder.png')
   end
 
   def extension_white_list

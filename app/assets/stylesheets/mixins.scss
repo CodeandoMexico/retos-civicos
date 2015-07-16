@@ -1,6 +1,7 @@
-@mixin heading($size, $color) {
+@mixin heading($size, $color, $margin-bottom: 10px) {
   font-family: 'LeagueSpartan-Bold';
   color: $color;
   font-size: $size;
   font-size: bold;
+  margin-bottom: $margin-bottom;
 }
