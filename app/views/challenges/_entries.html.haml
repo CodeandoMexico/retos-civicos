@@ -1,0 +1,6 @@
+- if entries.empty?
+  %p= t(".non-entries")
+- else
+  .row
+    - entries.each do |entry|
+      = render 'entry', entry: entry

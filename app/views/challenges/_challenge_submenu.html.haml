@@ -9,6 +9,8 @@
       Premios
     %a#challenge__prize_tab.btn.btn-default{'href' => "#challenge__collaborators", 'data-toggle' => 'tab' }
       Participantes
+    %a#challenge__prize_tab.btn.btn-default{'href' => "#challenge__entries", 'data-toggle' => 'tab' }
+      Propuestas
 
     -# %a#challenge__news_tab.btn.btn-default{'href' => "#challenge__news", 'data-toggle' => 'tab' }
       %div{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'title' => "Noticias" }
@@ -50,6 +52,10 @@
   .tab-pane.fade.in{ id: "challenge__collaborators" }
     .challenge.collaborators
       = render 'collaborators', collaborators: @challenge.collaborators
+  .tab-pane.fade.in{ id: "challenge__entries" }
+    .challenge.entries
+      = render 'entries', entries: @challenge.entries, challenge: @challenge
+
   -# .tab-pane.fade.in{ id: "challenge__news" }
   -#   .challenge.news
       -# insert news content here
