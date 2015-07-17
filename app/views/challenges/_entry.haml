@@ -1,15 +1,18 @@
 .entry.widget.col-sm-12.col-md-6
   .row
     .col-sm-3.image
-      = image_tag entry.image_url
+      = image_tag entry.image_url, class: 'thumb'
     .col-sm-9.content
       %h5= truncate(entry.name, length: 30)
       %p= truncate(entry.member.to_s, length: 60)
-      .resources
-        = link_to 'Repo', entry.repo_url
-        %span &nbsp; | &nbsp;
-        = link_to 'Demo', entry.demo_url
+      - if entry.repo_url && entry.demo_url
+        .resources
+          = image_tag 'icons/github.png', class: 'github'
+          = link_to 'Repo', entry.repo_url
+          %span &nbsp; | &nbsp;
 
+          = image_tag 'icons/demo.png', class: 'demo'
+          = link_to 'Demo', entry.demo_url
 -# .media
   = link_to challenge_entry_path(@challenge, entry), class: 'pull-left' do
     = image_tag entry.image.small.url, class: 'media-object', width: 80

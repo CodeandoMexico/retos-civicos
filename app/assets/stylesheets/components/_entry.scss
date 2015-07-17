@@ -6,7 +6,7 @@
   &.widget {
     margin-bottom: 30px;
 
-    img {
+    img.thumb {
       width: 140px;
       height: 85px;
       border-radius: $border-radius-image-default;
@@ -19,6 +19,16 @@
       .resources {
         a { color: $light_green; }
         span { color: $light_grey; }
+        .github {
+          width: 30px;
+          height: 25px;
+        }
+
+        .demo {
+          width: 20px;
+          height: 20px;
+          margin: 3px;
+        }
       }
     }
 
