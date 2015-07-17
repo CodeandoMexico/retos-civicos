@@ -1,0 +1,19 @@
+.entry.detail.row
+  .col-sm-12.info
+    = render 'shared/entry', challenge: @challenge, entry: @entry
+
+  -# .col-sm-12.team
+    Not available yet
+
+  .col-sm-12.description
+    %h5 Descripción
+    %p= @entry.description
+
+  .col-sm-12.technologies
+    %h5 Tecnologías
+    %p= @entry.technologies.to_s
+
+  -# .col-sm-12.share
+    Not available yet
+
+  .col-sm-12.related_entries

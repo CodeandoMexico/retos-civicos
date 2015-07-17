@@ -14,7 +14,9 @@
 
     .content {
       padding-left: 25px;
-      h5 { @include heading(18px, $dark_blue, 5px); }
+      a.title {
+        @include heading(18px, $dark_blue, 5px);
+      }
 
       .resources {
         a { color: $light_green; }
@@ -33,4 +35,13 @@
     }
 
   }
+}
+
+.entry.detail {
+  h5 { @include heading(18px, $dark_blue, 15px); }
+  p {}
+  .info {}
+  .description {}
+  .technologies {}
+  .related_entries {}
 }
