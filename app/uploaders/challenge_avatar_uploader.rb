@@ -11,15 +11,15 @@ class ChallengeAvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [355, 180]
   end
 
+  def default_url
+    ActionController::Base.helpers.asset_path('challenge_placeholder.png')
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
 
   def store_dir
     "uploads/project_avatar/#{model.id}"
-  end
-
-  def default_url
-    "/assets/retos_challenge_avatar.png"
   end
 end
