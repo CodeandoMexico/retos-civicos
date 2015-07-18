@@ -1,6 +1,5 @@
 .entry.detail.row
-  .col-sm-12.info
-    = render 'shared/entry', challenge: @challenge, entry: @entry
+  = render 'shared/entry', challenge: @challenge, entry: @entry
 
   -# .col-sm-12.team
     Not available yet
@@ -11,9 +10,14 @@
 
   .col-sm-12.technologies
     %h5 Tecnologías
-    %p= @entry.technologies.to_s
+    %p= @entry.technologies.to_sentence
 
   -# .col-sm-12.share
     Not available yet
 
+  .col-sm-12
+    %hr
   .col-sm-12.related_entries
+    %h5.text-center Ve otras propuestas de este reto
+    - @challenge.entries.limit(3).order("RANDOM()").each do |entry|
+      = render 'shared/entry_minimal', entry: entry
