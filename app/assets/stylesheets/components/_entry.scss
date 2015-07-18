@@ -2,9 +2,17 @@
 @import "defaults/colors";
 @import "defaults/variables";
 
+a.title {
+  @include heading(18px, $dark_blue, 5px);
+}
+
 .entry {
   &.widget {
     margin-bottom: 30px;
+
+    &.minimal {
+      img.
+    }
 
     img.thumb {
       width: 140px;
@@ -15,11 +23,10 @@
     .content {
       padding-left: 25px;
       a.title {
-        @include heading(18px, $dark_blue, 5px);
+        @extend .heading_link;
       }
 
       .resources {
-        a { color: $light_green; }
         span { color: $light_grey; }
         .github {
           width: 30px;
