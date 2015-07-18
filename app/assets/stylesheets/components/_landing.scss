@@ -17,6 +17,7 @@ $landing_default_color: #FFFFFF;
   background-size: cover;
   color: $landing_default_color;
   margin-bottom: 70px;
+  margin-top: -$main_top_and_bottom_margin;
 
   .content {
     margin-left: auto;

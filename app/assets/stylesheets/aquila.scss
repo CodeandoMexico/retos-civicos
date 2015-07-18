@@ -26,3 +26,8 @@
 
 // Utilities
 @import "defaults/utilities";
+
+#main {
+  margin-top: $main_top_and_bottom_margin;
+  margin-bottom: $main_top_and_bottom_margin;
+}
