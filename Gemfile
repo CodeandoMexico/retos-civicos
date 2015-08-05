@@ -83,6 +83,7 @@ gem 'onebox', '~> 1.2'
 gem 'validate_url'
 gem 'rack-utf8_sanitizer'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'angularjs-rails'
 
 # Console tools
 gem 'ruby-progressbar'

@@ -1,0 +1,29 @@
+.start_a_challenge {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  h1 { @include heading(32px, #65286D, 70px) };
+  h1 {
+    text-align: center;
+  }
+
+  li {
+    color: $default_text_color;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: $light_grey;
+  }
+
+  .mobile__img{
+    display: inline-block;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+  }
+}

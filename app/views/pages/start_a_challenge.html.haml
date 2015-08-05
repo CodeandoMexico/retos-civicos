@@ -1,0 +1,32 @@
+.start_a_challenge{ 'ng-controller' => 'NewChallengeCtrl as newChallenge'}
+  %h1 Conoce cómo abrir tu causa a la comunidad
+
+  .row
+    .col-xs-12.col-md-6
+      %ol
+        %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+          %span Define tu problemática
+        %li{'ng-click' => "newChallenge.image = '/assets/movil-1.png'"}
+          %span Pide retroalimentación
+        %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+          %span Especifíca los fondos disponibles
+        %ol{type: "a"}
+          %li{'ng-click' => "newChallenge.image = '/assets/movil-1.png'"}
+            %span Inicia una campaña de fondeo colectivo
+          %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+            %span Indica si ya tienes un sponsor del proyecto
+        %li{'ng-click' => "newChallenge.image = '/assets/movil-1.png'"}
+          %span Abre el reto a la comunidad tecnológica
+        %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+          %span Conoce las ideas y propuestas de la comunidad
+        %li{'ng-click' => "newChallenge.image = '/assets/movil-1.png'"}
+          %span Selecciona la mejor propuesta
+        %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+          %span Trabaja con tus socios geeks para implementarla
+        %li{'ng-click' => "newChallenge.image = '/assets/movil-1.png'"}
+          %span Actualiza a tus donantes
+        %li{'ng-click' => "newChallenge.image = '/assets/challenge_placeholder.png'"}
+          %span Tecnología cívica lista para el mundo
+    .col-xs-12.col-md-6
+      %img.mobile__img{ 'ng-src' => "{{newChallenge.image || '/assets/movil-1.png'}}"}
+      -# = image_tag 'movil-1.png', class: 'mobile__img'

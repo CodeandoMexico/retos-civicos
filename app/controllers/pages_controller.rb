@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     redirect_to url_for(route)
   end
 
+  def start_a_challenge
+    render layout: 'aquila'
+  end
+
   def about
     render layout: 'aquila'
   end
