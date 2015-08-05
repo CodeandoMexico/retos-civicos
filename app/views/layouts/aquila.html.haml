@@ -11,7 +11,7 @@
     = csrf_meta_tags
     %link{ href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
     = render 'google_analytics'
-  %body
+  %body{ 'ng-app' => 'aquila'}
     #header
       = render 'shared/header'
     #main

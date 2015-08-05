@@ -24,6 +24,8 @@
 #= require bootstrap/collapse
 #= require bootstrap/alert
 #= require bootstrap/popover
+#= require angular
+#= require angular-animate
 #= require_tree .
 #= require_self
 
