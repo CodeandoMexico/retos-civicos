@@ -1,3 +1,7 @@
+.active {
+  background-color: $light_grey;
+}
+
 .start_a_challenge {
   margin-top: 70px;
   margin-bottom: 70px;
@@ -7,16 +11,22 @@
   }
 
   li {
+    font-weight: 600;
     color: $default_text_color;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 16px;
     margin-bottom: 15px;
     cursor: pointer;
+
   }
 
   li:hover {
-    background-color: $light_grey;
+    @extend .active;
+  }
+
+  .step_description {
+    color: #65286D;
   }
 
   .mobile__img{
