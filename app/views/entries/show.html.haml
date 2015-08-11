@@ -15,9 +15,13 @@
   -# .col-sm-12.share
     Not available yet
 
-  .col-sm-12
-    %hr
-  .col-sm-12.related_entries
-    %h5.text-center Ve otras propuestas de este reto
-    - @challenge.entries.limit(3).order("RANDOM()").each do |entry|
-      = render 'shared/entry_minimal', entry: entry
+  - if @challenge.entries.where(public: true).count > 1
+    .col-sm-12
+      %hr
+    .col-sm-12.related_entries
+      %h5.text-center Ve otras propuestas de este reto
+      .row
+        - @challenge.entries.where(@challenge.entries.arel_table[:id].not_eq(@entry.id)).limit(3).order("RANDOM()").each do |entry|
+          -# filter out the current entry
+          -# - if
+          = render 'shared/entry_minimal', entry: entry
