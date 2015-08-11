@@ -1,0 +1,27 @@
+.entry.detail.row
+  = render 'shared/entry', challenge: @challenge, entry: @entry
+
+  -# .col-sm-12.team
+    Not available yet
+
+  .col-sm-12.description
+    %h5 Descripción
+    %p= @entry.description
+
+  .col-sm-12.technologies
+    %h5 Tecnologías
+    %p= @entry.technologies.to_sentence
+
+  -# .col-sm-12.share
+    Not available yet
+
+  - if @challenge.entries.where(public: true).count > 1
+    .col-sm-12
+      %hr
+    .col-sm-12.related_entries
+      %h5.text-center Ve otras propuestas de este reto
+      .row
+        - @challenge.entries.where(@challenge.entries.arel_table[:id].not_eq(@entry.id)).limit(3).order("RANDOM()").each do |entry|
+          -# filter out the current entry
+          -# - if
+          = render 'shared/entry_minimal', entry: entry

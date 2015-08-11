@@ -3,4 +3,4 @@
 - else
   .row
     - entries.each do |entry|
-      = render 'entry', entry: entry
+      = render 'shared/entry', challenge: @challenge, entry: entry

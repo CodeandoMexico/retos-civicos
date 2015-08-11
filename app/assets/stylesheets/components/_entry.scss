@@ -2,9 +2,18 @@
 @import "defaults/colors";
 @import "defaults/variables";
 
+a.title {
+  @include heading(18px, $dark_blue, 5px);
+}
+
 .entry {
   &.widget {
     margin-bottom: 30px;
+
+    &.minimal {
+      text-align: center;
+      img.thumb { margin-bottom: 15px;}
+    }
 
     img.thumb {
       width: 140px;
@@ -14,10 +23,11 @@
 
     .content {
       padding-left: 25px;
-      h5 { @include heading(18px, $dark_blue, 5px); }
+      a.title {
+        @extend .heading_link;
+      }
 
       .resources {
-        a { color: $light_green; }
         span { color: $light_grey; }
         .github {
           width: 30px;
@@ -33,4 +43,13 @@
     }
 
   }
+}
+
+.entry.detail {
+  h5 { @include heading(18px, $dark_blue, 15px); }
+  p {}
+  .info {}
+  .description {}
+  .technologies {}
+  .related_entries {}
 }
