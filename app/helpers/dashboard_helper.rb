@@ -36,4 +36,11 @@ module DashboardHelper
       path: dashboard_report_cards_path
     }]
   end
+
+  def admin_links
+    [
+      { name: 'Perfil', path: edit_organization_path(organization) },
+      { name: 'Cerrar sesión', path: destroy_user_session_path, method: :delete }
+    ]
+  end
 end
