@@ -1,7 +1,7 @@
 module Panel
   class EntriesController < ApplicationController
-    layout 'dashboard'
-    
+    layout 'panel'
+
     def index
     end
   end
