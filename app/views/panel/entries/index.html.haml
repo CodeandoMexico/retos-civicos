@@ -1,11 +1,6 @@
 .deck
-  <!-- Active Challenges -->
-  -# %h3 Retos Activos
-
-  <!-- Latest entries -->
-
-  - if @member.entries.any?
-    %h3= t('.latest-entries')
+  - if @entries.any?
+    %h3= t('.entries')
 
     .table--card
       %ul
@@ -18,12 +13,16 @@
           %li.table--row
             .row--30
               = entry.owner_name
-              = render 'entry_status', entry: entry
+              = render 'shared/entries/entry_status', entry: entry
             .row--30= entry.name
             .row--30
               = t('.sent-date')
               = l(entry.created_at, format: :short)
             .row--10
-              = link_to icon('eye'), dashboard_entry_path(entry), id: "entry__#{entry.id}",  title: 'Ver propuestas'
+              - if Phases.is_current?(:ideas, entry.challenge)
+                = link_to icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
+              - else Phases.is_current?(:prototypes, entry.challenge)
+                = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge), title: 'Editar prototipo'
+
   - else
     = render 'shared/empty_resource', message: t('.no-proposals')

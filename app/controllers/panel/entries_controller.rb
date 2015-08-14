@@ -4,7 +4,7 @@ module Panel
     layout 'panel'
 
     def index
-      @member = current_user.userable # for short typing in the view
+      @entries = current_user.userable.entries.map! { |e| EntryDecorator.new(e) }
     end
   end
 end

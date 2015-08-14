@@ -11,6 +11,7 @@ module MemberHelper
 
   def member_user_links
     [
+      { name: 'Retos', path: challenges_path },
       { name: 'Perfil', path: edit_member_path(current_user.userable) },
       { name: 'Cerrar sesión', path: destroy_user_session_path, method: :delete }
     ]
