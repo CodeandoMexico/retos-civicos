@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     store_location(self.request.env["HTTP_REFERER"])
-    redirect_to signup_path, :alert => t('flash.unauthorized.message')
+    return record_not_found
+    # temporal modification, if there aren't any issues delete this next line
+    # redirect_to signup_path, :alert => t('flash.unauthorized.message')
   end
 
   def set_locale

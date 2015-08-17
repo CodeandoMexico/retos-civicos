@@ -89,6 +89,12 @@ class Ability
       can [:create_or_reply_challenge_comment], Challenge
 
       #Entry access
+      can :read, Entry do |entry|
+        # allow read if the user created the entry
+        # or the entry is public
+        user.userable.id == entry.member.id || entry.public?
+      end
+
       can [:create], Entry
       can [:update], Entry do |entry|
         user.userable.id == entry.member.id
