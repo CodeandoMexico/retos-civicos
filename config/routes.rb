@@ -73,6 +73,10 @@ Aquila::Application.routes.draw do
 
   resources :members, only: [:update, :edit]
 
+  namespace :panel do
+    resources :entries, only: [:index, :show, :edit, :update]
+  end
+
   resources :authentications
 
   resources :challenges, only: [:index, :show] do

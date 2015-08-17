@@ -61,7 +61,7 @@
           <li class="table--row">
             <div class="row--30">
               <%= entry.owner_name %>
-              <%= render 'entry_status', entry: entry %>
+              <%= render 'shared/entries/entry_status', entry: entry %>
             </div>
             <div class="row--30"><%= entry.name %></div>
             <div class="row--30"><%= t('.sent-date') %> <%= l(entry.created_at, format: :short)%></div>

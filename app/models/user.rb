@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     not self.userable_type.blank?
   end
 
+  def member?
+    userable_type == "Member"
+  end
+
   def organization?
     userable_type == "Organization"
   end

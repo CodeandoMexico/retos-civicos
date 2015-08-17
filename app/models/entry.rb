@@ -19,6 +19,10 @@ class Entry < ActiveRecord::Base
   after_update :limit_3_winner_entries
   after_create :initialize_report_cards
 
+  def editable?
+    member.is_able_to_edit_entry?(self.challenge) || member.is_able_to_submit_a_prototype?(self.challenge)
+  end
+
   def self.public
     where public: true
   end
