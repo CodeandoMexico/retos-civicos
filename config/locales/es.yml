@@ -326,6 +326,7 @@ es:
         entry_name: Nombre
         submitted_date: Fecha de entrega
         actions: Acciones
+        final_score: Calificación
       show:
         accept-proposal: Aceptar propuesta
         move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
