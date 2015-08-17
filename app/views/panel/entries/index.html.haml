@@ -19,9 +19,9 @@
               = t('dashboard.entries.index.sent-date')
               = l(entry.created_at, format: :short)
             .row--10
-              - if Phases.is_current?(:ideas, entry.challenge)
+              - if current_member.is_able_to_edit_entry?(entry.challenge)
                 = link_to icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
-              - else Phases.is_current?(:prototypes, entry.challenge)
+              - elsif current_member.is_able_to_submit_a_prototype?(entry.challenge)
                 = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
 
   - else
