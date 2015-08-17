@@ -8,4 +8,8 @@ class EntryDecorator < BaseDecorator
       member.email
     end
   end
+
+  def score
+    self.challenge.finished_evaluating? ? self.final_score : I18n.t('entries.not_available')
+  end
 end

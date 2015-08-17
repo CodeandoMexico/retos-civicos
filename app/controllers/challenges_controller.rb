@@ -31,7 +31,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    render file: 'public/404.html', status: :not_found, layout: false
+    return record_not_found
   end
 
   def cancel
