@@ -20,10 +20,13 @@
     margin-bottom: 15px;
     cursor: pointer;
 
-  }
+    &:hover {
+      @extend .active_step;
+    }
 
-  li:hover {
-    @extend .active_step;
+    &.active {
+      @extend .active_step;
+    }
   }
 
   .step_description {

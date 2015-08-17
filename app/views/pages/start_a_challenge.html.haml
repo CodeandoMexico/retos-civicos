@@ -4,28 +4,28 @@
   .row
     .col-xs-12.col-md-6
       %ol
-        %li{'ng-click' => "newChallenge.changeCurrentStep(0)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 0}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(0)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 0 }" }
           %span Define tu problemática
-        %li{'ng-click' => "newChallenge.changeCurrentStep(1)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 1}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(1)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 1 }" }
           %span Pide retroalimentación
-        %li{'ng-click' => "newChallenge.changeCurrentStep(2)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 2}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(2)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 2 }" }
           %span Especifíca los fondos disponibles
         %ol{type: "a"}
-          %li{'ng-click' => "newChallenge.changeCurrentStep(3)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 3}" }
+          %li{'ng-click' => "newChallenge.changeCurrentStep(3)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 3 }" }
             %span Inicia una campaña de fondeo colectivo
-          %li{'ng-click' => "newChallenge.changeCurrentStep(4)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 4}" }
+          %li{'ng-click' => "newChallenge.changeCurrentStep(4)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 4 }" }
             %span Indica si ya tienes un sponsor del proyecto
-        %li{'ng-click' => "newChallenge.changeCurrentStep(5)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 5}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(5)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 5 }" }
           %span Abre el reto a la comunidad tecnológica
-        %li{'ng-click' => "newChallenge.changeCurrentStep(6)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 6}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(6)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 6 }" }
           %span Conoce las ideas y propuestas de la comunidad
-        %li{'ng-click' => "newChallenge.changeCurrentStep(7)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 7}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(7)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 7 }" }
           %span Selecciona la mejor propuesta
-        %li{'ng-click' => "newChallenge.changeCurrentStep(8)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 8}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(8)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 8 }" }
           %span Trabaja con tus socios geeks para implementarla
-        %li{'ng-click' => "newChallenge.changeCurrentStep(9)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 9}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(9)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 9 }" }
           %span Actualiza a tus donantes
-        %li{'ng-click' => "newChallenge.changeCurrentStep(10)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 10}" }
+        %li{'ng-click' => "newChallenge.changeCurrentStep(10)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 10 }" }
           %span Tecnología cívica lista para el mundo
     .col-xs-12.col-md-6
       %p.step_description {{ newChallenge.currentStep.description }}
