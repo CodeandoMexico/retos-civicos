@@ -22,7 +22,7 @@
               - if Phases.is_current?(:ideas, entry.challenge)
                 = link_to icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
               - else Phases.is_current?(:prototypes, entry.challenge)
-                = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge), title: 'Editar prototipo'
+                = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
 
   - else
     = render 'shared/empty_resource', message: t('.no-proposals')
