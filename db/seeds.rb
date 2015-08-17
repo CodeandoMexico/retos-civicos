@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if Rails.env.development?
+if !Rails.env.production? && !Rails.env.test?
   # organizations
   org1 = Organization.create(slug: 'super-cool')
   org2 = Organization.create(slug: 'association-x')

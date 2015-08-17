@@ -1,6 +1,6 @@
 .deck
   - if @entries.any?
-    %h3= t('.entries')
+    %h3= t('dashboard.entries.index.entries-title')
 
     .table--card
       %ul
@@ -16,7 +16,7 @@
               = render 'shared/entries/entry_status', entry: entry
             .row--30= entry.name
             .row--30
-              = t('.sent-date')
+              = t('dashboard.entries.index.sent-date')
               = l(entry.created_at, format: :short)
             .row--10
               - if Phases.is_current?(:ideas, entry.challenge)
@@ -25,4 +25,4 @@
                 = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
 
   - else
-    = render 'shared/empty_resource', message: t('.no-proposals')
+    = render 'shared/empty_resource', message: t('dashboard.entries.index.no-proposals')
