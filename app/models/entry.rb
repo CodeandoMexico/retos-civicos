@@ -19,6 +19,11 @@ class Entry < ActiveRecord::Base
   after_update :limit_3_winner_entries
   after_create :initialize_report_cards
 
+  def comments
+    # Fetch each report card comments and validate they don not have blank strings
+    self.report_cards.where("comments IS NOT NULL").map { |r| r.comments }.select { |c| c.present? }
+  end
+
   def editable?
     member.is_able_to_edit_entry?(self.challenge) || member.is_able_to_submit_a_prototype?(self.challenge)
   end
