@@ -546,6 +546,9 @@ es:
       nickname: nickname
       created_at: fecha de registro
   entries:
+    defaults:
+      comments: Comentarios
+      feedback: Retroalimentación
     form:
       name: Nombre del proyecto
       company_name: Nombre de la empresa

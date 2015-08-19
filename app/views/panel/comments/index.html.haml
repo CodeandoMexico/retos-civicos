@@ -1,5 +1,13 @@
-%h3 Comentarios y retoralimentación
-- @entry.comments.each do |comment|
-  .panel.panel-default
-    .panel-body
-      %span.lead= comment
+- if @entry.comments.any?
+  %h3= t('entries.defaults.comments')
+  - @entry.comments.each_with_index do |comment, idx|
+    .panel.panel-default
+      .panel-body
+        %span.lead= comment
+
+- if @entry.feedback.any?
+  %h3= t('entries.defaults.feedback')
+  - @entry.feedback.each_with_index do |feedback, idx|
+    .panel.panel-default
+      .panel-body
+        %span.lead= feedback
