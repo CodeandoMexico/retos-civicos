@@ -5,17 +5,15 @@
     .table--card
       %ul
         %li.table--header
-          = content_tag :div, t('dashboard.entries.index.legal_representative'), class: 'header--30'
+          = content_tag :div, t('dashboard.entries.index.challenge_name'), class: 'header--30'
           = content_tag :div, t('dashboard.entries.index.entry_name'), class: 'header--30'
           = content_tag :div, t('dashboard.entries.index.submitted_date'), class: 'header--20'
           = content_tag :div, t('dashboard.entries.index.final_score'), class: 'header--10'
           = content_tag :div, t('dashboard.entries.index.actions'), class: 'header--10'
         - @entries.each do |entry|
           %li.table--row
-            .row--30
-              = entry.owner_name
-              = render 'shared/entries/entry_status', entry: entry
-            .row--30= entry.name
+            .row--30= truncate(entry.challenge.title)
+            .row--30= truncate(entry.name)
             .row--20
               = l(entry.created_at, format: :short)
             .row--10
@@ -26,6 +24,9 @@
                 = link_to icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
               - elsif current_member.is_able_to_submit_a_prototype?(entry.challenge)
                 = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
+
+              - if entry.comments.any? && entry.feedback.any?
+                = link_to icon('comment-o'), panel_entry_comments_path(entry), title: 'Comentarios por evaluadores'
 
   - else
     = render 'shared/empty_resource', message: t('dashboard.entries.index.no-proposals')
