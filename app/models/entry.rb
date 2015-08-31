@@ -29,6 +29,10 @@ class Entry < ActiveRecord::Base
     self.report_cards.where("feedback IS NOT NULL").where("feedback != ''").map { |r| r.feedback }
   end
 
+  def evaluated?
+    self.report_cards.map { |r| r.criteria_and_grades_are_valid? }.all?
+  end
+
   def editable?
     member.is_able_to_edit_entry?(self.challenge) || member.is_able_to_submit_a_prototype?(self.challenge)
   end
