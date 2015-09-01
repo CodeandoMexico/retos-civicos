@@ -10,7 +10,7 @@
           %dd= @timeline.start.date
     .phases-bar-phase
       .phases-bar-completeness{ "data-size"=> "#{@timeline.ideas.completeness}" }
-      %p= @timeline.ideas.title
+      %p.dark= @timeline.ideas.title
       .phases-arrow.phases-arrow-end
         .phases-arrow-dot
         .phases-arrow-line
@@ -20,7 +20,7 @@
           %dd= @timeline.ideas.due_date
     .phases-bar-phase
       .phases-bar-completeness{ "data-size"=>"#{@timeline.ideas_selection.completeness}" }
-      %p= @timeline.ideas_selection.title
+      %p.dark= @timeline.ideas_selection.title
     .phases-bar-milestone
       .phases-arrow
         .phases-arrow-dot
@@ -31,7 +31,7 @@
           %dd= @timeline.ideas_selection.due_date
     .phases-bar-phase
       .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes.completeness}" }
-      %p= @timeline.prototypes.title
+      %p.dark= @timeline.prototypes.title
       .phases-arrow.phases-arrow-end
         .phases-arrow-dot
         .phases-arrow-line
@@ -41,7 +41,7 @@
           %dd= @timeline.prototypes.due_date
     .phases-bar-phase
       .phases-bar-completeness{ "data-size"=> "#{@timeline.prototypes_selection.completeness}" }
-      %p= @timeline.prototypes_selection.title
+      %p.dark= @timeline.prototypes_selection.title
     .phases-bar-milestone
       .phases-arrow
         .phases-arrow-dot
