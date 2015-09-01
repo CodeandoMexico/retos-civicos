@@ -26,6 +26,7 @@ gem 'gravatar-ultimate'
 gem 'rails-translate-routes'
 gem 'ckan', github: 'CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
+gem "font-awesome-rails"
 
 group :test do
   gem 'shoulda-matchers'
