@@ -8,7 +8,7 @@ class EntryImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path('entry_placeholder.png')
+    ActionController::Base.helpers.asset_path('ph-entry.png')
   end
 
   def extension_white_list

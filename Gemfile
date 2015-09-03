@@ -38,6 +38,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rack-mini-profiler'
+  gem 'bullet'
 end
 
 group :assets do
