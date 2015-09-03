@@ -5,13 +5,13 @@ class ChallengesController < ApplicationController
   before_filter :save_previous, only: [:like]
 
   def index
-    @challenges = Challenge.active.recent.page(params[:page])
+    @challenges = Challenge.active.recent.page(params[:page]).includes(:organization)
     @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
 
   def show
-    @challenge = Challenge.find(params[:id], include: [:comment_threads, { collaborators: { user: :authentications } }])
+    @challenge = Challenge.find(params[:id])
 
     if @challenge.is_public? || User.is_admin_of_challenge(@challenge, current_organization)
       @organization = @challenge.organization
