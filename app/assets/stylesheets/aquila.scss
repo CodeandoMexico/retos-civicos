@@ -1,7 +1,7 @@
 /*
  *= require font-awesome
  */
- 
+
 @import "chosen";
 @import "bootstrap";
 
@@ -35,4 +35,5 @@
 #main {
   margin-top: $main_top_and_bottom_margin;
   margin-bottom: $main_top_and_bottom_margin;
+  min-height: 430px;
 }
