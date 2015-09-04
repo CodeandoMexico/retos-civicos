@@ -3,8 +3,8 @@ $navbar_background_color: $light_grey;
 $navbar_default_links_color: $dark_blue;
 
 // Paddings
-$navbar_padding_top: 25px;
-$navbar_padding_bottom: 25px;
+$navbar_padding_top: 15px;
+$navbar_padding_bottom: 15px;
 
 // Margins
 $navbar_margin_bottom: 0;
@@ -25,6 +25,8 @@ nav {
 #navbar > ul > li > a {
   background-color: none;
   color: $navbar_default_links_color;
+  font-size: 16px;
+  &:hover { background-color: $light_grey; }
 }
 
 ul.dropdown-menu > li{
