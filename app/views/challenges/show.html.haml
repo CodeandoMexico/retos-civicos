@@ -11,14 +11,14 @@
     -# Patrocinado por: Banco Mundial
 
   .row
-    .col-xs-12.col-sm-2
-      = render 'tidbits', format: :inverse, label: 'Participantes', content: @challenge.collaborators.count, icon: 'fa fa-user'
-    .col-xs-12.col-sm-2
-      = render 'tidbits', format: :inverse, label: 'Propuestas', content: @challenge.entries.count, icon: 'fa fa-envelope'
-    .col-xs-12.col-sm-4
-      = render 'tidbits', format: nil, label: 'Premio', content: @challenge.prize, icon: 'fa fa-trophy'
-    .col-xs-12.col-sm-4
-      = render 'tidbits', format: :inverse, label: 'días para concluir etapa de ideas', content: Phases.days_left_for_current_phase(@challenge), icon: 'fa fa-calendar'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: @challenge.collaborators.count, icon: 'fa fa-user'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: :inverse, label: 'Propuestas', content: @challenge.entries.count, icon: 'fa fa-envelope'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: nil, label: 'Premio', content: @challenge.prize, icon: 'fa fa-trophy'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(@challenge), icon: 'fa fa-calendar'
 
 -# Challenge timeline
 = render 'challenge_timeline'

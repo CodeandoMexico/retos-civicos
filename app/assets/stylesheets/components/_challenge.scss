@@ -54,6 +54,7 @@
 }
 
 // widget styles
+$challenge__medium_widget_height: 190px;
 .challenge {
   &.widget{
     &.medium {
@@ -73,7 +74,7 @@
       }
 
       .photo {
-        height: 190px;
+        height: $challenge__medium_widget_height;
         overflow: hidden;
         position: relative;
         background-size: cover;
@@ -97,6 +98,15 @@
           }
         }
       }
+    }
+
+    .content {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .tidbit {
+      margin-right: 20px;
     }
   }
 }

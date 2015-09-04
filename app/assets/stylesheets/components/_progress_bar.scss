@@ -1,5 +1,9 @@
 .timeline {
   .progress {
+    display:inline-block;
+    margin:0;
+    width:150px;
+    border-radius:10px;
     vertical-align: middle;
     .progress-bar { background-color: $light_green; }
   }
