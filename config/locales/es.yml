@@ -154,8 +154,8 @@ es:
       government: Gobierno
       hackers: Hackers
     about:
-      title: Acerca de Retos Públicos
-      info: Retos Públicos es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
+      title: Acerca de Codeando México
+      # info: Codeando México es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
       download: DESCARGAR DOCUMENTO
   layout:
     header: Codeando México

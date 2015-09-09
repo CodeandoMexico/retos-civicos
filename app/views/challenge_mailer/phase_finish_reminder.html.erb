@@ -10,11 +10,11 @@ Breve recordatorio:<br/>
 
 <p>
 Dudas: escríbenos en la sección de comentarios del <%= link_to "reto", challenge_url(@body[:challenge_id]) %>.<br/>
-Correo: <%= mail_to "info@retos.gob.mx" %>.
+Correo: <%= mail_to ENV['CONTACT_US'] %>.
 </p>
 
 <p>
-<strong>Retos Públicos</strong><br/>
+<strong><%= ENV['OWNER_NAME'] %></strong><br/>
 <%= link_to root_url, root_url %>
 </p>
 
