@@ -9,7 +9,7 @@ h3 { @include heading(22px, $dark_blue); }
 h5 { @include heading(18px, $medium_grey); }
 
 /* Paragraph, spans and links */
-p, span, a, label {
+p, span, a, label, li {
   font-family: 'Muli-Light';
   color: $default_text_color;
 }

@@ -28,5 +28,5 @@
         %li{'ng-click' => "newChallenge.changeCurrentStep(10)", 'ng-class' => "{ 'active': newChallenge.currentStep.id == 10 }" }
           %span Tecnología cívica lista para el mundo
     .col-xs-12.col-md-6
-      %p.step_description {{ newChallenge.currentStep.description }}
+      -# %p.step_description {{ newChallenge.currentStep.description }}
       %img.mobile__img{ 'ng-src' => "{{newChallenge.currentStep.image || '/assets/movil-1.png'}}"}

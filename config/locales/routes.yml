@@ -22,7 +22,7 @@ es:
   routes:
     projects: proyectos
     terms_of_service: terminos
-    privacy: privacidad
+    privacy: aviso-de-privacidad
     challenges: retos
     comments: comentarios
     new: nuevo
