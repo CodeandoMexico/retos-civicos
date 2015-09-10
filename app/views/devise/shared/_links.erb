@@ -1,3 +1,8 @@
+<p>
+  <%= link_to 'Aviso de privacidad', privacy_path, target: '_blank' %>
+</p>
+
+
 <%- if controller_name != 'sessions' %>
   <%= link_to "Ya tengo cuenta con email! Iniciar sesión", new_session_path(resource_name) %><br />
 <% end -%>
