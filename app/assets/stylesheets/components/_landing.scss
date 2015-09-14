@@ -23,8 +23,12 @@ $landing_default_color: #FFFFFF;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 970px;
+    width: 100%;
     padding-top: 100px;
+
+    .title {
+      img { max-width: 360px; }
+    }
 
     .actions {
       margin-top: 30px;
