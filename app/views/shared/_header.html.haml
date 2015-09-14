@@ -1,6 +1,11 @@
 %nav.navbar.navbar-default
   .container
     .navbar-header
+      %button{ type: "button", class: "navbar-toggle collapsed", "data-toggle"=> "collapse", "data-target"=> "#navbar", "aria-expanded"=> "false", "aria-controls"=> "navbar" }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       = link_to root_path do
         = image_tag 'logocmx@2x.png', width: '220px', style: 'padding-top:5px;'
     #navbar.collapse.navbar-collapse
