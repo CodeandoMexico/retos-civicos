@@ -1,4 +1,5 @@
-.challenge.timeline
+-# Timeline for the desktop
+.challenge.timeline.hidden-xs.hidden-sm
   .phases-bar.phases-bar.js-phases-bar
     .phases-bar-milestone
       .phases-arrow
@@ -55,3 +56,25 @@
       .col-xs-12
         .alert.alert-warning
           %p.disclaimer= t('.disclaimer', organization_name: @organization.name)
+
+-# Dates for mobiles
+.mobile-challenge-dates.visible-xs-block.visible-sm-block.text-center
+  %p
+    %strong= @timeline.start.title
+  %p= @timeline.start.date
+
+  %p
+    %strong= @timeline.ideas.due_date_title
+  %p= @timeline.ideas.due_date
+
+  %p
+    %strong= @timeline.ideas_selection.due_date_title
+  %p= @timeline.ideas_selection.due_date
+
+  %p
+    %strong= @timeline.prototypes.due_date_title
+  %p= @timeline.prototypes.due_date
+
+  %p
+    %strong= @timeline.prototypes_selection.due_date_title
+  %p= @timeline.prototypes_selection.due_date
