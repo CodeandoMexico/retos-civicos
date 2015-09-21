@@ -16,3 +16,4 @@
 #challenges__container
   - @challenges.each do |challenge|
     = render 'challenge_widget', challenge: challenge
+  = paginate @challenges
