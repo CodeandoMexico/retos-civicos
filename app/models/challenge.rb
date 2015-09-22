@@ -285,8 +285,8 @@ class Challenge < ActiveRecord::Base
     where("status = 'open' OR status = 'working_on'").count == 1
   end
 
-  def is_public?
-    self.status == 'open' || self.status == 'working_on'
+  def public?
+    self.status == 'open' || self.status == 'working_on' || self.status == 'finished'
   end
 
   private
