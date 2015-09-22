@@ -1,14 +1,17 @@
 task migrate_challenges: :environment do
-  migrate_challenges
+  migrate_challenges(Challenge.where(starts_on: nil))
 end
 
-def migrate_challenges
-  Challenge.update_all({
-    starts_on: c.created_at,
-    ideas_phase_due_on: c.created_at,
-    ideas_selection_phase_due_on: c.created_at,
-    prototypes_phase_due_on: c.created_at,
-    finish_on: c.created_at },
-    starts_on: nil
-  )
+def migrate_challenges(challenges)
+  challenges.each { |challenge| migrate(:challenge, challenge) }
+end
+
+def migrate(resource, challenge)
+  if resource == :challenge
+    challenge.update_column(:starts_on, challenge.created_at)
+    challenge.update_column(:ideas_phase_due_on, challenge.created_at)
+    challenge.update_column(:ideas_selection_phase_due_on, challenge.created_at)
+    challenge.update_column(:prototypes_phase_due_on, challenge.created_at)
+    challenge.update_column(:finish_on, challenge.created_at)
+  end
 end
