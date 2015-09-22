@@ -18,7 +18,8 @@
     .col-xs-12.col-sm-3
       = render 'shared/tidbits', format: nil, label: 'Premio', content: @challenge.prize, icon: 'fa fa-trophy'
     .col-xs-12.col-sm-3
-      = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(@challenge), icon: 'fa fa-calendar'
+      - if Phases.days_left_for_current_phase(@challenge) >= 0
+        = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(@challenge), icon: 'fa fa-calendar'
 
 -# Challenge timeline
 = render 'challenge_timeline'

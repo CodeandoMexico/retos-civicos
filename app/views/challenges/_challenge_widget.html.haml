@@ -17,4 +17,5 @@
       %span.tidbit
         = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: challenge.collaborators.count, icon: 'fa fa-user'
       %span.tidbit
-        = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'
+        - if Phases.days_left_for_current_phase(challenge) >= 0
+          = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'
