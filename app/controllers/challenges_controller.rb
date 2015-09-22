@@ -5,8 +5,9 @@ class ChallengesController < ApplicationController
   before_filter :save_previous, only: [:like]
 
   def index
-    @challenges = Challenge.active.recent.page(params[:page]).includes(:organization)
-    @challenges_group = @challenges.in_groups_of(3, false)
+    @challenges = Challenge.order(:created_at).page(params[:page]).includes(:organization)
+    # @challenges = Challenge.active.recent.page(params[:page]).includes(:organization)
+    # @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
 

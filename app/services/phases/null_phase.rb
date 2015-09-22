@@ -17,7 +17,7 @@ module Phases
     end
 
     def days_left
-      Float::NAN
+      -1
     end
   end
 end
