@@ -1,8 +1,9 @@
-%span
-  %i.primary{ class: "#{icon}" }
-  - if format == :inverse
-    = content
-    %strong= label.capitalize
-  - else
-    %strong= "#{label.capitalize}: "
-    = content.capitalize
+- if label.present? && content.present?
+  %span
+    %i.primary{ class: "#{icon}" }
+    - if format == :inverse
+      = content
+      %strong= label.capitalize
+    - else
+      %strong= "#{label.capitalize}: "
+      = content.capitalize
