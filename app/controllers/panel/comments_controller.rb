@@ -5,6 +5,7 @@ module Panel
     layout 'panel'
 
     def index
+      add_crumb @entry.name, panel_entry_path(@entry)
     end
 
     private
