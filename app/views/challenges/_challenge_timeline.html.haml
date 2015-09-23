@@ -51,11 +51,6 @@
         %dl
           %dt= @timeline.prototypes_selection.due_date_title
           %dd= @timeline.prototypes_selection.due_date
-  - if @challenge.has_finished? && !@challenge.has_a_winner?
-    .row
-      .col-xs-12
-        .alert.alert-warning
-          %p.disclaimer= t('challenges.show.disclaimer', organization_name: @organization.name)
 
 -# Dates for mobiles
 .mobile-challenge-dates.visible-xs-block.visible-sm-block.text-center
