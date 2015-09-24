@@ -48,7 +48,7 @@ class Entry < ActiveRecord::Base
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
      :idea_url, :technologies_separated_by_commas, :member_name,
-     :member_id, :member_company, :member_email, :letter_under_oath_present?, :public?]
+     :member_id, :member_email, :letter_under_oath_present?, :public?]
   end
 
   def final_score
@@ -124,10 +124,6 @@ class Entry < ActiveRecord::Base
 
   def member_id
     member.id
-  end
-
-  def member_company
-    member.company_name
   end
 
   def member_email

@@ -3,8 +3,7 @@ require 'spec_helper'
 feature 'Organization admin watches entry profile' do
   scenario 'that shows the entry deatails' do
     user = create :user, name: 'Juanito'
-    member = create :member, user: user,
-                             company_name: 'Empresa de Juanito'
+    member = create :member, user: user
 
     organization = create :organization
     challenge = create :challenge, title: 'Reto 1', organization: organization
@@ -26,7 +25,6 @@ feature 'Organization admin watches entry profile' do
     page_should_have_entry_with(
       name: 'Propuesta 1',
       challenge: 'Reto 1',
-      company_name: 'Empresa de Juanito',
       sent_at: 'Abril 10, 2013 20:53',
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
@@ -38,7 +36,6 @@ feature 'Organization admin watches entry profile' do
   def page_should_have_entry_with(args)
     page.should have_content args.fetch(:name)
     page.should have_content args.fetch(:challenge)
-    page.should have_content args.fetch(:company_name)
     page.should have_content args.fetch(:sent_at)
     page.should have_css "img[src='#{args.fetch(:logo)}']"
     page.should have_content args.fetch(:tecnologies)

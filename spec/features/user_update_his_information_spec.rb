@@ -14,7 +14,6 @@ feature 'User update his information' do
 
   scenario 'after sign up, and fill with correct information' do
     fill_in 'member_name', with: 'Raúl Jiménez'
-    fill_in 'member_company_name', with: 'Empresa de Raul'
     fill_in 'member_bio', with: 'I live in Monterrey, N.L., Mexico'
     attach_file 'member_avatar', cmx_logo_path
 
