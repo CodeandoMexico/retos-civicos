@@ -460,7 +460,6 @@ es:
       entry_name: Nombre
       entry_description: Descripción
       company_name: Empresa
-      company_rfc: RFC de la Compañía
       entry_email: Correo electrónico
       link_to_project: Liga al proyecto
       technologies: Tecnologías
@@ -551,7 +550,6 @@ es:
       name: Nombre del proyecto
       company_name: Nombre de la empresa
       company-name-description: "Nombre con el cual la indentifican, no necesariamente el nombre legal."
-      company_rfc: RFC de la empresa
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
       idea-url: Link a la propuesta

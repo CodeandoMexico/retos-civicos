@@ -4,8 +4,7 @@ feature 'Organization admin watches entry profile' do
   scenario 'that shows the entry deatails' do
     user = create :user, name: 'Juanito'
     member = create :member, user: user,
-                             company_name: 'Empresa de Juanito',
-                             company_rfc: 'Juanito2014'
+                             company_name: 'Empresa de Juanito'
 
     organization = create :organization
     challenge = create :challenge, title: 'Reto 1', organization: organization
@@ -28,7 +27,6 @@ feature 'Organization admin watches entry profile' do
       name: 'Propuesta 1',
       challenge: 'Reto 1',
       company_name: 'Empresa de Juanito',
-      company_rfc: 'Juanito2014',
       sent_at: 'Abril 10, 2013 20:53',
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
@@ -41,7 +39,6 @@ feature 'Organization admin watches entry profile' do
     page.should have_content args.fetch(:name)
     page.should have_content args.fetch(:challenge)
     page.should have_content args.fetch(:company_name)
-    page.should have_content args.fetch(:company_rfc)
     page.should have_content args.fetch(:sent_at)
     page.should have_css "img[src='#{args.fetch(:logo)}']"
     page.should have_content args.fetch(:tecnologies)

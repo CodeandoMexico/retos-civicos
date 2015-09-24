@@ -18,10 +18,6 @@
       <td><%= entry.member.email %></td>
     </tr>
     <tr>
-      <th><%= t('.company_rfc') %></th>
-      <td><%= entry.member.company_rfc %></td>
-    </tr>
-    <tr>
       <th><%= t('.link_to_project') %></th>
       <td><%= link_to truncate(entry.idea_url), entry.idea_url, target: '_blank' %></td>
     </tr>

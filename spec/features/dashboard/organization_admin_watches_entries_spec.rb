@@ -7,7 +7,6 @@ feature 'Organization admin watches entries' do
     user = create :user, name: 'Juanito'
     @member = create :member, user: user,
       company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC"
     @organization = create :organization
   end
 
@@ -45,7 +44,6 @@ feature 'Organization admin watches entries' do
       position: 1,
       name: 'Propuesta 2',
       company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC",
       sent_at: '12 abr 20:53',
       idea_url: 'http://google.com',
       tecnologies: 'Rust, Haskell'
@@ -54,7 +52,6 @@ feature 'Organization admin watches entries' do
       position: 2,
       name: 'Propuesta 1',
       company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC",
       member: 'Juanito',
       sent_at: '10 abr 20:53',
       idea_url: 'http://google.com',
