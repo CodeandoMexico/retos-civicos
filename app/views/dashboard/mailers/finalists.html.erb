@@ -6,7 +6,6 @@
     <thead>
       <tr>
         <th><%= t('.representative-header') %></th>
-        <th><%= t('.company-header') %></th>
         <th><%= t('.email') %></th>
         <th><%= t('.link-to-proyect-header') %></th>
         <th><%= t('.include-in-email-header') %></th>
@@ -16,7 +15,6 @@
       <% @current_challenge.current_finalists.each do |entry| %>
         <tr>
           <td><%= entry.member.name %></td>
-          <td><%= entry.member.company_name %></td>
           <td><%= entry.member.email %></td>
           <td><%= link_to t('.entry'),entry.idea_url, target: '_blank' %></td>
           <td><%= check_box('members', "#{entry.member.id}", checked: 'checked') %></td>

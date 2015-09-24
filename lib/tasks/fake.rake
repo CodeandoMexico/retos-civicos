@@ -15,7 +15,6 @@ task faker: :environment do
     member_name = Faker::Name.name
     u = User.new name: member_name, email: fetch_email(:member, member_name), password: 'password'
     u.userable = Member.create
-    u.userable.company_name = Faker::Team.name
     u.skip_confirmation!
     u.save
     u.userable

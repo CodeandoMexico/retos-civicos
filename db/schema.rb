@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150318183807) do
+ActiveRecord::Schema.define(:version => 20150924211443) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -180,10 +180,6 @@ ActiveRecord::Schema.define(:version => 20150318183807) do
   create_table "members", :force => true do |t|
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
-    t.string   "company_name"
-    t.string   "company_rfc"
-    t.string   "company_charter"
-    t.string   "company_president"
     t.boolean  "phase_finish_reminder_setting", :default => true, :null => false
   end
 
