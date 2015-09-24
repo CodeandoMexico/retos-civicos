@@ -852,7 +852,6 @@ es:
         live_demo_url: 'Link a la propuesta'
       member:
         collaborations: Colaboraciones
-        company_charter: Acta constitutiva
       member/user:
         avatar: Avatar de usuario
         bio: Bio de usuario
