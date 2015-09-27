@@ -2,132 +2,158 @@
 @import "defaults/colors";
 @import "defaults/variables";
 
-.challenge{
-  margin-bottom: 50px;
+// .challenge{
+//   margin-bottom: 50px;
+//
+//   &.details {
+//     img {
+//       width: 100%;
+//       height: 440px;
+//       border-radius: $border-radius-image-default;
+//       margin-bottom: 20px;
+//     }
+//   }
+//
+//   &.action {
+//     padding-bottom: 35px;
+//     border-bottom: $border;
+//   }
+//
+//   &.timeline {
+//     color: $dark_grey;
+//   }
+//
+//   &.description {
+//     ul {
+//       color: $medium_grey;
+//       padding-left: 14px;
+//     }
+//   }
+//
+//   &.tabs {
+//     border: 1px solid $light-green;
+//     border-radius: $border-radius-default;
+//
+//     a.btn.btn-default {
+//       background-color: #fff;
+//       color: $light_green;
+//
+//       &:hover {
+//         color: #fff;
+//         background-color: $light_green;
+//       }
+//
+//       &.active {
+//         color: #fff;
+//         background-color: $light_green;
+//         box-shadow: none;
+//       }
+//
+//     }
+//   }
+// }
+//
+// // widget styles
+// $challenge__medium_widget_height: 190px;
+// .challenge {
+//   &.widget{
+//     &.medium {
+//       // styles for medium size challenge component
+//       h2, a {
+//         margin-top: 0;
+//         font-size: 20px;
+//         // font-weight: bold;
+//         color: $dark_blue;
+//       }
+//
+//       a {
+//         font-family: 'LeagueSpartan-Bold';
+//       }
+//       p, span {
+//         color: $medium_grey;
+//       }
+//
+//       .photo {
+//         height: $challenge__medium_widget_height;
+//         overflow: hidden;
+//         position: relative;
+//         background-size: cover;
+//         border-radius: $border-radius-image-default;
+//
+//         .title{
+//           background-color: $light_green;
+//           position: absolute;
+//           width: 100%;
+//           bottom: 0;
+//           padding: 10px 10px 10px 10px;
+//           border-bottom-left-radius: 8px;
+//           border-bottom-right-radius: 8px;
+//
+//           opacity: 0.9;
+//           filter: alpha(opacity=90); /* For IE8 and earlier */
+//           p{
+//             color: white;
+//             text-align: right;
+//             margin:0;
+//           }
+//         }
+//       }
+//     }
+//
+//     .content {
+//       margin-top: 30px;
+//       margin-bottom: 30px;
+//     }
+//
+//     .tidbit {
+//       margin-right: 20px;
+//     }
+//   }
+// }
+//
+// // avatar tooltip
+// .challenge__collaborator {
+//   .tooltip {
+//     background-color: $light_grey !important;
+//     opacity: 1 !important;
+//
+//     .tooltip-content {
+//       padding: 15px;
+//       p {
+//         margin-bottom: 0;
+//         font-size: 14px;
+//         &.name{
+//           font-weight: bold;
+//           margin-bottom: 5px;
+//           color: $dark_blue;
+//         }
+//       }
+//     }
+//   }
+// }
 
-  &.details {
-    img {
-      width: 100%;
-      height: 440px;
-      border-radius: $border-radius-image-default;
-      margin-bottom: 20px;
-    }
-  }
-
-  &.action {
-    padding-bottom: 35px;
-    border-bottom: $border;
-  }
-
-  &.timeline {
-    color: $dark_grey;
-  }
-
-  &.description {
-    ul {
-      color: $medium_grey;
-      padding-left: 14px;
-    }
-  }
-
-  &.tabs {
-    border: 1px solid $light-green;
-    border-radius: $border-radius-default;
-
-    a.btn.btn-default {
-      background-color: #fff;
-      color: $light_green;
-
-      &:hover {
-        color: #fff;
-        background-color: $light_green;
-      }
-
-      &.active {
-        color: #fff;
-        background-color: $light_green;
-        box-shadow: none;
-      }
-
-    }
-  }
-}
-
-// widget styles
-$challenge__medium_widget_height: 190px;
 .challenge {
-  &.widget{
-    &.medium {
-      // styles for medium size challenge component
-      h2, a {
-        margin-top: 0;
-        font-size: 20px;
-        // font-weight: bold;
-        color: $dark_blue;
-      }
+  margin-bottom: 30px;
+  border: 1px solid $default_text_color;
+  border-radius: $border-radius-image-default;
 
-      a {
-        font-family: 'LeagueSpartan-Bold';
-      }
-      p, span {
-        color: $medium_grey;
-      }
+  // width: 150px;
+  cursor: pointer;
+  // transition: width 300ms ease-out 0ms;
+  //     transition-property: width;
+  //     transition-duration: 300ms;
+  //     transition-timing-function: ease-out;
+  //     transition-delay: 0ms;
+  transition: all .2s ease-in-out;
+  &:hover { transform: scale(1.1); }
 
-      .photo {
-        height: $challenge__medium_widget_height;
-        overflow: hidden;
-        position: relative;
-        background-size: cover;
-        border-radius: $border-radius-image-default;
-
-        .title{
-          background-color: $light_green;
-          position: absolute;
-          width: 100%;
-          bottom: 0;
-          padding: 10px 10px 10px 10px;
-          border-bottom-left-radius: 8px;
-          border-bottom-right-radius: 8px;
-
-          opacity: 0.9;
-          filter: alpha(opacity=90); /* For IE8 and earlier */
-          p{
-            color: white;
-            text-align: right;
-            margin:0;
-          }
-        }
-      }
-    }
-
-    .content {
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-
-    .tidbit {
-      margin-right: 20px;
-    }
+  .photo > img {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 15px;
   }
-}
 
-// avatar tooltip
-.challenge__collaborator {
-  .tooltip {
-    background-color: $light_grey !important;
-    opacity: 1 !important;
-
-    .tooltip-content {
-      padding: 15px;
-      p {
-        margin-bottom: 0;
-        font-size: 14px;
-        &.name{
-          font-weight: bold;
-          margin-bottom: 5px;
-          color: $dark_blue;
-        }
-      }
-    }
+  .content {
+    text-align: center;
   }
 }

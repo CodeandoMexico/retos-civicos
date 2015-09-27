@@ -1,21 +1,30 @@
-.row.challenge.widget.medium
-  .col-xs-12.col-md-4{ style: 'margin-bottom: 30px;'}
-    .photo{ style: "background-image: url(\'#{challenge.avatar_url}\')" }
-      .title
-        %p
-          Creado por:
-          = challenge.organization
-  .col-xs-12.col-md-8
-    %h2= link_to challenge.title, challenge_path(challenge)
-    %p= challenge.pitch
+.col-xs-12.col-sm-4
+  .challenge
+    -# .photo{ style: "background-image: url(\'#{challenge.avatar_url}\')" }
+    .photo
+      = image_tag challenge.avatar_url
     .content
-      .timeline{ style: 'overflow: hidden;margin-bottom:24px;'}
-        %span
-          = challenge.current_phase_title
-        .progress{ style: 'display:inline-block;margin:0;width:150px;border-radius:10px;'}
-          .progress-bar{ role:'progressbar', "aria-valuenow"=> "#{challenge_completion_percentage_for(challenge)}", "aria-valuemin"=> '0', "aria-valuemax"=> '100', style:"min-width: 1em; width:#{challenge_completion_percentage_for(challenge)}%;" }
-      %span.tidbit
-        = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: challenge.collaborators.count, icon: 'fa fa-user'
-      %span.tidbit
-        - if Phases.days_left_for_current_phase(challenge) >= 0
-          = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'
+      %p= challenge.title
+      %p= challenge.current_phase_title
+
+-# .row.challenge.widget.medium
+-#   .col-xs-12.col-md-4{ style: 'margin-bottom: 30px;'}
+-#     .photo{ style: "background-image: url(\'#{challenge.avatar_url}\')" }
+-#       .title
+-#         %p
+-#           Creado por:
+-#           = challenge.organization
+-#   .col-xs-12.col-md-8
+-#     %h2= link_to challenge.title, challenge_path(challenge)
+-#     %p= challenge.pitch
+-#     .content
+-#       .timeline{ style: 'overflow: hidden;margin-bottom:24px;'}
+-#         %span
+-#           = challenge.current_phase_title
+-#         .progress{ style: 'display:inline-block;margin:0;width:150px;border-radius:10px;'}
+-#           .progress-bar{ role:'progressbar', "aria-valuenow"=> "#{challenge_completion_percentage_for(challenge)}", "aria-valuemin"=> '0', "aria-valuemax"=> '100', style:"min-width: 1em; width:#{challenge_completion_percentage_for(challenge)}%;" }
+-#       %span.tidbit
+-#         = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: challenge.collaborators.count, icon: 'fa fa-user'
+-#       %span.tidbit
+-#         - if Phases.days_left_for_current_phase(challenge) >= 0
+-#           = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'

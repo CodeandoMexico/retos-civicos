@@ -12,7 +12,7 @@ class ChallengeAvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path('ph-challenge-widget.png')
+    ActionController::Base.helpers.asset_path('challenge_placeholder.png')
   end
 
   def extension_white_list
