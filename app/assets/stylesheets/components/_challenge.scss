@@ -136,7 +136,7 @@
   margin-bottom: 30px;
   border: 1px solid $default_text_color;
   border-radius: $border-radius-image-default;
-
+  a { text-decoration: none; }
   // width: 150px;
   cursor: pointer;
   // transition: width 300ms ease-out 0ms;

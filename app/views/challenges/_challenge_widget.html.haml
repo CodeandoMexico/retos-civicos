@@ -1,11 +1,12 @@
 .col-xs-12.col-sm-4
   .challenge
-    -# .photo{ style: "background-image: url(\'#{challenge.avatar_url}\')" }
-    .photo
-      = image_tag challenge.avatar_url
-    .content
-      %p= challenge.title
-      %p= challenge.current_phase_title
+    = link_to challenge_path(challenge) do
+      -# .photo{ style: "background-image: url(\'#{challenge.avatar_url}\')" }
+      .photo
+        = image_tag challenge.avatar_url
+      .content
+        %p= challenge.title
+        %p= challenge.current_phase_title
 
 -# .row.challenge.widget.medium
 -#   .col-xs-12.col-md-4{ style: 'margin-bottom: 30px;'}
