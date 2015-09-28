@@ -590,7 +590,6 @@ es:
       member_id: participante_id
       member_company: empresa
       member_email: email
-      letter_under_oath_present?: carta_legal_enviada
       public?: publica
   prototypes:
     form_content:

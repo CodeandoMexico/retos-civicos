@@ -15,8 +15,7 @@ feature 'Collaborator adds entry to challenge' do
       description: 'Es la mejor',
       idea_url: 'https://github.com/CodeandoMexico/aquila',
       technologies: 'Ruby, Haskell, Elixir, Rust',
-      image: app_image,
-      letter_under_oath: entry_pdf
+      image: app_image
     )
 
     current_path.should eq challenge_path(challenge)
@@ -37,8 +36,7 @@ feature 'Collaborator adds entry to challenge' do
       description: 'Es la mejor',
       idea_url: 'esteesunurlinvalido',
       technologies: 'Ruby, Haskell, Elixir, Rust',
-      image: app_image,
-      letter_under_oath: entry_pdf
+      image: app_image
     )
 
     current_path.should eq challenge_entries_path(challenge)
@@ -73,8 +71,7 @@ feature 'Collaborator adds entry to challenge' do
         description: 'Es la mejor',
         idea_url: 'https://github.com/CodeandoMexico/aquila',
         technologies: 'Ruby, Haskell, Elixir, Rust',
-        image: app_image,
-        letter_under_oath: entry_pdf
+        image: app_image
       )
 
       page.should have_content success_message(2.weeks.from_now)
@@ -118,7 +115,6 @@ feature 'Collaborator adds entry to challenge' do
     args.fetch(:technologies).split(', ').each do |tech|
       select tech, from: 'entry_technologies'
     end
-    attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

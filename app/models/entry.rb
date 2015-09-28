@@ -2,8 +2,8 @@ class Entry < ActiveRecord::Base
   include Reportable
 
   attr_accessible :image, :live_demo_url, :idea_url, :name, :description,
-                  :member_id, :url, :technologies, :letter_under_oath,
-                  :repo_url, :demo_url, :invalid_reason
+                  :member_id, :url, :technologies, :repo_url, :demo_url,
+                  :invalid_reason
 
   belongs_to :member
   belongs_to :challenge
@@ -12,7 +12,6 @@ class Entry < ActiveRecord::Base
 
   validates :name, :description, :idea_url, presence: true
   validate :idea_url_has_to_be_a_valid_url
-  mount_uploader :letter_under_oath, LetterUnderOathUploader
   mount_uploader :image, EntryImageUploader
   serialize :technologies, Array
   before_validation :validate_technologies!
@@ -48,7 +47,7 @@ class Entry < ActiveRecord::Base
   def self.report_attributes
     [:id, :name, :challenge_title, :created_at, :description,
      :idea_url, :technologies_separated_by_commas, :member_name,
-     :member_id, :member_email, :letter_under_oath_present?, :public?]
+     :member_id, :member_email, :public?]
   end
 
   def final_score
@@ -128,10 +127,6 @@ class Entry < ActiveRecord::Base
 
   def member_email
     member.email
-  end
-
-  def letter_under_oath_present?
-    letter_under_oath.present?
   end
 
   def challenge_title
