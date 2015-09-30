@@ -5,6 +5,15 @@ module ApplicationHelper
     end
   end
 
+  def logo(path, options={})
+    processed_path = if path.nil?
+      ENV['LOGO']
+    else
+      path
+    end
+    image_tag processed_path, options
+  end
+
   def image_url(source)
     abs_path = image_path(source)
     unless abs_path =~ /^http/
