@@ -1,37 +1,53 @@
-<h3>Define los criterios</h3>
-<div class="row">
-  <div class="col-sm-2 pull-right">
-    <span class="percentage-container">Porcentaje total: <span class="total-percentage"></span></span>
+<div ng-app="aquila" ng-controller="EvaluationCriteriaCtrl as evaluationCriteria">
+  <h3>Define los criterios</h3>
+  <div class="row">
+    <div class="col-sm-2 pull-right">
+      <span class="percentage-container">Porcentaje total: {{ evaluationCriteria.percentage() }}</span>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <%= form_tag dashboard_challenge_create_criteria_path(@challenge), class: "form-horizontal" do |f| %>
-      <div class="form-group">
-        <div class="col-sm-3">
-          <%= label_tag t('.instructions'), nil,  class: 'control-label' %>
-        </div>
-        <div class="col-sm-9">
-          <%= text_area_tag :evaluation_instructions, @challenge.evaluation_instructions,  class: 'form-control', placeholder: 'Escribe las instrucciones para los jueces que evaluarán el reto.' %>
-        </div>
-      </div>
-      <% @challenge.evaluation_criteria.each_with_index do |criteria, idx| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag dashboard_challenge_create_criteria_path(@challenge), class: "form-horizontal" do |f| %>
         <div class="form-group">
-          <div class="col-sm-3" >
-            <%= label_tag t('.criteria', idx: idx + 1), nil,  class: 'control-label' %>
+          <div class="col-sm-3">
+            <%= label_tag t('.instructions'), nil,  class: 'control-label' %>
           </div>
-          <div class="col-sm-9" >
-            <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true %>
-            <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control criteria', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+          <div class="col-sm-9">
+            <%= text_area_tag :evaluation_instructions, @challenge.evaluation_instructions,  class: 'form-control', placeholder: 'Escribe las instrucciones para los jueces que evaluarán el reto.' %>
           </div>
         </div>
+        <% if @challenge.evaluation_criteria.present? %>
+          <% @challenge.evaluation_criteria.each do |criteria| %>
+            <div class="form-group">
+              <div class="col-sm-3" >
+                <%= label_tag t('.criteria'), nil,  class: 'control-label' %>
+              </div>
+              <div class="col-sm-9" >
+                <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true %>
+                <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control criteria', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="form-group" ng-repeat="criteria in evaluationCriteria.criteriaList">
+            <div class="col-sm-3" >
+              <%= label_tag t('.criteria'), nil,  class: 'control-label' %>
+            </div>
+            <div class="col-sm-9" >
+              <input type="text" id="criteria__description" name="criteria[][description]" class="form-control" ng-model="criteria.description" style='display:inline;width:69%;' min=1 ng-max=100 placeholder=<%= "#{t('.criteria_description')}" %> required>
+              <input type="number" id="criteria__value" name="criteria[][value]" class="form-control" ng-model="criteria.value" style='display:inline;width:25%;' min=1 ng-max=100 placeholder=<%= "#{t('.value_description')}" %> required>
+              <i ng-click="evaluationCriteria.add($index)" class="fa fa-plus-circle"></i>
+              <i ng-click="evaluationCriteria.remove($index)" class="fa fa-minus-circle"></i>
+            </div>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <div class="col-sm-2 pull-right">
+            <span class="percentage-container">Porcentaje total: {{ evaluationCriteria.percentage() }}</span>
+          </div>
+        </div>
+        <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
       <% end %>
-      <div class="form-group">
-        <div class="col-sm-2 pull-right">
-          <span class="percentage-container">Porcentaje total: <span class="total-percentage"></span></span>
-        </div>
-      </div>
-      <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
-    <% end %>
+    </div>
   </div>
 </div>

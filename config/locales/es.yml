@@ -232,7 +232,7 @@ es:
         no-challenges: No hay retos.
       new_criteria:
         instructions: Instrucciones para los jueces
-        criteria: "Criterio %{idx}"
+        criteria: Criterio
         save_criteria: Guardar
         criteria_description: Descripción del criterio
         value_description: Valor entre 1 y 100
