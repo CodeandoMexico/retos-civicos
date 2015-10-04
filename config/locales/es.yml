@@ -93,7 +93,7 @@ es:
     datasets:
       non-datasets: Por el momento no existen datasets.
     entries:
-      non-entries: Anímate. Sé el primero en enviar una App.
+      non-entries: "Sé el primero en participar en el reto. %{link}."
       repo: Repo
       idea: Propuesta
     show:
@@ -232,7 +232,7 @@ es:
         no-challenges: No hay retos.
       new_criteria:
         instructions: Instrucciones para los jueces
-        criteria: "Criterio %{idx}"
+        criteria: Criterio
         save_criteria: Guardar
         criteria_description: Descripción del criterio
         value_description: Valor entre 1 y 100

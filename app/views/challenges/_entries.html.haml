@@ -1,5 +1,5 @@
 - if entries.empty?
-  %p= t(".non-entries")
+  %p= t(".non-entries", link: link_to('Regístrate', challenge_collaborations_path(@challenge), method: :post)).html_safe
 - else
   .row
     - entries.each do |entry|

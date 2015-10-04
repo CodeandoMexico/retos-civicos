@@ -1,0 +1,8 @@
+@import "mixins";
+
+.fa-plus-circle {
+  @include action_icon(green);
+}
+.fa-minus-circle {
+  @include action_icon(red);
+}

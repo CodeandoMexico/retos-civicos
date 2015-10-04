@@ -44,8 +44,6 @@ $(document).ready ->
   # Stop video when closing the modal
   $('#modal-player').on 'hidden.bs.modal', ->
     $("#modal-player iframe").attr("src", $("#modal-player iframe").attr("src"))
-  addEventHandlers()
-  calculatePercentage()
 
   # for the scroller to work on each element it has to be registered
   # scroll from source to destination
