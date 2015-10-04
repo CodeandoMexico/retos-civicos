@@ -40,8 +40,6 @@ module Dashboard
     def new_criteria
       add_crumb 'Jurado', '/dashboard/jueces'
       add_crumb 'Definición de criterios'
-      return unless @challenge.evaluation_criteria.blank?
-      @challenge.evaluation_criteria = Array.new(12, description: nil, value: nil)
     end
 
     def create_criteria

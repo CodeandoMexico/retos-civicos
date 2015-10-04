@@ -5,3 +5,8 @@
   font-size: bold;
   margin-bottom: $margin-bottom;
 }
+
+@mixin action_icon($color) {
+  color: $color;
+  cursor: pointer;
+}

@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
       = link_to root_path do
-        = image_tag 'logocmx@2x.png', width: '220px', style: 'padding-top:5px;'
+        = logo nil, width: '220px', style: 'padding-top:5px;'
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
@@ -28,6 +28,8 @@
               %li
                 - if current_user.organization?
                   = link_to t('header.user.dashboard'), dashboard_path
+                - elsif current_user.judge?
+                  = link_to t('header.user.evaluations'), evaluations_path
                 - else
                   = link_to t('header.user.panel'), panel_entries_path
               %li

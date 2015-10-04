@@ -11,6 +11,13 @@ class Ability
     end
     can [:read], Organization
 
+    # Entry read access
+    can :read, Entry do |entry|
+      # allow read if the user created the entry
+      # or the entry is public
+      entry.public? || (user.userable.present? && user.userable.id == entry.member.id)
+    end
+
     if user.organization?
       #Challenge access
       can [:new, :create], Challenge
@@ -87,13 +94,6 @@ class Ability
       #Comment creation for members, restricting access through challenge
       can [:create, :reply], Comment
       can [:create_or_reply_challenge_comment], Challenge
-
-      #Entry access
-      can :read, Entry do |entry|
-        # allow read if the user created the entry
-        # or the entry is public
-        user.userable.id == entry.member.id || entry.public?
-      end
 
       can [:create], Entry
       can [:update], Entry do |entry|

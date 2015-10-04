@@ -53,3 +53,28 @@ app.controller('NewChallengeCtrl', [ '$interval', function($interval){
 
   initialize();
 }]);
+
+app.controller('EvaluationCriteriaCtrl', function(){
+  var self = this;
+  self.criteriaList = [
+    { description: "", value: undefined },
+    { description: "", value: undefined },
+    { description: "", value: undefined }
+  ];
+
+  self.add = function(idx){
+    self.criteriaList.splice(idx + 1, 0, { description: "", value: "" });
+  };
+
+  self.remove = function(idx){
+    self.criteriaList.splice(idx, 1);
+  };
+
+  self.percentage = function() {
+    var total = 0;
+    angular.forEach(self.criteriaList, function(criteria){
+      total += criteria.value !== undefined ? criteria.value : 0;
+    });
+    return total;
+  };
+});
