@@ -28,6 +28,8 @@
               %li
                 - if current_user.organization?
                   = link_to t('header.user.dashboard'), dashboard_path
+                - elsif current_user.judge?
+                  = link_to t('header.user.evaluations'), evaluations_path
                 - else
                   = link_to t('header.user.panel'), panel_entries_path
               %li

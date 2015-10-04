@@ -23,8 +23,8 @@
                 <%= label_tag t('.criteria'), nil,  class: 'control-label' %>
               </div>
               <div class="col-sm-9" >
-                <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true %>
-                <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control criteria', style:'display:inline;width:30%;', min: 1, max: 100, required:true %>
+                <%= text_field_tag 'criteria[][description]', criteria[:description], placeholder: t('.criteria_description'), class: 'form-control', style:'display:inline;width:69%;', required:true, readonly: true %>
+                <%= number_field_tag 'criteria[][value]', criteria[:value], placeholder: t('.value_description'), class: 'form-control criteria', style:'display:inline;width:30%;', min: 1, max: 100, required:true, readonly: true %>
               </div>
             </div>
           <% end %>
@@ -34,8 +34,8 @@
               <%= label_tag t('.criteria'), nil,  class: 'control-label' %>
             </div>
             <div class="col-sm-9" >
-              <input type="text" id="criteria__description" name="criteria[][description]" class="form-control" ng-model="criteria.description" style='display:inline;width:69%;' min=1 ng-max=100 placeholder=<%= "#{t('.criteria_description')}" %> required>
-              <input type="number" id="criteria__value" name="criteria[][value]" class="form-control" ng-model="criteria.value" style='display:inline;width:25%;' min=1 ng-max=100 placeholder=<%= "#{t('.value_description')}" %> required>
+              <input type="text" id="criteria__description" name="criteria[][description]" class="form-control" ng-model="criteria.description" style='display:inline;width:69%;' min=1 max=100 placeholder=<%= "#{t('.criteria_description')}" %> required>
+              <input type="number" id="criteria__value" name="criteria[][value]" class="form-control" ng-model="criteria.value" style='display:inline;width:25%;' min=1 max=100 placeholder=<%= "#{t('.value_description')}" %> required>
               <i ng-click="evaluationCriteria.add($index)" class="fa fa-plus-circle"></i>
               <i ng-click="evaluationCriteria.remove($index)" class="fa fa-minus-circle"></i>
             </div>
@@ -46,7 +46,8 @@
             <span class="percentage-container">Porcentaje total: {{ evaluationCriteria.percentage() }}</span>
           </div>
         </div>
-        <%= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
+        <input class="btn btn-default pull-right" name="commit" value="Guardar" type="submit" ng-disabled="evaluationCriteria.percentage() != 100">
+        <%#= submit_tag t('.save_criteria'), class: "btn btn-default pull-right" %>
       <% end %>
     </div>
   </div>
