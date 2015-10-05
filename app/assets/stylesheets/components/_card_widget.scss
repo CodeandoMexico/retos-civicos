@@ -1,0 +1,24 @@
+@import "defaults/colors";
+@import "defaults/variables";
+
+
+.card-widget {
+  margin-bottom: 30px;
+  border: 1px solid $default_text_color;
+  border-radius: $border-radius-image-default;
+  a { text-decoration: none; }
+  cursor: pointer;
+
+  transition: all .2s ease-in-out;
+  &:hover { transform: scale(1.1); }
+
+  .photo > img {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .content {
+    text-align: center;
+  }
+}

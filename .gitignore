@@ -29,6 +29,8 @@ tags
 /public/uploads/
 /public/assets/
 *.dump
+*.crt
+*.key
 
 # Ignore application configuration
 /config/application.yml
