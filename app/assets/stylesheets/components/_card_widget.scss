@@ -22,6 +22,6 @@
     h5 { @include heading(18px, $dark_blue); }
   }
   .content, .title {
-    text-align: center;
+    margin: 15px;
   }
 }

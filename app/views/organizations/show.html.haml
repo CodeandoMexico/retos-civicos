@@ -6,6 +6,8 @@
     %h1= @organization.name
     %p= @organization.bio
 
-.row
-  - @challenges.each do |challenge|
-    = render 'organization_challenge', challenge: challenge
+- if @challenges.any?
+  %h3{ style: 'margin-bottom:30px;'} Retos activos
+  .row
+    - @challenges.each do |challenge|
+      = render 'organization_challenge', challenge: challenge
