@@ -5,12 +5,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find_by_slug(params[:organization_slug])
 
     if @organization.present?
-      # if @organization.has_only_one_challenge?
-      #   @challenge = @organization.challenges.active.first
-      #   redirect_to @challenge
-      # else
-        @challenges = @organization.challenges.active
-      # end
+      @challenges = @organization.challenges
     else
       # redirect to 404
       return record_not_found
