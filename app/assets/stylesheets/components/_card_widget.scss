@@ -1,6 +1,6 @@
 @import "defaults/colors";
 @import "defaults/variables";
-
+@import "mixins";
 
 .card-widget {
   margin-bottom: 30px;
@@ -18,7 +18,10 @@
     margin-bottom: 15px;
   }
 
-  .content {
+  .title {
+    h5 { @include heading(18px, $dark_blue); }
+  }
+  .content, .title {
     text-align: center;
   }
 }

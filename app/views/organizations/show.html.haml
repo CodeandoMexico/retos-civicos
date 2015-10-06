@@ -4,6 +4,8 @@
     .photo{ style: "background-image: url(\'#{@organization.image_url(:profile)}\')" }
   .col-xs-12.col-md-8
     %h1= @organization.name
+    %p= @organization.bio
 
 .row
-  -# - @challenges.each do |challenge|
+  - @challenges.each do |challenge|
+    = render 'organization_challenge', challenge: challenge

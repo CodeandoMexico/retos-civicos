@@ -1,0 +1,9 @@
+.col-xs-12.col-sm-4
+  .card-widget
+    = link_to challenge_path(challenge) do
+      .photo
+        = image_tag challenge.avatar_url
+      .title
+        %h5= challenge.title
+      .content
+        %p= challenge.current_phase_title
