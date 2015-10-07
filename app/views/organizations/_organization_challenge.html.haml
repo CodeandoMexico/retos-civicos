@@ -10,5 +10,6 @@
           .row
             .col-xs-12.col-sm-6
               = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: challenge.collaborators.count, icon: 'fa fa-user'
-            .col-xs-12.col-sm-6
-              = render 'shared/tidbits', format: :inverse, label: 'días', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'
+            - if Phases.days_left_for_current_phase(challenge) >= 0
+              .col-xs-12.col-sm-6
+                = render 'shared/tidbits', format: :inverse, label: 'días', content: Phases.days_left_for_current_phase(challenge), icon: 'fa fa-calendar'

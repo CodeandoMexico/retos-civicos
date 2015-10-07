@@ -6,8 +6,6 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.order('created_at DESC').page(params[:page]).includes(:organization)
-    # @challenges = Challenge.active.recent.page(params[:page]).includes(:organization)
-    # @challenges_group = @challenges.in_groups_of(3, false)
     render layout: 'aquila'
   end
 
