@@ -91,7 +91,14 @@ $challenge__medium_widget_height: 190px;
 
           opacity: 0.9;
           filter: alpha(opacity=90); /* For IE8 and earlier */
-          p{
+
+          a {
+            @extend .default-text;
+            font-size: 14px;
+            color: white;
+          }
+          
+          p {
             color: white;
             text-align: right;
             margin:0;

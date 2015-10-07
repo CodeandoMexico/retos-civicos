@@ -7,7 +7,7 @@
   %p
     %span
       Creado por:
-      = @challenge.organization
+      = link_to @challenge.organization, organization_profile_path(@challenge.organization.slug)
     -# Patrocinado por: Banco Mundial
 
   .row
