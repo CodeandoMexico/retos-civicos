@@ -8,7 +8,7 @@
           <li><%= button_to t('.accept-proposal'),
             accept_dashboard_entry_url(@entry),
             class: 'btn btn-default',
-            confirm: t('.move-next-phase') %></li>
+            confirm: t('.move-next-phase', member: @entry.member.name) %></li>
         <% end %>
 
         <% if @entry.challenge.has_finished? && @entry.accepted? && !@entry.more_than_3_winners? %>
