@@ -326,8 +326,8 @@ es:
         actions: Acciones
         final_score: Calificación
       show:
-        accept-proposal: Aceptar propuesta
-        move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
+        accept-proposal: Seleccionar como finalista
+        move-next-phase: "¿Seleccionamos como finalista a %{member}?"
         select-winner: Seleccionar como ganador
         select-winner-confirmation: ¿Estás seguro de hacer esta propuesta la ganadora del reto?
         remove-winner: Quitar como ganadora
@@ -780,6 +780,9 @@ es:
           mb: MB
           tb: TB
   shared:
+    entries:
+      entry_status:
+        entry-accepted: Finalista
     show_ranking_summary:
       entry: Propuesta
       business: Negocio
