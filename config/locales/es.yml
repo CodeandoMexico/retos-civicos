@@ -783,6 +783,7 @@ es:
     entries:
       entry_status:
         entry-accepted: Finalista
+        entry-invalid: Inválida
     show_ranking_summary:
       entry: Propuesta
       business: Negocio
