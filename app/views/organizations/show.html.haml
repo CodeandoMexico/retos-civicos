@@ -1,8 +1,9 @@
 -# Basic organization info
 .row.challenge.widget.medium
-  .col-xs-12.col-md-4{ style: 'margin-bottom: 30px;'}
-    .photo{ style: "background-image: url(\'#{@organization.image_url(:profile)}\')" }
-  .col-xs-12.col-md-8
+  - if @organization.avatar?
+    .col-xs-12.col-sm-2{ style: 'margin-bottom: 30px;'}
+      .photo{ style: "background-image: url(\'#{@organization.image_url(:profile)}\');height: 100px;" }
+  .col-xs-12.col-sm-10
     %h1= @organization.name
     %p= @organization.bio
 

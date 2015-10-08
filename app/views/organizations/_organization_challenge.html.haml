@@ -4,7 +4,7 @@
       .photo
         = image_tag challenge.avatar_url
       .title
-        %h5= challenge.title
+        %h5= truncate(challenge.title, length: 28)
       .content
         %p
           .row

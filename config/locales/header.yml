@@ -1,6 +1,7 @@
 es:
   header:
     user:
+      dashboard: Dashboard
       panel: Panel
       profile: Perfil
       log_in: Inicia sesión
