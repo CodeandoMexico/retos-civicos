@@ -1,6 +1,6 @@
 <%= @entry.member.name %>
 
-Has pasado a la siguiente etapa del reto <%= @challenge.title %>. La siguiente etapa de prototipos inicia en <%= l @challenge.prototypes_phase_due_on, format: :long %>.
+Has pasado a la siguiente etapa del reto <%= @challenge.title %>. La siguiente etapa de prototipos termina en <%= l @challenge.prototypes_phase_due_on, format: :long %>.
 
 Revisa la convocatoria completa en <%= organization_challenge_url(@challenge.organization, @challenge) %> para encontrar las bases completas.
 Cualquier duda no olvides realizar una pregunta en el reto o escribirnos a <%= @contact_email %>
