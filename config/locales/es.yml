@@ -780,6 +780,8 @@ es:
           mb: MB
           tb: TB
   shared:
+    entry:
+      entry-accepted: Finalista
     entries:
       entry_status:
         entry-accepted: Finalista
