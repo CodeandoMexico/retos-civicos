@@ -6,10 +6,11 @@
     %meta{ property: "og:description", content: "#{t('layout.description')}" }
     -# %meta{ property: "og:image", content: "#{image_url 'retos_sharing_FB.png'}" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+    %link{ href:'https://fonts.googleapis.com/css?family=Roboto:300,700', rel: 'stylesheet', type: 'text/css' }
+    %link{ href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
     = stylesheet_link_tag 'aquila', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-    %link{ href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
     = render 'google_analytics'
   %body{ 'ng-app' => 'aquila'}
     #header

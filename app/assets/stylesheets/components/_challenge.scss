@@ -62,12 +62,12 @@ $challenge__medium_widget_height: 190px;
       h2, a {
         margin-top: 0;
         font-size: 20px;
-        // font-weight: bold;
         color: $dark_blue;
       }
 
       a {
-        font-family: 'LeagueSpartan-Bold';
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
       }
       p, span {
         color: $medium_grey;
@@ -97,7 +97,7 @@ $challenge__medium_widget_height: 190px;
             font-size: 14px;
             color: white;
           }
-          
+
           p {
             color: white;
             text-align: right;
