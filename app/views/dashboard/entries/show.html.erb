@@ -4,12 +4,10 @@
       <li><%= render('mark_entry_as_valid_or_invalid', entry: @entry) unless (@entry.accepted? || @entry.is_the_winner?) %></li>
       <% if !@entry.is_invalid? %>
 
-        <% if Phases.is_current?(:ideas_selection, @entry.challenge) && !@entry.accepted? %>
-          <li><%= button_to t('.accept-proposal'),
-            accept_dashboard_entry_url(@entry),
-            class: 'btn btn-default',
-            confirm: t('.move-next-phase', member: @entry.member.name) %></li>
-        <% end %>
+        <li><%= button_to t('.accept-proposal'),
+          accept_dashboard_entry_url(@entry),
+          class: 'btn btn-default',
+          confirm: t('.move-next-phase', member: @entry.member.name) %></li>
 
         <% if @entry.challenge.has_finished? && @entry.accepted? && !@entry.more_than_3_winners? %>
           <% if @entry.is_the_winner? %>
