@@ -114,6 +114,12 @@ class Challenge < ActiveRecord::Base
     self.save
   end
 
+  def ranked_entries
+    self.entries.where(winner: 1) +
+    self.entries.where(accepted: true).where(winner: nil) +
+    self.entries.where(accepted: false)
+  end
+
   def sort_entries_by_scores
     self.entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
   end
