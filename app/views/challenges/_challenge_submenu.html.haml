@@ -53,7 +53,8 @@
       = render 'collaborators', collaborators: @challenge.collaborators
   .tab-pane.fade.in{ id: "challenge__entries" }
     .challenge.entries
-      = render 'entries', entries: @challenge.entries, challenge: @challenge
+      = render 'entries', entries: @challenge.ranked_entries, challenge: @challenge
+
 
   -# .tab-pane.fade.in{ id: "challenge__news" }
   -#   .challenge.news
@@ -93,9 +94,7 @@
     = render 'collaborators', collaborators: @challenge.collaborators
   .challenge.entries
     %h3.visible-xs-block Propuestas
-    = render 'entries', entries: @challenge.entries, challenge: @challenge
-
-
+    = render 'entries', entries: @challenge.ranked_entries, challenge: @challenge
 -# .challenge.jury
   -# %h3 Criterios y comité de evaluación
   -# %p= markdown_for_additional_links @challenge.description
