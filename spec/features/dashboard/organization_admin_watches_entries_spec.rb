@@ -5,9 +5,7 @@ feature 'Organization admin watches entries' do
 
   before do
     user = create :user, name: 'Juanito'
-    @member = create :member, user: user,
-      company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC"
+    @member = create :member, user: user
     @organization = create :organization
   end
 
@@ -44,8 +42,6 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 1,
       name: 'Propuesta 2',
-      company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC",
       sent_at: '12 abr 20:53',
       idea_url: 'http://google.com',
       tecnologies: 'Rust, Haskell'
@@ -53,8 +49,6 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 2,
       name: 'Propuesta 1',
-      company_name: "Empresa 1",
-      company_rfc: "Empresa1RFC",
       member: 'Juanito',
       sent_at: '10 abr 20:53',
       idea_url: 'http://google.com',
@@ -80,7 +74,6 @@ feature 'Organization admin watches entries' do
     page_should_have_entry_with(
       position: 1,
       name: 'Propuesta 1',
-      company_name: 'Empresa 1',
       sent_at: '10 abr 20:53',
       idea_url: 'http://google.com',
       tecnologies: 'PHP, MySQL'

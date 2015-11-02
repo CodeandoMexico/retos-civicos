@@ -1,0 +1,23 @@
+%nav.navbar.navbar-default.navbar-fixed-top{ role: "navigation" }
+  .container
+    .navbar-header
+      <!-- brand -->
+      = logo nil, class: "navbar-brand"
+    #navbar.navbar-collapse.collapse
+      <!-- left side of the navbar -->
+      %ul.nav.navbar-nav
+        - main_links.each do |link|
+          = content_tag :li, class: link[:active_class] do
+            = link_to link[:name], link[:path]
+      <!-- right side of the navbar -->
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{ href: "#", "data-toggle"=> "dropdown", role: "button", "aria-expanded"=> "false" }
+            = current_user.name
+            %span.caret
+          %ul.dropdown-menu{ role: "menu" }
+            - user_links.each do |link|
+              - if link[:method].present?
+                %li= link_to link[:name], link[:path], method: link[:method]
+              - else
+                %li= link_to link[:name], link[:path]

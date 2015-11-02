@@ -1,0 +1,29 @@
+@import "mixins";
+
+// Colors
+$default_text_color: $medium_grey;
+
+/* Heading */
+h1 { @include heading(32px, $dark_blue); }
+h3 { @include heading(22px, $dark_blue); }
+h5 { @include heading(18px, $medium_grey); }
+
+/* Paragraph, spans and links */
+.default-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $default_text_color;
+}
+
+p, span, a, label, li, dd, dt {
+  @extend .default-text;
+}
+
+dt { font-weight: 700; }
+
+
+.primary {
+  color: $light_green;
+}
+
+.dark { color: #222; }

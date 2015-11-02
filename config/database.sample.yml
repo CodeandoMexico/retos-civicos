@@ -7,12 +7,12 @@ postgresql: &postgresql
 
 development:
   <<: *postgresql
-  database: retos_publicos_development
+  database: retos_cmx_development
 
 test:
   <<: *postgresql
-  database: retos_publicos_test
+  database: retos_cmx_test
 
 production:
   <<: *postgresql
-  database: retos_publicos_production
+  database: retos_cmx_production

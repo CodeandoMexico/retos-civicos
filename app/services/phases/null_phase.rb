@@ -1,6 +1,6 @@
 module Phases
   class NullPhase
-    def title
+    def title(args = {})
       ""
     end
 
@@ -17,7 +17,7 @@ module Phases
     end
 
     def days_left
-      Float::NAN
+      -1
     end
   end
 end

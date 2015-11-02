@@ -1,0 +1,37 @@
+.comment-item.text-right
+  - if can? :create_or_reply_challenge_comment, challenge
+    = link_to t(".comment"), "#", class: "js-open-comments-form new_comment"
+  - else
+    - if !(current_user || current_organization)
+      = link_to t(".comment"), guest_challenge_comments_path(challenge), class: "new_comment"
+
+- if can? :create_or_reply_challenge_comment, challenge
+  = form_for [challenge, Comment.new], remote: true, html: { class: 'comments-form' } do |form|
+    .media
+      .pull-left
+        = image_tag current_user.image_url(:thumb), class: 'avatar-thumb media-object'
+      .media-body
+        %h4.media-heading.comment-item-title= current_user
+        %p
+          -
+          = l Time.zone.now, format: :short
+        = form.text_area :body, class: 'form-control', rows: 3, style: 'margin-bottom:30px;'
+        .text-right
+          = link_to t('.cancel'), '#', class: 'btn js-close-comments-form'
+          = form.submit t(".comment"), class: 'btn btn-default', :disable_with => "Comentando..."
+
+#challenge_comments_container.sheet-section.challenge-comments
+  - if @comments.empty?
+    #no_challenges
+      = t('.non-comments')
+  - else
+    -# Order comments
+    -# .text-right
+      = t('.order_by')
+      = link_to t('.vote_count'), challenge_path(@challenge, anchor:"challenge_comments_container", order_by: "votes")
+      %span |
+      = link_to t('.most_recent'), challenge_path(@challenge, anchor:"challenge_comments_container", order_by: "recent")
+    .comment-container
+      = render @comments, challenge: @challenge
+    .text-center
+      = paginate @comments, params: { anchor: 'challenge_comments_container' }

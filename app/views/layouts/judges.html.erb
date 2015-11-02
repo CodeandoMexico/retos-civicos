@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Retos públicos</title>
+  <title><%= ENV['OWNER_NAME'] %></title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag 'judge', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
   <body>
@@ -12,7 +13,7 @@
       <div class="container">
         <div class="navbar-header">
           <!-- brand -->
-          <%= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
+          <%= logo nil, class: "navbar-brand" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <!-- left side of the navbar -->

@@ -1,0 +1,19 @@
+@mixin social_container($width) {
+  width: $width;
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.social_container { @include social_container(600px); }
+
+// Tablet styles
+@media screen and (max-device-width: 900px) {
+  .social_container { @include social_container(400px); }
+}
+
+// Phone styles
+@media screen and (max-device-width: 480px) {
+  .social_container { @include social_container(95%); }
+}

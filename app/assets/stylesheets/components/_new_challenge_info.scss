@@ -1,0 +1,43 @@
+.active_step {
+  background-color: $light_grey;
+}
+
+.start_a_challenge {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  h1 { @include heading(32px, #65286D, 70px) };
+  h1 {
+    text-align: center;
+  }
+
+  li {
+    font-weight: 600;
+    color: $default_text_color;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+    &:hover {
+      @extend .active_step;
+    }
+
+    &.active {
+      @extend .active_step;
+    }
+  }
+
+  .step_description {
+    color: #65286D;
+  }
+
+  .mobile__img{
+    display: inline-block;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+  }
+}

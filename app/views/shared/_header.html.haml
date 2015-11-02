@@ -1,0 +1,41 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button{ type: "button", class: "navbar-toggle collapsed", "data-toggle"=> "collapse", "data-target"=> "#navbar", "aria-expanded"=> "false", "aria-controls"=> "navbar" }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path do
+        = logo nil, width: '220px', style: 'padding-top:5px;'
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{ href: "#", 'data-toggle'=> "dropdown", role: "button", 'aria-haspopup'=> "true", 'aria-expanded'=> "false" }
+            Participa
+            %span.caret
+          %ul.dropdown-menu{ role: 'menu' }
+            %li
+              %a{ href: "#"} Retos cívicos
+        %li
+          %a{ href: "#" } Acerca
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{ href: "#", 'data-toggle'=> "dropdown", role: "button", 'aria-haspopup'=> "true", 'aria-expanded'=> "false" }
+              = current_user
+              %span.caret
+            %ul.dropdown-menu{ role: 'menu' }
+              %li
+                - if current_user.organization?
+                  = link_to t('header.user.dashboard'), dashboard_path
+                - elsif current_user.judge?
+                  = link_to t('header.user.evaluations'), evaluations_path
+                - else
+                  = link_to t('header.user.panel'), panel_entries_path
+              %li
+                = link_to t('header.user.profile'), edit_member_path(current_user.userable)
+              %li
+                = link_to t('header.user.log_out'), destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to t('header.user.log_in'), signup_path

@@ -93,7 +93,7 @@ es:
     datasets:
       non-datasets: Por el momento no existen datasets.
     entries:
-      non-entries: Anímate. Sé el primero en enviar una App.
+      non-entries: "Sé el primero en participar en el reto. %{link}."
       repo: Repo
       idea: Propuesta
     show:
@@ -115,8 +115,6 @@ es:
         zero: "Último día"
         one: "Queda <strong>un día</strong>"
         other: "Quedan <strong>%{count} días</strong>"
-      disclaimer: "Estimado participante: %{organization_name} está haciendo lo posible por entregar los resultados
-        de ganadores a la brevedad. Las fechas exactas las comunicaremos directamente y el ganador se anunciará en este sitio."
     finalists_and_winner:
       winner: Ganador
       winners: Ganadores
@@ -131,7 +129,7 @@ es:
       order_by: "Ordenar por: "
       vote_count: Votos
       most_recent: Más recientes
-      comment: Comentar
+      comment: Crear comentario
       non-comments: 'Por el momento no hay comentarios.'
       reply: Responder
       mychallenge: Mi Reto
@@ -154,20 +152,20 @@ es:
       government: Gobierno
       hackers: Hackers
     about:
-      title: Acerca de Retos Públicos
-      info: Retos Públicos es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
+      title: Acerca de Codeando México
+      # info: Codeando México es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
       download: DESCARGAR DOCUMENTO
   layout:
-    header: Retos públicos
+    header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
     brief: Una plataforma que reúne talento para resolver problemáticas de impacto social.
     about: Acerca de
     sign_in: Iniciar Sesión
     sign_out: Salir
-    index_link: Retos
-    welcome: Hola
-    description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
+    # index_link: Inicio
+    # welcome: Hola
+    # description: "Si eres emprendedor resuelve un reto del gobierno federal, participa en retos.gob.mx"
   terms_of_service: Términos de Servicio
   signup:
     choose_provider: Selecciona alguno de los siguientes servicios para iniciar sesión
@@ -231,9 +229,10 @@ es:
         members_vs_entries: Participantes y propuestas
         phase: Fase
         actions: Acciones
+        no-challenges: No hay retos.
       new_criteria:
         instructions: Instrucciones para los jueces
-        criteria: "Criterio %{idx}"
+        criteria: Criterio
         save_criteria: Guardar
         criteria_description: Descripción del criterio
         value_description: Valor entre 1 y 100
@@ -325,9 +324,10 @@ es:
         entry_name: Nombre
         submitted_date: Fecha de entrega
         actions: Acciones
+        final_score: Calificación
       show:
-        accept-proposal: Aceptar propuesta
-        move-next-phase: ¿Estás seguro de aceptar esta propuesta para que avance a la siguiente etapa?
+        accept-proposal: Seleccionar como finalista
+        move-next-phase: "¿Seleccionamos como finalista a %{member}?"
         select-winner: Seleccionar como ganador
         select-winner-confirmation: ¿Estás seguro de hacer esta propuesta la ganadora del reto?
         remove-winner: Quitar como ganadora
@@ -459,8 +459,6 @@ es:
     entry_minimum:
       entry_name: Nombre
       entry_description: Descripción
-      company_name: Empresa
-      company_rfc: RFC de la Compañía
       entry_email: Correo electrónico
       link_to_project: Liga al proyecto
       technologies: Tecnologías
@@ -475,7 +473,12 @@ es:
   users:
     welcome_new_org: 'Hemos recibido tu registro, mientras validamos a tu organización, puedes editar el perfil:'
     form:
-      bio-description: 140 caracteres sobre ti
+      name: Nombre
+      email: Correo electrónico
+      bio: Bio
+      bio-description: 140 caracteres sobre tí
+      avatar: Avatar
+      avatar-description: Esta es tu imagen de perfil.
       submit: Actualizar
     define_role:
       complete_register: Completar registro
@@ -539,11 +542,12 @@ es:
       nickname: nickname
       created_at: fecha de registro
   entries:
+    defaults:
+      comments: Comentarios
+      feedback: Retroalimentación
     form:
       name: Nombre del proyecto
-      company_name: Nombre de la empresa
       company-name-description: "Nombre con el cual la indentifican, no necesariamente el nombre legal."
-      company_rfc: RFC de la empresa
       company-rfc-description: "Nos servirá para conocer si están constituidos legalmente."
       name-description: Del proyecto
       idea-url: Link a la propuesta
@@ -586,7 +590,6 @@ es:
       member_id: participante_id
       member_company: empresa
       member_email: email
-      letter_under_oath_present?: carta_legal_enviada
       public?: publica
   prototypes:
     form_content:
@@ -777,6 +780,12 @@ es:
           mb: MB
           tb: TB
   shared:
+    entry:
+      entry-accepted: Finalista
+    entries:
+      entry_status:
+        entry-accepted: Finalista
+        entry-invalid: Inválida
     show_ranking_summary:
       entry: Propuesta
       business: Negocio
@@ -846,7 +855,6 @@ es:
         live_demo_url: 'Link a la propuesta'
       member:
         collaborations: Colaboraciones
-        company_charter: Acta constitutiva
       member/user:
         avatar: Avatar de usuario
         bio: Bio de usuario

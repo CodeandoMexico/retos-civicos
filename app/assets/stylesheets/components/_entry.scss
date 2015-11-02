@@ -1,0 +1,55 @@
+/* Challenge */
+@import "defaults/colors";
+@import "defaults/variables";
+
+a.title {
+  @include heading(18px, $dark_blue, 5px);
+}
+
+.entry {
+  &.widget {
+    margin-bottom: 30px;
+
+    &.minimal {
+      text-align: center;
+      img.thumb { margin-bottom: 15px;}
+    }
+
+    img.thumb {
+      width: 140px;
+      height: 85px;
+      border-radius: $border-radius-image-default;
+    }
+
+    .content {
+      padding-left: 25px;
+      a.title {
+        @extend .heading_link;
+      }
+
+      .resources {
+        span { color: $light_grey; }
+        .github {
+          width: 30px;
+          height: 25px;
+        }
+
+        .demo {
+          width: 20px;
+          height: 20px;
+          margin: 3px;
+        }
+      }
+    }
+
+  }
+}
+
+.entry.detail {
+  h5 { @include heading(18px, $dark_blue, 15px); }
+  p {}
+  .info {}
+  .description {}
+  .technologies {}
+  .related_entries {}
+}

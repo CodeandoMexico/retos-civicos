@@ -22,7 +22,7 @@ Aquila::Application.routes.draw do
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
-    resources :challenges, only: [:index, :new, :edit], controller: 'dashboard/challenges' do
+    resources :challenges, only: [:index, :new, :edit, :create, :update], controller: 'dashboard/challenges' do
       resources :emails, only: [:new, :create], controller: 'dashboard/mailers' do
         get :finalists, to: 'dashboard/mailers', as: 'finalists', on: :new
         get :participants, to: 'dashboard/mailers', as: 'participants', on: :new
@@ -73,6 +73,12 @@ Aquila::Application.routes.draw do
 
   resources :members, only: [:update, :edit]
 
+  namespace :panel do
+    resources :entries, only: [:index, :show, :edit, :update] do
+      resources :comments, only: :index
+    end
+  end
+
   resources :authentications
 
   resources :challenges, only: [:index, :show] do
@@ -104,9 +110,10 @@ Aquila::Application.routes.draw do
   end
 
   match "/set_language" => 'pages#set_language', via: :post, as: 'set_language'
-  match "/terms_of_service" => 'pages#terms_of_service', via: :get, as: 'terms_of_service'
+  # match "/terms_of_service" => 'pages#terms_of_service', via: :get, as: 'terms_of_service'
   match "/privacy" => 'pages#privacy', via: :get, as: 'privacy'
-  get "/about", to: "pages#about", as: "about"
+  # get "/about", to: "pages#about", as: "about"
+  get "/start_a_challenge", to: "pages#start_a_challenge", as: "start_a_challenge"
 
   root :to => 'challenges#index'
 

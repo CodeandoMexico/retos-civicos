@@ -1,0 +1,38 @@
+.challenge.heading
+  %h1= @challenge.title
+  %p= @challenge.pitch
+
+.challenge.details
+  = image_tag @challenge.avatar_url
+  %p
+    %span
+      Creado por:
+      = link_to @challenge.organization, organization_profile_path(@challenge.organization.slug)
+    -# Patrocinado por: Banco Mundial
+
+  .row
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: @challenge.collaborators.count, icon: 'fa fa-user'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: :inverse, label: 'Propuestas', content: @challenge.entries.count, icon: 'fa fa-envelope'
+    .col-xs-12.col-sm-3
+      = render 'shared/tidbits', format: nil, label: 'Premio', content: @challenge.prize, icon: 'fa fa-trophy'
+    .col-xs-12.col-sm-3
+      - if Phases.days_left_for_current_phase(@challenge) >= 0
+        = render 'shared/tidbits', format: :inverse, label: 'días restantes en esta etapa', content: Phases.days_left_for_current_phase(@challenge), icon: 'fa fa-calendar'
+
+-# Challenge timeline
+= render 'challenge_timeline'
+
+-# Member actions
+= render 'challenge_actions'
+
+-# Submenu with challenge main info like general, prize, etc.
+= render 'challenge_submenu'
+
+.challenge.comments
+  %h3 Conversación
+  = render 'comments', challenge: @challenge
+
+-# .challenge.newsletter
+  = render 'newsletter', challenge: @challenge

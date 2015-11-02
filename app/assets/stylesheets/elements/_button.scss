@@ -1,0 +1,18 @@
+/* Button component */
+@import "defaults/colors";
+
+$button_default_background_color: $light_green;
+$default_text_color: #FFFFFF;
+$button_padding_vertical: 15px;
+$button_padding_horizontal: 40px;
+
+.btn {
+  padding: $button_padding_vertical $button_padding_horizontal $button_padding_vertical $button_padding_horizontal !important;
+  border: 0;
+  border-radius: 3px;
+}
+
+.btn-default {
+  background-color: $button_default_background_color;
+  color: $default_text_color;
+}

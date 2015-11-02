@@ -1,10 +1,5 @@
 class PagesController < ApplicationController
-
-  layout "page"
-
-  def index
-    @challenges = Challenge.recent.limit(3)
-  end
+  layout "aquila"
 
   def sign_up
     @omniauth_providers = User.omniauth_providers
@@ -16,6 +11,10 @@ class PagesController < ApplicationController
     route = Rails.application.routes.recognize_path(request.referer)
     route.merge!({locale: locale.to_s})
     redirect_to url_for(route)
+  end
+
+  def start_a_challenge
+    render layout: 'aquila'
   end
 
   def about

@@ -20,11 +20,26 @@ module Dashboard
       @activity = @challenge.activities.build
     end
 
+    def create
+      @challenge = organization.challenges.new(params[:challenge])
+      if @challenge.save
+        redirect_to dashboard_challenges_path
+      else
+        render :new
+      end
+    end
+
+    def update
+      if @challenge.update_attributes(params[:challenge])
+        redirect_to dashboard_challenges_path
+      else
+        render :edit
+      end
+    end
+
     def new_criteria
       add_crumb 'Jurado', '/dashboard/jueces'
       add_crumb 'Definición de criterios'
-      return unless @challenge.evaluation_criteria.blank?
-      @challenge.evaluation_criteria = Array.new(12, description: nil, value: nil)
     end
 
     def create_criteria

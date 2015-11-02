@@ -114,6 +114,12 @@ class Challenge < ActiveRecord::Base
     self.save
   end
 
+  def ranked_entries
+    self.entries.where(winner: 1) +
+    self.entries.where(accepted: true).where(winner: nil) +
+    self.entries.where(accepted: false)
+  end
+
   def sort_entries_by_scores
     self.entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
   end
@@ -185,6 +191,14 @@ class Challenge < ActiveRecord::Base
 
   def has_finished?
     Date.current >= finish_on
+  end
+
+  def specs?
+    self.first_spec.present? ||
+    self.second_spec.present? ||
+    self.third_spec.present? ||
+    self.fourth_spec.present? ||
+    self.fifth_spec.present?
   end
 
   def timeline_json
@@ -277,8 +291,8 @@ class Challenge < ActiveRecord::Base
     where("status = 'open' OR status = 'working_on'").count == 1
   end
 
-  def is_public?
-    self.status == 'open' || self.status == 'working_on'
+  def public?
+    self.status == 'open' || self.status == 'working_on' || self.status == 'finished'
   end
 
   private

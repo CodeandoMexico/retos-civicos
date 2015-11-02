@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= ENV['OWNER_NAME'] %></title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <%= stylesheet_link_tag 'dashboard', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <%= render 'shared/dashboard_header', main_links: panel_links, user_links: member_user_links %>
+
+    <div class="container">
+      <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+      <% end %>
+
+      <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+      <% end %>
+
+      <% if flash[:warning] %>
+      <div class="alert alert-warning">
+        <%= flash[:warning] %>
+      </div>
+      <% end %>
+
+      <%= render_crumbs format: :html_list, ul_class: 'breadcrumb', last_crumb_linked: false %>
+
+      <%= yield %>
+    </div>
+
+  </div>
+</body>
+</html>

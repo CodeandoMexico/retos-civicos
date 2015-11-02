@@ -29,4 +29,8 @@ class EntriesMailer < ActionMailer::Base
 
     mail to: entry.member.email, subject: "Tu propuesta en el Reto #{@challenge.title}"
   end
+
+  def entry_evaluated(entry)
+    mail to: entry.member.email, subject: "Tu propuesta en el reto #{entry.challenge.title} ha sido evaluada!!"
+  end
 end

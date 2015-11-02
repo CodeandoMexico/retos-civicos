@@ -1,0 +1,19 @@
+- content_for :landing do
+  #intro
+    .content
+      .title
+        = image_tag 'logo-retos-civicos.png'
+      .subtitle
+        %h4
+          Un espacio de innovación abierta de interacción entre organizaciones
+        %h4
+          de la Sociedad Civil y la comunidad tecnológica para proponer soluciones
+          a temas cívicos.
+      .actions.hidden-xs
+        = link_to 'Lanza un reto', start_a_challenge_path, class: 'btn btn-default'
+        = link_to 'Ver retos activos', '#challenges__container', class: 'btn btn-default', id: 'active_challenges'
+
+#challenges__container
+  - @challenges.each do |challenge|
+    = render 'challenge_widget', challenge: challenge
+  = paginate @challenges

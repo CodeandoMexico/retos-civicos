@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook, :github, :twitter, :linkedin]
+  devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
 
   def has_role?
     not self.userable_type.blank?
+  end
+
+  def member?
+    userable_type == "Member"
   end
 
   def organization?

@@ -14,11 +14,9 @@
 #= require jquery_ujs
 #= require jquery.tokeninput
 #= require jquery.ui.datepicker
-#= require foundation
 #= require jquery.jtruncate.pack
 #= require spin
 #= require chosen.jquery
-#= require timelineJS/embed
 #= require bootstrap/modal
 #= require bootstrap/dropdown
 #= require bootstrap/tab
@@ -26,10 +24,13 @@
 #= require bootstrap/collapse
 #= require bootstrap/alert
 #= require bootstrap/popover
+#= require angular
+#= require angular-animate
 #= require_tree .
 #= require_self
 
 $(document).ready ->
+  $('dropdown-toggle').dropdown()
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
   $('[data-toggle="tooltip"]').tooltip()
@@ -43,5 +44,7 @@ $(document).ready ->
   # Stop video when closing the modal
   $('#modal-player').on 'hidden.bs.modal', ->
     $("#modal-player iframe").attr("src", $("#modal-player iframe").attr("src"))
-  addEventHandlers()
-  calculatePercentage()
+
+  # for the scroller to work on each element it has to be registered
+  # scroll from source to destination
+  scroller('#active_challenges', '#challenges__container') # source, destination

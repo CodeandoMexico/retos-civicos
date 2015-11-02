@@ -1,0 +1,8 @@
+es:
+  header:
+    user:
+      dashboard: Dashboard
+      panel: Panel
+      profile: Perfil
+      log_in: Inicia sesión
+      log_out: Cerrar sesión

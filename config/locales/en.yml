@@ -196,7 +196,7 @@ en:
       info: Lorem Ipsum
       download: DOWNLOAD DOCUMENT
   layout:
-    header: Retos públicos
+    header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: What is Codeando México?
     brief: A space where top talent meet to solve real problems.
@@ -204,7 +204,7 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     welcome: Hello
-    description: "If you are an entepreneur solve a federal government challenge, take part in retos.gob.mx"
+    # description: "If you are an entepreneur solve a federal government challenge, take part in retos.gob.mx"
   terms_of_service: Terms of Service
   signup:
     choose_provider: Choose one of the following providers to sign in.
@@ -337,9 +337,7 @@ en:
   entries:
     form:
       name: Name
-      company_name: Company name
       company-name-description: "Name to identify the company, the legal name is not necessary"
-      company_rfc: Company RFC
       company-rfc-description: "To know if the company is registered"
       name-description: Project name
       idea-url: Link to the proyect

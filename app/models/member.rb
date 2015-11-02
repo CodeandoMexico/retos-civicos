@@ -1,8 +1,7 @@
 class Member < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :avatar, :email, :name, :company_name, :company_rfc, :company_president,
-    :company_charter, :nickname, :bio, :user, :phase_finish_reminder_setting
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :user, :phase_finish_reminder_setting
 
   acts_as_user
   paginates_per 21
@@ -10,15 +9,12 @@ class Member < ActiveRecord::Base
   has_many :challenges, through: :collaborations
   has_many :entries
 
-  mount_uploader :company_charter, CompanyCharterUploader
-
   def self.report_attributes
     [:id, :name, :email, :created_at]
   end
 
   def to_s
     return case
-      when company_name.present? then company_name
       when name.present? then name
       when nickname.present? then nickname
       else ""
@@ -28,8 +24,6 @@ class Member < ActiveRecord::Base
   def representative
     # to-do clean this a little bit and merge with to_s
     return case
-      when company_president.present? then company_president
-      when company_name.present? then company_name
       when name.present? then name
       when nickname.present? then nickname
       else ""

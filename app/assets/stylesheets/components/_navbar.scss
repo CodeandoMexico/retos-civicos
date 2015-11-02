@@ -1,0 +1,41 @@
+// Navbar default colors
+$navbar_background_color: $light_grey;
+$navbar_default_links_color: $dark_blue;
+
+// Paddings
+$navbar_padding_top: 15px;
+$navbar_padding_bottom: 15px;
+
+// Margins
+$navbar_margin_bottom: 0;
+
+
+nav {
+  padding-top: $navbar_padding_top;
+  padding-bottom: $navbar_padding_bottom;
+
+  margin-bottom: $navbar_margin_bottom !important;
+  border: 0 !important;
+
+  span {
+    color: $navbar_default_links_color;
+  }
+}
+
+#navbar > ul > li > a {
+  background-color: none;
+  color: $navbar_default_links_color;
+  font-size: 16px;
+  &:hover { background-color: $light_grey; }
+}
+
+ul.dropdown-menu > li{
+  a {
+    color: $navbar_default_links_color;
+  }
+
+  a:hover {
+    background-color: $navbar_default_links_color;
+    color: #fff;
+  }
+}

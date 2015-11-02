@@ -7,6 +7,8 @@ gem 'rails', '3.2.19'
 gem 'foreman'
 gem 'pg'
 
+gem 'haml'
+
 # Heroku compability
 gem 'rails_12factor', group: [:staging, :production]
 
@@ -24,6 +26,8 @@ gem 'gravatar-ultimate'
 gem 'rails-translate-routes'
 gem 'ckan', github: 'CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
+gem 'font-awesome-rails'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
@@ -34,6 +38,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rack-mini-profiler'
+  gem 'bullet'
 end
 
 group :assets do
@@ -43,7 +49,6 @@ group :assets do
   gem 'zurb-foundation',  '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'timelineJS-rails', '~> 1.1.1'
-  gem 'bootstrap-sass', '~> 3.1.1'
   gem 'font-awesome-sass'
 end
 
@@ -81,6 +86,8 @@ gem 'figaro'
 gem 'onebox', '~> 1.2'
 gem 'validate_url'
 gem 'rack-utf8_sanitizer'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'angularjs-rails'
 
 # Console tools
 gem 'ruby-progressbar'
@@ -96,3 +103,4 @@ gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
 gem 'memcachier'
+gem 'font_assets'

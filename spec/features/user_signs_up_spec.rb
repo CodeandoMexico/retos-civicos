@@ -31,8 +31,7 @@ feature 'User signs up' do
         description: 'Es la mejor',
         idea_url: 'https://github.com/CodeandoMexico/aquila',
         technologies: 'Ruby, Haskell, Elixir, Rust',
-        image: "#{Rails.root}/spec/images/happy-face.jpg",
-        letter_under_oath: "#{Rails.root}/spec/fixtures/dummy.pdf"
+        image: "#{Rails.root}/spec/images/happy-face.jpg"
       )
 
       mail_for_collaboration_should_be_sent_to('juanito@example.com')
@@ -70,7 +69,6 @@ feature 'User signs up' do
     args.fetch(:technologies).split(', ').each do |tech|
       select tech, from: 'entry_technologies'
     end
-    attach_file 'entry_letter_under_oath', args.fetch(:letter_under_oath)
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

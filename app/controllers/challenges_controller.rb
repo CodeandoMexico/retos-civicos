@@ -3,18 +3,16 @@ class ChallengesController < ApplicationController
 
   before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
-  before_filter :index_redirects, only: :index
 
   def index
-    @challenges = Challenge.active.recent.page(params[:page])
-    @challenges_group = @challenges.in_groups_of(3, false)
+    @challenges = Challenge.order('created_at DESC').page(params[:page]).includes(:organization)
     render layout: 'aquila'
   end
 
   def show
-    @challenge = Challenge.find(params[:id], include: [:comment_threads, { collaborators: { user: :authentications } }])
+    @challenge = Challenge.find(params[:id])
 
-    if @challenge.is_public? || User.is_admin_of_challenge(@challenge, current_organization)
+    if @challenge.public? || User.is_admin_of_challenge(@challenge, current_organization)
       @organization = @challenge.organization
       @comments = fetch_comments
       @entries = @challenge.entries.public
@@ -32,23 +30,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    render file: 'public/404.html', status: :not_found, layout: false
-  end
-
-  def create
-    if @challenge.save
-      redirect_to organization_challenge_path(@challenge.organization, @challenge)
-    else
-      render :new, layout: 'aquila'
-    end
-  end
-
-  def update
-    if @challenge.update_attributes(params[:challenge])
-      redirect_to organization_challenge_path(@challenge.organization, @challenge)
-    else
-      render :edit, layout: 'aquila'
-    end
+    return record_not_found
   end
 
   def cancel
@@ -86,11 +68,6 @@ class ChallengesController < ApplicationController
   end
 
   private
-
-  def index_redirects
-    return redirect_to about_path if Challenge.count.zero?
-    return redirect_to challenge_path(last_challenge) if Challenge.has_only_one_challenge?
-  end
 
   def fetch_comments
     comments_per_page = 10

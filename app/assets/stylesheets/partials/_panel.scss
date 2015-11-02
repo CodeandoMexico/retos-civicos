@@ -1,0 +1,13 @@
+@import 'bootstrap';
+@import 'defaults/bootstrap_overrides';
+@import 'defaults/colors';
+@import 'partials/cards';
+
+body {
+  padding-top: 70px;
+  background-color: $dashboard-background;
+}
+
+.navbar-default {
+  background-color: $white;
+}

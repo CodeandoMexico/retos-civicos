@@ -1,0 +1,20 @@
+-# Basic organization info
+.row.challenge.widget.medium
+  - if @organization.avatar?
+    .col-xs-12.col-sm-2{ style: 'margin-bottom: 30px;'}
+      .photo{ style: "background-image: url(\'#{@organization.image_url(:profile)}\');height: 100px;" }
+  .col-xs-12.col-sm-10
+    %h1= @organization.name
+    %p= @organization.bio
+
+- if @challenges.active.any?
+  %h3{ style: 'margin-bottom:30px;'} Retos activos
+  .row
+    - @challenges.active.each do |challenge|
+      = render 'organization_challenge', challenge: challenge
+
+- if @challenges.inactive.any?
+  %h3{ style: 'margin-bottom:30px;'} Retos pasados
+  .row
+    - @challenges.inactive.each do |challenge|
+      = render 'organization_challenge', challenge: challenge
