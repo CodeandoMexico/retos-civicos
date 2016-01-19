@@ -2,6 +2,20 @@ var app = angular.module('aquila', [
   'ngAnimate'
 ]);
 
+app.directive('stringToNumber', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+      ngModel.$parsers.push(function(value) {
+        return '' + value;
+      });
+      ngModel.$formatters.push(function(value) {
+        return parseFloat(value, 10);
+      });
+    }
+  };
+});
+
 app.controller('NewChallengeCtrl', [ '$interval', function($interval){
   var self = this;
   var stopInterval;
