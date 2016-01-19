@@ -70,11 +70,18 @@ app.controller('NewChallengeCtrl', [ '$interval', function($interval){
 
 app.controller('EvaluationCriteriaCtrl', function(){
   var self = this;
-  self.criteriaList = [
-    { description: "", value: undefined },
-    { description: "", value: undefined },
-    { description: "", value: undefined }
-  ];
+
+  self.init = function(criteriaList) {
+    if (criteriaList.length == 0) {
+      self.criteriaList = [
+        { description: "", value: undefined },
+        { description: "", value: undefined },
+        { description: "", value: undefined }
+      ]
+    } else {
+      self.criteriaList = criteriaList;
+    }
+  }
 
   self.add = function(idx){
     self.criteriaList.splice(idx + 1, 0, { description: "", value: "" });
@@ -87,7 +94,7 @@ app.controller('EvaluationCriteriaCtrl', function(){
   self.percentage = function() {
     var total = 0;
     angular.forEach(self.criteriaList, function(criteria){
-      total += criteria.value !== undefined ? criteria.value : 0;
+      total += criteria.value !== undefined ? parseInt(criteria.value) : 0;
     });
     return total;
   };
