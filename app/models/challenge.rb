@@ -4,7 +4,7 @@ class Challenge < ActiveRecord::Base
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
                   :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
                   :infographic, :prize, :assessment_methodology, :evaluation_criteria,
-                  :evaluation_instructions, :evaluations_opened
+                  :evaluation_instructions, :evaluations_opened, :category
 
   attr_accessible(*Phases.dates)
 
@@ -88,6 +88,7 @@ class Challenge < ActiveRecord::Base
   end
 
   STATUS = [:private, :open, :working_on, :cancelled, :finished]
+  CATEGORIES = [:project, :hackathon].freeze
 
   def export_evaluations(opts={})
     CSV.generate(opts) do |csv|
