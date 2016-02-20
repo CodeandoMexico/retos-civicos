@@ -835,6 +835,7 @@ es:
       challenge:
         about: Acerca de
         description: Descripción
+        avatar: Imagen
         pitch: Pitch
         prize: Premio
         title: Título

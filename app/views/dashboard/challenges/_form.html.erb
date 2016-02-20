@@ -1,6 +1,10 @@
 <%= form_for [:dashboard, @challenge], html: { class: 'form-horizontal' } do |f| %>
   <div class="sheet-section sheet-section-with-pad">
-    <%= f.error_messages %>
+    <%- if f.error_messages.present? %>
+      <div class="alert alert-danger" role="alert">
+        <%= f.error_messages %>
+      </div>
+    <% end %>
 
     <div class="form-group">
       <div class="col-sm-3">
