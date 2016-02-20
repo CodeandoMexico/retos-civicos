@@ -37,3 +37,4 @@ tags
 
 .ruby-gemset
 .ruby-version
+.env
