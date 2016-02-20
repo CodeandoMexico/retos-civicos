@@ -29,7 +29,7 @@ class Challenge < ActiveRecord::Base
 
   belongs_to :organization
   # Validations
-  validates :description, :title, :status, :about, :pitch, presence: true
+  validates :description, :title, :status, :about, :pitch, :avatar, presence: true
   validates(*Phases.dates, presence: true)
   validates :pitch, length: { maximum: 140 }
   validate :criteria_must_be_valid, on: :update, if: :criteria_must_be_present
