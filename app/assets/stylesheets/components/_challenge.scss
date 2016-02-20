@@ -7,10 +7,12 @@
 
   &.details {
     img {
-      width: 100%;
-      height: 440px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
       border-radius: $border-radius-image-default;
-      margin-bottom: 20px;
+      width: 100%;
+      margin-bottom: 40px;
     }
   }
 
