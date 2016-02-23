@@ -243,6 +243,7 @@ es:
       form:
         title: Título de tu reto
         pitch: El reto
+        category: Categoría
         pitch-description: Escribe en un solo enunciado una frase que describe el reto
         avatar: Imagen
         avatar-description: Te recomendamos seleccionar una imagen que tenga un impacto en las personas y que se relacione con la problematica a resolver.
