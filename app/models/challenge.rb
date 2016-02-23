@@ -69,6 +69,10 @@ class Challenge < ActiveRecord::Base
     where(category: 'project')
   }
 
+  scope :hackathons, lambda {
+    where(category: 'hackathon')
+  }
+
   def self.last_created
     Challenge.order('created_at desc').first
   end
