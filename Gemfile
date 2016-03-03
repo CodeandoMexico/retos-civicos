@@ -40,6 +40,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rack-mini-profiler'
   gem 'bullet'
+  gem 'simplecov'
+  gem 'autotest'
+  gem 'factory_girl'
+  gem 'metric_fu'
 end
 
 group :assets do

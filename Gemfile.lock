@@ -14,6 +14,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ZenTest (4.11.0)
+    abstract_type (0.0.7)
     actionmailer (3.2.19)
       actionpack (= 3.2.19)
       mail (~> 2.5.4)
@@ -45,15 +47,22 @@ GEM
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       awesome_nested_set (>= 2.0)
+    adamantium (0.2.0)
+      ice_nine (~> 0.11.0)
+      memoizable (~> 0.4.0)
     addressable (2.3.6)
     airbrake (4.1.0)
       builder
       multi_json
     angularjs-rails (1.4.3)
     arel (3.0.3)
+    arrayfields (4.9.2)
+    ast (2.2.0)
     auto_html (1.6.4)
       redcarpet (~> 3.1)
       rinku (~> 1.5.0)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
     bcrypt (3.1.7)
@@ -72,6 +81,8 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     cancan (1.6.10)
+    cane (2.6.2)
+      parallel
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -83,7 +94,19 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     chunky_png (1.3.1)
+    churn (0.0.35)
+      chronic (>= 0.2.3)
+      hirb
+      json_pure
+      main
+      rest-client (>= 1.6.0)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.1)
+    code_analyzer (0.4.5)
+      sexp_processor
+    code_metrics (0.1.3)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -100,6 +123,9 @@ GEM
     compass-rails (1.1.7)
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
+    concord (0.1.5)
+      adamantium (~> 0.2.0)
+      equalizer (~> 0.0.9)
     crummy (1.8.0)
     daemons (1.1.9)
     dalli (2.7.2)
@@ -122,6 +148,7 @@ GEM
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     dotenv (0.7.0)
     dynamic_form (1.1.4)
     equalizer (0.0.9)
@@ -138,10 +165,18 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fattr (2.2.2)
     ffi (1.9.6)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flay (2.7.0)
+      erubis (~> 2.7.0)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
+    flog (4.3.2)
+      ruby_parser (~> 3.1, > 3.1.0)
+      sexp_processor (~> 4.4)
     fog (1.22.0)
       fog-brightbox
       fog-core (~> 1.21, >= 1.21.1)
@@ -190,6 +225,7 @@ GEM
       http_parser.rb
     http_parser.rb (0.6.0)
     i18n (0.6.11)
+    ice_nine (0.11.2)
     journey (1.0.4)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
@@ -197,6 +233,7 @@ GEM
     jquery-ui-rails (4.2.1)
       railties (>= 3.2.16)
     json (1.8.1)
+    json_pure (1.8.3)
     jwt (0.1.13)
       multi_json (>= 1.5)
     kaminari (0.15.1)
@@ -210,9 +247,30 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    main (6.2.0)
+      arrayfields (>= 4.7.4)
+      chronic (>= 0.6.2)
+      fattr (>= 2.2.0)
+      map (>= 6.1.0)
+    map (6.6.0)
     memcachier (0.0.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
+    metric_fu (4.12.0)
+      cane (~> 2.5, >= 2.5.2)
+      churn (~> 0.0.35)
+      code_metrics (~> 0.1)
+      coderay
+      flay (~> 2.1, >= 2.0.1)
+      flog (~> 4.1, >= 4.1.1)
+      launchy (~> 2.0)
+      metric_fu-Saikuro (~> 1.1, >= 1.1.3)
+      multi_json
+      rails_best_practices (~> 1.14, >= 1.14.3)
+      redcard
+      reek (>= 1.3.4, < 3.0)
+      roodi (~> 3.1)
+    metric_fu-Saikuro (1.1.3)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -267,8 +325,12 @@ GEM
       mustache (~> 0.99)
       nokogiri (~> 1.6.1)
     orm_adapter (0.5.0)
+    parallel (1.6.2)
+    parser (2.3.0.6)
+      ast (~> 2.2)
     pg (0.17.1)
     polyglot (0.3.5)
+    procto (0.0.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -296,6 +358,14 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_best_practices (1.16.0)
+      activesupport
+      code_analyzer (>= 0.4.3)
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (3.2.19)
@@ -305,14 +375,23 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    rainbow (2.1.0)
     raindrops (0.13.0)
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcard (1.1.0)
     redcarpet (3.1.2)
+    reek (2.2.1)
+      parser (~> 2.2)
+      rainbow (~> 2.0)
+      unparser (~> 0.2.2)
+    require_all (1.3.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rinku (1.5.1)
+    roodi (3.3.1)
+      ruby_parser (~> 3.2, >= 3.2.2)
     rspec-core (2.14.8)
     rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -326,6 +405,8 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     ruby-progressbar (1.5.0)
+    ruby_parser (3.8.1)
+      sexp_processor (~> 4.1)
     rubyzip (1.1.7)
     sanitize (2.1.0)
       nokogiri (>= 1.4.4)
@@ -344,9 +425,15 @@ GEM
     sendgrid (1.2.0)
       json
       json
+    sexp_processor (4.7.0)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
     simple_oauth (0.2.0)
+    simplecov (0.11.2)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -389,6 +476,14 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.9.0)
+    unparser (0.2.5)
+      abstract_type (~> 0.0.7)
+      adamantium (~> 0.2.0)
+      concord (~> 0.1.5)
+      diff-lcs (~> 1.2.5)
+      equalizer (~> 0.0.9)
+      parser (~> 2.3.0)
+      procto (~> 0.0.2)
     validate_url (0.2.2)
       activemodel (>= 3.0.0)
       addressable
@@ -411,6 +506,7 @@ DEPENDENCIES
   airbrake
   angularjs-rails
   auto_html
+  autotest
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
@@ -429,6 +525,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise (~> 3.0.0)
   dynamic_form
+  factory_girl
   factory_girl_rails
   faker
   figaro
@@ -448,6 +545,7 @@ DEPENDENCIES
   kgio
   letter_opener
   memcachier
+  metric_fu
   mini_magick
   newrelic_rpm
   omniauth-facebook
@@ -472,6 +570,7 @@ DEPENDENCIES
   selenium-webdriver
   sendgrid
   shoulda-matchers
+  simplecov
   thin
   thumbs_up
   timelineJS-rails (~> 1.1.1)
