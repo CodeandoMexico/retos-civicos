@@ -1,11 +1,14 @@
 class ChallengesController < ApplicationController
   load_and_authorize_resource through: :current_organization, except: [:index, :show, :timeline, :like]
 
+  has_scope :projects, default: true, type: :boolean
+  has_scope :hackathons, type: :boolean
+
   before_filter :save_location, only: [:new, :show]
   before_filter :save_previous, only: [:like]
 
   def index
-    @challenges = Challenge.order('created_at DESC').page(params[:page]).includes(:organization)
+    @challenges = apply_scopes(Challenge).order('created_at DESC').page(params[:page]).includes(:organization)
     render layout: 'aquila'
   end
 

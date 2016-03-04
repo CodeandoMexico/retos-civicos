@@ -9,6 +9,10 @@ module ChallengesHelper
     status
   end
 
+  def categories_for_challenge
+    Challenge::CATEGORIES.map{ |category| [category.to_s.humanize, category] }
+  end
+
   def can_edit_challenge?(challenge)
     challenge.organization == current_organization
   end

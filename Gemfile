@@ -88,6 +88,7 @@ gem 'validate_url'
 gem 'rack-utf8_sanitizer'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'angularjs-rails'
+gem 'has_scope'
 
 # Console tools
 gem 'ruby-progressbar'
