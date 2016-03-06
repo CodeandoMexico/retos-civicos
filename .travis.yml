@@ -1,9 +1,12 @@
 language: ruby
 rvm:
   - "ruby-2.1.3"
-  - rbx
 services:
   - postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
 before_script:
   - cp config/database.sample.yml config/database.yml
   - psql -c 'create database retos_cmx_test;' -U postgres
