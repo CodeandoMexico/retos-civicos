@@ -34,9 +34,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'cucumber-rails' 
   gem "codeclimate-test-reporter", require: nil
-
 end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
