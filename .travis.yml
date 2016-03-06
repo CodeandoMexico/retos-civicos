@@ -10,3 +10,5 @@ script:
 before_script:
   - cp config/database.sample.yml config/database.yml
   - psql -c 'create database retos_cmx_test;' -U postgres
+addons:
+  firefox: "39.0"
