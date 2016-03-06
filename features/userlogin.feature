@@ -22,4 +22,4 @@ Scenario: login failure
   When  I fill in the fields: e-mail: "johnnyappleseed@example.com", password: "Apples2"
   And   I press "Login"
   Then  I should be on the login page
-  And   I should see "Invalid login credentials"
+  And   I should see "Credenciales de acceso invalidos"
