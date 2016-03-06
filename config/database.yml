@@ -8,11 +8,20 @@ postgresql: &postgresql
 development:
   <<: *postgresql
   database: retos_cmx_development
+  username: postgres
+  password: postgres
+  template: template0
 
 test:
   <<: *postgresql
   database: retos_cmx_test
+  username: postgres
+  password: postgres
+  template: template0
 
 production:
   <<: *postgresql
   database: retos_cmx_production
+  username: postgres
+  password: postgres
+  template: template0
