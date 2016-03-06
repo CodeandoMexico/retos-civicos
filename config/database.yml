@@ -1,4 +1,4 @@
-postgresql: &postgresql
+rrails postgresql: &postgresql
   adapter: postgresql
   host: localhost
   min_messages: ERROR

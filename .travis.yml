@@ -1,18 +1,25 @@
 language: ruby
 cache: bundler
 rvm:
-  - "ruby-2.1.3"
+- ruby-2.1.3
 services:
-  - postgresql
+- postgresql
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - cp config/database.sample.yml config/database.yml
-  - psql -c 'create database retos_cmx_test;' -U postgres
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- cp config/database.sample.yml config/database.yml
+- psql -c 'create database retos_cmx_test;' -U postgres
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
 addons:
-    code_climate:
-        repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
+  code_climate:
+    repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
+notifications:
+  slack:
+    secure: rBAJWSOTpcOQcscWpZF8snLoWgOym7gutC+KjT2B4cXbqVrQiFdxEcxWG0RGtfdJErDhVKdn13FifEg7HVICXf+IO5hsFjtxUUrnHLJYOtgKvt2o/vL7JQglCZF86oV7buKsEN+e0WxALL/Syjacueb955oWZMlKwlulcks4O1Bj5OvJhhzvTnuNJevvtaXrAFba91cY1ZnoopgPJGDevASYpLvn5KcNCOZtXdm5fT+CHLTs8UclupncnwaSf30V1LMei2or01/OfUjod7lpP2ZLEAnmmwCVULNUdPDuHMlVSvVJuHGxYfSi1st0O9jyhD+5k1e3cqiHOTQcG/p0SZIIBt4ErA7AHGXUcaVWmbB6jtxVpneRH0s0K5NAvn9I4p6C7+YEPVGntp+XO3kHlFOdyj9NLNilEGnUJcCWx0p6GWti/6emJVvVpU1PWKk34ZMcZckVvkxaJCGVHaC61dxKivefMU+wdjsrxceNBD/kTFTUx3hLSFg91HKz2N6p8owCylh9uU/XbpchiBfdq76dbJytj7EIYGQbkOhHihccnHFjsz3TxmwmRh/mbr8HZ2EA3WS+akPai51T1jRBWDxHfAYsa3cVS0fWNKqbG9uOP37GTnVV+rM0JFpRqj5mZZJ9NbLSVykC9/A/ip/sFjk5O+4xSwbHwrgi7qgDPzM=
+
+#deploy:
+#  api_key:
+#    secure: dLL4Oo/xYdrM2nEbLCdFkBGlYnAVgNVpWHJBPRetKyPJnjkp814eWD86+XS26/joCyr9tWr/1ietXAk/dFGj6VzURqtljfuupN/HVm+mZvstcR82VirLvMpr97uP/tPgpY3WtsSCPhccikNqzRCETjCJtt3hMKGeAmtN8E4m2wdip8D/hcqH5zm1Q5EplMT0QLfHdJCQ0IskaUmteCZHyFg6fthhDNZfPVduu2Xts+hMutIl4OQPwcVIhmvqkAXvVk8s6WuXL7++t+0vKRqGg5SU8LwlHnUhbn3/CwyDkDhXlfzXe0+q7LhKL06vhrSi7OOjHmW9AiEvZSlAH2Jk1qOycB43Aqmdj0imiaLua0QrBXvW/WYRvtJqnyVJ+mWqILr0yLySUH2hmETZblP0dQWGx0i5COgVZn8ZZtKA3LDt1VdTTqkjOifTztEgsxnZsiep6bfqO1PvCsMfZ4TwdFgPRJlNiBgpWPPYUGX7Z9n858sBb8gmiRgLQ9IkTgxxEExvU7PTjBeBJ72/BNkp1lcLrRjifRS2yZLyZ/JaLFgLE4KdW7ffswySO8obDTTEOT/fvVBnclYYsdgar4aY2QFO57w9m+FbKWX/tF42vL9uqwhNKTMqD7zCDK03zI+5d8jGpZdnIaXJmB2AA46J6ElzNkGMuCYxHy+9BKrOyck=
