@@ -36,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'cucumber-rails' 
   gem "codeclimate-test-reporter", require: nil
+end
 
 group :development, :test do
   gem 'rspec-rails'
