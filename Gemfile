@@ -34,6 +34,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'cucumber-rails' 
 end
 group :development, :test do
   gem 'rspec-rails'
