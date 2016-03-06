@@ -35,7 +35,8 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails' 
-end
+  gem "codeclimate-test-reporter", require: nil
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
