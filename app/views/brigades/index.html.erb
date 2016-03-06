@@ -1,0 +1,27 @@
+<h1>Listing brigades</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @brigades.each do |brigade| %>
+  <tr>
+    <td><%= brigade.name %></td>
+    <td><%= brigade.description %></td>
+    <td><%= brigade.user %></td>
+    <td><%= link_to 'Show', brigade %></td>
+    <td><%= link_to 'Edit', edit_brigade_path(brigade) %></td>
+    <td><%= link_to 'Destroy', brigade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Brigade', new_brigade_path %>
