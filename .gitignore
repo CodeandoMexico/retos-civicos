@@ -18,7 +18,6 @@
 *.swo
 *.swp
 
-/config/database.yml
 .DS_Store
 *.DS_Store
 .sass-cache
