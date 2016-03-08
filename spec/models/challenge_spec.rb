@@ -35,7 +35,7 @@ describe Challenge do
     describe '#timeline_json' do
       it 'returns a JSON with all of the steps of the challenge' do
         timeline = active_ch.timeline_json
-        expect(timeline[:timeline].count).to eq 5
+        expect(timeline["timeline"].count).to eq 5
       end
     end
 
