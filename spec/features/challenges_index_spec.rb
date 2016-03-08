@@ -57,6 +57,7 @@ feature "Challenges page" do
   end
 
   scenario "There are multiple challenges" do
+    pending
     visit root_path
     current_path.should eq root_path
 
@@ -69,6 +70,7 @@ feature "Challenges page" do
   end
 
   scenario "There's only one challenge" do
+    pending
     only_one_challenge_left
 
     visit root_path

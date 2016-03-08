@@ -21,6 +21,7 @@ feature 'User update his information' do
     expect(current_path).to eq challenges_path
 
     click_on 'Raúl Jiménez'
+    click_on 'Perfil'
     expect(page).to have_content 'Raúl Jiménez'
     expect(page).to have_content 'I live in Monterrey, N.L., Mexico'
   end

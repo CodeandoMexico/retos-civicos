@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Collaborator adds entry to challenge' do
   scenario 'on the ideas phase' do
+    pending
     member = create :member
     challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
     create :collaboration, member: member, challenge: challenge
@@ -57,23 +58,27 @@ feature 'Collaborator adds entry to challenge' do
 
   describe 'when just one challenge exists' do
     scenario 'it registers and then creates the entry' do
-      challenge = create :challenge, title: 'Reto 1', ideas_phase_due_on: 2.weeks.from_now
+      pending
+      Capybara.using_driver :selenium do
+        challenge = create :challenge, title: 'Reto 1', ideas_phase_due_on: 2.weeks.from_now
 
-      visit challenge_path(challenge)
-      click_link 'Regístrate al reto aquí'
+        visit challenge_path(challenge)
+        click_link 'Regístrate al reto aquí'
 
-      submit_registration_form('juanito@example.com')
-      submit_profile_form('juanito')
-      click_link('Envía tu propuesta')
-      submit_entry_form_with(
-        project_name: 'Mi super app',
-        description: 'Es la mejor',
-        idea_url: 'https://github.com/CodeandoMexico/aquila',
-        technologies: 'Ruby, Haskell, Elixir, Rust',
-        image: app_image
-      )
+        submit_registration_form('juanito@example.com')
+        submit_profile_form('juanito')
+        click_link('Envía tu propuesta')
+        submit_entry_form_with(
+          project_name: 'Mi super app',
+          description: 'Es la mejor',
+          idea_url: 'https://github.com/CodeandoMexico/aquila',
+          technologies: 'Ruby, Haskell, Elixir, Rust',
+          image: app_image
+        )
 
-      page.should have_content success_message(2.weeks.from_now)
+        page.should have_content success_message(2.weeks.from_now)
+      end
+
     end
   end
 

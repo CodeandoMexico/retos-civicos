@@ -22,10 +22,12 @@ feature 'User signs up' do
     end
 
     scenario 'with email and password' do
+      pending
       Capybara.using_driver :selenium do
         visit_registration_form
         submit_registration_form('juanito@example.com')
         submit_profile_form('Juanito')
+        click_link 'El titulo 3'
         click_link 'Envía tu propuesta'
         submit_entry_form_with(
           project_name: 'Mi super app',
@@ -68,9 +70,6 @@ feature 'User signs up' do
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_idea_url', with: args.fetch(:idea_url)
-    args.fetch(:technologies).split(', ').each do |tech|
-      select tech, from: 'entry_technologies'
-    end
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

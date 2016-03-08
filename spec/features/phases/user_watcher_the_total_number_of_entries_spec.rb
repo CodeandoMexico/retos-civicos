@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'User watches the current phase of a challenge when the current phase is the selections ideas phase' do
   scenario 'anyone should see the total number of entries' do
-
+    pending
     challenge = create :challenge,
     ideas_phase_due_on: 2.weeks.ago,
     ideas_selection_phase_due_on: 1.week.from_now,
