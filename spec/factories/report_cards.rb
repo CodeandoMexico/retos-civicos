@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :report_card do
-    evaluation_id 1
-    entry_id 1
-    grades "MyText"
+    association :evaluation
+    association :entry
+    grades [4, 4, 4]
   end
 end
