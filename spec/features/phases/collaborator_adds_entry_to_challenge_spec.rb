@@ -14,7 +14,6 @@ feature 'Collaborator adds entry to challenge' do
       project_name: 'Mi super app',
       description: 'Es la mejor',
       idea_url: 'https://github.com/CodeandoMexico/aquila',
-      technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image
     )
 
@@ -112,9 +111,6 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_idea_url', with: args.fetch(:idea_url)
-    args.fetch(:technologies).split(', ').each do |tech|
-      select tech, from: 'entry_technologies'
-    end
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

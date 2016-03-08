@@ -96,6 +96,9 @@ es:
       non-entries: "Sé el primero en participar en el reto. %{link}."
       repo: Repo
       idea: Propuesta
+    challenge_actions:
+      edit-prototype: 'Editar prototipo'
+      send-prototype: 'Enviar prototipo'
     show:
       description-title: 'El Reto'
       challenge-description: 'Descripción del reto'

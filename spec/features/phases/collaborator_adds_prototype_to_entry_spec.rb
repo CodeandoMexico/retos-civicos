@@ -41,8 +41,8 @@ feature 'Collaborator adds prototype to entry' do
   end
 
   def submit_prototype_with(args)
-    fill_in 'entry_repo_url', with: args.fetch(:repo_url)
-    fill_in 'entry_demo_url', with: args.fetch(:demo_url)
+    fill_in 'entry[repo_url]', with: args.fetch(:repo_url)
+    fill_in 'entry[demo_url]', with: args.fetch(:demo_url)
     click_button 'Enviar prototipo'
   end
 end

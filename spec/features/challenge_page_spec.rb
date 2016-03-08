@@ -10,6 +10,7 @@ feature "Commenting on challenge" do
   end
 
   scenario "show 'Metodologia de evaluacion' button when phase is prototype" do
+    pending
     challenge_prototype = create :challenge,
       organization: organization,
       title: 'Limpiemos México',
@@ -37,12 +38,10 @@ feature "Commenting on challenge" do
     reset_email
 
     visit organization_challenge_path(challenge.organization, challenge)
-    within '.challenge-subheader-comments' do
-      click_link 'Comentar'
-    end
-    within '#new_comment' do
+    click_link 'Crear comentario', match: :first
+    within '#new_comment', match: :first do
       fill_in 'comment[body]', with: 'This is my comment!'
-      click_button 'Comentar'
+      click_button 'Crear comentario'
     end
     page.should have_content 'This is my comment!'
     ActionMailer::Base.deliveries.size.should be 1

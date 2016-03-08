@@ -38,7 +38,7 @@ feature 'User update his information' do
   end
 
   def cmx_logo_path
-    Rails.root.join('app/assets/images/codeandomexico80.png')
+    Rails.root.join('app/assets/images/logocmx@2x.png')
   end
 
   def text_of_length(length)
