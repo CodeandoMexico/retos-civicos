@@ -76,6 +76,18 @@ describe Challenge do
       end
     end
 
+    describe '#create_or_update_datasets' do
+      it 'should run without throwing errors' do
+        active_ch.create_or_update_datasets
+      end
+    end
+
+    describe '#remove_datasets' do
+      it 'should run without throwing errors' do
+        active_ch.remove_datasets
+      end
+    end
+
     describe '#popular' do
       it 'returns a list of challenges ordered by the number of collaborations' do
         FactoryGirl.create_list(:collaboration, 3, challenge: finished_ch)
