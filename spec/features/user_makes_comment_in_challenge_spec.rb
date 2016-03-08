@@ -52,8 +52,8 @@ feature 'User makes comment in challenge' do
     click_on 'Inicia con Email'
     click_on 'Regístrate aquí'
     fill_in 'user_email', with: 'jose@example.com'
-    fill_in 'user_password', with: 'secret'
-    fill_in 'user_password_confirmation', with: 'secret'
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
     click_button 'Registrarme'
   end
 

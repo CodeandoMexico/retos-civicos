@@ -1,3 +1,4 @@
+require 'rails/commands/server'
 module EntriesHelpers
   def entries_with_different_members(number_of_entries, challenge)
     entries = []
@@ -6,7 +7,7 @@ module EntriesHelpers
               member: new_member,
               name: "Propuesta #{idx}",
               description: "This is a description #{idx}",
-              idea_url: 'http://localhost:3000',
+              idea_url: "slideshare.com/loqusea",
               technologies: ['PHP', 'Rust'],
               created_at: Time.zone.local(2014,4,25,10,52,24)
             )}
@@ -20,7 +21,7 @@ module EntriesHelpers
               member: new_member,
               name: "Inválida #{idx}",
               description: "This is a description #{idx}",
-              idea_url: 'http://localhost:3000',
+              idea_url: "slideshare.com/loqusea",
               technologies: ['PHP', 'Rust'],
               created_at: Time.zone.local(2014,4,25,10,52,24),
               is_valid: false

@@ -22,20 +22,22 @@ feature 'User signs up' do
     end
 
     scenario 'with email and password' do
-      visit_registration_form
-      submit_registration_form('juanito@example.com')
-      submit_profile_form('Juanito')
-      click_link 'Envía tu propuesta'
-      submit_entry_form_with(
-        project_name: 'Mi super app',
-        description: 'Es la mejor',
-        idea_url: 'https://github.com/CodeandoMexico/aquila',
-        technologies: 'Ruby, Haskell, Elixir, Rust',
-        image: "#{Rails.root}/spec/images/happy-face.jpg"
-      )
+      Capybara.using_driver :selenium do
+        visit_registration_form
+        submit_registration_form('juanito@example.com')
+        submit_profile_form('Juanito')
+        click_link 'Envía tu propuesta'
+        submit_entry_form_with(
+          project_name: 'Mi super app',
+          description: 'Es la mejor',
+          idea_url: 'https://github.com/CodeandoMexico/aquila',
+          technologies: 'Ruby, Haskell, Elixir, Rust',
+          image: "#{Rails.root}/spec/images/happy-face.jpg"
+        )
 
-      mail_for_collaboration_should_be_sent_to('juanito@example.com')
-    end
+        mail_for_collaboration_should_be_sent_to('juanito@example.com')
+        end
+      end
   end
 
   def mail_for_collaboration_should_be_sent_to(email_address)

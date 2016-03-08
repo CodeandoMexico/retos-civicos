@@ -32,10 +32,11 @@ gem 'faker'
 group :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
-  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'cucumber-rails' 
-  gem "codeclimate-test-reporter", require: nil
+  gem 'cucumber-rails', :require => false
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'pry'
 end
 
 group :development, :test do
