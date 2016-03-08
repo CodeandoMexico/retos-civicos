@@ -32,9 +32,7 @@ feature 'Organization admin downloads entries CSV' do
       'tecnologias' => 'PHP, Rust',
       'participante' => "#{member.name}",
       'participante_id' => "#{member.id}",
-      'empresa' => '',
       'email' => "#{member.email}",
-      'carta_legal_enviada' => 'false',
       'publica' => 'true'
     )
   end

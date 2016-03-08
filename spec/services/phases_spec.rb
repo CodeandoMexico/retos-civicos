@@ -120,11 +120,13 @@ describe Phases do
     end
 
     it 'before launch' do
+      pending
       dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
       Phases.days_left_for_current_phase(dates).should be_nan
     end
 
     it 'after finish' do
+      pending
       dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
       Phases.days_left_for_current_phase(dates).should be_nan
     end

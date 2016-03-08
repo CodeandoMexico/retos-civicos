@@ -12,15 +12,10 @@ feature 'Organization admin accepts entry' do
 
     reset_email
     visit dashboard_entry_path(entry)
-    click_on 'Aceptar propuesta'
-
+    click_on 'Seleccionar como finalista'
     page.should have_content 'La propuesta fue aceptada satisfactoriamente'
     entry_author_should_receive_an_accepted_entry_email(entry)
     expect(page).to have_content entry.name
-    expect(page).to have_content 'Aceptada'
-
-    visit dashboard_entry_path(entry)
-    page.should_not have_button 'Aceptar propuesta'
   end
 
   scenario 'in the ideas phase but fails' do

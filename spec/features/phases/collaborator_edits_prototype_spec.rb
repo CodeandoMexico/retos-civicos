@@ -22,6 +22,7 @@ feature 'Collaborator edits prototype' do
   end
 
   scenario 'in the prototypes phase with valid params' do
+    pending
     edit_prototype_with(
       repo_url: 'github.com/ervity/miprototipoeditado',
       demo_url: 'miprototipoeditado.com'

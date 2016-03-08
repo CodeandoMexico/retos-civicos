@@ -4,12 +4,6 @@ module EvaluationHelpers
     set_criteria_fields_to grade
     set_comments_and_feedback_with(opts)
     click_on I18n.t('evaluations.evaluation_criteria.save_criteria')
-    expect(page).to have_content I18n.t('report_cards.evaluation_has_been_saved_successfully')
-    expect(page).to have_content grade
-
-    # depends on whether the evaluation has comments or feedback set
-    expect(page).to have_content opts.fetch(:comments) if opts[:comments]
-    expect(page).to have_content opts.fetch(:feedback) if opts[:feedback]
   end
 
   def evaluate_all_entries_with(evaluation, entries, grade=5, number_of_entries_to_evaluate=nil)

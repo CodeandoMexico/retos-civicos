@@ -33,7 +33,7 @@ feature 'User watches entry' do
       idea_url: 'http://codeandomexico.org'
 
     visit challenge_entry_path(challenge, entry)
-    page.status_code.should eq 404
+    page.should have_content " Necesitas iniciar sesión primero"
   end
 
   def page_should_have_entry(entry)
