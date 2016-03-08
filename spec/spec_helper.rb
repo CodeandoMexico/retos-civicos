@@ -12,9 +12,11 @@ require 'capybara/rails'
 Capybara.server_port = "3000"
 
 # Allow for proper login
-
 include Warden::Test::Helpers
 Warden.test_mode!
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:twitter] = {}
+OmniAuth.config.mock_auth[:facebook] = {}
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
