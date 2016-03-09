@@ -18,6 +18,7 @@
 /.bundle
 
 .rspec
+/vendor
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
