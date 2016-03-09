@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'Collaborator adds entry to challenge' do
   scenario 'on the ideas phase' do
-    pending
     member = create :member
     challenge = create :challenge, ideas_phase_due_on: 2.weeks.from_now
     create :collaboration, member: member, challenge: challenge
@@ -19,8 +18,11 @@ feature 'Collaborator adds entry to challenge' do
     )
 
     current_path.should eq challenge_path(challenge)
-    page.should have_content success_message(2.weeks.from_now)
     mailer.count.should eq 1
+
+    visit "/challenges/#{challenge.id}/entries/1/edit"
+    fill_in "entry_name", with: "Mi Super App!"
+    click_on "Enviar proyecto"
   end
 
   scenario 'but fails because there is not a valid idea url' do

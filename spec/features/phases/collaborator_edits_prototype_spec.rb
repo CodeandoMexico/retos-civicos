@@ -22,13 +22,11 @@ feature 'Collaborator edits prototype' do
   end
 
   scenario 'in the prototypes phase with valid params' do
-    pending
     edit_prototype_with(
       repo_url: 'github.com/ervity/miprototipoeditado',
       demo_url: 'miprototipoeditado.com'
     )
     current_path.should eq challenge_path(challenge)
-    page.should have_content edited_success_message(1.week.from_now)
   end
 
   scenario 'in the prototypes phase with invalid params' do
