@@ -13,7 +13,6 @@ feature 'User logs in with omniauth' do
     Rails.application.env_config["omniauth.auth"].stub_chain(:info, :nickname).and_return("Javi")
     click_on 'Inicia con Twitter'
 
-    # //Last login
     Authentication.last.uid.should == '25073877'
     page.should have_content "Confirma tu correo antes de iniciar tu participación"
     page.should have_content "Editar perfil"
