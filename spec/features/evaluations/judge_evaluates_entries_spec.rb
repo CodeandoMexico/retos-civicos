@@ -95,15 +95,6 @@ feature 'Judge enters the evaluations panel and' do
     expect(page).to have_content I18n.t('evaluations.index.no_evaluation_criteria', email: organization.email)
   end
 
-  scenario 'sees a different description when admin changes the criteria' do
-    Capybara.using_driver :selenium do
-      admin_updates_criteria_definition
-      sign_in_user(@judge)
-      find('a', text: evaluation_with_criteria.challenge.title).click
-      check_for_updated_criteria
-    end
-  end
-
   def mark_entry_as_invalid(entry)
     entry.mark_as_invalid!("An invalid reason message")
   end
