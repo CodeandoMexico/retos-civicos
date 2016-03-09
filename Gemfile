@@ -40,6 +40,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rubocop', require: false
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rack-mini-profiler'
