@@ -29,6 +29,13 @@ feature 'Judge' do
     expect(page).to have_content "Challenge With Evaluations"
   end
 
+  scenario 'edits her profile' do
+    sign_in_user judge_with_evaluations
+    visit edit_judge_en_path(judge_with_evaluations.id)
+    expect(page).to have_content judge_with_evaluations.name
+    click_on "Guardar"
+  end
+
   def visit_evaluation_panel
     click_link 'Evaluaciones'
     expect(current_path).to eq evaluations_path

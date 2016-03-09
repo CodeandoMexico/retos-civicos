@@ -32,7 +32,6 @@ feature 'User makes comment in challenge' do
 
   scenario 'before login', js: true do
     user = create :user, updated_at: 1.week.ago
-
     visit challenge_path(challenge)
     click_link 'Crear comentario'
 
@@ -46,6 +45,21 @@ feature 'User makes comment in challenge' do
 
     page_should_have_comment 'My comment'
     organization_should_receive_comment_notification(organization)
+
+    click_on 'Responder', match: :first
+    fill_in 'comment_body', with: "my response"
+    click_on 'Responder'
+
+    click_link user.name, match: :first
+    click_link 'Cerrar sesión'
+    click_on 'Inicia sesión'
+    click_on 'Inicia con Email'
+    fill_in 'user_email', with: organization.admin.email
+    fill_in 'user_password', with: 'password'
+    click_on 'Entrar'
+    visit challenge_path(challenge)
+    find(:xpath, "//a[contains(@href,'like=true')]").click
+
   end
 
   def sign_up_user
