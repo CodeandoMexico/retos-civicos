@@ -10,7 +10,6 @@ feature "Commenting on challenge" do
   end
 
   scenario "show 'Metodologia de evaluacion' button when phase is prototype" do
-    pending
     challenge_prototype = create :challenge,
       organization: organization,
       title: 'Limpiemos México',
@@ -28,8 +27,22 @@ feature "Commenting on challenge" do
       challenge: challenge_prototype,
       member: member
     visit challenge_path(challenge_prototype)
+    click_link member.user.name, match: :first
+    click_link 'Cerrar sesión'
+    sign_in_user(organization.admin, password: 'password')
+    visit dashboard_judges_path(challenge_id: challenge.id)
+    click_on "Acciones", match: :first
+    click_on "Exportar CSV", match: :first
+    visit dashboard_judges_path(challenge_id: challenge.id)
+    click_on "Acciones", match: :first
+    click_on "Criterios de evaluación", match: :first
+    fill_in "criteria__description", match: :first, with: "HI"
+    fill_in "criteria__value", match: :first, with: "100"
+    click_button "Guardar"
+    click_on "Jurado"
+    click_on "Acciones"
+    click_on "Cerrar evaluaciones"
 
-    find_link('Metodología de Evaluación')
   end
 
   scenario "Can reply to a comment", js: true do
