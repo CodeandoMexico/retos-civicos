@@ -462,7 +462,6 @@ GEM
       websocket (~> 1.0)
     sendgrid (1.2.0)
       json
-      json
     sexp_processor (4.7.0)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
@@ -622,3 +621,6 @@ DEPENDENCIES
   unicorn
   validate_url
   zurb-foundation (~> 3.2.0)
+
+BUNDLED WITH
+   1.11.2
