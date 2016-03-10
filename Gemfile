@@ -34,7 +34,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
 end
