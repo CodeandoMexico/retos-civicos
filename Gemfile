@@ -34,12 +34,13 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
 end
 
 group :development, :test do
+  gem 'rubocop', require: false
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rack-mini-profiler'
