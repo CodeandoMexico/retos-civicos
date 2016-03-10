@@ -27,8 +27,22 @@ feature "Commenting on challenge" do
       challenge: challenge_prototype,
       member: member
     visit challenge_path(challenge_prototype)
+    click_link member.user.name, match: :first
+    click_link 'Cerrar sesión'
+    sign_in_user(organization.admin, password: 'password')
+    visit dashboard_judges_path(challenge_id: challenge.id)
+    click_on "Acciones", match: :first
+    click_on "Exportar CSV", match: :first
+    visit dashboard_judges_path(challenge_id: challenge.id)
+    click_on "Acciones", match: :first
+    click_on "Criterios de evaluación", match: :first
+    fill_in "criteria__description", match: :first, with: "HI"
+    fill_in "criteria__value", match: :first, with: "100"
+    click_button "Guardar"
+    click_on "Jurado"
+    click_on "Acciones"
+    click_on "Cerrar evaluaciones"
 
-    find_link('Metodología de Evaluación')
   end
 
   scenario "Can reply to a comment", js: true do
@@ -37,12 +51,10 @@ feature "Commenting on challenge" do
     reset_email
 
     visit organization_challenge_path(challenge.organization, challenge)
-    within '.challenge-subheader-comments' do
-      click_link 'Comentar'
-    end
-    within '#new_comment' do
+    click_link 'Crear comentario', match: :first
+    within '#new_comment', match: :first do
       fill_in 'comment[body]', with: 'This is my comment!'
-      click_button 'Comentar'
+      click_button 'Crear comentario'
     end
     page.should have_content 'This is my comment!'
     ActionMailer::Base.deliveries.size.should be 1

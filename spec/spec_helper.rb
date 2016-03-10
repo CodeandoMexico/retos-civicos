@@ -1,11 +1,22 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
+
+# Set port to 3000
+Capybara.server_port = "3000"
+
+# Allow for proper login
+include Warden::Test::Helpers
+Warden.test_mode!
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:twitter] = {}
+OmniAuth.config.mock_auth[:facebook] = {}
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,7 +40,6 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.use_transactional_fixtures = false
 
-
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
@@ -50,7 +60,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each, :js => true) do
@@ -63,5 +73,6 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Warden.test_reset!
   end
 end

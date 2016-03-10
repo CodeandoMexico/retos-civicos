@@ -20,7 +20,7 @@ feature 'Organization admin watches entry profile' do
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
-    click_link entry.member.email
+    click_link 'entry__1'
 
     page_should_have_entry_with(
       name: 'Propuesta 1',
@@ -32,6 +32,7 @@ feature 'Organization admin watches entry profile' do
       idea_url: 'http://miproyecto.com'
     )
   end
+
 
   def page_should_have_entry_with(args)
     page.should have_content args.fetch(:name)

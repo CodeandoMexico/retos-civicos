@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
     return user if user.present?
 
     # If there's no user with that email we create it with its new auth
+
     user = User.new(name: info.name,
                     nickname: info.nickname,
                     email: info.email,

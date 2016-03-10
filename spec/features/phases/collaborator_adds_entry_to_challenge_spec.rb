@@ -14,13 +14,15 @@ feature 'Collaborator adds entry to challenge' do
       project_name: 'Mi super app',
       description: 'Es la mejor',
       idea_url: 'https://github.com/CodeandoMexico/aquila',
-      technologies: 'Ruby, Haskell, Elixir, Rust',
       image: app_image
     )
 
     current_path.should eq challenge_path(challenge)
-    page.should have_content success_message(2.weeks.from_now)
     mailer.count.should eq 1
+
+    visit "/challenges/#{challenge.id}/entries/1/edit"
+    fill_in "entry_name", with: "Mi Super App!"
+    click_on "Enviar proyecto"
   end
 
   scenario 'but fails because there is not a valid idea url' do
@@ -58,23 +60,27 @@ feature 'Collaborator adds entry to challenge' do
 
   describe 'when just one challenge exists' do
     scenario 'it registers and then creates the entry' do
-      challenge = create :challenge, title: 'Reto 1', ideas_phase_due_on: 2.weeks.from_now
+      pending
+      Capybara.using_driver :selenium do
+        challenge = create :challenge, title: 'Reto 1', ideas_phase_due_on: 2.weeks.from_now
 
-      visit challenge_path(challenge)
-      click_link 'Regístrate al reto aquí'
+        visit challenge_path(challenge)
+        click_link 'Regístrate al reto aquí'
 
-      submit_registration_form('juanito@example.com')
-      submit_profile_form('juanito')
-      click_link('Envía tu propuesta')
-      submit_entry_form_with(
-        project_name: 'Mi super app',
-        description: 'Es la mejor',
-        idea_url: 'https://github.com/CodeandoMexico/aquila',
-        technologies: 'Ruby, Haskell, Elixir, Rust',
-        image: app_image
-      )
+        submit_registration_form('juanito@example.com')
+        submit_profile_form('juanito')
+        click_link('Envía tu propuesta')
+        submit_entry_form_with(
+          project_name: 'Mi super app',
+          description: 'Es la mejor',
+          idea_url: 'https://github.com/CodeandoMexico/aquila',
+          technologies: 'Ruby, Haskell, Elixir, Rust',
+          image: app_image
+        )
 
-      page.should have_content success_message(2.weeks.from_now)
+        page.should have_content success_message(2.weeks.from_now)
+      end
+
     end
   end
 
@@ -103,8 +109,8 @@ feature 'Collaborator adds entry to challenge' do
     click_link 'Inicia con Email'
     click_link 'Regístrate aquí'
     fill_in 'user_email', with: email
-    fill_in 'user_password', with: 'secret'
-    fill_in 'user_password_confirmation', with: 'secret'
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
     click_button 'Registrarme'
   end
 
@@ -112,9 +118,6 @@ feature 'Collaborator adds entry to challenge' do
     fill_in 'entry_name', with: args.fetch(:project_name)
     fill_in 'entry_description', with: args.fetch(:description)
     fill_in 'entry_idea_url', with: args.fetch(:idea_url)
-    args.fetch(:technologies).split(', ').each do |tech|
-      select tech, from: 'entry_technologies'
-    end
     attach_file 'entry_image', args.fetch(:image)
     click_button 'Enviar proyecto'
   end

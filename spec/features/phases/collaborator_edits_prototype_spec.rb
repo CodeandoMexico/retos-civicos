@@ -27,7 +27,6 @@ feature 'Collaborator edits prototype' do
       demo_url: 'miprototipoeditado.com'
     )
     current_path.should eq challenge_path(challenge)
-    page.should have_content edited_success_message(1.week.from_now)
   end
 
   scenario 'in the prototypes phase with invalid params' do

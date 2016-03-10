@@ -5,5 +5,16 @@ FactoryGirl.define do
     nickname "cmx"
     password "password"
     password_confirmation "password"
+
+    factory :user_with_skills do
+
+      ignore do
+        skills_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        FactoryGirl.create_list(:user_skill, evaluator.skills_count, user: user)
+      end
+    end
   end
 end

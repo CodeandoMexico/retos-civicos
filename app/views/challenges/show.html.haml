@@ -14,7 +14,7 @@
     .col-xs-12.col-sm-3
       = render 'shared/tidbits', format: :inverse, label: 'Participantes', content: @challenge.collaborators.count, icon: 'fa fa-user'
     .col-xs-12.col-sm-3
-      = render 'shared/tidbits', format: :inverse, label: 'Propuestas', content: @challenge.entries.count, icon: 'fa fa-envelope'
+      = render 'shared/tidbits', format: :inverse, label: 'Propuesta'.pluralize(@challenge.entries.count), content: @challenge.entries.count, icon: 'fa fa-envelope'
     .col-xs-12.col-sm-3
       = render 'shared/tidbits', format: nil, label: 'Premio', content: @challenge.prize, icon: 'fa fa-trophy'
     .col-xs-12.col-sm-3

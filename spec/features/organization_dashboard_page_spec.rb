@@ -11,5 +11,8 @@ feature "Organization Dashboard" do
     Subscriber.all.each do |sub|
       page.should have_content sub.email
     end
+
+    visit "/#{organization.id}"
+    visit "/-1"
   end
 end

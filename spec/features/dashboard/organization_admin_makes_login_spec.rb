@@ -11,15 +11,13 @@ feature 'Organization admin makes login' do
   scenario 'an is redirected to a dashboard' do
     sign_in_organization_admin(organization.admin)
     current_path.should eq '/dashboard'
-    current_url.should eq dashboard_url subdomain: nil
+    current_path.should eq dashboard_path subdomain: nil
   end
 
   scenario 'and then logs out' do
     sign_in_organization_admin(organization.admin)
     click_on 'Cerrar sesión'
     visit dashboard_url subdomain: 'superorg'
-    # Default aquila behavior
-    # current_path.should eq '/retos'
-    current_path.should eq challenge_path(@challenge)
+    current_path.should eq '/retos'
   end
 end

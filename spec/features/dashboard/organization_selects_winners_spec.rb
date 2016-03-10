@@ -27,11 +27,10 @@ feature 'Organization selects winner for the challenge' do
     expect(page).to have_content "La propuesta \"#{entry.name}\" fue seleccionada ganadora"
     challenge.finish_on = 1.day.ago
     challenge.save
-
     visit challenge_path(challenge)
-
-    expect(page).to have_content 'Ganador'
+    expect(page).to have_content 'Entry Winner'
     expect(page).to have_content entry.name
+
   end
 
   scenario 'in the prototypes selection phase, and then removes him' do
@@ -48,18 +47,18 @@ feature 'Organization selects winner for the challenge' do
 
     visit challenge_path(challenge)
 
-    expect(page).to have_content 'Ganador'
+    expect(page).to have_content 'Entry Winner'
     expect(page).to have_content entry.name
-    expect(page).to have_content 'Finalistas'
+    expect(page).to have_content 'Finalista'
   end
 
   def select_as_winner(entry)
-    click_link entry.member.email
+    click_link 'entry__1'
     click_button 'Seleccionar como ganador'
   end
 
   def remove_entry_as_winner(entry)
-    click_link entry.member.email
+    click_link 'entry__1'
     click_button 'Quitar como ganadora'
   end
 
