@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Zip code:</b>
+  <%= @brigade.zip_code %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @brigade.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @brigade.state %>
+</p>
+
+<p>
+  <b>Locality:</b>
+  <%= @brigade.locality %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @brigade.description %>
+</p>
+
+<p>
+  <b>Calendar url:</b>
+  <%= @brigade.calendar_url %>
+</p>
+
+<p>
+  <b>Slack url:</b>
+  <%= @brigade.slack_url %>
+</p>
+
+<p>
+  <b>Github url:</b>
+  <%= @brigade.github_url %>
+</p>
+
+<p>
+  <b>Facebook url:</b>
+  <%= @brigade.facebook_url %>
+</p>
+
+<p>
+  <b>Twitter url:</b>
+  <%= @brigade.twitter_url %>
+</p>
+
+<p>
+  <b>Header image url:</b>
+  <%= @brigade.header_image_url %>
+</p>
+
+<%= link_to 'Edit', edit_brigade_path(@brigade) %> |
+<%= link_to 'Back', brigades_path %>

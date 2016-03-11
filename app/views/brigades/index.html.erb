@@ -1,0 +1,44 @@
+<h1>Listing brigades</h1>
+
+<table>
+  <tr>
+    <th>Zip code</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Locality</th>
+    <th>Description</th>
+    <th>Calendar url</th>
+    <th>Slack url</th>
+    <th>Github url</th>
+    <th>Facebook url</th>
+    <th>Twitter url</th>
+    <th>Avatar image url</th>
+    <th>Header image url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @brigades.each do |brigade| %>
+  <tr>
+    <td><%= brigade.zip_code %></td>
+    <td><%= brigade.city %></td>
+    <td><%= brigade.state %></td>
+    <td><%= brigade.locality %></td>
+    <td><%= brigade.description %></td>
+    <td><%= brigade.calendar_url %></td>
+    <td><%= brigade.slack_url %></td>
+    <td><%= brigade.github_url %></td>
+    <td><%= brigade.facebook_url %></td>
+    <td><%= brigade.twitter_url %></td>
+    <td><%= brigade.header_image_url %></td>
+    <td><%= link_to 'Show', brigade %></td>
+    <td><%= link_to 'Edit', edit_brigade_path(brigade) %></td>
+    <td><%= link_to 'Destroy', brigade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Brigade', new_brigade_path %>

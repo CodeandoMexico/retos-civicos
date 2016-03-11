@@ -1,0 +1,49 @@
+// Place all the styles related to the Brigades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#brigades {
+  text-align: center;
+
+  #new_brigade {
+    margin: 60px auto;
+    max-width: 700px;
+
+    .field {
+
+      input[type=text], textarea {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        border: 1px solid #DDDDDD;
+      }
+
+      input[type=text]:focus, textarea:focus {
+        box-shadow: 0 0 5px $dark_blue;
+        border: 1px solid $dark_blue;
+      }
+
+      color: $dark_blue;
+      margin: 30px 0;
+
+      label {
+        text-align: left;
+        font-size: 22px;
+        margin: 4px 0 0 0;
+      }
+
+      textarea {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      input {
+        height: 40px;
+        font-size: 20px;
+        padding: 0 10px;
+      }
+    }
+  }
+}

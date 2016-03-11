@@ -1,0 +1,56 @@
+<%= form_for(@brigade) do |f| %>
+  <% if @brigade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brigade.errors.count, "error") %> prohibited this brigade from being saved:</h2>
+
+      <ul>
+      <% @brigade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field row">
+    <%= f.label :zip_code, :class=>'col-md-4' %>
+    <%= f.text_field :zip_code, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :city, :class=>'col-md-4' %>
+    <%= f.text_field :city, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :state, :class=>'col-md-4' %>
+    <%= f.text_field :state, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :description, :class=>'col-md-4' %>
+    <%= f.text_area :description, :class=>'col-md-8', :rows=>"5" %>
+  </div>
+  <div class="field row">
+    <%= f.label :calendar_url, :class=>'col-md-4' %>
+    <%= f.text_field :calendar_url, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :slack_url, :class=>'col-md-4' %>
+    <%= f.text_field :slack_url, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :github_url, :class=>'col-md-4' %>
+    <%= f.text_field :github_url, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :facebook_url, :class=>'col-md-4' %>
+    <%= f.text_field :facebook_url, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :twitter_url, :class=>'col-md-4' %>
+    <%= f.text_field :twitter_url, :class=>'col-md-8' %>
+  </div>
+  <div class="field row">
+    <%= f.label :header_image_url, :class=>'col-md-4' %>
+    <%= f.text_field :header_image_url, :class=>'col-md-8' %>
+  </div>
+  <div class="actions">
+    <%= f.submit submit_button_text(f) %>
+  </div>
+<% end %>
