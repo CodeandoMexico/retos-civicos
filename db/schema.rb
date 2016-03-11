@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150928235737) do
+ActiveRecord::Schema.define(:version => 20160311013534) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -50,6 +50,26 @@ ActiveRecord::Schema.define(:version => 20150928235737) do
   end
 
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
+  create_table "brigades", :force => true do |t|
+    t.string   "zip_code",         :limit => 15,                     :null => false
+    t.string   "city",             :limit => 35,                     :null => false
+    t.string   "state",            :limit => 20,                     :null => false
+    t.text     "description"
+    t.string   "calendar_url",     :limit => 500
+    t.string   "slack_url",        :limit => 500
+    t.string   "github_url",       :limit => 500
+    t.string   "facebook_url",     :limit => 500
+    t.string   "twitter_url",      :limit => 500
+    t.string   "header_image_url", :limit => 500
+    t.integer  "user_id",                                            :null => false
+    t.boolean  "deactivated",                     :default => false, :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.string   "locality",         :limit => 75
+  end
+
+  add_index "brigades", ["user_id"], :name => "index_brigades_on_user_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"

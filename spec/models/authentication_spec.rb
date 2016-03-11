@@ -7,7 +7,6 @@ describe Authentication do
     describe ".find_for_provider_oauth" do
       it "Should successfully log in the user" do
         Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
-        auth_obj = {}
         auth_obj = OmniAuth.config.mock_auth[:facebook]
         auth_obj.stub(:provider) { "facebook" }
         auth_obj.stub(:uid) { "25073877" }

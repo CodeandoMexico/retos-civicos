@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.8'
+ruby '2.1.3'
 
 gem 'rails', '3.2.19'
 
@@ -34,7 +34,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', :require => false
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
 end

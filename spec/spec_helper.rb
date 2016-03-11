@@ -7,6 +7,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
+require 'devise'
 
 # Set port to 3000
 Capybara.server_port = "3000"
@@ -39,6 +40,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
   config.use_transactional_fixtures = false
+  config.include Devise::TestHelpers, :type => :controller
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
@@ -75,4 +77,9 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
     Warden.test_reset!
   end
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+  include Warden::Test::Helpers
 end

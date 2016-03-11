@@ -1,4 +1,7 @@
 Aquila::Application.routes.draw do
+  resources :brigades
+
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -114,6 +117,7 @@ Aquila::Application.routes.draw do
   match "/privacy" => 'pages#privacy', via: :get, as: 'privacy'
   # get "/about", to: "pages#about", as: "about"
   get "/start_a_challenge", to: "pages#start_a_challenge", as: "start_a_challenge"
+  get "/location_of_zip_code/:zip_code", to: "brigades#location_of_zip_code"
 
   root :to => 'challenges#index'
 

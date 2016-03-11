@@ -6,7 +6,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore coverage
-**/coverage/**
+**/coverage
 /.eslintrc
 /.codeclimate.yml
 /.eslintignore
