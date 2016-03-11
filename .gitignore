@@ -8,7 +8,6 @@
 # Ignore coverage
 **/coverage
 /.eslintrc
-/.codeclimate.yml
 /.eslintignore
 /coffeelint.json
 .rubocop.yml
