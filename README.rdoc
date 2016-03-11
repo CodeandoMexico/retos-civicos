@@ -1,3 +1,10 @@
+{<img src="https://travis-ci.org/UCB-ITESM/codeandomexico.org.svg?branch=master" />}[https://travis-ci.org/UCB-ITESM/codeandomexico.org]
+{<img src="https://codeclimate.com/github/UCB-ITESM/codeandomexico.org/badges/gpa.svg" />}[https://codeclimate.com/github/UCB-ITESM/codeandomexico.org]
+{<img src="https://codeclimate.com/github/UCB-ITESM/codeandomexico.org/badges/coverage.svg" />}[https://codeclimate.com/github/UCB-ITESM/codeandomexico.org/coverage]
+{<img src="https://codeclimate.com/github/UCB-ITESM/codeandomexico.org/badges/issue_count.svg" />}[https://codeclimate.com/github/UCB-ITESM/codeandomexico.org]
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
