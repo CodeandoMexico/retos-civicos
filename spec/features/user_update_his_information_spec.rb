@@ -16,6 +16,8 @@ feature 'User update his information' do
     fill_in 'member_name', with: 'Raúl Jiménez'
     fill_in 'member_bio', with: 'I live in Monterrey, N.L., Mexico'
     fill_in 'member_github_url', with: 'https://github.com/acrogenesis'
+    fill_in 'member_twitter_url', with: 'https://twitter.com/acrogenesis'
+    fill_in 'member_facebook_url', with: 'https://facebook.com/acrogenesis'
     attach_file 'member_avatar', cmx_logo_path
 
     click_on 'Actualizar'
