@@ -547,6 +547,10 @@ es:
       company-charter-description: PDF con el Acta Constitutiva de la empresa
       github_url: URL a tu Github
       github_url-description: URL completo de tu perfil de Github
+      twitter_url: URL a tu Twitter
+      twitter_url-description: URL completo de tu perfil de Twitter
+      facebook_url: URL a tu Facebook
+      facebook_url-description: URL completo de tu perfil de Facebook
       bio: Bio
       bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
       avatar: Imagen de perfil
