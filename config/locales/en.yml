@@ -338,6 +338,8 @@ en:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in
       name: Full name
+      github_url: Github URL
+      github_url-description: Complete Github URL of your profile
       bio: Bio
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture

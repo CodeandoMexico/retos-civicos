@@ -1,7 +1,8 @@
 class Member < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :user, :phase_finish_reminder_setting
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :user,
+                  :phase_finish_reminder_setting, :github_url
 
   acts_as_user
   paginates_per 21

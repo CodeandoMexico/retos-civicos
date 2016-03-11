@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   ROLES = ["member", "organization", "judge"]
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role, :website
+  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role,
+                  :website
 
   # Relations
   has_many :authentications, dependent: :destroy
