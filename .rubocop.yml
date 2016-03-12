@@ -503,7 +503,7 @@ Style/HashSyntax:
   UseHashRocketsWithSymbolValues: false
 
 Style/IfUnlessModifier:
-  MaxLineLength: 80
+  MaxLineLength: 110
 
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
