@@ -10,13 +10,13 @@ feature 'Organization admin makes an entry public' do
     @other_member = create :member, user: other_user
     @organization = create :organization
     @challenge = create :challenge,
-      title: 'Reto 1',
-      organization: organization,
-      starts_on: 10.days.ago,
-      ideas_phase_due_on: 8.days.ago,
-      ideas_selection_phase_due_on: 2.days.from_now,
-      prototypes_phase_due_on: 1.month.from_now,
-      finish_on: 4.months.from_now
+                        title: 'Reto 1',
+                        organization: organization,
+                        starts_on: 10.days.ago,
+                        ideas_phase_due_on: 8.days.ago,
+                        ideas_selection_phase_due_on: 2.days.from_now,
+                        prototypes_phase_due_on: 1.month.from_now,
+                        finish_on: 4.months.from_now
 
     @entry = create :entry, name: 'Mi propuesta', challenge: challenge, member: member, description: 'lo resuelvo'
   end

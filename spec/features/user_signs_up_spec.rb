@@ -38,14 +38,14 @@ feature 'User signs up' do
         )
 
         mail_for_collaboration_should_be_sent_to('juanito@example.com')
-        end
       end
+    end
   end
 
   def mail_for_collaboration_should_be_sent_to(email_address)
-    ActionMailer::Base.deliveries.select do |email|
+    ActionMailer::Base.deliveries.find do |email|
       email.subject == 'Bienvenido al reto'
-    end.first.to.should include email_address
+    end.to.should include email_address
   end
 
   def visit_registration_form

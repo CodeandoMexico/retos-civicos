@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-feature "Challenges page" do
-
+feature 'Challenges page' do
   let!(:starts_tomorrow_ch) { FactoryGirl.create(:challenge, starts_on: 1.day.from_now) }
   let!(:starts_today_ch) { FactoryGirl.create(:challenge, starts_on: Date.current) }
   let!(:active_ch) { FactoryGirl.create(:challenge) }
@@ -15,48 +14,48 @@ feature "Challenges page" do
     # visit challenges_path
   end
 
-  scenario "Default filter is by date" do
+  scenario 'Default filter is by date' do
     # Default aquila behavior
     pending
     page.should have_content(cancelled_ch.title)
     page.should_not have_content(active_ch.title)
   end
 
-  scenario "Active filter shows only active challenges" do
+  scenario 'Active filter shows only active challenges' do
     # Default aquila behavior
     pending
-    click_link("Activos")
+    click_link('Activos')
     page.should have_content(active_ch.title)
     page.should_not have_content(finished_ch.title)
   end
 
-  scenario "Inactive filter shows only the finished challenges" do
+  scenario 'Inactive filter shows only the finished challenges' do
     # Default aquila behavior
     pending
-    click_link("Concluidos")
+    click_link('Concluidos')
     page.should have_content(finished_ch.title)
     page.should_not have_content(active_ch.title)
   end
 
-  scenario "Most popular filter challenges sorted by most collaborators" do
+  scenario 'Most popular filter challenges sorted by most collaborators' do
     # Default aquila behavior
     pending
     FactoryGirl.create_list(:collaboration, 3, challenge: finished_ch)
     FactoryGirl.create_list(:collaboration, 1, challenge: active_ch)
-    click_link("Más populares")
+    click_link('Más populares')
     page.should have_content(finished_ch.title)
     page.should_not have_content(working_on_ch.title)
   end
 
-  scenario "Most recent orders challenges by date" do
+  scenario 'Most recent orders challenges by date' do
     # Default aquila behavior
     pending
-    click_link("Más recientes")
+    click_link('Más recientes')
     page.should have_content(cancelled_ch.title)
     page.should_not have_content(active_ch.title)
   end
 
-  scenario "There are multiple challenges" do
+  scenario 'There are multiple challenges' do
     pending
     visit root_path
     current_path.should eq root_path

@@ -1,6 +1,6 @@
 class AddRoleToUsers < ActiveRecord::Migration
   def up
-    add_column :users, :role, :string, :default => 'member'
+    add_column :users, :role, :string, default: 'member'
 
     User.update_all role: 'member'
   end

@@ -19,21 +19,21 @@ feature 'Judge' do
     sign_in_user judge_with_no_evaluations
     visit_evaluation_panel
 
-    expect(page).to have_content "No tienes retos asignados"
+    expect(page).to have_content 'No tienes retos asignados'
   end
 
   scenario 'visits evaluation panel and there is a challenge to evaluate' do
     sign_in_user judge_with_evaluations
     visit_evaluation_panel
 
-    expect(page).to have_content "Challenge With Evaluations"
+    expect(page).to have_content 'Challenge With Evaluations'
   end
 
   scenario 'edits her profile' do
     sign_in_user judge_with_evaluations
     visit edit_judge_en_path(judge_with_evaluations.id)
     expect(page).to have_content judge_with_evaluations.name
-    click_on "Guardar"
+    click_on 'Guardar'
   end
 
   def visit_evaluation_panel

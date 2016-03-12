@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :description
       t.integer :creator_id
       t.integer :owner_id
-      t.string :status, default: "open"
+      t.string :status, default: 'open'
       t.string :dataset_url
 
       t.timestamps

@@ -102,13 +102,12 @@ ENTRY_TECHNOLOGIES = {
     'UnQLite'
   ],
   'Hardware' =>
-  [
-    'Arduino',
-    'Beaglebone',
-    'Drones',
-    'Netduino',
-    'RaspberryPi'
-  ],
+  %w(
+    Arduino
+    Beaglebone
+    Drones
+    Netduino
+    RaspberryPi),
   'Data science and visualization' =>
   [
     'D3.js',

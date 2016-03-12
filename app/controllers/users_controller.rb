@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   layout 'aquila'
-  
+
   def edit
   end
 
@@ -25,5 +25,4 @@ class UsersController < ApplicationController
       render :define_role
     end
   end
-
 end

@@ -6,7 +6,6 @@ class Brigade < ActiveRecord::Base
   @zip_codes = YAML.load_file("#{Rails.root}/config/zip_codes.yml")
 
   def self.location_of_zip_code(zip_code)
-    return @zip_codes[zip_code].present? ? @zip_codes[zip_code] : {}
+    @zip_codes[zip_code].present? ? @zip_codes[zip_code] : {}
   end
-
 end

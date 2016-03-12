@@ -34,7 +34,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
 end
@@ -55,7 +55,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
-  gem 'zurb-foundation',  '~> 3.2.0'
+  gem 'zurb-foundation', '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'timelineJS-rails', '~> 1.1.1'
   gem 'font-awesome-sass'

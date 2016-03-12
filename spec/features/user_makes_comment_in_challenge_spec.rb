@@ -47,7 +47,7 @@ feature 'User makes comment in challenge' do
     organization_should_receive_comment_notification(organization)
 
     click_on 'Responder', match: :first
-    fill_in 'comment_body', with: "my response"
+    fill_in 'comment_body', with: 'my response'
     click_on 'Responder'
 
     click_link user.name, match: :first
@@ -59,7 +59,6 @@ feature 'User makes comment in challenge' do
     click_on 'Entrar'
     visit challenge_path(challenge)
     find(:xpath, "//a[contains(@href,'like=true')]").click
-
   end
 
   def sign_up_user

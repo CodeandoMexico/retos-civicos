@@ -3,7 +3,7 @@ feature 'Organization admin' do
   attr_reader :organization_admin
 
   before do
-    organization = create :organization, slug: "unique-slug"
+    organization = create :organization, slug: 'unique-slug'
     @organization_admin = create :user, userable: organization
     challenge = create :challenge, title: 'Reto activo', organization: organization
   end
@@ -15,7 +15,7 @@ feature 'Organization admin' do
     expect(page).to have_selector("input[value='unique-slug']")
 
     # change slug and verify the website reditects to the dashboard
-    change_slug_information_with "another-slug"
+    change_slug_information_with 'another-slug'
     current_path.should eq dashboard_path
 
     # verify slug has been successfully saved
@@ -30,16 +30,16 @@ feature 'Organization admin' do
     sign_in_organization_admin(new_organization_admin)
     visit_organization_profile
 
-    change_slug_information_with "unique-slug"
-    expect(page).to have_content "Slug ya ha sido tomado"
+    change_slug_information_with 'unique-slug'
+    expect(page).to have_content 'Slug ya ha sido tomado'
   end
 
   def visit_organization_profile
-    click_link "Perfil"
+    click_link 'Perfil'
   end
 
   def change_slug_information_with(new_slug)
-    fill_in "organization_slug", with: new_slug
-    click_on "Actualizar"
+    fill_in 'organization_slug', with: new_slug
+    click_on 'Actualizar'
   end
 end

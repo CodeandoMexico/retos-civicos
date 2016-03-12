@@ -1,6 +1,5 @@
-#Encoding: utf-8
+# Encoding: utf-8
 module ChallengesHelper
-
   def status_for_challenge
     status = []
     Challenge::STATUS.each do |p|
@@ -36,8 +35,8 @@ module ChallengesHelper
   end
 
   def newsletter_helper(challenge)
-    if user_signed_in? and current_user.userable == challenge.organization
-      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-default'
+    if user_signed_in? && current_user.userable == challenge.organization
+      link_to t('helpers.send_update'), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-default'
     end
   end
 

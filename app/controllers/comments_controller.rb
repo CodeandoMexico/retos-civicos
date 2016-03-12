@@ -47,5 +47,4 @@ class CommentsController < ApplicationController
       redirect_to organization_challenge_path(@challenge.organization, @challenge, anchor: 'comment'), notice: t('comments.failure')
     end
   end
-
 end

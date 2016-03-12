@@ -16,7 +16,6 @@ class BrigadesController < ApplicationController
   # GET /brigades/1
   # GET /brigades/1.json
   def show
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @brigade }
@@ -48,7 +47,7 @@ class BrigadesController < ApplicationController
         format.html { redirect_to @brigade, notice: 'Brigade was successfully created.' }
         format.json { render json: @brigade, status: :created, location: @brigade }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @brigade.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +61,7 @@ class BrigadesController < ApplicationController
         format.html { redirect_to @brigade, notice: 'Brigade was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @brigade.errors, status: :unprocessable_entity }
       end
     end
@@ -81,12 +80,13 @@ class BrigadesController < ApplicationController
 
   def location_of_zip_code
     respond_to do |format|
-      format.html { redirect_to "/" }
+      format.html { redirect_to '/' }
       format.json { render json: Brigade.location_of_zip_code(params[:zip_code]) }
     end
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_brigade
     @brigade = Brigade.find(params[:id])
@@ -96,6 +96,6 @@ class BrigadesController < ApplicationController
   def brigade_params
     strong_params = params[:brigade]
     strong_params[:user] = current_user
-    return strong_params
+    strong_params
   end
 end

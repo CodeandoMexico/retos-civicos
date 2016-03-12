@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-feature "Send newsletter to collaborators" do
-
+feature 'Send newsletter to collaborators' do
   let!(:organization) { new_organization }
   let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
   let!(:members) { FactoryGirl.create_list(:user, 5).map(&:userable) }
@@ -13,15 +12,14 @@ feature "Send newsletter to collaborators" do
     end
   end
 
-  scenario "Can send newsletter to all collaborators" do
+  scenario 'Can send newsletter to all collaborators' do
     reset_email
     visit send_newsletter_organization_challenge_path(organization.id, challenge.id)
 
-    fill_in "subject", with: "This is a subject wow!"
-    fill_in "body", with: "Body of newsletter"
-    click_button("Enviar newsletter")
+    fill_in 'subject', with: 'This is a subject wow!'
+    fill_in 'body', with: 'Body of newsletter'
+    click_button('Enviar newsletter')
 
     ActionMailer::Base.deliveries.size.should be challenge.collaborators.count
   end
-
 end

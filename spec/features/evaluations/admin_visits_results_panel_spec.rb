@@ -61,7 +61,7 @@ feature 'Admin enters results panel and' do
     # let's check that the method is howing a result coming from the entry method
     entries.each { |e| expect(page).to have_content e.final_score }
     # now let's check that it's the correct result
-    expect(page).to have_content "80"
+    expect(page).to have_content '80'
   end
 
   def expect_page_to_have_all_evaluations_content

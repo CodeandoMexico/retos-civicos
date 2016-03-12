@@ -6,8 +6,8 @@ module Dashboard
     add_crumb 'Jurado'
 
     def index
-      @challenges = organization.challenges.
-        order('created_at DESC')
+      @challenges = organization.challenges
+                    .order('created_at DESC')
       @judges = current_challenge_judges
       respond_to do |format|
         format.html do
@@ -15,7 +15,7 @@ module Dashboard
           flash.now[:warning] = t('flash.challenges.evaluation.evaluation_has_been_closed') unless @current_challenge.evaluations_opened
         end
 
-        format.csv { send_data @current_challenge.export_evaluations, filename: "propuestas_por_juez.csv" }
+        format.csv { send_data @current_challenge.export_evaluations, filename: 'propuestas_por_juez.csv' }
       end
     end
 

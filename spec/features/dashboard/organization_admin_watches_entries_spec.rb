@@ -20,19 +20,19 @@ feature 'Organization admin watches entries' do
     create_challenges
     create :collaboration, member: member, challenge: challenge_two
     create :entry,
-      name: 'Propuesta 1',
-      member: member,
-      challenge: challenge_two,
-      idea_url: 'http://google.com',
-      created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: ['PHP', 'MySQL']
+           name: 'Propuesta 1',
+           member: member,
+           challenge: challenge_two,
+           idea_url: 'http://google.com',
+           created_at: Time.zone.local(2013, 4, 10, 20, 53),
+           technologies: %w(PHP MySQL)
     create :entry,
-      name: 'Propuesta 2',
-      member: member,
-      challenge: challenge_two,
-      idea_url: 'http://google.com',
-      created_at: Time.zone.local(2013, 4, 12, 20, 53),
-      technologies: ['Rust', 'Haskell']
+           name: 'Propuesta 2',
+           member: member,
+           challenge: challenge_two,
+           idea_url: 'http://google.com',
+           created_at: Time.zone.local(2013, 4, 12, 20, 53),
+           technologies: %w(Rust Haskell)
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
@@ -60,12 +60,12 @@ feature 'Organization admin watches entries' do
     create_challenges
     create :collaboration, member: member, challenge: challenge_one
     create :entry,
-      member: member,
-      name: 'Propuesta 1',
-      challenge: challenge_one,
-      idea_url: 'http://google.com',
-      created_at: Time.zone.local(2013, 4, 10, 20, 53),
-      technologies: ['PHP', 'MySQL']
+           member: member,
+           name: 'Propuesta 1',
+           challenge: challenge_one,
+           idea_url: 'http://google.com',
+           created_at: Time.zone.local(2013, 4, 10, 20, 53),
+           technologies: %w(PHP MySQL)
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
@@ -87,7 +87,7 @@ feature 'Organization admin watches entries' do
   end
 
   def page_should_have_challenges_filter_with(*challenges)
-    within "#challenges_options" do
+    within '#challenges_options' do
       challenges.each { |challenge| page.should have_content challenge }
     end
   end

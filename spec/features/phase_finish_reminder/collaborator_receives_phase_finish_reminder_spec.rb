@@ -42,8 +42,8 @@ feature 'Collaborator receives phase finish reminder' do
   end
 
   def member_should_receive_phase_finish_reminder(member)
-    mail = ActionMailer::Base.deliveries.select { |mail| mail.to.include? member.email }.first
-    mail.subject.should eq "Reto Alerta - Quedan 7 días para enviar tu idea"
-    mail.body.to_s.should have_content "Quedan 7 días para enviar tu propuesta en la etapa de ideas"
+    mail = ActionMailer::Base.deliveries.find { |mail| mail.to.include? member.email }
+    mail.subject.should eq 'Reto Alerta - Quedan 7 días para enviar tu idea'
+    mail.body.to_s.should have_content 'Quedan 7 días para enviar tu propuesta en la etapa de ideas'
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Challenges Datasets" do
+feature 'Challenges Datasets' do
   attr_reader :organization, :challenge
 
   before do
@@ -9,7 +9,7 @@ feature "Challenges Datasets" do
     sign_in_organization_admin(organization.admin)
   end
 
-  scenario "Add and view dataset of a challenge", js: true do
+  scenario 'Add and view dataset of a challenge', js: true do
     # visit edit_dashboard_challenge_path(challenge)
     #
     # #agregar un dataset

@@ -33,7 +33,6 @@ feature 'Organization admin watches entry profile' do
     )
   end
 
-
   def page_should_have_entry_with(args)
     page.should have_content args.fetch(:name)
     page.should have_content args.fetch(:challenge)

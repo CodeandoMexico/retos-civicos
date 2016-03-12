@@ -30,7 +30,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    return record_not_found
+    record_not_found
   end
 
   def cancel

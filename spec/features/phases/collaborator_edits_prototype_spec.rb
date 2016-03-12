@@ -6,15 +6,15 @@ feature 'Collaborator edits prototype' do
   before do
     member = create :member
     @challenge = create :challenge,
-      ideas_phase_due_on: 2.weeks.ago,
-      ideas_selection_phase_due_on: 1.week.ago,
-      prototypes_phase_due_on: 1.week.from_now
+                        ideas_phase_due_on: 2.weeks.ago,
+                        ideas_selection_phase_due_on: 1.week.ago,
+                        prototypes_phase_due_on: 1.week.from_now
     @entry = create :entry,
-      accepted: true,
-      challenge: challenge,
-      member: member,
-      repo_url: 'github.com/ervity/miprototipo',
-      demo_url: 'miprototipo.com'
+                    accepted: true,
+                    challenge: challenge,
+                    member: member,
+                    repo_url: 'github.com/ervity/miprototipo',
+                    demo_url: 'miprototipo.com'
 
     sign_in_user(member)
     visit challenge_path(challenge)

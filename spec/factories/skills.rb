@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :skill do
-    sequence(:name) { |i| "skill_#{i}"}
+    sequence(:name) { |i| "skill_#{i}" }
 
     factory :skill_with_user do
-
       ignore do
         users_count 1
       end

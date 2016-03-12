@@ -35,7 +35,7 @@ module Dashboard
     end
 
     def prepare_everything
-      @email = { subject: "", body: "" }
+      @email = { subject: '', body: '' }
       @challenges = organization_challenges
       @current_challenge = current_challenge
       @collaborators = current_challenge_collaborators
@@ -50,11 +50,11 @@ module Dashboard
     end
 
     def current_challenge_collaborators
-      current_challenge.collaborations.
-        includes(:member).
-        order('created_at DESC').
-        map(&:member).
-        compact
+      current_challenge.collaborations
+        .includes(:member)
+        .order('created_at DESC')
+        .map(&:member)
+        .compact
     end
   end
 end

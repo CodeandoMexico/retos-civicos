@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    body "Comment of parent post"
+    body 'Comment of parent post'
     association :user
     association :commentable, factory: :challenge
   end
