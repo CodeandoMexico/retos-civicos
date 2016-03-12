@@ -37,7 +37,6 @@ module Dashboard
       else
         redirect_to dashboard_entry_path(entry), alert: t('flash.entries.mark_entry_as_invalid_failed')
       end
-
     end
 
     def publish

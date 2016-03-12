@@ -10,16 +10,16 @@ class Evaluation < ActiveRecord::Base
   after_create :send_email_to_judge
 
   def initialize_report_cards
-    self.challenge.entries.each { |e| verify_and_create_report_card_from(e) }
+    challenge.entries.each { |e| verify_and_create_report_card_from(e) }
   end
 
   def self_destruct
-    self.report_cards.destroy_all
-    self.destroy
+    report_cards.destroy_all
+    destroy
   end
 
   def finished?
-    self.status == 2
+    status == 2
   end
 
   def status
@@ -30,8 +30,8 @@ class Evaluation < ActiveRecord::Base
 
     # how many entries are left to be evaluated?
     case entries_left_to_evaluate
-    when self.total_number_of_entries then NOT_STARTED_EVALUATING_CHALLENGE
-    when (1..self.total_number_of_entries-1) then STARTED_EVALUATING_CHALLENGE
+    when total_number_of_entries then NOT_STARTED_EVALUATING_CHALLENGE
+    when (1..total_number_of_entries - 1) then STARTED_EVALUATING_CHALLENGE
     when 0 then FINISHED_EVALUATING_CHALLENGE
     end
   end
@@ -42,11 +42,11 @@ class Evaluation < ActiveRecord::Base
   end
 
   def entries_left_to_evaluate
-    self.total_number_of_entries - number_of_entries_graded
+    total_number_of_entries - number_of_entries_graded
   end
 
   def total_number_of_entries
-    self.report_cards.count
+    report_cards.count
   end
 
   def verify_and_create_report_card_from(entry)
@@ -61,9 +61,9 @@ class Evaluation < ActiveRecord::Base
 
   def new_report_card(entry)
     ReportCard.create! do |r|
-      r.evaluation_id = self.id
+      r.evaluation_id = id
       r.entry_id = entry.id
-      r.grades = ReportCard.duplicate_criteria(self.challenge.evaluation_criteria)
+      r.grades = ReportCard.duplicate_criteria(challenge.evaluation_criteria)
     end
   end
 end

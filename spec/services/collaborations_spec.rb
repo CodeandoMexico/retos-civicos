@@ -98,7 +98,6 @@ describe Collaborations do
         collaborations.count.should eq 1
         FakeChallengeMailer.clear_deliveries!
 
-
         create_after_registration(member)
         collaborations.count.should eq 1
         deliveries.should be_empty
@@ -146,9 +145,9 @@ describe Collaborations do
     end
 
     def find_by_member_id_and_challenge_id(member_id, challenge_id)
-      all.select do |record|
+      all.find do |record|
         record == { member_id: member_id, challenge_id: challenge_id }
-      end.first
+      end
     end
   end
 

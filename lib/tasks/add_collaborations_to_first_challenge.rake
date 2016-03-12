@@ -3,9 +3,7 @@ task add_collaborations_to_first_challenge: :environment do
 
   puts 'Add collaborations to first challenge'
   Member.includes(:user).find_each do |member|
-    if Collaborations.create_without_email(member, challenge)
-      print '.'
-    end
+    print '.' if Collaborations.create_without_email(member, challenge)
   end
   puts ''
 end

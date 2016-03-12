@@ -185,13 +185,23 @@ describe PhaseFinishReminder do
   end
 
   def add_entry_accepted_info(collaborators)
-      collaborators.each do |c|
-        def c.entry_has_been_accepted?(y) false end
-        def c.has_submitted_app?(y) false end
+    collaborators.each do |c|
+      def c.entry_has_been_accepted?(_y)
+        false
       end
-      last = collaborators.last
-      def last.entry_has_been_accepted?(y) true end
-      def last.has_submitted_app?(y) true end
+
+      def c.has_submitted_app?(_y)
+        false
+      end
+    end
+    last = collaborators.last
+    def last.entry_has_been_accepted?(_y)
+      true
+    end
+
+    def last.has_submitted_app?(_y)
+      true
+    end
   end
 
   def configure_i18n

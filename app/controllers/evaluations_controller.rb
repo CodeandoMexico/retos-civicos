@@ -23,10 +23,10 @@ class EvaluationsController < Dashboard::BaseController
 
   def set_report_card
     @report_card = if params[:report_card_id]
-      ReportCard.find(params[:report_card_id])
-    else
-      evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
-      ReportCard.where(evaluation_id: evaluation).order('id ASC').first
+                     ReportCard.find(params[:report_card_id])
+                   else
+                     evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
+                     ReportCard.where(evaluation_id: evaluation).order('id ASC').first
     end
     authorize! :read, @report_card if @report_card.present?
   end

@@ -14,7 +14,7 @@ class Authentication < ActiveRecord::Base
   end
 
   def self.find_or_create_with_omniauth(omniauth, current_user)
-    auth = self.where(provider: omniauth.provider, uid: omniauth.uid).first
+    auth = where(provider: omniauth.provider, uid: omniauth.uid).first
     return auth if auth.present?
 
     user = current_user || User.find_or_build_with_omniauth(omniauth.info)
@@ -48,11 +48,11 @@ class Authentication < ActiveRecord::Base
   end
 
   def self.find_for_twitter_oauth(omniauth, signed_in_resource = nil)
-    auth = self.where(provider: omniauth.provider, uid: omniauth.uid).first
+    auth = where(provider: omniauth.provider, uid: omniauth.uid).first
     unless auth.present?
       if signed_in_resource
         # If there's a user signed in it builds a new authentication
-        auth = self.create_with_twitter(omniauth, signed_in_resource)
+        auth = create_with_twitter(omniauth, signed_in_resource)
       else
         user = User.new(name: omniauth.info.name, nickname: omniauth.info.nickname)
         # Devise confirm user and skip email
@@ -60,7 +60,7 @@ class Authentication < ActiveRecord::Base
         # It creates a Member role for the user
         user.userable = Member.new
         # It creates a user with twitter
-        auth = self.create_with_twitter(omniauth, user)
+        auth = create_with_twitter(omniauth, user)
       end
     end
     auth

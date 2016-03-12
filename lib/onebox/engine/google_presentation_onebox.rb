@@ -12,12 +12,12 @@ module Onebox
       end
 
       def reference
-        @reference || @@matcher.match(@url)["reference"]
+        @reference || @@matcher.match(@url)['reference']
       end
 
       def data
         {
-          url: @url,
+          url: @url
         }
       end
     end

@@ -1,5 +1,5 @@
 module EvaluationsHelper
-  def evaluation_status(status, entries_evaluated=0, total_entries=0)
+  def evaluation_status(status, entries_evaluated = 0, total_entries = 0)
     case status
     when 0
       # Has not started to evaluate entries

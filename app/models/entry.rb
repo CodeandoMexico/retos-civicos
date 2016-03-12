@@ -20,20 +20,20 @@ class Entry < ActiveRecord::Base
 
   def comments
     # Fetch each report card comments and validate they don't not have blank strings.
-    self.report_cards.where("comments IS NOT NULL").map { |r| r.comments }
+    report_cards.where('comments IS NOT NULL').map(&:comments)
   end
 
   def feedback
     # Fetch each report card feedback and validate they don't not have blank strings.
-    self.report_cards.where("feedback IS NOT NULL").where("feedback != ''").map { |r| r.feedback }
+    report_cards.where('feedback IS NOT NULL').where("feedback != ''").map(&:feedback)
   end
 
   def evaluated?
-    self.report_cards.map { |r| r.criteria_and_grades_are_valid? }.all?
+    report_cards.map(&:criteria_and_grades_are_valid?).all?
   end
 
   def editable?
-    member.is_able_to_edit_entry?(self.challenge) || member.is_able_to_submit_a_prototype?(self.challenge)
+    member.is_able_to_edit_entry?(challenge) || member.is_able_to_submit_a_prototype?(challenge)
   end
 
   def self.public
@@ -53,7 +53,7 @@ class Entry < ActiveRecord::Base
   def final_score
     # This method should return the final score for a entry or nil
     # of he hasn't finished yet
-    report_cards_score = self.report_cards.map { |r| r.total_score }
+    report_cards_score = report_cards.map(&:total_score)
 
     # remove nil values
     report_cards_score.select! { |n| !n.nil? }
@@ -67,25 +67,25 @@ class Entry < ActiveRecord::Base
   end
 
   def next
-    challenge.entries.where(is_valid: true).where("id > ?", id).order('id ASC').first
+    challenge.entries.where(is_valid: true).where('id > ?', id).order('id ASC').first
   end
 
   def prev
-    challenge.entries.where("id < ?", id).order('id ASC').last
+    challenge.entries.where('id < ?', id).order('id ASC').last
   end
 
   def limit_3_winner_entries
     if challenge.current_winners.count > 3
-      fail 'En un reto solamente se pueden seleccionar hasta 3 ganadores'
+      raise 'En un reto solamente se pueden seleccionar hasta 3 ganadores'
     end
   end
 
   def is_invalid?
-    !self.is_valid
+    !is_valid
   end
 
   def is_valid?
-    self.is_valid
+    is_valid
   end
 
   def mark_as_valid!
@@ -102,7 +102,7 @@ class Entry < ActiveRecord::Base
     self.is_valid = false
     self.invalid_reason = message
     self.save!
-    self.report_cards.destroy_all
+    report_cards.destroy_all
   end
 
   def publish!
@@ -142,7 +142,7 @@ class Entry < ActiveRecord::Base
   end
 
   def is_the_winner?
-    self.winner == 1
+    winner == 1
   end
 
   def more_than_3_winners?
@@ -160,7 +160,7 @@ class Entry < ActiveRecord::Base
   private
 
   def initialize_report_cards
-    self.challenge.evaluations.each { |e| e.verify_and_create_report_card_from(self) }
+    challenge.evaluations.each { |e| e.verify_and_create_report_card_from(self) }
   end
 
   def validate_technologies!

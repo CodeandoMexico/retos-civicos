@@ -30,7 +30,7 @@ feature 'Admin tries to add a judge to a challenge and' do
 
     add_judge_to_challenge_with(email: email)
 
-    expect(page).to have_content "Retos en los que actualmente participa el juez"
+    expect(page).to have_content 'Retos en los que actualmente participa el juez'
     expect(page).to have_content "#{challenge.title}"
     click_button 'Acepto'
 
@@ -70,7 +70,7 @@ feature 'Admin tries to add a judge to a challenge and' do
     click_on 'Cambiar mi password'
   end
 
-  def sign_out_organization(organization)
+  def sign_out_organization(_organization)
     click_link 'Cerrar sesión'
   end
 

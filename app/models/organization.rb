@@ -11,7 +11,7 @@ class Organization < ActiveRecord::Base
 
   default_scope order('created_at ASC')
 
-  #after_create :send_notify_admin
+  # after_create :send_notify_admin
   def to_s
     name || nickname || email
   end
@@ -21,14 +21,14 @@ class Organization < ActiveRecord::Base
   end
 
   def accredit!
-    self.update_attribute :accredited, true
+    update_attribute :accredited, true
   end
 
   def has_only_one_challenge?
-    self.challenges.active.count == 1
+    challenges.active.count == 1
   end
 
-  def has_submitted_app?(challenge)
+  def has_submitted_app?(_challenge)
     false
   end
 

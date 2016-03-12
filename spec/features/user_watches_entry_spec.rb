@@ -8,11 +8,11 @@ feature 'User watches entry' do
     collaboration = create :collaboration, challenge: challenge, member: member
 
     create :entry, :public,
-      member: member,
-      challenge: challenge,
-      name: 'App de prueba',
-      description: 'App description',
-      idea_url: 'http://codeandomexico.org'
+           member: member,
+           challenge: challenge,
+           name: 'App de prueba',
+           description: 'App description',
+           idea_url: 'http://codeandomexico.org'
 
     visit challenge_path(challenge)
     removed_behaivior
@@ -25,15 +25,15 @@ feature 'User watches entry' do
     collaboration = create :collaboration, challenge: challenge, member: member
 
     entry = create :entry,
-      public: false,
-      member: member,
-      challenge: challenge,
-      name: 'App de prueba',
-      description: 'App description',
-      idea_url: 'http://codeandomexico.org'
+                   public: false,
+                   member: member,
+                   challenge: challenge,
+                   name: 'App de prueba',
+                   description: 'App description',
+                   idea_url: 'http://codeandomexico.org'
 
     visit challenge_entry_path(challenge, entry)
-    page.should have_content " Necesitas iniciar sesión primero"
+    page.should have_content ' Necesitas iniciar sesión primero'
   end
 
   def page_should_have_entry(entry)

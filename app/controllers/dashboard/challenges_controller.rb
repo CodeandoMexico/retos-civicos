@@ -65,7 +65,7 @@ module Dashboard
     private
 
     def fetch_criteria
-      params[:criteria].map{ |c| c.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo} }
+      params[:criteria].map { |c| c.inject({}) { |memo, (k, v)| memo[k.to_sym] = v; memo } }
     end
 
     def set_challenge

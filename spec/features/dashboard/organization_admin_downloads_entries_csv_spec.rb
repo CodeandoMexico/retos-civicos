@@ -9,13 +9,13 @@ feature 'Organization admin downloads entries CSV' do
     challenge = create :challenge, :inactive, title: 'Reto 1', organization: organization
 
     entry = create :entry, :public,
-      member: member,
-      challenge: challenge,
-      name: 'Mi propuesta',
-      description: 'la mejor',
-      idea_url: 'http://mipropuesta.com',
-      technologies: ['PHP', 'Rust'],
-      created_at: Time.zone.local(2014,4,25,10,52,24)
+                   member: member,
+                   challenge: challenge,
+                   name: 'Mi propuesta',
+                   description: 'la mejor',
+                   idea_url: 'http://mipropuesta.com',
+                   technologies: %w(PHP Rust),
+                   created_at: Time.zone.local(2014, 4, 25, 10, 52, 24)
 
     sign_in_organization_admin(organization_admin)
     click_link 'Propuestas'

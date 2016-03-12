@@ -4,6 +4,6 @@ class RemoveAvatarImageUrlFromBrigades < ActiveRecord::Migration
   end
 
   def down
-    add_column :brigades, :avatar_image_url, :string, :limit => 500
+    add_column :brigades, :avatar_image_url, :string, limit: 500
   end
 end

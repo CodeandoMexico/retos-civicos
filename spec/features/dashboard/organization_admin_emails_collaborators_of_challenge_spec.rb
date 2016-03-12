@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Organization admin emails collaborators of a challenge' do
-
   let(:user) { create :user, name: 'Admin Name' }
   let(:organization) { create :organization }
   let(:organization_admin) { create :user, userable: organization }

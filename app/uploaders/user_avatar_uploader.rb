@@ -4,15 +4,15 @@ class UserAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :profile do
-    process :resize_to_fit => [200, 200]
+    process resize_to_fit: [200, 200]
   end
 
   version :small do
-    process :resize_to_fit => [80, 80]
+    process resize_to_fit: [80, 80]
   end
 
   version :thumb do
-    process :resize_to_fit => [60, 60]
+    process resize_to_fit: [60, 60]
   end
 
   # Override the directory where uploaded files will be stored.
@@ -28,5 +28,4 @@ class UserAvatarUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-
 end

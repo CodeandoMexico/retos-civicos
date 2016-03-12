@@ -15,7 +15,6 @@ feature 'Admin logs into jury section' do
     sign_in_organization_admin(organization_admin)
   end
 
-
   scenario 'user clicks on a challenge and invites a judge(not in the db yet) with valid information' do
     navigate_to_jury_path
 
@@ -39,7 +38,7 @@ feature 'Admin logs into jury section' do
 
   scenario 'user clicks on a challenge and invites a judge(already in the db) twice to an evaluation' do
     # we are going to try and invite the judge twice
-    2.times do |n|
+    2.times do |_n|
       navigate_to_jury_path
       invite_existing_judge_to_challenge(judge)
     end

@@ -1,9 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def all
-    Rails.logger.debug(request.env["omniauth.auth"])
+    Rails.logger.debug(request.env['omniauth.auth'])
 
-    @auth = Authentication.find_for_provider_oauth(request.env["omniauth.auth"], current_user)
+    @auth = Authentication.find_for_provider_oauth(request.env['omniauth.auth'], current_user)
 
     if @auth.persisted?
       user = @auth.user
@@ -12,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       Collaborations.create_after_registration(current_member)
       redirect_after_sign_in_with_oauth_for(user)
     else
-      session["devise.omniauth_data"] = request.env["omniauth.auth"]
+      session['devise.omniauth_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
   end

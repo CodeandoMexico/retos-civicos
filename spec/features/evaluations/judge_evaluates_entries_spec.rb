@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Judge enters the evaluations panel and' do
   attr_reader :organization, :evaluation_with_no_criteria,
-               :evaluation_with_criteria, :judge, :evaluation, :entries
+              :evaluation_with_criteria, :judge, :evaluation, :entries
 
   before do
     @judge = create :judge
@@ -34,14 +34,14 @@ feature 'Judge enters the evaluations panel and' do
     # for this scenario we're using a challenge_with_criteria
     click_on evaluation_with_criteria.challenge.title
 
-    expect(page).to have_content "0%"
+    expect(page).to have_content '0%'
 
     evaluate(entries[0], 3)
     expect(page).to have_content I18n.t('report_cards.evaluation_has_been_saved_successfully')
     expect(page).to have_content 3
 
     page_should_not_have_prev_entry_link
-    expect(page).to have_content "34%"
+    expect(page).to have_content '34%'
     navigate_to_next_entry
 
     # this entry will have comment
@@ -50,7 +50,7 @@ feature 'Judge enters the evaluations panel and' do
     expect(page).to have_content I18n.t('report_cards.evaluation_has_been_saved_successfully')
     expect(page).to have_content 4
 
-    expect(page).to have_content "67%"
+    expect(page).to have_content '67%'
     page_should_have_prev_entry_link
     page_should_have_next_entry_link
 
@@ -74,19 +74,18 @@ feature 'Judge enters the evaluations panel and' do
       # let's check again for the report count
       expect(evaluation_with_criteria.report_cards.count).to eq entries.length - 3
 
-      expect(page).to have_content "0%"
+      expect(page).to have_content '0%'
       evaluate(entries[1], 4)
       expect(page).to have_content I18n.t('report_cards.evaluation_has_been_saved_successfully')
       expect(page).to have_content 4
 
-      expect(page).to have_content "50%"
+      expect(page).to have_content '50%'
       page_should_not_have_prev_entry_link
       page_should_have_next_entry_link
       navigate_to_next_entry
       evaluate(entries[2], 5)
       expect(page).to have_content I18n.t('shared.show_ranking_summary.scores')
     end
-
   end
 
   scenario 'starts a evaluating when a challenge has no criteria been set.' do
@@ -96,23 +95,22 @@ feature 'Judge enters the evaluations panel and' do
   end
 
   def mark_entry_as_invalid(entry)
-    entry.mark_as_invalid!("An invalid reason message")
+    entry.mark_as_invalid!('An invalid reason message')
   end
 
   def check_for_updated_criteria
-    10.times { |idx| expect(page).to have_content "New criteria #{idx+1}" }
+    10.times { |idx| expect(page).to have_content "New criteria #{idx + 1}" }
   end
 
   def admin_updates_criteria_definition
     sign_in_user(organization)
     click_link 'Jurado'
-    click_on "Acciones"
+    click_on 'Acciones'
     click_link I18n.t('dashboard.judges.index.define_criteria')
     update_criteria_fields
     visit '/'
     click_link organization.admin.name, match: :first
     click_link 'Cerrar sesión'
-
   end
 
   def navigate_to_next_entry

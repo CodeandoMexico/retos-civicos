@@ -1,5 +1,4 @@
 class SubscribersController < ApplicationController
-
   def create
     organization = Organization.find(params[:organization_id])
     @subscriber = organization.subscribers.new(email: params[:email])
@@ -9,5 +8,4 @@ class SubscribersController < ApplicationController
       redirect_to organization, flash: { error: t('flash.organizations.repeated_subscriber') }
     end
   end
-
 end

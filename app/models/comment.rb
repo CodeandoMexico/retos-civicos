@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   attr_accessible :body
-  acts_as_nested_set :scope => [:commentable_id, :commentable_type]
+  acts_as_nested_set scope: [:commentable_id, :commentable_type]
 
   validates_presence_of :body
   validates_presence_of :user
@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
   # want user to vote on the quality of comments.
   acts_as_voteable
 
-  belongs_to :commentable, :polymorphic => true
+  belongs_to :commentable, polymorphic: true
 
   # NOTE: Comments belong to a user
   belongs_to :user
@@ -21,16 +21,16 @@ class Comment < ActiveRecord::Base
   # Embeddables
   auto_html_for :body do
     image
-    youtube width: "100%", height: 290, wmode: "transparent"
-    vimeo   width: "100%", height: 290
-    link target: "_blank", rel: "nofollow"
+    youtube width: '100%', height: 290, wmode: 'transparent'
+    vimeo width: '100%', height: 290
+    link target: '_blank', rel: 'nofollow'
   end
 
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme
   def self.build_from(obj, user_id, comment)
-    c = self.new
+    c = new
     c.commentable_id = obj.id
     c.commentable_type = obj.class.base_class.name
     c.body = comment
@@ -38,21 +38,21 @@ class Comment < ActiveRecord::Base
     c
   end
 
-  #helper method to check if a comment has children
+  # helper method to check if a comment has children
   def has_children?
-    self.children.size > 0
+    children.size > 0
   end
 
   # Helper class method to lookup all comments assigned
   # to all commentable types for a given user.
   scope :find_comments_by_user, lambda { |user|
-    where(:user_id => user.id).order('created_at DESC')
+    where(user_id: user.id).order('created_at DESC')
   }
 
   # Helper class method to look up all comments for
   # commentable class name and commentable id.
   scope :find_comments_for_commentable, lambda { |commentable_str, commentable_id|
-    where(:commentable_type => commentable_str.to_s, :commentable_id => commentable_id).order('created_at DESC')
+    where(commentable_type: commentable_str.to_s, commentable_id: commentable_id).order('created_at DESC')
   }
 
   # Helper class method to look up a commentable object
@@ -62,7 +62,7 @@ class Comment < ActiveRecord::Base
   end
 
   def update_votes_counter
-    self.votes_counter = self.plusminus
-    self.save
+    self.votes_counter = plusminus
+    save
   end
 end

@@ -1,11 +1,10 @@
 Aquila::Application.routes.draw do
   resources :brigades
 
-
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    omniauth_callbacks: "users/omniauth_callbacks",
+    omniauth_callbacks: 'users/omniauth_callbacks',
     passwords: 'users/passwords'
   }
 
@@ -112,19 +111,19 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match "/set_language" => 'pages#set_language', via: :post, as: 'set_language'
+  match '/set_language' => 'pages#set_language', via: :post, as: 'set_language'
   # match "/terms_of_service" => 'pages#terms_of_service', via: :get, as: 'terms_of_service'
-  match "/privacy" => 'pages#privacy', via: :get, as: 'privacy'
+  match '/privacy' => 'pages#privacy', via: :get, as: 'privacy'
   # get "/about", to: "pages#about", as: "about"
-  get "/start_a_challenge", to: "pages#start_a_challenge", as: "start_a_challenge"
-  get "/location_of_zip_code/:zip_code", to: "brigades#location_of_zip_code"
+  get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
+  get '/location_of_zip_code/:zip_code', to: 'brigades#location_of_zip_code'
 
-  root :to => 'challenges#index'
+  root to: 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
-  match "/projects/:id" => 'challenges#show'
-  match "/projects/:id/timeline" => 'challenges#timeline'
+  match '/projects/:id' => 'challenges#show'
+  match '/projects/:id/timeline' => 'challenges#timeline'
 
   get ':organization_slug', to: 'organizations#show', as: 'organization_profile'
 end
-ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })
+ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', no_prefixes: true)

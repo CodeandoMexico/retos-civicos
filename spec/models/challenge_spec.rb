@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Challenge do
-
   describe 'scopes' do
     let!(:active_ch) { FactoryGirl.create(:challenge) }
     let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
@@ -35,7 +34,7 @@ describe Challenge do
     describe '#timeline_json' do
       it 'returns a JSON with all of the steps of the challenge' do
         timeline = active_ch.timeline_json
-        expect(timeline["timeline"].count).to eq 5
+        expect(timeline['timeline'].count).to eq 5
       end
     end
 
@@ -47,10 +46,9 @@ describe Challenge do
       end
     end
 
-
     describe '#cancel!' do
       it 'should cancel the challenge' do
-        expect(active_ch.status).to eq "open"
+        expect(active_ch.status).to eq 'open'
         active_ch.cancel!
         expect(active_ch.status).to eq :cancelled
       end

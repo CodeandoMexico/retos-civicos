@@ -80,7 +80,7 @@ describe Phases do
         @dates = Phases::Dates.new(6.days.from_now, 8.days.from_now, many_days_from_now, many_days_from_now, many_days_from_now)
       end
 
-      it "should not have title" do
+      it 'should not have title' do
         Phases.current_phase_title(dates).title.should eq ''
       end
 
@@ -98,7 +98,7 @@ describe Phases do
         @dates = Phases::Dates.new(5.months.ago, 4.months.ago, 3.months.ago, 2.months.ago, 1.month.ago)
       end
 
-      it "should not have title" do
+      it 'should not have title' do
         Phases.current_phase_title(dates).title.should eq ''
       end
 
@@ -111,8 +111,8 @@ describe Phases do
   end
 
   describe 'days left for current phase' do
-    { ideas: 4, ideas_selection: 7, prototypes: 3, prototypes_selection: 8 }.
-      each do |current_phase, days_left|
+    { ideas: 4, ideas_selection: 7, prototypes: 3, prototypes_selection: 8 }
+      .each do |current_phase, days_left|
       example current_phase do
         dates = dates_for_phase(current_phase)
         Phases.days_left_for_current_phase(dates).should eq days_left

@@ -1,18 +1,18 @@
 require 'spec_helper'
 require 'carrierwave/test/matchers'
 
-feature "Ajax load collaborators" do
+feature 'Ajax load collaborators' do
   let!(:organization) { new_organization }
   let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
-  scenario "Find all collaborators in collaborator tab", js: true do
+  scenario 'Find all collaborators in collaborator tab', js: true do
     pending
 
     double(Member.paginates_per(1))
 
-    collaborators = Array.new
-    2.times{
-      collaborators.push( FactoryGirl.create(:collaboration, challenge: challenge, member: new_member))
-    }
+    collaborators = []
+    2.times do
+      collaborators.push(FactoryGirl.create(:collaboration, challenge: challenge, member: new_member))
+    end
     visit challenge_path(collaborators.first.challenge_id)
 
     within '#collaborators_tab_pane' do

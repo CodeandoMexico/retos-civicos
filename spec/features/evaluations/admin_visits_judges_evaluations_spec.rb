@@ -4,7 +4,6 @@ feature 'Admin enters evaluations panel and' do
   attr_reader :judges, :evaluations, :challenge_with_criteria, :challenge_with_no_criteria,
               :challenge_with_no_judges, :entries, :evaluation_with_criteria
 
-
   before do
     # users
     organization = create :organization

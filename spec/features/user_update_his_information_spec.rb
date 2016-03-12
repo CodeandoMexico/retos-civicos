@@ -46,6 +46,6 @@ feature 'User update his information' do
   end
 
   def text_of_length(length)
-    "a" * length
+    'a' * length
   end
 end

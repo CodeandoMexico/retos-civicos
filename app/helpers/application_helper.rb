@@ -1,15 +1,15 @@
 module ApplicationHelper
   class TargetBlankRenderer < Redcarpet::Render::HTML
     def initialize(extensions = {})
-      super extensions.merge(link_attributes: { target: "_blank" })
+      super extensions.merge(link_attributes: { target: '_blank' })
     end
   end
 
-  def logo(path, options={})
+  def logo(path, options = {})
     processed_path = if path.nil?
-      ENV['LOGO']
-    else
-      path
+                       ENV['LOGO']
+                     else
+                       path
     end
     image_tag processed_path, options
   end
@@ -19,7 +19,7 @@ module ApplicationHelper
     unless abs_path =~ /^http/
       abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}"
     end
-   abs_path
+    abs_path
   end
 
   # Dynamic current userable method depending on the user's role
@@ -116,7 +116,7 @@ module ApplicationHelper
   end
 
   def compute_percentage(value, total)
-    (value * 100.0 / total).ceil()
+    (value * 100.0 / total).ceil
   end
 
   def challenge_completion_percentage_for(challenge)

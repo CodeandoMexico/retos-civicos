@@ -19,7 +19,7 @@ class Ability
     end
 
     if user.organization?
-      #Challenge access
+      # Challenge access
       can [:new, :create], Challenge
       can [:edit, :update, :cancel, :send_newsletter, :mail_newsletter], Challenge do |challenge|
         challenge.organization.id == user.userable.id
@@ -30,12 +30,12 @@ class Ability
       end
       can [:like], Challenge
 
-      #Comment access
+      # Comment access
       can [:like], Comment do |comment|
         comment.user.id != user.id && !user.voted_on?(comment)
       end
 
-      #Organization access
+      # Organization access
       can [:edit, :update, :subscribers_list, :send_newsletter, :mail_newsletter], Organization do |organization|
         organization.id == user.userable.id
       end
@@ -75,23 +75,23 @@ class Ability
     end
 
     if user.member?
-      #Challenge access
+      # Challenge access
       can [:like], Challenge
 
-      #Collaboration access
+      # Collaboration access
       can [:create], Collaboration
 
-      #Members access
+      # Members access
       can [:edit, :update], Member do |member|
         user.userable.id == member.id
       end
 
-      #Comment access
+      # Comment access
       can [:like], Comment do |comment|
         comment.user.id != user.id && !user.voted_on?(comment)
       end
 
-      #Comment creation for members, restricting access through challenge
+      # Comment creation for members, restricting access through challenge
       can [:create, :reply], Comment
       can [:create_or_reply_challenge_comment], Challenge
 

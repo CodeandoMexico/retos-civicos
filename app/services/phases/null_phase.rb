@@ -1,11 +1,11 @@
 module Phases
   class NullPhase
-    def title(args = {})
-      ""
+    def title(_args = {})
+      ''
     end
 
     def to_s
-      ""
+      ''
     end
 
     def to_sym

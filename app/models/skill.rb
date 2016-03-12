@@ -8,5 +8,4 @@ class Skill < ActiveRecord::Base
     skill = Skill.find_by_name(name)
     skill ? skill : Skill.create(name: name)
   end
-
 end

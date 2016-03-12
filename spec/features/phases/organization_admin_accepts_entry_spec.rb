@@ -4,9 +4,9 @@ feature 'Organization admin accepts entry' do
   scenario 'in the ideas selection phase' do
     organization = create :organization
     challenge = create :challenge,
-      organization: organization,
-      ideas_phase_due_on: 2.weeks.ago,
-      ideas_selection_phase_due_on: 2.weeks.from_now
+                       organization: organization,
+                       ideas_phase_due_on: 2.weeks.ago,
+                       ideas_selection_phase_due_on: 2.weeks.from_now
     entry = create :entry, challenge: challenge
     sign_in_organization_admin(organization.admin)
 
@@ -21,8 +21,8 @@ feature 'Organization admin accepts entry' do
   scenario 'in the ideas phase but fails' do
     organization = create :organization
     challenge = create :challenge,
-      organization: organization,
-      ideas_phase_due_on: 2.weeks.from_now
+                       organization: organization,
+                       ideas_phase_due_on: 2.weeks.from_now
     entry = create :entry, challenge: challenge
 
     sign_in_organization_admin(organization.admin)

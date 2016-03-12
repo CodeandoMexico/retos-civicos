@@ -16,19 +16,19 @@ class Member < ActiveRecord::Base
   end
 
   def to_s
-    return case
-      when name.present? then name
-      when nickname.present? then nickname
-      else ""
+    case
+    when name.present? then name
+    when nickname.present? then nickname
+    else ''
       end
   end
 
   def representative
     # to-do clean this a little bit and merge with to_s
-    return case
-      when name.present? then name
-      when nickname.present? then nickname
-      else ""
+    case
+    when name.present? then name
+    when nickname.present? then nickname
+    else ''
       end
   end
 
@@ -41,20 +41,20 @@ class Member < ActiveRecord::Base
   end
 
   def entry_has_been_accepted?(challenge)
-    self.entry_for(challenge).accepted?
+    entry_for(challenge).accepted?
   end
 
   def has_submitted_app?(challenge)
-    !self.entry_for(challenge).nil?
+    !entry_for(challenge).nil?
   end
 
   def has_submitted_prototype_for_challenge?(challenge)
-    entry = self.entry_for(challenge)
+    entry = entry_for(challenge)
     return false unless entry.present?
     entry.repo_url.present? && entry.demo_url.present?
   end
 
   def entry_for(challenge)
-    self.userable.entries.where(challenge_id: challenge.id).first
+    userable.entries.where(challenge_id: challenge.id).first
   end
 end

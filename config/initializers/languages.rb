@@ -1,2 +1,2 @@
-#encoding: utf-8
+# encoding: utf-8
 LANGUAGES = { es: 'Español', en: 'English' }

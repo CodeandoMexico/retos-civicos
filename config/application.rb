@@ -38,7 +38,7 @@ module Aquila
     config.i18n.default_locale = :es
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -85,6 +85,6 @@ module Aquila
     config.middleware.insert 0, Rack::UTF8Sanitizer
 
     # Add extended core clases
-    config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
+    config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
   end
 end

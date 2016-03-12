@@ -1,6 +1,5 @@
 class TwitterApi
-
-  def initialize(user_id, client=nil)
+  def initialize(user_id, client = nil)
     @user_id = user_id
     @client = client
     @client ||= Twitter::REST::Client.new do |config|
@@ -20,7 +19,7 @@ class TwitterApi
   end
 
   def fetch_profile_image
-    image_url = @client.user(auth.uid.to_i).profile_image_url.to_s.sub("_normal", "")
+    image_url = @client.user(auth.uid.to_i).profile_image_url.to_s.sub('_normal', '')
   end
 
   def save_profile_image
@@ -28,5 +27,4 @@ class TwitterApi
     user.save validate: false
     nil
   end
-
 end

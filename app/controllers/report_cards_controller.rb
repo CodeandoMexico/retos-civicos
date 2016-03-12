@@ -8,11 +8,11 @@ class ReportCardsController < ApplicationController
     authorize! :update, @report_card
     if @report_card.update_attributes(grades: params[:grades], comments: params[:comments], feedback: params[:feedback])
       flash[:notice] = if @report_card.next.nil?
-        I18n.t('report_cards.evaluation_has_been_saved_successfully')
-      else
-        I18n.t('report_cards.evaluation_has_been_saved_successfully_go_to_next',
-              href: evaluations_path(challenge_id: @report_card.evaluation.challenge,
-                            report_card_id:  @report_card.next))
+                         I18n.t('report_cards.evaluation_has_been_saved_successfully')
+                       else
+                         I18n.t('report_cards.evaluation_has_been_saved_successfully_go_to_next',
+                                href: evaluations_path(challenge_id: @report_card.evaluation.challenge,
+                                                       report_card_id:  @report_card.next))
       end
 
       # send an email to the organization if a judge has finished evaluation

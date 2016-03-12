@@ -14,17 +14,17 @@ feature 'Organization admin visits dashboard' do
     challenge = create :challenge, title: 'Reto 1', organization: organization
     create :collaboration, member: member, challenge: challenge
     create :entry,
-      name: 'Propuesta 1',
-      member: member,
-      challenge: challenge,
-      idea_url: 'http://miproyecto.com',
-      created_at: Time.zone.local(2013, 4, 10, 20, 53)
+           name: 'Propuesta 1',
+           member: member,
+           challenge: challenge,
+           idea_url: 'http://miproyecto.com',
+           created_at: Time.zone.local(2013, 4, 10, 20, 53)
 
     sign_in_organization_admin(organization.admin)
     page_should_have_challenge_with(
       title: 'Reto 1',
       collaborators: 1,
-      entries: 1,
+      entries: 1
     )
     page_should_have_entry_with(
       name: 'Propuesta 1',

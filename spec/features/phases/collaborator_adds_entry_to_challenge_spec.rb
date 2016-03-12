@@ -21,8 +21,8 @@ feature 'Collaborator adds entry to challenge' do
     mailer.count.should eq 1
 
     visit "/challenges/#{challenge.id}/entries/1/edit"
-    fill_in "entry_name", with: "Mi Super App!"
-    click_on "Enviar proyecto"
+    fill_in 'entry_name', with: 'Mi Super App!'
+    click_on 'Enviar proyecto'
   end
 
   scenario 'but fails because there is not a valid idea url' do
@@ -80,7 +80,6 @@ feature 'Collaborator adds entry to challenge' do
 
         page.should have_content success_message(2.weeks.from_now)
       end
-
     end
   end
 
