@@ -27,11 +27,7 @@ class CommentsController < ApplicationController
 
   def like
     @challenge = Challenge.find(params[:challenge_id])
-    if params[:like].present?
-      current_user.vote_for(@comment)
-    else
-      current_user.vote_against(@comment)
-    end
+    params[:like].present? ? current_user.vote_for(@comment) : current_user.vote_against(@comment)
     @comment.update_votes_counter
     respond_to do |format|
       format.js
