@@ -9,7 +9,6 @@
 **/coverage
 /.eslintrc
 /.eslintignore
-/coffeelint.json
 .rubocop.yml
 
 
