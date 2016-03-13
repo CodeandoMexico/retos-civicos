@@ -80,11 +80,11 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  def invalid?
+  def invalid_entry?
     !is_valid
   end
 
-  def valid?
+  def valid_entry?
     is_valid
   end
 

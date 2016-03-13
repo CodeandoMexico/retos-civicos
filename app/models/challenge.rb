@@ -282,7 +282,6 @@ class Challenge < ActiveRecord::Base
   def current_phase_title(args = {})
     return I18n.t('challenges.show.has_finished') if finished?
     Phases.current_phase_title(self).title(args)
-    end
   end
 
   def only_one_challenge?

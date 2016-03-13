@@ -50,7 +50,7 @@ class Evaluation < ActiveRecord::Base
   end
 
   def verify_and_create_report_card_from(entry)
-    new_report_card(entry) if entry.valid?
+    new_report_card(entry) if entry.valid_entry?
   end
 
   private
