@@ -42,4 +42,3 @@ exclude_paths:
 - script/
 - spec/
 - vendor/
-- "Gemfile.lock"

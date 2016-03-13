@@ -505,6 +505,9 @@ Style/HashSyntax:
 Style/IfUnlessModifier:
   MaxLineLength: 110
 
+LineLength:
+  Max: 110
+
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
   # prescribes that in classes and modules the `protected` and `private`
