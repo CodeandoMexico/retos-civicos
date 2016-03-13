@@ -4,12 +4,8 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find_by_slug(params[:organization_slug])
 
-    if @organization.present?
-      @challenges = @organization.challenges
-    else
-      # redirect to 404
-      return record_not_found
-    end
+    return record_not_found unless @organization.present?
+    @challenges = @organization.challenges
     render layout: 'aquila'
   end
 
