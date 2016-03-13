@@ -12,7 +12,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
 
-    if @challenge.public? || User.is_admin_of_challenge(@challenge, current_organization)
+    if @challenge.public? || User.admin_of_challenge?(@challenge, current_organization)
       @organization = @challenge.organization
       @comments = fetch_comments
       @entries = @challenge.entries.public

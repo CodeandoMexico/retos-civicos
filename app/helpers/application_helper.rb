@@ -94,7 +94,7 @@ module ApplicationHelper
     success:    :success,
     error:      :danger,
     warning:    :warning
-  }
+  }.freeze
 
   def display_flash_messages
     flash.reduce '' do |message, (key, value)|
@@ -129,7 +129,10 @@ module ApplicationHelper
   private
 
   def build_message(args)
-    html = content_tag :div, data: { alert: '' }, class: "alert alert-#{args[:key_match][args[:key].to_sym] || :standard} alert-dismissible", style: 'margin: 15px 0 15px 0' do
+    alert_class_suffix = args[:key_match][args[:key].to_sym] || :standard
+    html = content_tag :div, data: { alert: '' },
+                       class: "alert alert-#{alert_class_suffix} alert-dismissible",
+                       style: 'margin: 15px 0 15px 0' do
       raw "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
            <span aria-hidden='true'>&times;</span></button>
            #{args[:value]}"

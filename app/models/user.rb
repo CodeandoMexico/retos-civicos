@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   acts_as_voter
   mount_uploader :avatar, UserAvatarUploader
 
-  after_create :fetch_twitter_avatar, if: :has_twitter_auth?
+  after_create :fetch_twitter_avatar, if: :twitter_auth?
 
   after_create do
     create_role if userable.nil?
@@ -57,7 +57,11 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    name.blank? ? (nickname.blank? ? email : nickname) : name
+    if name.blank?
+      nickname.blank? ? email : nickname
+    else
+      name
+    end
   end
 
   # Ex: member?, organization?
@@ -67,7 +71,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def has_role?
+  def role?
     !userable_type.blank?
   end
 
@@ -83,15 +87,15 @@ class User < ActiveRecord::Base
     userable_type == 'Judge'
   end
 
-  def has_twitter_auth?
+  def twitter_auth?
     !authentications.where(provider: 'twitter').blank?
   end
 
-  def has_github_auth?
+  def github_auth?
     !authentications.where(provider: 'github').blank?
   end
 
-  def has_linkedin_auth?
+  def linkedin_auth?
     !authentications.where(provider: 'linkedin').blank?
   end
 
@@ -108,9 +112,9 @@ class User < ActiveRecord::Base
   end
 
   def profile_url
-    if has_twitter_auth?
+    if twitter_auth?
       "http://twitter.com/#{nickname}"
-    elsif has_github_auth? || has_linkedin_auth?
+    elsif github_auth? || linkedin_auth?
       # LinkedIn or Github URL
       authentications.first.public_url
     else
@@ -135,7 +139,7 @@ class User < ActiveRecord::Base
     created_at == updated_at
   end
 
-  def self.is_admin_of_challenge(challenge, current_organization)
+  def self.admin_of_challenge?(challenge, current_organization)
     current_organization.present? && current_organization.id == challenge.organization.id
   end
 
