@@ -2,7 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :read, :update, :mark_valid, :mark_invalid, :publish, :accept, :winner, :remove_winner, to: :all_entries_actions
+    alias_action :read, :update, :mark_valid, :mark_invalid, :publish, :accept, :winner, :remove_winner,
+                 to: :all_entries_actions
     user ||= User.new
 
     # Visitor access
@@ -36,8 +37,8 @@ class Ability
       end
 
       # Organization access
-      can [:edit, :update, :subscribers_list, :send_newsletter, :mail_newsletter], Organization do |organization|
-        organization.id == user.userable.id
+      can [:edit, :update, :subscribers_list, :send_newsletter, :mail_newsletter], Organization do |org|
+        org.id == user.userable.id
       end
 
       can [:create, :reply], Comment

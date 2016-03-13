@@ -13,7 +13,11 @@ module ChallengesHelper
   end
 
   def user_is_able_to_collaborate?(challenge)
-    can_edit_challenge?(challenge) || current_member.blank? || (!current_member.organization? && !current_member.judge?)
+    is_challenge_editable = can_edit_challenge?(challenge)
+    is_member_blank = current_member.blank?
+    is_member_organization = current_member.organization?
+    is_member_judge = current_member.judge?
+    is_challenge_editable || is_member_blank || (!is_member_organization && !is_member_judge)
   end
 
   def collaborate_section(challenge)

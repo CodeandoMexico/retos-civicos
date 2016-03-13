@@ -55,10 +55,11 @@ module Dashboard
     end
 
     def current_challenge_collaborators
-      current_challenge.collaborations.includes(:member)
-                                      .order('created_at DESC')
-                                      .map(&:member)
-                                      .compact
+      current_challenge.collaborations
+                       .includes(:member)
+                       .order('created_at DESC')
+                       .map(&:member)
+                       .compact
     end
   end
 end

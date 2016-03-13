@@ -1,10 +1,10 @@
 # encoding: utf-8
 class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
-                  :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology, :evaluation_criteria,
-                  :evaluation_instructions, :evaluations_opened
+                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec,
+                  :fifth_spec, :pitch, :avatar, :about, :activities_attributes, :dataset_file,
+                  :entry_template_url, :infographic, :prize, :assessment_methodology,
+                  :evaluation_criteria, :evaluation_instructions, :evaluations_opened
 
   attr_accessible(*Phases.dates)
 
@@ -20,7 +20,8 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: 'Member', source: :member, include: :user
+  has_many :collaborators, through: :collaborations,
+           class_name: 'Member', source: :member, include: :user
   has_many :activities
   has_many :entries, order: 'id ASC'
   has_many :datasets
@@ -70,7 +71,8 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.missing_winner_challenges(args)
-    challenges = Challenge.where(organization_id: args[:organization]).where('finish_on <= ?', Date.current)
+    challenges = Challenge.where(organization_id: args[:organization])
+                          .where('finish_on <= ?', Date.current)
     challenges.reject { |c| c if c.has_a_winner? }
   end
 
@@ -156,7 +158,9 @@ class Challenge < ActiveRecord::Base
         ponderation_counter += criteria[:value].to_f
       end
     end
-    return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.') if ponderation_counter != 100
+    if ponderation_counter != 100
+      return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
+    end
   end
 
   def cancel!
@@ -278,11 +282,10 @@ class Challenge < ActiveRecord::Base
 
   def current_phase_title(args = {})
     if has_finished?
-      phase = I18n.t('challenges.show.has_finished')
+      return I18n.t('challenges.show.has_finished')
     else
-      phase = Phases.current_phase_title(self).title(args)
+      return  Phases.current_phase_title(self).title(args)
     end
-    phase
   end
 
   def self.has_only_one_challenge?
@@ -308,7 +311,8 @@ class Challenge < ActiveRecord::Base
       result = response['result']
       dataset = Dataset.find_or_initialize_by_guid(d)
       dataset.update_attributes(guid: d, title: result['title'], name: result['name'],
-                                format: result['resources'][0]['format'], notes: result['notes'], challenge_id: id)
+                                format: result['resources'][0]['format'], notes: result['notes'],
+                                challenge_id: id)
       remove_datasets
     end
   end
@@ -321,6 +325,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def create_initial_activity
-    activities.create(title: I18n.t('challenges.initial_activity.title'), text: I18n.t('challenges.initial_activity.text'))
+    text = I18n.t('challenges.initial_activity.text')
+    activities.create(title: I18n.t('challenges.initial_activity.title'), text: text)
   end
 end
