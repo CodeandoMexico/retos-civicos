@@ -72,7 +72,7 @@ class Challenge < ActiveRecord::Base
   def self.missing_winner_challenges(args)
     challenges = Challenge.where(organization_id: args[:organization])
                           .where('finish_on <= ?', Date.current)
-    challenges.reject { |c| c if c.has_a_winner? }
+    challenges.reject { |c| c if c.winner? }
   end
 
   # Additionals
@@ -88,7 +88,7 @@ class Challenge < ActiveRecord::Base
     link target: '_blank', rel: 'nofollow'
   end
 
-  STATUS = [:private, :open, :working_on, :cancelled, :finished]
+  STATUS = [:private, :open, :working_on, :cancelled, :finished].freeze
 
   def export_evaluations(opts = {})
     CSV.generate(opts) do |csv|
@@ -126,7 +126,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def ready_to_rank_entries?
-    has_valid_criteria? && has_evaluations?
+    valid_criteria? && evaluations?
   end
 
   def finished_evaluating?
@@ -136,11 +136,11 @@ class Challenge < ActiveRecord::Base
     true
   end
 
-  def has_valid_criteria?
+  def valid_criteria?
     criteria_must_be_present && criteria_must_be_valid.nil?
   end
 
-  def has_evaluations?
+  def evaluations?
     evaluations.present?
   end
 
@@ -184,15 +184,15 @@ class Challenge < ActiveRecord::Base
     self[:about].to_s
   end
 
-  def is_active?
+  def active?
     starts_on <= Date.current && Date.current <= finish_on
   end
 
-  def has_started?
+  def started?
     Date.current >= starts_on
   end
 
-  def has_finished?
+  def finished?
     Date.current >= finish_on
   end
 
@@ -251,20 +251,20 @@ class Challenge < ActiveRecord::Base
     end
   end
 
-  def has_a_winner?
+  def winner?
     Entry.where(challenge_id: self, winner: 1).count > 0
   end
 
-  def has_participants?
+  def participants?
     Entry.where(challenge_id: self).count > 0
   end
 
-  def has_finalists?
+  def finalists?
     Entry.where(challenge_id: self, accepted: true).count > 0
   end
 
   def current_winners
-    if has_a_winner?
+    if winner?
       Entry.where(challenge_id: self, winner: 1)
     else
       []
@@ -280,14 +280,12 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_phase_title(args = {})
-    if has_finished?
-      return I18n.t('challenges.show.has_finished')
-    else
-      return Phases.current_phase_title(self).title(args)
+    return I18n.t('challenges.show.has_finished') if finished?
+    Phases.current_phase_title(self).title(args)
     end
   end
 
-  def has_only_one_challenge?
+  def only_one_challenge?
     # self.count == 1
     where("status = 'open' OR status = 'working_on'").count == 1
   end

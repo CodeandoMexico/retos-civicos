@@ -18,7 +18,7 @@
           <div class="challenge-hightlight-item">
             <%= @challenge.current_phase_title %>
           </div>
-          <% if @challenge.is_active? %>
+          <% if @challenge.active? %>
           <div class="challenge-hightlight-item">
             <%= raw t(".days-left-to-finish", count: @days_left_for_current_phase) %>
           </div>
@@ -52,13 +52,13 @@
 
 <div class="challenge-collaborate text-center">
   <div class="challenge-collaborate-container">
-    <% if @challenge.has_finished? %>
-      <% if @challenge.has_a_winner? %>
+    <% if @challenge.finished? %>
+      <% if @challenge.winner? %>
           <%= render 'finalists_and_winner' %>
       <% else %>
           <%= render 'ideas_finalists' %>
       <% end %>
-    <% elsif (Phases.is_current?(:prototypes, @challenge) || Phases.is_current?(:prototypes_selection, @challenge)) && @challenge.has_finalists? %>
+    <% elsif (Phases.is_current?(:prototypes, @challenge) || Phases.is_current?(:prototypes_selection, @challenge)) && @challenge.finalists? %>
       <%= render 'ideas_finalists' %>
     <% end %>
 
@@ -170,7 +170,7 @@
       </div>
     </div>
   </div>
-  <% if @challenge.has_finished? && !@challenge.has_a_winner? %>
+  <% if @challenge.finished? && !@challenge.winner? %>
     <div class="row">
       <div class="col-xs-12">
         <div class="alert alert-warning">

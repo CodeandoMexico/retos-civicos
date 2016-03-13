@@ -21,7 +21,7 @@
           <li><%= link_to t('.to-csv'),
           dashboard_entries_path(challenge_id: @current_challenge.id, format: :csv) %></li>
           <li><%= link_to t('.email-participants'),
-          participants_new_dashboard_challenge_email_path(@current_challenge) if @current_challenge.has_participants? %></li>
+          participants_new_dashboard_challenge_email_path(@current_challenge) if @current_challenge.participants? %></li>
         </ul>
       </div>
 

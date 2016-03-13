@@ -26,11 +26,11 @@
    %>
 
    <!-- Criteria must be defined so that we show the ranking summary -->
-   <% if @current_challenge.has_valid_criteria? && @current_challenge.has_evaluations? %>
+   <% if @current_challenge.valid_criteria? && @current_challenge.evaluations? %>
     <%= render 'show_evaluations_summary', challenge: @current_challenge %>
-   <% elsif !@current_challenge.has_valid_criteria? %>
+   <% elsif !@current_challenge.valid_criteria? %>
      <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
-   <% elsif !@current_challenge.has_evaluations? %>
+   <% elsif !@current_challenge.evaluations? %>
      <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
    <% else %>
      <%= render 'shared/empty_resource', message: t('.there_has_been_an_error_when_processing_your_request') %>

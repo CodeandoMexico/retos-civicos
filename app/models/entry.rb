@@ -80,18 +80,18 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  def is_invalid?
+  def invalid?
     !is_valid
   end
 
-  def is_valid?
+  def valid?
     is_valid
   end
 
   def mark_as_valid!
     self.is_valid = true
     self.invalid_reason = nil
-    self.save!
+    save!
   end
 
   def mark_as_invalid!(message)
@@ -101,7 +101,7 @@ class Entry < ActiveRecord::Base
     # 'cause it has now been marked as invalid
     self.is_valid = false
     self.invalid_reason = message
-    self.save!
+    save!
     report_cards.destroy_all
   end
 
@@ -141,7 +141,7 @@ class Entry < ActiveRecord::Base
     ENTRY_TECHNOLOGIES
   end
 
-  def is_the_winner?
+  def winner?
     winner == 1
   end
 

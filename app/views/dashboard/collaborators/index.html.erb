@@ -17,7 +17,7 @@
             <li><%= link_to t('.email-everyone'),
             new_dashboard_challenge_email_path(@current_challenge) %></li>
             <li><%= link_to t('.email-finalists'),
-            finalists_new_dashboard_challenge_email_path(@current_challenge) if @current_challenge.has_finalists? %></li>
+            finalists_new_dashboard_challenge_email_path(@current_challenge) if @current_challenge.finalists? %></li>
           </ul>
         </div>
     </div>

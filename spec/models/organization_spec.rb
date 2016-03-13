@@ -10,10 +10,10 @@ describe Organization do
       end
     end
 
-    describe '#has_only_one_challenge?' do
+    describe '#only_one_challenge?' do
       describe 'Given there are no challenges' do
         it 'should return false' do
-          expect(organization.has_only_one_challenge?).to be_false
+          expect(organization.only_one_challenge?).to be_false
         end
       end
     end

@@ -19,15 +19,15 @@ describe Challenge do
       end
     end
 
-    describe '#is_active?' do
+    describe '#active?' do
       it 'returns that an active challenege is active' do
-        expect(active_ch.is_active?).to be_true
+        expect(active_ch.active?).to be_true
       end
     end
 
-    describe '#has_started?' do
+    describe '#started?' do
       it 'returns that a finished challenge has started' do
-        expect(active_ch.has_started?).to be_true
+        expect(active_ch.started?).to be_true
       end
     end
 

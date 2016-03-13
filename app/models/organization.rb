@@ -24,7 +24,7 @@ class Organization < ActiveRecord::Base
     update_attribute :accredited, true
   end
 
-  def has_only_one_challenge?
+  def only_one_challenge?
     challenges.active.count == 1
   end
 

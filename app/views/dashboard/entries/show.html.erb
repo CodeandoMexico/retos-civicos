@@ -1,16 +1,16 @@
 <div class="page-header">
   <div class="pull-right">
     <ul class="list-inline">
-      <li><%= render('mark_entry_as_valid_or_invalid', entry: @entry) unless (@entry.accepted? || @entry.is_the_winner?) %></li>
-      <% if !@entry.is_invalid? %>
+      <li><%= render('mark_entry_as_valid_or_invalid', entry: @entry) unless (@entry.accepted? || @entry.winner?) %></li>
+      <% if !@entry.invalid? %>
 
         <li><%= button_to t('.accept-proposal'),
           accept_dashboard_entry_url(@entry),
           class: 'btn btn-default',
           confirm: t('.move-next-phase', member: @entry.member.name) %></li>
 
-        <% if @entry.challenge.has_finished? && @entry.accepted? && !@entry.more_than_3_winners? %>
-          <% if @entry.is_the_winner? %>
+        <% if @entry.challenge.finished? && @entry.accepted? && !@entry.more_than_3_winners? %>
+          <% if @entry.winner? %>
             <li><%= button_to t('.remove-winner'),
               remove_winner_dashboard_entry_url(@entry),
               class: 'btn btn-danger',
@@ -84,8 +84,8 @@
     <!-- Prototypes panel -->
     <% if (Phases.is_current?(:prototypes, @entry.challenge) ||
           Phases.is_current?(:prototypes_selection, @entry.challenge) ||
-          @entry.challenge.has_finished?) &&
-          @entry.is_valid? &&
+          @entry.challenge.finished?) &&
+          @entry.valid? &&
           @entry.accepted?
       %>
       <div class="panel panel-default">
