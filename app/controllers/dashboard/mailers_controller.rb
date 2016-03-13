@@ -16,9 +16,11 @@ module Dashboard
         collaborators = Member.find_all_by_id(parse_members) if params[:members]
         collaborators ||= current_challenge.collaborators
         send_email_to_collaborators(collaborators)
-        redirect_to dashboard_collaborators_path, notice: t('flash.mailers.create.notice')
+        notice_text = t('flash.mailers.create.notice')
+        redirect_to dashboard_collaborators_path, notice: notice_text
       else
-        redirect_to new_dashboard_challenge_email_path(current_challenge), alert: t('flash.mailers.create.alert')
+        alert_text = t('flash.mailers.create.alert')
+        redirect_to new_dashboard_challenge_email_path(current_challenge), alert: alert_text
       end
     end
 
@@ -29,8 +31,11 @@ module Dashboard
     end
 
     def send_email_to_collaborators(collaborators)
+      subject = email_params[:subject]
+      body = email_params[:body]
       collaborators.each do |collaborator|
-        ChallengeMailer.delay.custom_message_to_all_collaborators(collaborator.email, email_params[:subject], email_params[:body])
+        email = collaborator.email
+        ChallengeMailer.delay.custom_message_to_all_collaborators(email, subject, body)
       end
     end
 
@@ -50,11 +55,10 @@ module Dashboard
     end
 
     def current_challenge_collaborators
-      current_challenge.collaborations
-        .includes(:member)
-        .order('created_at DESC')
-        .map(&:member)
-        .compact
+      current_challenge.collaborations.includes(:member)
+                                      .order('created_at DESC')
+                                      .map(&:member)
+                                      .compact
     end
   end
 end

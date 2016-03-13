@@ -21,6 +21,7 @@ module Dashboard
     end
 
     def create
+
       @challenge = organization.challenges.new(params[:challenge])
       if @challenge.save
         redirect_to dashboard_challenges_path
@@ -50,7 +51,8 @@ module Dashboard
         notice = t('flash.challenges.criteria.criteria_successfully_defined')
         redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: notice
       else
-        flash.now[:alert] = t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
+        flash_text = t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
+        flash.now[:alert] = flash_text
         render :new_criteria
       end
     end

@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
       CommentMailer.delay.create_comment_notification(@comment.id)
       respond_to do |format|
         format.js
-        format.html {
+        format.html do
           notice = t('comments.commented')
           redirect_to organization_challenge_path(org, @challenge, anchor: 'comment'), notice: notice
-        }
+        end
       end
     else
       notice = t('comments.failure')
@@ -35,9 +35,10 @@ class CommentsController < ApplicationController
     @comment.update_votes_counter
     respond_to do |format|
       format.js
-      format.html {
-        redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
-      }
+      format.html do
+        notice = t('comments.voted')
+        redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: notice
+      end
     end
   end
 
@@ -47,14 +48,14 @@ class CommentsController < ApplicationController
     authorize! :create_or_reply_challenge_comment, @challenge
     @reply = Comment.build_from(@challenge, current_user.id, params[:comment][:body])
     parent_comment = Comment.find(params[:parent])
+    notice = nil
     if @reply.save
       @reply.move_to_child_of(parent_comment)
       CommentMailer.delay.reply_comment_notification(@reply.id)
       notice = t('comments.commented')
-      redirect_to organization_challenge_path(org, @challenge, anchor: 'comment'), notice: notice
     else
       notice = t('comments.failure')
-      redirect_to organization_challenge_path(org, @challenge, anchor: 'comment'), notice: notice
     end
+    redirect_to organization_challenge_path(org, @challenge, anchor: 'comment'), notice: notice
   end
 end

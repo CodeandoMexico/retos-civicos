@@ -42,13 +42,14 @@ class ChallengesController < ApplicationController
   def like
     authorize! :like, Challenge
     @challenge = Challenge.find(params[:id])
+    organization = @challenge.organization
     current_user.vote_for(@challenge)
     @challenge.update_likes_counter
     respond_to do |format|
       format.js
-      format.html {
-        redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
-      }
+      format.html do
+        redirect_to organization_challenge_path(organization, @challenge), notice: t('comments.voted')
+      end
     end
   end
 
@@ -62,9 +63,11 @@ class ChallengesController < ApplicationController
 
   def mail_newsletter
     challenge = Challenge.find(params[:id])
-    org = challenge.organization
+    organization = challenge.organization
+    subject = params[:subject]
+    body = params[:body]
     challenge.collaborations.each do |collaborator|
-      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, org, params[:subject], params[:body])
+      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, organization, subject, body)
     end
 
     redirect_to challenge_path(challenge), notice: t('flash.organizations.send')
