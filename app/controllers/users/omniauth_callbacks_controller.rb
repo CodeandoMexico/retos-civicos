@@ -30,7 +30,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if user.email.blank?
         redirect_to edit_current_user_path(user.userable), notice: t('omniauth_controller.confirm_email')
       else
-        redirect_back_or(challenges_path, t('omniauth_controller.welcome_back', provider: @auth.provider.capitalize))
+        welcome_back_text = t('omniauth_controller.welcome_back', provider: @auth.provider.capitalize)
+        redirect_back_or(challenges_path, welcome_back_text)
       end
     end
   end

@@ -4,9 +4,11 @@ module Dashboard
 
     def index
       @challenges = organization.challenges.sorted
-      flash[:warning] = (@current_challenge.ready_to_rank_entries? && !@current_challenge.finished_evaluating?) ?
-                        I18n.t('dashboard.report_cards.index.not_all_judges_are_finished_evaluating') :
-                        nil
+      if (@current_challenge.ready_to_rank_entries? && !@current_challenge.finished_evaluating?)
+        flash[:warning] = I18n.t('dashboard.report_cards.index.not_all_judges_are_finished_evaluating')
+      else
+        flash[:warning] = nil
+      end
     end
 
     def show

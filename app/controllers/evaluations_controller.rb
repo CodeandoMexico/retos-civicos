@@ -27,7 +27,7 @@ class EvaluationsController < Dashboard::BaseController
                    else
                      evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
                      ReportCard.where(evaluation_id: evaluation).order('id ASC').first
-    end
+                   end
     authorize! :read, @report_card if @report_card.present?
   end
 

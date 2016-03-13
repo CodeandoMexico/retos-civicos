@@ -10,15 +10,13 @@ module ApplicationHelper
                        ENV['LOGO']
                      else
                        path
-    end
+                     end
     image_tag processed_path, options
   end
 
   def image_url(source)
     abs_path = image_path(source)
-    unless abs_path =~ /^http/
-      abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}"
-    end
+    abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}" unless abs_path =~ /^http/
     abs_path
   end
 

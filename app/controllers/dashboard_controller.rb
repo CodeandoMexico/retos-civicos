@@ -14,8 +14,7 @@ class DashboardController < Dashboard::BaseController
   end
 
   def organization_entries
-    Entry.where(challenge_id: organization.challenge_ids)
-      .includes(:challenge, member: :user)
+    Entry.where(challenge_id: organization.challenge_ids).includes(:challenge, member: :user)
   end
 
   def top_five(relation)

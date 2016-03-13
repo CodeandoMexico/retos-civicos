@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   def set_role
     current_user.create_role(params)
     if current_user.update_attributes(params[:user])
-      redirect_to edit_current_user_path(current_user.userable), notice: t('flash.users.welcome_and_edit_profile')
+      notice_text = t('flash.users.welcome_and_edit_profile')
+      redirect_to edit_current_user_path(current_user.userable), notice: notice_text
     else
       render :define_role
     end
