@@ -21,8 +21,6 @@ class DashboardController < Dashboard::BaseController
     relation.order('created_at DESC').limit(5)
   end
 
-  private
-
   def authenticate_organization!
     redirect_to challenges_path unless current_user.organization?
   end

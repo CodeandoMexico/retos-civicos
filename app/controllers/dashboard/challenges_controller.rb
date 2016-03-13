@@ -21,7 +21,6 @@ module Dashboard
     end
 
     def create
-
       @challenge = organization.challenges.new(params[:challenge])
       if @challenge.save
         redirect_to dashboard_challenges_path

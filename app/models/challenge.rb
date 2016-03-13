@@ -20,8 +20,7 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations,
-           class_name: 'Member', source: :member, include: :user
+  has_many :collaborators, through: :collaborations, class_name: 'Member', source: :member, include: :user
   has_many :activities
   has_many :entries, order: 'id ASC'
   has_many :datasets
@@ -127,7 +126,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def ready_to_rank_entries?
-    self.has_valid_criteria? && self.has_evaluations?
+    has_valid_criteria? && has_evaluations?
   end
 
   def finished_evaluating?
@@ -265,7 +264,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_winners
-    if self.has_a_winner?
+    if has_a_winner?
       Entry.where(challenge_id: self, winner: 1)
     else
       []
@@ -284,11 +283,11 @@ class Challenge < ActiveRecord::Base
     if has_finished?
       return I18n.t('challenges.show.has_finished')
     else
-      return  Phases.current_phase_title(self).title(args)
+      return Phases.current_phase_title(self).title(args)
     end
   end
 
-  def self.has_only_one_challenge?
+  def has_only_one_challenge?
     # self.count == 1
     where("status = 'open' OR status = 'working_on'").count == 1
   end
