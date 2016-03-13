@@ -6,7 +6,7 @@ module Dashboard
     def index
       add_crumb 'Retos', '/dashboard/retos'
       @challenges = organization.challenges
-                    .order('created_at DESC').includes(:collaborators, :entries)
+                                .order('created_at DESC').includes(:collaborators, :entries)
     end
 
     def new
@@ -47,7 +47,8 @@ module Dashboard
       @challenge.evaluation_instructions = params[:evaluation_instructions]
 
       if @challenge.evaluation_instructions.present? && @challenge.save
-        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: t('flash.challenges.criteria.criteria_successfully_defined')
+        notice = t('flash.challenges.criteria.criteria_successfully_defined')
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: notice
       else
         flash.now[:alert] = t('flash.challenges.criteria.please_check_that_all_criteria_fields_for_any_errors')
         render :new_criteria
@@ -56,9 +57,11 @@ module Dashboard
 
     def close_evaluation
       if @challenge.close_evaluation
-        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: t('flash.challenges.evaluation.evaluation_successfully_closed')
+        notice = t('flash.challenges.evaluation.evaluation_successfully_closed')
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), notice: notice
       else
-        redirect_to dashboard_judges_path(challenge_id: @challenge.id), alert: t('flash.challenges.evaluation.evaluation_could_not_be_closed')
+        alert_text = t('flash.challenges.evaluation.evaluation_could_not_be_closed')
+        redirect_to dashboard_judges_path(challenge_id: @challenge.id), alert: alert_text
       end
     end
 

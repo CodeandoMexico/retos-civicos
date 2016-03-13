@@ -5,9 +5,11 @@ class CollaborationsController < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @collaboration = current_member.collaborations.build(challenge: @challenge)
     if @collaboration.save
-      redirect_to new_challenge_entry_path(@challenge), notice: t('challenges.collaborating')
+      notice = t('challenges.collaborating')
+      redirect_to new_challenge_entry_path(@challenge), notice: notice
     else
-      redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('challenges.collaborating_error')
+      notice = t('challenges.collaborating_error')
+      redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: notice
     end
   end
 end

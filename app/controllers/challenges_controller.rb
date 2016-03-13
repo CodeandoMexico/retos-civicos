@@ -46,7 +46,9 @@ class ChallengesController < ApplicationController
     @challenge.update_likes_counter
     respond_to do |format|
       format.js
-      format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted') }
+      format.html {
+        redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted')
+      }
     end
   end
 
@@ -60,8 +62,9 @@ class ChallengesController < ApplicationController
 
   def mail_newsletter
     challenge = Challenge.find(params[:id])
+    org = challenge.organization
     challenge.collaborations.each do |collaborator|
-      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, challenge.organization, params[:subject], params[:body])
+      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, org, params[:subject], params[:body])
     end
 
     redirect_to challenge_path(challenge), notice: t('flash.organizations.send')
@@ -73,7 +76,10 @@ class ChallengesController < ApplicationController
     comments_per_page = 10
     current_page = params[:page]
     # r = most recent and v = vote count
-    return @challenge.root_comments.most_recent.page(current_page).per(comments_per_page) if params[:order_by] == 'recent'
+    if params[:order_by] == 'recent'
+      return @challenge.root_comments.most_recent.page(current_page).per(comments_per_page)
+    end
+
     @challenge.root_comments.sort_parents.page(current_page).per(comments_per_page)
   end
 
