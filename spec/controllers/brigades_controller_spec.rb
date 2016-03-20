@@ -24,9 +24,7 @@ describe BrigadesController do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     {
-      'zip_code' => '66603',
-      'city' => 'Monterrey',
-      'state' => 'Nuevo Leon',
+      'location' => '1',
       'description' => 'Bienvenido a la brigada de Monterrey! Come with us.',
       'calendar_url' => 'https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics',
       'slack_url' => 'https://codeandomexico.slack.com/messages/general',
@@ -106,14 +104,14 @@ describe BrigadesController do
       it 'assigns a newly created but unsaved brigade as @brigade' do
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        post :create, :brigade => { 'zip_code' => 'invalid value' }, 'locale' => 'en'
+        post :create, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
         assigns(:brigade).should be_a_new(Brigade)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        post :create, :brigade => { 'zip_code' => 'invalid value' }, 'locale' => 'en'
+        post :create, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
         response.should render_template('new')
       end
     end
@@ -127,8 +125,8 @@ describe BrigadesController do
         # specifies that the Brigade created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Brigade.any_instance.should_receive(:update_attributes).with(hash_including(zip_code: 'MyString'))
-        put :update, :id => brigade.to_param, :brigade => { 'zip_code' => 'MyString' }, 'locale' => 'en'
+        Brigade.any_instance.should_receive(:update_attributes).with(hash_including(location: 'MyString'))
+        put :update, :id => brigade.to_param, :brigade => { 'location' => 'MyString' }, 'locale' => 'en'
       end
 
       it 'assigns the requested brigade as @brigade' do
@@ -149,7 +147,7 @@ describe BrigadesController do
         brigade = Brigade.create! @valid_attributes_with_user
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        put :update, :id => brigade.to_param, :brigade => { 'zip_code' => 'invalid value' }, 'locale' => 'en'
+        put :update, :id => brigade.to_param, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
         assigns(:brigade).should eq(brigade)
       end
 
@@ -157,7 +155,7 @@ describe BrigadesController do
         brigade = Brigade.create! @valid_attributes_with_user
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        put :update, :id => brigade.to_param, :brigade => { 'zip_code' => 'invalid value' }, 'locale' => 'en'
+        put :update, :id => brigade.to_param, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
         response.should render_template('edit')
       end
     end
@@ -178,14 +176,14 @@ describe BrigadesController do
     end
   end
 
-  describe 'GET location_of_zip_code' do
-    it 'calls the model function location_of_zip_code' do
-      expect(Brigade).to receive(:location_of_zip_code).with('48400')
-      get :location_of_zip_code, :zip_code => '48400', 'locale' => 'en', :format => :json
+  describe 'GET location_search' do
+    it 'calls the model function location_search' do
+      expect(Location).to receive(:search).with('48400')
+      get :location_search, :location_query => '48400', 'locale' => 'en', :format => :json
     end
 
-    it 'calls the model function location_of_zip_code' do
-      get :location_of_zip_code, :zip_code => '48400', 'locale' => 'en', :format => :json
+    it 'calls the model function location_search' do
+      get :location_search, :location_query => '48400', 'locale' => 'en', :format => :json
       expect(response.header['Content-Type']).to include 'application/json'
     end
   end

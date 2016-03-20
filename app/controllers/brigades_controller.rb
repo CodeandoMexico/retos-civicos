@@ -78,10 +78,10 @@ class BrigadesController < ApplicationController
     end
   end
 
-  def location_of_zip_code
+  def location_search
     respond_to do |format|
       format.html { redirect_to '/' }
-      format.json { render json: Brigade.location_of_zip_code(params[:zip_code]) }
+      format.json { render json: Location.search(params[:location_query]) }
     end
   end
 

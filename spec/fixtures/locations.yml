@@ -1,0 +1,10 @@
+location_with_locality:
+  city: Monterrey
+  state: Nuevo León
+  zip_code: "64000"
+  locality: Col. Centro
+
+location_without_locality:
+  city: Tequila
+  state: Jalisca
+  zip_code: "48400"

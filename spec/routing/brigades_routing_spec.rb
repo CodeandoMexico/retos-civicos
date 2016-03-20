@@ -30,8 +30,8 @@ describe BrigadesController do
       delete('/brigades/1').should route_to('brigades#destroy', id: '1', locale: 'es')
     end
 
-    it 'routes to #location_of_zip_code' do
-      get('/location_of_zip_code/48400').should route_to('brigades#location_of_zip_code', zip_code: '48400', locale: 'es')
+    it 'routes to #location_search' do
+      get('/location_search/48400').should route_to('brigades#location_search', location_query: '48400', locale: 'es')
     end
   end
 end

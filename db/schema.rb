@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160311071451) do
+ActiveRecord::Schema.define(:version => 20160320175502) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -52,9 +52,6 @@ ActiveRecord::Schema.define(:version => 20160311071451) do
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "brigades", :force => true do |t|
-    t.string   "zip_code",         :limit => 15,                     :null => false
-    t.string   "city",             :limit => 35,                     :null => false
-    t.string   "state",            :limit => 20,                     :null => false
     t.text     "description"
     t.string   "calendar_url",     :limit => 500
     t.string   "slack_url",        :limit => 500
@@ -66,9 +63,10 @@ ActiveRecord::Schema.define(:version => 20160311071451) do
     t.boolean  "deactivated",                     :default => false, :null => false
     t.datetime "created_at",                                         :null => false
     t.datetime "updated_at",                                         :null => false
-    t.string   "locality",         :limit => 75
+    t.integer  "location",                                           :null => false
   end
 
+  add_index "brigades", ["location"], :name => "index_brigades_on_location"
   add_index "brigades", ["user_id"], :name => "index_brigades_on_user_id"
 
   create_table "challenges", :force => true do |t|
@@ -194,6 +192,15 @@ ActiveRecord::Schema.define(:version => 20160311071451) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "company_name"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "zip_code",   :limit => 5,  :null => false
+    t.string   "state",      :limit => 20, :null => false
+    t.string   "city",       :limit => 50, :null => false
+    t.string   "locality",   :limit => 50
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "members", :force => true do |t|

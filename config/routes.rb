@@ -116,7 +116,7 @@ Aquila::Application.routes.draw do
   match '/privacy' => 'pages#privacy', via: :get, as: 'privacy'
   # get "/about", to: "pages#about", as: "about"
   get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
-  get '/location_of_zip_code/:zip_code', to: 'brigades#location_of_zip_code'
+  get '/location_search/:location_query', to: 'brigades#location_search'
 
   root to: 'challenges#index'
 

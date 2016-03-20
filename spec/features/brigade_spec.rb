@@ -10,7 +10,7 @@ feature 'Brigades' do
     visit new_brigade_en_path
     expect(page).to have_content I18n.t('brigades.new.header')
     expect(page).to have_content I18n.t('brigades.new.submit')
-    fill_in 'brigade_zip_code', with: '66603'
+    fill_in 'brigade_location', with: '1'
     fill_in 'brigade_description', with: 'Bienvenido a la brigada de Monterrey!'
     click_on I18n.t('brigades.new.submit')
     expect(page).to have_content 'Monterrey'

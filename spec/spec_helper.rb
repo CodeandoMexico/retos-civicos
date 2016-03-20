@@ -40,6 +40,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
   config.use_transactional_fixtures = false
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Devise::TestHelpers, type: :controller
 
   # Run specs in random order to surface order dependencies. If you find an
