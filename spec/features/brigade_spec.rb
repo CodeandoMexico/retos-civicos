@@ -17,25 +17,25 @@ feature 'Brigades' do
   end
   
   scenario 'Follow a Brigade as a logged in user' do
-    visit brigade_page_path
+    visit brigade_path(1)
     click_on "Seguir" #Follow
     expect(page).to have_content 'Estas siguiendo esta brigada ahora'
-    visit user_page_path
+    visit user_path(new_user.id)
     expect(page).to have_content 'Monterrey'
   end
   
   scenario 'Unfollow a followed Brigade as a logged in user' do
-    visit brigade_page_path
+    visit brigade_path(1)
     click_on "Seguir"
-    visit user_page_path
+    visit user_path(new_user.id)
     click_on "Dejar de seguir" #Unfollow
     expect(page).to have_content 'No estas siguiendo Monterrey ahora'
   end
   
   scenario 'Make sure cannot refollow an already followed Brigade' do
-    visit brigade_page_path
+    visit brigade_path(1)
     click_on "Seguir" #Follow
-    visit brigade_page_path
+    visit brigade_path(1)
     expect(page).to have_content "Dejar de seguir"
     expect(page).not_to have_content "Seguir"
   end

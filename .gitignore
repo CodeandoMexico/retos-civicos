@@ -10,6 +10,7 @@
 /.eslintrc
 /.eslintignore
 .rubocop.yml
+/webdriver*
 
 
 # Ignore bundler config
