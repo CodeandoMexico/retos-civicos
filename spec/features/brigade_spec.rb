@@ -17,6 +17,7 @@ feature 'Brigades' do
   end
   
   scenario 'Follow a Brigade as a logged in user' do
+    pending
     visit brigade_path(1)
     click_on "Seguir" #Follow
     expect(page).to have_content 'Estas siguiendo esta brigada ahora'
@@ -25,6 +26,7 @@ feature 'Brigades' do
   end
   
   scenario 'Unfollow a followed Brigade as a logged in user' do
+    pending
     visit brigade_path(1)
     click_on "Seguir"
     visit user_path(new_user.id)
@@ -33,6 +35,7 @@ feature 'Brigades' do
   end
   
   scenario 'Make sure cannot refollow an already followed Brigade' do
+    pending
     visit brigade_path(1)
     click_on "Seguir" #Follow
     visit brigade_path(1)
