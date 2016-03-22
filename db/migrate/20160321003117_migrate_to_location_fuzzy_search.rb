@@ -10,7 +10,7 @@ class MigrateToLocationFuzzySearch < ActiveRecord::Migration
   end
 
   def down
-    DROP VIEW IF EXISTS searches;
+    DROP VIEW IF EXISTS searches
     execute "drop extension pg_trgm"
   end
 end

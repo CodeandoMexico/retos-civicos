@@ -9,6 +9,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - cp config/database.sample.yml config/database.yml
 - psql -c 'create database retos_cmx_test;' -U postgres
+- gem install textacular
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
