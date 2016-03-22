@@ -12,7 +12,6 @@ before_script:
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
-- bundle exec rake textacular:install_trigram RAILS_ENV=test
 - bundle exec rspec spec/
 addons:
   code_climate:

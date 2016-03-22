@@ -6,5 +6,5 @@ location_with_locality:
 
 location_without_locality:
   city: Tequila
-  state: Jalisca
+  state: Jalisco
   zip_code: "48400"
