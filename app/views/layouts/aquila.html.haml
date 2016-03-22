@@ -10,6 +10,8 @@
     %link{ href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
     = stylesheet_link_tag 'aquila', media: 'all'
     = javascript_include_tag 'application'
+    = javascript_tag do
+      window.currentController  = '#{j controller.controller_name}';
     = csrf_meta_tags
     = render 'google_analytics'
   %body{ 'ng-app' => 'aquila'}

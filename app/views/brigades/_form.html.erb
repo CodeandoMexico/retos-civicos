@@ -10,10 +10,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="field row">
-    <%= f.label :location, :class=>'col-md-4' %>
-    <%= f.text_field :location, :class=>'col-md-8' %>
-  </div>
+    <div class="field row">
+      <label class="col-md-4">Location</label>
+      <input type="text" id="location-query" list="location-list" class="col-md-8" autocomplete="off" />
+    </div>
+    <div class="field row">
+      <label class="col-md-4"></label>
+      <div id="location-list" class="col-md-8"></div>
+    </div>
+    <%= f.hidden_field :location, :class=>'col-md-8' %>
   <div class="field row">
     <%= f.label :description, :class=>'col-md-4' %>
     <%= f.text_area :description, :class=>'col-md-8', :rows=>"5" %>
