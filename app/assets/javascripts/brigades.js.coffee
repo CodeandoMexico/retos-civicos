@@ -21,12 +21,11 @@ $(window).load ->
           while i < data.length
             state = data[i].state
             city = data[i].city
-            zip_code = data[i].zip_code
             location_id = data[i].id
-            $('#location-list').append("<div data-state='#{state}' data-zip-code='#{zip_code}' data-city='#{city}'
+            $('#location-list').append("<div data-state='#{state}' data-city='#{city}'
               data-location-id='#{location_id}' class='location-list-option'>
-              <span class='state'>#{state}</span><span class='divider'>|</span>
-              <span class='city'>#{city}</span><span class='zip_code'>#{zip_code}</span></div>")
+              <span class='city'>#{city}</span><span class='divider'>|</span>
+              <span class='state'>#{state}</span></div>")
             i++
           return
       return

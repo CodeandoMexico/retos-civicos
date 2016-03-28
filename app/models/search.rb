@@ -9,7 +9,7 @@ class Search < ActiveRecord::Base
   def self.new(query)
     query = query.to_s
     return [] if query.empty?
-    search_results = self.fuzzy_search(query).preload(:searchable).uniq.limit(5)
+    search_results = self.fuzzy_search(query).preload(:searchable)
     return search_results
   end
 
