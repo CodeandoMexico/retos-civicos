@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'brigades/edit' do
   before(:each) do
     @brigade = assign(:brigade, stub_model(Brigade,
-                                           location: '1',
+                                           location_id: '1',
                                            description: 'MyText',
                                            calendar_url: 'MyString',
                                            slack_url: 'MyString',
@@ -21,7 +21,7 @@ describe 'brigades/edit' do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select 'form[action=?][method=?]', brigade_path(@brigade), 'post' do
-      assert_select 'input#brigade_location[name=?]', 'brigade[location]'
+      assert_select 'input#brigade_location_id[name=?]', 'brigade[location_id]'
       assert_select 'textarea#brigade_description[name=?]', 'brigade[description]'
       assert_select 'input#brigade_calendar_url[name=?]', 'brigade[calendar_url]'
       assert_select 'input#brigade_slack_url[name=?]', 'brigade[slack_url]'

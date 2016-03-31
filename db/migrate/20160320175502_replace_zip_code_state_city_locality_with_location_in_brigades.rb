@@ -4,8 +4,7 @@ class ReplaceZipCodeStateCityLocalityWithLocationInBrigades < ActiveRecord::Migr
     remove_column :brigades, :city
     remove_column :brigades, :state
     remove_column :brigades, :locality
-    add_column :brigades, :location, :integer, null: false
-    add_index :brigades, :location
+    add_column :brigades, :location_id, :integer, null: false, references: :locations
   end
 
   def down
@@ -14,6 +13,5 @@ class ReplaceZipCodeStateCityLocalityWithLocationInBrigades < ActiveRecord::Migr
     add_column :brigades, :state, :string, limit: 25, null: false
     add_column :brigades, :locality, :string, limit: 75
     remove_column :brigades, :location
-    remove_index :brigades, :location
   end
 end

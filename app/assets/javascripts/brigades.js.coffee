@@ -6,7 +6,7 @@ $(window).load ->
     $('body').on 'click', 'div[class=location-list-option]', ->
       $("#location-query").val("#{$(this).data('city')}, #{$(this).data('state')}")
       $('#location-list').empty()
-      $('#brigade_location').val($(this).data("location-id"))
+      $('#brigade_location_id').val($(this).data("location-id"))
       return
 
     do_location_search = ->
@@ -16,12 +16,12 @@ $(window).load ->
         dataType: 'json'
         success: (data) ->
           $('#location-list').empty()
-          $('#brigade_location').val("")
+          $('#brigade_location_id').val("")
           i = 0
           while i < data.length
             state = data[i].state
             city = data[i].city
-            location_id = data[i].id
+            location_id = data[i].searchable_id
             $('#location-list').append("<div data-state='#{state}' data-city='#{city}'
               data-location-id='#{location_id}' class='location-list-option'>
               <span class='city'>#{city}</span><span class='divider'>|</span>

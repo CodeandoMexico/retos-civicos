@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'brigades/show' do
   before(:each) do
     @brigade = assign(:brigade, stub_model(Brigade,
-                                           location: '1',
+                                           location_id: '1',
                                            description: 'MyText',
                                            calendar_url: 'Calendar Url',
                                            slack_url: 'Slack Url',

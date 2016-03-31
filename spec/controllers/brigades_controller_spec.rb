@@ -24,7 +24,7 @@ describe BrigadesController do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     {
-      'location' => '1',
+      'location_id' => '1',
       'description' => 'Bienvenido a la brigada de Monterrey! Come with us.',
       'calendar_url' => 'https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics',
       'slack_url' => 'https://codeandomexico.slack.com/messages/general',
@@ -104,14 +104,14 @@ describe BrigadesController do
       it 'assigns a newly created but unsaved brigade as @brigade' do
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        post :create, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
+        post :create, :brigade => { 'location_id' => 'invalid value' }, 'locale' => 'en'
         assigns(:brigade).should be_a_new(Brigade)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        post :create, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
+        post :create, :brigade => { 'location_id' => 'invalid value' }, 'locale' => 'en'
         response.should render_template('new')
       end
     end
@@ -125,8 +125,8 @@ describe BrigadesController do
         # specifies that the Brigade created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Brigade.any_instance.should_receive(:update_attributes).with(hash_including(location: 'MyString'))
-        put :update, :id => brigade.to_param, :brigade => { 'location' => 'MyString' }, 'locale' => 'en'
+        Brigade.any_instance.should_receive(:update_attributes).with(hash_including(location_id: 'MyString'))
+        put :update, :id => brigade.to_param, :brigade => { 'location_id' => 'MyString' }, 'locale' => 'en'
       end
 
       it 'assigns the requested brigade as @brigade' do
@@ -147,7 +147,7 @@ describe BrigadesController do
         brigade = Brigade.create! @valid_attributes_with_user
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        put :update, :id => brigade.to_param, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
+        put :update, :id => brigade.to_param, :brigade => { 'location_id' => 'invalid value' }, 'locale' => 'en'
         assigns(:brigade).should eq(brigade)
       end
 
@@ -155,7 +155,7 @@ describe BrigadesController do
         brigade = Brigade.create! @valid_attributes_with_user
         # Trigger the behavior that occurs when invalid params are submitted
         Brigade.any_instance.stub(:save).and_return(false)
-        put :update, :id => brigade.to_param, :brigade => { 'location' => 'invalid value' }, 'locale' => 'en'
+        put :update, :id => brigade.to_param, :brigade => { 'location_id' => 'invalid value' }, 'locale' => 'en'
         response.should render_template('edit')
       end
     end

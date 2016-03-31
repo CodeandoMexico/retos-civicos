@@ -16,6 +16,20 @@ describe Location do
         end
       end
 
+      describe 'given the search query uses accents' do
+        it 'should return results independent if accents are used' do
+          pending 'Not quite sure how to make it accent independent without affecting UX. Not a big deal in meantime.'
+          expect(Location.search('León').length).to eq 1
+          expect(Location.search('Leon').length).to eq 1
+        end
+      end
+
+      describe 'given the search query uses weird caps' do
+        it 'should return results independent of query case' do
+          expect(Location.search('NUEVO LEON').length).to eq 1
+        end
+      end
+
       describe 'given the search matches several locations with the same city & state' do
         it 'should only return one of the locations' do
           expect(Location.search('Nuevo Leon').length).to eq 1

@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :location do
-    zip_code "MyString"
-    state "MyString"
-    city ""
-    locality ""
+    zip_code "45050"
+    state "Jalisco"
+    city "Zapopan"
+    locality "Ciudad del Sol"
   end
 end
