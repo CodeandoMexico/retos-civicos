@@ -1,10 +1,10 @@
+# GithubUrlValidator object determines if a value is a
+# valid Github URL
 class GithubUrlValidator < ActiveModel::EachValidator
-
+  include BrigadesHelper
   def validate_each(record, attribute, value)
-    valid = value =~ /^((http|https):\/\/)?(www\.)?github\.com\/.+\/?$/i
-    unless valid
-      record.errors[attribute] << (options[:message] || "is an invalid Github URL")
-    end
+    pattern = %r{^((http|https):\/\/)?(www\.)?github\.com\/.+\/?$}
+    error = 'is an invalid Github URL'
+    validate_url(record, attribute, value, pattern, error)
   end
-
 end

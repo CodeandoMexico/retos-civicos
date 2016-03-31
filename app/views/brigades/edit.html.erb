@@ -1,6 +1,8 @@
-<h1>Editing brigade</h1>
+<div id="brigades">
+  <h1><%= I18n.t 'brigades.edit.header' %></h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @brigade %> |
-<%= link_to 'Back', brigades_path %>
+  <%= link_to 'Show', @brigade %> |
+  <%= link_to 'Back', brigades_path %>
+</div>

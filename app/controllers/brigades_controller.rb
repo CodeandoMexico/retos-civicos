@@ -1,4 +1,6 @@
+# Controller for the Brigades object. Must be authenticated to view.
 class BrigadesController < ApplicationController
+  include BrigadesHelper
   before_filter :authenticate_user!
   before_filter :set_brigade, only: [:show, :edit, :update, :destroy]
 
@@ -35,6 +37,7 @@ class BrigadesController < ApplicationController
 
   # GET /brigades/1/edit
   def edit
+    render layout: 'aquila'
   end
 
   # POST /brigades
@@ -44,11 +47,10 @@ class BrigadesController < ApplicationController
 
     respond_to do |format|
       if @brigade.save
-        format.html { redirect_to @brigade, notice: 'Brigade was successfully created.' }
+        format.html { redirect_to @brigade, notice: I18n.t('brigades.new.success') }
         format.json { render json: @brigade, status: :created, location: @brigade }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @brigade.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'new', @brigade.errors)
       end
     end
   end
@@ -58,11 +60,10 @@ class BrigadesController < ApplicationController
   def update
     respond_to do |format|
       if @brigade.update_attributes(brigade_params)
-        format.html { redirect_to @brigade, notice: 'Brigade was successfully updated.' }
+        format.html { redirect_to @brigade, notice: I18n.t('brigades.edit.success') }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @brigade.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'edit', @brigade.errors)
       end
     end
   end

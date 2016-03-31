@@ -137,6 +137,11 @@ en:
     new:
       header: Create Brigade
       submit: Create
+      success: Brigade was successfully created.
+    edit:
+      header: Edit Brigade
+      submit: Edit
+      success: Brigade was successfully updated.
   challenges:
     initial_activity:
       title: Challenge creation

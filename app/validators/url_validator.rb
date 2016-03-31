@@ -1,17 +1,13 @@
+# UrlValidator object determines if a value is a
+# valid URL
 class UrlValidator < ActiveModel::EachValidator
-
   def validate_each(record, attribute, value)
-    puts value.blank?
-    puts "BING"
     return if value.blank?
     valid = begin
-      URI.parse(value).kind_of?(URI::HTTP)
+      URI.parse(value).is_a?(URI::HTTP)
     rescue URI::InvalidURIError
       false
     end
-    unless valid
-      record.errors[attribute] << (options[:message] || "is an invalid URL")
-    end
+    record.errors[attribute] << (options[:message] || 'is an invalid URL') unless valid
   end
-
 end

@@ -69,6 +69,11 @@ es:
     new:
       header: Crear Brigada
       submit: Crear
+      success: Brigada se ha creado correctamente.
+    edit:
+      header: Editar Brigada
+      submit: Editar
+      success: Brigada se ha actualizado correctamente.
   challenges:
     initial_activity:
       title: Creación del reto

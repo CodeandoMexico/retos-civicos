@@ -1,10 +1,10 @@
+# ImageUrlValidator object determines if a value is a
+# valid image URL
 class ImageUrlValidator < ActiveModel::EachValidator
-
+  include BrigadesHelper
   def validate_each(record, attribute, value)
-    valid = value =~ /^((http|https):\/\/)?(www\.)?.+\..+\/.+\.(gif|png|jpg)\/?$/i
-    unless valid
-      record.errors[attribute] << (options[:message] || "is an invalid image URL")
-    end
+    pattern = %r{^((http|https):\/\/)?(www\.)?.+\..+\/.+\.(gif|png|jpg)\/?$}
+    error = 'is an invalid image URL'
+    validate_url(record, attribute, value, pattern, error)
   end
-
 end
