@@ -1,7 +1,7 @@
+require 'textacular/searchable'
 # A Search object is used by Textacular Gem to create
 # Fuzzy Searches. Mainly used for Location search in
 # Brigade creation.
-require 'textacular/searchable'
 class Search < ActiveRecord::Base
   # We want to reference various models
   belongs_to :searchable, polymorphic: true
