@@ -4,8 +4,8 @@ module BrigadesHelper
     f.object.new_record? ? I18n.t('brigades.new.submit') : I18n.t('brigades.edit.submit')
   end
 
-  def render_failed_modification(format, template, errors)
-    format.html { render action: template }
+  def render_failed_modification(format, action, errors)
+    format.html { render layout: 'aquila', action: action }
     format.json { render json: errors, status: :unprocessable_entity }
   end
 

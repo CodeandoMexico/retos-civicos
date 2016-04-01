@@ -175,16 +175,4 @@ describe BrigadesController do
       response.should redirect_to(brigades_url)
     end
   end
-
-  describe 'GET location_search' do
-    it 'calls the model function location_search' do
-      expect(Location).to receive(:search).with('48400')
-      get :location_search, :location_query => '48400', 'locale' => 'en', :format => :json
-    end
-
-    it 'calls the model function location_search' do
-      get :location_search, :location_query => '48400', 'locale' => 'en', :format => :json
-      expect(response.header['Content-Type']).to include 'application/json'
-    end
-  end
 end

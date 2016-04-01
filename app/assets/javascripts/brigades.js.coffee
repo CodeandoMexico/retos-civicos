@@ -27,8 +27,6 @@ $(window).load ->
               <span class='city'>#{city}</span><span class='divider'>|</span>
               <span class='state'>#{state}</span></div>")
             i++
-          return
-      return
 
     addLocationCallback = (textArea, callback, delay) ->
       timer = null
@@ -45,5 +43,19 @@ $(window).load ->
 
       textArea = null
       return
+
+    isNormalInteger = (str) ->
+      n = ~~Number(str)
+      String(n) == str and n >= 0
+
+    setInitialLocation = ->
+      location_id = $('#brigade_location_id').val()
+      if isNormalInteger(location_id)
+        $.get("/location_name/#{location_id}", (data) ->
+          $("#location-query").val(data.data)
+        )
+
+
+    setInitialLocation()
 
     addLocationCallback document.getElementById('location-query'), do_location_search, 1000

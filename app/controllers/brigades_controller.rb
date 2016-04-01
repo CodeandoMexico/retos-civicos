@@ -79,13 +79,6 @@ class BrigadesController < ApplicationController
     end
   end
 
-  def location_search
-    respond_to do |format|
-      format.html { redirect_to '/' }
-      format.json { render json: Location.search(params[:location_query]) }
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.

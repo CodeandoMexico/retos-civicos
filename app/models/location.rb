@@ -16,4 +16,10 @@ class Location < ActiveRecord::Base
     end
     locations_found.any? ? locations_found : {}
   end
+
+  def self.title(id)
+    location = Location.find(id)
+    return "" if location.nil?
+    "#{location.city.titleize}, #{location.state.titleize}"
+  end
 end

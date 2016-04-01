@@ -24,7 +24,7 @@ gem 'github_api'
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
-gem 'ckan',git: 'https://github.com/CodeandoMexico/CKAN-rb'
+gem 'ckan', git: 'https://github.com/CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
 gem 'font-awesome-rails'
 gem 'faker'
