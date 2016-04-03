@@ -13,7 +13,7 @@ feature 'Organization admin watches entry profile' do
                    name: 'Propuesta 1',
                    member: member,
                    challenge: challenge,
-                   idea_url: 'http://miproyecto.com',
+                   idea_url: 'http://google.com',
                    created_at: Time.zone.local(2013, 4, 10, 20, 53),
                    technologies: ['', 'PHP', 'MySQL'],
                    description: 'Este reto se resuelve con tecnología'
@@ -29,7 +29,7 @@ feature 'Organization admin watches entry profile' do
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
       description: 'Este reto se resuelve con tecnología',
-      idea_url: 'http://miproyecto.com'
+      idea_url: 'http://google.com'
     )
   end
 
