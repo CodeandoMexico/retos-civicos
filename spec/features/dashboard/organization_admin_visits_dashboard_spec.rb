@@ -17,7 +17,7 @@ feature 'Organization admin visits dashboard' do
            name: 'Propuesta 1',
            member: member,
            challenge: challenge,
-           idea_url: 'http://miproyecto.com',
+           idea_url: 'http://google.com',
            created_at: Time.zone.local(2013, 4, 10, 20, 53)
 
     sign_in_organization_admin(organization.admin)
@@ -30,7 +30,7 @@ feature 'Organization admin visits dashboard' do
       name: 'Propuesta 1',
       member: 'Juanito',
       sent_at: '10 abr 20:53',
-      idea_url: 'http://miproyecto.com',
+      idea_url: 'http://google.com',
       challenge: 'Reto 1'
     )
   end
