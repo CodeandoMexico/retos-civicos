@@ -55,7 +55,18 @@ $(window).load ->
           $("#location-query").val(data.data)
         )
 
+    setFooterMargin = ->
+      brigades = $("#brigades")
+      footer = $("#footer")
+      brigades_height = brigades.height()
+      footer.css('top', brigades_height+150)
+      footer.css('position', 'absolute')
+      footer.css('width', '100%')
+
+    $( window ).resize ->
+      setFooterMargin()
+      return
 
     setInitialLocation()
-
+    setFooterMargin()
     addLocationCallback document.getElementById('location-query'), do_location_search, 1000

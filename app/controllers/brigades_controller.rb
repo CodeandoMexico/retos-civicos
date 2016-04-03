@@ -19,7 +19,7 @@ class BrigadesController < ApplicationController
   # GET /brigades/1.json
   def show
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render layout: 'aquila' }
       format.json { render json: @brigade }
     end
   end
