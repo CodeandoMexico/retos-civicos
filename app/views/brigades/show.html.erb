@@ -9,44 +9,46 @@
     </div>
   </div>
   <p id="notice"><%= notice %></p>
+  
+  <button onclick="follow()"><%= t("brigades.show.follow") %></button>
 
   <p>
-    <b>Location:</b>
+    <b><%= t("brigades.location") %>:</b>
     <%= @brigade.location %>
   </p>
 
   <p>
-    <b>Description:</b>
+    <b><%= t("brigades.description") %>:</b>
     <%= @brigade.description %>
   </p>
 
   <p>
-    <b>Calendar url:</b>
+    <b><%= t("brigades.calendar_url") %>:</b>
     <%= @brigade.calendar_url %>
   </p>
 
   <p>
-    <b>Slack url:</b>
+    <b><%= t("brigades.slack_url") %>:</b>
     <%= @brigade.slack_url %>
   </p>
 
   <p>
-    <b>Github url:</b>
+    <b><%= t("brigades.github_url") %>:</b>
     <%= @brigade.github_url %>
   </p>
 
   <p>
-    <b>Facebook url:</b>
+    <b><%= t("brigades.facebook_url") %>:</b>
     <%= @brigade.facebook_url %>
   </p>
 
   <p>
-    <b>Twitter url:</b>
+    <b><%= t("brigades.twitter_url") %>:</b>
     <%= @brigade.twitter_url %>
   </p>
 
   <p>
-    <b>Header image url:</b>
+    <b><%= t("brigades.header_image_url") %>:</b>
     <%= @brigade.header_image_url %>
   </p>
 
