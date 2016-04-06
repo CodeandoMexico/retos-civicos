@@ -123,6 +123,21 @@ en:
       message: You need to login first
       already_submited_app: You've sent your application to this challenge
   brigades:
+    zip_code: Zip Code
+    city: City
+    state: State
+    location: Location
+    description: Description
+    calendar_url: Calendar URL
+    slack_url: Slack URL
+    github_url: Github URL
+    facebook_url: Facebook URL
+    twitter_url: Twitter URL
+    header_image_url: Header Image URL
+
+    show:
+      follow: Follow
+      unfollow: Unfollow
     form:
       zip_code: Zip Code
       city: City

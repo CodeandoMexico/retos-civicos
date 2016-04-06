@@ -18,6 +18,7 @@ class BrigadesController < ApplicationController
   # GET /brigades/1
   # GET /brigades/1.json
   def show
+    @signedin = user_signed_in?
     respond_to do |format|
       format.html { render layout: 'aquila' }
       format.json { render json: @brigade }

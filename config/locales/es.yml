@@ -55,6 +55,22 @@ es:
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
         evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
   brigades:
+    zip_code: Código Postal
+    city: Ciudad
+    state: Estado
+    location: Ubicación
+    description: Descripción
+    calendar_url: URL del Calendario
+    slack_url: URL de Slack
+    github_url: URL de Github
+    facebook_url: URL de Facebook
+    twitter_url: Url de Twitter
+    header_image_url: URL de Imagen de Perfil
+
+    show:
+      follow: Seguir
+      unfollow: No Seguir
+  
     form:
       zip_code: Código Postal
       city: Ciudad

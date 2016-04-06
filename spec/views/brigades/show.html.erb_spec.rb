@@ -16,16 +16,16 @@ describe 'brigades/show' do
                                           ))
   end
 
-  it 'renders attributes in <p>' do
+  it 'renders attributes in <p> with correct translation' do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Location/)
-    rendered.should match(/MyText/)
-    rendered.should match(/Calendar Url/)
-    rendered.should match(/Slack Url/)
-    rendered.should match(/Github Url/)
-    rendered.should match(/Facebook Url/)
-    rendered.should match(/Twitter Url/)
-    rendered.should match(/Header Image Url/)
+    rendered.should match(/Ubicación/)
+    rendered.should match(/Descripción/)
+    rendered.should match(/URL del Calendario:/)
+    rendered.should match(/URL de Slack/)
+    rendered.should match(/URL de Github/)
+    rendered.should match(/URL de Facebook/)
+    rendered.should match(/Url de Twitter/)
+    rendered.should match(/URL de Imagen de Perfil/)
   end
 end
