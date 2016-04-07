@@ -8,50 +8,50 @@
       </div>
     </div>
   </div>
-  <p id="notice"><%= notice %></p>
-  
-  <button onclick="follow()"><%= t("brigades.show.follow") %></button>
+  <div class="post-hero-content">
+    <p id="notice"><%= notice %></p>
+    <p class="description">Monterrey's Brigade is incredibly fun. We have lots of events that happen on the daily.
+    Lots of unique projects can be found and we have a wonderful, diverse community.</p>
+    <div class="left-content">
+      <div class="content-box quick-stats">
+        <div class="box-title">Stats</div>
+        <div class="box-content">
+          <div class="stat">
+            <div class="stat-title">Fundado</div>
+            <div class="stat-detail">14/02/2015</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Miembros</div>
+            <div class="stat-detail">2,402</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Proyetos</div>
+            <div class="stat-detail">19</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Proximo evento</div>
+            <div class="stat-detail">12/12/2016</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="content-box">
 
-  <p>
-    <b><%= t("brigades.location") %>:</b>
-    <%= @brigade.location %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.description") %>:</b>
-    <%= @brigade.description %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.calendar_url") %>:</b>
-    <%= @brigade.calendar_url %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.slack_url") %>:</b>
-    <%= @brigade.slack_url %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.github_url") %>:</b>
-    <%= @brigade.github_url %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.facebook_url") %>:</b>
-    <%= @brigade.facebook_url %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.twitter_url") %>:</b>
-    <%= @brigade.twitter_url %>
-  </p>
-
-  <p>
-    <b><%= t("brigades.header_image_url") %>:</b>
-    <%= @brigade.header_image_url %>
-  </p>
-
-  <%= link_to 'Edit', edit_brigade_path(@brigade) %> |
-  <%= link_to 'Back', brigades_path %>
+        <div class="box-title">Next Event</div>
+        <div class="box-content">
+          <div class="row">
+            <div class="col-md-8">
+              <h1>Tuesday, April 5th</h1>
+              <h3>6:00 PM to 7:00 PM</h3>
+            </div>
+            <div id="map-canvas" class="circle-text col-md-4">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGCihAwawm_tMs2GOoyqVV_JQXkj4ctYQ" async defer></script>
