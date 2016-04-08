@@ -1,3 +1,6 @@
+# A User is representative of a person who can join brigades,
+# participate in challenges, create brigades, etc. Can also be
+# administrators, organizations, or judges.
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :validatable
