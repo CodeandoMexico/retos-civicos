@@ -73,7 +73,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  resources :members, only: [:update, :edit]
+  resources :members, only: [:show, :update, :edit]
 
   namespace :panel do
     resources :entries, only: [:index, :show, :edit, :update] do

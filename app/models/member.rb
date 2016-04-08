@@ -16,11 +16,15 @@ class Member < ActiveRecord::Base
   end
 
   def to_s
-    case
-    when name.present? then name
-    when nickname.present? then nickname
-    else ''
-      end
+    return name unless name.blank?
+    return nickname unless nickname.blank?
+    ''
+  end
+
+  def to_param
+    return "#{id}-#{name.parameterize}" if name
+    return "#{id}-#{nickname.parameterize}" if nickname
+    id
   end
 
   def representative

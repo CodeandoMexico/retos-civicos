@@ -1,6 +1,10 @@
 class MembersController < ApplicationController
   load_and_authorize_resource
 
+  def show
+    render layout: 'aquila'
+  end
+
   def edit
     render layout: 'aquila'
   end

@@ -57,11 +57,15 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    if name.blank?
-      nickname.blank? ? email : nickname
-    else
-      name
-    end
+    return name unless name.blank?
+    return nickname unless nickname.blank?
+    email
+  end
+
+  def to_param
+    return "#{id}-#{name.parameterize}" if name
+    return "#{id}-#{nickname.parameterize}" if nickname
+    id
   end
 
   # Ex: member?, organization?
