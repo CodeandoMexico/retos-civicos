@@ -134,7 +134,7 @@ class User < ActiveRecord::Base
                       Judge.new
                     else
                       Member.new
-    end
+                    end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     save validate: false
   end
