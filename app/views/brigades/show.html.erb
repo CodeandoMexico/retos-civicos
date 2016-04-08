@@ -13,9 +13,10 @@
     <p class="description">Monterrey's Brigade is incredibly fun. We have lots of events that happen on the daily.
     Lots of unique projects can be found and we have a wonderful, diverse community.</p>
     <div class="left-content">
-      <div class="content-box quick-stats">
+      <div class="content-box">
         <div class="box-title">Stats</div>
-        <div class="box-content">
+        <div class="box-content stats">
+          <!--<button onclick="follow()"><%= t("brigades.show.follow") %></button>-->
           <div class="stat">
             <div class="stat-title">Fundado</div>
             <div class="stat-detail">14/02/2015</div>
@@ -34,19 +35,45 @@
           </div>
         </div>
       </div>
+      <div class="content-box">
+        <div class="box-title">Members</div>
+        <div class="box-content members">
+          <div class="member">
+            <img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
+            <div><a><div class="member-name">Barack Obama</div></a><div class="num-projects">100 projects</div></div>
+          </div>
+          <div class="member">
+            <img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
+            <div><a><div class="member-name">Adrian Rangel</div></a><div class="num-projects">20 projects</div></div>
+          </div>
+          <div class="member">
+            <img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
+            <div><a><div class="member-name">Enrique Nieto</div></a><div class="num-projects">18 projects</div></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="right-content">
       <div class="content-box">
 
         <div class="box-title">Next Event</div>
-        <div class="box-content">
-          <div class="row">
-            <div class="col-md-8">
-              <h1>Tuesday, April 5th</h1>
-              <h3>6:00 PM to 7:00 PM</h3>
+        <div class="box-content row event">
+          <div class="col-md-8">
+            <h1>Hack And Wine</h1>
+            <h4>Tuesday, April 5th <span class="event-time">6:00 PM to 7:00 PM <%= image_tag("icons/calendario.svg", size: "18x18", class: "export-cal") %></span></h4>
+            <h5 class="event-description">
+              This event is a tech mixer that allows for everyone of all backgrounds to unite
+            </h5>
+            <div class="rsvp-button">
+              <button class='green-button'>RSVP</button><span class="num-people-going">8 people going</span>
             </div>
-            <div id="map-canvas" class="circle-text col-md-4">
+          </div>
+          <div class="col-md-4">
+            <div id="map-canvas" class="circle-text">
               <div id="googleMap"></div>
+            </div>
+            <div class="address">
+              <a href="http://maps.google.com"><h4>777 Lucky Path</h4><h4>London, London. 94709</h4></a>
             </div>
           </div>
         </div>

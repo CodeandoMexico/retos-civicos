@@ -8,6 +8,28 @@
   left: 0;
   width: 100%;
 
+  .green-button {
+    display: block;
+    margin: 60px auto 0 auto;
+    padding: 0;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #1ECD97;
+    border-radius: 40px;
+    background: transparent;
+    color: #FFF;
+    letter-spacing: 1px;
+    background: #1ECD97;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: background-color 0.6s, color 0.6s, width 0.6s, border-width 0.6s, border-color 0.6s;
+    transition: background-color 0.6s, color 0.6s, width 0.6s, border-width 0.6s, border-color 0.6s;
+
+    &:hover {
+      border: 2px solid rgba(200, 255, 200, .6);
+    }
+  }
+
   .hero-container {
     width: 100vw;
     position: relative;
@@ -77,14 +99,14 @@
     }
 
     .left-content {
-      width: 300px;
+      width: 250px;
       float: left;
     }
 
     .right-content {
       float: right;
       margin: 0 50px 0 0;
-      width: calc(100% - 400px);
+      width: calc(100% - 350px);
     }
 
     .content-box {
@@ -92,6 +114,7 @@
       outline: 1px lightgray solid;
       text-align: left;
       color: darkslategrey;
+      margin: 0 0 50px 0;
 
       .circle-text #googleMap {
         width: 200px;
@@ -112,14 +135,79 @@
       }
 
       .box-content {
-        padding: 0 0 15px 15px;
+        padding: 0 15px 15px 15px;
 
-        .stat {
-          margin: 25px 0 25px 0;
-          padding: 0 10px;
+        &.stats {
+          .stat {
+            margin: 25px 0 25px 0;
+            padding: 0 10px;
 
-          .stat-title {
-            font-weight: 600;
+            .stat-title {
+              font-weight: 600;
+            }
+          }
+        }
+
+        &.members {
+          .member {
+            text-align: center;
+            margin: 25px 0 25px 0;
+            padding: 0 10px;
+            height: 60px;
+
+            .member-image {
+              width: 60px;
+              border-radius: 60px;
+              float: left;
+            }
+
+            .member-name {
+              font-size: 14px;
+              font-weight: 600;
+              padding-top: 10px;
+              cursor: pointer;
+              color: darkslategray;
+            }
+          }
+        }
+
+        &.event {
+
+          .event-time {
+            font-size: 14px;
+            margin: 0 0 0 10px;
+
+            .export-cal {
+              margin: -5px 0 0 10px;
+              cursor: pointer;
+            }
+          }
+
+          #map-canvas {
+            height: 240px;
+          }
+
+          .event-description {
+            margin-top: 25px;
+            font-weight: 200;
+          }
+
+          .address {
+            text-align: center;
+          }
+
+          .rsvp-button {
+            margin: 35px 0 0 0;
+            width: 200px;
+            text-align: center;
+
+            .green-button {
+              margin: 0;
+            }
+
+            .num-people-going {
+              font-size: 12px;
+            }
           }
         }
       }
@@ -224,30 +312,6 @@
           box-shadow: 0 0 5px rgba(255, 0, 0, 1);
           padding: 5px 0px 5px 10px;
           border: 1px solid rgba(255, 0, 0, 1);
-        }
-      }
-    }
-
-    .actions {
-      input[type=submit] {
-        display: block;
-        margin: 60px auto 0 auto;
-        padding: 0;
-        width: 200px;
-        height: 50px;
-        border: 2px solid #1ECD97;
-        border-radius: 40px;
-        background: transparent;
-        color: #FFF;
-        letter-spacing: 1px;
-        background: #1ECD97;
-        font-size: 18px;
-        font-family: 'Montserrat', sans-serif;
-        -webkit-transition: background-color 0.6s, color 0.6s, width 0.6s, border-width 0.6s, border-color 0.6s;
-        transition: background-color 0.6s, color 0.6s, width 0.6s, border-width 0.6s, border-color 0.6s;
-
-        &:hover {
-          border: 2px solid rgba(200, 255, 200, .6);
         }
       }
     }

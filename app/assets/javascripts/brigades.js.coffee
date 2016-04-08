@@ -257,7 +257,6 @@ $(window).load ->
           navigationControl: false
           mapTypeControl: false
           scaleControl: false
-          draggable: false
           mapTypeId: google.maps.MapTypeId.ROADMAP
         map = new (google.maps.Map)(document.getElementById('googleMap'), mapProp)
         return

@@ -21,7 +21,7 @@ OmniAuth.config.mock_auth[:facebook] = {}
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f unless f =~ /.*(env|warden)\.rb$/ }
 
 # Turn off delayed job in test
 Delayed::Worker.delay_jobs = !Rails.env.test?
