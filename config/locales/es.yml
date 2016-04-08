@@ -68,9 +68,14 @@ es:
     header_image_url: URL de Imagen de Perfil
 
     show:
-      follow: Seguir
-      unfollow: No Seguir
-  
+      follow: Unirse
+      unfollow: Dejar
+      next_event: Próximo Evento
+      statistics: Estadística
+      members: Miembros
+      rsvp: Reservar
+      not_going: No voy
+      people_going: personas van
     form:
       zip_code: Código Postal
       city: Ciudad

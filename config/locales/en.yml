@@ -134,10 +134,15 @@ en:
     facebook_url: Facebook URL
     twitter_url: Twitter URL
     header_image_url: Header Image URL
-
     show:
-      follow: Follow
-      unfollow: Unfollow
+      follow: Join
+      unfollow: Leave
+      next_event: Next Event
+      statistics: Statistics
+      members: Members
+      rsvp: RSVP
+      not_going: Not Going
+      people_going: people going
     form:
       zip_code: Zip Code
       city: City

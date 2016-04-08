@@ -15,5 +15,5 @@ class Brigade < ActiveRecord::Base
   validates :header_image_url, length: { maximum: 500 }, url: true, allow_blank: true, image_url: true
   validates :deactivated, inclusion: { in: [true, false] }, exclusion: { in: [nil] }
   attr_accessible :calendar_url, :description, :facebook_url, :github_url, :header_image_url,
-                  :location_id, :slack_url, :twitter_url, :user
+                  :location_id, :slack_url, :twitter_url, :user, :user_id
 end
