@@ -1,15 +1,18 @@
+# A User is representative of a person who can join brigades,
+# participate in challenges, create brigades, etc. Can also be
+# administrators, organizations, or judges.
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :email, :name,
+                  :nickname, :bio, :userable_id, :role, :website
 
-  ROLES = %w(member organization judge)
+  ROLES = %w(member organization judge).freeze
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role,
-                  :website
+  attr_accessible
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -57,11 +60,15 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    if name.blank?
-      nickname.blank? ? email : nickname
-    else
-      name
-    end
+    return name unless name.blank?
+    return nickname unless nickname.blank?
+    email
+  end
+
+  def to_param
+    return "#{id}-#{name.parameterize}" if name
+    return "#{id}-#{nickname.parameterize}" if nickname
+    id
   end
 
   # Ex: member?, organization?
@@ -69,10 +76,6 @@ class User < ActiveRecord::Base
     define_method "#{role}?" do
       userable_type == role.capitalize
     end
-  end
-
-  def role?
-    !userable_type.blank?
   end
 
   def member?
@@ -103,10 +106,6 @@ class User < ActiveRecord::Base
     userable.challenge_ids.include?(challenge.id) unless userable_id.nil?
   end
 
-  def update_skills(skills = [])
-    self.skills = (self.skills + skills).uniq
-  end
-
   def image_url(version = nil)
     avatar_url(version) || Gravatar.new(email.to_s).image_url
   end
@@ -124,13 +123,13 @@ class User < ActiveRecord::Base
   end
 
   def create_role(params = {})
-    if params[:organization].present?
-      self.userable = Organization.new
-    elsif params[:judge].present?
-      self.userable = Judge.new
-    else
-      self.userable = Member.new
-    end
+    self.userable = if params[:organization].present?
+                      Organization.new
+                    elsif params[:judge].present?
+                      Judge.new
+                    else
+                      Member.new
+                    end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     save validate: false
   end

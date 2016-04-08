@@ -68,8 +68,8 @@ describe Phases do
         dates = dates_for_phase(current_phase)
         not_current_phases = phases.reject { |phase| phase == current_phase }
 
-        Phases.is_current?(current_phase, dates).should be
-        not_current_phases.each { |phase| Phases.is_current?(phase, dates).should_not be }
+        Phases.current?(current_phase, dates).should be
+        not_current_phases.each { |phase| Phases.current?(phase, dates).should_not be }
       end
     end
 
@@ -86,7 +86,7 @@ describe Phases do
 
       phases.each do |phase|
         it "should not be #{phase}" do
-          Phases.is_current?(phase, dates).should_not be
+          Phases.current?(phase, dates).should_not be
         end
       end
     end
@@ -104,7 +104,7 @@ describe Phases do
 
       phases.each do |phase|
         it "should not be #{phase}" do
-          Phases.is_current?(phase, dates).should_not be
+          Phases.current?(phase, dates).should_not be
         end
       end
     end

@@ -64,10 +64,6 @@ module ApplicationHelper
     'active' if params[:controller] == activator
   end
 
-  def filter_class(filter)
-    'active' if params[:filter] == filter
-  end
-
   def url_with_protocol(url)
     if url[/^https?/]
       url
@@ -119,10 +115,10 @@ module ApplicationHelper
 
   def challenge_completion_percentage_for(challenge)
     if challenge.finish_on < Date.today then 100
-    elsif Phases.is_current?(:ideas, challenge) then 10
-    elsif Phases.is_current?(:ideas_selection, challenge) then 25
-    elsif Phases.is_current?(:prototypes, challenge) then 50
-    elsif Phases.is_current?(:prototypes_selection, challenge) then 75
+    elsif Phases.current?(:ideas, challenge) then 10
+    elsif Phases.current?(:ideas_selection, challenge) then 25
+    elsif Phases.current?(:prototypes, challenge) then 50
+    elsif Phases.current?(:prototypes_selection, challenge) then 75
     end
   end
 
@@ -131,8 +127,8 @@ module ApplicationHelper
   def build_message(args)
     alert_class_suffix = args[:key_match][args[:key].to_sym] || :standard
     html = content_tag :div, data: { alert: '' },
-                       class: "alert alert-#{alert_class_suffix} alert-dismissible",
-                       style: 'margin: 15px 0 15px 0' do
+                             class: "alert alert-#{alert_class_suffix} alert-dismissible",
+                             style: 'margin: 15px 0 15px 0' do
       raw "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
            <span aria-hidden='true'>&times;</span></button>
            #{args[:value]}"

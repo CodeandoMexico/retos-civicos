@@ -16,11 +16,9 @@ class Member < ActiveRecord::Base
   end
 
   def to_s
-    case
-    when name.present? then name
-    when nickname.present? then nickname
-    else ''
-      end
+    return name unless name.blank?
+    return nickname unless nickname.blank?
+    ''
   end
 
   def representative
@@ -29,26 +27,26 @@ class Member < ActiveRecord::Base
     when name.present? then name
     when nickname.present? then nickname
     else ''
-      end
+    end
   end
 
-  def is_able_to_edit_entry?(challenge)
-    self.has_submitted_app?(challenge) && Phases.is_current?(:ideas, challenge)
+  def able_to_edit_entry?(challenge)
+    submitted_app?(challenge) && Phases.current?(:ideas, challenge)
   end
 
-  def is_able_to_submit_a_prototype?(challenge)
-    self.has_submitted_app?(challenge) && self.entry_has_been_accepted?(challenge) && Phases.is_current?(:prototypes, challenge)
+  def able_to_submit_a_prototype?(challenge)
+    submitted_app?(challenge) && entry_has_been_accepted?(challenge) && Phases.current?(:prototypes, challenge)
   end
 
   def entry_has_been_accepted?(challenge)
     entry_for(challenge).accepted?
   end
 
-  def has_submitted_app?(challenge)
+  def submitted_app?(challenge)
     !entry_for(challenge).nil?
   end
 
-  def has_submitted_prototype_for_challenge?(challenge)
+  def submitted_prototype_for_challenge?(challenge)
     entry = entry_for(challenge)
     return false unless entry.present?
     entry.repo_url.present? && entry.demo_url.present?

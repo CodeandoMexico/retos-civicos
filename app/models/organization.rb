@@ -28,7 +28,7 @@ class Organization < ActiveRecord::Base
     challenges.active.count == 1
   end
 
-  def has_submitted_app?(_challenge)
+  def submitted_app?(_challenge)
     false
   end
 

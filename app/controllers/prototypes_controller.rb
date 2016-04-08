@@ -49,6 +49,6 @@ class PrototypesController < ApplicationController
   end
 
   def member_is_able_to_add_prototype
-    redirect_to challenge_path(challenge) unless current_member.is_able_to_submit_a_prototype?(challenge)
+    redirect_to challenge_path(challenge) unless current_member.able_to_submit_a_prototype?(challenge)
   end
 end

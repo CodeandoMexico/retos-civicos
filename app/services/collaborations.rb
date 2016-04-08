@@ -11,7 +11,7 @@ module Collaborations
 
   def self.create_without_email(member, challenge)
     return if exists_collaboration?(member, challenge)
-    return unless phases.is_current?(:ideas, challenge)
+    return unless phases.current?(:ideas, challenge)
     store.create(member_id: member.id, challenge_id: challenge.id)
   end
 

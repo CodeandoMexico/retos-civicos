@@ -82,8 +82,8 @@
     </div>
 
     <!-- Prototypes panel -->
-    <% if (Phases.is_current?(:prototypes, @entry.challenge) ||
-          Phases.is_current?(:prototypes_selection, @entry.challenge) ||
+    <% if (Phases.current?(:prototypes, @entry.challenge) ||
+          Phases.current?(:prototypes_selection, @entry.challenge) ||
           @entry.challenge.finished?) &&
           @entry.valid_entry? &&
           @entry.accepted?
