@@ -62,6 +62,12 @@ class User < ActiveRecord::Base
     email
   end
 
+  def to_param
+    return "#{id}-#{name.parameterize}" if name
+    return "#{id}-#{nickname.parameterize}" if nickname
+    id
+  end
+
   # Ex: member?, organization?
   ROLES.each do |role|
     define_method "#{role}?" do
