@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :email, :name,
+                  :nickname, :bio, :userable_id, :role, :website
 
   ROLES = %w(member organization judge).freeze
 
-  attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role,
-                  :website
+  attr_accessible
 
   # Relations
   has_many :authentications, dependent: :destroy
@@ -78,10 +78,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def role?
-    !userable_type.blank?
-  end
-
   def member?
     userable_type == 'Member'
   end
@@ -108,10 +104,6 @@ class User < ActiveRecord::Base
 
   def collaborating_in?(challenge)
     userable.challenge_ids.include?(challenge.id) unless userable_id.nil?
-  end
-
-  def update_skills(skills = [])
-    self.skills = (self.skills + skills).uniq
   end
 
   def image_url(version = nil)
