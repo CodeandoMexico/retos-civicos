@@ -26,7 +26,7 @@ module Phases
     Dates.members
   end
 
-  def self.is_current?(phase, challenge)
+  def self.current?(phase, challenge)
     for_dates(challenge).fetch(phase).current?
   end
 

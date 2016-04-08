@@ -11,8 +11,8 @@ Feature: Brigade has show view
       | 1            | 1       | Bienvenido a la brigada de Monterrey! Come with us. | https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics | http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png |
 
     Given the following users are in brigade Monterrey, Nuevo León:
-      | email          | name  | avatar |
-      | test1@test.com | Kyle  | https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png|
+      | email          | name  |
+      | test1@test.com | Kyle  |
       | test2@test.com | Allen |
       | test3@test.com | Boss  |
 

@@ -14,11 +14,11 @@ class EntriesController < ApplicationController
   def new
     @challenge = Challenge.find params[:challenge_id]
 
-    if current_user.userable.has_submitted_app?(@challenge)
+    if current_user.userable.submitted_app?(@challenge)
       return redirect_to challenge_path(@challenge), notice: I18n.t('flash.unauthorized.already_submited_app')
     end
 
-    unless Phases.is_current?(:ideas, @challenge)
+    unless Phases.current?(:ideas, @challenge)
       return redirect_to challenge_path(@challenge), notice: I18n.t('flash.unauthorized.entries_not_accepted')
     end
 
@@ -58,7 +58,7 @@ class EntriesController < ApplicationController
 
   def member_is_able_to_edit_entry?
     @challenge = Challenge.find params[:challenge_id]
-    unless current_member.is_able_to_edit_entry?(@challenge)
+    unless current_member.able_to_edit_entry?(@challenge)
       redirect_to(challenge_path(@challenge), alert: I18n.t('flash.entries.phase_due'))
     end
   end

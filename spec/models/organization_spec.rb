@@ -18,9 +18,9 @@ describe Organization do
       end
     end
 
-    describe '#has_submitted_app?' do
+    describe '#submitted_app?' do
       it 'should return false' do
-        expect(organization.has_submitted_app?(nil)).to be_false
+        expect(organization.submitted_app?(nil)).to be_false
       end
     end
 
