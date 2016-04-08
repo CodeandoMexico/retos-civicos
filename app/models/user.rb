@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  ROLES = %w(member organization judge)
+  ROLES = %w(member organization judge).freeze
 
   attr_accessible :avatar, :email, :name, :nickname, :bio, :userable_id, :role,
                   :website
@@ -128,12 +128,12 @@ class User < ActiveRecord::Base
   end
 
   def create_role(params = {})
-    if params[:organization].present?
-      self.userable = Organization.new
-    elsif params[:judge].present?
-      self.userable = Judge.new
-    else
-      self.userable = Member.new
+    self.userable = if params[:organization].present?
+                      Organization.new
+                    elsif params[:judge].present?
+                      Judge.new
+                    else
+                      Member.new
     end
     # To-do: Temporary removed validation. Remove validate false after major refactor.
     save validate: false

@@ -33,7 +33,7 @@ class Entry < ActiveRecord::Base
   end
 
   def editable?
-    member.is_able_to_edit_entry?(challenge) || member.is_able_to_submit_a_prototype?(challenge)
+    member.able_to_edit_entry?(challenge) || member.able_to_submit_a_prototype?(challenge)
   end
 
   def self.public

@@ -19,21 +19,14 @@ class BrigadesController < ApplicationController
   # GET /brigades/1.json
   def show
     @signedin = user_signed_in?
-    respond_to do |format|
-      format.html { render layout: 'aquila' }
-      format.json { render json: @brigade }
-    end
+    render_brigade
   end
 
   # GET /brigades/new
   # GET /brigades/new.json
   def new
     @brigade = Brigade.new
-
-    respond_to do |format|
-      format.html { render layout: 'aquila' }
-      format.json { render json: @brigade }
-    end
+    render_brigade
   end
 
   # GET /brigades/1/edit
@@ -92,5 +85,12 @@ class BrigadesController < ApplicationController
     strong_params = params[:brigade]
     strong_params[:user] = current_user
     strong_params
+  end
+
+  def render_brigade
+    respond_to do |format|
+      format.html { render layout: 'aquila' }
+      format.json { render json: @brigade }
+    end
   end
 end

@@ -19,7 +19,7 @@ module ChallengesHelper
   end
 
   def collaborate_section(challenge)
-    if current_member && current_member.has_submitted_app?(challenge)
+    if current_member && current_member.submitted_app?(challenge)
       text_path = 'edit_entry'
       link_path = edit_challenge_entry_path(challenge, current_member.entry_for(challenge))
       method = :get
