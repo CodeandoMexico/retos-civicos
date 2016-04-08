@@ -3,18 +3,18 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    set_general_permissions(user)
-    set_permissions_for_organizations(user) if user.organization?
-    set_permissions_for_judges(user) if user.judge?
-    set_permissions_for_members(user) if user.member?
+    grant_general_permissions(user)
+    grant_permissions_for_organizations(user) if user.organization?
+    grant_permissions_for_judges(user) if user.judge?
+    grant_permissions_for_members(user) if user.member?
   end
 
-  def set_general_permissions(user)
+  def grant_general_permissions(user)
     grant_visitor_access(user)
     grant_entry_read_access(user)
   end
 
-  def set_permissions_for_organizations(user)
+  def grant_permissions_for_organizations(user)
     grant_challenge_access(user)
     grant_comment_access(user)
     grant_organization_access(user)
@@ -22,22 +22,22 @@ class Ability
     grant_judges_access
   end
 
-  def set_permissions_for_judges(user)
+  def grant_permissions_for_judges(user)
     grant_read_challenge_access
     grant_evaluation_access(user)
     grant_entries_access(user)
   end
 
-  def set_permissions_for_members(user)
+  def grant_permissions_for_members(user)
     grant_like_challenge_access
     grant_collaboration_access
     grant_members_access(user)
-    grant_like_comment_access(user)
+    grant_comment_access(user)
     grant_create_comment_access(user)
   end
 
   def grant_visitor_access(user)
-    can [:edit, :update, :define_role, :set_role], User do |u|
+    can [:edit, :update, :define_role, :grant_role], User do |u|
       user.id == u.id
     end
     can [:read], Organization
@@ -124,12 +124,6 @@ class Ability
     end
   end
 
-  def grant_like_comment_access(user)
-    can [:like], Comment do |comment|
-      comment.user.id != user.id && !user.voted_on?(comment)
-    end
-  end
-
   def grant_create_comment_access(user)
     can [:create, :reply], Comment
     can [:create_or_reply_challenge_comment], Challenge
@@ -139,5 +133,4 @@ class Ability
       user.userable.id == entry.member.id
     end
   end
-
 end
