@@ -49,6 +49,7 @@ group :development, :test do
   gem 'autotest'
   gem 'factory_girl'
   gem 'metric_fu'
+  gem 'jshint'
 end
 
 group :assets do
