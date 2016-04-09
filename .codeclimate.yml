@@ -22,8 +22,6 @@ engines:
     enabled: true
   scss-lint:
     enabled: true
-  jshint:
-    enabled: true
 ratings:
   paths:
   - Gemfile.lock
@@ -33,6 +31,7 @@ ratings:
   - "**.rhtml"
   - "**.slim"
   - "**.coffee"
+  - "**.scss"
   - "**.inc"
   - "**.js"
   - "**.jsx"
