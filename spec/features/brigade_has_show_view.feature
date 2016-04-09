@@ -6,6 +6,12 @@ Feature: Brigade has show view
 
   Background: Brigades in database
 
+    Given the following users exist:
+      | email          |
+      | test1@test.com |
+      | test2@test.com |
+      | test3@test.com |
+
     Given the following brigades exist:
       | location_id  | user_id | description                                         | calendar_url                                                                              | header_image_url                                                   |
       | 1            | 1       | Bienvenido a la brigada de Monterrey! Come with us. | https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics | http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png |
