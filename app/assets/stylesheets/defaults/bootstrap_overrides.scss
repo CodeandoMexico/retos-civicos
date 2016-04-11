@@ -15,3 +15,24 @@
 .popover{
   min-width: 300px;
 }
+
+
+// Brigades Page
+.dropdown-menu {
+  max-width: none;
+  z-index: 3000;
+}
+
+.range_inputs {
+  .btn {
+    padding: 6px 12px !important;
+  }
+}
+
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  display: #fefefe;
+}
+
+.bootstrap-tagsinput {
+  overflow-x: hidden;
+}

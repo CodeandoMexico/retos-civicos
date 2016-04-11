@@ -14,9 +14,18 @@
     Lots of unique projects can be found and we have a wonderful, diverse community.</p>
     <div class="left-content">
       <div class="content-box">
+        <div class="box-title">Follow</div>
+        <div class="box-content social-networks">
+          <button class="green-button" onclick="follow()"><%= t("brigades.show.follow") %></button>
+          <a><%= image_tag("icons/twitter.svg", class: "svg social-network") %></a>
+          <a><%= image_tag("icons/facebook.svg", class: "svg social-network") %></a>
+          <a><%= image_tag("icons/github.svg", class: "svg social-network") %></a>
+          <a><%= image_tag("icons/slack.svg", class: "svg social-network") %></a>
+        </div>
+      </div>
+      <div class="content-box">
         <div class="box-title">Stats</div>
         <div class="box-content stats">
-          <!--<button onclick="follow()"><%= t("brigades.show.follow") %></button>-->
           <div class="stat">
             <div class="stat-title">Fundado</div>
             <div class="stat-detail">14/02/2015</div>
@@ -39,18 +48,18 @@
         <div class="box-title">Members</div>
         <div class="box-content members">
           <div class="member">
-            <img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
-            <div><a><div class="member-name">Barack Obama</div></a><div class="num-projects">100 projects</div></div>
+            <a class="member-link"><img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
+            <div><div class="member-name">Barack Obama</div><div class="sub-text">(Organizer)</div></div></a>
           </div>
           <div class="member">
-            <img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
-            <div><a><div class="member-name">Adrian Rangel</div></a><div class="num-projects">20 projects</div></div>
+            <a class="member-link"><img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
+            <div><div class="member-name">Adrian Rangel</div><div class="sub-text">3 brigades in common</div></div></a>
           </div>
           <div class="member">
-            <img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
-            <div><a><div class="member-name">Enrique Nieto</div></a><div class="num-projects">18 projects</div></div>
+            <a class="member-link"><img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
+            <div><div class="member-name">Enrique Nieto</div><div class="sub-text">4 projects in common</div></div></a>
           </div>
-          <a class="all-members-link" href="#">See all members</a>
+          <span class="all-members-link modal-link" data-toggle="modal" data-target="#members-modal">See all members</span>
         </div>
       </div>
     </div>
@@ -66,16 +75,100 @@
             </h5>
             <div class="rsvp-button">
               <button class='green-button'>RSVP</button>
-              <div class="num-people-going pop-over-subject">8 people going
+              <div class="num-people-going modal-link pop-over-subject" data-toggle="modal" data-target="#members-modal">8 people going
                 <div class="people-going pop-over-results">
                   <div>Kyle Boss</div>
-                  <div>An Shumaker</div>
-                  <div>Thai Yung</div>
+                  <div>Enrique Nieto</div>
+                  <div>Adrian Rangel</div>
                   <div class="arrow"></div>
                 </div>
               </div>
             </div>
-            <a class="more-events-link" href="#">See more events</a>
+            <span class="more-events-link modal-link" data-toggle="modal" data-target="#events-modal">See more events</span>
+            <div id="events-modal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Events</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <input type="text" class="search-field event-search-field" placeholder="Search">
+                      <span id="event-date-range">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                        <span></span> <b class="caret"></b>
+                      </span>
+                    </form>
+                    <div class="events">
+                      <div class="event">
+                        <div class="event-top-row">
+                          <h3 class="event-title">Hack And Wine</h3><button class='green-button'>RSVP</button>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/calendario.svg", size: "18x18", class: "svg icon") %>
+                          <span class="event-date">Tuesday, April 5th</span>
+                          <span class="event-time">6:00 PM to 7:00 PM</span>
+                          <a class="event-export">Export</a>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/pushpin.svg", size: "18x18", class: "svg icon") %> <span>777 Lucky Rd. London, London. 94843</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/users.svg", size: "18x18", class: "svg icon") %> <span>66 people going</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/newspaper.svg", size: "18x18", class: "svg icon") %>
+                          <span>This event is really cool. Everyone should go to it. We will be discussing this, this, and this.</span>
+                        </div>
+                      </div>
+                      <div class="event">
+                        <div class="event-top-row">
+                          <h3 class="event-title">Say Yay!</h3><button class='orange-button'>Cancel</button>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/calendario.svg", size: "18x18", class: "svg icon") %>
+                          <span class="event-date">Tuesday, April 5th</span>
+                          <span class="event-time">10:00 AM to 7:00 PM</span>
+                          <a class="event-export">Export</a>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/pushpin.svg", size: "18x18", class: "svg icon") %> <span>777 Lucky Rd. London, London. 94843</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/users.svg", size: "18x18", class: "svg icon") %> <span>66 people going</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/newspaper.svg", size: "18x18", class: "svg icon") %>
+                          <span>Go on a spirital ride as we code through this once a year hack-a-thon.</span>
+                        </div>
+                      </div>
+                      <div class="event">
+                        <div class="event-top-row">
+                          <h3 class="event-title">Hear Them Calling</h3><button class='green-button'>RSVP</button>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/calendario.svg", size: "18x18", class: "svg icon") %>
+                          <span class="event-date">Friday, April 9th</span>
+                          <span class="event-time">3:00 PM to 4:00 PM</span>
+                          <a class="event-export">Export</a>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/pushpin.svg", size: "18x18", class: "svg icon") %> <span>999 University Rd.</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/users.svg", size: "18x18", class: "svg icon") %> <span>Be the first to RSVP</span>
+                        </div>
+                        <div class="event-detail">
+                          <%= image_tag("icons/newspaper.svg", size: "18x18", class: "svg icon") %>
+                          <span>Make a donation and come see a wonderful show</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-4">
             <div id="map-canvas" class="circle-text">
@@ -98,59 +191,196 @@
               </div>
             </div>
             <div class="contributions">
-              <span class="contributors pop-over-subject">99 contributors
+              <span class="contributors modal-link pop-over-subject" data-toggle="modal" data-target="#members-modal">3 contributors
                 <div class="contributor-names pop-over-results">
-                  <div>Kyle Boss</div>
-                  <div>An Shumaker</div>
-                  <div>Thai Yung</div>
+                  <div>Barack Obama</div>
+                  <div>Enrique Nieto</div>
+                  <div>Adrian Rangel</div>
                   <div class="arrow"></div>
                 </div>
               </span><span class="green-button">Contribute</span>
             </div>
-            Semaforo is a project in which takes the most efficient algorithms and introduces them into the traffic
-            lights to make sure folks do not wait a long time at intersections.
+            <h5 class="project-description">
+              Semaforo is a project in which takes the most efficient algorithms and introduces them into the traffic
+              lights to make sure folks do not wait a long time at intersections.
+            </h5>
           </div>
           <div class="project">
             <div class="upper-row">
-              <h1 class="project-title">Semaforo</h1>
+              <h1 class="project-title">Hoodwinked</h1>
               <div class="coding-languages">
-                <span class="tag coding-language">Ruby</span><span class="tag coding-language">Java</span><span class="tag coding-language">Python</span><span class="tag coding-language">Scheme</span>
+                <span class="tag coding-language">Ruby</span><span class="tag coding-language">Java</span>
               </div>
             </div>
             <div class="contributions">
-              <span class="contributors pop-over-subject">99 contributors
+              <span class="contributors modal-link pop-over-subject" data-toggle="modal" data-target="#members-modal">2 contributors
                 <div class="contributor-names pop-over-results">
-                  <div>Kyle Boss</div>
-                  <div>An Shumaker</div>
-                  <div>Thai Yung</div>
+                  <div>Enrique Nieto</div>
+                  <div>Adrian Rangel</div>
                   <div class="arrow"></div>
                 </div>
               </span><span class="green-button">Contribute</span>
             </div>
-            Semaforo is a project in which takes the most efficient algorithms and introduces them into the traffic
-            lights to make sure folks do not wait a long time at intersections.
+            <h5 class="project-description">
+              A social app that allows citizens to become engaged and alert the government of any new potholes that have
+              formed.
+            </h5>
           </div>
-          <div class="project">
+          <div class="project last">
             <div class="upper-row">
-              <h1 class="project-title">Semaforo</h1>
+              <h1 class="project-title">Jury Duty</h1>
               <div class="coding-languages">
-                <span class="tag coding-language">Ruby</span><span class="tag coding-language">Java</span><span class="tag coding-language">Python</span><span class="tag coding-language">Scheme</span>
+                <span class="tag coding-language">Java</span><span class="tag coding-language">Python</span><span class="tag coding-language">Scheme</span>
               </div>
             </div>
             <div class="contributions">
-              <span class="contributors pop-over-subject">99 contributors
+              <span class="contributors modal-link pop-over-subject" data-toggle="modal" data-target="#members-modal">1 contributor
                 <div class="contributor-names pop-over-results">
-                  <div>Kyle Boss</div>
-                  <div>An Shumaker</div>
-                  <div>Thai Yung</div>
+                  <div>Barack Obama</div>
                   <div class="arrow"></div>
                 </div>
               </span><span class="orange-button">Leave</span>
             </div>
-            Semaforo is a project in which takes the most efficient algorithms and introduces them into the traffic
-            lights to make sure folks do not wait a long time at intersections.
+            <h5 class="project-description">
+              App that alerts citizens of their jury duty history.
+            </h5>
           </div>
-          <a class="more-projects-link" href="#">See more projects</a>
+          <div id="members-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Members</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <input type="text" class="search-field member-search-field" placeholder="Search">
+                  </form>
+                  <div class="members">
+                    <div class="member">
+                      <a class="member-link"><img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
+                        <div><div class="member-name">Barack Obama</div><div class="sub-text">(Organizer)</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
+                        <div><div class="member-name">Adrian Rangel</div><div class="sub-text">3 brigades in common</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
+                        <div><div class="member-name">Enrique Nieto</div><div class="sub-text">4 projects in common</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
+                        <div><div class="member-name">Barack Obama</div><div class="sub-text">(Organizer)</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
+                        <div><div class="member-name">Adrian Rangel</div><div class="sub-text">3 brigades in common</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
+                        <div><div class="member-name">Enrique Nieto</div><div class="sub-text">4 projects in common</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png" class="member-image">
+                        <div><div class="member-name">Barack Obama</div><div class="sub-text">(Organizer)</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="https://avatars1.githubusercontent.com/u/1312687?v=3&s=460" class="member-image">
+                        <div><div class="member-name">Adrian Rangel</div><div class="sub-text">3 brigades in common</div></div></a>
+                    </div>
+                    <div class="member">
+                      <a class="member-link"><img src="http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg" class="member-image">
+                        <div><div class="member-name">Enrique Nieto</div><div class="sub-text">4 projects in common</div></div></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="more-projects-link modal-link" data-toggle="modal" data-target="#projects-modal">See more projects</span>
+          <div id="projects-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Projects</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <input type="text" class="search-field project-search-field" placeholder="Search">
+                    <input type="text" value="HTML,Ruby,Scheme" data-role="tagsinput" class="project-tag-search">
+                  </form>
+                  <div class="projects">
+                    <div class="project">
+                      <div class="upper-row">
+                        <h1 class="project-title">Semaforo</h1>
+                        <div class="coding-languages">
+                          <span class="tag coding-language">Ruby</span><span class="tag coding-language">Java</span><span class="tag coding-language">Python</span><span class="tag coding-language">Scheme</span>
+                        </div>
+                      </div>
+                      <div class="contributions">
+                        <span class="contributors modal-link pop-over-subject">3 contributors
+                          <div class="contributor-names pop-over-results">
+                            <div>Barack Obama</div>
+                            <div>Enrique Nieto</div>
+                            <div>Adrian Rangel</div>
+                            <div class="arrow"></div>
+                          </div>
+                        </span>
+                        <span class="green-button">Contribute</span>
+                      </div>
+                      <h5 class="project-description">
+                        Semaforo is a project in which takes the most efficient algorithms and introduces them into the traffic
+                        lights to make sure folks do not wait a long time at intersections.
+                      </h5>
+                    </div>
+                    <div class="project">
+                      <div class="upper-row">
+                        <h1 class="project-title">Hoodwinked</h1>
+                        <div class="coding-languages">
+                          <span class="tag coding-language">Ruby</span><span class="tag coding-language">Java</span>
+                        </div>
+                      </div>
+                      <div class="contributions">
+                        <span class="contributors modal-link pop-over-subject">2 contributors
+                          <div class="contributor-names pop-over-results">
+                            <div>Enrique Nieto</div>
+                            <div>Adrian Rangel</div>
+                            <div class="arrow"></div>
+                          </div>
+                        </span>
+                        <span class="green-button">Contribute</span>
+                      </div>
+                      <h5 class="project-description">
+                        A social app that allows citizens to become engaged and alert the government of any new potholes that have
+                        formed.
+                      </h5>
+                    </div>
+                    <div class="project last">
+                      <div class="upper-row">
+                        <h1 class="project-title">Jury Duty</h1>
+                        <div class="coding-languages">
+                          <span class="tag coding-language">Java</span><span class="tag coding-language">Python</span><span class="tag coding-language">Scheme</span>
+                        </div>
+                      </div>
+                      <div class="contributions">
+                        <span class="contributors modal-link pop-over-subject">1 contributor
+                          <div class="contributor-names pop-over-results">
+                            <div>Barack Obama</div>
+                            <div class="arrow"></div>
+                          </div>
+                        </span><span class="orange-button">Leave</span>
+                      </div>
+                      <h5 class="project-description">
+                        App that alerts citizens of their jury duty history.
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

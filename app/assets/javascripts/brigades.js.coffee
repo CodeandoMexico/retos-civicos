@@ -8,6 +8,9 @@ $(window).load ->
       $('#location-list').empty()
       $('#brigade_location_id').val($(this).data("location-id"))
       return
+
+
+
     if window.currentAction == "new"
       do_location_search = ->
         $.ajax
@@ -54,6 +57,9 @@ $(window).load ->
           $.get("/location_name/#{location_id}", (data) ->
             $("#location-query").val(data.data)
           )
+
+      addLocationCallback document.getElementById('location-query'), do_location_search, 1000
+
     if window.currentAction == "show"
       styleArray = [
         {
@@ -269,6 +275,64 @@ $(window).load ->
       footer.css('position', 'absolute')
       footer.css('width', '100%')
 
+    setPopOverListeners = ->
+      $('.pop-over-subject').hover (->
+        $(this).find('.pop-over-results').css('display', 'block')
+      ), ->
+        $(this).find('.pop-over-results').css('display', 'none')
+
+    setDatePickers = ->
+      cb = (start, end) ->
+        $('#event-date-range span').html start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')
+        return
+
+      cb moment().subtract(29, 'days'), moment()
+      $('#event-date-range').daterangepicker { ranges:
+          'Today': [
+            moment()
+            moment()
+          ]
+          'This Week': [
+            moment().startOf('week')
+            moment().endOf('week')
+          ]
+          'Next Week': [
+            moment().add(1, 'week').startOf('week')
+            moment().add(1, 'week').endOf('week')
+          ]
+          'This Month': [
+            moment().startOf('month')
+            moment().endOf('month')
+          ] }, cb
+
+    ###
+    # Replace all SVG images with inline SVG
+    ###
+    fillSvgs = ->
+      $('img.svg').each ->
+        $img = jQuery(this)
+        imgID = $img.attr('id')
+        imgClass = $img.attr('class')
+        imgURL = $img.attr('src')
+        jQuery.get imgURL, ((data) ->
+      # Get the SVG tag, ignore the rest
+          $svg = jQuery(data).find('svg')
+          # Add replaced image's ID to the new SVG
+          if typeof imgID != 'undefined'
+            $svg = $svg.attr('id', imgID)
+          # Add replaced image's classes to the new SVG
+          if typeof imgClass != 'undefined'
+            $svg = $svg.attr('class', imgClass + ' replaced-svg')
+          # Remove any invalid XML tags as per http://validator.w3.org
+          $svg = $svg.removeAttr('xmlns:a')
+          # Replace image with new SVG
+          $img.replaceWith $svg
+          return
+        ), 'xml'
+        return
+
+    fillSvgs()
+
     $( window ).resize ->
       setFooterMargin()
       return
@@ -277,4 +341,5 @@ $(window).load ->
     if window.currentAction == "new"
       setInitialLocation()
     setFooterMargin()
-    addLocationCallback document.getElementById('location-query'), do_location_search, 1000
+    setPopOverListeners()
+    setDatePickers()

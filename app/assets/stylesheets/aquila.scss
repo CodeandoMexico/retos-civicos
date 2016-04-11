@@ -1,5 +1,7 @@
 /*
  *= require font-awesome
+ *= require bootstrap-daterangepicker-3
+ *= require bootstrap-tagsinput
  */
 
 @import "chosen";
@@ -31,6 +33,7 @@
 @import "defaults/utilities";
 
 @import "brigades";
+@import "defaults/bootstrap_overrides";
 
 #main {
   margin-top: $main_top_and_bottom_margin;
