@@ -62,17 +62,13 @@
     width: calc(100% - 350px);
   }
 
-  .members-modal,
-  .events-modal,
-  .projects-modal {
-    .modal-body {
-      padding: 15px 15px 0;
-    }
+  .modal-body {
+    padding: 15px 15px 0;
+  }
 
-    .search-field {
-      margin: 0 0 10px;
-      width: 200px;
-    }
+  .search-field {
+    margin: 0 0 10px;
+    width: 200px;
   }
 
   .projects-modal .projects,
