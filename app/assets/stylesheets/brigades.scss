@@ -43,6 +43,10 @@
     }
   }
 
+  %event-action-button {
+    @extend %action-button
+  }
+
   %negative-button {
     @extend %action-button;
     background-color: $dark-orange;
