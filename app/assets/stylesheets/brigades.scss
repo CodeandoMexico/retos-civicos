@@ -76,16 +76,6 @@
     }
   }
 
-  %negative-button {
-    @extend %action-button;
-    background-color: $dark-orange;
-    border: 2px solid $dark-orange;
-
-    &:hover {
-      border: 2px solid $orange;
-    }
-  }
-
   .event-modal-positive-button {
     @extend %event-modal-action-button;
     @extend %positive-button;
@@ -198,21 +188,21 @@
     position: relative;
     top: 0;
     width: 100%;
+  }
 
-    .hero-text-container {
-      color: $white;
-      display: table-cell;
+  .hero-text-container {
+    color: $white;
+    display: table-cell;
+    margin: auto;
+    max-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+
+    .hero-text {
+      font-size: 8vw;
+      font-weight: 400;
       margin: auto;
-      max-height: 100%;
-      text-align: center;
-      vertical-align: middle;
-      width: 100%;
-
-      .hero-text {
-        font-size: 8vw;
-        font-weight: 400;
-        margin: auto;
-      }
     }
   }
 
@@ -244,55 +234,53 @@
     padding: 12px 5px 8px;
   }
 
-  .event {
-    .event-description {
-      font-size: 16px;
-      font-weight: 200;
-      line-height: 1.3;
-    }
+  .event-description {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.3;
+  }
 
-    .rsvp-button {
-      height: 70px;
-      margin: 40px 0;
+  .rsvp-button {
+    height: 70px;
+    margin: 40px 0;
+    width: 150px;
+
+    %action-button {
+      height: 45px;
+      margin: 0;
       width: 150px;
-
-      %action-button {
-        height: 45px;
-        margin: 0;
-        width: 150px;
-      }
-
-      .num-people-going {
-        color: $nobel;
-        font-size: 16px;
-        margin: 10px 0 0 0;
-        position: relative;
-        text-align: center;
-      }
     }
 
-    .more-events-link {
-      margin: 0 0 0 15px;
-    }
-
-    .event-time {
-      font-size: 14px;
-      margin: 0 0 0 10px;
-
-      .export-cal {
-        cursor: pointer;
-        margin: -5px 0 0 10px;
-      }
-    }
-
-    .map-canvas {
-      height: 200px;
-      margin: auto;
-    }
-
-    .address {
+    .num-people-going {
+      color: $nobel;
+      font-size: 16px;
+      margin: 10px 0 0 0;
+      position: relative;
       text-align: center;
     }
+  }
+
+  .more-events-link {
+    margin: 0 0 0 15px;
+  }
+
+  .event-time {
+    font-size: 14px;
+    margin: 0 0 0 10px;
+
+    .export-cal {
+      cursor: pointer;
+      margin: -5px 0 0 10px;
+    }
+  }
+
+  .event-map-canvas {
+    height: 200px;
+    margin: auto;
+  }
+
+  .event-address {
+    text-align: center;
   }
 
   .member-link {
@@ -398,7 +386,7 @@
 
     .project-title {
       float: left;
-      margin: 0 10px 0 0;
+      margin: 0 10px 0;
     }
 
     .tag {
@@ -484,7 +472,7 @@
     }
 
     .event-time {
-      margin: 0 10px
+      margin: 0 10px;
     }
 
     .event-search-field {
