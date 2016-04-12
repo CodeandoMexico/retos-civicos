@@ -1,0 +1,88 @@
+%project-action-button {
+  @extend %action-button;
+  float: left;
+  font-size: 14px;
+  height: 25px;
+  margin: 0 15px 0 0;
+  width: 100px;
+}
+
+.project-positive-button {
+  @extend %project-action-button;
+  @extend %positive-button;
+}
+
+.project-negative-button {
+  @extend %project-action-button;
+  @extend %negative-button;
+}
+
+.project {
+  border-bottom: 1px solid $white-smoke;
+  padding: 25px;
+
+  &.last {
+    border-bottom: 0;
+  }
+}
+
+.project-description {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.3;
+}
+
+.contribute-button {
+  height: 70px;
+  margin: 40px 0;
+}
+
+.num-contributors {
+  color: $nobel;
+  font-size: 16px;
+  margin: 10px 0 0 22px;
+  width: 200px;
+}
+
+.contributions {
+  height: 20px;
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+.upper-row {
+  height: 40px;
+}
+
+.project-title {
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.tag {
+  background-color: $malibu;
+  border-radius: .25em;
+  color: $white;
+  display: inline;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: 2px;
+  padding: .2em .6em .3em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.coding-languages {
+  float: left;
+  margin: 8px 0 0;
+}
+
+.contributors {
+  color: $grey;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 26px;
+  position: relative;
+}

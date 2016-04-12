@@ -1,0 +1,38 @@
+<div id="events-modal" class="modal fade events-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Events</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" class="search-field event-search-field" placeholder="Search">
+                      <span id="event-date-range" class="event-date-range">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                        <span></span> <b class="caret"></b>
+                      </span>
+        </form>
+        <div class="events">
+          <%= render partial: 'event',
+                     locals: { title: "Hack And Wine", event_date: "Tuesday, April 5th",
+                               event_time: "6:00 PM to 7:00 PM", num_people_going: "66 people going",
+                               address: "777 Lucky Rd. London, London. 94843",
+                               description: "This event is really cool. Everyone should go to it.
+                                                        We will be discussing this, this, and this." } %>
+          <%= render partial: 'event',
+                     locals: { title: "Say Yay!", event_date: "Tuesday, April 5th",
+                               event_time: "10:00 AM to 7:00 PM", num_people_going: "66 people going",
+                               address: "777 Lucky Rd. London, London. 94843",
+                               description: "Go on a spirital ride as we code through
+                                                        this once a year hack-a-thon." } %>
+          <%= render partial: 'event',
+                     locals: { title: "Hear Them Calling", event_date: "Friday, April 9th",
+                               event_time: "3:00 PM to 4:00 PM", num_people_going: "Be the first to RSVP",
+                               address: "999 University Rd. London, London. 94843",
+                               description: "Make a donation and come see a wonderful show." } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

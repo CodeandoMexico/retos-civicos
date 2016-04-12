@@ -16,3 +16,54 @@ $button_padding_horizontal: 40px;
   background-color: $button_default_background_color;
   color: $default_text_color;
 }
+
+%action-button {
+  border-radius: 40px;
+  color: $white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  transition: background-color .6s, color .6s, width .6s, border-width .6s, border-color .6s;
+  width: 200px;
+}
+
+%small-action-button {
+  @extend %action-button;
+  height: 45px;
+  margin: 0;
+  width: 150px;
+}
+
+%positive-button {
+  @extend %action-button;
+  background: $shamrock;
+  border: 2px solid $shamrock;
+
+  &:hover {
+    border: 2px solid $blue-romance;
+  }
+}
+
+%negative-button {
+  @extend %action-button;
+  background-color: $dark-orange;
+  border: 2px solid $dark-orange;
+
+  &:hover {
+    border: 2px solid $orange;
+  }
+}
+
+.positive-button {
+  @extend %positive-button;
+}
+
+.negative-button {
+  @extend %negative-button;
+}

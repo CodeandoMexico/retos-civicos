@@ -1,0 +1,17 @@
+<div class="content-box">
+  <div class="box-title">Members</div>
+  <div class="box-content members">
+    <div class="members-panel-content">
+      <%= render partial: 'member',
+                 locals: { profile_img: "https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png",
+                           from_modal: false, member_name: "Barack Obama", subtext: "(Organizer)" } %>
+      <%= render partial: 'member',
+                 locals: { profile_img: "https://avatars1.githubusercontent.com/u/1312687?v=3&s=460",
+                           from_modal: false, member_name: "Adrian Rangel", subtext: "3 brigades in common" } %>
+      <%= render partial: 'member',
+                 locals: { profile_img: "http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg",
+                           from_modal: false, member_name: "Enrique Nieto", subtext: "4 projects in common" } %>
+    </div>
+    <span class="all-members-link modal-link" data-toggle="modal" data-target="#members-modal">See all members</span>
+  </div>
+</div>

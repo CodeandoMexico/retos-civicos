@@ -1,0 +1,44 @@
+<div id="members-modal" class="modal fade members-modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Members</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" class="member-search-field" placeholder="Search">
+        </form>
+        <div class="members">
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png",
+                               from_modal: true, member_name: "Barack Obama", subtext: "(Organizer)" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://avatars1.githubusercontent.com/u/1312687?v=3&s=460",
+                               from_modal: true, member_name: "Adrian Rangel", subtext: "3 brigades in common" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg",
+                               from_modal: true, member_name: "Enrique Nieto", subtext: "4 projects in common" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png",
+                               from_modal: true, member_name: "Barack Obama", subtext: "(Organizer)" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://avatars1.githubusercontent.com/u/1312687?v=3&s=460",
+                               from_modal: true, member_name: "Adrian Rangel", subtext: "3 brigades in common" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg",
+                               from_modal: true, member_name: "Enrique Nieto", subtext: "4 projects in common" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://pbs.twimg.com/profile_images/451007105391022080/iu1f7brY.png",
+                               from_modal: true, member_name: "Barack Obama", subtext: "(Organizer)" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "https://avatars1.githubusercontent.com/u/1312687?v=3&s=460",
+                               from_modal: true, member_name: "Adrian Rangel", subtext: "3 brigades in common" } %>
+          <%= render partial: 'member',
+                     locals: { profile_img: "http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTMzMTE4ODA5NjE0NTkyNjQz.jpg",
+                               from_modal: true, member_name: "Enrique Nieto", subtext: "4 projects in common" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

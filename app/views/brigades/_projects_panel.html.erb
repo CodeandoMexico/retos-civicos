@@ -1,0 +1,24 @@
+<div class="content-box">
+  <div class="box-title">Projects</div>
+  <div class="box-content row projects">
+    <%= render partial: 'project',
+               locals: { title: "Semaforo", languages: ["Ruby", "Java", "Python", "Scheme"], last: false,
+                         contributors: ["Barack Obama", "Enrique Nieto", "Adrian Rangel"], from_modal: false,
+                         description: "Semaforo is a project in which takes the most efficient algorithms and
+                                            introduces them into the traffic lights to make sure folks do not wait a
+                                            long time at intersections." } %>
+    <%= render partial: 'project',
+               locals: { title: "Hoodwinked", languages: ["Ruby", "Java"], last: false,
+                         contributors: ["Enrique Nieto", "Adrian Rangel"], from_modal: false,
+                         description: "A social app that allows citizens to become engaged and alert the
+                                            government of any new potholes that have formed." } %>
+
+    <%= render partial: 'project',
+               locals: { title: "Jury Duty", languages: ["Java", "Python", "Scheme"], last: true,
+                         contributors: ["Barack Obama"], from_modal: false,
+                         description: "App that alerts citizens of their jury duty history." } %>
+    <%= render partial: 'members_modal' %>
+    <%= render partial: 'projects_modal' %>
+    <span class="more-projects-link modal-link" data-toggle="modal" data-target="#projects-modal">See more projects</span>
+  </div>
+</div>

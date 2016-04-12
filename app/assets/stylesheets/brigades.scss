@@ -3,212 +3,45 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .brigades {
+
+  %search-field {
+    border: 1px solid $gainsboro;
+    font-size: 20px;
+    height: 40px;
+    outline: none;
+    padding: 0 10px;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid $catalina-blue;
+      box-shadow: 0 0 5px $catalina-blue;
+    }
+  }
+
+  @import 'partials/brigades/hero_image';
+  @import 'partials/brigades/event_panel';
+  @import 'partials/brigades/events_modal';
+  @import 'partials/brigades/event';
+  @import 'partials/brigades/project_panel';
+  @import 'partials/brigades/projects_modal';
+  @import 'partials/brigades/project';
+  @import 'partials/brigades/members_panel';
+  @import 'partials/brigades/members_modal';
+  @import 'partials/brigades/member';
+  @import 'partials/brigades/form';
+  @import 'partials/brigades/stats_panel';
+  @import 'partials/brigades/social_panel';
   left: 0;
   position: absolute;
   text-align: center;
   width: 100%;
 
-  %action-button {
-    border-radius: 40px;
-    color: $white;
-    cursor: pointer;
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    height: 50px;
-    letter-spacing: 1px;
-    margin: 10px auto;
-    padding: 0;
-    text-align: center;
-    transition: background-color .6s, color .6s, width .6s, border-width .6s, border-color .6s;
-    width: 200px;
-  }
-
-  %scrollable-modal-content {
-    margin: 0 0 0 -15px;
-    max-height: 60vh;
-    overflow-y: scroll;
-    width: calc(100% + 30px);
-  }
-
-  %project-action-button {
-    @extend %action-button;
-    float: left;
-    font-size: 14px;
-    height: 25px;
-    margin: 0 15px 0 0;
-    width: 100px;
-  }
-
-  %positive-button {
-    @extend %action-button;
-    background: $shamrock;
-    border: 2px solid $shamrock;
-
-    &:hover {
-      border: 2px solid $blue-romance;
-    }
-  }
-
-  %event-action-button {
-    @extend %action-button;
-  }
-
-  %negative-button {
-    @extend %action-button;
-    background-color: $dark-orange;
-    border: 2px solid $dark-orange;
-
-    &:hover {
-      border: 2px solid $orange;
-    }
-  }
-
-  %event-modal-action-button {
-    @extend %action-button;
-    float: left;
-    height: 30px;
-    margin: 15px 15px 0;
-    width: 100px;
-  }
-
-  %project-modal-action-button {
-    @extend %action-button;
-    @extend %project-action-button;
-  }
-
-  .event-modal-positive-button {
-    @extend %event-modal-action-button;
-    @extend %positive-button;
-  }
-
-  .event-modal-negative-button {
-    @extend %event-modal-action-button;
-    @extend %negative-button;
-  }
-
-  .event-positive-button {
-    @extend %event-action-button;
-    @extend %positive-button;
-  }
-
-  .event-negative-button {
-    @extend %event-action-button;
-    @extend %negative-button;
-  }
-
-  .project-positive-button {
-    @extend %project-action-button;
-    @extend %positive-button;
-  }
-
-  .project-negative-button {
-    @extend %project-action-button;
-    @extend %negative-button;
-  }
-
-  .project-modal-positive-button {
-    @extend %project-modal-action-button;
-    @extend %positive-button;
-  }
-
-  .project-modal-negative-button {
-    @extend %project-modal-action-button;
-    @extend %negative-button;
-  }
-
-  .positive-button {
-    @extend %positive-button;
-  }
-
-  .negative-button {
-    @extend %negative-button;
-  }
-
-  .icon {
-    display: inline-block;
-    fill: $dim-grey;
-    height: 1em;
-    margin: 0 10px 0 0;
-    width: 1em;
-  }
-
-  .social-networks {
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .social-network {
-    cursor: pointer;
-    fill: $catalina-blue;
-    margin: 10px 3px 0;
-    transition: fill .6s, color .6s, width .6s;
-
-    &:hover {
-      fill: $shamrock;
-    }
-  }
-
-  .hero-container {
-    height: 50vh;
-    margin: -50px 0 50px;
-    min-height: 250px;
-    overflow: hidden;
-    position: relative;
-    width: 100vw;
-
-    .hero-image-container {
-      background-attachment: fixed;
-      background-color: $light-cyan;
-      background-position: right top;
-      background-repeat: no-repeat;
-      height: 100%;
-      overflow-y: hidden;
-    }
-  }
-
-  .hero-image {
-    background-size: cover;
-    height: auto;
-    min-height: 100%;
-    min-width: 100%;
-    overflow: hidden;
-    position: fixed;
-    right: 0;
-    top: -15%;
-    width: auto;
-    z-index: -100;
-  }
-
-  .translucent-overlay {
-    background-color: $translucent-black;
-    display: table;
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    position: relative;
-    top: 0;
-    width: 100%;
-  }
-
-  .hero-text-container {
-    color: $white;
-    display: table-cell;
-    margin: auto;
-    max-height: 100%;
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
-
-    .hero-text {
-      font-size: 8vw;
-      font-weight: 400;
-      margin: auto;
-    }
-  }
-
   .post-hero-content {
     margin: 0 0 0 50px;
+  }
+
+  .search-field {
+    @extend %search-field;
   }
 
   .description {
@@ -229,194 +62,6 @@
     width: calc(100% - 350px);
   }
 
-  .event-date-range {
-    cursor: pointer;
-    outline: 1px solid $gainsboro;
-    padding: 12px 5px 8px;
-  }
-
-  .event-description {
-    font-size: 16px;
-    font-weight: 200;
-    line-height: 1.3;
-  }
-
-  .rsvp-button {
-    height: 70px;
-    margin: 40px 0;
-    width: 150px;
-
-    %action-button {
-      height: 45px;
-      margin: 0;
-      width: 150px;
-    }
-
-    .num-people-going {
-      color: $nobel;
-      font-size: 16px;
-      margin: 10px 0 0;
-      position: relative;
-      text-align: center;
-    }
-  }
-
-  .more-events-link {
-    margin: 0 0 0 15px;
-  }
-
-  .event-time {
-    font-size: 14px;
-    margin: 0 0 0 10px;
-
-    .export-cal {
-      cursor: pointer;
-      margin: -5px 0 0 10px;
-    }
-  }
-
-  .event-map-canvas {
-    height: 200px;
-    margin: auto;
-  }
-
-  .event-address {
-    text-align: center;
-  }
-
-  .member-link {
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .members-short {
-    margin: 10px 0;
-  }
-
-  .member {
-    height: 80px;
-    margin: 0 -15px;
-    padding: 10px;
-    width: calc(100% + 30px);
-    text-align: center;
-    transition: background-color .2s linear;
-
-    &:hover {
-      background-color: $light-grey;
-    }
-
-    .member-image {
-      border-radius: 60px;
-      float: left;
-      width: 60px;
-    }
-
-    .member-name {
-      color: $dark-slate-grey;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      padding-top: 10px;
-    }
-
-    .sub-text {
-      color: $grey;
-      font-size: 12px;
-      font-weight: 400;
-    }
-  }
-
-  .stat {
-    margin: 25px 0;
-    padding: 0 10px;
-
-    .stat-title {
-      font-weight: 600;
-    }
-  }
-
-  .project {
-    border-bottom: 1px solid $white-smoke;
-    padding: 25px;
-
-    &.last {
-      border-bottom: 0;
-    }
-
-    .project-description {
-      font-size: 16px;
-      font-weight: 200;
-      line-height: 1.3;
-    }
-
-    .description {
-      float: left;
-      font-size: 14px;
-    }
-  }
-
-  .contribute-button {
-    height: 70px;
-    margin: 40px 0;
-
-    .num-contributors {
-      color: $nobel;
-      font-size: 16px;
-      margin: 10px 0 0 22px;
-      width: 200px;
-    }
-  }
-
-  .more-projects-link {
-    margin: 25px;
-  }
-
-  .contributions {
-    height: 20px;
-    margin: 0 0 20px;
-    width: 100%;
-
-    .contributors {
-      color: $grey;
-      font-size: 14px;
-      font-weight: 200;
-      line-height: 26px;
-      position: relative;
-    }
-  }
-
-  .upper-row {
-    height: 40px;
-
-    .project-title {
-      float: left;
-      margin: 0 10px 0 0;
-    }
-
-    .tag {
-      background-color: $malibu;
-      border-radius: .25em;
-      color: $white;
-      display: inline;
-      font-size: 75%;
-      font-weight: 700;
-      line-height: 1;
-      margin-right: 2px;
-      padding: .2em .6em .3em;
-      text-align: center;
-      vertical-align: baseline;
-      white-space: nowrap;
-    }
-
-    .coding-languages {
-      float: left;
-      margin: 8px 0 0;
-    }
-  }
-
   .members-modal,
   .events-modal,
   .projects-modal {
@@ -428,76 +73,15 @@
       margin: 0 0 10px;
       width: 200px;
     }
-
-    .bootstrap-tagsinput {
-      font-size: 20px;
-      line-height: 30px;
-      margin: -8px 0 0 15px;
-      max-width: 340px;
-      padding: 0 0 5px 5px;
-    }
-  }
-
-  .members-modal {
-    .search-field {
-      width: 100%;
-    }
   }
 
   .projects-modal .projects,
   .events-modal .events,
   .members-modal .members {
-    @extend %scrollable-modal-content;
-  }
-
-  .events-modal {
-    .event {
-      border-bottom: 1px solid $gainsboro;
-    }
-
-    .event-detail {
-      margin: 5px;
-    }
-
-    .event-top-row {
-      height: 50px;
-    }
-
-    .event-export {
-      color: $dark-slate-grey;
-      cursor: pointer;
-      font-weight: 400;
-      padding: 0 5px;
-    }
-
-    .event-time {
-      margin: 0 10px;
-    }
-
-    .event-search-field {
-      margin: 0 15px 10px 0;
-    }
-
-    .event-title {
-      float: left;
-    }
-
-    .event-location {
-      line-height: 40px;
-    }
-  }
-
-  .event {
-    padding: 15px;
-
-    .event-description {
-      margin: 5px 0;
-    }
-
-    &.last-event {
-      border-bottom: 0;
-      margin: 0;
-    }
+    margin: 0 0 0 -15px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    width: calc(100% + 30px);
   }
 
   .content-box {
@@ -508,13 +92,6 @@
     overflow-x: inherit;
     overflow-y: visible;
     text-align: left;
-  }
-
-  .circle-text .google-map {
-    border-radius: 50%;
-    height: 200px;
-    margin: 25px auto;
-    width: 200px;
   }
 
   .box-title {
@@ -533,36 +110,13 @@
     cursor: pointer;
   }
 
-  .search-field {
-    border: 1px solid $gainsboro;
-    font-size: 20px;
-    height: 40px;
-    outline: none;
-    padding: 0 10px;
-    width: 100%;
-
-    &:focus {
-      border: 1px solid $catalina-blue;
-      box-shadow: 0 0 5px $catalina-blue;
-    }
-  }
-
-  .modal-body {
-    .member {
-      height: 70px;
-      margin: 20px 0 20px -15px;
-      padding: 5px 5px 5px 30px;
-      width: calc(100% + 30px);
-    }
-  }
-
   .pop-over-results {
     background-color: $black-russian;
     color: $white;
     display: none;
     font-size: 12px;
     font-weight: 200;
-    left: 20px;
+    left: 0;
     line-height: 16px;
     padding: 5px;
     position: absolute;
@@ -580,89 +134,6 @@
       position: absolute;
       top: -5px;
       width: 0;
-    }
-  }
-}
-
-.brigade-form {
-  margin: 60px auto;
-  max-width: 700px;
-
-  .location-list-option {
-    background-color: $white;
-    border: 1px solid $gainsboro;
-    cursor: pointer;
-    display: block;
-    font-size: 16px;
-    height: 40px;
-    margin: -1px 0 0;
-    outline: none;
-    padding: 10px 0;
-    transition: background .2s linear;
-    width: 100%;
-
-    &:hover {
-      background-color: $whisper;
-    }
-
-    &:active {
-      background-color: $silver;
-    }
-
-    .city {
-      float: left;
-      font-weight: 600;
-      margin: 0 0 0 10px;
-    }
-
-    .state {
-      float: left;
-    }
-
-    .divider {
-      border: 0;
-      float: left;
-      padding: 0 10px;
-    }
-  }
-
-  .field {
-    color: $dark-blue;
-    margin: 30px 0;
-
-    .form-text-field,
-    .form-text-area {
-      border: 1px solid $gainsboro;
-      outline: none;
-    }
-
-    .form-text-field:focus,
-    .form-text-area:focus {
-      border: 1px solid $dark-blue;
-      box-shadow: 0 0 5px $dark-blue;
-    }
-
-    label {
-      font-size: 22px;
-      margin: 4px 0 0;
-      text-align: left;
-    }
-
-    .form-text-area {
-      font-size: 20px;
-      padding: 10px;
-    }
-
-    input {
-      font-size: 20px;
-      height: 40px;
-      padding: 0 10px;
-    }
-
-    .location-list {
-      border: 0;
-      margin: -32px 0 0;
-      padding: 1px 0;
     }
   }
 }

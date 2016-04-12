@@ -10,6 +10,5 @@ $(window).load ->
 
       $( window ).resize ->
         setFooterMargin()
-        return
 
     setFooterMargin()

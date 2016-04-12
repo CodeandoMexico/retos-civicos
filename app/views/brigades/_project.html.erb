@@ -1,0 +1,23 @@
+<div class="project <%= last ? 'last' : '' %>">
+  <div class="upper-row">
+    <h1 class="project-title"><%= title %></h1>
+    <div class="coding-languages">
+      <% languages.each do |language| %>
+          <span class="tag coding-language"><%= language %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="contributions">
+    <span class="contributors modal-link pop-over-subject" data-toggle="<%= from_modal ? '' : 'modal' %>" data-target="<%= from_modal ? '' : '#members-modal' %>">
+      <%= contributors.length %> contributors
+      <div class="contributor-names pop-over-results">
+        <% contributors.each do |contributor| %>
+            <div><%= contributor %></div>
+        <% end %>
+        <div class="arrow"></div>
+      </div>
+    </span>
+    <span class="project-positive-button">Contribute</span>
+  </div>
+  <h5 class="project-description"><%= description %></h5>
+</div>
