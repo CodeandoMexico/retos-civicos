@@ -24,6 +24,13 @@
     width: 200px;
   }
 
+  %scrollable-modal-content {
+    margin: 0 0 0 -15px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    width: calc(100% + 30px);
+  }
+
   %project-action-button {
     @extend %action-button;
     float: left;
@@ -285,11 +292,17 @@
     }
   }
 
+  .members-short {
+    margin: 10px 0;
+  }
+
   .member {
-    height: 60px;
-    margin: 25px 0;
-    padding: 0 10px;
+    height: 80px;
+    margin: 0 -15px;
+    padding: 10px;
+    width: calc(100% + 30px);
     text-align: center;
+    transition: background-color .2s linear;
 
     &:hover {
       background-color: $light-grey;
@@ -431,23 +444,13 @@
     }
   }
 
-  .projects-modal {
-    .projects {
-      margin: 0 0 0 -15px;
-      max-height: 60vh;
-      overflow-y: scroll;
-      width: calc(100% + 30px);
-    }
+  .projects-modal .projects,
+  .events-modal .events,
+  .members-modal .members {
+    @extend %scrollable-modal-content;
   }
 
   .events-modal {
-    .events {
-      margin: 0 0 0 -15px;
-      max-height: 60vh;
-      overflow-y: scroll;
-      width: calc(100% + 30px);
-    }
-
     .event {
       border-bottom: 1px solid $gainsboro;
     }
@@ -545,13 +548,6 @@
   }
 
   .modal-body {
-    .members {
-      margin: 0 0 0 -15px;
-      max-height: 60vh;
-      overflow-y: scroll;
-      width: calc(100% + 30px);
-    }
-
     .member {
       height: 70px;
       margin: 20px 0 20px -15px;
