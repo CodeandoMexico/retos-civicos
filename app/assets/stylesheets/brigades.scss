@@ -2,15 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#brigades {
+.brigades {
   left: 0;
   position: absolute;
   text-align: center;
   width: 100%;
 
+  %action-button {
+    border-radius: 40px;
+    color: $white;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 10px auto;
+    padding: 0;
+    transition: background-color .6s, color .6s, width .6s, border-width .6s, border-color .6s;
+    width: 200px;
+  }
+
   .icon {
     display: inline-block;
-    fill: $grey-40;
+    fill: $dim-grey;
     height: 1em;
     margin: 0 10px 0 0;
     width: 1em;
@@ -20,62 +34,53 @@
     margin: 20px auto;
     text-align: center;
   }
+
   .social-network {
     cursor: pointer;
-    fill: #283858;
+    fill: $catalina-blue;
     margin: 10px 3px 0;
     transition: fill .6s, color .6s, width .6s;
 
     &:hover {
-      fill: #1ECD97;
+      fill: $shamrock;
     }
   }
 
-  .green-button {
-    display: block;
-    margin: 10px auto;
-    padding: 0;
-    width: 200px;
-    height: 50px;
-    border: 2px solid #1ECD97;
-    border-radius: 40px;
-    color: $white;
-    letter-spacing: 1px;
-    background: #1ECD97;
-    font-size: 18px;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color .6s, color .6s, width .6s, border-width .6s, border-color .6s;
+  .positive-button {
+    @extend %action-button;
+    background: $shamrock;
+    border: 2px solid $shamrock;
 
     &:hover {
-      border: 2px solid rgba(200, 255, 200, .6);
+      border: 2px solid $blue-romance;
     }
   }
 
-  .orange-button {
-    @extend .green-button;
-    background-color: $dark_orange;
-    border-color: $dark_orange;
+  .negative-button {
+    @extend %action-button;
+    background-color: $dark-orange;
+    border: 2px solid $dark-orange;
 
     &:hover {
-      border-color: orange;
+      border: 2px solid $orange;
     }
   }
 
   .hero-container {
-    width: 100vw;
-    position: relative;
     height: 50vh;
-    overflow: hidden;
-    min-height: 250px;
     margin: -50px 0 50px;
+    min-height: 250px;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
 
     .hero-image-container {
-      overflow-y: hidden;
-      height: 100%;
-      background-color: #ccffff;
-      background-repeat: no-repeat;
-      background-position: right top;
       background-attachment: fixed;
+      background-color: $light-cyan;
+      background-position: right top;
+      background-repeat: no-repeat;
+      height: 100%;
+      overflow-y: hidden;
 
       .hero-image {
         background-size: cover;
@@ -93,28 +98,28 @@
   }
 
   .translucent-overlay {
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: relative;
+    background-color: $translucent-black;
     display: table;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+    top: 0;
     width: 100%;
 
     .hero-text-container {
       color: $white;
-      vertical-align: middle;
-      margin: auto;
-      width: 100%;
-      text-align: center;
       display: table-cell;
+      margin: auto;
       max-height: 100%;
+      text-align: center;
+      vertical-align: middle;
+      width: 100%;
 
       .hero-text {
-        margin: auto;
         font-size: 8vw;
         font-weight: 400;
+        margin: auto;
       }
     }
   }
@@ -124,15 +129,15 @@
   }
 
   .description {
-    width: 100%;
-    padding: 0 50px 0 0;
     font-size: 20px;
     margin: 0 0 50px;
+    padding: 0 50px 0 0;
+    width: 100%;
   }
 
   .left-content {
-    width: 250px;
     float: left;
+    width: 250px;
   }
 
   .right-content {
@@ -141,36 +146,36 @@
     width: calc(100% - 350px);
   }
 
-  #event-date-range {
+  .event-date-range {
     cursor: pointer;
-    outline: 1px solid #ddd;
-    padding: 12px 5px 8px 5px;
+    outline: 1px solid $gainsboro;
+    padding: 12px 5px 8px;
   }
 
   .event {
     .event-description {
-      font-weight: 200;
       font-size: 16px;
+      font-weight: 200;
       line-height: 1.3;
     }
 
     .rsvp-button {
-      margin: 40px 0px;
       height: 70px;
+      margin: 40px 0;
       width: 150px;
 
-      .green-button {
+      .positive-button {
         height: 45px;
-        width: 150px;
         margin: 0;
+        width: 150px;
       }
 
       .num-people-going {
-        color: #9b9b9b;
+        color: $nobel;
         font-size: 16px;
-        text-align: center;
-        margin: 10px 0 0 0px;
+        margin: 10px 0 0 0;
         position: relative;
+        text-align: center;
       }
     }
 
@@ -183,12 +188,12 @@
       margin: 0 0 0 10px;
 
       .export-cal {
-        margin: -5px 0 0 10px;
         cursor: pointer;
+        margin: -5px 0 0 10px;
       }
     }
 
-    #map-canvas {
+    .map-canvas {
       height: 200px;
       margin: auto;
     }
@@ -198,96 +203,94 @@
     }
   }
 
-  .members {
-    .member {
-      text-align: center;
-      margin: 25px 0 25px 0;
-      padding: 0 10px;
-      height: 60px;
+  .member-link {
+    cursor: pointer;
 
-      .member-link {
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      .member-image {
-        width: 60px;
-        border-radius: 60px;
-        float: left;
-      }
-
-      .member-name {
-        font-size: 14px;
-        font-weight: 600;
-        padding-top: 10px;
-        cursor: pointer;
-        color: darkslategray;
-      }
-
-      .sub-text {
-        font-size: 12px;
-        font-weight: 400;
-        color: grey;
-      }
+    &:hover {
+      text-decoration: none;
     }
   }
 
-  .stats {
-    .stat {
-      margin: 25px 0 25px 0;
-      padding: 0 10px;
+  .member {
+    height: 60px;
+    margin: 25px 0;
+    padding: 0 10px;
+    text-align: center;
 
-      .stat-title {
-        font-weight: 600;
-      }
+    &:hover {
+      background-color: $light-grey;
+    }
+
+    .member-image {
+      border-radius: 60px;
+      float: left;
+      width: 60px;
+    }
+
+    .member-name {
+      color: $dark-slate-grey;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      padding-top: 10px;
+    }
+
+    .sub-text {
+      font-size: 12px;
+      font-weight: 400;
+      color: $grey;
     }
   }
 
-  .projects {
-    .project {
-      border-bottom: 1px solid #efefef;
-      padding: 25px;
+  .stat {
+    margin: 25px 0;
+    padding: 0 10px;
 
-      &.last {
-        border-bottom: none;
-      }
+    .stat-title {
+      font-weight: 600;
+    }
+  }
 
-      .project-description {
-        font-weight: 200;
-        font-size: 16px;
-        line-height: 1.3;
-      }
+  .project {
+    border-bottom: 1px solid $white-smoke;
+    padding: 25px;
 
-      .description {
-        float: left;
-        font-size: 14px;
-      }
+    &.last {
+      border-bottom: 0;
     }
 
-    .contribute-button {
-      margin: 40px 0px;
-      height: 70px;
-
-      .green-button {
-        height: 40px;
-        width: 140px;
-        margin: 0;
-      }
-
-      .num-contributors {
-        color: #9b9b9b;
-        font-size: 16px;
-        width: 200px;
-        margin: 10px 0 0 22px;
-      }
+    .project-description {
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 1.3;
     }
 
-    .more-projects-link {
-      margin: 25px;
+    .description {
+      float: left;
+      font-size: 14px;
     }
+  }
+
+  .contribute-button {
+    height: 70px;
+    margin: 40px 0;
+
+    .positive-button {
+      height: 40px;
+      margin: 0;
+      width: 140px;
+    }
+
+    .num-contributors {
+      color: $nobel;
+      font-size: 16px;
+      width: 200px;
+      margin: 10px 0 0 22px;
+    }
+  }
+
+  .more-projects-link {
+    margin: 25px;
   }
 
   .contributions {
@@ -296,21 +299,21 @@
     margin: 0 0 20px 0;
 
     .contributors {
-      color: grey;
+      color: $grey;
       font-size: 14px;
       font-weight: 200;
       line-height: 26px;
       position: relative;
     }
 
-    .green-button {
-      text-align: center;
-      width: 100px;
-      height: 25px;
-      font-size: 14px;
+    .positive-button {
       cursor: pointer;
-      margin: 0 15px 0 0;
       float: left;
+      font-size: 14px;
+      height: 25px;
+      margin: 0 15px 0 0;
+      width: 100px;
+      text-align: center;
     }
   }
 
@@ -318,71 +321,70 @@
     height: 40px;
 
     .project-title {
-      margin: 0 10px 0 0;
       float: left;
+      margin: 0 10px 0 0;
     }
 
     .tag {
-      margin-right: 2px;
-      color: white;
-      background-color: #5bc0de;
+      background-color: $malibu;
+      border-radius: .25em;
+      color: $white;
       display: inline;
-      padding: .2em .6em .3em;
       font-size: 75%;
       font-weight: 700;
       line-height: 1;
-      color: $white;
+      margin-right: 2px;
+      padding: .2em .6em .3em;
       text-align: center;
-      white-space: nowrap;
       vertical-align: baseline;
-      border-radius: .25em;
+      white-space: nowrap;
     }
 
     .coding-languages {
       float: left;
-      margin: 8px 0 0 0px;
+      margin: 8px 0 0;
     }
   }
 
-  #members-modal, #events-modal, #projects-modal {
+  .members-modal, .events-modal, .projects-modal {
     .modal-body {
       padding: 15px 15px 0 15px;
     }
 
     .search-field {
-      width: 200px;
       margin: 0 0 10px 0;
+      width: 200px;
     }
 
     .bootstrap-tagsinput {
-      margin: -8px 0 0 15px;
       font-size: 20px;
       line-height: 30px;
-      padding: 0 0 5px 5px;
+      margin: -8px 0 0 15px;
       max-width: 340px;
+      padding: 0 0 5px 5px;
     }
   }
 
-  #members-modal {
+  .members-modal {
     .search-field {
       width: 100%;
     }
   }
 
-  #projects-modal {
+  .projects-modal {
     .projects {
+      margin: 0 0 0 -15px;
       max-height: 60vh;
       overflow-y: scroll;
-      margin: 0 0 0 -15px;
       width: calc(100% + 30px);
     }
   }
 
-  #events-modal {
+  .events-modal {
     .events {
+      margin: 0 0 0 -15px;
       max-height: 60vh;
       overflow-y: scroll;
-      margin: 0 0 0 -15px;
       width: calc(100% + 30px);
     }
 
@@ -395,10 +397,10 @@
     }
 
     .event-export {
-      padding: 0 5px;
-      font-weight: 400;
+      color: $dark-slate-grey;
       cursor: pointer;
-      color: darkslategray;
+      font-weight: 400;
+      padding: 0 5px;
     }
 
     .event-time {
@@ -417,213 +419,208 @@
       line-height: 40px;
     }
 
-    .green-button {
+    .positive-button {
       float: left;
+      height: 30px;
       margin: 15px 15px 0 15px;
       width: 100px;
-      height: 30px;
+    }
+  }
+
+  .event {
+    border-bottom: 1px solid $gainsboro;
+    padding: 15px;
+
+    .event-description {
+      margin: 5px 0;
     }
 
-    .event {
-      border-bottom: 1px solid #ddd;
-      padding: 15px;
-
-      .event-description {
-        margin: 5px 0;
-      }
-
-      &.last-event {
-        border-bottom: none;
-        margin: 0;
-      }
+    &.last-event {
+      border-bottom: none;
+      margin: 0;
     }
   }
 
   .content-box {
     background-color: white;
-    outline: 1px lightgray solid;
-    text-align: left;
-    color: darkslategrey;
+    color: $dark-slate-grey;
     margin: 0 0 50px;
+    outline: 1px $light-grey solid;
     overflow-x: inherit;
     overflow-y: visible;
+    text-align: left;
+  }
 
-    .circle-text #googleMap {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin: 25px auto;
-    }
+  .circle-text .google-map {
+    border-radius: 50%;
+    height: 200px;
+    margin: 25px auto;
+    width: 200px;
+  }
 
-    .box-title {
-      background: #efefef;
-      padding: 5px 5px 5px 25px;
-      outline: 1px lightgray solid;
-      font-size: 20px;
-      font-weight: 200
-    }
+  .box-title {
+    background: $white-smoke;
+    outline: 1px $light-grey solid;
+    font-size: 20px;
+    font-weight: 200
+    padding: 5px 5px 5px 25px;
+  }
 
-    .box-content {
-      padding: 0 15px 15px;
+  .box-content {
+    padding: 0 15px 15px;
+  }
 
-      .modal-link {
-        cursor: pointer;
-      }
-    }
+  .modal-link {
+    cursor: pointer;
+  }
 
-    .pop-over-results {
-      position: absolute;
-      background-color: $black_russian;
-      color: white;
-      top: 30px;
-      font-size: 12px;
-      line-height: 16px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: left;
-      padding: 5px;
-      left: 20px;
-      font-weight: 200;
-      display: none;
-      .arrow {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 5px solid black;
-        position: absolute;
-        top: -5px;
-        left: 15px;
-      }
-    }
+  .search-field {
+    border: 1px solid $gainsboro;
+    font-size: 20px;
+    height: 40px;
+    outline: none;
+    padding: 0 10px;
+    width: 100%;
 
-    .modal-body {
-      .search-field {
-        outline: none;
-        border: 1px solid #DDDDDD;
-        width: 100%;
-        height: 40px;
-        font-size: 20px;
-        padding: 0 10px;
-
-        &:focus {
-          box-shadow: 0 0 5px #283858;
-          border: 1px solid #283858;
-        }
-      }
-
-      .members {
-        max-height: 60vh;
-        overflow-y: scroll;
-        margin: 0 0 0 -15px;
-        width: calc(100% + 30px);
-
-        .member {
-          width: calc(100% + 30px);
-          margin: 20px 0 20px -15px;
-          padding: 5px 5px 5px 30px;
-          height: 70px;
-
-          &:hover {
-            background-color: lightgrey;
-          }
-        }
-      }
+    &:focus {
+      border: 1px solid $catalina-blue;
+      box-shadow: 0 0 5px $catalina-blue;
     }
   }
 
-  #new_brigade, .edit_brigade {
-    margin: 60px auto;
-    max-width: 700px;
+  .modal-body {
+    .members {
+      margin: 0 0 0 -15px;
+      max-height: 60vh;
+      overflow-y: scroll;
+      width: calc(100% + 30px);
+    }
 
-    .field {
+    .member {
+      margin: 20px 0 20px -15px;
+      padding: 5px 5px 5px 30px;
+      height: 70px;
+      width: calc(100% + 30px);
+    }
+  }
 
-      input[type=text], textarea {
-        outline: none;
-        border: 1px solid #DDDDDD;
-      }
+  .pop-over-results {
+    background-color: $black-russian;
+    color: white;
+    display: none;
+    font-size: 12px;
+    font-weight: 200;
+    line-height: 16px;
+    left: 20px;
+    padding: 5px;
+    position: absolute;
+    text-align: left;
+    text-overflow: ellipsis;
+    top: 30px;
+    white-space: nowrap;
 
-      input[type=text]:focus, textarea:focus {
-        box-shadow: 0 0 5px $dark_blue;
-        border: 1px solid $dark_blue;
-      }
+    .arrow {
+      border-bottom: 5px solid black;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      height: 0;
+      left: 15px;
+      position: absolute;
+      top: -5px;
+      width: 0;
+    }
+  }
+}
 
-      color: $dark_blue;
-      margin: 30px 0;
+.new_brigade, .edit_brigade {
+  margin: 60px auto;
+  max-width: 700px;
 
-      label {
-        text-align: left;
-        font-size: 22px;
-        margin: 4px 0 0 0;
-      }
+  .location-list-option {
+    background-color: $white;
+    border: 1px solid $gainsboro;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    height: 40px;
+    margin: -1px 0 0 0;
+    padding: 10px 0;
+    outline: none;
+    transition: background 0.2s linear;
+    width: 100%;
 
-      textarea {
-        font-size: 20px;
-        padding: 10px;
-      }
+    &:hover {
+      background-color: #EEE;
+    }
 
-      input {
-        height: 40px;
-        font-size: 20px;
-        padding: 0 10px;
-      }
+    &:active {
+      background-color: #BBB;
+    }
 
-      #location-list {
-        margin: -32px 0 0 0;
-        padding: 1px 0;
+    .city {
+      float: left;
+      font-weight: 600;
+      margin: 0 0 0 10px;
+    }
 
-        .location-list-option {
-          background-color: $white;
-          display: block;
-          height: 40px;
-          width: 100%;
-          cursor: pointer;
-          outline: none;
-          border: 1px solid #DDDDDD;
-          margin: -1px 0 0 0;
-          padding: 10px 0;
-          font-size: 16px;
-          transition: background 0.2s linear;
+    .state {
+      float: left;
+    }
 
-          &:hover {
-            background-color: #EEE;
-          }
+    .divider {
+      border: none;
+      padding: 0 10px;
+      float: left;
+    }
 
-          &:active {
-            background-color: #BBB;
-          }
+    .zip_code {
+      float: right;
+      margin: 0 10px 0 0;
+    }
+  }
 
-          .city {
-            font-weight: 600;
-            float: left;
-            margin: 0 0 0 10px;
-          }
+  .field {
+    color: $dark_blue;
+    margin: 30px 0;
 
-          .state {
-            float: left;
-          }
+    input[type=text], textarea {
+      border: 1px solid $gainsboro;
+      outline: none;
+    }
 
-          .divider {
-            padding: 0 10px;
-            float: left;
-            border: none;
-          }
+    input[type=text]:focus, textarea:focus {
+      border: 1px solid $dark_blue;
+      box-shadow: 0 0 5px $dark_blue;
+    }
 
-          .zip_code {
-            float: right;
-            margin: 0 10px 0 0;
-          }
-        }
-      }
+    label {
+      font-size: 22px;
+      margin: 4px 0 0 0;
+      text-align: left;
+    }
 
-      .field_with_errors {
+    textarea {
+      font-size: 20px;
+      padding: 10px;
+    }
 
-        input[type=text], textarea {
-          box-shadow: 0 0 5px rgba(255, 0, 0, 1);
-          padding: 5px 0px 5px 10px;
-          border: 1px solid rgba(255, 0, 0, 1);
-        }
-      }
+    input {
+      font-size: 20px;
+      height: 40px;
+      padding: 0 10px;
+    }
+
+    .location-list {
+      margin: -32px 0 0 0;
+      padding: 1px 0;
+    }
+  }
+
+  .field_with_errors {
+    input[type=text], textarea {
+      border: 1px solid $red;
+      box-shadow: 0 0 5px $red;
+      padding: 5px 0px 5px 10px;
     }
   }
 }

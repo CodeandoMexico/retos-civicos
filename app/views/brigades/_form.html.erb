@@ -12,7 +12,7 @@
   <% end %>
     <div class="field row">
       <label class="col-md-4">Location</label>
-      <input type="text" id="location-query" list="location-list" class="col-md-8" autocomplete="off" />
+      <input type="text" id="location-query" class="location-list" list="location-list" class="col-md-8" autocomplete="off" />
     </div>
     <div class="field row">
       <label class="col-md-4"></label>
@@ -48,6 +48,6 @@
     <%= f.text_field :header_image_url, :class=>'col-md-8' %>
   </div>
   <div class="actions">
-    <%= f.submit submit_button_text(f), class: 'green-button' %>
+    <%= f.submit submit_button_text(f), class: 'positive-button' %>
   </div>
 <% end %>
