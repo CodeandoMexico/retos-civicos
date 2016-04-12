@@ -19,7 +19,7 @@
   }
 
   .title {
-    h5 { @include heading(18px, $dark_blue); }
+    h5 { @include heading(18px, $dark-blue); }
   }
   .content, .title {
     margin: 15px;
