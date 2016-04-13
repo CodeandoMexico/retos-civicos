@@ -61,7 +61,13 @@ $(window).load ->
           
       checkIfNewLocationOnClick = ->
         $('body').on 'click', 'div[class=location-list-option]', ->
-          $("#location-query").css('background-color', 'green')
+          location_id = $('#brigade_location_id').val()
+          $.get("/location_unique/#{location_id}", (data) ->
+            if (data.data)
+              $("#location-query").css("border","red solid 3px");
+            else
+              $("#location-query").css("border","green solid 3px");
+          )
           return
 
       setup = ->

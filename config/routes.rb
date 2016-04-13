@@ -118,6 +118,7 @@ Aquila::Application.routes.draw do
   get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
   get '/location_search/:location_query', to: 'location#location_search'
   get '/location_name/:location_id', to: 'location#location_name'
+  get '/location_unique/:location_id', to: 'location#location_unique'
 
   root to: 'challenges#index'
 
