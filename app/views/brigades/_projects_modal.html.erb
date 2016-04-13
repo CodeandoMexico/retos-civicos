@@ -3,11 +3,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Projects</h4>
+        <h4 class="modal-title"><%= I18n.t('brigades.show.project').pluralize(2) %></h4>
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="search-field project-search-field" placeholder="Search">
+          <input type="text" class="search-field project-search-field" placeholder="<%= I18n.t('brigades.show.search') %>">
           <input type="text" value="HTML,Ruby,Scheme" data-role="tagsinput" class="project-tag-search">
         </form>
         <div class="projects">

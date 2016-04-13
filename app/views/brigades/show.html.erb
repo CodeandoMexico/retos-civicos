@@ -1,9 +1,8 @@
 <div id="brigades" class="brigades">
-  <%= render partial: 'hero_image', locals: { brigade: @brigade } %>
+  <%= render partial: 'hero_image', locals: { city: @brigade.location.city, header_image_url: @brigade.header_image_url } %>
   <div class="post-hero-content">
     <p id="notice"><%= notice %></p>
-    <p class="description">Monterrey's Brigade is incredibly fun. We have lots of events that happen on the daily.
-    Lots of unique projects can be found and we have a wonderful, diverse community.</p>
+    <p class="description"><%= @brigade.description %></p>
     <div class="left-content">
       <%= render partial: 'social_panel' %>
       <%= render partial: 'stats_panel' %>
@@ -12,7 +11,8 @@
     <div class="right-content">
       <%= render partial: 'event_panel',
                  locals: { title: "Hack And Wine", event_date: "Tuesday, April 5th",
-                           event_time: "6:00 PM to 7:00 PM", num_people_going: "66 people going",
+                           event_time: "6:00 PM #{I18n.t('brigades.show.events.to')} 7:00 PM",
+                           num_people_going: "66 #{I18n.t('brigades.show.events.people_going')}",
                            address: "777 Lucky Rd. London, London. 94843",
                            description: "This event is really cool. Everyone should go to it.
                                                         We will be discussing this, this, and this." } %>

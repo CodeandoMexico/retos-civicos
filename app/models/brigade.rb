@@ -4,6 +4,8 @@
 class Brigade < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
+  has_many :brigade_users
+  has_many :users, through: :brigade_users
   validates :location_id, presence: true
   validates :user_id, presence: true
   validates :description, length: { maximum: 500 }
@@ -16,4 +18,12 @@ class Brigade < ActiveRecord::Base
   validates :deactivated, inclusion: { in: [true, false] }, exclusion: { in: [nil] }
   attr_accessible :calendar_url, :description, :facebook_url, :github_url, :header_image_url,
                   :location_id, :slack_url, :twitter_url, :user, :user_id
+
+  def followers
+    self.users.select("users.id, users.name, users.avatar")
+  end
+
+  def organizer
+    self.user
+  end
 end

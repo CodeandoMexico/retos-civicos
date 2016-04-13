@@ -135,14 +135,36 @@ en:
     twitter_url: Twitter URL
     header_image_url: Header Image URL
     show:
-      follow: Join
-      unfollow: Leave
-      next_event: Next Event
-      statistics: Statistics
-      members: Members
-      rsvp: RSVP
-      not_going: Not Going
-      people_going: people going
+      search: Search
+      member: member
+      projects: Projects
+      see_more: See more
+      follow:
+        follow: Join
+        unfollow: Leave
+      stats:
+        created: Created
+        statistics: Statistics
+      members:
+        organizer: Organizer
+        brigade: Brigade
+        project: Project
+        in_common: in common
+        see_all_members: See all members
+      events:
+        next_event: Next Event
+        rsvp: RSVP
+        not_going: Not Going
+        people_going: people going
+        person_going: person going
+        be_first_rsvp: Be the first to RSVP.
+        to: to
+        export: Export
+        event: Event
+      projects:
+        stop_contributing: Dejar
+        contribute: Contribute
+        contributor: Contributor
     form:
       zip_code: Zip Code
       city: City

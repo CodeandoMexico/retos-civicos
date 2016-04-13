@@ -1,5 +1,5 @@
 <div class="content-box">
-  <div class="box-title">Next Event</div>
+  <div class="box-title"><%= I18n.t('brigades.show.events.next_event') %></div>
   <div class="box-content row event">
     <div class="col-md-8">
       <h1><%= title %></h1>
@@ -12,7 +12,7 @@
       </h4>
       <h5 class="event-description"><%= description %></h5>
       <div class="participate-container">
-        <button class='event-positive-button'>RSVP</button>
+        <button class='event-positive-button'><%= I18n.t('brigades.show.events.rsvp') %></button>
         <div class="num-people-going modal-link pop-over-subject" data-toggle="modal" data-target="#members-modal">
           <%= num_people_going %>
           <div class="people-going pop-over-results">
@@ -23,7 +23,10 @@
           </div>
         </div>
       </div>
-      <span class="more-events-link modal-link" data-toggle="modal" data-target="#events-modal">See more events</span>
+      <span class="more-events-link modal-link" data-toggle="modal" data-target="#events-modal">
+        <%= I18n.t('brigades.show.see_more') %>
+        <%= I18n.t('brigades.show.events.event').pluralize(2).downcase %>
+      </span>
       <%= render partial: 'events_modal' %>
     </div>
     <div class="col-md-4">

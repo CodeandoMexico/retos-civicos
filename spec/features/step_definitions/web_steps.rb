@@ -1,5 +1,5 @@
 Then(/^I should see translation for ([^\"]*)$/) do |key|
-  response.should contain(I18n.t(key))
+  page.should have_content(I18n.t(key))
 end
 
 Then(/^I should see image with src (.+)$/) do |img_src|

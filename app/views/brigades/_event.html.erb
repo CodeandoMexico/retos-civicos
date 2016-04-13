@@ -1,13 +1,13 @@
 <div class="event">
   <div class="event-top-row">
     <h3 class="event-title"><%= title %></h3>
-    <button class='event-modal-positive-button'>RSVP</button>
+    <button class='event-modal-positive-button'><%= I18n.t('brigades.show.events.rsvp') %></button>
   </div>
   <div class="event-detail">
     <%= image_tag("icons/calendario.svg", size: "18x18", class: "svg icon") %>
     <span class="event-date"><%= event_date %></span>
     <span class="event-time"><%= event_time %></span>
-    <a class="event-export">Export</a>
+    <a class="event-export"><%= I18n.t('brigades.show.events.export') %></a>
   </div>
   <div class="event-detail">
     <%= image_tag("icons/pushpin.svg", size: "18x18", class: "svg icon") %>

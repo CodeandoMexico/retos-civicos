@@ -66,16 +66,37 @@ es:
     facebook_url: URL de Facebook
     twitter_url: Url de Twitter
     header_image_url: URL de Imagen de Perfil
-
     show:
-      follow: Unirse
-      unfollow: Dejar
-      next_event: Próximo Evento
-      statistics: Estadística
-      members: Miembros
-      rsvp: Reservar
-      not_going: No voy
-      people_going: personas van
+      search: Busca
+      member: Miembro
+      see_more: Ver más
+      project: Proyecto
+      follow:
+        follow: Unirse
+        unfollow: Dejar
+      stats:
+        statistics: Estadística
+        created: Fundado
+        projects: Proyectos
+      members:
+        organizer: Organizador
+        brigade: Brigada
+        in_common: en común
+        see_all_members: Ver todos los miembros
+      events:
+        next_event: Próximo Evento
+        rsvp: Reservar
+        not_going: No voy
+        people_going: personas van
+        person_going: persona va
+        be_first_rsvp: Sé el primero en confirmar su asistencia.
+        to: a
+        export: exportar
+        event: evento
+      projects:
+        stop_contributing: Leave
+        contribute: Contribuir
+        contributor: Contribuyente
     form:
       zip_code: Código Postal
       city: Ciudad

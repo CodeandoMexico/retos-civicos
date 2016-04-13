@@ -10,7 +10,7 @@ Given(/^I visit the brigade page for (.+), (.+)$/) do |city, state|
   visit brigade_path(brigade)
 end
 
-Given(/^the following users are in brigade (.+), (.+)$/) do |city, state, table|
+Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table|
   brigade_id = Brigade.includes(:location).where(locations: { state: state, city: city }).first.id
   table.hashes.each do |user|
     user_id = User.create!(user)

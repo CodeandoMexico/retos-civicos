@@ -1,6 +1,27 @@
 require 'spec_helper'
 
 describe Brigade do
+  describe '#followers' do
+    let!(:brigade_with_users) { FactoryGirl.create(:brigade_with_users) }
+
+    it 'should return relation of the brigades followers whom are of type Users' do
+      expect(brigade_with_users.followers.pluck(:name)).to include "Barack Obama"
+      expect(brigade_with_users.followers.pluck(:name)).to include "Adrian Rangel"
+      expect(brigade_with_users.followers.pluck(:name)).to include "Enrique Nieto"
+      expect(brigade_with_users.followers.first).to be_a_kind_of User
+    end
+  end
+
+  describe '#organizer' do
+    let!(:brigade) { FactoryGirl.create(:brigade) }
+
+    it 'should return the owner of the brigade who is a user.' do
+      expect(brigade.organizer).to be_a_kind_of User
+      expect(brigade.organizer.name).to eq "Jacobo"
+    end
+
+  end
+
   describe 'Given a valid brigade was created' do
     let!(:brigade) { FactoryGirl.create(:brigade) }
 
@@ -47,7 +68,7 @@ describe Brigade do
     end
 
     it 'should default deactived to false' do
-      expect(brigade.deactivated).to be_false
+      expect(brigade.deactivated).to be_falsey
     end
   end
 
@@ -98,14 +119,14 @@ describe Brigade do
         end
       end
 
-      describe 'Given the calendar URL is not a valid Google Calendar' do
-        let(:brigade_with_invalid_calendar_url) { FactoryGirl.build(:brigade, calendar_url: "http://google.com") }
-
-        it 'should not be valid' do
-          pending 'Do not know how to validate calendars yet. Fix when working on Calendar sprint'
-          expect(brigade_with_invalid_calendar_url).to_not be_valid
-        end
-      end
+      # describe 'Given the calendar URL is not a valid Google Calendar' do
+      #   let(:brigade_with_invalid_calendar_url) { FactoryGirl.build(:brigade, calendar_url: "http://google.com") }
+      #
+      #   it 'should not be valid' do
+      #     pending 'Do not know how to validate calendars yet. Fix when working on Calendar sprint'
+      #     expect(brigade_with_invalid_calendar_url).to_not be_valid
+      #   end
+      # end
     end
 
     describe 'slack_url' do
