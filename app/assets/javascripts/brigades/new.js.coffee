@@ -58,10 +58,16 @@ $(window).load ->
           $('#location-list').empty()
           $('#brigade_location_id').val($(this).data("location-id"))
           return
+          
+      checkIfNewLocationOnClick = ->
+        $('body').on 'click', 'div[class=location-list-option]', ->
+          $("#location-query").css('background-color', 'green')
+          return
 
       setup = ->
         addLocationCallback document.getElementById('location-query'), execLocationSearch, 1000
         removeLocationListWhenBodyClicked()
         setInitialLocation()
+        checkIfNewLocationOnClick()
 
       setup()
