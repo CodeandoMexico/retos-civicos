@@ -9,10 +9,10 @@ Given /^I am logged in as a user$/ do
   login_as(@current_user, :scope => :user)
 end
 
-# Given /^I am logged in as the user with email: (.+)/ |em|
-#   @current_user = User.where(:email => em).first
-#   login_as(@current_user, :scope => :user)
-# end
+Given /^I am logged in as the user with email: (.+)/ do |em|
+  @current_user = User.where(:email => em).first
+  login_as(@current_user, :scope => :user)
+end
 
 Given /^I log out$/ do
   logout

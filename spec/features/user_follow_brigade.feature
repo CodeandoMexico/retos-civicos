@@ -1,7 +1,7 @@
-Feature: User should be able to join a brigade
+Feature: User should be able to follow a brigade
 
   As a user
-  I want to be able to join a brigade
+  I want to be able to follow a brigade
   So that I can stay updated on events in my area and feel like a part of the community
   
   Background: Brigades in database
@@ -20,8 +20,8 @@ Feature: User should be able to join a brigade
       | email          | name  | password |
       | test1@test.com | Kyle  | 111111   |
   
-    # Scenario: Able to follow a Brigade when logged in
-    #   Given I am logged in as a user
+    Scenario: Able to follow a Brigade when logged in
+      Given I am logged in as the user with email: 'test1@test.com'
     #   And I am not following Monterrey, Nuevo León
     #   When I visit the brigade page for Monterrey, Nuevo León
     #   Then I should see translation for brigades.show.follow.follow
