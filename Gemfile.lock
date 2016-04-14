@@ -434,6 +434,10 @@ GEM
     rinku (1.5.1)
     roodi (3.3.1)
       ruby_parser (~> 3.2, >= 3.2.2)
+    rspec-activemodel-mocks (1.0.3)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -626,6 +630,7 @@ DEPENDENCIES
   rails-translate-routes
   rails_12factor
   redcarpet
+  rspec-activemodel-mocks
   rspec-rails (~> 3.4.2)
   rubocop
   ruby-progressbar

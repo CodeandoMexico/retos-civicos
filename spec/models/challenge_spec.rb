@@ -21,13 +21,13 @@ describe Challenge do
 
     describe '#active?' do
       it 'returns that an active challenege is active' do
-        expect(active_ch.active?).to be_true
+        expect(active_ch.active?).to be true
       end
     end
 
     describe '#started?' do
       it 'returns that a finished challenge has started' do
-        expect(active_ch.started?).to be_true
+        expect(active_ch.started?).to be true
       end
     end
 
@@ -40,9 +40,9 @@ describe Challenge do
 
     describe '#close_evaluation' do
       it 'should close the evaluations for the challenge' do
-        expect(active_ch.evaluations_opened).to be_true
+        expect(active_ch.evaluations_opened).to be true
         active_ch.close_evaluation
-        expect(active_ch.evaluations_opened).to be_false
+        expect(active_ch.evaluations_opened).to be false
       end
     end
 

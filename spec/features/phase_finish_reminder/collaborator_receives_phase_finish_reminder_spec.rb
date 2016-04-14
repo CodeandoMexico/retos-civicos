@@ -23,7 +23,6 @@ feature 'Collaborator receives phase finish reminder' do
   end
 
   scenario 'but just at the right time' do
-    pending
     member = create :member
     challenge = create :challenge, ideas_phase_due_on: 8.days.from_now
     collaboration = create :collaboration, member: member, challenge: challenge

@@ -6,21 +6,21 @@ describe Organization do
     describe '#accredit!' do
       it 'it should make accredit true.' do
         organization.accredit!
-        expect(organization.accredited).to be_true
+        expect(organization.accredited).to be true
       end
     end
 
     describe '#only_one_challenge?' do
       describe 'Given there are no challenges' do
         it 'should return false' do
-          expect(organization.only_one_challenge?).to be_false
+          expect(organization.only_one_challenge?).to be false
         end
       end
     end
 
     describe '#submitted_app?' do
       it 'should return false' do
-        expect(organization.submitted_app?(nil)).to be_false
+        expect(organization.submitted_app?(nil)).to be false
       end
     end
 
