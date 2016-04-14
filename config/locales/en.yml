@@ -123,6 +123,7 @@ en:
       message: You need to login first
       already_submited_app: You've sent your application to this challenge
   brigades:
+    brigades: Brigades
     zip_code: Zip Code
     city: City
     state: State
@@ -258,6 +259,7 @@ en:
       info: Lorem Ipsum
       download: DOWNLOAD DOCUMENT
   layout:
+    civic_challenges: Retos cívicos
     header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: What is Codeando México?
