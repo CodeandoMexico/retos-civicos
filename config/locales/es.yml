@@ -55,6 +55,7 @@ es:
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
         evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
   brigades:
+    brigades: Brigadas
     zip_code: Código Postal
     city: Ciudad
     state: Estado
@@ -221,6 +222,7 @@ es:
       # info: Codeando México es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
       download: DESCARGAR DOCUMENTO
   layout:
+    civic_challenges: Retos cívicos
     header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
