@@ -20,23 +20,23 @@ Feature: User should be able to join a brigade
       | email          | name  | password |
       | test1@test.com | Kyle  | 111111   |
   
-    Scenario: Able to follow a Brigade when logged in
-      Given I am logged in as a user
-      And I am not following Monterrey, Nuevo León
-      When I visit the brigade page for Monterrey, Nuevo León
-      Then I should see translation for brigades.show.follow.follow
+    # Scenario: Able to follow a Brigade when logged in
+    #   Given I am logged in as a user
+    #   And I am not following Monterrey, Nuevo León
+    #   When I visit the brigade page for Monterrey, Nuevo León
+    #   Then I should see translation for brigades.show.follow.follow
       
-      When I click "Unirse"
-      Then I am following Monterrey, Nuevo León
-      And I can RSVP to an event
+    #   When I click "Unirse"
+    #   Then I am following Monterrey, Nuevo León
+    #   And I can RSVP to an event
 
-    Scenario: Redirected to login when not logged in and try to join a brigade.
-      Given I am not logged in as a user
-      When I visit the brigade page for Monterrey, Nuevo León
-      And I click "Unirse"
-      Then I should be on the login page
+    # Scenario: Redirected to login when not logged in and try to join a brigade.
+    #   Given I am not logged in as a user
+    #   When I visit the brigade page for Monterrey, Nuevo León
+    #   And I click "Unirse"
+    #   Then I should be on the login page
       
-    Scenario: Should not see the join button if already in a brigade
-      Given I am logged in as a user
-      And I am following Monterrey, Nuevo León
-      Then I should not see "Unirse"
+    # Scenario: Should not see the join button if already in a brigade
+    #   Given I am logged in as a user
+    #   And I am following Monterrey, Nuevo León
+    #   Then I should not see "Unirse"

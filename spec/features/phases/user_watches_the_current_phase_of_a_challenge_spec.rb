@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'User watches the current phase of a challenge' do
   scenario 'when the current phase is the ideas phase' do
-    pending
     challenge = create :challenge,
                        starts_on: 3.days.ago,
                        ideas_phase_due_on: 7.days.from_now.to_date
