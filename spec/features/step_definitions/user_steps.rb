@@ -4,8 +4,8 @@ Given(/^the following users exist:$/) do |table|
   end
 end
 
-Given /^I am logged in as a user$/ do
-  @current_user = User.create!(email: 'test@test.com', password: "111111")
+Given /^I am logged in as a user with email "(.*)" and name "(.*)"$/ do |email, name|
+  @current_user = User.create!(email: email, name: name, password: "111111")
   login_as(@current_user, :scope => :user)
 end
 

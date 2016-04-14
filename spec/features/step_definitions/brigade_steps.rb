@@ -13,7 +13,19 @@ end
 Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table|
   brigade_id = Brigade.includes(:location).where(locations: { state: state, city: city }).first.id
   table.hashes.each do |user|
-    user_id = User.create!(user)
-    BrigadeUser.create(user_id: user_id, brigade_id: brigade_id)
+    user = User.create!(user)
+    BrigadeUser.create!(user_id: user.id, brigade_id: brigade_id)
   end
+end
+
+When(/^I visit the brigade creation page$/) do
+  visit new_brigade_path
+end
+
+When /^I click on location option with city "([^\"]*)"$/ do |text|
+  find(:xpath, "//div[contains(@data-city,'Monterrey')]").click
+end
+
+Then /^"([^\"]*)" should be the organizer$/ do |organizer|
+  find(:xpath, "(//span[@class='member-name'])[1]").should contain organizer
 end
