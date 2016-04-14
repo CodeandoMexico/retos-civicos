@@ -32,7 +32,4 @@ Feature: Brigade has show view
     And I should see translation for brigades.show.stats.statistics
     And I should see translation for brigades.show.member
     And I should see translation for brigades.show.members.organizer
-    And I should see image with src http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png
-    And I should see "Kyle"
-    And I should see "Allen"
-    And I should see "Boss"
+    And .hero-image-container should have background http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png
