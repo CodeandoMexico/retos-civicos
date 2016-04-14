@@ -12,6 +12,8 @@ class LocationController < ApplicationController
     selected_location = Location.find(params[:location_id])
     exists = Brigade.exists?(location_id: params[:location_id])
     
+    #exists = Brigade.includes(:location).where(location: { state: selected_location.state, city: selected_location.city })
+    
     respond_to do |format|
       format.json { render json: { data: exists } }
     end

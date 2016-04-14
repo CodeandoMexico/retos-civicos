@@ -20,7 +20,7 @@ Feature: Brigade form only allows cities without a Brigade to create a new one
     Given I am logged in as a user
     When I visit the create brigade page
     And I type Xico into the fuzzy search text box
-    When I can select the city Xico
+    Then I can select the city Xico
     
     
     
