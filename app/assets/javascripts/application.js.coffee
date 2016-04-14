@@ -30,7 +30,6 @@
 #= require_self
 #= require moment
 #= require bootstrap-daterangepicker
-#= require bootstrap-tagsinput
 
 $(document).ready ->
   $('dropdown-toggle').dropdown()

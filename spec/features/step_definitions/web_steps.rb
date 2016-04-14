@@ -10,6 +10,10 @@ Then(/^I should see "(.+)"$/) do |text|
   page.should have_content(text)
 end
 
+Then(/^\.(.*) should have background (.+)$/) do |div_class, img_src|
+  page.find("div.#{div_class}")['style'].should include(img_src)
+end
+
 Given(/^I hover over (.+)$/) do |elem|
   page.execute_script("$('#{elem}').trigger('mouseenter')")
 end
