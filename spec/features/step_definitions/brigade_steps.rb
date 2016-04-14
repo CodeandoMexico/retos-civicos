@@ -18,22 +18,27 @@ Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table
   end
 end
 
-Given(/^I visit the create brigade page$/)
-  visit '/brigade/nuevo'
+Given(/^I visit the create brigade page$/) do
+  visit '/brigades/nuevo'
 end
 
 Given(/^I type (.+) into the fuzzy search text box$/) do |text|
   fill_in 'location-query', with: text
 end
 
-Given(/^I select the city Monterrey$/) do
-  click_on 'location-list'
+Given(/^I can select the city (.+)$/) do |city|
+  find('.location-list').click
+end
   
 Given(/^the box around the location text box border should turn (.+)$/) do |color|
-  (find(:css, "#{location-query}").native.style('border') == color).should be_falsey
+  page.find("#location-query")['style'].should include(color)
 end
 
-
-  
-  
-  
+def wait_for_ajax
+  counter = 0
+  while page.execute_script("return $.active").to_i > 0
+    counter += 1
+    sleep(0.1)
+    raise "AJAX request took longer than 5 seconds." if counter >= 50
+  end
+end

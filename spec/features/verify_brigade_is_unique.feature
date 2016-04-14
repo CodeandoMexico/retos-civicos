@@ -14,17 +14,13 @@ Feature: Brigade form only allows cities without a Brigade to create a new one
     Given I am logged in as a user
     When I visit the create brigade page
     And I type Monterrey into the fuzzy search text box
-    Then the location-query element should be visible
-    When I select the city Monterrey
-    Then the box around the location text box border should turn red
+    Then I can select the city Monterrey
     
   Scenario: Create a new valid Brigade in a new town
     Given I am logged in as a user
     When I visit the create brigade page
     And I type Xico into the fuzzy search text box
-    Then the location-query element should be visible
-    When I select the city Xico
-    Then the box around the location text box border should turn green
+    When I can select the city Xico
     
     
     
