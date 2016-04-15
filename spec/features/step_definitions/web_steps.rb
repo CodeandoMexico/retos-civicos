@@ -56,7 +56,6 @@ Given(/^I unhover over (.+)$/) do |elem|
   page.execute_script("$('#{elem}').trigger('mouseleave')")
 end
 
-<<<<<<< HEAD
 When(/^I click the translation for ([^\"]*)$/) do |key|
   page.should have_content(I18n.t(key))
   click_on(I18n.t(key))
@@ -65,7 +64,7 @@ end
 Given(/^I wait for (\d+) seconds?$/) do |n|
   sleep(n.to_i)
 end
-=======
+
 When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -92,4 +91,3 @@ When /^I wait for AJAX$/ do
 
   wait_for_ajax
 end
->>>>>>> 9698963780dc3767d7d953c665c8a287f8919532

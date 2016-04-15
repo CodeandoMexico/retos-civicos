@@ -27,6 +27,7 @@ Feature: User should be able to follow a brigade
       Then I should see translation for brigades.show.follow.follow
       
       When I click the translation for brigades.show.follow.follow
+      # Apparently, unable to test JavaScripty things in Cucumber... I will find a way around it later.
       # And I wait for 5 seconds
       # Then The user with e-mail: test2@test.com is following the Monterrey, Nuevo León brigade
 
