@@ -119,6 +119,7 @@ Aquila::Application.routes.draw do
   get '/location_search/:location_query', to: 'location#location_search'
   get '/location_name/:location_id', to: 'location#location_name'
   get '/location_unique/:location_id', to: 'location#location_unique'
+  get '/follow/:userid/:brigadeid', to: 'brigades#follow'
 
   root to: 'challenges#index'
 

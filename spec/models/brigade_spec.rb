@@ -1,6 +1,24 @@
 require 'spec_helper'
 
 describe Brigade do
+
+  describe '#num_members' do
+    let!(:brigade_with_users) { FactoryGirl.create(:brigade_with_users) }
+
+    it 'should return the number of followers + 1 for the organizer' do
+      expect(brigade_with_users.num_members).to eq 4
+    end
+
+    describe 'no followers' do
+      let!(:brigade) { FactoryGirl.create(:brigade) }
+
+      it 'should return 1 for the organize' do
+        expect(brigade.num_members).to eq 1
+      end
+    end
+
+  end
+
   describe '#followers' do
     let!(:brigade_with_users) { FactoryGirl.create(:brigade_with_users) }
 

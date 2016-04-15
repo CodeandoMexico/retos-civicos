@@ -1,5 +1,9 @@
 Then(/^I should see translation for ([^\"]*)$/) do |key|
-  page.should have_content(I18n.t(key))
+  expect(page).to have_content(I18n.t(key))
+end
+
+Then(/^I should not see translation for ([^\"]*)$/) do |key|
+  expect(page).not_to have_content(I18n.t(key))
 end
 
 Then(/^I should see image with src (.+)$/) do |img_src|
@@ -26,6 +30,12 @@ Then(/^I should not see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
   end
 end
 
+Then(/^I should see a link that goes to "([^\"]*)" within "([^\"]*)"$/) do |link, elem|
+  within(elem) do
+    page.should have_xpath("//a[@href=\"#{link}\"]")
+  end
+end
+
 Then(/^I should not see "(.+)"$/) do |text|
   page.should_not have_content(text)
 end
@@ -46,6 +56,15 @@ Given(/^I unhover over (.+)$/) do |elem|
   page.execute_script("$('#{elem}').trigger('mouseleave')")
 end
 
+When(/^I click the translation for ([^\"]*)$/) do |key|
+  page.should have_content(I18n.t(key))
+  click_on(I18n.t(key))
+end
+
+Given(/^I wait for (\d+) seconds?$/) do |n|
+  sleep(n.to_i)
+end
+
 When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -53,6 +72,11 @@ end
 When /^I click on "([^\"]*)"$/ do |elem|
   click_on(elem)
 end
+
+When /^I visit the home page$/ do
+  visit "/"
+end
+
 
 When /^I wait for AJAX$/ do
   def wait_for_ajax
