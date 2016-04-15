@@ -60,6 +60,11 @@ When /^I click on "([^\"]*)"$/ do |elem|
   click_on(elem)
 end
 
+When /^I visit the home page$/ do
+  visit "/"
+end
+
+
 When /^I wait for AJAX$/ do
   def wait_for_ajax
     Timeout.timeout(Capybara.default_wait_time) do
