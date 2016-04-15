@@ -20,10 +20,18 @@ class Brigade < ActiveRecord::Base
                   :location_id, :slack_url, :twitter_url, :user, :user_id
 
   def followers
-    self.users.select("users.id, users.name, users.avatar")
+    self.users
   end
 
   def organizer
     self.user
+  end
+
+  def num_members
+    self.users.count + 1
+  end
+
+  def founding_date
+    self.created_at.strftime('%d-%m-%y')
   end
 end

@@ -18,8 +18,16 @@ Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table
   end
 end
 
-Given(/^I visit the create brigade page$/) do
-  visit '/brigades/nuevo'
+When(/^I visit the brigade creation page$/) do
+  visit new_brigade_path
+end
+
+When /^I click on location option with city "([^\"]*)"$/ do |text|
+  find(:xpath, "//div[contains(@data-city,'Monterrey')]").click
+end
+
+Then /^"([^\"]*)" should be the organizer$/ do |organizer|
+  find(:xpath, "(//span[@class='member-name'])[1]").should contain organizer
 end
 
 Given(/^I type (.+) into the fuzzy search text box$/) do |text|

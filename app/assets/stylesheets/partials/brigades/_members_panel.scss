@@ -1,5 +1,3 @@
-
-
 .members-panel-content {
   margin: 10px 0;
 }
@@ -15,33 +13,4 @@
   &:hover {
     background-color: $light-grey;
   }
-}
-
-.member-image {
-  border-radius: 60px;
-  float: left;
-  width: 60px;
-}
-
-.member-name {
-  color: $dark-slate-grey;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  padding-top: 10px;
-}
-
-.sub-text {
-  color: $grey;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.stat {
-  margin: 25px 0;
-  padding: 0 10px;
-}
-
-.stat-title {
-  font-weight: 600;
 }
