@@ -4,8 +4,11 @@
     <p id="notice"><%= notice %></p>
     <p class="description"><%= @brigade.description %></p>
     <div class="left-content">
-      <%= render partial: 'social_panel' %>
-      <%= render partial: 'stats_panel' %>
+      <%= render partial: 'social_panel', locals: { twitter_url: @brigade.twitter_url,
+                                                   facebook_url: @brigade.facebook_url,
+                                                   github_url: @brigade.github_url, slack_url: @brigade.slack_url } %>
+      <%= render partial: 'stats_panel', locals: { num_members: @brigade.num_members,
+                                                   founding_date: @brigade.founding_date } %>
       <%= render partial: 'members_panel' %>
     </div>
     <div class="right-content">

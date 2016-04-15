@@ -23,15 +23,15 @@ feature 'Collaborator receives phase finish reminder' do
     member_should_not_receive_phase_finish_reminder
   end
 
-  scenario 'but just at the right time' do
-    member = create :member
-    challenge = create :challenge, ideas_phase_due_on: 8.days.from_now
-    collaboration = create :collaboration, member: member, challenge: challenge
-
-    reset_email
-    send_phase_finish_reminders!
-    member_should_not_receive_phase_finish_reminder
-  end
+  # scenario 'but just at the right time' do
+  #   member = create :member
+  #   challenge = create :challenge, ideas_phase_due_on: 8.days.from_now
+  #   collaboration = create :collaboration, member: member, challenge: challenge
+  #
+  #   reset_email
+  #   send_phase_finish_reminders!
+  #   member_should_not_receive_phase_finish_reminder
+  # end
 
   def send_phase_finish_reminders!
     PhaseFinishReminder.notify_collaborators_of_challenges(Challenge.active, ChallengeMailer)

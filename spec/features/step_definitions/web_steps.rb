@@ -26,6 +26,12 @@ Then(/^I should not see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
   end
 end
 
+Then(/^I should see a link that goes to "([^\"]*)" within "([^\"]*)"$/) do |link, elem|
+  within(elem) do
+    page.should have_xpath("//a[@href=\"#{link}\"]")
+  end
+end
+
 Then(/^I should not see "(.+)"$/) do |text|
   page.should_not have_content(text)
 end

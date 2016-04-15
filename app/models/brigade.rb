@@ -26,4 +26,12 @@ class Brigade < ActiveRecord::Base
   def organizer
     self.user
   end
+
+  def num_members
+    self.users.count + 1
+  end
+
+  def founding_date
+    self.created_at.strftime('%d-%m-%y')
+  end
 end
