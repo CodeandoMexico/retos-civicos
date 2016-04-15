@@ -9,9 +9,16 @@ Given /^I am logged in as a user$/ do
   login_as(@current_user, :scope => :user)
 end
 
+Given /^I am not logged in$/ do
+  @current_user = User.create!(email: 'throwaway@test.com', password: "111111")
+  login_as(@current_user, :scope => :user)
+  logout
+end
+
 Given /^I am logged in as the user with email: (.+)/ do |em|
   @current_user = User.where(:email => em).first
   login_as(@current_user, :scope => :user)
+  expect(@current_user).to be_truthy
 end
 
 Given /^I log out$/ do
@@ -26,3 +33,6 @@ Given /^I have just updated my information$/ do
   expect(current_path).to eq member_path(@current_user)
 end
 
+Given /^I should be on the login page$/ do
+  expect(page).to have_content("Necesitas iniciar sesión o registrarte para continuar")
+end

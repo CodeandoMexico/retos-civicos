@@ -20,4 +20,11 @@ describe BrigadesHelper do
       end
     end
   end
+  # describe 'user_in_brigade' do
+  #   describe 'a user is in a brigade' do
+  #     it 'should return true' do
+  #       TEST
+  #     end
+  #   end
+  # end
 end

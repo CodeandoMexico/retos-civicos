@@ -34,6 +34,10 @@ Given(/^the box around the location text box border should turn (.+)$/) do |colo
   page.find("#location-query")['style'].should include(color)
 end
 
+And(/^I wait for ajax/) do
+  wait_for_ajax
+end
+
 def wait_for_ajax
   counter = 0
   while page.execute_script("return $.active").to_i > 0

@@ -14,4 +14,8 @@ module BrigadesHelper
     record.errors[attribute] << error unless valid
     return record
   end
+  
+  def user_in_brigade?(curr_user, brig_id)
+    return curr_user && BrigadeUser.where(:user_id => curr_user.id, :brigade_id => brig_id).first
+  end
 end
