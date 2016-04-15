@@ -23,6 +23,8 @@ Given /^I have just updated my information$/ do
   login_as(@current_user, scope: :user)
   fill_in 'member_name', with: 'Adrian Rangel'
   click_on 'Actualizar'
-  expect(current_path).to eq member_path(@current_user)
 end
 
+Then(/^I should see the given profile page$/) do
+  expect(current_path).to eq member_path(@current_user)
+end
