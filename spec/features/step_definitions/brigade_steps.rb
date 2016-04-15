@@ -13,8 +13,8 @@ end
 Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table|
   brigade_id = Brigade.includes(:location).where(locations: { state: state, city: city }).first.id
   table.hashes.each do |user|
-    user = User.create!(user)
-    BrigadeUser.create!(user_id: user.id, brigade_id: brigade_id)
+    new_user = User.create!(user)
+    BrigadeUser.create!(user_id: new_user.id, brigade_id: brigade_id)
   end
 end
 
@@ -28,4 +28,25 @@ end
 
 Then /^"([^\"]*)" should be the organizer$/ do |organizer|
   find(:xpath, "(//span[@class='member-name'])[1]").should contain organizer
+end
+
+Given(/^I type (.+) into the fuzzy search text box$/) do |text|
+  fill_in 'location-query', with: text
+end
+
+Given(/^I can select the city (.+)$/) do |city|
+  find('.location-list').click
+end
+  
+Given(/^the box around the location text box border should turn (.+)$/) do |color|
+  page.find("#location-query")['style'].should include(color)
+end
+
+def wait_for_ajax
+  counter = 0
+  while page.execute_script("return $.active").to_i > 0
+    counter += 1
+    sleep(0.1)
+    raise "AJAX request took longer than 5 seconds." if counter >= 50
+  end
 end

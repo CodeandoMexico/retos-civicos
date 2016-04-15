@@ -20,7 +20,6 @@ feature 'Collaborator adds prototype to entry' do
   end
 
   scenario 'in the prototypes phase with good params' do
-    pending
     submit_prototype_with(
       repo_url: 'github.com/ervity/miprototipo',
       demo_url: 'miprototipo.com'

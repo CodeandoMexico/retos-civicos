@@ -1,6 +1,6 @@
 Given(/^the following users exist:$/) do |table|
   table.hashes.each do |user|
-    User.create(user)
+    User.create!(user)
   end
 end
 
@@ -8,6 +8,16 @@ Given /^I am logged in as a user with email "(.*)" and name "(.*)"$/ do |email, 
   @current_user = User.create!(email: email, name: name, password: "111111")
   login_as(@current_user, :scope => :user)
 end
+
+Given /^I am logged in as a user$/ do
+  @current_user = User.create!(email: 'test0@test.com', password: "111111")
+  login_as(@current_user, :scope => :user)
+end
+
+# Given /^I am logged in as the user with email: (.+)/ |em|
+#   @current_user = User.where(:email => em).first
+#   login_as(@current_user, :scope => :user)
+# end
 
 Given /^I log out$/ do
   logout
@@ -20,3 +30,4 @@ Given /^I have just updated my information$/ do
   click_on 'Actualizar'
   expect(current_path).to eq member_path(@current_user)
 end
+

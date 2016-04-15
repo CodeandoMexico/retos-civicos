@@ -14,6 +14,22 @@ Then(/^I should see "(.+)"$/) do |text|
   page.should have_content(text)
 end
 
+Then(/^I should see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
+  within(elem) do
+    page.should have_content(text)
+  end
+end
+
+Then(/^I should not see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
+  within(elem) do
+    page.should_not have_content(text)
+  end
+end
+
+Then(/^I should not see "(.+)"$/) do |text|
+  page.should_not have_content(text)
+end
+
 Given(/^I hover over (.+)$/) do |elem|
   page.execute_script("$('#{elem}').trigger('mouseenter')")
 end

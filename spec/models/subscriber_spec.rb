@@ -6,7 +6,7 @@ describe Subscriber do
       organization = FactoryGirl.create(:organization)
       FactoryGirl.create(:subscriber, email: 'miguel@test.com', organization_id: organization.id)
       subscriber = FactoryGirl.build(:subscriber, email: 'miguel@test.com', organization_id: organization.id)
-      subscriber.should_not be_valid
+      expect(subscriber).not_to be_valid
     end
   end
 end

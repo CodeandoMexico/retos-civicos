@@ -5,10 +5,10 @@
       <%= render partial: 'member',
               locals: { profile_img: @brigade.organizer.avatar, from_modal: false, member_name: @brigade.organizer.name,
                         subtext: "(#{I18n.t('brigades.show.members.organizer')})" } %>
-      <% @brigade.followers.each do |follower| %>
+      <% @brigade.followers.limit(2).each do |follower| %>
       <%= render partial: 'member',
-             locals: { profile_img: follower.avatar,
-                       from_modal: false, member_name: follower.name,
+             locals: { profile_img: follower.image_url("small"),
+                       from_modal: false, member_name: follower.to_s,
                        subtext: "4 #{I18n.t('brigades.show.project').pluralize(4).downcase} #{I18n.t('brigades.show.members.in_common')}" } %>
     <% end %>
     </div>

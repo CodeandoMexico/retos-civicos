@@ -64,3 +64,6 @@ $ ->
     button = form.siblings('.js-open-reply-form')
     form.find('textarea').val('')
     form.fadeOut => button.show()
+
+$(document).ready ->
+  $('.dropdown-toggle').dropdown()

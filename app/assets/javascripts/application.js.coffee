@@ -30,10 +30,9 @@
 #= require_self
 #= require moment
 #= require bootstrap-daterangepicker
-#= require bootstrap-tagsinput
 
 $(document).ready ->
-  $('dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown()
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
   $('[data-toggle="tooltip"]').tooltip()
