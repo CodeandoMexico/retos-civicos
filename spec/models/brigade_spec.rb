@@ -8,18 +8,43 @@ describe Brigade do
       expect(brigade_with_users.followers.pluck(:name)).to include "Barack Obama"
       expect(brigade_with_users.followers.pluck(:name)).to include "Adrian Rangel"
       expect(brigade_with_users.followers.pluck(:name)).to include "Enrique Nieto"
-      expect(brigade_with_users.followers.first).to be_a_kind_of User
+    end
+
+    it 'should only return User objects' do
+      expect(brigade_with_users.followers).to all(be_a_kind_of User)
+    end
+
+    it 'should not include the organizer' do
+      expect(brigade_with_users.followers.pluck(:name)).to_not include "Jacobo"
+    end
+
+    describe 'no followers' do
+      let!(:brigade) { FactoryGirl.create(:brigade) }
+
+      it 'should return an empty relation' do
+        expect(brigade.followers.size).to be 0
+      end
     end
   end
 
   describe '#organizer' do
     let!(:brigade) { FactoryGirl.create(:brigade) }
 
-    it 'should return the owner of the brigade who is a user.' do
-      expect(brigade.organizer).to be_a_kind_of User
+    it 'should return the owner of the brigade' do
       expect(brigade.organizer.name).to eq "Jacobo"
     end
 
+    it 'should be a User' do
+      expect(brigade.organizer).to be_a_kind_of User
+    end
+
+    describe "with followers" do
+      let!(:brigade_with_users) { FactoryGirl.create(:brigade_with_users) }
+
+      it 'should be independent from the existence of followers' do
+        expect(brigade_with_users.organizer.name).to eq "Jacobo"
+      end
+    end
   end
 
   describe 'Given a valid brigade was created' do

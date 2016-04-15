@@ -1,7 +1,12 @@
 Given(/^the following users exist:$/) do |table|
   table.hashes.each do |user|
-    User.create(user)
+    User.create!(user)
   end
+end
+
+Given /^I am logged in as a user with email "(.*)" and name "(.*)"$/ do |email, name|
+  @current_user = User.create!(email: email, name: name, password: "111111")
+  login_as(@current_user, :scope => :user)
 end
 
 Given /^I am logged in as a user$/ do
