@@ -26,10 +26,11 @@ end
 Given /^I have just updated my information$/ do
   @current_user = User.create!(email: 'test@test.com', password: '111111')
   login_as(@current_user, scope: :user)
+  visit edit_member_path(@current_user)
   fill_in 'member_name', with: 'Adrian Rangel'
   click_on 'Actualizar'
 end
 
 Then(/^I should see the given profile page$/) do
-  expect(current_path).to eq member_path(@current_user)
+  expect(current_path).to eq "/miembros/#{@current_user.id}-adrian-rangel"
 end
