@@ -32,7 +32,7 @@
 #= require bootstrap-daterangepicker
 
 $(document).ready ->
-  $('dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown()
   $('.js-chosen').chosen()
   $('.js-datepicker').datepicker(dateFormat: 'yy-mm-dd')
   $('[data-toggle="tooltip"]').tooltip()

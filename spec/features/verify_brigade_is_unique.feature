@@ -12,13 +12,13 @@ Feature: Brigade form only allows cities without a Brigade to create a new one
 
   Scenario: Try to create another Monterrey Brigade
     Given I am logged in as a user
-    When I visit the create brigade page
+    When I visit the brigade creation page
     And I type Monterrey into the fuzzy search text box
     Then I can select the city Monterrey
     
   Scenario: Create a new valid Brigade in a new town
     Given I am logged in as a user
-    When I visit the create brigade page
+    When I visit the brigade creation page
     And I type Xico into the fuzzy search text box
     Then I can select the city Xico
     

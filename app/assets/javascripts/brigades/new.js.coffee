@@ -64,9 +64,9 @@ $(window).load ->
           location_id = $('#brigade_location_id').val()
           $.get("/location_unique/#{location_id}", (data) ->
             if (data.data)
-              $("#location-query").css("border","red solid 2px");
+              $("#location-query").css("outline","#f66 auto 5px");
             else
-              $("#location-query").css("border","green solid 2px");
+              $("#location-query").css("outline","none");
           )
           return
           
@@ -74,33 +74,33 @@ $(window).load ->
         $('body').on 'focusout', '#brigade_slack_url', ->
           $("#brigade_calendar_url").val($("#brigade_calendar_url").val())
           if  $("#brigade_slack_url").val() == ""
-            $("#brigade_slack_url").css("border","red solid 2px");
+            $("#brigade_slack_url").css("outline","#f66 auto 5px");
           else
-            $("#brigade_slack_url").css("border","green solid 2px");
+            $("#brigade_slack_url").css("outline","none");
             
       githubValidation = ->
         $('body').on 'focusout', '#brigade_github_url', ->
           $("#brigade_calendar_url").val($("#brigade_calendar_url").val())
           if  $("#brigade_github_url").val() == ""
-            $("#brigade_github_url").css("border","red solid 2px");
+            $("#brigade_github_url").css("outline","#f66 auto 5px");
           else
-            $("#brigade_github_url").css("border","green solid 2px");
+            $("#brigade_github_url").css("outline","none");
             
        facebookValidation = ->
         $('body').on 'focusout', '#brigade_facebook_url', ->
           $("#brigade_calendar_url").val($("#brigade_calendar_url").val())
           if  $("#brigade_facebook_url").val() == ""
-            $("#brigade_facebook_url").css("border","red solid 2px");
+            $("#brigade_facebook_url").css("outline","#f66 auto 5px");
           else
-            $("#brigade_facebook_url").css("border","green solid 2px");
+            $("#brigade_facebook_url").css("outline","none");
 
       twitterValidation = ->
         $('body').on 'focusout', '#brigade_twitter_url', ->
           $("#brigade_calendar_url").val($("#brigade_calendar_url").val())
           if  $("#brigade_twitter_url").val() == ""
-            $("#brigade_twitter_url").css("border","red solid 2px");
+            $("#brigade_twitter_url").css("outline","#f66 auto 5px");
           else
-            $("#brigade_twitter_url").css("border","green solid 2px");
+            $("#brigade_twitter_url").css("outline","none");
       setup = ->
         addLocationCallback document.getElementById('location-query'), execLocationSearch, 1000
         removeLocationListWhenBodyClicked()
@@ -115,6 +115,6 @@ $(window).load ->
       setup()
   
 hello = ->
-  $("#brigade_calendar_url").css("border","red solid 3px");
+  $("#brigade_calendar_url").css("outline","red solid 3px");
   
   
