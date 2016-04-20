@@ -5,6 +5,14 @@ Given(/^the following brigades exist:$/) do |table|
   end
 end
 
+Given(/^the following brigades with locations exist:$/) do |table|
+  table.hashes.each do |brigade|
+    location = Location.create!(zip_code: brigade.zip, state: brigade.state, city: brigade.city, locality: brigade.locality)
+    brigade[:location_id] = location.id
+    Brigade.create(brigade)
+  end
+end
+
 Given(/^I visit the brigade page for (.+), (.+)$/) do |city, state|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
   visit brigade_path(brigade)
