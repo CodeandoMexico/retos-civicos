@@ -1,21 +1,23 @@
 language: ruby
 cache: bundler
 rvm:
-- ruby-2.1.8
+  - ruby-2.1.8
 services:
-- postgresql
+  - postgresql
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- cp config/database.sample.yml config/database.yml
-- psql -c 'create database retos_cmx_test;' -U postgres
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - cp config/database.sample.yml config/database.yml
+  - psql -c 'create database retos_cmx_test;' -U postgres
 script:
-- RAILS_ENV=test bundle exec rake db:migrate --trace
-- bundle exec rake db:test:prepare
-- bundle exec rspec spec/
-- bundle exec cucumber
-- codeclimate-batch --groups 2
-#- bundle exec rake jasmine:ci
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+  - bundle exec cucumber
+  #- bundle exec rake jasmine:ci
+bundler_args: --binstubs
+after_script:
+  - ./bin/codeclimate-batch --groups 2
 addons:
   code_climate:
     repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
