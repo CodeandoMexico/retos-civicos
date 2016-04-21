@@ -12,7 +12,7 @@ before_script:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/models/brigade_spec.rb
+  - bundle exec rspec
   - bundle exec cucumber spec/features/user_has_a_profile_page_spec.feature
   #- bundle exec rake jasmine:ci
 after_script:
