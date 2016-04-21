@@ -15,9 +15,6 @@ script:
   - bundle exec rspec spec/routing
   - bundle exec cucumber
   #- bundle exec rake jasmine:ci
-bundler_args: --binstubs
-after_script:
-  - ./bin/codeclimate-batch --groups 4
 addons:
   code_climate:
     repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
