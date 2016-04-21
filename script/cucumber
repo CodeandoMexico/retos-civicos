@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require "codeclimate-test-reporter"
 
 vendored_cucumber_bin = Dir["#{File.dirname(__FILE__)}/../vendor/{gems,plugins}/cucumber*/bin/cucumber"].first
 if vendored_cucumber_bin
