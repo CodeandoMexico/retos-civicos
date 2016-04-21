@@ -1,14 +1,13 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-
+require "simplecov"
+SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'devise'
-require "simplecov"
-SimpleCov.use_merging true
-SimpleCov.start
+
 # Set port to 3000
 Capybara.server_port = '3000'
 
