@@ -12,7 +12,7 @@ before_script:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - bundle exec rspec
+#  - bundle exec rspec
   - bundle exec cucumber
   #- bundle exec rake jasmine:ci
 after_script:
