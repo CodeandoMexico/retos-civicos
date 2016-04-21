@@ -1,2 +1,0 @@
-require 'codeclimate_batch'
-CodeclimateBatch.start
