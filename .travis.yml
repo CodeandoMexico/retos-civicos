@@ -14,7 +14,7 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec
   - bundle exec cucumber
-  #- bundle exec rake jasmine:ci
+  - bundle exec jasmine:ci
 after_script:
   - bundle exec rake send_to_codeclimate
 addons:
