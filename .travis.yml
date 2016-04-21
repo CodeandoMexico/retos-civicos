@@ -15,6 +15,8 @@ script:
   - bundle exec rspec spec/models/brigade_spec.rb
   - bundle exec cucumber spec/features/user_has_a_profile_page_spec.feature
   #- bundle exec rake jasmine:ci
+after_script:
+  - bundle exec rake send_to_codeclimate
 addons:
   code_climate:
     repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
