@@ -36,6 +36,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
+  gem 'codeclimate-test-reporter', require: nil
   gem 'codeclimate_batch', require: nil
   gem 'pry'
 end
