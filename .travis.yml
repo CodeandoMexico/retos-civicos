@@ -14,7 +14,7 @@ script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec spec/
 - bundle exec cucumber
-- rake jasmine:ci
+- bundle exec rake jasmine:ci
 addons:
   code_climate:
     repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
