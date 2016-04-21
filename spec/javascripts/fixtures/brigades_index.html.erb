@@ -1,0 +1,22 @@
+<script>
+  window.currentController  = 'brigades';
+  window.currentAction  = 'index';
+</script>
+<div class="brigades">
+  <div id="map"></div>
+  <input type='text' class="location-search">
+  <div class="brigade-results">
+    <div class="brigade" data-longitude="25.7" data-latitude="100.3">
+      <div class="members pop-over-subject" data-toggle="modal" data-target="#members-modal">1 member</div>
+      <div class="pop-over-results">Kyle Boss</div>
+    </div>
+    <div class="brigade" data-longitude="20.9" data-latitude="103.8">
+      <div class="members pop-over-subject" data-toggle="modal" data-target="#members-modal">2 members</div>
+      <div class="pop-over-results">Janice Wallace, Kyle Boss</div>
+    </div>
+    <div class="brigade" data-longitude="23.2" data-latitude="106.4">
+      <div class="members">Be the first member</div>
+    </div>
+  </div>
+  <%= render partial: 'members_modal' %>
+</div>
