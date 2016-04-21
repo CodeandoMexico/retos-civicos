@@ -13,7 +13,7 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec
-  - bundle exec cucumber spec/features/user_has_a_profile_page_spec.feature
+  - bundle exec cucumber
   #- bundle exec rake jasmine:ci
 after_script:
   - bundle exec rake send_to_codeclimate
