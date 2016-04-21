@@ -7,7 +7,7 @@
 require 'cucumber/rails'
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
-require "codeclimate-test-reporter"
+require 'codeclimate_batch'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
