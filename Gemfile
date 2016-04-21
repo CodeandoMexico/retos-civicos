@@ -50,6 +50,7 @@ group :development, :test do
   gem 'autotest'
   gem 'factory_girl'
   gem 'metric_fu'
+  gem 'jasmine-jquery-rails'
 end
 
 group :assets do

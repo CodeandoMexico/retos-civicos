@@ -1,5 +1,15 @@
-Then(/^I should see translation for ([^\"]*)$/) do |key|
+Then(/^I should see translation for "([^\"]*)"$/) do |key|
   page.should have_content(I18n.t(key))
+end
+
+Then(/^I should see translation for "([^\"]*)" within "([^\"]*)"$/) do |key, elem|
+  within(elem) do
+    page.should have_content(I18n.t(key))
+  end
+end
+
+When(/^I click on the translation for "([^\"]*)"$/) do |key|
+  click_on(I18n.t(key))
 end
 
 Then(/^I should see image with src (.+)$/) do |img_src|

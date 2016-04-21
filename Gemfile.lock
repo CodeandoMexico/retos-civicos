@@ -254,6 +254,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
+    jasmine-jquery-rails (2.0.3)
     journey (1.0.4)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
@@ -593,6 +594,7 @@ DEPENDENCIES
   gravatar-ultimate
   haml
   hirb
+  jasmine-jquery-rails
   jquery-rails
   jquery-tokeninput-rails!
   jquery-ui-rails

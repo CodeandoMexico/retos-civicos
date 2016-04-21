@@ -50,6 +50,14 @@ Given(/^the box around the location text box border should turn (.+)$/) do |colo
   page.find("#location-query")['style'].should include(color)
 end
 
+Given(/^there are no brigades$/) do
+  Brigade.delete_all
+end
+
+Then /^I should be on the brigades listing page$/ do
+  page.current_path.should eq brigades_path
+end
+
 def wait_for_ajax
   counter = 0
   while page.execute_script("return $.active").to_i > 0

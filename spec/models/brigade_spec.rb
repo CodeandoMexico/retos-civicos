@@ -16,7 +16,26 @@ describe Brigade do
         expect(brigade.num_members).to eq 1
       end
     end
+  end
 
+  describe '.search' do
+    let!(:location1) { FactoryGirl.create(:location, city: "Tequila", state: "Jalisco") }
+    let!(:location2) { FactoryGirl.create(:location, city: "Monterrey", state: "Nuevo León") }
+    let!(:location3) { FactoryGirl.create(:location, city: "Mazatlan", state: "Sinaloa") }
+    let!(:brigade) { FactoryGirl.create(:brigade_with_users, location: location1) }
+    let!(:brigade) { FactoryGirl.create(:brigade, location: location2) }
+    let!(:brigade) { FactoryGirl.create(:brigade, location: location3) }
+
+    it 'should return the brigades that match the search query' do
+      result = Brigades.search("Tequila")
+      expect(result.length).to eq 1
+      expect(result.first[:city]).to eq "Tequila"
+      expect(result.first[:state]).to eq "Jalisco"
+      expect(results.first[:members].length).to eq 3
+      expect(result.first[:members].pluck(:name)).to include "Barack Obama"
+      expect(result.first[:members].pluck(:name)).to include "Adrian Rangel"
+      expect(result.first[:members].pluck(:name)).to include "Enrique Nieto"
+    end
   end
 
   describe '#followers' do
@@ -301,7 +320,7 @@ describe Brigade do
         end
       end
 
-      describe 'Given the header image URL is not a valid Github URL' do
+      describe 'Given the header image URL is not a valid image URL' do
         let(:brigade_with_invalid_header_image_url) do
           FactoryGirl.build(:brigade, header_image_url: "http://facebook.com/")
         end

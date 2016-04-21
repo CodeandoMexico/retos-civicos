@@ -24,7 +24,7 @@ Feature: User should be able to follow a brigade
       Given I am logged in as the user with email: 'test1@test.com'
     #   And I am not following Monterrey, Nuevo León
     #   When I visit the brigade page for Monterrey, Nuevo León
-    #   Then I should see translation for brigades.show.follow.follow
+    #   Then I should see translation for "brigades.follow.follow"
       
     #   When I click "Unirse"
     #   Then I am following Monterrey, Nuevo León

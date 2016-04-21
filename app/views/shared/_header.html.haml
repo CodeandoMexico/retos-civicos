@@ -18,7 +18,7 @@
             %li
               %a{ href: "/"}= t('layout.civic_challenges')
             %li
-              %a{ href: "/brigades"}= t('brigades.brigades')
+              = link_to t('brigades.brigades'), brigades_path
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{ href: "#", 'data-toggle'=> "dropdown", role: "button", 'aria-haspopup'=> "true", 'aria-expanded'=> "false" }

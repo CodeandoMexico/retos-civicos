@@ -67,14 +67,18 @@ es:
     facebook_url: URL de Facebook
     twitter_url: Url de Twitter
     header_image_url: URL de Imagen de Perfil
+    follow:
+      follow: Unirse
+      unfollow: Dejar
+    search:
+      no_brigades_match_search: "No brigadas coinciden con la búsqueda. Pruebe una ciudad o estado válido."
+      no_brigades_exist: "Actualmente no existen brigadas. Inténtelo de nuevo más tarde."
+    no_members: "Sé el primero en unirse!"
     show:
       search: Busca
       member: Miembro
       see_more: Ver más
       project: Proyecto
-      follow:
-        follow: Unirse
-        unfollow: Dejar
       stats:
         statistics: Estadística
         created: Fundado
