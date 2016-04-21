@@ -115,8 +115,8 @@ GEM
     code_analyzer (0.4.5)
       sexp_processor
     code_metrics (0.1.3)
-    codeclimate-test-reporter (0.5.0)
-      simplecov (>= 0.7.1, < 1.0.0)
+    codeclimate_batch (0.4.0)
+      json
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -570,7 +570,7 @@ DEPENDENCIES
   capybara-webkit
   carrierwave (~> 0.8.0)
   ckan!
-  codeclimate-test-reporter
+  codeclimate_batch
   coffee-rails (~> 3.2.1)
   compass
   compass-rails
