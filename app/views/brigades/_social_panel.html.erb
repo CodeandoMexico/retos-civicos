@@ -1,10 +1,39 @@
 <div class="content-box">
   <div class="box-title"><%= t("brigades.follow.follow") %></div>
   <div class="box-content social-networks">
-    <button class="positive-button" onclick="follow()"><%= t("brigades.follow.follow") %></button>
+    <button class="followButton <%= @user_joined ? "negative-button" : "positive-button" %>"
+            rel=<%= @brigade_id %>
+            onclick="follow_unfollow(<%= @current_user.id %>, <%= @brigade_id %>)">
+            <%= @user_joined ? t("brigades.show.follow.unfollow") : t("brigades.show.follow.follow") %></button>
     <a href="<%= twitter_url %>"><%= image_tag("icons/twitter.svg", class: "svg social-network") %></a>
     <a href="<%= facebook_url %>"><%= image_tag("icons/facebook.svg", class: "svg social-network") %></a>
     <a href="<%= github_url %>"><%= image_tag("icons/github.svg", class: "svg social-network") %></a>
     <a href="<%= slack_url %>"><%= image_tag("icons/slack.svg", class: "svg social-network") %></a>
   </div>
 </div>
+
+<script>
+function follow_unfollow(usr, brg){
+  $.get("/follow/" + usr + "/" + brg);
+}
+</script>
+<script>
+$('button.followButton').on('click', function(e){
+    e.preventDefault();
+    $button = $(this);
+    if($button.hasClass('negative-button')){
+        
+        // $.ajax(); Do Unfollow
+        
+        $button.removeClass('negative-button');
+        $button.addClass('positive-button');
+        $button.text('Unirse');
+    } else {
+        
+        // $.ajax(); Do Follow
+        $button.removeClass('positive-button');
+        $button.addClass('negative-button');
+        $button.text('Dejar');
+    }
+});
+</script>

@@ -21,6 +21,10 @@ class Member < ActiveRecord::Base
     ''
   end
 
+  def to_param
+    "#{id}-#{to_s.parameterize}"
+  end
+
   def representative
     # to-do clean this a little bit and merge with to_s
     case

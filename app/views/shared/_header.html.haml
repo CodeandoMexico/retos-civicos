@@ -33,7 +33,7 @@
                 - else
                   = link_to t('header.user.panel'), panel_entries_path
               %li
-                = link_to t('header.user.profile'), edit_member_path(current_user.userable)
+                = link_to t('header.user.profile'), member_path(current_user.userable)
               %li
                 = link_to t('header.user.log_out'), destroy_user_session_path, method: :delete
         - else

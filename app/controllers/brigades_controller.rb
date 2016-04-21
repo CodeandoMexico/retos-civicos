@@ -4,6 +4,11 @@ class BrigadesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_brigade, only: [:show, :edit, :update, :destroy]
 
+  def follow
+    BrigadeUser.follow_unfollow(params[:userid], params[:brigadeid])
+    render nothing: true
+  end
+  
   # GET /brigades
   # GET /brigades.json
   def index
@@ -18,7 +23,9 @@ class BrigadesController < ApplicationController
   # GET /brigades/1
   # GET /brigades/1.json
   def show
-    @signedin = user_signed_in?
+    @current_user = current_user
+    @user_joined = user_in_brigade?(@current_user, params[:id])
+    @brigade_id = params[:id]
     render_brigade
   end
 

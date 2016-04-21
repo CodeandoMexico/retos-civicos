@@ -21,22 +21,23 @@ Feature: User should be able to follow a brigade
       | test1@test.com | Kyle  | 111111   |
   
     Scenario: Able to follow a Brigade when logged in
-      Given I am logged in as the user with email: 'test1@test.com'
-    #   And I am not following Monterrey, Nuevo León
-    #   When I visit the brigade page for Monterrey, Nuevo León
-    #   Then I should see translation for "brigades.follow.follow"
-      
-    #   When I click "Unirse"
-    #   Then I am following Monterrey, Nuevo León
-    #   And I can RSVP to an event
+      Given The user with e-mail: test2@test.com is not following the Monterrey, Nuevo León brigade
+      And I am logged in as the user with email: test2@test.com
+      When I visit the brigade page for Monterrey, Nuevo León
+      Then I should see translation for "brigades.show.follow.follow"
 
-    # Scenario: Redirected to login when not logged in and try to join a brigade.
-    #   Given I am not logged in as a user
-    #   When I visit the brigade page for Monterrey, Nuevo León
-    #   And I click "Unirse"
-    #   Then I should be on the login page
+      When I click on the translation for "brigades.show.follow.follow"
+      # Apparently, unable to test JavaScripty things in Cucumber... I will find a way around it later.
+      # And I wait for 5 seconds
+      # Then The user with e-mail: test2@test.com is following the Monterrey, Nuevo León brigade
+
+    Scenario: Redirected to login when not logged in and try to join a brigade.
+      Given I am not logged in
+      When I visit the brigade page for Monterrey, Nuevo León
+      Then I should be on the login page
       
-    # Scenario: Should not see the join button if already in a brigade
-    #   Given I am logged in as a user
-    #   And I am following Monterrey, Nuevo León
-    #   Then I should not see "Unirse"
+    Scenario: Should not see the join button if already in a brigade
+      Given The user with e-mail: test1@test.com is following the Monterrey, Nuevo León brigade
+      Given I am logged in as the user with email: test1@test.com
+      When I visit the brigade page for Monterrey, Nuevo León
+      Then I should see translation for "brigades.show.follow.unfollow"
