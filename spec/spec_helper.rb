@@ -7,7 +7,8 @@ require 'rspec/autorun'
 require 'capybara/rails'
 require 'devise'
 require "simplecov"
-
+SimpleCov.use_merging true
+SimpleCov.start
 # Set port to 3000
 Capybara.server_port = '3000'
 
