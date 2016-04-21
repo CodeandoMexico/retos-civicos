@@ -7,7 +7,8 @@
 require 'cucumber/rails'
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
-require 'simplecov'
+require "simplecov"
+SimpleCov.start
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
