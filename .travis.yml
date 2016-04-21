@@ -13,7 +13,7 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/models/brigade_spec.rb
-  - bundle exec cucumber
+  - bundle exec cucumber spec/features/verify_brigade_form.feature
   #- bundle exec rake jasmine:ci
 addons:
   code_climate:
