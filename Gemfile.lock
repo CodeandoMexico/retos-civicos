@@ -254,6 +254,12 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
+    jasmine (2.4.0)
+      jasmine-core (~> 2.4)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.4.1)
     jasmine-jquery-rails (2.0.3)
     journey (1.0.4)
     jquery-rails (3.1.0)
@@ -360,6 +366,7 @@ GEM
     parser (2.3.0.6)
       ast (~> 2.2)
     pg (0.17.1)
+    phantomjs (2.1.1.0)
     polyglot (0.3.5)
     powerpack (0.1.1)
     procto (0.0.3)
@@ -595,6 +602,7 @@ DEPENDENCIES
   gravatar-ultimate
   haml
   hirb
+  jasmine
   jasmine-jquery-rails
   jquery-rails
   jquery-tokeninput-rails!
