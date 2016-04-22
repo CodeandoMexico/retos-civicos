@@ -5,10 +5,10 @@
             rel=<%= @brigade_id %>
             onclick="follow_unfollow(<%= @current_user.id %>, <%= @brigade_id %>)">
             <%= @user_joined ? t("brigades.follow.unfollow") : t("brigades.follow.follow") %></button>
-    <a href="<%= twitter_url %>"><%= image_tag("icons/twitter.svg", class: "svg social-network") %></a>
-    <a href="<%= facebook_url %>"><%= image_tag("icons/facebook.svg", class: "svg social-network") %></a>
-    <a href="<%= github_url %>"><%= image_tag("icons/github.svg", class: "svg social-network") %></a>
-    <a href="<%= slack_url %>"><%= image_tag("icons/slack.svg", class: "svg social-network") %></a>
+    <a href="<%= twitter_url %>"><%= image_tag("icons/twitter.svg", class: "svg social-network", id: "twitter_snbutton") %></a>
+    <a href="<%= facebook_url %>"><%= image_tag("icons/facebook.svg", class: "svg social-network", id: "facebook_snbutton") %></a>
+    <a href="<%= github_url %>"><%= image_tag("icons/github.svg", class: "svg social-network", id: "github_snbutton") %></a>
+    <a href="<%= slack_url %>"><%= image_tag("icons/slack.svg", class: "svg social-network", id: "slack_snbutton") %></a>
   </div>
 </div>
 
