@@ -92,7 +92,7 @@ Feature: The search brigades page
     And I should not see "Mazatlan, Sinaloa"
     And I should see translation for "brigades.no_brigades_match_search"
 
-  Scenario: No brigades exist
+  Scenario: No bgit tag v1.4-lwrigades exist
     Given there are no brigades
     When I click on ".dropdown-toggle"
     And I click on the translation for "brigades.brigades"
