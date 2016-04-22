@@ -16,6 +16,10 @@ When(/^I click on the translation for "([^\"]*)"$/) do |key|
   click_on(I18n.t(key))
 end
 
+When(/^I click the "([^\"]*)" element$/) do |elem|
+  find(elem.to_s).click
+end
+
 Then(/^I should see image with src (.+)$/) do |img_src|
   page.should have_xpath("//img[@src=#{img_src}]")
 end

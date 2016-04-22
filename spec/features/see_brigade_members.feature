@@ -1,7 +1,8 @@
 Feature: User should be able to see brigade members
-    As a user
-    I want to be able to see all members of a brigade
-    So that I can know who is in my community
+
+  As a user
+  I want to be able to see all members of a brigade
+  So that I can know who is in my community
   
   Background: Brigades in database
     
@@ -24,16 +25,17 @@ Feature: User should be able to see brigade members
       When I visit the brigade page for Monterrey, Nuevo León
       Then I should see translation for "brigades.show.members.see_all_members"
       
-      When I click on the translation for "brigades.show.members.see_all_members"
-      Then I should see "Kyle"
-      And  I should see "Jake"
-      And  I should not see "Adrian"
+      When I click the ".all-members-link" element
+      Then I should see "Kyle" in the members popup
+      And  I should see "Jake" in the members popup
+      And  I should not see "Obama" in the members popup
     Scenario: If there are no followers, I should still see the organizer
       Given I am logged in as the user with email: test2@test.com
       When I visit the brigade page for Monterrey, Nuevo León
       Then I should see translation for "brigades.show.members.see_all_members"
       
-      When I click on the translation for "brigades.show.members.see_all_members"
-      Then I should not see "Kyle"
-      And  I should not see "Jake"
-      And  I should see the brigade organizer
+      When I click the ".all-members-link" element
+      Then I should not see "Kyle" in the members popup
+      And  I should not see "Jake" in the members popup
+      And  I should not see "Adrian" in the members popup
+      And  I should see "(Organizer)" in the members popup
