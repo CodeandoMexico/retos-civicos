@@ -589,6 +589,16 @@ es:
       submit: Guardar
   members:
     header: Editar perfil
+    show:
+      usermenu:
+        hacker-since: Hacker desde hace
+        current-challenges: Retos actuales
+        current-brigades: Brigadas actuales
+        edit: Editar
+      content:
+        biography: Biografía
+        brigades: Brigadas
+        projects: Proyectos
     form:
       submit: Actualizar
       email-description: Correo electrónico en donde recibirás notificaciones de los retos en los que participes

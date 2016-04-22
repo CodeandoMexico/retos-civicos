@@ -387,6 +387,16 @@ en:
       submit: Send
   members:
     header: Edit profile
+    show:
+      usermenu:
+        hacker-since: Hacker since
+        current-challenges: Current challenges
+        current-brigades: Current brigades
+        edit: Edit
+      content:
+        biography: Biography
+        brigades: Brigades
+        projects: Projects
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in
