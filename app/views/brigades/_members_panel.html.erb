@@ -3,10 +3,10 @@
   <div class="box-content members">
     <div class="members-panel-content">
       <%= render partial: 'member',
-              locals: { profile_img: @brigade.organizer.avatar, from_modal: false, member_name: @brigade.organizer.name,
+              locals: { profile_img: @brigade.organizer.avatar, from_modal: false, member_name: @brigade.organizer.to_s,
                         subtext: "(#{I18n.t('brigades.show.members.organizer')})" } %>
       <% @brigade.followers.limit(2).each do |follower| %>
-      <% curr_brigade_user = BrigadeUser.get_relation(follower.id, @brigade.id).created_at%>
+      <% curr_brigade_user = BrigadeUser.get_relation(follower.id, @brigade.id).created_at %>
           <%= render partial: 'member',
                      locals: { profile_img: follower.image_url("small"),
                                from_modal: false, member_name: follower.to_s,
