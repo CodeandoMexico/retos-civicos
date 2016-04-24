@@ -11,4 +11,13 @@ class BrigadeUser < ActiveRecord::Base
       BrigadeUser.create({:user_id => u_id, :brigade_id => b_id})
     end
   end
+  
+  def self.get_relation(u_id, b_id)
+    relation = BrigadeUser.where(:user_id => u_id, :brigade_id => b_id).first
+    if relation
+      return relation
+    else
+      return nil
+    end
+  end
 end
