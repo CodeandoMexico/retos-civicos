@@ -620,6 +620,7 @@ DEPENDENCIES
   omniauth-twitter
   onebox (~> 1.2)
   pg
+  phantomjs
   pry
   quiet_assets
   rack-cache
