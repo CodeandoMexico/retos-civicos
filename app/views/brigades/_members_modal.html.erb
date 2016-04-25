@@ -19,7 +19,7 @@
           <%= render partial: 'member',
                      locals: { profile_img: follower.image_url("small"),
                                from_modal: true, member_name: follower.to_s,
-                               subtext: "Member since #{curr_brigade_user.strftime("%B %d, %Y")}" } %>
+                               subtext: t('brigades.show.members.member_since') + ' ' + curr_brigade_user.strftime("%B %d, %Y")} %>
           <% end %>
         </div>
       </div>

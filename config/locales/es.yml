@@ -88,6 +88,7 @@ es:
         brigade: Brigada
         in_common: en común
         see_all_members: Ver todos los miembros
+        member_since: Miembro desde
       events:
         next_event: Próximo Evento
         rsvp: Reservar
