@@ -52,7 +52,9 @@
         <%= t('members.show.content.brigades') %>
       </pb>
       <p>
-        Brigades stuff here
+        <% @user.brigades.each do |brigade| %>
+          <%= brigade.location.city %><br/>
+        <% end %>
       </p>
     </div>
     <div class="profile-content">
