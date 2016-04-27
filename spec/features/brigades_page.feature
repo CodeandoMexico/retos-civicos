@@ -1,5 +1,6 @@
 Feature: The search brigades page
 
+<<<<<<< HEAD
   As a user
   I would like the ability to search for currently active brigades
   so that I can navigate to the brigade's page.

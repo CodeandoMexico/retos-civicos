@@ -58,11 +58,6 @@ Then /^I should be on the brigades listing page$/ do
   page.current_path.should eq brigades_path
 end
 
-Then /^I should see the brigade organizer$/ do
-  org = t('brigade.organizer')
-  expect(page.find('#modal-member')[:sub_text]).to eq(org)
-end
-
 def wait_for_ajax
   counter = 0
   while page.execute_script("return $.active").to_i > 0

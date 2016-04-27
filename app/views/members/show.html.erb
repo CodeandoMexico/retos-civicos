@@ -26,11 +26,11 @@
       <!-- SIDEBAR MENU -->
       <div class="profile-usermenu">
         <ul class="nav">
-          <li><a href="#">Hacker desde hace: <%= time_ago_in_words @member.created_at %></a></li>
-          <li><%= link_to fa_icon('rocket', text: 'Retos actuales'), challenges_path %></li>
-          <li><%= link_to fa_icon('group', text: 'Brigadas actuales'), brigades_path %></li>
+          <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
+          <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
+          <li><%= link_to fa_icon('group', text: t('members.show.usermenu.current-brigades')), brigades_path %></li>
           <% if current_user.userable == @member %>
-            <li><%= link_to fa_icon('pencil', text: 'Editar'), edit_member_path(@member) %></li>
+            <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
           <% end %>
         </ul>
       </div>
@@ -39,20 +39,26 @@
   </div>
   <div class="col-md-9">
     <div class="profile-content">
-      <p>
-        Biografía:
-      </p>
+      <pb>
+        <%= t('members.show.content.biography') %>
+      </pb>
       <p>
         <%= @member.bio %>
       </p>
     </div>
 
     <div class="profile-content">
+      <pb>
+        <%= t('members.show.content.brigades') %>
+      </pb>
       <p>
         Brigades stuff here
       </p>
     </div>
     <div class="profile-content">
+      <pb>
+        <%= t('members.show.content.projects') %>
+      </pb>
       <p>
         Projects stuff here
       </p>

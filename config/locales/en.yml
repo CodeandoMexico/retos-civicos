@@ -139,9 +139,9 @@ en:
       follow: Join
       unfollow: Leave
     search:
-      no_brigades_match_search: "No brigades match search. Try typing in a valid city/state."
-      no_brigades_exist: "No brigades currently exist. Try again later."
-    no_members: "Be the first to join!"
+      no_brigades_match_search: No brigades match search. Try typing in a valid city/state.
+      no_brigades_exist: No brigades currently exist. Try again later.
+    no_members: Be the first to join!
     show:
       search: Search
       member: member
@@ -156,6 +156,7 @@ en:
         project: Project
         in_common: in common
         see_all_members: See all members
+        member_since: Member since
       events:
         next_event: Next Event
         rsvp: RSVP
@@ -387,6 +388,16 @@ en:
       submit: Send
   members:
     header: Edit profile
+    show:
+      usermenu:
+        hacker-since: Hacker since
+        current-challenges: Current challenges
+        current-brigades: Current brigades
+        edit: Edit
+      content:
+        biography: Biography
+        brigades: Brigades
+        projects: Projects
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in

@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :userskills
   has_many :skills, through: :userskills
   has_many :comments
+  has_many :brigades, through: :brigade_users
 
   belongs_to :userable, polymorphic: true
 

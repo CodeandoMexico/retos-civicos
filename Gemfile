@@ -38,6 +38,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
+  gem 'phantomjs'
 end
 
 group :development, :test do
