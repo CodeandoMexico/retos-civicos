@@ -133,3 +133,90 @@
     }
   }
 }
+
+.brigades.index {
+
+  .stylish-input-group .input-group-addon{
+    background: white !important;
+  }
+  .stylish-input-group .form-control{
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
+    padding: 17px 20px;
+    font-size: 22px;
+    color: #444;
+  }
+  .stylish-input-group button{
+    border:0;
+    background:transparent;
+  }
+
+  .brigade {
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      filter: brightness(150%);
+    }
+  }
+
+  .brigade-img {
+    height: 200px;
+    background-color: lightcyan;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  .brigade-results {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .map-container {
+    position: relative;
+  }
+
+  .brigade-detail {
+    height: 75px;
+    color: $white;
+  }
+
+  .brigade-map {
+    width: 90vw;
+    height: 45vh;
+    margin: 25px auto;
+  }
+
+  .brigade-title-text {
+    position: absolute;
+    margin: auto;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    color: $white;
+  }
+
+  .brigade-location {
+    font-weight: 600;
+    margin: 0 0 10px 0;
+  }
+
+  .place-details {
+    position: absolute;
+    bottom: 0;
+    left: 5vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 80%;
+    border-top-left-radius: 15px;
+  }
+
+  .detail-text {
+    color: $white;
+  }
+}

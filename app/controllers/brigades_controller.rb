@@ -15,7 +15,7 @@ class BrigadesController < ApplicationController
     @brigades = Brigade.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render layout: 'aquila' }
       format.json { render json: @brigades }
     end
   end
