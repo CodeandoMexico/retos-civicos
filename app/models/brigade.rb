@@ -1,6 +1,7 @@
 # A Brigade object represents a CodeandoMexico Brigade.
 # Can be created by a user and deactivated by an administrator
 # or the user who created it.
+
 class Brigade < ActiveRecord::Base
   belongs_to :user
   belongs_to :location

@@ -135,6 +135,8 @@ en:
     facebook_url: Facebook URL
     twitter_url: Twitter URL
     header_image_url: Header Image URL
+    member: Member
+    founded: Founded
     follow:
       follow: Join
       unfollow: Leave
@@ -144,7 +146,6 @@ en:
     no_members: Be the first to join!
     show:
       search: Search
-      member: member
       projects: Projects
       see_more: See more
       stats:

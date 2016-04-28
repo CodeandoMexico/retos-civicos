@@ -181,6 +181,7 @@
 
   .brigade-detail {
     height: 75px;
+    padding: 5px;
     color: $white;
   }
 
@@ -190,7 +191,13 @@
     margin: 25px auto;
   }
 
+  .brigade-row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
   .brigade-title-text {
+    padding: 5px;
     position: absolute;
     margin: auto;
     bottom: 25px;
@@ -201,7 +208,10 @@
 
   .brigade-location {
     font-weight: 600;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .place-details {

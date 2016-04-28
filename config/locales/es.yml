@@ -67,6 +67,8 @@ es:
     facebook_url: URL de Facebook
     twitter_url: Url de Twitter
     header_image_url: URL de Imagen de Perfil
+    member: Miembro
+    founded: Fundado hace
     follow:
       follow: Unirse
       unfollow: Dejar
@@ -76,7 +78,6 @@ es:
     no_members: "Sé el primero en unirse!"
     show:
       search: Busca
-      member: Miembro
       see_more: Ver más
       project: Proyecto
       stats:

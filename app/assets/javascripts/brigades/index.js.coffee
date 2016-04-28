@@ -23,41 +23,46 @@ $(window).load ->
       return
 
     setOriginalMarkers = ->
-      codeAddress('monterrey, nuevo león')
-      codeAddress('tequila, jalisco')
-      codeAddress('puerto vallarta, jalisco')
-      codeAddress('veracruz, veracruz')
+      $('.brigade').each ->
+        brigade = $(this)
+        codeAddress(brigade.attr('data-state'), $(this).attr('data-city'), (data) -> recenterMap(data, brigade) )
 
     setup = ->
       initMap()
       setBrigadeHoverListeners()
       setOriginalMarkers()
 
-    recenterMap = (data, color='FF0000') ->
+    formatLocName = (data) ->
+      data['address_components'][0]['long_name'] + ", " + data['address_components'][2]['long_name']
+
+    recenterMap = (data, brigadeDiv) ->
       brigadeMap.panTo data.geometry.location
       marker = new (google.maps.Marker)(
         map: brigadeMap
         position: data.geometry.location
         icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png')
-      locationName = data['address_components'][0]['short_name'] + ", " + data['address_components'][2]['short_name']
+      locationName = formatLocName(data)
       $('.detail-text').text(locationName)
+      if brigadeDiv != undefined
+        console.log brigadeDiv
+        $(brigadeDiv).find('.brigade-location').first().text(locationName)
+        $(brigadeDiv).find('.brigade-title-text').first().text(data['address_components'][0]['short_name'])
       marker.addListener 'click', ->
         brigadeMap.panTo marker.getPosition()
         $('.detail-text').text(locationName)
         return
 
-    codeAddress = (state, city, color) ->
+    codeAddress = (state, city, successFn) ->
       address = city + ", " + state
       if (geocodeCache[address] != undefined)
         data = geocodeCache[address]
-        recenterMap(data, color)
+        recenterMap(data)
       else
         geocoder = new (google.maps.Geocoder)
         geocoder.geocode { 'address': address, 'region': 'mx' }, (results, status) ->
           if status == google.maps.GeocoderStatus.OK
             geocodeCache[address] = results[0]
-            console.log(results[0])
-            recenterMap(results[0], color)
+            successFn(results[0])
           else
             console.log 'Geocode was not successful for the following reason: ' + status
             return
