@@ -48,7 +48,7 @@ $(window).load ->
       locationName = formatLocName(data)
       $('.detail-text').text(locationName)
       if brigadeDiv != undefined
-        $(brigadeDiv).find('.brigade-location').first().text(locationName)
+        $(brigadeDiv).find('.brigade-location').first().text(data['address_components'][0]['short_name'] + ", " + data['address_components'][2]['short_name'])
         $(brigadeDiv).find('.brigade-title-text').first().text(data['address_components'][0]['short_name'])
       marker.addListener 'click', ->
         brigadeMap.panTo marker.getPosition()
