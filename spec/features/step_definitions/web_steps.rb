@@ -80,7 +80,6 @@ Given(/^I wait for (\d+) seconds?$/) do |n|
 end
 
 When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-  save_and_open_page
   fill_in(field, :with => value)
 end
 
