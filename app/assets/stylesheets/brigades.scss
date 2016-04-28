@@ -224,10 +224,26 @@
     background-color: rgba(0,0,0,0.8);
     color: white;
     font-size: 80%;
-    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
 
   .detail-text {
     color: $white;
+  }
+
+  .new-brigade-link {
+    margin: 10px 0 -10px 0;
+    color: #555;
+    font-size: 12px;
+  }
+
+  .new-brigade-link-text {
+    color: #555;
+    transition: all 0.5s;
+    text-decoration: none;
+
+    &:hover {
+      color: #999
+    }
   }
 }

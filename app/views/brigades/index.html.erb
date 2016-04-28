@@ -1,10 +1,11 @@
 <div id="brigades" class="brigades index">
+  <% if Brigade.count > 0 %>
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <div id="imaginary_container">
           <div class="input-group stylish-input-group">
-            <input type="text" class="form-control location-search"  placeholder="Search" >
+            <input type="text" id="brigade-query" class="form-control location-search"  placeholder="Search" >
                     <span class="input-group-addon">
                         <button type="submit">
                           <span class="glyphicon glyphicon-search"></span>
@@ -14,14 +15,19 @@
         </div>
       </div>
     </div>
+    <div class="new-brigade-link"><%= I18n.t('brigades.index.dont_see_desired_brigade') %> <a href="/brigades/new" class='new-brigade-link-text'><%= I18n.t('brigades.index.create_brigade') %></a></div>
   </div>
+  <% end %>
   <div class="map-container">
     <div id="brigade-map" class="brigade-map"></div>
-    <div class='place-details'>
-      <h1 class='detail-text'></h1>
+    <div class='place-details' id='place-details'>
+      <h1 class='detail-text' id='detail-text'></h1>
     </div>
   </div>
-  <div class="brigade-results">
+  <% if Brigade.count == 0 %>
+    <h1><%= I18n.t('brigades.index.no_brigades_exist') %> <a href="/brigades/new" class='new-brigade-link-text'><%= I18n.t('brigades.index.create_brigade') %></a></h1>
+  <% end %>
+  <div id='brigade-results' class="brigade-results">
     <% Brigade.all.each_with_index do |brigade, index| %>
       <% if index % 4 == 0 %>
         <div class="row brigade-row">

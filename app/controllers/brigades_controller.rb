@@ -80,6 +80,13 @@ class BrigadesController < ApplicationController
     end
   end
 
+  def brigade_search
+    respond_to do |format|
+      format.html { redirect_to '/' }
+      format.json { render json: Brigade.search(params[:brigade_query]) }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

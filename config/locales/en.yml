@@ -140,9 +140,11 @@ en:
     follow:
       follow: Join
       unfollow: Leave
-    search:
-      no_brigades_match_search: No brigades match search. Try typing in a valid city/state.
-      no_brigades_exist: No brigades currently exist. Try again later.
+    index:
+      no_brigades_match_search: Search returned no results.
+      no_brigades_exist: No brigades currently exist.
+      create_brigade: Establish a brigade in your area!
+      dont_see_desired_brigade: Don't see a brigade near you?
     no_members: Be the first to join!
     show:
       search: Search
