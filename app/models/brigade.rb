@@ -39,11 +39,8 @@ class Brigade < ActiveRecord::Base
 
   def brigade_since_formatter
     base_string = self.created_at.ago_in_words
-    puts base_string
-    base_string = base_string.slice(0..(base_string.index(' and')))
-    puts base_string
-    base_string = base_string.gsub('second', 'segundo').gsub('minute', 'minuto').gsub('hour', 'hora').gsub('day', 'día').gsub('month', 'mes').gsub('year', 'año')
-    puts base_string
+    base_string = base_string.slice(0..(base_string.index(' and'))) if base_string.index(' and').present?
+    base_string = base_string.gsub('second', 'segundo').gsub('minute', 'minuto').gsub('hour', 'hora').gsub('day', 'día').gsub('month', 'mes').gsub('year', 'año').gsub('ago', '')
     return "#{I18n.t('brigades.founded')} #{base_string}"
   end
 
