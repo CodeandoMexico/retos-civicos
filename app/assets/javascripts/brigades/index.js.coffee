@@ -35,6 +35,7 @@ $(window).load ->
       addBrigadeSearchCallback document.getElementById('brigade-query'), execLocationSearch, 1000
 
     formatLocName = (data) ->
+      console.log(data)
       data['address_components'][0]['long_name'] + ", " + data['address_components'][2]['long_name']
 
     recenterMap = (data, brigadeDiv) ->
@@ -78,14 +79,14 @@ $(window).load ->
       if index % 4 == 0
         brigadeResultsDiv.append("<div class='row brigade-row'>")
       brigadeResultsDiv.append("<a href='/brigades/#{brigadeId}'>
-        <div class='brigade col-md-3' data-city='#{data['address_components'][0]['short_name']}' data-state='#{data['address_components'][3]['short_name']}'>
+        <div class='brigade col-md-3' data-city='#{data['address_components'][0]['short_name']}' data-state='#{data['address_components'][2]['short_name']}'>
         <div class='brigade-title-container' id='brigade-title-container'>
         <div class='brigade-img' style='background-image: url(#{header_img})'>
         <div class='translucent-overlay'>
         <h2 class='brigade-title-text'>#{data['address_components'][0]['short_name']}</h2>
         </div></div></div>
         <div class='brigade-detail' style='background-color: #{color}'>
-        <div class='brigade-location'>#{data['address_components'][0]['short_name']}, #{data['address_components'][3]['short_name']}</div>
+        <div class='brigade-location'>#{data['address_components'][0]['short_name']}, #{data['address_components'][2]['short_name']}</div>
         <div class='members'>#{num_members}</div>
         <div class='founded'>#{brigade_since}</div>
         </div></div>")
