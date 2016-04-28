@@ -9,7 +9,8 @@
   .hero-image-container {
     background-attachment: fixed;
     background-color: $light-cyan;
-    background-position: right top;
+    background-size: 100%;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100%;
     overflow-y: hidden;
