@@ -65,7 +65,7 @@ es:
     slack_url: URL de Slack
     github_url: URL de Github
     facebook_url: URL de Facebook
-    twitter_url: Url de Twitter
+    twitter_url: URL de Twitter
     header_image_url: URL de Imagen de Perfil
     member: Miembro
     founded: Fundado hace
@@ -73,17 +73,17 @@ es:
       follow: Unirse
       unfollow: Dejar
     index:
-      no_brigades_match_search: No brigadas coinciden con la búsqueda.
+      no_brigades_match_search: No hay brigadas que coinciden con la búsqueda.
       no_brigades_exist: Actualmente no existen brigadas.
-      create_brigade: Establecer una brigada en su ciudad!
-      dont_see_desired_brigade: ¿No ve una brigada cerca de usted?
-    no_members: Sé el primero en unirse!
+      create_brigade: ¡Establece una brigada en tu ciudad!
+      dont_see_desired_brigade: ¿No ves una brigada cerca de ti?
+    no_members: ¡Sé el primero en unirse!
     show:
       search: Busca
       see_more: Ver más
       project: Proyecto
       stats:
-        statistics: Estadística
+        statistics: Estadísticas
         created: Fundado
         projects: Proyectos
       members:
@@ -103,7 +103,7 @@ es:
         export: exportar
         event: evento
       projects:
-        stop_contributing: Leave
+        stop_contributing: Dejar
         contribute: Contribuir
         contributor: Contribuyente
     form:
@@ -120,11 +120,11 @@ es:
     new:
       header: Crear Brigada
       submit: Crear
-      success: Brigada se ha creado correctamente.
+      success: Brigada se ha creado exitosamente.
     edit:
       header: Editar Brigada
       submit: Editar
-      success: Brigada se ha actualizado correctamente.
+      success: Brigada se ha actualizado exitosamente.
   challenges:
     initial_activity:
       title: Creación del reto
