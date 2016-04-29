@@ -28,7 +28,7 @@ Feature: User should be able to follow a brigade
 
       When I click on the translation for "brigades.follow.follow"
       # Apparently, unable to test JavaScripty things in Cucumber... I will find a way around it later.
-      # And I wait for 5 seconds
+      # And I wait for 5 seconds.
       # Then The user with e-mail: test2@test.com is following the Monterrey, Nuevo León brigade
 
     Scenario: Redirected to login when not logged in and try to join a brigade.

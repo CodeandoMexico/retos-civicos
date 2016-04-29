@@ -29,7 +29,7 @@ Feature: Brigade has show view
     And I should see translation for "brigades.follow.follow"
     And I should see translation for "brigades.show.events.next_event"
     And I should see translation for "brigades.show.stats.statistics"
-    And I should see translation for "brigades.show.member"
+    And I should see translation for "brigades.member"
     And I should see translation for "brigades.show.members.organizer"
     And .hero-image-container should have background http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png
     And I should see the text "Bobble Head" within ".members-panel-content"

@@ -105,6 +105,7 @@ gem 'rack-utf8_sanitizer'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'angularjs-rails'
 gem 'textacular', '~> 3.0'
+gem 'time_ago_in_words'
 
 # Console tools
 gem 'ruby-progressbar'
