@@ -53,7 +53,7 @@
       </pb>
       <p>
         <% @user.brigades.each do |brigade| %>
-          <%= brigade.location.city %><br/>
+          <%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %><br/>
         <% end %>
       </p>
     </div>
