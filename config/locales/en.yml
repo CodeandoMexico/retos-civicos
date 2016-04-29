@@ -399,6 +399,7 @@ en:
         edit: Edit
       content:
         biography: Biography
+        noinfo: No info to show
         brigades: Brigades
         projects: Projects
     form:

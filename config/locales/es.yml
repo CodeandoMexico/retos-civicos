@@ -601,6 +601,7 @@ es:
         edit: Editar
       content:
         biography: Biografía
+        noinfo: No se tiene información para mostrar
         brigades: Brigadas
         projects: Proyectos
     form:
