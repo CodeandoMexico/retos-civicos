@@ -43,7 +43,11 @@
         <%= t('members.show.content.biography') %>
       </pb>
       <p>
-        <%= @member.bio %>
+        <% if @member.bio.length > 0 %>
+          <%= @member.bio %>
+        <% else %>
+          <%= I18n.t('members.show.content.noinfo') %>
+        <% end %>
       </p>
     </div>
 
@@ -52,7 +56,9 @@
         <%= t('members.show.content.brigades') %>
       </pb>
       <p>
-        Brigades stuff here
+        <% @user.brigades.each do |brigade| %>
+          <%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %><br/>
+        <% end %>
       </p>
     </div>
     <div class="profile-content">
