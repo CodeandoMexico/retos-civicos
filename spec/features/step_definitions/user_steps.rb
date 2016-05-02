@@ -38,8 +38,19 @@ Given /^I have just updated my information$/ do
   click_on 'Actualizar'
 end
 
+Given /^I have a link to another user profile$/ do
+  @current_user = User.create!(email: 'test@test.com', password: '111111')
+  @other_user = User.create!(email: 'test2@test.com', password: '111111')
+  login_as(@current_user, scope: :user)
+  visit member_path(@other_user)
+end
+
 Then(/^I should see the given profile page$/) do
-  expect(current_path).to eq "/miembros/#{@current_user.id}-adrian-rangel"
+  expect(current_path).to eq "/miembros/#{@current_user.to_param}"
+end
+
+Then(/^Then I should see the other users profile page$/) do
+  expect(current_path).to eq "/miembros/#{@other_user.to_param}"
 end
 
 Given /^I should be on the login page$/ do
