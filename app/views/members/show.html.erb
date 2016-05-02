@@ -56,7 +56,7 @@
         <%= t('members.show.content.brigades') %>
       </pb>
       <p>
-        <% @user.brigades.each do |brigade| %>
+        <% @member.user.brigades.each do |brigade| %>
           <%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %><br/>
         <% end %>
       </p>
