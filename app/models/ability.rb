@@ -119,7 +119,8 @@ class Ability
   end
 
   def grant_members_access(user)
-    can [:show, :edit, :update], Member do |member|
+    can [:show], Member
+    can [:edit, :update], Member do |member|
       user.userable.id == member.id
     end
   end
