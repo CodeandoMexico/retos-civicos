@@ -43,10 +43,10 @@
         <%= t('members.show.content.biography') %>
       </pb>
       <p>
-        <% if @member.bio.length > 0 %>
-          <%= @member.bio %>
-        <% else %>
+        <% if @member.bio.blank? %>
           <%= I18n.t('members.show.content.noinfo') %>
+        <% else %>
+          <%= @member.bio %>
         <% end %>
       </p>
     </div>
