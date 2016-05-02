@@ -16,12 +16,16 @@ When(/^I click on the translation for "([^\"]*)"$/) do |key|
   click_on(I18n.t(key))
 end
 
+When(/^I click the "([^\"]*)" element$/) do |elem|
+  find(elem.to_s).click
+end
+
 Then(/^I should see image with src (.+)$/) do |img_src|
   page.should have_xpath("//img[@src=#{img_src}]")
 end
 
 Then(/^\.(.*) should have background (.+)$/) do |div_class, img_src|
-  page.find("div.#{div_class}")['style'].should include(img_src)
+  page.first("div.#{div_class}")['style'].should include(img_src)
 end
 
 Then(/^I should see "(.+)"$/) do |text|

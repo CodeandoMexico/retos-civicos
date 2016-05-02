@@ -15,7 +15,7 @@ class BrigadesController < ApplicationController
     @brigades = Brigade.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render layout: 'aquila' }
       format.json { render json: @brigades }
     end
   end
@@ -77,6 +77,13 @@ class BrigadesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to brigades_url }
       format.json { head :no_content }
+    end
+  end
+
+  def brigade_search
+    respond_to do |format|
+      format.html { redirect_to '/' }
+      format.json { render json: Brigade.search(params[:brigade_query]) }
     end
   end
 

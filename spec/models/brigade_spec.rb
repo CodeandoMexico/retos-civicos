@@ -12,7 +12,7 @@ describe Brigade do
     describe 'no followers' do
       let!(:brigade) { FactoryGirl.create(:brigade) }
 
-      it 'should return 1 for the organize' do
+      it 'should return 1 for the organizer' do
         expect(brigade.num_members).to eq 1
       end
     end
@@ -27,7 +27,8 @@ describe Brigade do
     let!(:brigade) { FactoryGirl.create(:brigade, location: location3) }
 
     it 'should return the brigades that match the search query' do
-      result = Brigades.search("Tequila")
+      pending
+      result = Brigade.search("Tequila")
       expect(result.length).to eq 1
       expect(result.first[:city]).to eq "Tequila"
       expect(result.first[:state]).to eq "Jalisco"

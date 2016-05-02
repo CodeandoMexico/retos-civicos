@@ -24,11 +24,11 @@ Feature: User should be able to follow a brigade
       Given The user with e-mail: test2@test.com is not following the Monterrey, Nuevo León brigade
       And I am logged in as the user with email: test2@test.com
       When I visit the brigade page for Monterrey, Nuevo León
-      Then I should see translation for "brigades.show.follow.follow"
+      Then I should see translation for "brigades.follow.follow"
 
-      When I click on the translation for "brigades.show.follow.follow"
+      When I click on the translation for "brigades.follow.follow"
       # Apparently, unable to test JavaScripty things in Cucumber... I will find a way around it later.
-      # And I wait for 5 seconds
+      # And I wait for 5 seconds.
       # Then The user with e-mail: test2@test.com is following the Monterrey, Nuevo León brigade
 
     Scenario: Redirected to login when not logged in and try to join a brigade.
@@ -40,4 +40,4 @@ Feature: User should be able to follow a brigade
       Given The user with e-mail: test1@test.com is following the Monterrey, Nuevo León brigade
       Given I am logged in as the user with email: test1@test.com
       When I visit the brigade page for Monterrey, Nuevo León
-      Then I should see translation for "brigades.show.follow.unfollow"
+      Then I should see translation for "brigades.follow.unfollow"

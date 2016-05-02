@@ -1,4 +1,7 @@
-# encoding: utf-8
+# A Challenge object represents a CodeandoMexico Challenge.
+# Can be created by an organization and is a core object to
+# CodeandoMexico's service of providing links between citizens,
+# organizations, and governmental entities.
 class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
                   :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec,
@@ -92,9 +95,9 @@ class Challenge < ActiveRecord::Base
 
   def export_evaluations(opts = {})
     CSV.generate(opts) do |csv|
-      criteria_field_names = evaluation_criteria.map { |criteria| criteria[:description] }
+      criteria_fields = evaluation_criteria.map{|c| c[:description]}
       # name of the csv column fields
-      csv << %w(Juez Equipo) + criteria_field_names + ['Comentarios']
+      csv << %w(Juez Equipo) + criteria_fields + ['Comentarios']
       evaluations.each do |e|
         e.report_cards.each do |r|
           # let's fetch the grades first
@@ -205,30 +208,27 @@ class Challenge < ActiveRecord::Base
   end
 
   def timeline_json
-    {
-      'timeline' =>
-      {
+    {'timeline' =>{
         'headline' => 'Actividades y Noticias',
         'type' => 'default',
         'startDate' => created_at.year,
         'text' => '',
         'date' => activities.map do |activity|
           date = activity.created_at.strftime('%Y, %m, %d')
-          {
-            'startDate' => date,
+          create_activity(activity, date)
+        end
+      }}
+  end
+  
+  def create_activity(activity, date)
+    return { 'startDate' => date,
             'endDate' => date,
             'headline' => activity.title,
             'text' => activity.text,
             'asset' =>
-            {
-              'media' => '',
+            { 'media' => '',
               'credit' => '',
-              'caption' => ''
-            }
-          }
-        end
-      }
-    }
+              'caption' => '' }}
   end
 
   def datasets_id

@@ -6,10 +6,10 @@ Given(/^the following brigades exist:$/) do |table|
 end
 
 Given(/^the following brigades with locations exist:$/) do |table|
+  user = User.create!(email: 'brigade_test@test.com', password: "111111")
   table.hashes.each do |brigade|
-    location = Location.create!(zip_code: brigade.zip, state: brigade.state, city: brigade.city, locality: brigade.locality)
-    brigade[:location_id] = location.id
-    Brigade.create(brigade)
+    location = Location.create!(zip_code: brigade[:zip_code], state: brigade[:state], city: brigade[:city], locality: brigade[:locality])
+    Brigade.create!(location_id: location.id, user_id: user.id)
   end
 end
 
@@ -19,10 +19,12 @@ Given(/^I visit the brigade page for (.+), (.+)$/) do |city, state|
 end
 
 Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table|
-  brigade_id = Brigade.includes(:location).where(locations: { state: state, city: city }).first.id
-  table.hashes.each do |user|
-    this_user = User.where(:email => user[:email]).first || User.create!(user)
-    BrigadeUser.create(user_id: this_user.id, brigade_id: brigade_id)
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  unless brigade.blank?
+    table.hashes.each do |user|
+      this_user = User.where(:email => user[:email]).first || User.create!(user)
+      BrigadeUser.create(user_id: this_user.id, brigade_id: brigade.id)
+    end
   end
 end
 

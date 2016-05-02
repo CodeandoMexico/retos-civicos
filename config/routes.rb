@@ -21,7 +21,6 @@ Aquila::Application.routes.draw do
   end
 
   match 'signup' => 'pages#sign_up'
-
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: [:index, :new, :edit, :create, :update], controller: 'dashboard/challenges' do
@@ -117,6 +116,8 @@ Aquila::Application.routes.draw do
   # get "/about", to: "pages#about", as: "about"
   get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
   get '/location_search/:location_query', to: 'location#location_search'
+  get '/brigade_search/:brigade_query', to: 'brigades#brigade_search'
+  get '/brigade_search/', to: 'brigades#brigade_search'
   get '/location_name/:location_id', to: 'location#location_name'
   get '/location_unique/:location_id', to: 'location#location_unique'
   get '/follow/:userid/:brigadeid', to: 'brigades#follow'

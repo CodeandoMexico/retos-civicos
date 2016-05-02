@@ -135,16 +135,19 @@ en:
     facebook_url: Facebook URL
     twitter_url: Twitter URL
     header_image_url: Header Image URL
+    member: Member
+    founded: Founded
     follow:
       follow: Join
       unfollow: Leave
-    search:
-      no_brigades_match_search: "No brigades match search. Try typing in a valid city/state."
-      no_brigades_exist: "No brigades currently exist. Try again later."
-    no_members: "Be the first to join!"
+    index:
+      no_brigades_match_search: Search returned no results.
+      no_brigades_exist: No brigades currently exist.
+      create_brigade: Establish a brigade in your area!
+      dont_see_desired_brigade: Don't see a brigade near you?
+    no_members: Be the first to join!
     show:
       search: Search
-      member: member
       projects: Projects
       see_more: See more
       stats:
@@ -156,6 +159,7 @@ en:
         project: Project
         in_common: in common
         see_all_members: See all members
+        member_since: Member since
       events:
         next_event: Next Event
         rsvp: RSVP
@@ -167,7 +171,7 @@ en:
         export: Export
         event: Event
       projects:
-        stop_contributing: Dejar
+        stop_contributing: Leave
         contribute: Contribute
         contributor: Contributor
     form:
@@ -387,6 +391,17 @@ en:
       submit: Send
   members:
     header: Edit profile
+    show:
+      usermenu:
+        hacker-since: Hacker since
+        current-challenges: Current challenges
+        current-brigades: Current brigades
+        edit: Edit
+      content:
+        biography: Biography
+        noinfo: No info to show
+        brigades: Brigades
+        projects: Projects
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in

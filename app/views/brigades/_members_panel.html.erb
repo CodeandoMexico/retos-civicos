@@ -1,19 +1,20 @@
 <div class="content-box">
-  <div class="box-title"><%= I18n.t('brigades.show.member').pluralize(2) %></div>
+  <div class="box-title"><%= I18n.t('brigades.member').pluralize(2) %></div>
   <div class="box-content members">
     <div class="members-panel-content">
       <%= render partial: 'member',
-              locals: { profile_img: @brigade.organizer.avatar, from_modal: false, member_name: @brigade.organizer.name,
+              locals: { profile_img: @brigade.organizer.avatar, from_modal: false, member_name: @brigade.organizer.to_s,
                         subtext: "(#{I18n.t('brigades.show.members.organizer')})" } %>
       <% @brigade.followers.limit(2).each do |follower| %>
-      <%= render partial: 'member',
-             locals: { profile_img: follower.image_url("small"),
-                       from_modal: false, member_name: follower.to_s,
-                       subtext: "4 #{I18n.t('brigades.show.project').pluralize(4).downcase} #{I18n.t('brigades.show.members.in_common')}" } %>
+      <% curr_brigade_user = BrigadeUser.get_relation(follower.id, @brigade.id).created_at %>
+          <%= render partial: 'member',
+                     locals: { profile_img: follower.image_url("small"),
+                               from_modal: false, member_name: follower.to_s,
+                               subtext: t('brigades.show.members.member_since') + ' ' + curr_brigade_user.strftime("%B %d, %Y")} %>
     <% end %>
     </div>
-    <span class="all-members-link modal-link" data-toggle="modal" data-target="#members-modal">
+    <div class="all-members-link modal-link" data-toggle="modal" data-target="#members-modal">
       <%= I18n.t('brigades.show.members.see_all_members') %>
-    </span>
+    </div>
   </div>
 </div>
