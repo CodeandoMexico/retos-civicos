@@ -626,6 +626,9 @@ es:
       phase_finish_reminder_setting: 'Recordatorios de envío de propuesta en la última semana.'
       notification_mailer: 'Envío de correos'
       select_notifications_that_you_wish_to_receive: 'Selecciona si deseas recibir correos de notificación'
+      show_profile_header: Mostrar mi perfil públicamente
+      show_profile_description: Selecciona si deseas que tu perfil sea público.
+      show_profile_label: Mostrar mi perfil públicamente
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id

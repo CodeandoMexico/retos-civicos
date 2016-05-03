@@ -36,6 +36,7 @@ Given /^I have just updated my information$/ do
   visit edit_member_path(@current_user)
   fill_in 'member_name', with: 'Adrian Rangel'
   click_on 'Actualizar'
+  visit member_path(@current_user)
 end
 
 Given /^I have a link to another user profile$/ do
@@ -45,12 +46,28 @@ Given /^I have a link to another user profile$/ do
   visit member_path(@other_user)
 end
 
+Given /^Give I don't want to show my public profile$/ do
+  @current_user = User.create!(email: 'test@test.com', password: '111111')
+  login_as(@current_user, scope: :user)
+  visit edit_member_path(@current_user)
+  fill_in 'member_name', with: 'Adrian Rangel'
+  find(:css, "#cityID[value='62']").set(false)
+  click_on 'Actualizar'
+  logout
+  @other_user = User.create!(email: 'test2@test.com', password: '111111')
+  login_as(@other_user, scope: :user)
+end
+
 Then(/^I should see the given profile page$/) do
   expect(current_path).to eq "/miembros/#{@current_user.to_param}"
 end
 
-Then(/^Then I should see the other users profile page$/) do
+Then(/^I should see the other users profile page$/) do
   expect(current_path).to eq "/miembros/#{@other_user.to_param}"
+end
+
+Then(/^my profile should be hidden to other users$/) do
+  expect(current_path).to eq nil
 end
 
 Given /^I should be on the login page$/ do

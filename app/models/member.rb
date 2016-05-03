@@ -3,7 +3,7 @@ class Member < ActiveRecord::Base
 
   attr_accessible :avatar, :email, :name, :nickname, :bio, :user,
                   :phase_finish_reminder_setting, :github_url, :twitter_url,
-                  :facebook_url
+                  :facebook_url, :show_profile
 
   acts_as_user
   paginates_per 21
