@@ -62,10 +62,12 @@
             <div class="brigade col-md-3">
               <div>
                 <div class="brigade-title-container" id="brigade-title-container">
-                  <h2 class="brigade-title-text" style="text-align:center; color:black"><%= brigade.location.city.titleize %></h2>
+                  <h2 class="brigade-title-text" style="text-align:center; color:black; font-weight:600;"><%= brigade.location.city.titleize %></h2>
                 </div>
-                <div class="brigade-detail" style="background-color: <%= '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|"%02x" % (32+b-a)}.join %>">
-                  <div class="brigade-location"><%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %></div>
+                <div class="brigade-detail" style="color:lightgrey; background-color: <%= '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|"%02x" % (32+b-a)}.join %>">
+                  <div class="brigade-location" style="font-size:12px; font-weight:600;">
+                    <%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %>
+                  </div>
                   <div class="members"><%= brigade.users.count+1 %>
                     <%= I18n.t('brigades.member').pluralize(brigade.users.count+1).downcase %>
                   </div>

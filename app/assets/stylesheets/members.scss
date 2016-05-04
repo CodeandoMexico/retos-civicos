@@ -1,0 +1,47 @@
+// Place all the styles related to the Brigades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.members {
+  .brigade {
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      filter: brightness(150%);
+    }
+  }
+
+  .brigade-img {
+    height: 200px;
+    background-color: lightcyan;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  .brigade-title-text {
+    padding: 5px;
+    position: absolute;
+    margin: auto;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    color: $white;
+  }
+
+  .brigade-detail {
+    height: 75px;
+    padding: 5px;
+    color: $white;
+  }
+
+  .brigade-location {
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
