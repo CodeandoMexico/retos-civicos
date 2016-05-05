@@ -38,7 +38,7 @@ class PrototypesController < ApplicationController
     @entry ||= current_member.entry_for(challenge)
   end
 
-  alias_method :load_entry, :entry
+  alias :load_entry :entry
 
   def entry_params
     params[:entry].slice(:repo_url, :demo_url)

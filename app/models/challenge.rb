@@ -74,7 +74,7 @@ class Challenge < ActiveRecord::Base
 
   def self.missing_winner_challenges(args)
     challenges = Challenge.where(organization_id: args[:organization])
-                 .where('finish_on <= ?', Date.current)
+                          .where('finish_on <= ?', Date.current)
     challenges.reject { |c| c if c.winner? }
   end
 
