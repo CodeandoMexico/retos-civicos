@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .members {
-  .brigade {
+  .member-brigade {
     cursor: pointer;
     transition: all 0.5s;
 
@@ -12,7 +12,7 @@
     }
   }
 
-  .brigade-img {
+  .member-brigade-img {
     height: 200px;
     background-color: lightcyan;
     background-position: center top;
@@ -21,7 +21,7 @@
     overflow-y: hidden;
   }
 
-  .brigade-title-text {
+  .member-brigade-title-text {
     padding: 5px;
     position: absolute;
     margin: auto;
@@ -31,13 +31,13 @@
     color: $white;
   }
 
-  .brigade-detail {
+  .member-brigade-detail {
     height: 75px;
     padding: 5px;
     color: $white;
   }
 
-  .brigade-location {
+  .member-brigade-location {
     font-weight: 600;
     margin: 0 0 5px 0;
     white-space: nowrap;
