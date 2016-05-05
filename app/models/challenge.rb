@@ -160,9 +160,8 @@ class Challenge < ActiveRecord::Base
         ponderation_counter += criteria[:value].to_f
       end
     end
-    if ponderation_counter != 100
-      return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
-    end
+    return unless ponderation_counter != 100
+    errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
   end
 
   def cancel!
