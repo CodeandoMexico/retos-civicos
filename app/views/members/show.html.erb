@@ -1,3 +1,4 @@
+<div id="members" class="members show">
 <div class="row profile">
   <div class="col-md-3">
     <div class="profile-sidebar">
@@ -55,27 +56,25 @@
       <pb>
         <%= t('members.show.content.brigades') %>
       </pb>
-      <div id="members" class="members show">
-        <p>
-          <% @member.user.brigades.each do |brigade| %>
-            <%= link_to brigade_path(brigade.id) do %>
-              <div class="brigade col-md-4" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
-                <div class="brigade-title-container" id="brigade-title-container">
-                    <div class="translucent-overlay">
-                      <h2 class="brigade-title-text"><%= brigade.location.city.titleize %></h2>
-                    </div>
-                </div>
-                <div class="brigade-detail" style="background-color: <%= '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|"%02x" % (32+b-a)}.join %>">
-                  <div class="brigade-location"><%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %></div>
-                  <div class="members"><%= brigade.users.count+1 %>
-                    <%= I18n.t('brigades.member').pluralize(brigade.users.count+1).downcase %></div>
-                  <div class="founded"><%= I18n.t('brigades.founded') %> <%= time_ago_in_words(brigade.created_at) %></div>
-                </div>
+      <p>
+        <% @member.user.brigades.each do |brigade| %>
+          <%= link_to brigade_path(brigade.id) do %>
+            <div class="brigade col-md-4" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
+              <div class="brigade-title-container" id="brigade-title-container">
+                  <div class="translucent-overlay">
+                    <h2 class="brigade-title-text"><%= brigade.location.city.titleize %></h2>
+                  </div>
               </div>
-            <% end %>
+              <div class="brigade-detail" style="background-color: <%= '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|"%02x" % (32+b-a)}.join %>">
+                <div class="brigade-location"><%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %></div>
+                <div class="members"><%= brigade.users.count+1 %>
+                  <%= I18n.t('brigades.member').pluralize(brigade.users.count+1).downcase %></div>
+                <div class="founded"><%= I18n.t('brigades.founded') %> <%= time_ago_in_words(brigade.created_at) %></div>
+              </div>
+            </div>
           <% end %>
-        </p>
-    </div>
+        <% end %>
+      </p>
     </div>
     <div class="profile-content row">
       <pb>
@@ -86,4 +85,5 @@
       </p>
     </div>
   </div>
+</div>
 </div>
