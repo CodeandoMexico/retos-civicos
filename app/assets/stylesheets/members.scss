@@ -70,6 +70,7 @@
     font-size: 28px;
     margin-top: 10px;
     text-align: center;
+
     a {
       margin-right: 5px;
     }
@@ -90,14 +91,15 @@
           margin-right: 8px;
         }
       }
-
     }
+
     li:last-child {
       border-bottom: 0;
     }
 
     li.active {
       border-bottom: 0;
+
       a {
         border-left: 2px solid #428bca;
         margin-left: -2px;
