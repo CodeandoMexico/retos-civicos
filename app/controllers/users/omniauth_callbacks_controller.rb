@@ -14,10 +14,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  alias github :all
-  alias linkedin :all
-  alias twitter :all
-  alias facebook :all
+  alias_method :github, :all
+  alias_method :linkedin, :all
+  alias_method :twitter, :all
+  alias_method :facebook, :all
 
   private
 

@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
 
   def self.title(id)
     location = Location.find(id)
-    return "" if location.nil?
+    return '' if location.nil?
     "#{location.city.titleize}, #{location.state.titleize}"
   end
 end

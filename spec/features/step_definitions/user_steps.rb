@@ -5,24 +5,24 @@ Given(/^the following users exist:$/) do |table|
 end
 
 Given /^I am logged in as a user with email "(.*)" and name "(.*)"$/ do |email, name|
-  @current_user = User.create!(email: email, name: name, password: "111111")
-  login_as(@current_user, :scope => :user)
+  @current_user = User.create!(email: email, name: name, password: '111111')
+  login_as(@current_user, scope: :user)
 end
 
 Given /^I am logged in as a user$/ do
-  @current_user = User.create!(email: 'test0@test.com', password: "111111")
-  login_as(@current_user, :scope => :user)
+  @current_user = User.create!(email: 'test0@test.com', password: '111111')
+  login_as(@current_user, scope: :user)
 end
 
 Given /^I am not logged in$/ do
-  @current_user = User.create!(email: 'throwaway@test.com', password: "111111")
-  login_as(@current_user, :scope => :user)
+  @current_user = User.create!(email: 'throwaway@test.com', password: '111111')
+  login_as(@current_user, scope: :user)
   logout
 end
 
 Given /^I am logged in as the user with email: (.+)/ do |em|
-  @current_user = User.where(:email => em).first
-  login_as(@current_user, :scope => :user)
+  @current_user = User.where(email: em).first
+  login_as(@current_user, scope: :user)
   expect(@current_user).to be_truthy
 end
 
@@ -72,5 +72,5 @@ Then(/^my profile should be hidden to other users$/) do
 end
 
 Given /^I should be on the login page$/ do
-  expect(page).to have_content("Necesitas iniciar sesión o registrarte para continuar")
+  expect(page).to have_content('Necesitas iniciar sesión o registrarte para continuar')
 end

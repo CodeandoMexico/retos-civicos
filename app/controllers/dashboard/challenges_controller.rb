@@ -6,7 +6,7 @@ module Dashboard
     def index
       add_crumb 'Retos', '/dashboard/retos'
       @challenges = organization.challenges
-                                .order('created_at DESC').includes(:collaborators, :entries)
+                    .order('created_at DESC').includes(:collaborators, :entries)
     end
 
     def new

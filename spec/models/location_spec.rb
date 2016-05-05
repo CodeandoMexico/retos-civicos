@@ -6,7 +6,7 @@ describe Location do
     describe 'given a valid query' do
       describe 'given the search result has a locality' do
         it 'should return a hash with state, city, and locality' do
-          expect(Location.search('64000').first.locality).to eq "Col. Centro"
+          expect(Location.search('64000').first.locality).to eq 'Col. Centro'
         end
       end
 
@@ -43,13 +43,13 @@ describe Location do
       describe 'given the search query includes a typo' do
         describe 'given an incomplete zip code' do
           it 'should return a fuzzy-searched result with the most relevant locations' do
-            expect(Location.search('48401').first.city).to eq("Tequila")
+            expect(Location.search('48401').first.city).to eq('Tequila')
           end
         end
 
         describe 'given a incorrectly typed city or state' do
           it 'should return a fuzzy-searched result with the most relevant Locations' do
-            expect(Location.search('Teqilaa').first.city).to eq("Tequila")
+            expect(Location.search('Teqilaa').first.city).to eq('Tequila')
           end
         end
       end

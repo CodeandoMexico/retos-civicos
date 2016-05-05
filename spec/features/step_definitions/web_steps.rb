@@ -80,7 +80,7 @@ Given(/^I wait for (\d+) seconds?$/) do |n|
 end
 
 When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+  fill_in(field, with: value)
 end
 
 When /^I click on "([^\"]*)"$/ do |elem|
@@ -88,9 +88,8 @@ When /^I click on "([^\"]*)"$/ do |elem|
 end
 
 When /^I visit the home page$/ do
-  visit "/"
+  visit '/'
 end
-
 
 When /^I wait for AJAX$/ do
   def wait_for_ajax

@@ -22,26 +22,26 @@ class Brigade < ActiveRecord::Base
                   :location_id, :slack_url, :twitter_url, :user, :user_id
 
   def followers
-    self.users
+    users
   end
 
   def organizer
-    self.user
+    user
   end
 
   def num_members
-    self.users.count + 1
+    users.count + 1
   end
 
   def founding_date
-    self.created_at.strftime('%d-%m-%y')
+    created_at.strftime('%d-%m-%y')
   end
 
   def brigade_since_formatter
-    base_string = self.created_at.ago_in_words
+    base_string = created_at.ago_in_words
     base_string = base_string.slice(0..(base_string.index(' and'))) if base_string.index(' and').present?
     base_string = base_string.gsub('second', 'segundo').gsub('minute', 'minuto').gsub('hour', 'hora').gsub('day', 'día').gsub('month', 'mes').gsub('year', 'año').gsub('ago', '')
-    return "#{I18n.t('brigades.founded')} #{base_string}"
+    "#{I18n.t('brigades.founded')} #{base_string}"
   end
 
   def self.search(brigade_query)
@@ -55,10 +55,10 @@ class Brigade < ActiveRecord::Base
     brigades_found.each do |brigade_found|
       brigade_found['city'] = brigade_found.location.city.titleize
       brigade_found['state'] = brigade_found.location.state.titleize
-      brigade_found['color'] = '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b| "%02x" % (32+b-a) }.join
-      brigade_found['num_hackers'] = "#{ActionController::Base.helpers.pluralize(brigade_found.users.count+1, I18n.t('brigades.member')).downcase}"
+      brigade_found['color'] = '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map { |a, b| '%02x' % (32 + b - a) }.join
+      brigade_found['num_hackers'] = "#{ActionController::Base.helpers.pluralize(brigade_found.users.count + 1, I18n.t('brigades.member')).downcase}"
       brigade_found['brigade_since'] = brigade_found.brigade_since_formatter
     end
-    brigades_found.any? ? brigades_found : {'message' => "#{I18n.t('brigades.index.no_brigades_match_search')} <a href='brigades/new' class='new-brigade-link-text'>#{I18n.t('brigades.index.create_brigade')}</a>"}.to_json
+    brigades_found.any? ? brigades_found : { 'message' => "#{I18n.t('brigades.index.no_brigades_match_search')} <a href='brigades/new' class='new-brigade-link-text'>#{I18n.t('brigades.index.create_brigade')}</a>" }.to_json
   end
 end

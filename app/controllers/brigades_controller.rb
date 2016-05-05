@@ -8,7 +8,7 @@ class BrigadesController < ApplicationController
     BrigadeUser.follow_unfollow(params[:userid], params[:brigadeid])
     render nothing: true
   end
-  
+
   # GET /brigades
   # GET /brigades.json
   def index
