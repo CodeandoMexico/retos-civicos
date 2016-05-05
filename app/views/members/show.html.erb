@@ -59,7 +59,7 @@
         <p>
           <% @member.user.brigades.each do |brigade| %>
             <%= link_to brigade_path(brigade.id) do %>
-              <div class="brigade col-md-3" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
+              <div class="brigade col-md-4" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
                 <div class="brigade-title-container" id="brigade-title-container">
                     <div class="translucent-overlay">
                       <h2 class="brigade-title-text"><%= brigade.location.city.titleize %></h2>
