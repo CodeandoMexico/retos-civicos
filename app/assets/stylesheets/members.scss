@@ -2,42 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.members {
-  .member-brigade {
+.members.show {
+
+  .brigade {
     cursor: pointer;
     transition: all 0.5s;
+    text-align: center;
 
     &:hover {
       filter: brightness(150%);
     }
+    
+    a {
+      text-decoration: none;
+    }
   }
 
-  .member-brigade-img {
-    height: 200px;
-    background-color: lightcyan;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow-y: hidden;
-  }
-
-  .member-brigade-title-text {
+  .brigade-title-text {
     padding: 5px;
-    position: absolute;
+    //position: absolute;
     margin: auto;
-    bottom: 25px;
-    left: 0;
-    right: 0;
-    color: $white;
+    //bottom: 25px;
+    //left: 0;
+    //right: 0;
+    color: $grey;
   }
 
-  .member-brigade-detail {
+  .brigade-detail {
     height: 75px;
     padding: 5px;
     color: $white;
   }
 
-  .member-brigade-location {
+  .brigade-location {
     font-weight: 600;
     margin: 0 0 5px 0;
     white-space: nowrap;
