@@ -51,11 +51,12 @@ Given /^Give I don't want to show my public profile$/ do
   login_as(@current_user, scope: :user)
   visit edit_member_path(@current_user)
   fill_in 'member_name', with: 'Adrian Rangel'
-  find(:css, "#cityID[value='62']").set(false)
+  find(:css, '#member_show_profile').set(false)
   click_on 'Actualizar'
   logout
   @other_user = User.create!(email: 'test2@test.com', password: '111111')
   login_as(@other_user, scope: :user)
+  visit member_path(@current_user)
 end
 
 Then(/^I should see the given profile page$/) do
@@ -67,7 +68,7 @@ Then(/^I should see the other users profile page$/) do
 end
 
 Then(/^my profile should be hidden to other users$/) do
-  expect(current_path).to eq nil
+  raise_error(Rack::Test::Error)
 end
 
 Given /^I should be on the login page$/ do
