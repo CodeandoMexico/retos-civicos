@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .brigades {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 130px;
+  width: 100%;
 
   %search-field {
     border: 1px solid $gainsboro;
@@ -31,11 +36,6 @@
   @import 'partials/brigades/form';
   @import 'partials/brigades/stats_panel';
   @import 'partials/brigades/social_panel';
-  left: 0;
-  top: 130px;
-  position: absolute;
-  text-align: center;
-  width: 100%;
 
   .post-hero-content {
     margin: 0 0 0 50px;
@@ -137,25 +137,27 @@
 
 .brigades.index {
 
-  .stylish-input-group .input-group-addon{
+  .stylish-input-group .input-group-addon {
     background: white !important;
   }
-  .stylish-input-group .form-control{
-    border-right:0;
-    box-shadow:0 0 0;
-    border-color:#ccc;
-    padding: 17px 20px;
-    font-size: 22px;
+
+  .stylish-input-group .form-control {
+    border-color: #ccc;
+    border-right: 0;
+    box-shadow: 0 0 0;
     color: #444;
+    font-size: 22px;
+    padding: 17px 20px;
   }
-  .stylish-input-group button{
-    border:0;
-    background:transparent;
+
+  .stylish-input-group button {
+    background: transparent;
+    border: 0;
   }
 
   .brigade {
     cursor: pointer;
-    transition: all 0.5s;
+    transition: all .5s;
 
     &:hover {
       filter: brightness(150%);
@@ -163,17 +165,17 @@
   }
 
   .brigade-img {
-    height: 200px;
     background-color: lightcyan;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 200px;
     overflow-y: hidden;
   }
 
   .brigade-results {
-    width: 90vw;
     margin: auto;
+    width: 90vw;
   }
 
   .map-container {
@@ -181,50 +183,50 @@
   }
 
   .brigade-detail {
+    color: $white;
     height: 75px;
     padding: 5px;
-    color: $white;
   }
 
   .brigade-map {
-    width: 90vw;
     height: 45vh;
     margin: 25px auto;
+    width: 90vw;
   }
 
   .brigade-row {
-    margin-top: 5px;
     margin-bottom: 5px;
+    margin-top: 5px;
   }
 
   .brigade-title-text {
+    bottom: 25px;
+    color: $white;
+    left: 0;
+    margin: auto;
     padding: 5px;
     position: absolute;
-    margin: auto;
-    bottom: 25px;
-    left: 0;
     right: 0;
-    color: $white;
   }
 
   .brigade-location {
     font-weight: 600;
-    margin: 0 0 5px 0;
-    white-space: nowrap;
+    margin: 0 0 5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .place-details {
-    position: absolute;
+    background-color: rgba(0, 0, 0, .8);
+    border-top-right-radius: 15px;
     bottom: 0;
+    color: white;
+    font-size: 80%;
     left: 5vw;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-    font-size: 80%;
-    border-top-right-radius: 15px;
+    position: absolute;
   }
 
   .detail-text {
@@ -232,18 +234,18 @@
   }
 
   .new-brigade-link {
-    margin: 10px 0 -10px 0;
     color: #555;
     font-size: 12px;
+    margin: 10px 0 -10px;
   }
 
   .new-brigade-link-text {
     color: #555;
-    transition: all 0.5s;
     text-decoration: none;
+    transition: all .5s;
 
     &:hover {
-      color: #999
+      color: #999;
     }
   }
 }
