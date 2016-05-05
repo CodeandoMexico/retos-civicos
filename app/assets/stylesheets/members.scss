@@ -29,49 +29,47 @@
     padding: 15px;
   }
 
-  /* Profile container */
+  // Profile container
   .profile {
     margin: 20px 0;
   }
 
-  /* Profile sidebar */
+  // Profile sidebar
   .profile-sidebar {
     //padding: 20px 0 10px 0;
     //background: #e7e7e7;
   }
 
   .profile-userpic img {
+    border-radius: 50% !important;
     float: none;
+    height: 50%;
     margin: 0 auto;
     width: 50%;
-    height: 50%;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
   }
 
   .profile-usertitle-name {
+    //margin-bottom: 7px;
+    //margin-top: 20px;
     font-size: 24px;
     font-weight: 600;
-    //margin-bottom: 7px;
+    padding: 20px 5px;
     text-align: center;
-    //margin-top: 20px;
-    padding: 20px 5px 20px 5px;
   }
 
   .profile-usertitle-role {
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 15px;
-    text-align: center;
     margin-top: 15px;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   .profile-userbuttons {
-    text-align: center;
-    margin-top: 10px;
     font-size: 28px;
+    margin-top: 10px;
+    text-align: center;
     a {
       margin-right: 5px;
     }
@@ -79,22 +77,27 @@
 
   .profile-usermenu {
     margin-top: 30px;
+
     ul li {
       border-bottom: 1px solid #f0f4f7;
+
       a {
         font-size: 14px;
         font-weight: 400;
+
         i {
-          margin-right: 8px;
           font-size: 14px;
+          margin-right: 8px;
         }
       }
+
     }
     li:last-child {
-      border-bottom: none;
+      border-bottom: 0;
     }
+
     li.active {
-      border-bottom: none;
+      border-bottom: 0;
       a {
         border-left: 2px solid #428bca;
         margin-left: -2px;
@@ -102,7 +105,7 @@
     }
   }
 
-  /* Profile Content */
+  // Profile Content
   .profile-content {
     //padding: 20px;
     //margin-bottom: 10px;
@@ -114,9 +117,9 @@
 
   .brigade {
     cursor: pointer;
-    transition: all 0.5s;
-    text-align: center;
     padding: 10px 5px;
+    text-align: center;
+    transition: all .5s;
 
     &:hover {
       filter: brightness(150%);
@@ -128,27 +131,27 @@
   }
 
   .brigade-title-text {
-    padding: 5px;
-    //position: absolute;
-    margin: auto;
     //bottom: 25px;
-    //left: 0;
-    //right: 0;
     //color: $grey;
+    //left: 0;
+    //position: absolute;
+    //right: 0;
     color: #111;
+    margin: auto;
+    padding: 5px;
   }
 
   .brigade-detail {
+    color: $white-smoke;
     height: 75px;
     padding: 5px;
-    color: $white-smoke;
   }
 
   .brigade-location {
     font-weight: 600;
-    margin: 0 0 5px 0;
-    white-space: nowrap;
+    margin: 0 0 5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
