@@ -5,8 +5,8 @@
 .members.show {
 
   .content-box {
-    //background-color: $white;
-    background: $white-smoke;
+    background-color: $white;
+    //background: $white-smoke;
     color: $dark-slate-grey;
     margin: 0 0 50px;
     outline: 1px $light-grey solid;
@@ -16,8 +16,8 @@
   }
 
   .box-title {
-    //background: $white-smoke;
-    background-color: $white;
+    background: $white-smoke;
+    //background-color: $white;
     font-size: 20px;
     font-weight: 200;
     outline: 1px $light-grey solid;
@@ -25,8 +25,8 @@
   }
 
   .box-content {
-    background: $white-smoke;
-    padding: 0 15px 15px;
+    //background: $white-smoke;
+    padding: 15px;
   }
 
   /* Profile container */
@@ -104,9 +104,9 @@
 
   /* Profile Content */
   .profile-content {
-    padding: 20px;
-    margin-bottom: 10px;
-    background: #e7e7e7;
+    //padding: 20px;
+    //margin-bottom: 10px;
+    //background: #e7e7e7;
     p {
       color: #111;
     }
@@ -134,13 +134,14 @@
     //bottom: 25px;
     //left: 0;
     //right: 0;
-    color: $grey;
+    //color: $grey;
+    color: #111;
   }
 
   .brigade-detail {
     height: 75px;
     padding: 5px;
-    color: $white;
+    color: $white-smoke;
   }
 
   .brigade-location {
