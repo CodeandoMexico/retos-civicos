@@ -1021,19 +1021,19 @@ locations:
     city: ciudad valles
     locality: centro
   - zip_code: "80200"
-    state: sinalao
+    state: sinaloa
     city: culiacán
     locality: col miguel alemán
   - zip_code: "81000"
-    state: sinalao
+    state: sinaloa
     city: guasave
     locality: centro
   - zip_code: "81200"
-    state: sinalao
+    state: sinaloa
     city: los mochis
     locality: centro
   - zip_code: "82000"
-    state: sinalao
+    state: sinaloa
     city: mazatlán
     locality: centro
   - zip_code: "83180"
