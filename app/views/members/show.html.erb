@@ -1,41 +1,41 @@
 <div id="members" class="members show">
 <div class="row profile">
   <div class="col-md-3">
-    <div class="profile-sidebar">
-      <!-- SIDEBAR USERPIC -->
-      <div class="profile-userpic">
-        <%= image_tag @member.image_url(:profile), class: 'img-responsive' %>
-      </div>
-      <!-- END SIDEBAR USERPIC -->
+    <div class="content-box profile-sidebar">
       <!-- SIDEBAR USER TITLE -->
-      <div class="profile-usertitle">
-        <div class="profile-usertitle-name">
-          <%= @member.to_s.titleize %>
-        </div>
+      <div class="box-title profile-usertitle-name">
+        <%= @member.to_s.titleize %>
+      </div>
+      <div class="box-content">
         <div class="profile-usertitle-role">
           <%= @member.role.titleize %>
         </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <%= image_tag @member.image_url(:profile), class: 'img-responsive' %>
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <%= link_to fa_icon('github'), @member.github_url %>
+          <%= link_to fa_icon('twitter'), @member.twitter_url %>
+          <%= link_to fa_icon('facebook'), @member.facebook_url %>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
+            <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
+            <li><%= link_to fa_icon('group', text: t('members.show.usermenu.current-brigades')), brigades_path %></li>
+            <% if current_user.userable == @member %>
+              <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- END MENU -->
       </div>
-      <!-- END SIDEBAR USER TITLE -->
-      <!-- SIDEBAR BUTTONS -->
-      <div class="profile-userbuttons">
-        <%= link_to fa_icon('github'), @member.github_url %>
-        <%= link_to fa_icon('twitter'), @member.twitter_url %>
-        <%= link_to fa_icon('facebook'), @member.facebook_url %>
-      </div>
-      <!-- END SIDEBAR BUTTONS -->
-      <!-- SIDEBAR MENU -->
-      <div class="profile-usermenu">
-        <ul class="nav">
-          <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
-          <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
-          <li><%= link_to fa_icon('group', text: t('members.show.usermenu.current-brigades')), brigades_path %></li>
-          <% if current_user.userable == @member %>
-            <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
-          <% end %>
-        </ul>
-      </div>
-      <!-- END MENU -->
     </div>
   </div>
   <div class="col-md-9">
@@ -51,7 +51,6 @@
         <% end %>
       </p>
     </div>
-
     <div class="profile-content row">
       <pb>
         <%= t('members.show.content.brigades') %>

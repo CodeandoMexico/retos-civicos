@@ -3,6 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .members.show {
+
+  .content-box {
+    //background-color: $white;
+    background: $white-smoke;
+    color: $dark-slate-grey;
+    margin: 0 0 50px;
+    outline: 1px $light-grey solid;
+    overflow-x: inherit;
+    overflow-y: visible;
+    text-align: left;
+  }
+
+  .box-title {
+    //background: $white-smoke;
+    background-color: $white;
+    font-size: 20px;
+    font-weight: 200;
+    outline: 1px $light-grey solid;
+    padding: 5px 5px 5px 25px;
+  }
+
+  .box-content {
+    background: $white-smoke;
+    padding: 0 15px 15px;
+  }
+
   /* Profile container */
   .profile {
     margin: 20px 0;
@@ -10,8 +36,8 @@
 
   /* Profile sidebar */
   .profile-sidebar {
-    padding: 20px 0 10px 0;
-    background: #e7e7e7;
+    //padding: 20px 0 10px 0;
+    //background: #e7e7e7;
   }
 
   .profile-userpic img {
@@ -24,27 +50,28 @@
     border-radius: 50% !important;
   }
 
-  .profile-usertitle {
-    text-align: center;
-    margin-top: 20px;
-  }
-
   .profile-usertitle-name {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 600;
-    margin-bottom: 7px;
+    //margin-bottom: 7px;
+    text-align: center;
+    //margin-top: 20px;
+    padding: 20px 5px 20px 5px;
   }
 
   .profile-usertitle-role {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     margin-bottom: 15px;
+    text-align: center;
+    margin-top: 15px;
   }
 
   .profile-userbuttons {
     text-align: center;
     margin-top: 10px;
+    font-size: 28px;
     a {
       margin-right: 5px;
     }
