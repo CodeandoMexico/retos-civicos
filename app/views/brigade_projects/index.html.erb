@@ -1,0 +1,27 @@
+<h1>Listing brigade_projects</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Brigade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @brigade_projects.each do |brigade_project| %>
+  <tr>
+    <td><%= brigade_project.title %></td>
+    <td><%= brigade_project.description %></td>
+    <td><%= brigade_project.brigade %></td>
+    <td><%= link_to 'Show', brigade_project %></td>
+    <td><%= link_to 'Edit', edit_brigade_project_path(brigade_project) %></td>
+    <td><%= link_to 'Destroy', brigade_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Brigade project', new_brigade_project_path %>

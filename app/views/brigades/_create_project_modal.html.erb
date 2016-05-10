@@ -1,0 +1,28 @@
+<div id="create-project-modal" class="modal fade create-project-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= I18n.t('brigades.show.project').pluralize(2) %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag({:action => 'create', controller: 'brigade_projects', method: 'post'}, {:class => 'create-project-form'}) do %>
+          <div class="create-project-form-field-container">
+            <div><%= label_tag 'title', I18n.t('projects.title') %></div>
+            <div><%= text_field "brigade_project", "title", class: 'create-project-form-field' %></div>
+          </div>
+          <div class="create-project-form-field-container">
+            <div><%= label_tag 'description', I18n.t('projects.description') %></div>
+            <div><%= text_area "brigade_project", "description", class: 'create-project-form-field', rows: '5'%></div>
+          </div>
+          <div class="create-project-form-field-container">
+            <div><%= label_tag 'tags', I18n.t('projects.tags') %></div>
+            <div><span class="tags-input-container"><input type="text" value="" data-role="tagsinput"></span></div>
+          </div>
+          <%= hidden_field_tag 'brigade_project[brigade_id]', @brigade_id %>
+          <%= submit_tag( "Create project", class: "positive-button" ) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
