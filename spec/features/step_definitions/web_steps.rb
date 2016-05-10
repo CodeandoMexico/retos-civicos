@@ -6,6 +6,11 @@ Then(/^I should not see translation for "([^\"]*)"$/) do |key|
   expect(page).not_to have_content(I18n.t(key))
 end
 
+Then(/^the button with translation "(.*)" should be (.*)/) do |name, status|
+  is_disabled = status == "disabled"
+  expect(page).to have_button(name, disabled: is_disabled)
+end
+
 Then(/^I should see translation for "([^\"]*)" within "([^\"]*)"$/) do |key, elem|
   within(elem) do
     page.should have_content(I18n.t(key))

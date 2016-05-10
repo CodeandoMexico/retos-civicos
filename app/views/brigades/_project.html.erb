@@ -2,8 +2,8 @@
   <div class="upper-row">
     <h1 class="project-title"><%= title %></h1>
     <div class="coding-languages">
-      <% languages.each do |language| %>
-          <span class="tag coding-language"><%= language %></span>
+      <% tags.each do |tag| %>
+          <span class="tag coding-language"><%= tag %></span>
       <% end %>
     </div>
   </div>
@@ -12,7 +12,7 @@
       <%= contributors.length %> <%= I18n.t('brigades.show.projects.contributor').pluralize(contributors.length).downcase %>
       <div class="contributor-names pop-over-results">
         <% contributors.each do |contributor| %>
-            <div><%= contributor %></div>
+            <div><%= contributor.name %></div>
         <% end %>
         <div class="arrow"></div>
       </div>

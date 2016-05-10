@@ -106,6 +106,7 @@
     confirmKeys: [
       13
       44
+      32
     ]
     delimiter: ','
     delimiterRegex: null

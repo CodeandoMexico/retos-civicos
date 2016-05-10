@@ -8,6 +8,7 @@ class Brigade < ActiveRecord::Base
   belongs_to :location
   has_many :brigade_users
   has_many :users, through: :brigade_users
+  has_many :brigade_projects
   validates :location_id, presence: true
   validates :user_id, presence: true
   validates :description, length: { maximum: 500 }

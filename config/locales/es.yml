@@ -54,6 +54,14 @@ es:
         evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
         evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
+  projects:
+    add: Adicionar proyecto
+    create: Crear proyecto
+    description: Descripción
+    no_projects_exist: En los proyectos de existir en el momento.
+    successfully_created: Proyecto creado con éxito
+    tags: Tags
+    title: Título
   brigades:
     brigades: Brigadas
     zip_code: Código Postal
