@@ -35,7 +35,7 @@ class BrigadeProjectsController < ApplicationController
 
     respond_to do |format|
       if @brigade_project.save
-        render_successful_modification(@brigade_project, 'Brigade Project', :created)
+        render_successful_modification(format, @brigade_project, 'Brigade Project', :created)
       else
         render_failed_modification(format, 'new', @brigade_project.errors)
       end
@@ -49,7 +49,7 @@ class BrigadeProjectsController < ApplicationController
 
     respond_to do |format|
       if @brigade_project.update_attributes(params[:brigade_project])
-        render_successful_modification(@brigade_project, 'Brigade Project', :updated)
+        render_successful_modification(format, @brigade_project, 'Brigade Project', :updated)
       else
         render_failed_modification(format, 'edit', @brigade_project.errors)
       end
@@ -59,6 +59,6 @@ class BrigadeProjectsController < ApplicationController
   # DELETE /brigade_projects/1
   # DELETE /brigade_projects/1.json
   def destroy
-    @brigade_project = general_destroy(@brigade_projects, params[:id], brigade_projects_url)
+    @brigade_project = general_destroy(BrigadeProject, params[:id], brigade_projects_url)
   end
 end

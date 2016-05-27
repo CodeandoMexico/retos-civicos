@@ -34,7 +34,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        render_successful_modification(@tag, 'Tag', :created)
+        render_successful_modification(format, @tag, 'Tag', :created)
       else
         render_failed_modification(format, 'new', @tag.errors)
       end
@@ -48,7 +48,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        render_successful_modification(@tag, 'Tag', :updated)
+        render_successful_modification(format, @tag, 'Tag', :updated)
       else
         render_failed_modification(format, 'edit', @tag.errors)
       end
@@ -58,6 +58,6 @@ class TagsController < ApplicationController
   # DELETE /tags/1
   # DELETE /tags/1.json
   def destroy
-    @tag = general_destroy(@tags, params[:id], tags_url)
+    @tag = general_destroy(Tag, params[:id], tags_url)
   end
 end
