@@ -5,33 +5,21 @@ class BrigadeProjectsController < ApplicationController
   # GET /brigade_projects.json
   def index
     @brigade_projects = BrigadeProject.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @brigade_projects }
-    end
+    general_static_response(@brigade_projects)
   end
 
   # GET /brigade_projects/1
   # GET /brigade_projects/1.json
   def show
     @brigade_project = BrigadeProject.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @brigade_project }
-    end
+    general_static_response(@brigade_project)
   end
 
   # GET /brigade_projects/new
   # GET /brigade_projects/new.json
   def new
     @brigade_project = BrigadeProject.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @brigade_project }
-    end
+    general_static_response(@brigade_project)
   end
 
   # GET /brigade_projects/1/edit
@@ -47,8 +35,7 @@ class BrigadeProjectsController < ApplicationController
 
     respond_to do |format|
       if @brigade_project.save
-        format.html { redirect_to @brigade_project, notice: 'Brigade project was successfully created.' }
-        format.json { render json: @brigade_project, status: :created, location: @brigade_project }
+        render_successful_modification(@brigade_project, 'Brigade Project', :created)
       else
         render_failed_modification(format, 'new', @brigade_project.errors)
       end
@@ -62,8 +49,7 @@ class BrigadeProjectsController < ApplicationController
 
     respond_to do |format|
       if @brigade_project.update_attributes(params[:brigade_project])
-        format.html { redirect_to @brigade_project, notice: 'Brigade project was successfully updated.' }
-        format.json { head :no_content }
+        render_successful_modification(@brigade_project, 'Brigade Project', :updated)
       else
         render_failed_modification(format, 'edit', @brigade_project.errors)
       end
@@ -73,12 +59,6 @@ class BrigadeProjectsController < ApplicationController
   # DELETE /brigade_projects/1
   # DELETE /brigade_projects/1.json
   def destroy
-    @brigade_project = BrigadeProject.find(params[:id])
-    @brigade_project.destroy
-
-    respond_to do |format|
-      format.html { redirect_to brigade_projects_url }
-      format.json { head :no_content }
-    end
+    @brigade_project = general_destroy(@brigade_projects, params[:id], brigade_projects_url)
   end
 end
