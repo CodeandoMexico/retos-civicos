@@ -99,12 +99,7 @@ class Challenge < ActiveRecord::Base
       # name of the csv column fields
       csv << %w(Juez Equipo) + criteria_fields + ['Comentarios']
       evaluations.each do |e|
-        e.report_cards.each do |r|
-          # let's fetch the grades first
-          grades = r.grades.map { |criteria| criteria[:value] }
-          # output to the csv
-          csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
-        end
+        csv = append_evaluation(csv, e)
       end
     end
   end
@@ -298,6 +293,16 @@ class Challenge < ActiveRecord::Base
     evaluations.each do |e|
       e.report_cards.each { |r| r.update_criteria_description(evaluation_criteria) }
     end
+  end
+
+  def append_evaluation(csv, e)
+    e.report_cards.each do |r|
+      # let's fetch the grades first
+      grades = r.grades.map { |criteria| criteria[:value] }
+      # output to the csv
+      csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
+    end
+    csv
   end
 
   def create_or_update_datasets

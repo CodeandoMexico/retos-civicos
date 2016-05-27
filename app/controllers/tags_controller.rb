@@ -1,3 +1,5 @@
+# TagsController directs the CRUD actions for
+# Tag objects
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
@@ -47,8 +49,7 @@ class TagsController < ApplicationController
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
         format.json { render json: @tag, status: :created, location: @tag }
       else
-        format.html { render action: "new" }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'new', @tag.errors)
       end
     end
   end
@@ -63,8 +64,7 @@ class TagsController < ApplicationController
         format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'edit', @tag.errors)
       end
     end
   end

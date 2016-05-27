@@ -1,3 +1,5 @@
+# BrigadeProjectsController directs CRUD actions for all
+# BrigadeProjects
 class BrigadeProjectsController < ApplicationController
   # GET /brigade_projects
   # GET /brigade_projects.json
@@ -48,8 +50,7 @@ class BrigadeProjectsController < ApplicationController
         format.html { redirect_to @brigade_project, notice: 'Brigade project was successfully created.' }
         format.json { render json: @brigade_project, status: :created, location: @brigade_project }
       else
-        format.html { render action: "new" }
-        format.json { render json: @brigade_project.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'new', @brigade_project.errors)
       end
     end
   end
@@ -64,8 +65,7 @@ class BrigadeProjectsController < ApplicationController
         format.html { redirect_to @brigade_project, notice: 'Brigade project was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @brigade_project.errors, status: :unprocessable_entity }
+        render_failed_modification(format, 'edit', @brigade_project.errors)
       end
     end
   end
