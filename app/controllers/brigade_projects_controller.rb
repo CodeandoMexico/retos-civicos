@@ -35,7 +35,9 @@ class BrigadeProjectsController < ApplicationController
 
     respond_to do |format|
       if @brigade_project.save
-        render_successful_modification(format, @brigade_project, 'Brigade Project', :created)
+        brigade = Brigade.find(@brigade_project.brigade_id)
+        format.html { redirect_to brigade, notice: "Project was successfully created." }
+        format.json { render json: @brigade_project, status: :created, location: @brigade_project }
       else
         render_failed_modification(format, 'new', @brigade_project.errors)
       end

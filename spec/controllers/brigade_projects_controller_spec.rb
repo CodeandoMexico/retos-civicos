@@ -88,8 +88,10 @@ RSpec.describe BrigadeProjectsController, :type => :controller do
       end
 
       it "redirects to the created brigade_project" do
+        Brigade.create!(location_id: 1, user_id: 1)
         post :create, {:brigade_project => valid_attributes, 'locale' => 'en'}, valid_session
-        expect(response).to redirect_to(BrigadeProject.last)
+        brigade = Brigade.find(BrigadeProject.last.brigade_id)
+        expect(response).to redirect_to(brigade)
       end
     end
 
