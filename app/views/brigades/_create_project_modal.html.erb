@@ -1,4 +1,4 @@
-<div id="create-project-modal" class="modal fade create-project-modal" role="dialog">
+<div id="create-edit-project-modal" class="modal fade create-edit-project-modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,7 +20,8 @@
             <div><span class="tags-input-container"><input type="text" value="" data-role="tagsinput"></span></div>
           </div>
           <%= hidden_field_tag 'brigade_project[brigade_id]', @brigade_id %>
-          <%= submit_tag( "Create project", class: "positive-button" ) %>
+          <%= hidden_field_tag 'brigade_project[tags]' %>
+          <%= submit_tag(I18n.t('projects.create'), class: "positive-button" ) %>
         <% end %>
       </div>
     </div>

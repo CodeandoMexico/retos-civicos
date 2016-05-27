@@ -5,7 +5,7 @@ RSpec.describe "brigade_projects/show", :type => :view do
     @brigade_project = assign(:brigade_project, BrigadeProject.create!(
       :title => "Title",
       :description => "MyText",
-      :brigade => nil
+      :brigade_id => 1
     ))
   end
 
@@ -13,6 +13,6 @@ RSpec.describe "brigade_projects/show", :type => :view do
     render
     expect(rendered).to match(/Title/)
     expect(rendered).to match(/MyText/)
-    expect(rendered).to match(//)
+    expect(rendered).to match(/1/)
   end
 end

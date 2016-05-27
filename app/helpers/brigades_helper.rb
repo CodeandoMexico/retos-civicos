@@ -18,4 +18,8 @@ module BrigadesHelper
   def user_in_brigade?(curr_user, brig_id)
     curr_user && BrigadeUser.where(user_id: curr_user.id, brigade_id: brig_id).first
   end
+
+  def user_is_organizer?(curr_user, brig_id)
+    curr_user && Brigade.where(user_id: curr_user.id, id: brig_id).length > 0
+  end
 end

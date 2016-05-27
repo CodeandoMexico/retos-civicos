@@ -6,12 +6,12 @@ RSpec.describe "brigade_projects/index", :type => :view do
       BrigadeProject.create!(
         :title => "Title",
         :description => "MyText",
-        :brigade => nil
+        :brigade_id => 1
       ),
       BrigadeProject.create!(
         :title => "Title",
         :description => "MyText",
-        :brigade => nil
+        :brigade_id => 1
       )
     ])
   end

@@ -12,13 +12,13 @@ end
 
 Then(/^the project "(.*)" should exist in brigade "(.*), (.*)"$/) do |project_title, city, state|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
-  project = Project.where(brigade: brigade.id, title: project_title)
+  project = BrigadeProject.where(brigade_id: brigade.id, title: project_title)
   expect(project.count).to eq(1)
 end
 
 Then(/^the project "(.*)" in brigade "(.*), (.*)" should have the tags "(.*)"$/) do |project_title, city, state, tags|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
-  project = Project.where(brigade: brigade.id, title: project_title).first
+  project = BrigadeProject.where(brigade_id: brigade.id, title: project_title).first
   project_tags = Tags.where(project_id: project.id)
   tag_array = tags.split(',')
   tag_array.each do |tag|
@@ -29,7 +29,7 @@ end
 
 Then(/^the project "(.*)" in brigade "(.*), (.*)" should have the description "(.*)"$/) do |project_title, city, state, description|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
-  project = Project.where(brigade: brigade.id, title: project_title).first
+  project = BrigadeProject.where(brigade_id: brigade.id, title: project_title).first
   expect(project.description).to eq(description)
 end
 

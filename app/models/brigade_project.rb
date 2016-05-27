@@ -6,7 +6,7 @@ class BrigadeProject < ActiveRecord::Base
   has_many :users, through: :brigade_projects_users
   validates :title, presence: true
   validates :brigade_id, presence: true
-  attr_accessible :description, :title, :brigade_id
+  attr_accessible :description, :title, :brigade_id, :tags
 
   def self.most_relevant(brigade_id)
     BrigadeProject.where(brigade_id: brigade_id).limit(3)

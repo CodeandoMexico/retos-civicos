@@ -126,6 +126,7 @@ en:
     add: Add project
     create: Create project
     description: Description
+    edit: Edit
     no_projects_exist: No projects currently exist
     successfully_created: Project successfully created!
     tags: Tags

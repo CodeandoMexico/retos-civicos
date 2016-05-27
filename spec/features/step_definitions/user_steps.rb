@@ -9,6 +9,11 @@ Given /^I am logged in as a user with email "(.*)" and name "(.*)"$/ do |email, 
   login_as(@current_user, scope: :user)
 end
 
+Given /^I am logged in as the user with email "(.*)" and name "(.*)"$/ do |email, name|
+  @current_user = User.where(email: email, name: name).first
+  login_as(@current_user, scope: :user)
+end
+
 Given /^I am logged in as a user$/ do
   @current_user = User.create!(email: 'test0@test.com', password: '111111')
   login_as(@current_user, scope: :user)

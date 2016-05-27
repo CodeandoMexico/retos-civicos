@@ -5,7 +5,7 @@ RSpec.describe "brigade_projects/edit", :type => :view do
     @brigade_project = assign(:brigade_project, BrigadeProject.create!(
       :title => "MyString",
       :description => "MyText",
-      :brigade => nil
+      :brigade_id => 1
     ))
   end
 

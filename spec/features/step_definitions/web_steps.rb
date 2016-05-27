@@ -8,7 +8,7 @@ end
 
 Then(/^the button with translation "(.*)" should be (.*)/) do |name, status|
   is_disabled = status == "disabled"
-  expect(page).to have_button(name, disabled: is_disabled)
+  expect(page).to have_button(I18n.t(name), disabled: is_disabled)
 end
 
 Then(/^I should see translation for "([^\"]*)" within "([^\"]*)"$/) do |key, elem|
@@ -94,6 +94,10 @@ end
 
 When /^I visit the home page$/ do
   visit '/'
+end
+
+When /^I break$/ do
+  binding.pry
 end
 
 When /^I wait for AJAX$/ do

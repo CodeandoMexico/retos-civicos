@@ -19,6 +19,7 @@ Feature: Brigade Project Panel on Brigade page
       | test1@brigade_has_show_view.com | Bobble Head       | 111111   |
 
   Scenario: visit brigade page that has projects
+    Given I am logged in as a user
     Given the following projects exist in brigade Monterrey, Nuevo León:
       | title    | description                | users | tags                  |
       | Timbuktu | A very intriguing project. | 1, 2  | html, scheme, python  |
@@ -29,7 +30,8 @@ Feature: Brigade Project Panel on Brigade page
     And I should see translation for "brigades.show.project"
 
   Scenario: visit brigade page that has no projects
+    Given I am logged in as a user
     Given no projects exist in brigade Monterrey, Nuevo León:
     When I visit the brigade page for Monterrey, Nuevo León
     Then I should see translation for "projects.no_projects_exist"
-    And I should not see translation for "brigades.show.project"
+    And I should not see translation for "brigades.projects.contribute"

@@ -1,11 +1,11 @@
 <div class="project <%= last ? 'last' : '' %>">
   <div class="upper-row">
     <h1 class="project-title"><%= title %></h1>
-    <div class="coding-languages">
-      <% tags.each do |tag| %>
-          <span class="tag coding-language"><%= tag %></span>
-      <% end %>
-    </div>
+    <% if @user_is_organizer %>
+      <span class="edit-project-text modal-link" data-toggle="modal" data-target='#create-edit-project-modal'>
+        <a href="#"><%= I18n.t('projects.edit') %></a>
+      </span>
+    <% end %>
   </div>
   <div class="contributions">
     <span class="contributors modal-link pop-over-subject" data-toggle="<%= from_modal ? '' : 'modal' %>" data-target="<%= from_modal ? '' : '#members-modal' %>">
@@ -20,4 +20,9 @@
     <span class="project-positive-button"><%= I18n.t('brigades.show.projects.contribute') %></span>
   </div>
   <h5 class="project-description"><%= description %></h5>
+  <div class="coding-languages">
+    <% tags.each do |tag| %>
+      <span class="tag coding-language"><%= tag %></span>
+    <% end %>
+  </div>
 </div>

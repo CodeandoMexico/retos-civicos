@@ -62,6 +62,10 @@ RSpec.configure do |config|
   config.include EvaluationHelpers
   config.include FactoryGirl::Syntax::Methods
 
+  RSpec.configure do |c|
+    c.include Helpers
+  end
+
   # Database cleaner setup
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

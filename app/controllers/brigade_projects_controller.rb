@@ -40,6 +40,7 @@ class BrigadeProjectsController < ApplicationController
   # POST /brigade_projects
   # POST /brigade_projects.json
   def create
+    params[:brigade_project][:tags] = Tag.create_tags_from_string(params[:brigade_project][:tags])
     @brigade_project = BrigadeProject.new(params[:brigade_project])
 
     respond_to do |format|

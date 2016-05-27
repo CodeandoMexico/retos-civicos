@@ -75,7 +75,6 @@
 }
 
 .coding-languages {
-  float: left;
   margin: 8px 0 0;
 }
 
@@ -85,4 +84,9 @@
   font-weight: 200;
   line-height: 26px;
   position: relative;
+}
+
+.edit-project-text {
+  float: left;
+  margin: 10px 10px 0 0;
 }

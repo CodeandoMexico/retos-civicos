@@ -1,19 +1,27 @@
 <div class="content-box">
   <div class="box-title"><%= I18n.t('brigades.show.project').pluralize(2) %>
-    <span class="add-project-text modal-link" data-toggle="modal" data-target='#create-project-modal'>(<a href="#"><%= I18n.t('projects.add') %></a>)</span>
+    <% if @user_is_organizer %>
+      <span class="add-project-text modal-link" data-toggle="modal" data-target='#create-edit-project-modal'>
+        (<a href="#"><%= I18n.t('projects.add') %></a>)
+      </span>
+    <% end %>
   </div>
   <div class="box-content row projects">
-    <%= @most_relevant_projects.each_with_index do |project, i| %>
-      <%= render partial: 'project',
-                 locals: { title: project.title, tags: project.tag_names, last: i == @most_relevant_projects.count-1,
-                           contributors: project.users, from_modal: false,
-                           description: project.description } %>
+    <% if @most_relevant_projects.length > 0 %>
+      <% @most_relevant_projects.each_with_index do |project, i| %>
+        <%= render partial: 'project',
+                   locals: { title: project.title, tags: project.tag_names, last: i == @most_relevant_projects.count-1,
+                             contributors: project.users, from_modal: false,
+                             description: project.description } %>
+      <% end %>
+      <span class="more-projects-link modal-link" data-toggle="modal" data-target="#projects-modal">
+        <%= I18n.t('brigades.show.see_more') %> <%= I18n.t('brigades.show.project').pluralize(2).downcase %>
+      </span>
+    <% else %>
+      <p class="no-projects-text"><%= I18n.t('projects.no_projects_exist') %></p>
     <% end %>
+    <%= render partial: 'create_project_modal' %>
     <%= render partial: 'members_modal' %>
     <%= render partial: 'projects_modal' %>
-    <%= render partial: 'create_project_modal' %>
-    <span class="more-projects-link modal-link" data-toggle="modal" data-target="#projects-modal">
-      <%= I18n.t('brigades.show.see_more') %> <%= I18n.t('brigades.show.project').pluralize(2).downcase %>
-    </span>
   </div>
 </div>
