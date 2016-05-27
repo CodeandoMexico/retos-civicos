@@ -74,9 +74,7 @@ module Aquila
     # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Strip the www to prevent crash with subdomains
-    if Rails.env.production? or Rails.env.staging?
-      config.middleware.insert_before Rack::Lock, Rack::NoWWW
-    end
+    config.middleware.insert_before Rack::Lock, Rack::NoWWW if Rails.env.production? or Rails.env.staging?
 
     config.action_mailer.default_url_options = { host: ENV['ACTION_MAILER_HOST'] }
 

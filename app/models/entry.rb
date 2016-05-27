@@ -75,9 +75,8 @@ class Entry < ActiveRecord::Base
   end
 
   def limit_3_winner_entries
-    if challenge.current_winners.count > 3
-      raise 'En un reto solamente se pueden seleccionar hasta 3 ganadores'
-    end
+    return unless challenge.current_winners.count > 3
+    raise 'En un reto solamente se pueden seleccionar hasta 3 ganadores'
   end
 
   def invalid_entry?

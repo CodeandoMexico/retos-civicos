@@ -107,7 +107,7 @@ describe Collaborations do
         member = MemberRecord.new('')
         Collaborations.challenges_store.push(build_challenge(welcome_mail: 'Hola!'))
 
-        collaboration = create_after_registration(member)
+        create_after_registration(member)
         deliveries.should be_empty
       end
 
@@ -115,7 +115,7 @@ describe Collaborations do
         member = MemberRecord.new('juanito@example.com')
         Collaborations.challenges_store.push(build_challenge(welcome_mail: ''))
 
-        collaboration = create_after_registration(member)
+        create_after_registration(member)
         deliveries.should be_empty
       end
     end

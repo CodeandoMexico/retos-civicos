@@ -1,0 +1,2 @@
+module BrigadeProjectsHelper
+end

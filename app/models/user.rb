@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :email, :name,
-                  :nickname, :bio, :userable_id, :role, :website
+                  :nickname, :bio, :userable_id, :role, :website, :show_profile
 
   ROLES = %w(member organization judge).freeze
 
@@ -24,7 +24,9 @@ class User < ActiveRecord::Base
   has_many :skills, through: :userskills
   has_many :comments
   has_many :brigade_users
-  has_many :brigades, through: :brigade_users
+  has_many :brigades, through: :brigade_users, include: :location
+  has_many :brigade_projects_users
+  has_many :brigade_projects, through: :brigade_projects_users_users
 
   belongs_to :userable, polymorphic: true
 

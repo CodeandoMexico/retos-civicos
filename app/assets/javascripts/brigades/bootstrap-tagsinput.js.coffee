@@ -6,6 +6,7 @@
 
   TagsInput = (element, options) ->
     @itemsArray = []
+    @projectTagElem = $('#brigade_project_tags')
     @$element = $(element)
     @$element.hide()
     @isSelect = element.tagName == 'SELECT'
@@ -14,7 +15,7 @@
     @placeholderText = if element.hasAttribute('placeholder') then @$element.attr('placeholder') else ''
     @inputSize = Math.max(1, @placeholderText.length)
     @$container = $('<div class="bootstrap-tagsinput"></div>')
-    @$input = $('<input type="text" placeholder="' + @placeholderText + '"/>').appendTo(@$container)
+    @$input = $('<input type="text" class="tags-input" id="tags-input" name="tags-input" placeholder="' + @placeholderText + '"/>').appendTo(@$container)
     @$element.before @$container
     @build options
     return
@@ -105,6 +106,7 @@
     maxChars: undefined
     confirmKeys: [
       13
+      32
       44
     ]
     delimiter: ','
@@ -113,10 +115,14 @@
     onTagExists: (item, $tag) ->
       $tag.hide().fadeIn()
       return
-    trimValue: false
+    trimValue: true
     allowDuplicates: false
   TagsInput.prototype =
     constructor: TagsInput
+    remakeTags: ->
+      self = this
+      tagsString = self.itemsArray.join()
+      self.projectTagElem.val(tagsString)
     add: (item, dontPushVal, options) ->
       self = this
       if self.options.maxTags and self.itemsArray.length >= self.options.maxTags
@@ -136,6 +142,7 @@
       # If SELECT but not multiple, remove current tag
       if self.isSelect and !self.multiple and self.itemsArray.length > 0
         self.remove self.itemsArray[0]
+        self.remakeTags()
       if typeof item == 'string' and @$element[0].tagName == 'INPUT'
         delimiter = if self.options.delimiterRegex then self.options.delimiterRegex else self.options.delimiter
         items = item.split(delimiter)
@@ -147,6 +154,7 @@
           if !dontPushVal
             self.pushVal()
           return
+        self.remakeTags()
       itemValue = self.options.itemValue(item)
       itemText = self.options.itemText(item)
       tagClass = self.options.tagClass(item)
@@ -176,6 +184,7 @@
         return
       # register item in internal array and map
       self.itemsArray.push item
+      self.remakeTags()
       # add a tag element
       $tag = $('<span class="tag ' + htmlEncode(tagClass) + (if itemTitle != null then '" title="' + itemTitle else '') + '">' + htmlEncode(itemText) + '<span data-role="remove"></span></span>')
       $tag.data 'item', item
@@ -240,6 +249,7 @@
       while self.itemsArray.length > 0
         self.itemsArray.pop()
       self.pushVal()
+      self.remakeTags()
       return
     refresh: ->
       self = this
@@ -363,6 +373,7 @@
           self.$input.attr 'disabled', 'disabled'
           return
         switch event.which
+
 # BACKSPACE
           when 8
             if doGetCaretPosition($input[0]) == 0
@@ -398,6 +409,8 @@
         return
       ), self)
       self.$container.on 'keypress', 'input', $.proxy(((event) ->
+        if (event.keyCode == 44)
+          event.preventDefault()
         $input = $(event.target)
         if self.$element.attr('disabled')
           self.$input.attr 'disabled', 'disabled'

@@ -87,8 +87,8 @@ gem 'mini_magick'
 gem 'sanitize'
 gem 'auto_html'
 gem 'jquery-rails'
-gem "rails-bootstrap-daterangepicker"
-gem "autoprefixer-rails"
+gem 'rails-bootstrap-daterangepicker'
+gem 'autoprefixer-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-tokeninput-rails', git: 'https://github.com/acrogenesis/jquery-tokeninput-rails'
 gem 'thumbs_up'

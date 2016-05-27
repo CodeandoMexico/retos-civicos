@@ -19,11 +19,12 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe BrigadesController do
-  # This should return the minimal set of attributes required to create a valid
-  # Brigade. As you add validations to Brigade, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) do
-    {
+
+  # This should return the minimal set of values that should be in the session
+  # in order to pass any filters (e.g. authentication) defined in
+  # BrigadesController. Be sure to keep this updated too.
+  let(:valid_session) { {} }
+  include_context 'user logged in', {
       'location_id' => '1',
       'description' => 'Bienvenido a la brigada de Monterrey! Come with us.',
       'calendar_url' => 'https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics',
@@ -32,22 +33,7 @@ describe BrigadesController do
       'facebook_url' => 'https://www.facebook.com/CodeandoMexico',
       'twitter_url' => 'https://twitter.com/codeandomexico',
       'header_image_url' => 'http://www.dronestagr.am/wp-content/uploads/2014/10/cerrosilla.png'
-    }
-  end
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # BrigadesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
-  before(:each) do
-    @request.env['devise.mapping'] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
-    user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the "confirmable" module
-    sign_in user
-    @valid_attributes_with_user = valid_attributes
-    @valid_attributes_with_user[:user] = user
-  end
+  }
 
   describe 'GET index' do
     it 'assigns all brigades as @brigades' do

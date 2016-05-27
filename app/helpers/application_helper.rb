@@ -46,18 +46,13 @@ module ApplicationHelper
   end
 
   def markdown_for_additional_links(text)
-    if text.present?
-      renderer = TargetBlankRenderer.new(hard_wrap: true, filter_html: true)
-      options = {
-        underline: true,
-        space_after_headers: true,
-        highlight: true,
-        lax_spacing: true,
-        autolink: true,
-        no_intra_emphasis: true
-      }
-      Redcarpet::Markdown.new(renderer, options).render(text).html_safe
-    end
+    return unless text.present?
+    renderer = TargetBlankRenderer.new(hard_wrap: true, filter_html: true)
+    options = {
+      underline: true, space_after_headers: true, highlight: true,
+      lax_spacing: true, autolink: true, no_intra_emphasis: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
   def tab_class(activator)

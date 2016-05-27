@@ -27,7 +27,7 @@ feature 'Admin enters evaluations panel and' do
     # Refactor this test to show entries with content N/A
     # visit_judge_path(judges.first)
     # expect(page).to have_content 'N/A'
-    expect(false).to be true #Purposefully fails the pending test.
+    expect(false).to be true # Purposefully fails the pending test.
   end
 
   scenario 'clicks on a judges report card to show detail' do

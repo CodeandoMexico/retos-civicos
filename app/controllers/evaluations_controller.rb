@@ -9,9 +9,8 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :set_evaluation, only: :index
 
   def index
-    if !@current_challenge.evaluations_opened? || (@evaluation.finished? && !params[:edit])
-      return redirect_to evaluation_url(@evaluation, challenge_id: @current_challenge.id)
-    end
+    return unless !@current_challenge.evaluations_opened? || (@evaluation.finished? && !params[:edit])
+    redirect_to evaluation_url(@evaluation, challenge_id: @current_challenge.id)
   end
 
   def show

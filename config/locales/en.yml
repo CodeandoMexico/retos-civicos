@@ -122,6 +122,15 @@ en:
     unauthorized:
       message: You need to login first
       already_submited_app: You've sent your application to this challenge
+  projects:
+    add: Add project
+    create: Create project
+    description: Description
+    edit: Edit
+    no_projects_exist: No projects currently exist
+    successfully_created: Project successfully created!
+    tags: Tags
+    title: Title
   brigades:
     brigades: Brigades
     zip_code: Zip Code
@@ -416,6 +425,9 @@ en:
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture
       avatar-description: Your identity in Codeando Mexico
+      show_profile_header: Publicly show my profile
+      show_profile_description: Select if you want your profile to be public.
+      show_profile_label: Publicly show my profile
     csv_filename: members-%{organization}-organization.csv
     csv_headers:
       id: id

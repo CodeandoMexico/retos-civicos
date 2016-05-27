@@ -1,5 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require "simplecov"
+require 'simplecov'
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -25,7 +25,6 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f unless f =~ /.
 
 # Turn off delayed job in test
 Delayed::Worker.delay_jobs = !Rails.env.test?
-
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -62,6 +61,10 @@ RSpec.configure do |config|
   config.include EntriesHelpers
   config.include EvaluationHelpers
   config.include FactoryGirl::Syntax::Methods
+
+  RSpec.configure do |c|
+    c.include Helpers
+  end
 
   # Database cleaner setup
   config.before(:suite) do

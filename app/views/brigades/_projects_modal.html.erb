@@ -11,22 +11,12 @@
           <input type="text" value="HTML,Ruby,Scheme" data-role="tagsinput" class="project-tag-search">
         </form>
         <div class="projects">
-          <%= render partial: 'project',
-                     locals: { title: "Semaforo", languages: ["Ruby", "Java", "Python", "Scheme"], from_modal: true,
-                               last: false, contributors: ["Barack Obama", "Enrique Nieto", "Adrian Rangel"],
-                               description: "Semaforo is a project in which takes the most efficient
-                                                      algorithms and introduces them into the traffic lights to make
-                                                      sure folks do not wait a long time at intersections." } %>
-          <%= render partial: 'project',
-                     locals: { title: "Hoodwinked", languages: ["Ruby", "Java"], last: false, from_modal: true,
-                               contributors: ["Enrique Nieto", "Adrian Rangel"],
-                               description: "A social app that allows citizens to become engaged and alert
-                                                      the government of any new potholes that have formed." } %>
-
-          <%= render partial: 'project',
-                     locals: { title: "Jury Duty", languages: ["Java", "Python", "Scheme"], last: true,
-                               contributors: ["Barack Obama"], from_modal: true,
-                               description: "App that alerts citizens of their jury duty history." } %>
+          <%= @brigade.brigade_projects.each do |project, i| %>
+            <%= render partial: 'project',
+                       locals: { title: project.title, tags: project.tag_names, last: i == @brigade.brigade_projects.count-1,
+                                 contributors: project.users, from_modal: true,
+                                 description: project.description } %>
+          <% end %>
         </div>
       </div>
     </div>

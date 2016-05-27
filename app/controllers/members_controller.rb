@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @user = User.find(params[:id])
+    @member = Member.find(params[:id])
     render layout: 'aquila'
   end
 

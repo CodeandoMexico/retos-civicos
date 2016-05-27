@@ -12,10 +12,14 @@ module BrigadesHelper
   def validate_url(record, attribute, value, pattern, error)
     valid = value =~ pattern
     record.errors[attribute] << error unless valid
-    return record
+    record
   end
-  
+
   def user_in_brigade?(curr_user, brig_id)
-    return curr_user && BrigadeUser.where(:user_id => curr_user.id, :brigade_id => brig_id).first
+    curr_user && BrigadeUser.where(user_id: curr_user.id, brigade_id: brig_id).first
+  end
+
+  def user_is_organizer?(curr_user, brig_id)
+    curr_user && Brigade.where(user_id: curr_user.id, id: brig_id).length > 0
   end
 end

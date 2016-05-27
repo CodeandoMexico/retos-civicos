@@ -1,5 +1,8 @@
 Aquila::Application.routes.draw do
+  resources :tags
+  resources :brigade_projects
   resources :brigades
+  resources :members
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

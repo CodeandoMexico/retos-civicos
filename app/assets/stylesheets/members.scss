@@ -1,0 +1,159 @@
+// Place all the styles related to the Brigades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.members.show {
+
+  .content-box {
+    background-color: $white;
+    //background: $white-smoke;
+    color: $dark-slate-grey;
+    margin: 0 0 50px;
+    outline: 1px $light-grey solid;
+    overflow-x: inherit;
+    overflow-y: visible;
+    text-align: left;
+  }
+
+  .box-title {
+    background: $white-smoke;
+    //background-color: $white;
+    font-size: 20px;
+    font-weight: 200;
+    outline: 1px $light-grey solid;
+    padding: 5px 5px 5px 25px;
+  }
+
+  .box-content {
+    //background: $white-smoke;
+    padding: 15px;
+  }
+
+  // Profile container
+  .profile {
+    margin: 20px 0;
+  }
+
+  // Profile sidebar
+  .profile-sidebar {
+    //padding: 20px 0 10px 0;
+    //background: #e7e7e7;
+  }
+
+  .profile-userpic img {
+    border-radius: 50% !important;
+    float: none;
+    height: 50%;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .profile-usertitle-name {
+    //margin-bottom: 7px;
+    //margin-top: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 20px 5px;
+    text-align: center;
+  }
+
+  .profile-usertitle-role {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .profile-userbuttons {
+    font-size: 28px;
+    margin-top: 10px;
+    text-align: center;
+
+    a {
+      margin-right: 5px;
+    }
+  }
+
+  .profile-usermenu {
+    margin-top: 30px;
+
+    ul li {
+      border-bottom: 1px solid #f0f4f7;
+
+      a {
+        font-size: 14px;
+        font-weight: 400;
+
+        i {
+          font-size: 14px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    li:last-child {
+      border-bottom: 0;
+    }
+
+    li.active {
+      border-bottom: 0;
+
+      a {
+        border-left: 2px solid #428bca;
+        margin-left: -2px;
+      }
+    }
+  }
+
+  // Profile Content
+  .profile-content {
+    //padding: 20px;
+    //margin-bottom: 10px;
+    //background: #e7e7e7;
+    p {
+      color: #111;
+    }
+  }
+
+  .brigade {
+    cursor: pointer;
+    padding: 10px 5px;
+    text-align: center;
+    transition: all .5s;
+
+    &:hover {
+      filter: brightness(150%);
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .brigade-title-text {
+    //bottom: 25px;
+    //color: $grey;
+    //left: 0;
+    //position: absolute;
+    //right: 0;
+    color: #111;
+    margin: auto;
+    padding: 5px;
+  }
+
+  .brigade-detail {
+    color: $white-smoke;
+    height: 75px;
+    padding: 5px;
+  }
+
+  .brigade-location {
+    font-weight: 600;
+    margin: 0 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

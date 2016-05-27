@@ -1,73 +1,98 @@
+<div id="members" class="members show">
 <div class="row profile">
   <div class="col-md-3">
-    <div class="profile-sidebar">
-      <!-- SIDEBAR USERPIC -->
-      <div class="profile-userpic">
-        <%= image_tag @member.image_url(:profile), class: 'img-responsive' %>
-      </div>
-      <!-- END SIDEBAR USERPIC -->
+    <div class="content-box profile-sidebar" style="background-color:whitesmoke">
       <!-- SIDEBAR USER TITLE -->
-      <div class="profile-usertitle">
-        <div class="profile-usertitle-name">
-          <%= @member.to_s.titleize %>
-        </div>
+      <div class="box-title profile-usertitle-name" style="background-color:white;">
+        <%= @member.to_s.titleize %>
+      </div>
+      <div class="box-content" style="background-color:whitesmoke;">
         <div class="profile-usertitle-role">
           <%= @member.role.titleize %>
         </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <%= image_tag @member.image_url(:profile), class: 'img-responsive' %>
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <%= link_to fa_icon('github'), @member.github_url %>
+          <%= link_to fa_icon('twitter'), @member.twitter_url %>
+          <%= link_to fa_icon('facebook'), @member.facebook_url %>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
+            <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
+            <li><%= link_to fa_icon('group', text: t('members.show.usermenu.current-brigades')), brigades_path %></li>
+            <% if current_user.userable == @member %>
+              <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- END MENU -->
       </div>
-      <!-- END SIDEBAR USER TITLE -->
-      <!-- SIDEBAR BUTTONS -->
-      <div class="profile-userbuttons">
-        <%= link_to fa_icon('github'), @member.github_url %>
-        <%= link_to fa_icon('twitter'), @member.twitter_url %>
-        <%= link_to fa_icon('facebook'), @member.facebook_url %>
-      </div>
-      <!-- END SIDEBAR BUTTONS -->
-      <!-- SIDEBAR MENU -->
-      <div class="profile-usermenu">
-        <ul class="nav">
-          <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
-          <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
-          <li><%= link_to fa_icon('group', text: t('members.show.usermenu.current-brigades')), brigades_path %></li>
-          <% if current_user.userable == @member %>
-            <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
-          <% end %>
-        </ul>
-      </div>
-      <!-- END MENU -->
     </div>
   </div>
   <div class="col-md-9">
-    <div class="profile-content">
-      <pb>
-        <%= t('members.show.content.biography') %>
-      </pb>
-      <p>
-        <% if @member.bio.length > 0 %>
-          <%= @member.bio %>
-        <% else %>
-          <%= I18n.t('members.show.content.noinfo') %>
-        <% end %>
-      </p>
+    <div class="content-box profile-content row">
+      <div class="box-title">
+        <pb>
+          <%= t('members.show.content.biography') %>
+        </pb>
+      </div>
+      <div class="box-content">
+        <p>
+          <% if @member.bio.blank? %>
+            <%= I18n.t('members.show.content.noinfo') %>
+          <% else %>
+            <%= @member.bio %>
+          <% end %>
+        </p>
+      </div>
     </div>
-
-    <div class="profile-content">
-      <pb>
-        <%= t('members.show.content.brigades') %>
-      </pb>
-      <p>
-        <% @user.brigades.each do |brigade| %>
-          <%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %><br/>
-        <% end %>
-      </p>
+    <div class="content-box profile-content row">
+      <div class="box-title">
+        <pb>
+          <%= t('members.show.content.brigades') %>
+        </pb>
+      </div>
+      <div class="box-content row">
+          <% @member.user.brigades.each do |brigade| %>
+            <%= link_to brigade_path(brigade.id) do %>
+              <div class="brigade col-md-4" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
+                <div class="brigade-title-container" id="brigade-title-container">
+                    <div class="translucent-overlay">
+                      <h2 class="brigade-title-text"><%= brigade.location.city.titleize %></h2>
+                    </div>
+                </div>
+                <div class="brigade-detail" style="background-color: <%= '#' + [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|"%02x" % (32+b-a)}.join %>">
+                  <div class="brigade-location"><%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %></div>
+                  <div class="members"><%= brigade.users.count+1 %>
+                    <%= I18n.t('brigades.member').pluralize(brigade.users.count+1).downcase %></div>
+                  <div class="founded"><%= I18n.t('brigades.founded') %> <%= time_ago_in_words(brigade.created_at) %></div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
     </div>
-    <div class="profile-content">
-      <pb>
-        <%= t('members.show.content.projects') %>
-      </pb>
-      <p>
-        Projects stuff here
-      </p>
+    <div class="content-box profile-content row">
+      <div class="box-title">
+        <pb>
+          <%= t('members.show.content.projects') %>
+        </pb>
+      </div>
+      <div class="box-content">
+        <p>
+          Listado de proyectos va aquí.
+        </p>
+      </div>
     </div>
   </div>
+</div>
 </div>

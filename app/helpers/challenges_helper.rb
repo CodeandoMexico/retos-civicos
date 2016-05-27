@@ -37,12 +37,11 @@ module ChallengesHelper
   end
 
   def newsletter_helper(challenge)
-    if user_signed_in? && current_user.userable == challenge.organization
-      update_txt = t('helpers.send_update')
-      org = @challenge.organization
-      classes = 'btn btn-default'
-      link_to update_txt, send_newsletter_organization_challenge_path(org, @challenge), class: classes
-    end
+    return unless user_signed_in? && current_user.userable == challenge.organization
+    update_txt = t('helpers.send_update')
+    org = @challenge.organization
+    classes = 'btn btn-default'
+    link_to update_txt, send_newsletter_organization_challenge_path(org, @challenge), class: classes
   end
 
   def check_filter(filter)

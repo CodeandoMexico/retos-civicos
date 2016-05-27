@@ -11,18 +11,17 @@ feature 'Challenges Datasets' do
 
   scenario 'Add and view dataset of a challenge', js: true do
     pending
-    
+
     visit edit_dashboard_challenge_path(challenge)
-    
-    #agregar un dataset
+
+    # agregar un dataset
     save_and_open_page
     fill_in '#token-input-challenge_dataset_id', with: 'Banco mundial'
     wait_for_ajax
-    find(".token-input-selected-dropdown-item").click
-    click_button "Publicar"
-    
-    #ver un dataset
-    find("[data-dataset-teaser]")
-    
+    find('.token-input-selected-dropdown-item').click
+    click_button 'Publicar'
+
+    # ver un dataset
+    find('[data-dataset-teaser]')
   end
 end

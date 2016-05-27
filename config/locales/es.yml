@@ -54,6 +54,15 @@ es:
         evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
         evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
+  projects:
+    add: Adicionar proyecto
+    create: Crear proyecto
+    description: Descripción
+    edit: Editar
+    no_projects_exist: Actualmente no existen proyectos.
+    successfully_created: Proyecto creado con éxito
+    tags: Tags
+    title: Título
   brigades:
     brigades: Brigadas
     zip_code: Código Postal
@@ -626,6 +635,9 @@ es:
       phase_finish_reminder_setting: 'Recordatorios de envío de propuesta en la última semana.'
       notification_mailer: 'Envío de correos'
       select_notifications_that_you_wish_to_receive: 'Selecciona si deseas recibir correos de notificación'
+      show_profile_header: Mostrar mi perfil públicamente
+      show_profile_description: Selecciona si deseas que tu perfil sea público.
+      show_profile_label: Mostrar mi perfil públicamente
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id

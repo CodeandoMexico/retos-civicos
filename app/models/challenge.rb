@@ -95,7 +95,7 @@ class Challenge < ActiveRecord::Base
 
   def export_evaluations(opts = {})
     CSV.generate(opts) do |csv|
-      criteria_fields = evaluation_criteria.map{|c| c[:description]}
+      criteria_fields = evaluation_criteria.map { |c| c[:description] }
       # name of the csv column fields
       csv << %w(Juez Equipo) + criteria_fields + ['Comentarios']
       evaluations.each do |e|
@@ -160,9 +160,8 @@ class Challenge < ActiveRecord::Base
         ponderation_counter += criteria[:value].to_f
       end
     end
-    if ponderation_counter != 100
-      return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
-    end
+    return unless ponderation_counter != 100
+    errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
   end
 
   def cancel!
@@ -208,27 +207,27 @@ class Challenge < ActiveRecord::Base
   end
 
   def timeline_json
-    {'timeline' =>{
-        'headline' => 'Actividades y Noticias',
-        'type' => 'default',
-        'startDate' => created_at.year,
-        'text' => '',
-        'date' => activities.map do |activity|
-          date = activity.created_at.strftime('%Y, %m, %d')
-          create_activity(activity, date)
-        end
-      }}
+    { 'timeline' => {
+      'headline' => 'Actividades y Noticias',
+      'type' => 'default',
+      'startDate' => created_at.year,
+      'text' => '',
+      'date' => activities.map do |activity|
+        date = activity.created_at.strftime('%Y, %m, %d')
+        create_activity(activity, date)
+      end
+    } }
   end
-  
+
   def create_activity(activity, date)
-    return { 'startDate' => date,
-            'endDate' => date,
-            'headline' => activity.title,
-            'text' => activity.text,
-            'asset' =>
+    { 'startDate' => date,
+      'endDate' => date,
+      'headline' => activity.title,
+      'text' => activity.text,
+      'asset' =>
             { 'media' => '',
               'credit' => '',
-              'caption' => '' }}
+              'caption' => '' } }
   end
 
   def datasets_id

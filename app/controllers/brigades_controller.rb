@@ -8,7 +8,7 @@ class BrigadesController < ApplicationController
     BrigadeUser.follow_unfollow(params[:userid], params[:brigadeid])
     render nothing: true
   end
-  
+
   # GET /brigades
   # GET /brigades.json
   def index
@@ -26,6 +26,8 @@ class BrigadesController < ApplicationController
     @current_user = current_user
     @user_joined = user_in_brigade?(@current_user, params[:id])
     @brigade_id = params[:id]
+    @most_relevant_projects = BrigadeProject.most_relevant(@brigade_id)
+    @user_is_organizer = user_is_organizer?(@current_user, params[:id])
     render_brigade
   end
 
