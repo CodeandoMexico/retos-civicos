@@ -15,17 +15,29 @@ end
 
 Given(/^I visit the brigade page for (.+), (.+)$/) do |city, state|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
-  visit brigade_path(brigade)
+  visit brigade_path(brigade.id)
 end
 
-Given(/^the following users are in brigade (.+), (.+):$/) do |city, state, table|
+Given(/^the following projects exist in brigade (.+), (.+):$/) do |city, state, table|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
   unless brigade.blank?
-    table.hashes.each do |user|
-      this_user = User.where(email: user[:email]).first || User.create!(user)
-      BrigadeUser.create(user_id: this_user.id, brigade_id: brigade.id)
+    table.hashes.each do |project|
+      bp = BrigadeProject.create!(title: project[:title], description: project[:description], brigade_id: brigade.id)
+      user_ids = project[:users].present? ? project[:users].split(/\s*,\s*/) : []
+      user_ids.each do |user_id|
+        bp.users << User.find(user_id)
+      end
+      tag_names = project[:tags] ? project[:tags].split(/\s*,\s*/) : []
+      tag_names.each do |tag_name|
+        bp.tags << Tag.create(name: tag_name)
+      end
     end
   end
+end
+
+Given(/^no projects exist in brigade (.+), (.+):$/) do |city, state|
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  brigade.brigade_projects.destroy_all
 end
 
 When(/^I visit the brigade creation page$/) do
@@ -60,11 +72,33 @@ Then /^I should be on the brigades listing page$/ do
   page.current_path.should eq brigades_path
 end
 
+Given(/^I am logged in as the brigade organizer of (.+), (.+) brigade$/) do |city, state|
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  @current_user = User.find(brigade.user.id)
+  login_as(@current_user, scope: :user)
+end
+
+Given(/^I visit the (.+), (.+) brigade page as its organizer$/) do |city, state|
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  @current_user = User.find(brigade.user.id)
+  login_as(@current_user, scope: :user)
+  visit brigade_path(brigade)
+end
+
+Given(/^I am logged in as a follower of (.+), (.+) brigade$/) do |city, state|
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  brigade_user_relation = BrigadeUser.where(brigade_id: brigade.id).first
+  @current_user = User.find(brigade_user_relation.user.id)
+  puts @current_user
+  login_as(@current_user, scope: :user)
+end
+
+
 def wait_for_ajax
   counter = 0
   while page.execute_script('return $.active').to_i > 0
     counter += 1
     sleep(0.1)
-    raise "AJAX request took too long than 5 seconds." if counter >= 50
+    raise 'AJAX request took longer than 5 seconds.' if counter >= 50
   end
 end

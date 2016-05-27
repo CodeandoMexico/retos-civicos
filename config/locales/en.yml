@@ -122,6 +122,15 @@ en:
     unauthorized:
       message: You need to login first
       already_submited_app: You've sent your application to this challenge
+  projects:
+    add: Add project
+    create: Create project
+    description: Description
+    edit: Edit
+    no_projects_exist: No projects currently exist
+    successfully_created: Project successfully created!
+    tags: Tags
+    title: Title
   brigades:
     brigades: Brigades
     zip_code: Zip Code

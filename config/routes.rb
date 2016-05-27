@@ -1,4 +1,6 @@
 Aquila::Application.routes.draw do
+  resources :tags
+  resources :brigade_projects
   resources :brigades
   resources :members
 
