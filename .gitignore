@@ -35,7 +35,6 @@
 bin
 *.dat
 .powder
-tags
 /public/uploads/
 /public/assets/
 *.dump
