@@ -3,7 +3,7 @@
     <h1 class="project-title"><%= title %></h1>
     <% if @user_is_organizer %>
       <span class="edit-project-text modal-link" data-toggle="modal" data-target='#create-edit-project-modal'>
-        <a href="#"><%= I18n.t('projects.edit') %></a>
+        <a class='edit-project-link' data-project-id='<%= id %>'><%= I18n.t('projects.edit') %></a>
       </span>
     <% end %>
   </div>

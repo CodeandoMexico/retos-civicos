@@ -8,14 +8,14 @@
       <div class="modal-body">
         <form>
           <input type="text" class="search-field project-search-field" placeholder="<%= I18n.t('brigades.show.search') %>">
-          <input type="text" value="HTML,Ruby,Scheme" data-role="tagsinput" class="project-tag-search">
+          <input type="text" data-role="tagsinput" class="project-tag-search">
         </form>
         <div class="projects">
           <%= @brigade.brigade_projects.each do |project, i| %>
             <%= render partial: 'project',
                        locals: { title: project.title, tags: project.tag_names, last: i == @brigade.brigade_projects.count-1,
                                  contributors: project.users, from_modal: true,
-                                 description: project.description } %>
+                                 description: project.description, id: project.id } %>
           <% end %>
         </div>
       </div>

@@ -43,6 +43,40 @@ Then(/^I should see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
   end
 end
 
+Then(/^the button with translation "(.*)" should exist/) do |key|
+  button_text = I18n.t(key)
+  should have_button button_text
+end
+
+Then(/^I should see the translation for "([^\"]*)" within "([^\"]*)"$/) do |key, elem|
+  text = I18n.t(key)
+  within(elem) do
+    page.should have_content(text)
+  end
+end
+
+Then(/^I click on the translation for "([^\"]*)" within "([^\"]*)"$/) do |key, elem|
+  text = I18n.t(key)
+  step "I should see the text \"#{text}\" within \"#{elem}\""
+end
+
+Then(/^field "([^\"]*)" should be filled in with "([^\"]*)"$/) do |elem, text|
+  finder = "input[value='#{text}']"
+  within(elem) do
+    expect(page).to have_selector(finder)
+  end
+end
+
+Then(/^field "([^\"]*)" should contain the values "([^\"]*)"$/) do |elem, vals|
+  vals_array = vals.split(/\s*,\s*/)
+  vals_array.each do |val|
+    finder = "input[value*='#{val}']"
+    within(elem) do
+      expect(page).to have_selector(finder)
+    end
+  end
+end
+
 Then(/^I should not see the text "([^\"]*)" within "([^\"]*)"$/) do |text, elem|
   within(elem) do
     page.should_not have_content(text)

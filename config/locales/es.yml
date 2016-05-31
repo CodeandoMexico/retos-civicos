@@ -63,6 +63,7 @@ es:
     successfully_created: Proyecto creado con éxito
     tags: Tags
     title: Título
+    update: Actualizar proyecto
   brigades:
     brigades: Brigadas
     zip_code: Código Postal

@@ -16,6 +16,12 @@ Then(/^the project "(.*)" should exist in brigade "(.*), (.*)"$/) do |project_ti
   expect(project.count).to eq(1)
 end
 
+Then(/^the project "(.*)" should not exist in brigade "(.*), (.*)"$/) do |project_title, city, state|
+  brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
+  project = BrigadeProject.where(brigade_id: brigade.id, title: project_title)
+  expect(project.count).to eq(0)
+end
+
 Then(/^the project "(.*)" in brigade "(.*), (.*)" should have the tags "(.*)"$/) do |project_title, city, state, tags|
   brigade = Brigade.includes(:location).where(locations: { state: state, city: city }).first
   project = BrigadeProject.where(brigade_id: brigade.id, title: project_title).first

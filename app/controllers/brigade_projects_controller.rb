@@ -1,6 +1,7 @@
 # BrigadeProjectsController directs CRUD actions for all
 # BrigadeProjects
 class BrigadeProjectsController < ApplicationController
+  helper_method :edit_brigade_json
   # GET /brigade_projects
   # GET /brigade_projects.json
   def index
@@ -25,6 +26,14 @@ class BrigadeProjectsController < ApplicationController
   # GET /brigade_projects/1/edit
   def edit
     @brigade_project = BrigadeProject.find(params[:id])
+
+    respond_to do |format|
+      format.html { render layout: 'aquila' }
+      format.json {
+        edit_json = edit_brigade_json(@brigade_project)
+        render json: edit_json
+      }
+    end
   end
 
   # POST /brigade_projects
@@ -47,11 +56,13 @@ class BrigadeProjectsController < ApplicationController
   # PUT /brigade_projects/1
   # PUT /brigade_projects/1.json
   def update
+    params[:brigade_project][:tags] = Tag.create_tags_from_string(params[:brigade_project][:tags])
     @brigade_project = BrigadeProject.find(params[:id])
-
     respond_to do |format|
       if @brigade_project.update_attributes(params[:brigade_project])
-        render_successful_modification(format, @brigade_project, 'Brigade Project', :updated)
+        brigade = Brigade.find(@brigade_project.brigade_id)
+        format.html { redirect_to brigade, notice: "Project was successfully updated." }
+        format.json { render json: @brigade_project, status: :updated, location: @brigade_project }
       else
         render_failed_modification(format, 'edit', @brigade_project.errors)
       end

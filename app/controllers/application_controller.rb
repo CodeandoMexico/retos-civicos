@@ -50,6 +50,16 @@ class ApplicationController < ActionController::Base
     render file: 'public/404.html', status: :not_found, layout: false
   end
 
+  def edit_brigade_json(brigade_project)
+    unless brigade_project.class.name == "BrigadeProject"
+      raise Exceptions::InvalidBrigadeProjectError, 'Must be a valid project'
+    end
+    brigade_project_json = brigade_project.to_json({:include => [:tags => {:only => :name}]})
+    { brigade_project: brigade_project_json,
+      button_text: I18n.t('projects.update'),
+      action_path: brigade_project_path(brigade_project) }
+  end
+
   private
 
   def clear_return_to

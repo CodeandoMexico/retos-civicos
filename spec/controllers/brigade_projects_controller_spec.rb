@@ -87,7 +87,7 @@ RSpec.describe BrigadeProjectsController, :type => :controller do
         expect(assigns(:brigade_project)).to be_persisted
       end
 
-      it "redirects to the created brigade_project" do
+      it "redirects to the created brigade_project's brigade" do
         Brigade.create!(location_id: 1, user_id: 1)
         post :create, {:brigade_project => valid_attributes, 'locale' => 'en'}, valid_session
         brigade = Brigade.find(BrigadeProject.last.brigade_id)
@@ -120,10 +120,12 @@ RSpec.describe BrigadeProjectsController, :type => :controller do
         expect(assigns(:brigade_project)).to eq(brigade_project)
       end
 
-      it "redirects to the brigade_project" do
+      it "redirects to the brigade_project's brigade page" do
+        brigade = FactoryGirl.create(:brigade)
+        valid_attributes[:brigade_id] = brigade.id
         brigade_project = BrigadeProject.create! valid_attributes
         put :update, {:id => brigade_project.to_param, 'locale' => 'en', :brigade_project => valid_attributes}, valid_session
-        expect(response).to redirect_to(brigade_project)
+        expect(response).to redirect_to(brigade)
       end
     end
 

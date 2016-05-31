@@ -131,6 +131,7 @@ en:
     successfully_created: Project successfully created!
     tags: Tags
     title: Title
+    update: Update project
   brigades:
     brigades: Brigades
     zip_code: Zip Code
