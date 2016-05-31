@@ -21,8 +21,8 @@
           </div>
           <%= hidden_field_tag 'brigade_project[brigade_id]', @brigade_id %>
           <%= hidden_field_tag 'brigade_project[tags]' %>
-          <input type="hidden" id="_method" name="_method" value="get">
-          <%= submit_tag(I18n.t('projects.create'), class: "positive-button" ) %>
+          <input type="hidden" id="_method" name="_method" value="post">
+          <%= submit_tag(I18n.t('projects.create'), class: "positive-button", id: "create-edit-proj-submit-button" ) %>
         <% end %>
       </div>
     </div>

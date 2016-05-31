@@ -33,7 +33,7 @@ $(window).load ->
         dataType: 'json'
         success: (data) ->
           data.brigade_project = JSON.parse(data.brigade_project)
-          setFormAttrs(data.button_text, "/brigade-projects/#{projectId}", 'post', 'put')
+          setFormAttrs(data.button_text, data.action_path, 'post', 'put')
           setFormElems(data.brigade_project.title, data.brigade_project.description, data.brigade_project.tags)
 
     setupCreateModal = ->
@@ -41,6 +41,16 @@ $(window).load ->
 
     setOriginalCreationFormHtml = ->
       originalCreationFormHtml = $('.create-edit-project-form').html()
+
+    checkFormValidity = ->
+      submit_button = $('#create-edit-proj-submit-button')
+      if $('#brigade_project_title').val().length
+        submit_button.addClass('positive-button').removeClass('negative-button')
+        submit_button.prop 'disabled', false
+      else
+        submit_button.removeClass('positive-button').addClass('negative-button')
+        submit_button.prop 'disabled', true
+      return
 
     setListeners = ->
       $('.edit-project-link').click(->
@@ -51,6 +61,8 @@ $(window).load ->
       $('.add-project-text').click(->
         setupCreateModal()
       )
+
+      $('#brigade_project_title').on("keyup", checkFormValidity);
 
     setup = ->
       setFooterMargin()

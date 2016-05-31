@@ -30,13 +30,13 @@ Feature: Brigade organizer should be able to edit a brigade project.
     Then I should see the translation for "projects.edit" within ".projects-panel"
 
   Scenario: Fields are properly filled in initially when edit is clicked
-#    Given PENDING: don't know how to select tags
+    Given PENDING: don't know how to select tags AND edit relies on AJAX. AJAX not set up yet.
     Given I am logged in as the brigade organizer of Monterrey, Nuevo León brigade
     When I visit the brigade page for Monterrey, Nuevo León
     And I click on the translation for "projects.edit" within ".projects-panel"
-    Then field "brigade_project[title]" should be filled in with "handy dandy project"
-    And field "brigade_project[description]" should be filled in with "This is the best project ever."
-    And field "brigade_project[tags]" should contain the values "ruby, scheme, marketing"
+    Then field "#brigade_project_title" should be filled in with "handy dandy project"
+    And field "#brigade_project_description" should be filled in with "This is the best project ever."
+    And field "#brigade_project_tags" should contain the values "ruby, scheme, marketing"
     And the button with translation "projects.update" should exist
     And the button with translation "projects.update" should be enabled
 
@@ -59,6 +59,7 @@ Feature: Brigade organizer should be able to edit a brigade project.
     And the project "handy dandy project" should not exist in brigade "Monterrey, Nuevo León"
 
   Scenario: Should not be able to add a project with an empty title
+    Given PENDING: Edit relies on AJAX. AJAX not set up yet.
     Given I am logged in as the brigade organizer of Monterrey, Nuevo León brigade
     When I visit the brigade page for Monterrey, Nuevo León
     And I click on the translation for "projects.edit" within ".projects-panel"
