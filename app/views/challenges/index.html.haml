@@ -13,7 +13,12 @@
         = link_to 'Lanza un reto', start_a_challenge_path, class: 'btn btn-default'
         = link_to 'Ver retos activos', '#challenges__container', class: 'btn btn-default', id: 'active_challenges'
 
-#challenges__container
+.challenges-categories
+  .challenge.tabs
+    .btn-group.tab.btn-group-justified{ 'role' => 'group' }
+      = link_to 'Retos Cívicos', '?projects=true', class: "btn btn-default #{'active' unless params[:hackathons]}"
+      = link_to 'Hackatones', '?hackathons=true', class: "btn btn-default #{'active' if params[:hackathons]}"
+
   - @challenges.each do |challenge|
     = render 'challenge_widget', challenge: challenge
   = paginate @challenges
