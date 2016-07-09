@@ -225,7 +225,7 @@ Devise.setup do |config|
   config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: 'user:email'
   config.omniauth :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'], scope: 'r_fullprofile r_emailaddress', fields: linkedin_fields
   config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email', image_size: 'large', secure_image_url: true
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email,public_profile', image_size: 'large', secure_image_url: true, info_fields: 'email,link'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
