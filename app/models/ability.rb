@@ -120,7 +120,7 @@ class Ability
 
   def grant_members_access(user)
     can [:show], Member do |member|
-      member.user.show_profile?
+      true
     end
     can [:show, :edit, :update], Member do |member|
       user.userable.id == member.id

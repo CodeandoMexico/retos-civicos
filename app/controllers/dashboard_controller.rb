@@ -22,6 +22,7 @@ class DashboardController < Dashboard::BaseController
   end
 
   def authenticate_organization!
+    raise
     redirect_to challenges_path unless current_user.organization?
   end
 end

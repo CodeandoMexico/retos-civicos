@@ -17,8 +17,6 @@
           %ul.dropdown-menu{ role: 'menu' }
             %li
               %a{ href: "/"}= t('layout.civic_challenges')
-            %li
-              = link_to t('brigades.brigades'), brigades_path
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{ href: "#", 'data-toggle'=> "dropdown", role: "button", 'aria-haspopup'=> "true", 'aria-expanded'=> "false" }

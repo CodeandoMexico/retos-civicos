@@ -51,19 +51,6 @@ Given /^I have a link to another user profile$/ do
   visit member_path(@other_user)
 end
 
-Given /^Give I don't want to show my public profile$/ do
-  @current_user = User.create!(email: 'test@test.com', password: '111111')
-  login_as(@current_user, scope: :user)
-  visit edit_member_path(@current_user)
-  fill_in 'member_name', with: 'Adrian Rangel'
-  find(:css, '#member_show_profile').set(false)
-  click_on 'Actualizar'
-  logout
-  @other_user = User.create!(email: 'test2@test.com', password: '111111')
-  login_as(@other_user, scope: :user)
-  visit member_path(@current_user)
-end
-
 Then(/^I should see the given profile page$/) do
   expect(current_path).to eq "/miembros/#{@current_user.to_param}"
 end
