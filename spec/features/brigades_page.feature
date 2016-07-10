@@ -24,12 +24,14 @@ Feature: The search brigades page
 
     When I visit the home page
     And I click on "Participa"
-    And I click on the translation for "brigades.brigades"
+#    And I click on the translation for "brigades.brigades"
 
   Scenario: Non-logged-in users cannot view brigades page.
+    Given PENDING: "Brigades has been temporarily removed"
     Then I should be on the login page
 
   Scenario: Logged-in users can view brigades page.
+    Given PENDING: "Brigades has been temporarily removed"
     Given I am logged in as a user
     When I click on "Participa"
     And I click on the translation for "brigades.brigades"
@@ -42,6 +44,7 @@ Feature: The search brigades page
     And I should see "4 miembros"
 
   Scenario: No brigades exist
+    Given PENDING: "Brigades has been temporarily removed"
     Given I am logged in as a user
     Given there are no brigades
     When I click on "Participa"
