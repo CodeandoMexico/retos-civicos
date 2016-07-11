@@ -1,8 +1,5 @@
 class CreateJudges < ActiveRecord::Migration
   def change
-    create_table :judges do |t|
-
-      t.timestamps
-    end
+    create_table :judges, &:timestamps
   end
 end

@@ -16,9 +16,7 @@
             %span.caret
           %ul.dropdown-menu{ role: 'menu' }
             %li
-              %a{ href: "#"} Retos cívicos
-        %li
-          %a{ href: "#" } Acerca
+              %a{ href: "/"}= t('layout.civic_challenges')
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{ href: "#", 'data-toggle'=> "dropdown", role: "button", 'aria-haspopup'=> "true", 'aria-expanded'=> "false" }
@@ -33,7 +31,7 @@
                 - else
                   = link_to t('header.user.panel'), panel_entries_path
               %li
-                = link_to t('header.user.profile'), edit_member_path(current_user.userable)
+                = link_to t('header.user.profile'), member_path(current_user.userable)
               %li
                 = link_to t('header.user.log_out'), destroy_user_session_path, method: :delete
         - else

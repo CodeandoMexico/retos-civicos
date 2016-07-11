@@ -1,10 +1,13 @@
-# encoding: utf-8
+# A Challenge object represents a CodeandoMexico Challenge.
+# Can be created by an organization and is a core object to
+# CodeandoMexico's service of providing links between citizens,
+# organizations, and governmental entities.
 class Challenge < ActiveRecord::Base
   attr_accessible :dataset_id, :dataset_url, :description, :owner_id, :status, :title, :additional_links,
-                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec, :fifth_spec,
-                  :pitch, :avatar, :about, :activities_attributes, :dataset_file, :entry_template_url,
-                  :infographic, :prize, :assessment_methodology, :evaluation_criteria,
-                  :evaluation_instructions, :evaluations_opened
+                  :welcome_mail, :subject, :body, :first_spec, :second_spec, :third_spec, :fourth_spec,
+                  :fifth_spec, :pitch, :avatar, :about, :activities_attributes, :dataset_file,
+                  :entry_template_url, :infographic, :prize, :assessment_methodology,
+                  :evaluation_criteria, :evaluation_instructions, :evaluations_opened
 
   attr_accessible(*Phases.dates)
 
@@ -20,7 +23,7 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: "Member", source: :member, include: :user
+  has_many :collaborators, through: :collaborations, class_name: 'Member', source: :member, include: :user
   has_many :activities
   has_many :entries, order: 'id ASC'
   has_many :datasets
@@ -34,13 +37,13 @@ class Challenge < ActiveRecord::Base
   validates :pitch, length: { maximum: 140 }
   validate :criteria_must_be_valid, on: :update, if: :criteria_must_be_present
 
-  accepts_nested_attributes_for :activities, :reject_if => lambda { |a| a[:text].blank? }
+  accepts_nested_attributes_for :activities, reject_if: ->(a) { a[:text].blank? }
 
   after_create :create_initial_activity, :create_or_update_datasets
   after_update :create_or_update_datasets, :update_report_cards
 
-  #Scopes
-  scope :sorted, lambda { order('created_at DESC') }
+  # Scopes
+  scope :sorted, -> { order('created_at DESC') }
 
   scope :active, lambda {
     where("status = 'open' OR status = 'working_on'")
@@ -59,10 +62,10 @@ class Challenge < ActiveRecord::Base
   }
 
   scope :popular, lambda {
-    joins('LEFT OUTER JOIN collaborations ON collaborations.challenge_id = challenges.id').
-    select('challenges.*, count(collaborations.challenge_id) as "challenge_count"').
-    group('challenges.id').
-    order('challenge_count desc')
+    joins('LEFT OUTER JOIN collaborations ON collaborations.challenge_id = challenges.id')
+      .select('challenges.*, count(collaborations.challenge_id) as "challenge_count"')
+      .group('challenges.id')
+      .order('challenge_count desc')
   }
 
   def self.last_created
@@ -70,8 +73,9 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.missing_winner_challenges(args)
-    challenges = Challenge.where(organization_id: args[:organization]).where('finish_on <= ?', Date.current)
-    challenges.reject { |c| c if c.has_a_winner? }
+    challenges = Challenge.where(organization_id: args[:organization])
+                          .where('finish_on <= ?', Date.current)
+    challenges.reject { |c| c if c.winner? }
   end
 
   # Additionals
@@ -82,25 +86,20 @@ class Challenge < ActiveRecord::Base
   auto_html_for :description do
     simple_format
     image
-    youtube width: 400, height: 250, wmode: "transparent"
-    vimeo   width: 400, height: 250
-    link target: "_blank", rel: "nofollow"
+    youtube width: 400, height: 250, wmode: 'transparent'
+    vimeo width: 400, height: 250
+    link target: '_blank', rel: 'nofollow'
   end
 
-  STATUS = [:private, :open, :working_on, :cancelled, :finished]
+  STATUS = [:private, :open, :working_on, :cancelled, :finished].freeze
 
-  def export_evaluations(opts={})
+  def export_evaluations(opts = {})
     CSV.generate(opts) do |csv|
-      criteria_field_names = self.evaluation_criteria.map { |criteria| criteria[:description] }
+      criteria_fields = evaluation_criteria.map { |c| c[:description] }
       # name of the csv column fields
-      csv << ['Juez', 'Equipo'] + criteria_field_names + ['Comentarios']
-      self.evaluations.each do |e|
-        e.report_cards.each do |r|
-          # let's fetch the grades first
-          grades = r.grades.map { |criteria| criteria[:value] }
-          # output to the csv
-          csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
-        end
+      csv << %w(Juez Equipo) + criteria_fields + ['Comentarios']
+      evaluations.each do |e|
+        csv = append_evaluation(csv, e)
       end
     end
   end
@@ -111,122 +110,119 @@ class Challenge < ActiveRecord::Base
 
   def close_evaluation
     self.evaluations_opened = false
-    self.save
+    save
   end
 
   def ranked_entries
-    self.entries.where(winner: 1) +
-    self.entries.where(accepted: true).where(winner: nil) +
-    self.entries.where(accepted: false)
+    entries.where(winner: 1) +
+      entries.where(accepted: true).where(winner: nil) +
+      entries.where(accepted: false)
   end
 
   def sort_entries_by_scores
-    self.entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
+    entries.where(is_valid: true).sort! { |a, b| b.final_score <=> a.final_score }
   end
 
   def ready_to_rank_entries?
-    self.has_valid_criteria? && self.has_evaluations?
+    valid_criteria? && evaluations?
   end
 
   def finished_evaluating?
-    self.evaluations.each do |evaluation|
+    evaluations.each do |evaluation|
       return false if evaluation.status < 2
     end
     true
   end
 
-  def has_valid_criteria?
-    self.criteria_must_be_present && self.criteria_must_be_valid.nil?
+  def valid_criteria?
+    criteria_must_be_present && criteria_must_be_valid.nil?
   end
 
-  def has_evaluations?
-    self.evaluations.present?
+  def evaluations?
+    evaluations.present?
   end
 
   def criteria_must_be_present
-    self.evaluation_criteria.present?
+    evaluation_criteria.present?
   end
 
   def criteria_must_be_valid
     ponderation_counter = 0
-    self.evaluation_criteria.each do |criteria|
+    evaluation_criteria.each do |criteria|
       if criteria[:description].blank? || !criteria[:value].is_number?
         return errors.add(:evaluation_criteria, 'Los criterios no están correctamente definidos')
       else
-        ponderation_counter = ponderation_counter + criteria[:value].to_f
+        ponderation_counter += criteria[:value].to_f
       end
     end
-    return errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.') if ponderation_counter != 100
+    return unless ponderation_counter != 100
+    errors.add(:evaluation_criteria, 'La suma de las ponderaciones debe ser 100.')
   end
 
   def cancel!
     self.status = :cancelled
-    self.save
+    save
   end
 
   def update_likes_counter
-    self.likes_counter = self.votes_count
-    self.save
+    self.likes_counter = votes_count
+    save
   end
 
   def total_references
-    self.references.size
+    references.size
   end
 
   def references
-    (self.additional_links || '').split(",")
+    (additional_links || '').split(',')
   end
 
   def about
     self[:about].to_s
   end
 
-  def is_active?
+  def active?
     starts_on <= Date.current && Date.current <= finish_on
   end
 
-  def has_started?
+  def started?
     Date.current >= starts_on
   end
 
-  def has_finished?
+  def finished?
     Date.current >= finish_on
   end
 
   def specs?
-    self.first_spec.present? ||
-    self.second_spec.present? ||
-    self.third_spec.present? ||
-    self.fourth_spec.present? ||
-    self.fifth_spec.present?
+    first_spec.present? ||
+      second_spec.present? ||
+      third_spec.present? ||
+      fourth_spec.present? ||
+      fifth_spec.present?
   end
 
   def timeline_json
-    {
-      "timeline" =>
-      {
-        "headline" => "Actividades y Noticias",
-        "type" => "default",
-        "startDate" => self.created_at.year,
-        "text" => "",
-        "date" => self.activities.map do |activity|
-          date = activity.created_at.strftime("%Y, %m, %d")
-          {
-            "startDate" => date,
-            "endDate" => date,
-            "headline" => activity.title,
-            "text" => activity.text,
-            "asset" =>
-            {
-              "media" => "",
-              "credit" => "",
-              "caption" => ""
-            }
-          }
+    { 'timeline' => {
+      'headline' => 'Actividades y Noticias',
+      'type' => 'default',
+      'startDate' => created_at.year,
+      'text' => '',
+      'date' => activities.map do |activity|
+        date = activity.created_at.strftime('%Y, %m, %d')
+        create_activity(activity, date)
+      end
+    } }
+  end
 
-        end
-      }
-    }
+  def create_activity(activity, date)
+    { 'startDate' => date,
+      'endDate' => date,
+      'headline' => activity.title,
+      'text' => activity.text,
+      'asset' =>
+            { 'media' => '',
+              'credit' => '',
+              'caption' => '' } }
   end
 
   def datasets_id
@@ -249,20 +245,20 @@ class Challenge < ActiveRecord::Base
     end
   end
 
-  def has_a_winner?
+  def winner?
     Entry.where(challenge_id: self, winner: 1).count > 0
   end
 
-  def has_participants?
+  def participants?
     Entry.where(challenge_id: self).count > 0
   end
 
-  def has_finalists?
+  def finalists?
     Entry.where(challenge_id: self, accepted: true).count > 0
   end
 
   def current_winners
-    if self.has_a_winner?
+    if winner?
       Entry.where(challenge_id: self, winner: 1)
     else
       []
@@ -278,29 +274,35 @@ class Challenge < ActiveRecord::Base
   end
 
   def current_phase_title(args = {})
-    if has_finished?
-      phase = I18n.t('challenges.show.has_finished')
-    else
-      phase = Phases.current_phase_title(self).title(args)
-    end
-    phase
+    return I18n.t('challenges.show.has_finished') if finished?
+    Phases.current_phase_title(self).title(args)
   end
 
-  def self.has_only_one_challenge?
+  def only_one_challenge?
     # self.count == 1
     where("status = 'open' OR status = 'working_on'").count == 1
   end
 
   def public?
-    self.status == 'open' || self.status == 'working_on' || self.status == 'finished'
+    status == 'open' || status == 'working_on' || status == 'finished'
   end
 
   private
 
   def update_report_cards
-    self.evaluations.each do |e|
-      e.report_cards.each { |r| r.update_criteria_description(self.evaluation_criteria) }
+    evaluations.each do |e|
+      e.report_cards.each { |r| r.update_criteria_description(evaluation_criteria) }
     end
+  end
+
+  def append_evaluation(csv, e)
+    e.report_cards.each do |r|
+      # let's fetch the grades first
+      grades = r.grades.map { |criteria| criteria[:value] }
+      # output to the csv
+      csv << [r.evaluation.judge.name, r.entry.name] + grades + [r.comments]
+    end
+    csv
   end
 
   def create_or_update_datasets
@@ -309,7 +311,8 @@ class Challenge < ActiveRecord::Base
       result = response['result']
       dataset = Dataset.find_or_initialize_by_guid(d)
       dataset.update_attributes(guid: d, title: result['title'], name: result['name'],
-                     format: result['resources'][0]['format'], notes: result['notes'], challenge_id: id)
+                                format: result['resources'][0]['format'], notes: result['notes'],
+                                challenge_id: id)
       remove_datasets
     end
   end
@@ -322,6 +325,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def create_initial_activity
-    self.activities.create(title: I18n.t("challenges.initial_activity.title"), text: I18n.t("challenges.initial_activity.text"))
+    text = I18n.t('challenges.initial_activity.text')
+    activities.create(title: I18n.t('challenges.initial_activity.title'), text: text)
   end
 end

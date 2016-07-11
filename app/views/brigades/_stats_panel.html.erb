@@ -1,0 +1,21 @@
+<div class="content-box">
+  <div class="box-title"><%= t("brigades.show.stats.statistics") %></div>
+  <div class="box-content stats">
+    <div class="stat">
+      <div class="stat-title"><%= t("brigades.show.stats.created") %></div>
+      <div class="stat-detail"><%= founding_date %></div>
+    </div>
+    <div class="stat">
+      <div class="stat-title"><%= t("brigades.member").pluralize(2) %></div>
+      <div class="stat-detail"><%= num_members %></div>
+    </div>
+    <div class="stat">
+      <div class="stat-title"><%= t("brigades.show.project").pluralize(2) %></div>
+      <div class="stat-detail">19</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title"><%= t("brigades.show.events.next_event") %></div>
+      <div class="stat-detail">12/12/2016</div>
+    </div>
+  </div>
+</div>

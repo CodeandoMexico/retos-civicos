@@ -3,7 +3,7 @@
 @import "defaults/variables";
 
 a.title {
-  @include heading(18px, $dark_blue, 5px);
+  @include heading(18px, $dark-blue, 5px);
 }
 
 .entry {
@@ -28,7 +28,7 @@ a.title {
       }
 
       .resources {
-        span { color: $light_grey; }
+        span { color: $light-grey; }
         .github {
           width: 30px;
           height: 25px;
@@ -46,7 +46,7 @@ a.title {
 }
 
 .entry.detail {
-  h5 { @include heading(18px, $dark_blue, 15px); }
+  h5 { @include heading(18px, $dark-blue, 15px); }
   p {}
   .info {}
   .description {}

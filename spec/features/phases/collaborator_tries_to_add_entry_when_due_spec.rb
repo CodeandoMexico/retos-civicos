@@ -4,12 +4,12 @@ feature 'Collaborator fails to add/edit entry' do
   scenario 'when the phase it\'s due' do
     member = create :member
     challenge = create :challenge,
-      ideas_phase_due_on: 1.weeks.ago,
-      ideas_selection_phase_due_on: 2.weeks.from_now,
-      prototypes_phase_due_on: 3.weeks.from_now
+                       ideas_phase_due_on: 1.weeks.ago,
+                       ideas_selection_phase_due_on: 2.weeks.from_now,
+                       prototypes_phase_due_on: 3.weeks.from_now
     entry = create :entry,
-      challenge: challenge,
-      member: member
+                   challenge: challenge,
+                   member: member
 
     sign_in_user(member)
 

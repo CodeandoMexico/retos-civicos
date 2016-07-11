@@ -1,4 +1,4 @@
-<% if entry.is_invalid? %>
+<% if entry.invalid_entry? %>
   <%= button_to t('.mark_as_valid'), mark_valid_dashboard_entry_path(entry),
     confirm: t('.confirm_mark_valid'),
     class: 'btn btn-default' %>

@@ -26,18 +26,22 @@ module Dashboard
     end
 
     def mark_valid
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_valid_successfully', name: entry.name) if entry.mark_as_valid!
+      if entry.mark_as_valid!
+        notice_text = t('flash.entries.marked_as_valid_successfully', name: entry.name)
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: notice_text
+      end
     end
 
     def mark_invalid
       if entry.mark_as_invalid!(params[:message])
         # do we need to do something here?
         EntriesMailer.delay.entry_has_been_marked_as_invalid(entry)
-        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.marked_as_invalid_successfully', name: entry.name)
+        notice_text = t('flash.entries.marked_as_invalid_successfully', name: entry.name)
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: notice_text
       else
-        redirect_to dashboard_entry_path(entry), alert: t('flash.entries.mark_entry_as_invalid_failed')
+        alert_text = t('flash.entries.mark_entry_as_invalid_failed')
+        redirect_to dashboard_entry_path(entry), alert: alert_text
       end
-
     end
 
     def publish
@@ -50,23 +54,27 @@ module Dashboard
       entry.accept!
       entry.save
       EntriesMailer.entry_accepted(entry).deliver
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.accepted_successfully')
+      notice_text = t('flash.entries.accepted_successfully')
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: notice_text
     end
 
     def winner
       entry.select_as_winner
       begin
         entry.save
-        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_selected_successfully', name: entry.name)
+        notice_text = t('flash.entries.winner_selected_successfully', name: entry.name)
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: notice_text
       rescue
-        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), alert: t('flash.entries.no_more_than_3_winners', name: entry.name)
+        alert_text = t('flash.entries.no_more_than_3_winners', name: entry.name)
+        redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), alert: alert_text
       end
     end
 
     def remove_winner
       entry.remove_as_winner
       entry.save
-      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: t('flash.entries.winner_removed_successfully')
+      notice_text = t('flash.entries.winner_removed_successfully')
+      redirect_to dashboard_entries_path(challenge_id: entry.challenge_id), notice: notice_text
     end
 
     private

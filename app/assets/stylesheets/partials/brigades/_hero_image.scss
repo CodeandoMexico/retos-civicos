@@ -1,0 +1,58 @@
+.hero-container {
+  height: 50vh;
+  margin: -50px 0 50px;
+  min-height: 250px;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+
+  .hero-image-container {
+    background-attachment: fixed;
+    background-color: $light-cyan;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow-y: hidden;
+  }
+}
+
+.hero-image {
+  background-size: cover;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: -15%;
+  width: auto;
+  z-index: -100;
+}
+
+.translucent-overlay {
+  background-color: $translucent-black;
+  display: table;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.hero-text-container {
+  color: $white;
+  display: table-cell;
+  margin: auto;
+  max-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+
+  .hero-text {
+    font-size: 8vw;
+    font-weight: 400;
+    margin: auto;
+  }
+}

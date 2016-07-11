@@ -1,0 +1,28 @@
+<div id="members-modal" class="modal fade members-modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= I18n.t('brigades.member').pluralize(2) %></h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" class="member-search-field" placeholder="<%= I18n.t('brigades.show.search') %>">
+        </form>
+        <div class="members">
+          <%= render partial: 'member',
+                     locals: { profile_img: @brigade.organizer.avatar,
+                               from_modal: true, member_name: @brigade.organizer.name,
+                               subtext: "(#{I18n.t('brigades.show.members.organizer')})" } %>
+          <% @brigade.followers.each do |follower| %>
+          <% curr_brigade_user = BrigadeUser.get_relation(follower.id, @brigade.id).created_at%>
+          <%= render partial: 'member',
+                     locals: { profile_img: follower.image_url("small"),
+                               from_modal: true, member_name: follower.to_s,
+                               subtext: t('brigades.show.members.member_since') + ' ' + curr_brigade_user.strftime("%B %d, %Y")} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

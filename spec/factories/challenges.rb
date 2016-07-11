@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :challenge do
     sequence(:title) { |i| "El titulo #{i}" }
-    description "descripcion"
-    about "este es mi test"
-    pitch "piitch del challenge"
+    description 'descripcion'
+    about 'este es mi test'
+    pitch 'piitch del challenge'
     association :organization
-    evaluation_instructions "Instructions defined here."
+    evaluation_instructions 'Instructions defined here.'
 
     starts_on { 1.day.ago.to_date }
     ideas_phase_due_on { 1.month.from_now.to_date }
@@ -30,18 +30,19 @@ FactoryGirl.define do
     end
 
     trait :with_criteria do
-      evaluation_criteria { [
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"},
-        { description: "Criterio", value: "10"}]
-      }
+      evaluation_criteria do
+        [
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' },
+          { description: 'Criterio', value: '10' }]
+      end
     end
   end
 end

@@ -8,6 +8,6 @@ class EntryDecorator < BaseDecorator
   end
 
   def score
-    self.challenge.finished_evaluating? ? self.final_score : I18n.t('entries.not_available')
+    challenge.finished_evaluating? ? final_score : I18n.t('entries.not_available')
   end
 end

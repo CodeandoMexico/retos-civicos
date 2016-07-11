@@ -1,0 +1,32 @@
+language: ruby
+cache: bundler
+rvm:
+  - ruby-2.1.8
+services:
+  - postgresql
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - cp config/database.sample.yml config/database.yml
+  - psql -c 'create database retos_cmx_test;' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+  - bundle exec cucumber
+#  - bundle exec rake jasmine:ci
+after_script:
+  - bundle exec rake send_to_codeclimate
+addons:
+  code_climate:
+    repo_token: 6e41ce27995725a7acfa83b90c4f64de98800ac04a2dafa329b372b779f52c37
+notifications:
+  slack:
+    secure: rBAJWSOTpcOQcscWpZF8snLoWgOym7gutC+KjT2B4cXbqVrQiFdxEcxWG0RGtfdJErDhVKdn13FifEg7HVICXf+IO5hsFjtxUUrnHLJYOtgKvt2o/vL7JQglCZF86oV7buKsEN+e0WxALL/Syjacueb955oWZMlKwlulcks4O1Bj5OvJhhzvTnuNJevvtaXrAFba91cY1ZnoopgPJGDevASYpLvn5KcNCOZtXdm5fT+CHLTs8UclupncnwaSf30V1LMei2or01/OfUjod7lpP2ZLEAnmmwCVULNUdPDuHMlVSvVJuHGxYfSi1st0O9jyhD+5k1e3cqiHOTQcG/p0SZIIBt4ErA7AHGXUcaVWmbB6jtxVpneRH0s0K5NAvn9I4p6C7+YEPVGntp+XO3kHlFOdyj9NLNilEGnUJcCWx0p6GWti/6emJVvVpU1PWKk34ZMcZckVvkxaJCGVHaC61dxKivefMU+wdjsrxceNBD/kTFTUx3hLSFg91HKz2N6p8owCylh9uU/XbpchiBfdq76dbJytj7EIYGQbkOhHihccnHFjsz3TxmwmRh/mbr8HZ2EA3WS+akPai51T1jRBWDxHfAYsa3cVS0fWNKqbG9uOP37GTnVV+rM0JFpRqj5mZZJ9NbLSVykC9/A/ip/sFjk5O+4xSwbHwrgi7qgDPzM=
+deploy:
+  provider: heroku
+  api_key:
+    secure: jl/TTDvsGE9ny3mRkXqTj1ztsCJFKnshcyZvCVIUxGggk5jKRKBOOPP5uerHD9/IQpxnm4PQ35EbG5NlXcRhbp1j35gmzkAuH4+6dzY3XsRvLVLYjscj627uB7MVESsoYnyPLzBmp51HV4gZ84YS//T38EkmX8o08Rhb4XG6/MEYgcSC+JvgP95dpvJFcqE8c3RDiCioLc69IOCofI9LbIHmmGRzlLZoK6A0kfSQqi0HDwjQJCLl0mBp/I0f2g8GhTbMguL5JrR/U5F7ztLVLuWnwqkm7WJuOKdqY/wnFgDmeYSGdbZmRe4R3M/QDvu+hnA7TJhPcABihufEJKYXmXmGfS2a0FMPTj5EkpTrg1GT6trG6Ofa1IHg9gVSn3ryr4jcnChR/AtmplGW2q3kIMBrrH8NBPd/so+jO6CqfjzAlxK4ZmWxBqNWrTozbYFwoLL/Mt6npa8PTvSfnnmWbIE9dIMEqMkXoV8QEf1mHpNe6FO5VmQletM+dPThAUoEdeIcG/MpVFcn1PyLX7UV5FJHH5x1n//gxJic7BgWMwf79pmqGVkgkZNKdL4igWINXrOvHwit01C4Z0EKClkqMKveIHfQJBtLPJzEBtAsTlAv0nR03cBwlDeC0Vbw994LIfDMmu3xCzjUDMHM1R/VvORZ6jnjDpdHxCkPuCgkRE4=
+  app:
+    staging: ucb-itesm-staging
+    master: ucb-itesm

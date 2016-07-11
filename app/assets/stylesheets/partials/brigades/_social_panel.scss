@@ -1,0 +1,15 @@
+.social-networks {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.social-network {
+  cursor: pointer;
+  fill: $catalina-blue;
+  margin: 10px 3px 0;
+  transition: fill .6s, color .6s, width .6s;
+
+  &:hover {
+    fill: $shamrock;
+  }
+}

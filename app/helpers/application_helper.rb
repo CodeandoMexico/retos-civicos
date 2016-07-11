@@ -1,25 +1,23 @@
 module ApplicationHelper
   class TargetBlankRenderer < Redcarpet::Render::HTML
     def initialize(extensions = {})
-      super extensions.merge(link_attributes: { target: "_blank" })
+      super extensions.merge(link_attributes: { target: '_blank' })
     end
   end
 
-  def logo(path, options={})
+  def logo(path, options = {})
     processed_path = if path.nil?
-      ENV['LOGO']
-    else
-      path
-    end
+                       ENV['LOGO']
+                     else
+                       path
+                     end
     image_tag processed_path, options
   end
 
   def image_url(source)
     abs_path = image_path(source)
-    unless abs_path =~ /^http/
-      abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}"
-    end
-   abs_path
+    abs_path = "#{request.protocol}#{request.host_with_port}#{abs_path}" unless abs_path =~ /^http/
+    abs_path
   end
 
   # Dynamic current userable method depending on the user's role
@@ -48,26 +46,17 @@ module ApplicationHelper
   end
 
   def markdown_for_additional_links(text)
-    if text.present?
-      renderer = TargetBlankRenderer.new(hard_wrap: true, filter_html: true)
-      options = {
-        underline: true,
-        space_after_headers: true,
-        highlight: true,
-        lax_spacing: true,
-        autolink: true,
-        no_intra_emphasis: true
-      }
-      Redcarpet::Markdown.new(renderer, options).render(text).html_safe
-    end
+    return unless text.present?
+    renderer = TargetBlankRenderer.new(hard_wrap: true, filter_html: true)
+    options = {
+      underline: true, space_after_headers: true, highlight: true,
+      lax_spacing: true, autolink: true, no_intra_emphasis: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
   def tab_class(activator)
     'active' if params[:controller] == activator
-  end
-
-  def filter_class(filter)
-    'active' if params[:filter] == filter
   end
 
   def url_with_protocol(url)
@@ -96,7 +85,7 @@ module ApplicationHelper
     success:    :success,
     error:      :danger,
     warning:    :warning
-  }
+  }.freeze
 
   def display_flash_messages
     flash.reduce '' do |message, (key, value)|
@@ -116,22 +105,25 @@ module ApplicationHelper
   end
 
   def compute_percentage(value, total)
-    (value * 100.0 / total).ceil()
+    (value * 100.0 / total).ceil
   end
 
   def challenge_completion_percentage_for(challenge)
     if challenge.finish_on < Date.today then 100
-    elsif Phases.is_current?(:ideas, challenge) then 10
-    elsif Phases.is_current?(:ideas_selection, challenge) then 25
-    elsif Phases.is_current?(:prototypes, challenge) then 50
-    elsif Phases.is_current?(:prototypes_selection, challenge) then 75
+    elsif Phases.current?(:ideas, challenge) then 10
+    elsif Phases.current?(:ideas_selection, challenge) then 25
+    elsif Phases.current?(:prototypes, challenge) then 50
+    elsif Phases.current?(:prototypes_selection, challenge) then 75
     end
   end
 
   private
 
   def build_message(args)
-    html = content_tag :div, data: { alert: '' }, class: "alert alert-#{args[:key_match][args[:key].to_sym] || :standard} alert-dismissible", style: 'margin: 15px 0 15px 0' do
+    alert_class_suffix = args[:key_match][args[:key].to_sym] || :standard
+    html = content_tag :div, data: { alert: '' },
+                             class: "alert alert-#{alert_class_suffix} alert-dismissible",
+                             style: 'margin: 15px 0 15px 0' do
       raw "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
            <span aria-hidden='true'>&times;</span></button>
            #{args[:value]}"

@@ -23,6 +23,36 @@
 
     <div class="form-group">
       <div class="col-sm-3">
+        <%= f.label :github_url, t(".github_url"), class: 'control-label' %>
+        <span class="help-block"><%= t(".github_url-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :github_url, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :twitter_url, t(".twitter_url"), class: 'control-label' %>
+        <span class="help-block"><%= t(".twitter_url-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :twitter_url, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :facebook_url, t(".facebook_url"), class: 'control-label' %>
+        <span class="help-block"><%= t(".facebook_url-description") %></span>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :facebook_url, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-3">
         <%= f.label :bio, t(".bio"), class: 'control-label' %>
         <span class="help-block"><%= t(".bio-description") %></span>
       </div>

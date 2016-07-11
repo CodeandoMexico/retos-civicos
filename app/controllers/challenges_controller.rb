@@ -12,7 +12,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
 
-    if @challenge.public? || User.is_admin_of_challenge(@challenge, current_organization)
+    if @challenge.public? || User.admin_of_challenge?(@challenge, current_organization)
       @organization = @challenge.organization
       @comments = fetch_comments
       @entries = @challenge.entries.public
@@ -30,7 +30,7 @@ class ChallengesController < ApplicationController
       return render layout: 'aquila'
     end
 
-    return record_not_found
+    record_not_found
   end
 
   def cancel
@@ -42,11 +42,14 @@ class ChallengesController < ApplicationController
   def like
     authorize! :like, Challenge
     @challenge = Challenge.find(params[:id])
+    organization = @challenge.organization
     current_user.vote_for(@challenge)
     @challenge.update_likes_counter
     respond_to do |format|
       format.js
-      format.html { redirect_to organization_challenge_path(@challenge.organization, @challenge), notice: t('comments.voted') }
+      format.html do
+        redirect_to organization_challenge_path(organization, @challenge), notice: t('comments.voted')
+      end
     end
   end
 
@@ -60,8 +63,11 @@ class ChallengesController < ApplicationController
 
   def mail_newsletter
     challenge = Challenge.find(params[:id])
+    organization = challenge.organization
+    subject = params[:subject]
+    body = params[:body]
     challenge.collaborations.each do |collaborator|
-      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, challenge.organization, params[:subject], params[:body])
+      OrganizationMailer.delay.send_newsletter_to_collaborator(collaborator, organization, subject, body)
     end
 
     redirect_to challenge_path(challenge), notice: t('flash.organizations.send')
@@ -73,7 +79,10 @@ class ChallengesController < ApplicationController
     comments_per_page = 10
     current_page = params[:page]
     # r = most recent and v = vote count
-    return @challenge.root_comments.most_recent.page(current_page).per(comments_per_page) if params[:order_by] == 'recent'
+    if params[:order_by] == 'recent'
+      return @challenge.root_comments.most_recent.page(current_page).per(comments_per_page)
+    end
+
     @challenge.root_comments.sort_parents.page(current_page).per(comments_per_page)
   end
 

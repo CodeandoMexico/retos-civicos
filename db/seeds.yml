@@ -1,0 +1,1398 @@
+locations:
+  - zip_code: "01020"
+    state: ciudad de méxico
+    city: álvaro obregón
+    locality: san josé insurgentes
+  - zip_code: "01110"
+    state: ciudad de méxico
+    city: álvaro obregón
+    locality: las palmas
+  - zip_code: "01210"
+    state: ciudad de méxico
+    city: álvaro obregón
+    locality: centro de ciudad santa fe
+  - zip_code: "01790"
+    state: ciudad de méxico
+    city: álvaro obregón
+    locality: lomas de san ángel inn
+  - zip_code: "02300"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: industrial de vallejo
+  - zip_code: "02460"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: la preciosa
+  - zip_code: "02630"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: coltongo
+  - zip_code: "02770"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: santa cruz acayucan
+  - zip_code: "02800"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: nueva santa maría
+  - zip_code: "02870"
+    state: ciudad de méxico
+    city: azcapotzalco
+    locality: san salvador xochimanca
+  - zip_code: "03020"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: narvarte
+  - zip_code: "03400"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: alamos
+  - zip_code: "03100"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: del valle
+  - zip_code: "03810"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: nápoles
+  - zip_code: "03700"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: nonoalco
+  - zip_code: "03510"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: moderna
+  - zip_code: "03900"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: san josé insurgentes
+  - zip_code: "03940"
+    state: ciudad de méxico
+    city: benito juárez
+    locality: crédito constructor
+  - zip_code: "04100"
+    state: ciudad de méxico
+    city: coyoacán
+    locality: del carmen
+  - zip_code: "04620"
+    state: ciudad de méxico
+    city: coyoacán
+    locality: san pablo tepetlapa
+  - zip_code: "04650"
+    state: ciudad de méxico
+    city: coyoacán
+    locality: pueblo de santa úrsula coapa
+  - zip_code: "04910"
+    state: ciudad de méxico
+    city: coyoacán
+    locality: santa úrsula coapa
+  - zip_code: "05100"
+    state: ciudad de méxico
+    city: cuajimalpa
+    locality: lomas de vista hermosa
+  - zip_code: "05120"
+    state: ciudad de méxico
+    city: cuajimalpa
+    locality: bosques de las lomas
+  - zip_code: "06400"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: centro
+  - zip_code: "06600"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: juárez
+  - zip_code: "06700"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: roma
+  - zip_code: "06720"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: doctores
+  - zip_code: "06800"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: obrera
+  - zip_code: "06900"
+    state: ciudad de méxico
+    city: cuauhtémoc
+    locality: nonoalco tlatelolco
+  - zip_code: "07770"
+    state: ciudad de méxico
+    city: gustavo a. madero
+    locality: maximimo àvila camacho
+  - zip_code: "07780"
+    state: ciudad de méxico
+    city: gustavo a. madero
+    locality: héroe de nacozari
+  - zip_code: "07800"
+    state: ciudad de méxico
+    city: gustavo a. madero
+    locality: industrial
+  - zip_code: "07820"
+    state: ciudad de méxico
+    city: gustavo a. madero
+    locality: tres estrellas
+  - zip_code: "07920"
+    state: ciudad de méxico
+    city: gustavo a. madero
+    locality: san juan de aragón
+  - zip_code: "08100"
+    state: ciudad de méxico
+    city: iztacalco
+    locality: pantitlán
+  - zip_code: "08200"
+    state: ciudad de méxico
+    city: iztacalco
+    locality: viaducto piedad
+  - zip_code: "08300"
+    state: ciudad de méxico
+    city: iztacalco
+    locality: santa anita
+  - zip_code: "08400"
+    state: ciudad de méxico
+    city: iztacalco
+    locality: granjas méxico
+  - zip_code: "08500"
+    state: ciudad de méxico
+    city: iztacalco
+    locality: agrícola oriental
+  - zip_code: "09040"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: central de abastos
+  - zip_code: "09060"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: sector popular
+  - zip_code: "09070"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: granjas san antonio
+  - zip_code: "09230"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: ejército de oriente
+  - zip_code: "09510"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: santa martha acatitla
+  - zip_code: "09620"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: lomas de zaragoza
+  - zip_code: "09640"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: xalpa
+  - zip_code: "09810"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: granjas esmeralda
+  - zip_code: "09850"
+    state: ciudad de méxico
+    city: delegación iztapalapa
+    locality: san juan xalpa
+  - zip_code: "10370"
+    state: ciudad de méxico
+    city: magdalena contreras
+    locality: las palmas
+  - zip_code: "10300"
+    state: ciudad de méxico
+    city: magdalena contreras
+    locality: san bernabé ocotepec
+  - zip_code: "11000"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: lomas de chapultepec
+  - zip_code: "11230"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: argentina poniente
+  - zip_code: "11400"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: pensil
+  - zip_code: "11500"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: irrigación
+  - zip_code: "11510"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: los morales polanco
+  - zip_code: "11520"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: granada
+  - zip_code: "11560"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: palmitas polanco
+  - zip_code: "11570"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: polanco
+  - zip_code: "11590"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: anzures
+  - zip_code: "11650"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: reforma social
+  - zip_code: "11700"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: bosques de las lomas
+  - zip_code: "11800"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: escandón
+  - zip_code: "11820"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: amóérica
+  - zip_code: "11850"
+    state: ciudad de méxico
+    city: miguel hidalgo
+    locality: san miguel chapultepec
+  - zip_code: "13270"
+    state: ciudad de méxico
+    city: tlahuac
+    locality: del mar
+  - zip_code: "14020"
+    state: ciudad de méxico
+    city: tlalpan
+    locality: tlalpan
+  - zip_code: "14090"
+    state: ciudad de méxico
+    city: tlalpan
+    locality: la joya
+  - zip_code: "15400"
+    state: ciudad de méxico
+    city: venustiano carranza
+    locality: romero rubio
+  - zip_code: "15810"
+    state: ciudad de méxico
+    city: venustiano carranza
+    locality: merced centro
+  - zip_code: "15820"
+    state: ciudad de méxico
+    city: venustiano carranza
+    locality: lorenzo boturini
+  - zip_code: "15850"
+    state: ciudad de méxico
+    city: venustiano carranza
+    locality: magdalena mixhuca
+  - zip_code: "15900"
+    state: ciudad de méxico
+    city: venustiano carranza
+    locality: jardín balbuena
+  - zip_code: "16050"
+    state: ciudad de méxico
+    city: xochimilco
+    locality: san bernardino
+  - zip_code: "20000"
+    state: aguascalientes
+    city: aguascalientes
+    locality: centro
+  - zip_code: "20110"
+    state: aguascalientes
+    city: aguascalientes
+    locality: trojes de alonzo
+  - zip_code: "20230"
+    state: aguascalientes
+    city: aguascalientes
+    locality: frac. sta elena
+  - zip_code: "20230"
+    state: aguascalientes
+    city: aguascalientes
+    locality: fraccionamiento la fuente
+  - zip_code: "20206"
+    state: aguascalientes
+    city: aguascalientes
+    locality: frac. josé lópez portillo
+  - zip_code: "21000"
+    state: baja california
+    city: mexicali
+    locality: centro cívico
+  - zip_code: "21389"
+    state: baja california
+    city: mexicali
+    locality: hidalgo
+  - zip_code: "21395"
+    state: baja california
+    city: mexicali
+    locality: elias calles
+  - zip_code: "21400"
+    state: baja california
+    city: tecate
+    locality: zona centro
+  - zip_code: "21624"
+    state: baja california
+    city: ejido cuernavaca
+  - zip_code: "21850"
+    state: baja california
+    city: san felipe
+  - zip_code: "21970"
+    state: baja california
+    city: los algodones
+  - zip_code: "22000"
+    state: baja california
+    city: tijuana
+    locality: zona centro
+  - zip_code: "22127"
+    state: baja california
+    city: tijuana
+    locality: inf. lomas verdes.
+  - zip_code: "22223"
+    state: baja california
+    city: tijuana (privada las vistas)
+  - zip_code: "22427"
+    state: baja california
+    city: tijuana
+    locality: otay universidad
+  - zip_code: "22440"
+    state: baja california
+    city: tijuana
+    locality: 20 de noviembre
+  - zip_code: "22200"
+    state: baja california
+    city: playas de tijuana
+  - zip_code: "22444"
+    state: baja california
+    city: tijuana
+    locality: cd. industrial
+  - zip_code: "22650"
+    state: baja california
+    city: tijuana
+    locality: la floresta
+  - zip_code: "22800"
+    state: baja california
+    city: ensenada
+    locality: zona centro
+  - zip_code: "23400"
+    state: baja california sur
+    city: san josé del cabo
+    locality: magisterial
+  - zip_code: "23410"
+    state: baja california sur
+    city: cabo san lucas
+    locality: las brisas
+  - zip_code: "23020"
+    state: baja california sur
+    city: la paz
+    locality: vicente guerrero
+  - zip_code: "24040"
+    state: campeche
+    city: campeche
+    locality: barrio san román
+  - zip_code: "24500"
+    state: campeche
+    city: campeche
+    locality: centro
+  - zip_code: "24097"
+    state: campeche
+    city: campeche
+    locality: las flores
+  - zip_code: "25000"
+    state: coahuila
+    city: saltillo
+    locality: centro
+  - zip_code: "25017"
+    state: coahuila
+    city: saltillo
+    locality: parque industrial de amistad
+  - zip_code: "25700"
+    state: coahuila
+    city: monclova
+    locality: zona centro
+  - zip_code: "26000"
+    state: coahuila
+    city: piedras negras
+    locality: gonzález
+  - zip_code: "26700"
+    state: coahuila
+    city: sabinas
+    locality: centro
+  - zip_code: "27000"
+    state: coahuila
+    city: torreón
+    locality: centro
+  - zip_code: "28000"
+    state: colima
+    city: colima
+    locality: centro
+  - zip_code: "29000"
+    state: chiapas
+    city: tuxtla gutiérrez
+    locality: centro
+  - zip_code: "29020"
+    state: chiapas
+    city: tuxtla gutiérrez
+    locality: jardines de tuxtla
+  - zip_code: "29200"
+    state: chiapas
+    city: san cristóbal de las casas
+    locality: centro
+  - zip_code: "29229"
+    state: chiapas
+    city: san cristóbal de las casas
+    locality: 31 de marzo
+  - zip_code: "30700"
+    state: chiapas
+    city: tapachula
+    locality: centro
+  - zip_code: "31000"
+    state: chihuahua
+    city: chihuahua
+    locality: centro
+  - zip_code: "31050"
+    state: chihuahua
+    city: chihuahua
+    locality: santa rosa.
+  - zip_code: "31109"
+    state: chihuahua
+    city: chihuahua
+    locality: las carolinas
+  - zip_code: "31500"
+    state: chihuahua
+    city: cuauhtémoc
+    locality: ciudad cuauhtémoc centro
+  - zip_code: "32350"
+    state: chihuahua
+    city: ciudad juárez
+    locality: nogales
+  - zip_code: "32401"
+    state: chihuahua
+    city: ciudad juárez
+    locality: napoli
+  - zip_code: "32420"
+    state: chihuahua
+    city: ciudad juárez
+    locality: san lorenzo c.c. calesa
+  - zip_code: "33180"
+    state: chihuahua
+    city: meoqui
+  - zip_code: "33800"
+    state: chihuahua
+    city: parral
+  - zip_code: "33700"
+    state: chihuahua
+    city: ciudad camargo
+  - zip_code: "35060"
+    state: durango
+    city: gomez palacio
+    locality: durango
+    locality: h. mayagoitia
+  - zip_code: "35060"
+    state: durango
+    city: gomez palacio
+    locality: durango
+    locality: ampliacion sacramento
+  - zip_code: "35060"
+    state: durango
+    city: gomez palacio
+    locality: durango
+    locality: sacramento
+  - zip_code: "35025"
+    state: durango
+    city: gomez palacio
+    locality: durango
+    locality: chapala ote
+  - zip_code: "36180"
+    state: guanajuato
+    city: irapuato
+    locality: flores magón
+  - zip_code: "36200"
+    state: guanajuato
+    city: romita
+  - zip_code: "37130"
+    state: guanajuato
+    city: león
+    locality: haciendas el rosario
+  - zip_code: "37220"
+    state: guanajuato
+    city: león
+    locality: guanajuato
+    locality: villa insurgentes
+  - zip_code: "37300"
+    state: guanajuato
+    city: león
+    locality: guanajuato
+    locality: lindavista
+  - zip_code: "37700"
+    state: guanajuato
+    city: san miguel de allende
+    locality: centro
+  - zip_code: "38000"
+    state: guanajuato
+    city: celaya
+    locality: centro
+  - zip_code: "38010"
+    state: guanajuato
+    city: celaya
+    locality: las aves
+  - zip_code: "38010"
+    state: guanajuato
+    city: celaya
+    locality: villas de la hacienda
+  - zip_code: "38020"
+    state: guanajuato
+    city: celaya
+    locality: imperial
+  - zip_code: "38020"
+    state: guanajuato
+    city: celaya
+    locality: santos degollados
+  - zip_code: "38020"
+    state: guanajuato
+    city: celaya
+    locality: la calesa
+  - zip_code: "38030"
+    state: guanajuato
+    city: celaya
+    locality: emiliano zapata
+  - zip_code: "38030"
+    state: guanajuato
+    city: celaya
+    locality: guanaguato
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: lopez portillo
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: exelaris
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: los veinte
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: arcada
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: col.alameda
+  - zip_code: "38050"
+    state: guanajuato
+    city: celaya
+    locality: villa de reyes
+  - zip_code: "38600"
+    state: guanajuato
+    city: acámbaro
+    locality: centro
+  - zip_code: "39000"
+    state: guerrero
+    city: chilpancingo
+    locality: centro
+  - zip_code: "39300"
+    state: guerrero
+    city: acapulco
+    locality: centro
+  - zip_code: "39670"
+    state: guerrero
+    city: acapulco
+    locality: magallanes
+  - zip_code: "39907"
+    state: guerrero
+    city: acapulco
+    locality: lázaro cardenas
+  - zip_code: "42083"
+    state: hidalgo
+    city: pachuca
+    locality: quinta bonita
+  - zip_code: "42080"
+    state: hidalgo
+    city: pachuca
+    locality: centro minero
+  - zip_code: "43600"
+    state: hidalgo
+    city: tulancingo
+    locality: centro
+  - zip_code: "43200"
+    state: hidalgo
+    city: zacualtipán
+    locality: zacualtipán de ángeles
+    locality: hgo.
+  - zip_code: "44190"
+    state: jalisco
+    city: guadalajara
+    locality: moderna
+  - zip_code: "44200"
+    state: jalisco
+    city: guadalajara
+    locality: s.h. santa teresita
+  - zip_code: "44350"
+    state: jalisco
+    city: guadalajara
+    locality: lomas de independencia
+  - zip_code: "44500"
+    state: jalisco
+    city: guadalajara
+    locality: verde valle
+  - zip_code: "44600"
+    state: jalisco
+    city: guadalajara
+    locality: ladrón de guevara
+  - zip_code: "44630"
+    state: jalisco
+    city: guadalajara
+    locality: providencia
+  - zip_code: "44800"
+    state: jalisco
+    city: guadalajara
+    locality: san antonio
+  - zip_code: "44890"
+    state: jalisco
+    city: tlaquepaque
+    locality: rancho blanco
+  - zip_code: "44940"
+    state: jalisco
+    city: guadalajara
+    locality: zona industrial
+  - zip_code: "45019"
+    state: jalisco
+    city: zapopan
+    locality: san juan de ocotan
+  - zip_code: "45050"
+    state: jalisco
+    city: zapopan
+    locality: ciudad del sol
+  - zip_code: "45070"
+    state: jalisco
+    city: tlaquepaque
+    locality: las fuentes
+  - zip_code: "45238"
+    state: jalisco
+    city: zapopan
+    locality: cd. bugambilias
+  - zip_code: "45380"
+    state: jalisco
+    city: amatitán
+  - zip_code: "45400"
+    state: jalisco
+    city: tonalá
+  - zip_code: "45430"
+    state: jalisco
+    city: la laja
+  - zip_code: "45600"
+    state: jalisco
+    city: tlaquepaque
+    locality: santa maría tequepexpan
+  - zip_code: "45618"
+    state: jalisco
+    city: tlaquepaque
+    locality: juan de la barrera
+  - zip_code: "46680"
+    state: jalisco
+    city: ameca
+    locality: niños héroes
+  - zip_code: "47180"
+    state: jalisco
+    city: arandas
+  - zip_code: "47460"
+    state: jalisco
+    city: tepatitlán de morelos
+  - zip_code: "48310"
+    state: jalisco
+    city: puerto vallarta
+    locality: versalles
+  - zip_code: "48321"
+    state: jalisco
+    city: puerto vallarta
+    locality: edificio cielito lindo
+  - zip_code: "48330"
+    state: jalisco
+    city: puerto vallarta
+    locality: col lázaro cardenas
+  - zip_code: "48348"
+    state: jalisco
+    city: puerto vallarta
+    locality: santa maría
+  - zip_code: "48400"
+    state: jalisco
+    city: tequila
+  - zip_code: "58000"
+    state: michoacán
+    city: morelia
+    locality: chapultepec sur
+  - zip_code: "59600"
+    state: michoacán
+    city: zamora
+    locality: centro
+  - zip_code: "60000"
+    state: michoacán
+    city: uruapan
+    locality: centro
+  - zip_code: "60130"
+    state: michoacán
+    city: uruapan
+    locality: eduardo ruiz
+  - zip_code: "61180"
+    state: michoacán
+    city: ciudad hidalgo
+    locality: monte bello
+  - zip_code: "62190"
+    state: morelos
+    city: cuernavaca
+    locality: carolina
+  - zip_code: "62210"
+    state: morelos
+    city: cuernavaca
+    locality: pbo. chamilpa
+  - zip_code: "62230"
+    state: morelos
+    city: cuernavaca
+    locality: san cristóbal
+  - zip_code: "62270"
+    state: morelos
+    city: cuernavaca
+    locality: miraval
+  - zip_code: "62420"
+    state: morelos
+    city: cuernavaca
+    locality: jacarandas
+  - zip_code: "62430"
+    state: morelos
+    city: cuernavaca
+    locality: cuauhnáhuac
+  - zip_code: "62500"
+    state: morelos
+    city: jiutepec
+    locality: civac
+  - zip_code: "62744"
+    state: morelos
+    city: cuautla
+    locality: emiliano zapata
+  - zip_code: "62220"
+    state: morelos
+    city: cuernavaca
+    locality: pbo. ocotepec
+  - zip_code: "62460"
+    state: morelos
+    city: cuernavaca
+    locality: vicente estrada cajigal
+  - zip_code: "62770"
+    state: morelos
+    city: tlaltizapan
+    locality: centro
+  - zip_code: "62790"
+    state: morelos
+    city: jojutla
+    locality: centro
+  - zip_code: "62780"
+    state: morelos
+    city: zacatepec
+    locality: centro
+  - zip_code: "63000"
+    state: nayarit
+    city: tepic
+  - zip_code: "64000"
+    state: nuevo león
+    city: monterrey
+    locality: centro
+  - zip_code: "64320"
+    state: nuevo león
+    city: monterrey
+    locality: mitras norte
+  - zip_code: "64640"
+    state: nuevo león
+    city: monterrey
+    locality: san jerónimo
+  - zip_code: "66120"
+    state: nuevo león
+    city: santa catarina
+    locality: san humberto
+  - zip_code: "66220"
+    state: nuevo león
+    city: san pedro garza garcía
+    locality: santa bárbara
+  - zip_code: "66358"
+    state: nuevo león
+    city: santa catarina
+    locality: industrial de martel
+  - zip_code: "66450"
+    state: nuevo león
+    city: san nicolás de los garza
+    locality: el roble
+  - zip_code: "66480"
+    state: nuevo león
+    city: san nicolás de los garza
+    locality: residencial anáhuac
+  - zip_code: "66480"
+    state: nuevo león
+    city: san nicolás de los garza
+    locality: residencial nogalar
+  - zip_code: "67150"
+    state: nuevo león
+    city: guadalupe
+    locality: el sabrino
+  - zip_code: "67170"
+    state: nuevo león
+    city: guadalupe
+    locality: contry la silla
+  - zip_code: "67485"
+    state: nuevo león
+    city: cadereyta jimenez framboyanes
+  - zip_code: "67700"
+    state: nuevo león
+    city: ciudad linares
+    locality: centro 2
+  - zip_code: "68020"
+    state: oaxaca
+    city: oaxaca
+    locality: ricardo flores magón
+  - zip_code: "68300"
+    state: oaxaca
+    city: tuxtepec
+    locality: san antonio encinal
+  - zip_code: "70430"
+    state: oaxaca
+    city: crucero de mitla
+  - zip_code: "70989"
+    state: oaxaca
+    city: bahias de huatulco
+  - zip_code: "71510"
+    state: oaxaca
+    city: ocotlan de morelos
+  - zip_code: "72130"
+    state: puebla
+    city: puebla
+    locality: la libertad
+  - zip_code: "72150"
+    state: puebla
+    city: puebla
+    locality: jardines de zavaleta
+  - zip_code: "72160"
+    state: puebla
+    city: puebla
+    locality: la paz
+  - zip_code: "72450"
+    state: puebla
+    city: puebla
+    locality: san jose mayorazgo
+  - zip_code: "72460"
+    state: puebla
+    city: puebla
+    locality: rincón arboledas
+  - zip_code: "75700"
+    state: puebla
+    city: tehuacán
+    locality: centro
+  - zip_code: "76000"
+    state: querétaro
+    city: downtown santiago de querétaro
+  - zip_code: "76020"
+    state: querétaro
+    city: santiago de querétaro
+    locality: pathe
+  - zip_code: "76100"
+    state: querétaro
+    city: santiago de querétaro
+    locality: jurica
+  - zip_code: "76120"
+    state: querétaro
+    city: 76130 santiago de querétaro
+    locality: industrial benito juárez
+  - zip_code: "76260"
+    state: querétaro
+    city: el marqués
+  - zip_code: "76802"
+    state: querétaro
+    city: san juan del río
+  - zip_code: "76950"
+    state: querétaro
+    city: alto
+  - zip_code: "76957"
+    state: querétaro
+    city: buenavista
+  - zip_code: "76993"
+    state: querétaro
+    city: el chamizal
+  - zip_code: "76981"
+    state: querétaro
+    city: el milagro
+  - zip_code: "76950"
+    state: querétaro
+    city: huimilpan cabecera
+  - zip_code: "76956"
+    state: querétaro
+    city: ceja de bravo
+  - zip_code: "76974"
+    state: querétaro
+    city: la galera
+  - zip_code: "76980"
+    state: querétaro
+    city: lagunillas
+  - zip_code: "76958"
+    state: querétaro
+    city: las tepuzas
+  - zip_code: "76970"
+    state: querétaro
+    city: los cues
+  - zip_code: "76971"
+    state: querétaro
+    city: san antonio de la galera
+  - zip_code: "76997"
+    state: querétaro
+    city: san ignacio
+  - zip_code: "76995"
+    state: querétaro
+    city: san pedro
+  - zip_code: "76983"
+    state: querétaro
+    city: apapataro
+  - zip_code: "76977"
+    state: querétaro
+    city: el bambilete
+  - zip_code: "76952"
+    state: querétaro
+    city: el granjeno
+  - zip_code: "76951"
+    state: querétaro
+    city: el vegil
+  - zip_code: "76957"
+    state: querétaro
+    city: huitrón
+  - zip_code: "76952"
+    state: querétaro
+    city: la cueva
+  - zip_code: "76973"
+    state: querétaro
+    city: la noria
+  - zip_code: "76950"
+    state: querétaro
+    city: las taponas
+  - zip_code: "76984"
+    state: querétaro
+    city: los carranza
+  - zip_code: "76953"
+    state: querétaro
+    city: piedras lisas
+  - zip_code: "76992"
+    state: querétaro
+    city: san francisco
+  - zip_code: "76990"
+    state: querétaro
+    city: san pedrito
+  - zip_code: "76976"
+    state: querétaro
+    city: santa teresa
+  - zip_code: "77000"
+    state: quintana roo
+    city: chetumal
+    locality: centro
+  - zip_code: "77500"
+    state: quintana roo
+    city: cancún
+    locality: zona hotelera
+  - zip_code: "77505"
+    state: quintana roo
+    city: cancún
+  - zip_code: "77508"
+    state: quintana roo
+    city: cancún
+    locality: centro
+  - zip_code: "77600"
+    state: quintana roo
+    city: coxumel
+    locality: centro
+  - zip_code: "77710"
+    state: quintana roo
+    city: playa del carmen
+    locality: centro
+  - zip_code: "78070"
+    state: san luis potosí
+    city: san luis potosí
+    locality: hogares ferrocarrileros
+  - zip_code: "78250"
+    state: san luis potosí
+    city: san luis potosí
+    locality: co. tequisquiapan
+  - zip_code: "79000"
+    state: san luis potosí
+    city: ciudad valles
+    locality: centro
+  - zip_code: "80200"
+    state: sinaloa
+    city: culiacán
+    locality: col miguel alemán
+  - zip_code: "81000"
+    state: sinaloa
+    city: guasave
+    locality: centro
+  - zip_code: "81200"
+    state: sinaloa
+    city: los mochis
+    locality: centro
+  - zip_code: "82000"
+    state: sinaloa
+    city: mazatlán
+    locality: centro
+  - zip_code: "83180"
+    state: sonora
+    city: hermosillo
+    locality: san benito
+  - zip_code: "83489"
+    state: sonora
+    city: san luis rio colorado
+    locality: federal
+  - zip_code: "84000"
+    state: sonora
+    city: nogales
+    locality: centro
+  - zip_code: "85000"
+    state: sonora
+    city: ciudad obregón
+    locality: zona centro
+  - zip_code: "85400"
+    state: sonora
+    city: guaymas
+    locality: centro
+  - zip_code: "85800"
+    state: sonora
+    city: navojoa
+    locality: centro
+  - zip_code: "83600"
+    state: sonora
+    city: caborca
+    locality: caborca centro
+  - zip_code: "83640"
+    state: sonora
+    city: caborca
+    locality: industrial
+  - zip_code: "86000"
+    state: tabasco
+    city: villahermosa
+    locality: zona centro
+  - zip_code: "86100"
+    state: tabasco
+    city: villahermosa
+    locality: atasta
+  - zip_code: "87000"
+    state: tamaulipas
+    city: ciudad victoria
+    locality: zona centro
+  - zip_code: "87300"
+    state: tamaulipas
+    city: matamoros
+    locality: zona centro
+  - zip_code: "87360"
+    state: tamaulipas
+    city: matamoros
+    locality: colonia modelo
+  - zip_code: "87380"
+    state: tamaulipas
+    city: matamoros
+    locality: fraccionamiento los sauces
+  - zip_code: "88000"
+    state: tamaulipas
+    city: nuevo laredo
+    locality: zona centro
+  - zip_code: "88699"
+    state: tamaulipas
+    city: reynosa
+    locality: prol. longoria
+  - zip_code: "88910"
+    state: tamaulipas
+    city: rio bravo
+    locality: zona centro
+  - zip_code: "88920"
+    state: tamaulipas
+    city: río bravo
+    locality: riveras del bravo
+  - zip_code: "88990"
+    state: tamaulipas
+    city: río bravo
+    locality: condesa
+  - zip_code: "89000"
+    state: tamaulipas
+    city: tampico
+    locality: zona centro
+  - zip_code: "89100"
+    state: tamaulipas
+    city: tampico
+    locality: lomas de rosales
+  - zip_code: "89110"
+    state: tamaulipas
+    city: tampico
+    locality: petrolera
+  - zip_code: "89130"
+    state: tamaulipas
+    city: tampico
+    locality: primavera
+  - zip_code: "89400"
+    state: tamaulipas
+    city: ciudad madero
+    locality: zona centro
+  - zip_code: "89440"
+    state: tamaulipas
+    city: ciudad madero
+    locality: jardín 20 de noviembre
+  - zip_code: "89800"
+    state: tamaulipas
+    city: ciudad mante
+    locality: zona centro
+  - zip_code: "90000"
+    state: tlaxcala
+    city: tlaxcala
+    locality: tlaxcala
+  - zip_code: "91000"
+    state: veracruz
+    city: xalapa
+    locality: zona centro
+  - zip_code: "91030"
+    state: veracruz
+    city: xalapa
+    locality: jose cardel
+  - zip_code: "91010"
+    state: veracruz
+    city: xalapa
+    locality: unidad del bosque
+  - zip_code: "91014"
+    state: veracruz
+    city: xalapa
+    locality: une pri
+  - zip_code: "91020"
+    state: veracruz
+    city: xalapa
+    locality: veracruz (obrero campesina)
+  - zip_code: "91040"
+    state: veracruz
+    city: xalapa
+    locality: pomona
+  - zip_code: "91060"
+    state: veracruz
+    city: xalapa
+    locality: ensueno
+  - zip_code: "91190"
+    state: veracruz
+    city: xalapa
+    locality: indeco ánimas
+  - zip_code: "91158"
+    state: veracruz
+    city: xalapa
+    locality: rubén pabello acosta
+  - zip_code: "91180"
+    state: veracruz
+    city: xalapa
+    locality: encinal
+  - zip_code: "91130"
+    state: veracruz
+    city: xalapa
+    locality: aguacatal
+  - zip_code: "91150"
+    state: veracruz
+    city: xalapa
+    locality: fesapauv
+  - zip_code: "91070"
+    state: veracruz
+    city: xalapa
+    locality: francisco i. madero
+  - zip_code: "91230"
+    state: veracruz
+    city: tlalnelhuayocan
+    locality: guadalupe victoria
+  - zip_code: "91240"
+    state: veracruz
+    city: xico
+    locality: centro
+  - zip_code: "91500"
+    state: veracruz
+    city: coatepec
+    locality: centro
+  - zip_code: "91270"
+    state: veracruz
+    city: perote
+    locality: centro
+  - zip_code: "91700"
+    state: veracruz
+    city: veracruz
+    locality: zona centro
+  - zip_code: "91712"
+    state: veracruz
+    city: veracruz
+    locality: miguel hidalgo
+  - zip_code: "91750"
+    state: veracruz
+    city: veracruz
+    locality: pascual ortiz rubio
+  - zip_code: "91757"
+    state: veracruz
+    city: veracruz
+    locality: primero de mayo
+  - zip_code: "91710"
+    state: veracruz
+    city: veracruz
+    locality: unidad veracruzana
+  - zip_code: "91770"
+    state: veracruz
+    city: veracruz
+    locality: adolfo ruíz cortines
+  - zip_code: "91778"
+    state: veracruz
+    city: veracruz
+    locality: adolfo lópez mateos
+  - zip_code: "91755"
+    state: veracruz
+    city: veracruz
+    locality: cristóbal colón
+  - zip_code: "91779"
+    state: veracruz
+    city: veracruz
+    locality: el coyol (23 de noviembre)
+  - zip_code: "91720"
+    state: veracruz
+    city: veracruz
+    locality: 21 de abril
+  - zip_code: "91740"
+    state: veracruz
+    city: veracruz
+    locality: chapultepec
+  - zip_code: "91714"
+    state: veracruz
+    city: veracruz
+    locality: inf. chivería
+  - zip_code: "91850"
+    state: veracruz
+    city: veracruz
+    locality: inf. buenavista
+  - zip_code: "91920"
+    state: veracruz
+    city: veracruz
+    locality: panteones
+  - zip_code: "91810"
+    state: veracruz
+    city: veracruz
+    locality: playa linda
+  - zip_code: "91830"
+    state: veracruz
+    city: veracruz
+    locality: del norte (río medio)
+  - zip_code: "91840"
+    state: veracruz
+    city: veracruz
+    locality: empleados municipales
+  - zip_code: "91870"
+    state: veracruz
+    city: veracruz
+    locality: los pinos
+  - zip_code: "91897"
+    state: veracruz
+    city: veracruz
+    locality: formando hogar
+  - zip_code: "91855"
+    state: veracruz
+    city: veracruz
+    locality: iván gómez gómez (tarimoya)
+  - zip_code: "91780"
+    state: veracruz
+    city: veracruz
+    locality: vistamar
+  - zip_code: "91788"
+    state: veracruz
+    city: veracruz
+    locality: médano del perro
+  - zip_code: "91910"
+    state: veracruz
+    city: veracruz
+    locality: zaragoza
+  - zip_code: "91918"
+    state: veracruz
+    city: veracruz
+    locality: moderno
+  - zip_code: "91919"
+    state: veracruz
+    city: veracruz
+    locality: reforma
+  - zip_code: "91940"
+    state: veracruz
+    city: veracruz
+    locality: floresta
+  - zip_code: "93320"
+    state: veracruz
+    city: poza rica
+    locality: 27 de septiembre
+  - zip_code: "93230"
+    state: veracruz
+    city: poza rica
+    locality: cazones
+  - zip_code: "93400"
+    state: veracruz
+    city: papantla
+    locality: centro
+  - zip_code: "94295"
+    state: veracruz
+    city: boca del río
+    locality: tamsa
+  - zip_code: "94294"
+    state: veracruz
+    city: boca del río
+    locality: jardines del virginia
+  - zip_code: "94298"
+    state: veracruz
+    city: boca del río
+    locality: luis echeverria
+  - zip_code: "94296"
+    state: veracruz
+    city: boca del río
+    locality: hípico
+  - zip_code: "94294"
+    state: veracruz
+    city: boca del río
+    locality: costa verde
+  - zip_code: "94293"
+    state: veracruz
+    city: boca del río
+    locality: el morro
+  - zip_code: "94295"
+    state: veracruz
+    city: boca del río
+    locality: rigo
+  - zip_code: "94299"
+    state: veracruz
+    city: boca del río
+    locality: costa de oro
+  - zip_code: "94296"
+    state: veracruz
+    city: boca del río
+    locality: revolución
+  - zip_code: "94300"
+    state: veracruz
+    city: orizaba
+    locality: centro
+  - zip_code: "94100"
+    state: veracruz
+    city: huatusco
+    locality: centro
+  - zip_code: "94730"
+    state: veracruz
+    city: río blanco
+    locality: centro
+  - zip_code: "94500"
+    state: veracruz
+    city: córdoba
+    locality: bella vista
+  - zip_code: "97000"
+    state: yucatán
+    city: mérida
+    locality: centro
+  - zip_code: "97218"
+    state: yucatán
+    city: mérida
+    locality: del arco
+  - zip_code: "97217"
+    state: yucatán
+    city: mérida
+    locality: residencial pensiones
+  - zip_code: "98000"
+    state: zacatecas
+    city: zacatecas
+    locality: centro

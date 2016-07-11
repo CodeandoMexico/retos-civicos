@@ -18,6 +18,7 @@ en:
     users: users
     prototypes: prototypes
     finalists: finalists
+    brigade_projects: brigade_projects
 es:
   routes:
     projects: proyectos
@@ -44,3 +45,4 @@ es:
     evaluation: evaluacion
     evaluations: evaluaciones
     start_a_challenge: lanza-un-reto
+    brigade_projects: proyectos_de_brigada

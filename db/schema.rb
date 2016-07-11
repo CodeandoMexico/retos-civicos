@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150928235737) do
+ActiveRecord::Schema.define(:version => 20160321003117) do
 
   create_table "activities", :force => true do |t|
     t.text     "text"
@@ -50,6 +50,24 @@ ActiveRecord::Schema.define(:version => 20150928235737) do
   end
 
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
+  create_table "brigades", :force => true do |t|
+    t.text     "description"
+    t.string   "calendar_url",     :limit => 500
+    t.string   "slack_url",        :limit => 500
+    t.string   "github_url",       :limit => 500
+    t.string   "facebook_url",     :limit => 500
+    t.string   "twitter_url",      :limit => 500
+    t.string   "header_image_url", :limit => 500
+    t.integer  "user_id",                                            :null => false
+    t.boolean  "deactivated",                     :default => false, :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.integer  "location",                                           :null => false
+  end
+
+  add_index "brigades", ["location"], :name => "index_brigades_on_location"
+  add_index "brigades", ["user_id"], :name => "index_brigades_on_user_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -176,6 +194,15 @@ ActiveRecord::Schema.define(:version => 20150928235737) do
     t.string   "company_name"
   end
 
+  create_table "locations", :force => true do |t|
+    t.string   "zip_code",   :limit => 5,  :null => false
+    t.string   "state",      :limit => 20, :null => false
+    t.string   "city",       :limit => 50, :null => false
+    t.string   "locality",   :limit => 50
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
   create_table "members", :force => true do |t|
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
@@ -244,6 +271,9 @@ ActiveRecord::Schema.define(:version => 20150928235737) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "website"
+    t.string   "github_url"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

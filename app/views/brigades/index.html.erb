@@ -1,0 +1,61 @@
+<div id="brigades" class="brigades index">
+  <% if Brigade.count > 0 %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div id="imaginary_container">
+          <div class="input-group stylish-input-group">
+            <input type="text" id="brigade-query" class="form-control location-search"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-brigade-link"><%= I18n.t('brigades.index.dont_see_desired_brigade') %> <a href="/brigades/new" class='new-brigade-link-text'><%= I18n.t('brigades.index.create_brigade') %></a></div>
+  </div>
+  <% end %>
+  <div class="map-container">
+    <div id="brigade-map" class="brigade-map"></div>
+    <div class='place-details' id='place-details'>
+      <h1 class='detail-text' id='detail-text'></h1>
+    </div>
+  </div>
+  <% if Brigade.count == 0 %>
+    <h1><%= I18n.t('brigades.index.no_brigades_exist') %> <a href="/brigades/new" class='new-brigade-link-text'><%= I18n.t('brigades.index.create_brigade') %></a></h1>
+  <% end %>
+  <div id='brigade-results' class="brigade-results">
+    <% Brigade.all.each_with_index do |brigade, index| %>
+      <% if index % 4 == 0 %>
+        <div class="row brigade-row">
+      <% end %>
+      <%= link_to brigade_path(brigade.id) do %>
+        <div class="brigade col-md-3" data-city="<%= brigade.location.city %>" data-state="<%= brigade.location.state %>">
+          <div class="brigade-title-container" id="brigade-title-container">
+            <div class="brigade-img" style="background-image: url(<%= brigade.header_image_url %>)">
+              <div class="translucent-overlay">
+                <h2 class="brigade-title-text"><%= brigade.location.city.titleize %></h2>
+              </div>
+            </div>
+          </div>
+          <div class="brigade-detail" style="background-color: <%= '#' +
+                                                                       [0, rand(100), rand(100), 180].sort.each_cons(2).map{|a,b|
+                                                                         "%02x" % (32+b-a)
+                                                                       }.join %>">
+            <div class="brigade-location"><%= brigade.location.city.titleize %>, <%= brigade.location.state.titleize %></div>
+            <div class="members"><%= brigade.users.count+1 %>
+              <%= I18n.t('brigades.member').pluralize(brigade.users.count+1).downcase %></div>
+            <div class="founded"><%= I18n.t('brigades.founded') %> <%= time_ago_in_words(brigade.created_at) %></div>
+          </div>
+        </div>
+      <% end %>
+      <% if index % 4 == 3 || Brigade.count == index %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGCihAwawm_tMs2GOoyqVV_JQXkj4ctYQ" async defer></script>

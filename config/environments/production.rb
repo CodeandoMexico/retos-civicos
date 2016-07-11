@@ -50,7 +50,7 @@ Aquila::Application.configure do
   config.assets.precompile += %w( aquila.css )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
   # config.threadsafe!
@@ -67,16 +67,16 @@ Aquila::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Confifurations for Dalli [memcached]
-  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
-                           :username => ENV["MEMCACHIER_USERNAME"],
-                           :password => ENV["MEMCACHIER_PASSWORD"],
-                           :failover => true,
-                           :socket_timeout => 1.5,
-                           :socket_failure_delay => 0.2,
-                           :value_max_bytes => 10485760)
+  client = Dalli::Client.new((ENV['MEMCACHIER_SERVERS'] || '').split(','),
+                             username: ENV['MEMCACHIER_USERNAME'],
+                             password: ENV['MEMCACHIER_PASSWORD'],
+                             failover: true,
+                             socket_timeout: 1.5,
+                             socket_failure_delay: 0.2,
+                             value_max_bytes: 10_485_760)
   config.action_dispatch.rack_cache = {
-    :metastore    => client,
-    :entitystore  => client
+    metastore: client,
+    entitystore: client
   }
-  config.static_cache_control = "public, max-age=2592000"
+  config.static_cache_control = 'public, max-age=2592000'
 end

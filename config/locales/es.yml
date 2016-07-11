@@ -54,6 +54,87 @@ es:
         evaluation_successfully_closed: La evaluación ha sido cerrada satisfactoriamente.
         evaluation_could_not_be_closed: La evaluación no ha podido ser cerrada.
         evaluation_has_been_closed: Las evaluaciones de este reto están cerradas. El Comité de Evaluación no puede modificar calificaciones.
+  projects:
+    add: Adicionar proyecto
+    create: Crear proyecto
+    description: Descripción
+    edit: Editar
+    no_projects_exist: Actualmente no existen proyectos.
+    successfully_created: Proyecto creado con éxito
+    tags: Tags
+    title: Título
+    update: Actualizar proyecto
+  brigades:
+    brigades: Brigadas
+    zip_code: Código Postal
+    city: Ciudad
+    state: Estado
+    location: Ubicación
+    description: Descripción
+    calendar_url: URL del Calendario
+    slack_url: URL de Slack
+    github_url: URL de Github
+    facebook_url: URL de Facebook
+    twitter_url: URL de Twitter
+    header_image_url: URL de Imagen de Perfil
+    member: Miembro
+    founded: Fundado hace
+    follow:
+      follow: Unirse
+      unfollow: Dejar
+    index:
+      no_brigades_match_search: No hay brigadas que coinciden con la búsqueda.
+      no_brigades_exist: Actualmente no existen brigadas.
+      create_brigade: ¡Establece una brigada en tu ciudad!
+      dont_see_desired_brigade: ¿No ves una brigada cerca de ti?
+    no_members: ¡Sé el primero en unirse!
+    show:
+      search: Busca
+      see_more: Ver más
+      project: Proyecto
+      stats:
+        statistics: Estadísticas
+        created: Fundado
+        projects: Proyectos
+      members:
+        organizer: Organizador
+        brigade: Brigada
+        in_common: en común
+        see_all_members: Ver todos los miembros
+        member_since: Miembro desde
+      events:
+        next_event: Próximo Evento
+        rsvp: Reservar
+        not_going: No voy
+        people_going: personas van
+        person_going: persona va
+        be_first_rsvp: Sé el primero en confirmar su asistencia.
+        to: a
+        export: exportar
+        event: evento
+      projects:
+        stop_contributing: Dejar
+        contribute: Contribuir
+        contributor: Contribuyente
+    form:
+      zip_code: Código Postal
+      city: Ciudad
+      state: Estado
+      description: Descripción
+      calendar_url: URL del Calendario
+      slack_url: URL de Slack
+      github_url: URL de Github
+      facebook_url: URL de Facebook
+      twitter_url: Url de Twitter
+      header_image_url: URL de Imagen de Perfil
+    new:
+      header: Crear Brigada
+      submit: Crear
+      success: Brigada se ha creado exitosamente.
+    edit:
+      header: Editar Brigada
+      submit: Editar
+      success: Brigada se ha actualizado exitosamente.
   challenges:
     initial_activity:
       title: Creación del reto
@@ -96,6 +177,9 @@ es:
       non-entries: "Sé el primero en participar en el reto. %{link}."
       repo: Repo
       idea: Propuesta
+    challenge_actions:
+      edit-prototype: 'Editar prototipo'
+      send-prototype: 'Enviar prototipo'
     show:
       description-title: 'El Reto'
       challenge-description: 'Descripción del reto'
@@ -156,6 +240,7 @@ es:
       # info: Codeando México es una estrategia de la Coordinación de Estrategia Digital Nacional que invitará a los emprendedores e innovadores del país a proponer y desarrollar soluciones para problemas del Gobierno Federal. De esta manera buscamos solucionar problemas públicos y que las dependencias de gobierno abran sus procesos a la innovación cívica para generar la apertura de datos y la creación de un ecosistema de emprendedores cívicos.
       download: DESCARGAR DOCUMENTO
   layout:
+    civic_challenges: Retos cívicos
     header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: "¿Qué es Codeando México?"
@@ -518,6 +603,17 @@ es:
       submit: Guardar
   members:
     header: Editar perfil
+    show:
+      usermenu:
+        hacker-since: Hacker desde hace
+        current-challenges: Retos actuales
+        current-brigades: Brigadas actuales
+        edit: Editar
+      content:
+        biography: Biografía
+        noinfo: No se tiene información para mostrar
+        brigades: Brigadas
+        projects: Proyectos
     form:
       submit: Actualizar
       email-description: Correo electrónico en donde recibirás notificaciones de los retos en los que participes
@@ -527,6 +623,12 @@ es:
       company-president: Nombre del representante legal
       company-charter: Documentos de comprobación
       company-charter-description: PDF con el Acta Constitutiva de la empresa
+      github_url: URL a tu Github
+      github_url-description: URL completo de tu perfil de Github
+      twitter_url: URL a tu Twitter
+      twitter_url-description: URL completo de tu perfil de Twitter
+      facebook_url: URL a tu Facebook
+      facebook_url-description: URL completo de tu perfil de Facebook
       bio: Bio
       bio-description: Háblanos un poco sobre tu organización, incluye links a aplicaciones, tu portafolio o cualquier otro que crees que debamos conocer
       avatar: Imagen de perfil
@@ -534,6 +636,9 @@ es:
       phase_finish_reminder_setting: 'Recordatorios de envío de propuesta en la última semana.'
       notification_mailer: 'Envío de correos'
       select_notifications_that_you_wish_to_receive: 'Selecciona si deseas recibir correos de notificación'
+      show_profile_header: Mostrar mi perfil públicamente
+      show_profile_description: Selecciona si deseas que tu perfil sea público.
+      show_profile_label: Mostrar mi perfil públicamente
     csv_filename: participantes-%{organization}-organizacion.csv
     csv_headers:
       id: id

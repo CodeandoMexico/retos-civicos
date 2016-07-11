@@ -4,7 +4,6 @@ feature 'Admin enters evaluations panel and' do
   attr_reader :judges, :evaluations, :challenge_with_criteria, :challenge_with_no_criteria,
               :challenge_with_no_judges, :entries, :evaluation_with_criteria
 
-
   before do
     # users
     organization = create :organization
@@ -24,10 +23,11 @@ feature 'Admin enters evaluations panel and' do
   end
 
   scenario 'clicks on a judge who has been accepted in an evaluation with no report cards' do
+    pending
     # Refactor this test to show entries with content N/A
     # visit_judge_path(judges.first)
     # expect(page).to have_content 'N/A'
-    pending
+    expect(false).to be true # Purposefully fails the pending test.
   end
 
   scenario 'clicks on a judges report card to show detail' do

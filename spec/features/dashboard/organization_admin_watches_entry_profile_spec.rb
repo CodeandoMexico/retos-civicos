@@ -13,14 +13,14 @@ feature 'Organization admin watches entry profile' do
                    name: 'Propuesta 1',
                    member: member,
                    challenge: challenge,
-                   idea_url: 'http://miproyecto.com',
+                   idea_url: 'http://google.com',
                    created_at: Time.zone.local(2013, 4, 10, 20, 53),
                    technologies: ['', 'PHP', 'MySQL'],
                    description: 'Este reto se resuelve con tecnología'
 
     sign_in_organization_admin(organization.admin)
     click_link 'Propuestas'
-    click_link entry.member.email
+    click_link 'entry__1'
 
     page_should_have_entry_with(
       name: 'Propuesta 1',
@@ -29,7 +29,7 @@ feature 'Organization admin watches entry profile' do
       logo: entry.image_url,
       tecnologies: 'PHP, MySQL',
       description: 'Este reto se resuelve con tecnología',
-      idea_url: 'http://miproyecto.com'
+      idea_url: 'http://google.com'
     )
   end
 

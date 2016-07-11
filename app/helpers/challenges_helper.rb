@@ -1,6 +1,5 @@
-#Encoding: utf-8
+# Encoding: utf-8
 module ChallengesHelper
-
   def status_for_challenge
     status = []
     Challenge::STATUS.each do |p|
@@ -14,11 +13,13 @@ module ChallengesHelper
   end
 
   def user_is_able_to_collaborate?(challenge)
-    can_edit_challenge?(challenge) || current_member.blank? || (!current_member.organization? && !current_member.judge?)
+    is_challenge_editable = can_edit_challenge?(challenge)
+    is_member_blank = current_member.blank?
+    is_challenge_editable || is_member_blank || (!current_member.organization? && !current_member.judge?)
   end
 
   def collaborate_section(challenge)
-    if current_member && current_member.has_submitted_app?(challenge)
+    if current_member && current_member.submitted_app?(challenge)
       text_path = 'edit_entry'
       link_path = edit_challenge_entry_path(challenge, current_member.entry_for(challenge))
       method = :get
@@ -36,9 +37,11 @@ module ChallengesHelper
   end
 
   def newsletter_helper(challenge)
-    if user_signed_in? and current_user.userable == challenge.organization
-      link_to t("helpers.send_update"), send_newsletter_organization_challenge_path(@challenge.organization, @challenge), class: 'btn btn-default'
-    end
+    return unless user_signed_in? && current_user.userable == challenge.organization
+    update_txt = t('helpers.send_update')
+    org = @challenge.organization
+    classes = 'btn btn-default'
+    link_to update_txt, send_newsletter_organization_challenge_path(org, @challenge), class: classes
   end
 
   def check_filter(filter)

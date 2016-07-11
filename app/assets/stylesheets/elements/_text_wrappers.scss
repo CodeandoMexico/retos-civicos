@@ -4,8 +4,8 @@
 $default_text_color: $medium_grey;
 
 /* Heading */
-h1 { @include heading(32px, $dark_blue); }
-h3 { @include heading(22px, $dark_blue); }
+h1 { @include heading(32px, $dark-blue); }
+h3 { @include heading(22px, $dark-blue); }
 h5 { @include heading(18px, $medium_grey); }
 
 /* Paragraph, spans and links */

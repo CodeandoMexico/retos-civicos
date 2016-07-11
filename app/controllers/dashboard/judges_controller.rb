@@ -6,16 +6,13 @@ module Dashboard
     add_crumb 'Jurado'
 
     def index
-      @challenges = organization.challenges.
-        order('created_at DESC')
+      @challenges = organization.challenges.order('created_at DESC')
       @judges = current_challenge_judges
       respond_to do |format|
         format.html do
-          flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet') unless @current_challenge.criteria_must_be_present
-          flash.now[:warning] = t('flash.challenges.evaluation.evaluation_has_been_closed') unless @current_challenge.evaluations_opened
+          set_flash_for_index
         end
-
-        format.csv { send_data @current_challenge.export_evaluations, filename: "propuestas_por_juez.csv" }
+        format.csv { send_data @current_challenge.export_evaluations, filename: 'propuestas_por_juez.csv' }
       end
     end
 
@@ -31,7 +28,8 @@ module Dashboard
     def create
       if create_new_user
         current_challenge.evaluations.create!(judge_id: @user.userable.id).initialize_report_cards
-        redirect_to dashboard_judges_path(challenge_id: @current_challenge), notice: t('flash.judge.saved_successfully')
+        notice_text = t('flash.judge.saved_successfully')
+        redirect_to dashboard_judges_path(challenge_id: @current_challenge), notice: notice_text
       else
         render :new
       end
@@ -47,11 +45,20 @@ module Dashboard
       @current_challenge = current_challenge
     end
 
+    def set_flash_for_index
+      unless @current_challenge.criteria_must_be_present
+        flash.now[:alert] = t('flash.challenges.criteria.critieria_has_not_been_defined_yet')
+      end
+      unless @current_challenge.evaluations_opened
+        flash.now[:warning] = t('flash.challenges.evaluation.evaluation_has_been_closed')
+      end
+    end
+
     def create_new_user
       @user = User.new(params[:user])
       @user.password = User.reset_password_token
       @user.reset_password_token = User.reset_password_token
-      @user.reset_password_sent_at = Time.now
+      @user.reset_password_sent_at = Time.zone.now
       @user.userable = Judge.new
       @user.skip_confirmation!
       JudgeMailer.new_account(@user).deliver if @user.save

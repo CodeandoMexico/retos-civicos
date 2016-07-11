@@ -1,0 +1,82 @@
+.brigade-form {
+  margin: 60px auto;
+  max-width: 700px;
+}
+
+.location-list-option {
+  background-color: $white;
+  border: 1px solid $gainsboro;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  height: 40px;
+  margin: -1px 0 0;
+  outline: none;
+  padding: 10px 0;
+  transition: background .2s linear;
+  width: 100%;
+
+  &:hover {
+    background-color: $whisper;
+  }
+
+  &:active {
+    background-color: $silver;
+  }
+
+  .city {
+    float: left;
+    font-weight: 600;
+    margin: 0 0 0 10px;
+  }
+
+  .state {
+    float: left;
+  }
+
+  .divider {
+    border: 0;
+    float: left;
+    padding: 0 10px;
+  }
+}
+
+.field {
+  color: $dark-blue;
+  margin: 30px 0;
+
+  .form-text-field,
+  .form-text-area {
+    border: 1px solid $gainsboro;
+    outline: none;
+  }
+
+  .form-text-field:focus,
+  .form-text-area:focus {
+    border: 1px solid $dark-blue;
+    box-shadow: 0 0 5px $dark-blue;
+  }
+
+  label {
+    font-size: 22px;
+    margin: 4px 0 0;
+    text-align: left;
+  }
+
+  .form-text-area {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  input {
+    font-size: 20px;
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .location-list {
+    border: 0;
+    margin: -32px 0 0;
+    padding: 1px 0;
+  }
+}

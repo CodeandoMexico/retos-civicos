@@ -1,0 +1,59 @@
+<div id="members" class="members show">
+<div class="row profile">
+  <div class="col-md-3">
+    <div class="content-box profile-sidebar" style="background-color:whitesmoke">
+      <!-- SIDEBAR USER TITLE -->
+      <div class="box-title profile-usertitle-name" style="background-color:white;">
+        <%= @member.to_s.titleize %>
+      </div>
+      <div class="box-content" style="background-color:whitesmoke;">
+        <div class="profile-usertitle-role">
+          <%= @member.role.titleize %>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <%= image_tag @member.image_url(:profile), class: 'img-responsive' %>
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <%= link_to fa_icon('github'), @member.github_url if @member.github_url.present? %>
+          <%= link_to fa_icon('twitter'), @member.twitter_url if @member.twitter_url.present? %>
+          <%= link_to fa_icon('facebook'), @member.facebook_url if @member.facebook_url.present? %>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li><a href="#"><%= t('members.show.usermenu.hacker-since') %> <%= time_ago_in_words @member.created_at %></a></li>
+            <li><%= link_to fa_icon('rocket', text: t('members.show.usermenu.current-challenges')), challenges_path %></li>
+            <% if current_user.userable == @member %>
+              <li><%= link_to fa_icon('pencil', text: t('members.show.usermenu.edit')), edit_member_path(@member) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="content-box profile-content row">
+      <div class="box-title">
+        <pb>
+          <%= t('members.show.content.biography') %>
+        </pb>
+      </div>
+      <div class="box-content">
+        <p>
+          <% if @member.bio.blank? %>
+            <%= I18n.t('members.show.content.noinfo') %>
+          <% else %>
+            <%= @member.bio %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

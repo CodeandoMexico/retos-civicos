@@ -19,11 +19,11 @@ $ ->
   $(".comments .box.com").on "click", ".reply", ->
     if $(@).hasClass("active")
       if $(@).siblings(".form").find("input#comment_body").val() isnt ""
-        $(@).siblings(".form").find("form").submit();
+        $(@).siblings(".form").find("form").submit()
       $(@).siblings(".form").slideUp()
     else
       $(@).siblings(".form").slideDown()
-      $(@).siblings(".form").find("input").focus();
+      $(@).siblings(".form").find("input").focus()
     $(@).toggleClass "active"
     false
 
@@ -32,12 +32,12 @@ $ ->
       $(".comments .comment_form").slideUp()
     else
       $(".comments .comment_form").slideDown()
-      $(".comments .comment_form textarea").focus();
+      $(".comments .comment_form textarea").focus()
     $(@).toggleClass "active"
     false
 
   $("nav").on "click", "a.social-link", ->
-    window.open(this, "", "width=500,height=500");
+    window.open(this, "", "width=500,height=500")
     false
 
   $(document).on 'click', '.js-open-comments-form', (e) ->
@@ -64,3 +64,6 @@ $ ->
     button = form.siblings('.js-open-reply-form')
     form.find('textarea').val('')
     form.fadeOut => button.show()
+
+$(document).ready ->
+  $('.dropdown-toggle').dropdown()

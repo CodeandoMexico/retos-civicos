@@ -72,16 +72,16 @@ app.controller('EvaluationCriteriaCtrl', function(){
   var self = this;
 
   self.init = function(criteriaList) {
-    if (criteriaList.length == 0) {
+    if (criteriaList.length === 0) {
       self.criteriaList = [
         { description: "", value: undefined },
         { description: "", value: undefined },
         { description: "", value: undefined }
-      ]
+      ];
     } else {
       self.criteriaList = criteriaList;
     }
-  }
+  };
 
   self.add = function(idx){
     self.criteriaList.splice(idx + 1, 0, { description: "", value: "" });

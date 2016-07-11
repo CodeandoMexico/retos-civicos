@@ -1,0 +1,55 @@
+.member-link {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+%member {
+  height: 80px;
+  margin: 0 -15px;
+  padding: 10px;
+  width: calc(100% + 30px);
+  text-align: center;
+  transition: background-color .2s linear;
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}
+
+.member {
+  @extend %member;
+}
+
+.modal-member {
+  @extend %member;
+  height: 70px;
+  padding: 5px 5px 5px 30px;
+  width: calc(100% + 30px);
+}
+
+.member-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 60px;
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+
+.member-name {
+  color: $dark-slate-grey;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.sub-text {
+  color: $grey;
+  font-size: 12px;
+  font-weight: 400;
+}

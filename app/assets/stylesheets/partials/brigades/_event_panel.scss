@@ -1,0 +1,76 @@
+%event-action-button {
+  @extend %action-button;
+}
+
+.event-positive-button {
+  @extend %event-action-button;
+  @extend %positive-button;
+}
+
+.event-negative-button {
+  @extend %event-action-button;
+  @extend %negative-button;
+}
+
+.event {
+  border-bottom: 1px solid $gainsboro;
+  padding: 15px;
+
+  &.box-content {
+    border-bottom: 0;
+  }
+}
+
+.event-time {
+  font-size: 14px;
+  margin: 0 0 0 5px;
+}
+
+.event-location {
+  line-height: 40px;
+}
+
+.event-description {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+
+.participate-container {
+  height: 70px;
+  margin: 40px 0;
+  width: 150px;
+}
+
+.num-people-going {
+  color: $nobel;
+  font-size: 16px;
+  margin: 10px 0 0;
+  position: relative;
+  text-align: center;
+}
+
+.people-going.pop-over-results {
+  left: 20px;
+}
+
+.more-events-link {
+  margin: 0 0 0 15px;
+}
+
+.event-map-canvas {
+  height: 200px;
+  margin: auto;
+}
+
+.event-address {
+  text-align: center;
+}
+
+.circle-text .google-map {
+  border-radius: 50%;
+  height: 200px;
+  margin: 25px auto;
+  width: 200px;
+}

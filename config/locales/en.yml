@@ -122,6 +122,87 @@ en:
     unauthorized:
       message: You need to login first
       already_submited_app: You've sent your application to this challenge
+  projects:
+    add: Add project
+    create: Create project
+    description: Description
+    edit: Edit
+    no_projects_exist: No projects currently exist
+    successfully_created: Project successfully created!
+    tags: Tags
+    title: Title
+    update: Update project
+  brigades:
+    brigades: Brigades
+    zip_code: Zip Code
+    city: City
+    state: State
+    location: Location
+    description: Description
+    calendar_url: Calendar URL
+    slack_url: Slack URL
+    github_url: Github URL
+    facebook_url: Facebook URL
+    twitter_url: Twitter URL
+    header_image_url: Header Image URL
+    member: Member
+    founded: Founded
+    follow:
+      follow: Join
+      unfollow: Leave
+    index:
+      no_brigades_match_search: Search returned no results.
+      no_brigades_exist: No brigades currently exist.
+      create_brigade: Establish a brigade in your area!
+      dont_see_desired_brigade: Don't see a brigade near you?
+    no_members: Be the first to join!
+    show:
+      search: Search
+      projects: Projects
+      see_more: See more
+      stats:
+        created: Created
+        statistics: Statistics
+      members:
+        organizer: Organizer
+        brigade: Brigade
+        project: Project
+        in_common: in common
+        see_all_members: See all members
+        member_since: Member since
+      events:
+        next_event: Next Event
+        rsvp: RSVP
+        not_going: Not Going
+        people_going: people going
+        person_going: person going
+        be_first_rsvp: Be the first to RSVP.
+        to: to
+        export: Export
+        event: Event
+      projects:
+        stop_contributing: Leave
+        contribute: Contribute
+        contributor: Contributor
+    form:
+      zip_code: Zip Code
+      city: City
+      state: State
+      description: Description
+      calendar_url: Calendar URL
+      slack_url: Slack URL
+      github_url: Github URL
+      facebook_url: Facebook URL
+      twitter_url: Twitter URL
+      header_image_url: Header Image URL
+    new:
+      header: Create Brigade
+      submit: Create
+      success: Brigade was successfully created.
+    edit:
+      header: Edit Brigade
+      submit: Edit
+      success: Brigade was successfully updated.
   challenges:
     initial_activity:
       title: Challenge creation
@@ -196,6 +277,7 @@ en:
       info: Lorem Ipsum
       download: DOWNLOAD DOCUMENT
   layout:
+    civic_challenges: Retos cívicos
     header: Codeando México
     copyright: "&copy; Codeando México - 2014"
     question: What is Codeando México?
@@ -319,14 +401,34 @@ en:
       submit: Send
   members:
     header: Edit profile
+    show:
+      usermenu:
+        hacker-since: Hacker since
+        current-challenges: Current challenges
+        current-brigades: Current brigades
+        edit: Edit
+      content:
+        biography: Biography
+        noinfo: No info to show
+        brigades: Brigades
+        projects: Projects
     form:
       submit: Update
       email-description: Your main email where you'll receive updates from the challenges you opt-in
       name: Full name
+      github_url: Github URL
+      github_url-description: Complete Github URL of your profile
+      twitter_url: Twitter URL
+      twitter_url-description: Complete Twitter URL of your profile
+      facebook_url: Facebook URL
+      facebook_url-description: Complete Facebook URL of your profile
       bio: Bio
       bio-description: A little about yourself in 140 characters
       avatar: Profile picture
       avatar-description: Your identity in Codeando Mexico
+      show_profile_header: Publicly show my profile
+      show_profile_description: Select if you want your profile to be public.
+      show_profile_label: Publicly show my profile
     csv_filename: members-%{organization}-organization.csv
     csv_headers:
       id: id

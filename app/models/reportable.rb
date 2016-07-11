@@ -3,7 +3,7 @@ module Reportable
 
   def to_report
     self.class.report_attributes.map do |report_attribute|
-      self.send(report_attribute).to_s
+      send(report_attribute).to_s
     end
   end
 

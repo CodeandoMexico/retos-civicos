@@ -6,9 +6,9 @@ feature 'Collaborator fails to add prototype in the prototypes phase' do
   before do
     @member = create :member
     @challenge = create :challenge,
-      ideas_phase_due_on: 2.weeks.ago,
-      ideas_selection_phase_due_on: 1.week.ago,
-      prototypes_phase_due_on: 1.week.from_now
+                        ideas_phase_due_on: 2.weeks.ago,
+                        ideas_selection_phase_due_on: 1.week.ago,
+                        prototypes_phase_due_on: 1.week.from_now
 
     sign_in_user(member)
     visit challenge_path(challenge)
@@ -42,8 +42,8 @@ feature 'Collaborator fails to add prototype in the prototypes phase' do
 
   def create_member_entry(accepted)
     entry = create :entry,
-      accepted: accepted,
-      challenge: challenge,
-      member: member
+                   accepted: accepted,
+                   challenge: challenge,
+                   member: member
   end
 end

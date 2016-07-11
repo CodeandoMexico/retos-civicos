@@ -1,0 +1,16 @@
+.members-panel-content {
+  margin: 10px 0;
+}
+
+.member {
+  height: 80px;
+  margin: 0 -15px;
+  padding: 10px;
+  width: calc(100% + 30px);
+  text-align: center;
+  transition: background-color .2s linear;
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}

@@ -1,37 +1,43 @@
 /*
  *= require font-awesome
+ *= require bootstrap-daterangepicker-3
  */
 
-@import "chosen";
-@import "bootstrap";
+@import 'chosen';
+@import 'bootstrap';
 
 // Elements
-@import "elements/button";
-@import "elements/text_wrappers";
-@import "elements/img";
-@import "elements/icons";
+@import 'elements/button';
+@import 'elements/text_wrappers';
+@import 'elements/img';
+@import 'elements/icons';
 
 // Components
-@import "components/chosen";
-@import "components/navbar";
-@import "components/footer";
-@import "components/landing";
-@import "components/challenge";
-@import "components/entry";
-@import "components/phases_bar";
-@import "components/social";
-@import "components/progress_bar";
-@import "components/comments";
-@import "components/newsletter";
-@import "components/forms";
-@import "components/new_challenge_info";
-@import "components/card_widget";
+@import 'components/chosen';
+@import 'components/navbar';
+@import 'components/footer';
+@import 'components/landing';
+@import 'components/challenge';
+@import 'components/entry';
+@import 'components/phases_bar';
+@import 'components/social';
+@import 'components/progress_bar';
+@import 'components/comments';
+@import 'components/newsletter';
+@import 'components/forms';
+@import 'components/new_challenge_info';
+@import 'components/card_widget';
 
 // Utilities
-@import "defaults/utilities";
+@import 'defaults/utilities';
+
+@import 'brigades';
+@import 'members';
+@import 'bootstrap-tagsinput';
+@import 'defaults/bootstrap_overrides';
 
 #main {
-  margin-top: $main_top_and_bottom_margin;
   margin-bottom: $main_top_and_bottom_margin;
+  margin-top: $main_top_and_bottom_margin;
   min-height: 430px;
 }

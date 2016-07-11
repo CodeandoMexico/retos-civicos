@@ -13,9 +13,9 @@
    <!-- Criteria must be defined so that we show the ranking summary -->
    <% if @current_challenge.ready_to_rank_entries? %>
     <%= render 'shared/show_ranking_summary', challenge: @current_challenge %>
-   <% elsif !@current_challenge.has_valid_criteria? %>
+   <% elsif !@current_challenge.valid_criteria? %>
      <%= render 'shared/empty_resource', message: t('.no_criteria_has_been_defined_for_this_challenge') %>
-   <% elsif !@current_challenge.has_evaluations? %>
+   <% elsif !@current_challenge.evaluations? %>
      <%= render 'shared/empty_resource', message: t('.no_judges_have_been_selected_to_evaluate_this_challenge') %>
    <%# elsif !@current_challenge.finished_evaluating? %>
      <%#= render 'shared/empty_resource', message: t('.we_cannot_show_rankings_until_all_judges_have_evaluated_the_entries') %>

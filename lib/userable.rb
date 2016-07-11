@@ -1,8 +1,8 @@
 module Userable
   def self.included(base)
-    base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
-    #base.validate :user_must_be_valid
-    #base.alias_method_chain :user, :autobuild
+    base.has_one :user, as: :userable, dependent: :destroy, autosave: true
+    # base.validate :user_must_be_valid
+    # base.alias_method_chain :user, :autobuild
     base.extend ClassMethods
     base.define_user_accessors
   end
@@ -30,7 +30,7 @@ module Userable
   module ClassMethods
     def define_user_accessors
       all_attributes = User.columns.map(&:name)
-      ignored_attributes = ["created_at", "updated_at", "userable_type", "encrypted_password", "id", "userable_id"]
+      ignored_attributes = %w(created_at updated_at userable_type encrypted_password id userable_id)
       attributes_to_delegate = all_attributes - ignored_attributes
       attributes_to_delegate.each do |attrib|
         class_eval <<-RUBY
@@ -49,5 +49,4 @@ module Userable
       end
     end
   end
-
 end

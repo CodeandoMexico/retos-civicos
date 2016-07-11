@@ -11,8 +11,9 @@ class OrganizationMailer < ActionMailer::Base
 
   def judge_finished_evaluating(evaluation)
     @evaluation = evaluation
-    title = I18n.t('evaluations.mailer.a_judge_has_finished_evaluating_a_challenge', challenge: evaluation.challenge.title)
-    
+    challenge = evaluation.challenge.title
+    title = I18n.t('evaluations.mailer.a_judge_has_finished_evaluating_a_challenge', challenge: challenge)
+
     mail to: evaluation.challenge.organization.email, subject: title
   end
 end

@@ -41,10 +41,10 @@ module PhaseFinishReminder
     def can_notify_collaborator?(collaborator)
       email_registered_and_should_receive_notifications = collaborator.phase_finish_reminder_setting && collaborator.email.present?
       # if there is another validation for other phase add here yout method
-      if is_current_phase?(:ideas)
+      if current_phase?(:ideas)
         email_registered_and_should_receive_notifications
-      elsif is_current_phase?(:prototypes)
-        collaborator.has_submitted_app?(record) && collaborator.entry_has_been_accepted?(record) &&
+      elsif current_phase?(:prototypes)
+        collaborator.submitted_app?(record) && collaborator.entry_has_been_accepted?(record) &&
           email_registered_and_should_receive_notifications
       else
         # Any other phase than ideas or prototypes it doesn't send a reminder
@@ -73,7 +73,7 @@ module PhaseFinishReminder
     end
 
     def notifiable?
-      (is_current_phase?(:ideas) || is_current_phase?(:prototypes)) &&
+      (current_phase?(:ideas) || current_phase?(:prototypes)) &&
         days_left_for_current_phase <= 7
     end
 
@@ -81,8 +81,8 @@ module PhaseFinishReminder
       translator.t("thing_to_send.#{phases.current_phase_id(record)}")
     end
 
-    def is_current_phase?(phase)
-      phases.is_current?(phase, record)
+    def current_phase?(phase)
+      phases.current?(phase, record)
     end
 
     def days_left_for_current_phase

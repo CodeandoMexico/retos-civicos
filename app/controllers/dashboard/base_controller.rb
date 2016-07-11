@@ -26,7 +26,7 @@ module Dashboard
     def current_challenge
       @_current_challenge ||= begin
         organization_challenges.find_by_id(params[:challenge_id]) ||
-          organization_challenges.first
+        organization_challenges.first
       end
     end
 
@@ -39,19 +39,20 @@ module Dashboard
       reporter.report_for_organization(organization)
     end
 
-    def fetch_pending_challenges_flash_messages_for(organization)
+    def fetch_pending_challenges_flash_messages_for(_organization)
       challenges = Challenge.missing_winner_challenges(organization: current_organization)
-      if challenges.present?
-        if flash.now[:alert].present?
-          flash.now[:alert] = [flash.now[:alert]]
-        else
-          flash.now[:alert] ||= []
-        end
-        challenges.each do |challenge|
-          flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: view_context.link_to('seleccionarlo aquí', dashboard_entries_path(challenge_id: challenge.id)))
-        end
-        flash.now[:alert] = flash[:alert].join('<br>').html_safe if flash[:alert].kind_of?(Array)
+      return unless challenges.present?
+      if flash.now[:alert].present?
+        flash.now[:alert] = [flash.now[:alert]]
+      else
+        flash.now[:alert] ||= []
       end
+      link_text = 'seleccionarlo aquí'
+      challenges.each do |challenge|
+        entries_link = view_context.link_to(link_text, dashboard_entries_path(challenge_id: challenge.id))
+        flash.now[:alert] << t('flash.base.select-winner', title: challenge.title, link: entries_link)
+      end
+      flash.now[:alert] = flash[:alert].join('<br>').html_safe if flash[:alert].is_a?(Array)
     end
   end
 end

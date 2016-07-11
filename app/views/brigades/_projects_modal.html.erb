@@ -1,0 +1,24 @@
+<div id="projects-modal" class="modal fade projects-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= I18n.t('brigades.show.project').pluralize(2) %></h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" class="search-field project-search-field" placeholder="<%= I18n.t('brigades.show.search') %>">
+          <input type="text" data-role="tagsinput" class="project-tag-search">
+        </form>
+        <div class="projects">
+          <%= @brigade.brigade_projects.each do |project, i| %>
+            <%= render partial: 'project',
+                       locals: { title: project.title, tags: project.tag_names, last: i == @brigade.brigade_projects.count-1,
+                                 contributors: project.users, from_modal: true,
+                                 description: project.description, id: project.id } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

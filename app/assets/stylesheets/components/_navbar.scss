@@ -1,6 +1,6 @@
 // Navbar default colors
-$navbar_background_color: $light_grey;
-$navbar_default_links_color: $dark_blue;
+$navbar_background_color: $light-grey;
+$navbar_default_links_color: $dark-blue;
 
 // Paddings
 $navbar_padding_top: 15px;
@@ -26,7 +26,7 @@ nav {
   background-color: none;
   color: $navbar_default_links_color;
   font-size: 16px;
-  &:hover { background-color: $light_grey; }
+  &:hover { background-color: $light-grey; }
 }
 
 ul.dropdown-menu > li{

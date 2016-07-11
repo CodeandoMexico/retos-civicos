@@ -9,9 +9,8 @@ class EvaluationsController < Dashboard::BaseController
   before_filter :set_evaluation, only: :index
 
   def index
-    if !@current_challenge.evaluations_opened? || (@evaluation.finished? && !params[:edit])
-      return redirect_to evaluation_url(@evaluation, challenge_id: @current_challenge.id)
-    end
+    return unless !@current_challenge.evaluations_opened? || (@evaluation.finished? && !params[:edit])
+    redirect_to evaluation_url(@evaluation, challenge_id: @current_challenge.id)
   end
 
   def show
@@ -23,11 +22,11 @@ class EvaluationsController < Dashboard::BaseController
 
   def set_report_card
     @report_card = if params[:report_card_id]
-      ReportCard.find(params[:report_card_id])
-    else
-      evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
-      ReportCard.where(evaluation_id: evaluation).order('id ASC').first
-    end
+                     ReportCard.find(params[:report_card_id])
+                   else
+                     evaluation = @judge.evaluations.find_by_challenge_id(@current_challenge.id)
+                     ReportCard.where(evaluation_id: evaluation).order('id ASC').first
+                   end
     authorize! :read, @report_card if @report_card.present?
   end
 

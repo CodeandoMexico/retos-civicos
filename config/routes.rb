@@ -1,8 +1,13 @@
 Aquila::Application.routes.draw do
+  resources :tags
+  resources :brigade_projects
+  resources :brigades
+  resources :members
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    omniauth_callbacks: "users/omniauth_callbacks",
+    omniauth_callbacks: 'users/omniauth_callbacks',
     passwords: 'users/passwords'
   }
 
@@ -19,7 +24,6 @@ Aquila::Application.routes.draw do
   end
 
   match 'signup' => 'pages#sign_up'
-
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: [:index, :new, :edit, :create, :update], controller: 'dashboard/challenges' do
@@ -71,7 +75,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  resources :members, only: [:update, :edit]
+  resources :members, only: [:show, :update, :edit]
 
   namespace :panel do
     resources :entries, only: [:index, :show, :edit, :update] do
@@ -109,18 +113,24 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match "/set_language" => 'pages#set_language', via: :post, as: 'set_language'
+  match '/set_language' => 'pages#set_language', via: :post, as: 'set_language'
   # match "/terms_of_service" => 'pages#terms_of_service', via: :get, as: 'terms_of_service'
-  match "/privacy" => 'pages#privacy', via: :get, as: 'privacy'
+  match '/privacy' => 'pages#privacy', via: :get, as: 'privacy'
   # get "/about", to: "pages#about", as: "about"
-  get "/start_a_challenge", to: "pages#start_a_challenge", as: "start_a_challenge"
+  get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
+  get '/location_search/:location_query', to: 'location#location_search'
+  get '/brigade_search/:brigade_query', to: 'brigades#brigade_search'
+  get '/brigade_search/', to: 'brigades#brigade_search'
+  get '/location_name/:location_id', to: 'location#location_name'
+  get '/location_unique/:location_id', to: 'location#location_unique'
+  get '/follow/:userid/:brigadeid', to: 'brigades#follow'
 
-  root :to => 'challenges#index'
+  root to: 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
-  match "/projects/:id" => 'challenges#show'
-  match "/projects/:id/timeline" => 'challenges#timeline'
+  match '/projects/:id' => 'challenges#show'
+  match '/projects/:id/timeline' => 'challenges#timeline'
 
   get ':organization_slug', to: 'organizations#show', as: 'organization_profile'
 end
-ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })
+ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', no_prefixes: true)

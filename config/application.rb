@@ -38,7 +38,7 @@ module Aquila
     config.i18n.default_locale = :es
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -49,7 +49,7 @@ module Aquila
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
-    # config.active_record.schema_format = :sql
+    config.active_record.schema_format = :sql
 
     # Enforce whitelist mode for mass assignment.
     # This will create an empty whitelist of attributes available for mass-assignment for all models
@@ -74,9 +74,7 @@ module Aquila
     # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Strip the www to prevent crash with subdomains
-    if Rails.env.production? or Rails.env.staging?
-      config.middleware.insert_before Rack::Lock, Rack::NoWWW
-    end
+    config.middleware.insert_before Rack::Lock, Rack::NoWWW if Rails.env.production? or Rails.env.staging?
 
     config.action_mailer.default_url_options = { host: ENV['ACTION_MAILER_HOST'] }
 
@@ -85,6 +83,6 @@ module Aquila
     config.middleware.insert 0, Rack::UTF8Sanitizer
 
     # Add extended core clases
-    config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
+    config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
   end
 end

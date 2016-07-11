@@ -1,0 +1,50 @@
+location_with_locality:
+  city: Monterrey
+  state: Nuevo León
+  zip_code: "64000"
+  locality: Col. Centro
+
+second_location_with_locality:
+  zip_code: "64320"
+  state: Nuevo León
+  city: Monterrey
+  locality: Col. Mitras Norte
+
+location_in_jalisco:
+  zip_code: "44190"
+  state: Jalisco
+  city: Guadalajara
+  locality: Col. Moderna
+
+second_location_in_jalisco:
+  zip_code: "44890"
+  state: Jalisco
+  city: Tlaquepaque
+  locality: Col. Rancho Blanco
+
+third_location_in_jalisco:
+  zip_code: "45019"
+  state: Jalisco
+  city: Zapopan
+  locality: Col. San Juan de Ocotan
+
+fourth_location_in_jalisco:
+  zip_code: "45050"
+  state: Jalisco
+  city: Zapopan
+  locality: Ciudad del Sol
+
+fifth_location_in_jalisco:
+  zip_code: "45380"
+  state: Jalisco
+  city: Amatitán
+
+sixth_location_in_jalisco:
+  zip_code: "45430"
+  state: Jalisco
+  city: La Laja
+
+location_without_locality:
+  city: Tequila
+  state: Jalisco
+  zip_code: "48400"

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.8'
 
-gem 'rails', '3.2.19'
+gem 'rails', '3.2.22.1'
 
 gem 'foreman'
 gem 'pg'
@@ -24,7 +24,7 @@ gem 'github_api'
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
-gem 'ckan', github: 'CodeandoMexico/CKAN-rb'
+gem 'ckan', git: 'https://github.com/CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
 gem 'font-awesome-rails'
 gem 'faker'
@@ -32,21 +32,35 @@ gem 'faker'
 group :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'cucumber-rails', require: false
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'pry'
+  gem 'phantomjs'
 end
+
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rspec-rails', '~> 3.4.2'
+  gem 'rspec-activemodel-mocks'
   gem 'factory_girl_rails'
   gem 'rack-mini-profiler'
   gem 'bullet'
+  gem 'simplecov'
+  gem 'autotest'
+  gem 'factory_girl'
+  gem 'metric_fu'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
-  gem 'zurb-foundation',  '~> 3.2.0'
+  gem 'zurb-foundation', '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'timelineJS-rails', '~> 1.1.1'
   gem 'font-awesome-sass'
@@ -73,8 +87,10 @@ gem 'mini_magick'
 gem 'sanitize'
 gem 'auto_html'
 gem 'jquery-rails'
+gem 'rails-bootstrap-daterangepicker'
+gem 'autoprefixer-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-tokeninput-rails', github: 'acrogenesis/jquery-tokeninput-rails'
+gem 'jquery-tokeninput-rails', git: 'https://github.com/acrogenesis/jquery-tokeninput-rails'
 gem 'thumbs_up'
 gem 'acts_as_commentable_with_threading'
 gem 'dynamic_form'
@@ -88,6 +104,8 @@ gem 'validate_url'
 gem 'rack-utf8_sanitizer'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'angularjs-rails'
+gem 'textacular', '~> 3.0'
+gem 'time_ago_in_words'
 
 # Console tools
 gem 'ruby-progressbar'

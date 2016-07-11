@@ -5,7 +5,7 @@
     .col-sm-9.content
       -# Not included the entry status partial 'cause we don't want to show the invalid entries
       - if entry.accepted?
-        - if entry.is_the_winner?
+        - if entry.winner?
           %span.label.label-warning= t('.entry-winner')
         - else
           %span.label.label-success= t('.entry-accepted')

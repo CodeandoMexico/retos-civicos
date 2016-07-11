@@ -38,7 +38,7 @@ class PrototypesController < ApplicationController
     @entry ||= current_member.entry_for(challenge)
   end
 
-  alias_method :load_entry, :entry
+  alias load_entry entry
 
   def entry_params
     params[:entry].slice(:repo_url, :demo_url)
@@ -49,6 +49,6 @@ class PrototypesController < ApplicationController
   end
 
   def member_is_able_to_add_prototype
-    redirect_to challenge_path(challenge) unless current_member.is_able_to_submit_a_prototype?(challenge)
+    redirect_to challenge_path(challenge) unless current_member.able_to_submit_a_prototype?(challenge)
   end
 end

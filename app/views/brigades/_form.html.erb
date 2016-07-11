@@ -1,0 +1,53 @@
+<%= form_for(@brigade, :html => {:class => "brigade-form"}) do |f| %>
+  <% if @brigade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brigade.errors.count, "error") %> prohibited this brigade from being saved:</h2>
+
+      <ul>
+      <% @brigade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field row">
+      <label class="col-md-4">Location</label>
+      <input type="text" id="location-query" list="location-list" class="col-md-8" autocomplete="off" />
+    </div>
+    <div class="field row">
+      <label class="col-md-4"></label>
+      <div id="location-list" class="col-md-8 location-list form-text-field"></div>
+    </div>
+    <%= f.hidden_field :location_id, :class=>'col-md-8' %>
+  <div class="field row">
+    <%= f.label :description, :class=>'col-md-4' %>
+    <%= f.text_area :description, :class=>'col-md-8 form-text-area', :rows=>"5" %>
+  </div>
+  <div class="field row" onblur="hi()">
+    <%= f.label :calendar_url, :class=>'col-md-4' %>
+    <%= f.text_field :calendar_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="field row">
+    <%= f.label :slack_url, :class=>'col-md-4' %>
+    <%= f.text_field :slack_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="field row">
+    <%= f.label :github_url, :class=>'col-md-4' %>
+    <%= f.text_field :github_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="field row">
+    <%= f.label :facebook_url, :class=>'col-md-4' %>
+    <%= f.text_field :facebook_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="field row">
+    <%= f.label :twitter_url, :class=>'col-md-4' %>
+    <%= f.text_field :twitter_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="field row">
+    <%= f.label :header_image_url, :class=>'col-md-4' %>
+    <%= f.text_field :header_image_url, :class=>'col-md-8 form-text-field' %>
+  </div>
+  <div class="actions">
+    <%= f.submit submit_button_text(f), class: 'positive-button' %>
+  </div>
+<% end %>
