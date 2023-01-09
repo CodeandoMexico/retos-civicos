@@ -1,6 +1,7 @@
 # Retos Públicos
 
 ## Dependencias
+
 - Ruby 2.1.3
 - Rails 3.2.19
 - PostgreSQL 9.3+
