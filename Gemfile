@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.8'
+ruby '2.7.7'
 
-gem 'rails', '3.2.22.1'
+gem 'rails', '5.2.8.1'
 
 gem 'foreman'
 gem 'pg'
@@ -18,7 +18,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
-gem 'devise', '~> 3.0.0'
+gem 'devise'
 gem 'cancan'
 gem 'github_api'
 gem 'gravatar-ultimate'
@@ -32,8 +32,8 @@ gem 'faker'
 group :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
-  gem 'capybara-webkit'
-  gem 'capybara'
+  # gem 'capybara-webkit'
+  # gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
   gem 'codeclimate-test-reporter', require: nil
@@ -43,33 +43,29 @@ end
 
 group :development, :test do
   gem 'rubocop', require: false
-  gem 'rspec-rails', '~> 3.4.2'
+  gem 'rspec-rails', '5.1.2'
   gem 'rspec-activemodel-mocks'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rack-mini-profiler'
   gem 'bullet'
   gem 'simplecov'
   gem 'autotest'
-  gem 'factory_girl'
+  gem 'factory_bot'
   gem 'metric_fu'
-  gem 'jasmine'
-  gem 'jasmine-jquery-rails'
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'compass-rails'
   gem 'zurb-foundation', '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
-  gem 'timelineJS-rails', '~> 1.1.1'
+  gem 'timelineJS-rails'
   gem 'font-awesome-sass'
 end
 
 group :development do
-  gem 'thin'
-  gem 'debugger2'
-  gem 'quiet_assets'
+  gem 'puma'
   gem 'letter_opener'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -104,7 +100,7 @@ gem 'validate_url'
 gem 'rack-utf8_sanitizer'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'angularjs-rails'
-gem 'textacular', '~> 3.0'
+gem 'textacular'
 gem 'time_ago_in_words'
 
 # Console tools

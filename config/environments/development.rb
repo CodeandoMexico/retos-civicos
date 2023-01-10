@@ -1,6 +1,8 @@
 Aquila::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  config.eager_load = false
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -34,6 +36,7 @@ Aquila::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.assets.quiet = true
 
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
