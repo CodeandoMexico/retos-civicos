@@ -1,4 +1,4 @@
-FROM docker.io/ruby:2.1.8
+FROM docker.io/ruby:2.7.7
 
 RUN useradd --system --create-home --user-group \
     --uid 900 --home-dir /app \
