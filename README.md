@@ -8,10 +8,11 @@
 
 ## Instalación / Configuración
 
-1. bundle install
-1. rake db:setup
-1. rake db:migrate
-1. rails server
+1. `bundle install`
+1. Copia `config/database.sample.yml` en `config/database.yml` y edita
+1. `rake db:setup`
+1. `rake db:migrate`
+1. `rails server`
 
 Para crear una organización:
 
