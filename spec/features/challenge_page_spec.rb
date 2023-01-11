@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Commenting on challenge' do
   let!(:member) { new_member }
   let!(:organization) { new_organization }
-  let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
+  let!(:challenge) { FactoryBot.create(:challenge, organization: organization) }
 
   background do
     sign_in_user(member.user, password: 'password')

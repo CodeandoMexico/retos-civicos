@@ -27,8 +27,8 @@ describe CommentMailer do
   end
 
   describe '.reply_comment_notification' do
-    let!(:parent_comment) { FactoryGirl.create(:comment) }
-    let!(:comment) { FactoryGirl.create(:comment, parent: parent_comment, commentable: parent_comment.commentable) }
+    let!(:parent_comment) { FactoryBot.create(:comment) }
+    let!(:comment) { FactoryBot.create(:comment, parent: parent_comment, commentable: parent_comment.commentable) }
     let(:mail) { CommentMailer.reply_comment_notification(comment.id) }
 
     it 'should send the email' do

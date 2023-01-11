@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Challenge do
   describe 'scopes' do
-    let!(:active_ch) { FactoryGirl.create(:challenge) }
-    let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
-    let!(:finished_ch) { FactoryGirl.create(:challenge, status: 'finished') }
-    let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
+    let!(:active_ch) { FactoryBot.create(:challenge) }
+    let!(:working_on_ch) { FactoryBot.create(:challenge, status: 'working_on') }
+    let!(:finished_ch) { FactoryBot.create(:challenge, status: 'finished') }
+    let!(:cancelled_ch) { FactoryBot.create(:challenge, status: 'cancelled') }
 
     describe '#active' do
       it 'returns a list of challenges with status open or working on' do
@@ -88,9 +88,9 @@ describe Challenge do
 
     describe '#popular' do
       it 'returns a list of challenges ordered by the number of collaborations' do
-        FactoryGirl.create_list(:collaboration, 3, challenge: finished_ch)
-        FactoryGirl.create_list(:collaboration, 2, challenge: working_on_ch)
-        FactoryGirl.create_list(:collaboration, 1, challenge: active_ch)
+        FactoryBot.create_list(:collaboration, 3, challenge: finished_ch)
+        FactoryBot.create_list(:collaboration, 2, challenge: working_on_ch)
+        FactoryBot.create_list(:collaboration, 1, challenge: active_ch)
         expect(Challenge.popular).to eq([finished_ch, working_on_ch, active_ch, cancelled_ch])
       end
     end

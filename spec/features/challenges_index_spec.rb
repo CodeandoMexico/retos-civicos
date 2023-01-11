@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 feature 'Challenges page' do
-  let!(:starts_tomorrow_ch) { FactoryGirl.create(:challenge, starts_on: 1.day.from_now) }
-  let!(:starts_today_ch) { FactoryGirl.create(:challenge, starts_on: Date.current) }
-  let!(:active_ch) { FactoryGirl.create(:challenge) }
-  let!(:working_on_ch) { FactoryGirl.create(:challenge, status: 'working_on') }
-  let!(:finished_ch) { FactoryGirl.create(:challenge, status: 'finished') }
-  let!(:cancelled_ch) { FactoryGirl.create(:challenge, status: 'cancelled') }
-  let!(:private_ch) { FactoryGirl.create(:challenge, status: 'private') }
+  let!(:starts_tomorrow_ch) { FactoryBot.create(:challenge, starts_on: 1.day.from_now) }
+  let!(:starts_today_ch) { FactoryBot.create(:challenge, starts_on: Date.current) }
+  let!(:active_ch) { FactoryBot.create(:challenge) }
+  let!(:working_on_ch) { FactoryBot.create(:challenge, status: 'working_on') }
+  let!(:finished_ch) { FactoryBot.create(:challenge, status: 'finished') }
+  let!(:cancelled_ch) { FactoryBot.create(:challenge, status: 'cancelled') }
+  let!(:private_ch) { FactoryBot.create(:challenge, status: 'private') }
 
   before do
     # double(Challenge.paginates_per(2))
@@ -40,8 +40,8 @@ feature 'Challenges page' do
   scenario 'Most popular filter challenges sorted by most collaborators' do
     # Default aquila behavior
     pending
-    FactoryGirl.create_list(:collaboration, 3, challenge: finished_ch)
-    FactoryGirl.create_list(:collaboration, 1, challenge: active_ch)
+    FactoryBot.create_list(:collaboration, 3, challenge: finished_ch)
+    FactoryBot.create_list(:collaboration, 1, challenge: active_ch)
     click_link('Más populares')
     page.should have_content(finished_ch.title)
     page.should_not have_content(working_on_ch.title)

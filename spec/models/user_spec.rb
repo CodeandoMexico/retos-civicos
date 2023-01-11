@@ -11,7 +11,7 @@ describe User do
       end
 
       it 'returns existing user with matching email' do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         info = double(email: user.email)
         retrieved_user = User.find_or_build_with_omniauth(info)
         expect(user.email).to eq retrieved_user.email

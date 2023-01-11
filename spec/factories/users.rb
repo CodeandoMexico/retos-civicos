@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence(:name) { |n| "name#{n}" }
     sequence(:email) { |n| "correo#{n}@codeandomexico.org"; }
@@ -12,7 +12,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |user, evaluator|
-        FactoryGirl.create_list(:user_skill, evaluator.skills_count, user: user)
+        FactoryBot.create_list(:user_skill, evaluator.skills_count, user: user)
       end
     end
   end

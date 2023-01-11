@@ -4,8 +4,8 @@ describe ApplicationController do
 
   describe '.edit_brigade_json' do
     describe 'when a valid brigade project id is given' do
-      bp_with_tags = FactoryGirl.create(:brigade_project_with_tags, title: 'proj1')
-      bp_without_tags = FactoryGirl.create(:brigade_project, title: 'proj2')
+      bp_with_tags = FactoryBot.create(:brigade_project_with_tags, title: 'proj1')
+      bp_without_tags = FactoryBot.create(:brigade_project, title: 'proj2')
 
       it 'should return the respective brigade project' do
         edit_brigade_json_result = subject.edit_brigade_json(bp_with_tags)

@@ -1,13 +1,13 @@
 module UserHelpers
   def new_member
-    FactoryGirl.create(:user, userable: Member.new).userable
+    FactoryBot.create(:user, userable: Member.new).userable
   end
 
   def new_organization
-    FactoryGirl.create(:user, userable: build(:organization)).userable
+    FactoryBot.create(:user, userable: build(:organization)).userable
   end
 
   def new_user
-    FactoryGirl.create(:user)
+    FactoryBot.create(:user)
   end
 end

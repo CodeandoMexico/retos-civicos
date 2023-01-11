@@ -3,8 +3,8 @@ require 'spec_helper'
 describe EntriesMailer do
   let!(:member) { new_member }
   let!(:organization) { new_organization }
-  let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
-  let!(:entry) { FactoryGirl.create(:entry, member: member, challenge: challenge) }
+  let!(:challenge) { FactoryBot.create(:challenge, organization: organization) }
+  let!(:entry) { FactoryBot.create(:entry, member: member, challenge: challenge) }
 
   it 'should send the entry_accepted email' do
     reset_email

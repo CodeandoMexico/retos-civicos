@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :brigade_project do
     title "Timbuktu"
     description "Project that makes people feel closer"
@@ -14,7 +14,7 @@ FactoryGirl.define do
 
       after(:create) do |brigade_project, evaluator|
         evaluator.given_tags.each do |tag|
-          brigade_project.tags << FactoryGirl.create(:tag, name: tag)
+          brigade_project.tags << FactoryBot.create(:tag, name: tag)
         end
       end
     end

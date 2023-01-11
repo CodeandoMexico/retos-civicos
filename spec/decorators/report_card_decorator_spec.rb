@@ -1,7 +1,7 @@
 # require 'spec_helper'
 #
 # describe ReportCardDecorator do
-#   report_card = FactoryGirl.build(:report_card)
+#   report_card = FactoryBot.build(:report_card)
 #   let(:rcd) { ReportCardDecorator.new(report_card.id) }
 #
 #   describe 'methods' do

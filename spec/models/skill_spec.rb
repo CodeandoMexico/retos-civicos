@@ -5,7 +5,7 @@ describe Skill do
     describe '.find_or_create_by_name' do
       let(:existing_skill_name) { 'Ruby' }
       let(:new_skill_name) { 'Java' }
-      let!(:skill) { FactoryGirl.create(:skill, name: existing_skill_name) }
+      let!(:skill) { FactoryBot.create(:skill, name: existing_skill_name) }
 
       describe 'given skill is present' do
         it 'then it should not create a new skill' do

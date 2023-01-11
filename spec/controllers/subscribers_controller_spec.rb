@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SubscribersController do
   describe 'GET create' do
-    let!(:organization) { FactoryGirl.create(:organization) }
+    let!(:organization) { FactoryBot.create(:organization) }
     let!(:email) { 'email1@org.org' }
     describe 'given user is not subscribed already' do
       it 'redirects to organization page with a notice' do

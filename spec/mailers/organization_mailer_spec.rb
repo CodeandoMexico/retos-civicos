@@ -3,8 +3,8 @@ require 'spec_helper'
 describe OrganizationMailer do
   describe '.send_newsletter_to_collaborator' do
     let!(:organization) { new_organization }
-    let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
-    let!(:members) { FactoryGirl.create_list(:user, 5).map(&:userable) }
+    let!(:challenge) { FactoryBot.create(:challenge, organization: organization) }
+    let!(:members) { FactoryBot.create_list(:user, 5).map(&:userable) }
 
     before do
       members.each do |member|

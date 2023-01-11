@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Entry do
-  let!(:active_ch) { FactoryGirl.create(:challenge, :with_criteria) }
-  let!(:another_ch) { FactoryGirl.create(:challenge, :with_criteria) }
-  let!(:judges) { FactoryGirl.create_list(:judge, 3) }
+  let!(:active_ch) { FactoryBot.create(:challenge, :with_criteria) }
+  let!(:another_ch) { FactoryBot.create(:challenge, :with_criteria) }
+  let!(:judges) { FactoryBot.create_list(:judge, 3) }
 
   it 'should show that there are no newly created report_cards' do
-    entry = FactoryGirl.create(:entry, challenge:  active_ch)
+    entry = FactoryBot.create(:entry, challenge:  active_ch)
     expect(ReportCard.count).to eq 0
   end
 
@@ -16,7 +16,7 @@ describe Entry do
 
     # this evaluation are the ones that we are validating for
     evaluations = judges.map { |judge| create(:evaluation, challenge: active_ch, judge: judge) }
-    entry = FactoryGirl.create(:entry, challenge:  active_ch)
+    entry = FactoryBot.create(:entry, challenge:  active_ch)
 
     verify_new_report_cards(evaluations, entry)
   end

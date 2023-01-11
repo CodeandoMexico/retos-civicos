@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :brigade do
     description 'Bienvenido a la brigada de Monterrey! Come with us.'
     calendar_url 'https://www.google.com/calendar/ical/odyssey.charter%40odyssey.k12.de.us/public/basic.ics'
@@ -19,7 +19,7 @@ FactoryGirl.define do
 
       after(:create) do |brigade, _evaluator|
         (0...new_users.length).each do |i|
-          brigade.users << FactoryGirl.create(:user, name: new_users[i][:name], avatar: new_users[i][:avatar])
+          brigade.users << FactoryBot.create(:user, name: new_users[i][:name], avatar: new_users[i][:avatar])
         end
       end
     end

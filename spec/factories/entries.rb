@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :entry do
     sequence(:name) { |n| "Entry No. #{n}" }
     description 'This is my entry!'

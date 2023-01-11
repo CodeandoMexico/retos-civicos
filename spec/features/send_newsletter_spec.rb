@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'Send newsletter to collaborators' do
   let!(:organization) { new_organization }
-  let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
-  let!(:members) { FactoryGirl.create_list(:user, 5).map(&:userable) }
+  let!(:challenge) { FactoryBot.create(:challenge, organization: organization) }
+  let!(:members) { FactoryBot.create_list(:user, 5).map(&:userable) }
 
   background do
     sign_in_user(organization.user, password: 'password')

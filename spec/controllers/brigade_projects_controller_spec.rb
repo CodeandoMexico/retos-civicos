@@ -121,7 +121,7 @@ RSpec.describe BrigadeProjectsController, :type => :controller do
       end
 
       it "redirects to the brigade_project's brigade page" do
-        brigade = FactoryGirl.create(:brigade)
+        brigade = FactoryBot.create(:brigade)
         valid_attributes[:brigade_id] = brigade.id
         brigade_project = BrigadeProject.create! valid_attributes
         put :update, {:id => brigade_project.to_param, 'locale' => 'en', :brigade_project => valid_attributes}, valid_session

@@ -60,7 +60,7 @@ RSpec.configure do |config|
   # Model helpers
   config.include EntriesHelpers
   config.include EvaluationHelpers
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   RSpec.configure do |c|
     c.include Helpers

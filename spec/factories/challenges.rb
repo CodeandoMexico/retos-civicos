@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :challenge do
     sequence(:title) { |i| "El titulo #{i}" }
     description 'descripcion'

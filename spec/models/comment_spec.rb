@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Comment do
   describe 'methods' do
-    let!(:comment) { FactoryGirl.create(:comment) }
+    let!(:comment) { FactoryBot.create(:comment) }
     describe '#update_votes_counter' do
       it 'should run without errors' do
         comment.update_votes_counter

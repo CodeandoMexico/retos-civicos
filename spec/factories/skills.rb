@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :skill do
     sequence(:name) { |i| "skill_#{i}" }
 
@@ -8,7 +8,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |skill, evaluator|
-        FactoryGirl.create_list(:user_skill, evaluator.skill_count, skill: skill)
+        FactoryBot.create_list(:user_skill, evaluator.skill_count, skill: skill)
       end
     end
   end

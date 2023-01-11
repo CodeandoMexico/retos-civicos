@@ -3,28 +3,28 @@ require 'spec_helper'
 describe Member do
   describe 'methods' do
     let(:member) { new_member }
-    let(:no_name_member) { FactoryGirl.create(:member, name: nil) }
-    let(:no_identity_member) { FactoryGirl.create(:member, name: nil, nickname: nil) }
-    let(:challenge) { FactoryGirl.create(:challenge) }
+    let(:no_name_member) { FactoryBot.create(:member, name: nil) }
+    let(:no_identity_member) { FactoryBot.create(:member, name: nil, nickname: nil) }
+    let(:challenge) { FactoryBot.create(:challenge) }
 
     describe '.submitted_app?' do
       it 'returns true when it has submitted an app for that challenge' do
-        FactoryGirl.create(:entry, challenge: challenge, member: member)
+        FactoryBot.create(:entry, challenge: challenge, member: member)
         expect(member.submitted_app?(challenge)).to be true
       end
 
       it "returns false when it hasn't submitted an app for that challenge" do
-        other_challenge = FactoryGirl.create(:challenge)
+        other_challenge = FactoryBot.create(:challenge)
         expect(member.submitted_app?(other_challenge)).not_to be true
       end
 
       it 'returns true when it has submitted a prototype for that challenge' do
-        FactoryGirl.create(:entry, challenge: challenge, member: member, repo_url: 'http://mirepo.com', demo_url: 'http://midemo.com')
+        FactoryBot.create(:entry, challenge: challenge, member: member, repo_url: 'http://mirepo.com', demo_url: 'http://midemo.com')
         expect(member.submitted_prototype_for_challenge?(challenge)).to be true
       end
 
       it "returns false when it hasn't submitted a prototype for that challenge" do
-        FactoryGirl.create(:entry, challenge: challenge, member: member)
+        FactoryBot.create(:entry, challenge: challenge, member: member)
         expect(member.submitted_prototype_for_challenge?(challenge)).not_to be true
       end
     end

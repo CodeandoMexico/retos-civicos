@@ -3,7 +3,7 @@ require 'carrierwave/test/matchers'
 
 feature 'Ajax load collaborators' do
   let!(:organization) { new_organization }
-  let!(:challenge) { FactoryGirl.create(:challenge, organization: organization) }
+  let!(:challenge) { FactoryBot.create(:challenge, organization: organization) }
   scenario 'Find all collaborators in collaborator tab', js: true do
     pending
 
@@ -11,7 +11,7 @@ feature 'Ajax load collaborators' do
 
     collaborators = []
     2.times do
-      collaborators.push(FactoryGirl.create(:collaboration, challenge: challenge, member: new_member))
+      collaborators.push(FactoryBot.create(:collaboration, challenge: challenge, member: new_member))
     end
     visit challenge_path(collaborators.first.challenge_id)
 

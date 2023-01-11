@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Organization do
   describe 'methods' do
-    let!(:organization) { FactoryGirl.create(:organization, name: 'org_1') }
+    let!(:organization) { FactoryBot.create(:organization, name: 'org_1') }
     describe '#accredit!' do
       it 'it should make accredit true.' do
         organization.accredit!
