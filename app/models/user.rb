@@ -6,13 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :email, :name,
-                  :nickname, :bio, :userable_id, :role, :website
-
   ROLES = %w(member organization judge).freeze
-
-  attr_accessible
 
   # Relations
   has_many :authentications, dependent: :destroy

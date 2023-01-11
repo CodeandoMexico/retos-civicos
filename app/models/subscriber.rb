@@ -1,6 +1,4 @@
 class Subscriber < ActiveRecord::Base
-  attr_accessible :email
-
   belongs_to :organization
   validates :email, uniqueness: { scope: :organization_id }
 

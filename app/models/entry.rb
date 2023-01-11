@@ -1,10 +1,6 @@
 class Entry < ActiveRecord::Base
   include Reportable
 
-  attr_accessible :image, :live_demo_url, :idea_url, :name, :description,
-                  :member_id, :url, :technologies, :repo_url, :demo_url,
-                  :invalid_reason
-
   belongs_to :member
   belongs_to :challenge
   has_many :report_cards, order: 'id ASC'

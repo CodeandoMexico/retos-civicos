@@ -1,6 +1,4 @@
 class Evaluation < ActiveRecord::Base
-  attr_accessible :judge_id, :challenge_id
-
   belongs_to :challenge
   belongs_to :judge
   has_many :report_cards, order: 'id ASC'

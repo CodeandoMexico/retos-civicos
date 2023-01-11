@@ -1,6 +1,4 @@
 class Skill < ActiveRecord::Base
-  attr_accessible :name
-
   has_many :userskills
   has_many :users, through: :userskills
 

@@ -2,7 +2,6 @@
 # Mainly used for locating Brigades.
 class Location < ActiveRecord::Base
   has_one :brigade
-  attr_accessible :city, :locality, :state, :zip_code
 
   def self.search(location_query)
     return if location_query.blank?

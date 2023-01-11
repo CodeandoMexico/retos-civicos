@@ -1,6 +1,5 @@
 class Tag < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 25 }
-  attr_accessible :name
   has_many :brigade_projects_tags
   has_many :brigade_projects, through: :brigade_projects_tags
 

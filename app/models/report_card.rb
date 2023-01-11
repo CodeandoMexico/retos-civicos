@@ -1,6 +1,4 @@
 class ReportCard < ActiveRecord::Base
-  attr_accessible :grades, :comments, :feedback, :evaluation_id, :entry_id
-
   serialize :grades, Array
 
   # associations
