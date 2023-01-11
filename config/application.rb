@@ -72,8 +72,6 @@ module Aquila
 
     config.action_mailer.default_url_options = { host: ENV['ACTION_MAILER_HOST'] }
 
-    config.cache_store = :dalli_store
-
     config.middleware.insert 0, Rack::UTF8Sanitizer
 
     # Add extended core clases

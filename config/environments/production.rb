@@ -67,18 +67,4 @@ Aquila::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-
-  # Confifurations for Dalli [memcached]
-  client = Dalli::Client.new((ENV['MEMCACHIER_SERVERS'] || '').split(','),
-                             username: ENV['MEMCACHIER_USERNAME'],
-                             password: ENV['MEMCACHIER_PASSWORD'],
-                             failover: true,
-                             socket_timeout: 1.5,
-                             socket_failure_delay: 0.2,
-                             value_max_bytes: 10_485_760)
-  config.action_dispatch.rack_cache = {
-    metastore: client,
-    entitystore: client
-  }
-  config.static_cache_control = 'public, max-age=2592000'
 end
