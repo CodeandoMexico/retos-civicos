@@ -4,6 +4,8 @@ ruby '2.7.7'
 
 gem 'rails', '5.2.8.1'
 
+gem 'activerecord-session_store'
+
 gem 'foreman'
 gem 'pg'
 
@@ -21,6 +23,7 @@ gem 'omniauth-facebook'
 gem 'devise'
 gem 'cancan'
 gem 'github_api'
+gem 'xmlrpc' # required by gravatar-ultimate
 gem 'gravatar-ultimate'
 
 gem 'rails-translate-routes'
@@ -28,6 +31,14 @@ gem 'ckan', git: 'https://github.com/CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
 gem 'font-awesome-rails'
 gem 'faker'
+
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'compass-rails'
+gem 'zurb-foundation', '~> 3.2.0'
+gem 'uglifier', '>= 1.0.3'
+gem 'timelineJS-rails'
+gem 'font-awesome-sass'
 
 group :test do
   gem 'shoulda-matchers'
@@ -54,16 +65,6 @@ group :development, :test do
   gem 'metric_fu'
 end
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'compass-rails'
-  gem 'zurb-foundation', '~> 3.2.0'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'timelineJS-rails'
-  gem 'font-awesome-sass'
-end
-
 group :development do
   gem 'puma'
   gem 'letter_opener'
@@ -77,8 +78,8 @@ end
 
 gem 'kaminari'
 gem 'compass'
-gem 'fog'
-gem 'carrierwave', '~> 0.8.0'
+gem 'fog-aws'
+gem 'carrierwave', '~> 2.0.2'
 gem 'mini_magick'
 gem 'sanitize'
 gem 'auto_html'
@@ -102,19 +103,12 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'angularjs-rails'
 gem 'textacular'
 gem 'time_ago_in_words'
+gem 'font_assets'
 
 # Console tools
 gem 'ruby-progressbar'
 gem 'newrelic_rpm'
-gem 'airbrake'
 gem 'hirb'
 
 # Rack tools
 gem 'rack-no-www'
-
-# Cache tools
-gem 'rack-cache'
-gem 'dalli'
-gem 'kgio'
-gem 'memcachier'
-gem 'font_assets'
