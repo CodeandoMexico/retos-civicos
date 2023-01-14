@@ -1,4 +1,4 @@
-class AddAcceptingSuscribersToOrganizations < ActiveRecord::Migration
+class AddAcceptingSuscribersToOrganizations < ActiveRecord::Migration[5.2]
   def change
     add_column :organizations, :accepting_suscribers, :boolean, default: false
 

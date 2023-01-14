@@ -1,4 +1,4 @@
-class CreateBrigadeProjects < ActiveRecord::Migration
+class CreateBrigadeProjects < ActiveRecord::Migration[5.2]
   def change
     create_table :brigade_projects do |t|
       t.string :title, :null => false
@@ -7,6 +7,5 @@ class CreateBrigadeProjects < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :brigade_projects, :brigade_id
   end
 end

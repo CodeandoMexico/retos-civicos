@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :skills, through: :userskills
   has_many :comments
   has_many :brigade_users
-  has_many :brigades, through: :brigade_users, include: :location
+  has_many :brigades, through: :brigade_users
   has_many :brigade_projects_users
   has_many :brigade_projects, through: :brigade_projects_users_users
 

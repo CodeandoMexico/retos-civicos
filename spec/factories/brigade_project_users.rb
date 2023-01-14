@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :brigade_projects_user do
-    project nil
-    user nil
+    project { nil }
+    user { nil }
   end
 end

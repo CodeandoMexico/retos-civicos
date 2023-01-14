@@ -1,4 +1,4 @@
-class ChangeSubdomainToSlugToOrganizations < ActiveRecord::Migration
+class ChangeSubdomainToSlugToOrganizations < ActiveRecord::Migration[5.2]
   def up
     rename_column :organizations, :subdomain, :slug
   end

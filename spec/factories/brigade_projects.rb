@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :brigade_project do
-    title "Timbuktu"
-    description "Project that makes people feel closer"
-    brigade_id 1
+    title { "Timbuktu" }
+    description { "Project that makes people feel closer" }
+    brigade_id { 1 }
 
     ignore do
       given_tags ['html', 'scheme', 'java']

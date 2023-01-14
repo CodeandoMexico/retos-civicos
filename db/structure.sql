@@ -1,27 +1,13 @@
---
--- PostgreSQL database dump
---
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
-
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
+SET row_security = off;
 
 --
 -- Name: intarray; Type: EXTENSION; Schema: -; Owner: -
@@ -51,17 +37,15 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
 COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
 
 
-SET search_path = public, pg_catalog;
-
 SET default_tablespace = '';
 
-SET default_with_oids = false;
+SET default_table_access_method = heap;
 
 --
--- Name: activities; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: activities; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE activities (
+CREATE TABLE public.activities (
     id integer NOT NULL,
     text text,
     type character varying(255),
@@ -76,7 +60,7 @@ CREATE TABLE activities (
 -- Name: activities_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE activities_id_seq
+CREATE SEQUENCE public.activities_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -88,14 +72,14 @@ CREATE SEQUENCE activities_id_seq
 -- Name: activities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE activities_id_seq OWNED BY activities.id;
+ALTER SEQUENCE public.activities_id_seq OWNED BY public.activities.id;
 
 
 --
--- Name: admins; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: admins; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE admins (
+CREATE TABLE public.admins (
     id integer NOT NULL,
     email character varying(255) DEFAULT ''::character varying NOT NULL,
     encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
@@ -116,7 +100,7 @@ CREATE TABLE admins (
 -- Name: admins_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE admins_id_seq
+CREATE SEQUENCE public.admins_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -128,14 +112,26 @@ CREATE SEQUENCE admins_id_seq
 -- Name: admins_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE admins_id_seq OWNED BY admins.id;
+ALTER SEQUENCE public.admins_id_seq OWNED BY public.admins.id;
 
 
 --
--- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE authentications (
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: authentications; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.authentications (
     id integer NOT NULL,
     user_id integer,
     provider character varying(255),
@@ -151,7 +147,7 @@ CREATE TABLE authentications (
 -- Name: authentications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE authentications_id_seq
+CREATE SEQUENCE public.authentications_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -163,14 +159,111 @@ CREATE SEQUENCE authentications_id_seq
 -- Name: authentications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
+ALTER SEQUENCE public.authentications_id_seq OWNED BY public.authentications.id;
 
 
 --
--- Name: brigade_users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: brigade_projects; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE brigade_users (
+CREATE TABLE public.brigade_projects (
+    id bigint NOT NULL,
+    title character varying NOT NULL,
+    description text,
+    brigade_id bigint NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: brigade_projects_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.brigade_projects_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: brigade_projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.brigade_projects_id_seq OWNED BY public.brigade_projects.id;
+
+
+--
+-- Name: brigade_projects_tags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.brigade_projects_tags (
+    id bigint NOT NULL,
+    brigade_project_id bigint,
+    tag_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: brigade_projects_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.brigade_projects_tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: brigade_projects_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.brigade_projects_tags_id_seq OWNED BY public.brigade_projects_tags.id;
+
+
+--
+-- Name: brigade_projects_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.brigade_projects_users (
+    id bigint NOT NULL,
+    brigade_project_id bigint,
+    user_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: brigade_projects_users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.brigade_projects_users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: brigade_projects_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.brigade_projects_users_id_seq OWNED BY public.brigade_projects_users.id;
+
+
+--
+-- Name: brigade_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.brigade_users (
     id integer NOT NULL,
     user_id integer,
     brigade_id integer,
@@ -183,7 +276,7 @@ CREATE TABLE brigade_users (
 -- Name: brigade_users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE brigade_users_id_seq
+CREATE SEQUENCE public.brigade_users_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -195,14 +288,14 @@ CREATE SEQUENCE brigade_users_id_seq
 -- Name: brigade_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE brigade_users_id_seq OWNED BY brigade_users.id;
+ALTER SEQUENCE public.brigade_users_id_seq OWNED BY public.brigade_users.id;
 
 
 --
--- Name: brigades; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: brigades; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE brigades (
+CREATE TABLE public.brigades (
     id integer NOT NULL,
     description text,
     calendar_url character varying(500),
@@ -223,7 +316,7 @@ CREATE TABLE brigades (
 -- Name: brigades_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE brigades_id_seq
+CREATE SEQUENCE public.brigades_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -235,14 +328,14 @@ CREATE SEQUENCE brigades_id_seq
 -- Name: brigades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE brigades_id_seq OWNED BY brigades.id;
+ALTER SEQUENCE public.brigades_id_seq OWNED BY public.brigades.id;
 
 
 --
--- Name: challenges; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: challenges; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE challenges (
+CREATE TABLE public.challenges (
     id integer NOT NULL,
     title character varying(255),
     description text,
@@ -283,7 +376,7 @@ CREATE TABLE challenges (
 -- Name: challenges_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE challenges_id_seq
+CREATE SEQUENCE public.challenges_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -295,14 +388,14 @@ CREATE SEQUENCE challenges_id_seq
 -- Name: challenges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE challenges_id_seq OWNED BY challenges.id;
+ALTER SEQUENCE public.challenges_id_seq OWNED BY public.challenges.id;
 
 
 --
--- Name: collaborations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: collaborations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE collaborations (
+CREATE TABLE public.collaborations (
     id integer NOT NULL,
     user_id integer,
     challenge_id integer,
@@ -316,7 +409,7 @@ CREATE TABLE collaborations (
 -- Name: collaborations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE collaborations_id_seq
+CREATE SEQUENCE public.collaborations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -328,14 +421,14 @@ CREATE SEQUENCE collaborations_id_seq
 -- Name: collaborations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE collaborations_id_seq OWNED BY collaborations.id;
+ALTER SEQUENCE public.collaborations_id_seq OWNED BY public.collaborations.id;
 
 
 --
--- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: comments; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE comments (
+CREATE TABLE public.comments (
     id integer NOT NULL,
     commentable_id integer DEFAULT 0,
     commentable_type character varying(255) DEFAULT ''::character varying,
@@ -354,7 +447,7 @@ CREATE TABLE comments (
 -- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE comments_id_seq
+CREATE SEQUENCE public.comments_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -366,14 +459,14 @@ CREATE SEQUENCE comments_id_seq
 -- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
 
 
 --
--- Name: datasets; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: datasets; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE datasets (
+CREATE TABLE public.datasets (
     id integer NOT NULL,
     challenge_id integer,
     guid character varying(255),
@@ -390,7 +483,7 @@ CREATE TABLE datasets (
 -- Name: datasets_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE datasets_id_seq
+CREATE SEQUENCE public.datasets_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -402,14 +495,14 @@ CREATE SEQUENCE datasets_id_seq
 -- Name: datasets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE datasets_id_seq OWNED BY datasets.id;
+ALTER SEQUENCE public.datasets_id_seq OWNED BY public.datasets.id;
 
 
 --
--- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE delayed_jobs (
+CREATE TABLE public.delayed_jobs (
     id integer NOT NULL,
     priority integer DEFAULT 0,
     attempts integer DEFAULT 0,
@@ -429,7 +522,7 @@ CREATE TABLE delayed_jobs (
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE delayed_jobs_id_seq
+CREATE SEQUENCE public.delayed_jobs_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -441,14 +534,14 @@ CREATE SEQUENCE delayed_jobs_id_seq
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
+ALTER SEQUENCE public.delayed_jobs_id_seq OWNED BY public.delayed_jobs.id;
 
 
 --
--- Name: entries; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: entries; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE entries (
+CREATE TABLE public.entries (
     id integer NOT NULL,
     name character varying(255),
     live_demo_url character varying(255),
@@ -474,7 +567,7 @@ CREATE TABLE entries (
 -- Name: entries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE entries_id_seq
+CREATE SEQUENCE public.entries_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -486,14 +579,14 @@ CREATE SEQUENCE entries_id_seq
 -- Name: entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE entries_id_seq OWNED BY entries.id;
+ALTER SEQUENCE public.entries_id_seq OWNED BY public.entries.id;
 
 
 --
--- Name: evaluations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: evaluations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE evaluations (
+CREATE TABLE public.evaluations (
     id integer NOT NULL,
     challenge_id integer,
     judge_id integer,
@@ -506,7 +599,7 @@ CREATE TABLE evaluations (
 -- Name: evaluations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE evaluations_id_seq
+CREATE SEQUENCE public.evaluations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -518,14 +611,14 @@ CREATE SEQUENCE evaluations_id_seq
 -- Name: evaluations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
+ALTER SEQUENCE public.evaluations_id_seq OWNED BY public.evaluations.id;
 
 
 --
--- Name: judges; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: judges; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE judges (
+CREATE TABLE public.judges (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -537,7 +630,7 @@ CREATE TABLE judges (
 -- Name: judges_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE judges_id_seq
+CREATE SEQUENCE public.judges_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -549,14 +642,14 @@ CREATE SEQUENCE judges_id_seq
 -- Name: judges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE judges_id_seq OWNED BY judges.id;
+ALTER SEQUENCE public.judges_id_seq OWNED BY public.judges.id;
 
 
 --
--- Name: locations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: locations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE locations (
+CREATE TABLE public.locations (
     id integer NOT NULL,
     zip_code character varying(5) NOT NULL,
     state character varying(20) NOT NULL,
@@ -571,7 +664,7 @@ CREATE TABLE locations (
 -- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE locations_id_seq
+CREATE SEQUENCE public.locations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -583,14 +676,14 @@ CREATE SEQUENCE locations_id_seq
 -- Name: locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE locations_id_seq OWNED BY locations.id;
+ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
--- Name: members; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: members; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE members (
+CREATE TABLE public.members (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -602,7 +695,7 @@ CREATE TABLE members (
 -- Name: members_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE members_id_seq
+CREATE SEQUENCE public.members_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -614,14 +707,14 @@ CREATE SEQUENCE members_id_seq
 -- Name: members_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE members_id_seq OWNED BY members.id;
+ALTER SEQUENCE public.members_id_seq OWNED BY public.members.id;
 
 
 --
--- Name: organizations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: organizations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE organizations (
+CREATE TABLE public.organizations (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -635,7 +728,7 @@ CREATE TABLE organizations (
 -- Name: organizations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE organizations_id_seq
+CREATE SEQUENCE public.organizations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -647,14 +740,14 @@ CREATE SEQUENCE organizations_id_seq
 -- Name: organizations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE organizations_id_seq OWNED BY organizations.id;
+ALTER SEQUENCE public.organizations_id_seq OWNED BY public.organizations.id;
 
 
 --
--- Name: report_cards; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: report_cards; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE report_cards (
+CREATE TABLE public.report_cards (
     id integer NOT NULL,
     evaluation_id integer,
     entry_id integer,
@@ -670,7 +763,7 @@ CREATE TABLE report_cards (
 -- Name: report_cards_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE report_cards_id_seq
+CREATE SEQUENCE public.report_cards_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -682,14 +775,14 @@ CREATE SEQUENCE report_cards_id_seq
 -- Name: report_cards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE report_cards_id_seq OWNED BY report_cards.id;
+ALTER SEQUENCE public.report_cards_id_seq OWNED BY public.report_cards.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE schema_migrations (
+CREATE TABLE public.schema_migrations (
     version character varying(255) NOT NULL
 );
 
@@ -698,21 +791,21 @@ CREATE TABLE schema_migrations (
 -- Name: searches; Type: VIEW; Schema: public; Owner: -
 --
 
-CREATE VIEW searches AS
+CREATE VIEW public.searches AS
  SELECT locations.id AS searchable_id,
     locations.zip_code,
     locations.city,
     locations.state,
     locations.locality,
     'Location'::character varying AS searchable_type
-   FROM locations;
+   FROM public.locations;
 
 
 --
--- Name: sessions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: sessions; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE sessions (
+CREATE TABLE public.sessions (
     id integer NOT NULL,
     session_id character varying(255) NOT NULL,
     data text,
@@ -725,7 +818,7 @@ CREATE TABLE sessions (
 -- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE sessions_id_seq
+CREATE SEQUENCE public.sessions_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -737,14 +830,14 @@ CREATE SEQUENCE sessions_id_seq
 -- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE sessions_id_seq OWNED BY sessions.id;
+ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
 
 
 --
--- Name: skills; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: skills; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE skills (
+CREATE TABLE public.skills (
     id integer NOT NULL,
     name character varying(255),
     created_at timestamp without time zone NOT NULL,
@@ -756,7 +849,7 @@ CREATE TABLE skills (
 -- Name: skills_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE skills_id_seq
+CREATE SEQUENCE public.skills_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -768,14 +861,14 @@ CREATE SEQUENCE skills_id_seq
 -- Name: skills_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE skills_id_seq OWNED BY skills.id;
+ALTER SEQUENCE public.skills_id_seq OWNED BY public.skills.id;
 
 
 --
--- Name: subscribers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: subscribers; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE subscribers (
+CREATE TABLE public.subscribers (
     id integer NOT NULL,
     email character varying(255),
     organization_id integer,
@@ -788,7 +881,7 @@ CREATE TABLE subscribers (
 -- Name: subscribers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE subscribers_id_seq
+CREATE SEQUENCE public.subscribers_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -800,14 +893,45 @@ CREATE SEQUENCE subscribers_id_seq
 -- Name: subscribers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE subscribers_id_seq OWNED BY subscribers.id;
+ALTER SEQUENCE public.subscribers_id_seq OWNED BY public.subscribers.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: tags; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE users (
+CREATE TABLE public.tags (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.users (
     id integer NOT NULL,
     name character varying(255),
     email character varying(255),
@@ -829,7 +953,8 @@ CREATE TABLE users (
     website character varying(255),
     github_url character varying(255),
     twitter_url character varying(255),
-    facebook_url character varying(255)
+    facebook_url character varying(255),
+    show_profile boolean DEFAULT true
 );
 
 
@@ -837,7 +962,7 @@ CREATE TABLE users (
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE users_id_seq
+CREATE SEQUENCE public.users_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -849,14 +974,14 @@ CREATE SEQUENCE users_id_seq
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE users_id_seq OWNED BY users.id;
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: userskills; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: userskills; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE userskills (
+CREATE TABLE public.userskills (
     id integer NOT NULL,
     user_id integer,
     skill_id integer,
@@ -869,7 +994,7 @@ CREATE TABLE userskills (
 -- Name: userskills_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE userskills_id_seq
+CREATE SEQUENCE public.userskills_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -881,14 +1006,14 @@ CREATE SEQUENCE userskills_id_seq
 -- Name: userskills_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE userskills_id_seq OWNED BY userskills.id;
+ALTER SEQUENCE public.userskills_id_seq OWNED BY public.userskills.id;
 
 
 --
--- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: votes; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE votes (
+CREATE TABLE public.votes (
     id integer NOT NULL,
     vote boolean DEFAULT false NOT NULL,
     voteable_id integer NOT NULL,
@@ -904,7 +1029,7 @@ CREATE TABLE votes (
 -- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE votes_id_seq
+CREATE SEQUENCE public.votes_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -916,722 +1041,735 @@ CREATE SEQUENCE votes_id_seq
 -- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
+ALTER SEQUENCE public.votes_id_seq OWNED BY public.votes.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: activities id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY activities ALTER COLUMN id SET DEFAULT nextval('activities_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::regclass);
+ALTER TABLE ONLY public.activities ALTER COLUMN id SET DEFAULT nextval('public.activities_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: admins id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentications_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY brigade_users ALTER COLUMN id SET DEFAULT nextval('brigade_users_id_seq'::regclass);
+ALTER TABLE ONLY public.admins ALTER COLUMN id SET DEFAULT nextval('public.admins_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: authentications id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY brigades ALTER COLUMN id SET DEFAULT nextval('brigades_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY challenges ALTER COLUMN id SET DEFAULT nextval('challenges_id_seq'::regclass);
+ALTER TABLE ONLY public.authentications ALTER COLUMN id SET DEFAULT nextval('public.authentications_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: brigade_projects id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY collaborations ALTER COLUMN id SET DEFAULT nextval('collaborations_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+ALTER TABLE ONLY public.brigade_projects ALTER COLUMN id SET DEFAULT nextval('public.brigade_projects_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: brigade_projects_tags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY datasets ALTER COLUMN id SET DEFAULT nextval('datasets_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
+ALTER TABLE ONLY public.brigade_projects_tags ALTER COLUMN id SET DEFAULT nextval('public.brigade_projects_tags_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: brigade_projects_users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY entries ALTER COLUMN id SET DEFAULT nextval('entries_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id_seq'::regclass);
+ALTER TABLE ONLY public.brigade_projects_users ALTER COLUMN id SET DEFAULT nextval('public.brigade_projects_users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: brigade_users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY judges ALTER COLUMN id SET DEFAULT nextval('judges_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq'::regclass);
+ALTER TABLE ONLY public.brigade_users ALTER COLUMN id SET DEFAULT nextval('public.brigade_users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: brigades id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY members ALTER COLUMN id SET DEFAULT nextval('members_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY organizations ALTER COLUMN id SET DEFAULT nextval('organizations_id_seq'::regclass);
+ALTER TABLE ONLY public.brigades ALTER COLUMN id SET DEFAULT nextval('public.brigades_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: challenges id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY report_cards ALTER COLUMN id SET DEFAULT nextval('report_cards_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sessions ALTER COLUMN id SET DEFAULT nextval('sessions_id_seq'::regclass);
+ALTER TABLE ONLY public.challenges ALTER COLUMN id SET DEFAULT nextval('public.challenges_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: collaborations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY skills ALTER COLUMN id SET DEFAULT nextval('skills_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY subscribers ALTER COLUMN id SET DEFAULT nextval('subscribers_id_seq'::regclass);
+ALTER TABLE ONLY public.collaborations ALTER COLUMN id SET DEFAULT nextval('public.collaborations_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: comments id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY userskills ALTER COLUMN id SET DEFAULT nextval('userskills_id_seq'::regclass);
+ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.comments_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: datasets id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
+ALTER TABLE ONLY public.datasets ALTER COLUMN id SET DEFAULT nextval('public.datasets_id_seq'::regclass);
 
 
 --
--- Name: activities_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY activities
+ALTER TABLE ONLY public.delayed_jobs ALTER COLUMN id SET DEFAULT nextval('public.delayed_jobs_id_seq'::regclass);
+
+
+--
+-- Name: entries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries ALTER COLUMN id SET DEFAULT nextval('public.entries_id_seq'::regclass);
+
+
+--
+-- Name: evaluations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.evaluations ALTER COLUMN id SET DEFAULT nextval('public.evaluations_id_seq'::regclass);
+
+
+--
+-- Name: judges id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.judges ALTER COLUMN id SET DEFAULT nextval('public.judges_id_seq'::regclass);
+
+
+--
+-- Name: locations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.locations_id_seq'::regclass);
+
+
+--
+-- Name: members id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.members ALTER COLUMN id SET DEFAULT nextval('public.members_id_seq'::regclass);
+
+
+--
+-- Name: organizations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.organizations ALTER COLUMN id SET DEFAULT nextval('public.organizations_id_seq'::regclass);
+
+
+--
+-- Name: report_cards id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.report_cards ALTER COLUMN id SET DEFAULT nextval('public.report_cards_id_seq'::regclass);
+
+
+--
+-- Name: sessions id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.sessions_id_seq'::regclass);
+
+
+--
+-- Name: skills id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.skills ALTER COLUMN id SET DEFAULT nextval('public.skills_id_seq'::regclass);
+
+
+--
+-- Name: subscribers id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subscribers ALTER COLUMN id SET DEFAULT nextval('public.subscribers_id_seq'::regclass);
+
+
+--
+-- Name: tags id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Name: userskills id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userskills ALTER COLUMN id SET DEFAULT nextval('public.userskills_id_seq'::regclass);
+
+
+--
+-- Name: votes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.votes ALTER COLUMN id SET DEFAULT nextval('public.votes_id_seq'::regclass);
+
+
+--
+-- Name: activities activities_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.activities
     ADD CONSTRAINT activities_pkey PRIMARY KEY (id);
 
 
 --
--- Name: admins_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: admins admins_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY admins
+ALTER TABLE ONLY public.admins
     ADD CONSTRAINT admins_pkey PRIMARY KEY (id);
 
 
 --
--- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY authentications
+ALTER TABLE ONLY public.ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: authentications authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.authentications
     ADD CONSTRAINT authentications_pkey PRIMARY KEY (id);
 
 
 --
--- Name: brigade_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: brigade_projects brigade_projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY brigade_users
+ALTER TABLE ONLY public.brigade_projects
+    ADD CONSTRAINT brigade_projects_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: brigade_projects_tags brigade_projects_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.brigade_projects_tags
+    ADD CONSTRAINT brigade_projects_tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: brigade_projects_users brigade_projects_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.brigade_projects_users
+    ADD CONSTRAINT brigade_projects_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: brigade_users brigade_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.brigade_users
     ADD CONSTRAINT brigade_users_pkey PRIMARY KEY (id);
 
 
 --
--- Name: brigades_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: brigades brigades_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY brigades
+ALTER TABLE ONLY public.brigades
     ADD CONSTRAINT brigades_pkey PRIMARY KEY (id);
 
 
 --
--- Name: collaborations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: collaborations collaborations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY collaborations
+ALTER TABLE ONLY public.collaborations
     ADD CONSTRAINT collaborations_pkey PRIMARY KEY (id);
 
 
 --
--- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY comments
+ALTER TABLE ONLY public.comments
     ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
 
 
 --
--- Name: datasets_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: datasets datasets_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY datasets
+ALTER TABLE ONLY public.datasets
     ADD CONSTRAINT datasets_pkey PRIMARY KEY (id);
 
 
 --
--- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY delayed_jobs
+ALTER TABLE ONLY public.delayed_jobs
     ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
 
 
 --
--- Name: entries_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: entries entries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY entries
+ALTER TABLE ONLY public.entries
     ADD CONSTRAINT entries_pkey PRIMARY KEY (id);
 
 
 --
--- Name: evaluations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: evaluations evaluations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY evaluations
+ALTER TABLE ONLY public.evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
 
 
 --
--- Name: judges_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: judges judges_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY judges
+ALTER TABLE ONLY public.judges
     ADD CONSTRAINT judges_pkey PRIMARY KEY (id);
 
 
 --
--- Name: locations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: locations locations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY locations
+ALTER TABLE ONLY public.locations
     ADD CONSTRAINT locations_pkey PRIMARY KEY (id);
 
 
 --
--- Name: members_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: members members_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY members
+ALTER TABLE ONLY public.members
     ADD CONSTRAINT members_pkey PRIMARY KEY (id);
 
 
 --
--- Name: org_suscribers_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: subscribers org_suscribers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY subscribers
+ALTER TABLE ONLY public.subscribers
     ADD CONSTRAINT org_suscribers_pkey PRIMARY KEY (id);
 
 
 --
--- Name: organizations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: organizations organizations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY organizations
+ALTER TABLE ONLY public.organizations
     ADD CONSTRAINT organizations_pkey PRIMARY KEY (id);
 
 
 --
--- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: challenges projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY challenges
+ALTER TABLE ONLY public.challenges
     ADD CONSTRAINT projects_pkey PRIMARY KEY (id);
 
 
 --
--- Name: report_cards_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: report_cards report_cards_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY report_cards
+ALTER TABLE ONLY public.report_cards
     ADD CONSTRAINT report_cards_pkey PRIMARY KEY (id);
 
 
 --
--- Name: sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sessions
+ALTER TABLE ONLY public.sessions
     ADD CONSTRAINT sessions_pkey PRIMARY KEY (id);
 
 
 --
--- Name: skills_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: skills skills_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY skills
+ALTER TABLE ONLY public.skills
     ADD CONSTRAINT skills_pkey PRIMARY KEY (id);
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY users
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --
--- Name: userskills_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: userskills userskills_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY userskills
+ALTER TABLE ONLY public.userskills
     ADD CONSTRAINT userskills_pkey PRIMARY KEY (id);
 
 
 --
--- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: votes votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY votes
+ALTER TABLE ONLY public.votes
     ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
 
 
 --
--- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX delayed_jobs_priority ON delayed_jobs USING btree (priority, run_at);
-
-
---
--- Name: fk_one_vote_per_user_per_entity; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX fk_one_vote_per_user_per_entity ON votes USING btree (voter_id, voter_type, voteable_id, voteable_type);
+CREATE INDEX delayed_jobs_priority ON public.delayed_jobs USING btree (priority, run_at);
 
 
 --
--- Name: index_admins_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: fk_one_vote_per_user_per_entity; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_admins_on_email ON admins USING btree (email);
-
-
---
--- Name: index_authentications_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_authentications_on_user_id ON authentications USING btree (user_id);
+CREATE UNIQUE INDEX fk_one_vote_per_user_per_entity ON public.votes USING btree (voter_id, voter_type, voteable_id, voteable_type);
 
 
 --
--- Name: index_brigade_users_on_brigade_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_admins_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_brigade_users_on_brigade_id ON brigade_users USING btree (brigade_id);
-
-
---
--- Name: index_brigade_users_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_brigade_users_on_user_id ON brigade_users USING btree (user_id);
+CREATE UNIQUE INDEX index_admins_on_email ON public.admins USING btree (email);
 
 
 --
--- Name: index_brigades_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_authentications_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_brigades_on_user_id ON brigades USING btree (user_id);
-
-
---
--- Name: index_challenges_on_organization_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_challenges_on_organization_id ON challenges USING btree (organization_id);
+CREATE INDEX index_authentications_on_user_id ON public.authentications USING btree (user_id);
 
 
 --
--- Name: index_collaborations_on_member_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_projects_on_brigade_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_collaborations_on_member_id ON collaborations USING btree (member_id);
-
-
---
--- Name: index_comments_on_commentable_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_comments_on_commentable_id ON comments USING btree (commentable_id);
+CREATE INDEX index_brigade_projects_on_brigade_id ON public.brigade_projects USING btree (brigade_id);
 
 
 --
--- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_projects_tags_on_brigade_project_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
-
-
---
--- Name: index_datasets_on_guid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_datasets_on_guid ON datasets USING btree (guid);
+CREATE INDEX index_brigade_projects_tags_on_brigade_project_id ON public.brigade_projects_tags USING btree (brigade_project_id);
 
 
 --
--- Name: index_sessions_on_session_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_projects_tags_on_tag_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_sessions_on_session_id ON sessions USING btree (session_id);
-
-
---
--- Name: index_sessions_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_sessions_on_updated_at ON sessions USING btree (updated_at);
+CREATE INDEX index_brigade_projects_tags_on_tag_id ON public.brigade_projects_tags USING btree (tag_id);
 
 
 --
--- Name: index_subscribers_on_organization_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_projects_users_on_brigade_project_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_subscribers_on_organization_id ON subscribers USING btree (organization_id);
-
-
---
--- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX index_users_on_confirmation_token ON users USING btree (confirmation_token);
+CREATE INDEX index_brigade_projects_users_on_brigade_project_id ON public.brigade_projects_users USING btree (brigade_project_id);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_projects_users_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
-
-
---
--- Name: index_users_on_userable_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_users_on_userable_id ON users USING btree (userable_id);
+CREATE INDEX index_brigade_projects_users_on_user_id ON public.brigade_projects_users USING btree (user_id);
 
 
 --
--- Name: index_users_on_userable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_users_on_brigade_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_users_on_userable_type ON users USING btree (userable_type);
-
-
---
--- Name: index_userskills_on_skill_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_userskills_on_skill_id ON userskills USING btree (skill_id);
+CREATE INDEX index_brigade_users_on_brigade_id ON public.brigade_users USING btree (brigade_id);
 
 
 --
--- Name: index_userskills_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigade_users_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_userskills_on_user_id ON userskills USING btree (user_id);
-
-
---
--- Name: index_votes_on_voteable_id_and_voteable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_votes_on_voteable_id_and_voteable_type ON votes USING btree (voteable_id, voteable_type);
+CREATE INDEX index_brigade_users_on_user_id ON public.brigade_users USING btree (user_id);
 
 
 --
--- Name: index_votes_on_voter_id_and_voter_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_brigades_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_votes_on_voter_id_and_voter_type ON votes USING btree (voter_id, voter_type);
+CREATE INDEX index_brigades_on_user_id ON public.brigades USING btree (user_id);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_challenges_on_organization_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+CREATE INDEX index_challenges_on_organization_id ON public.challenges USING btree (organization_id);
+
+
+--
+-- Name: index_collaborations_on_member_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_collaborations_on_member_id ON public.collaborations USING btree (member_id);
+
+
+--
+-- Name: index_comments_on_commentable_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_comments_on_commentable_id ON public.comments USING btree (commentable_id);
+
+
+--
+-- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_comments_on_user_id ON public.comments USING btree (user_id);
+
+
+--
+-- Name: index_datasets_on_guid; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_datasets_on_guid ON public.datasets USING btree (guid);
+
+
+--
+-- Name: index_sessions_on_session_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sessions_on_session_id ON public.sessions USING btree (session_id);
+
+
+--
+-- Name: index_sessions_on_updated_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sessions_on_updated_at ON public.sessions USING btree (updated_at);
+
+
+--
+-- Name: index_subscribers_on_organization_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_subscribers_on_organization_id ON public.subscribers USING btree (organization_id);
+
+
+--
+-- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_users_on_confirmation_token ON public.users USING btree (confirmation_token);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING btree (reset_password_token);
+
+
+--
+-- Name: index_users_on_userable_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_users_on_userable_id ON public.users USING btree (userable_id);
+
+
+--
+-- Name: index_users_on_userable_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_users_on_userable_type ON public.users USING btree (userable_type);
+
+
+--
+-- Name: index_userskills_on_skill_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_userskills_on_skill_id ON public.userskills USING btree (skill_id);
+
+
+--
+-- Name: index_userskills_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_userskills_on_user_id ON public.userskills USING btree (user_id);
+
+
+--
+-- Name: index_votes_on_voteable_id_and_voteable_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_votes_on_voteable_id_and_voteable_type ON public.votes USING btree (voteable_id, voteable_type);
+
+
+--
+-- Name: index_votes_on_voter_id_and_voter_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_votes_on_voter_id_and_voter_type ON public.votes USING btree (voter_id, voter_type);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING btree (version);
 
 
 --
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO "$user",public;
+SET search_path TO "$user", public;
+
+INSERT INTO "schema_migrations" (version) VALUES
+('20121201201157'),
+('20121201201337'),
+('20121201202707'),
+('20121201222626'),
+('20121202010126'),
+('20121202021152'),
+('20121202023134'),
+('20121202030142'),
+('20121202042255'),
+('20121202043719'),
+('20121202072256'),
+('20121202075141'),
+('20121202140917'),
+('20121202151106'),
+('20121202174224'),
+('20121202183347'),
+('20121202220023'),
+('20121202221258'),
+('20121207182925'),
+('20130321193850'),
+('20130331232228'),
+('20130406204325'),
+('20130514151742'),
+('20130514154455'),
+('20130514164851'),
+('20130514165716'),
+('20130514193950'),
+('20130521004604'),
+('20130523180445'),
+('20130531210015'),
+('20130603031100'),
+('20130603042440'),
+('20130605183156'),
+('20130624234153'),
+('20130724213846'),
+('20130725211603'),
+('20131022220944'),
+('20140122213528'),
+('20140122223502'),
+('20140128173653'),
+('20140220153945'),
+('20140422211314'),
+('20140423161219'),
+('20140424171432'),
+('20140429165327'),
+('20140430195726'),
+('20140512214641'),
+('20140513203424'),
+('20140516170945'),
+('20140617153428'),
+('20140618180038'),
+('20140619214705'),
+('20140623193529'),
+('20140623231210'),
+('20140624175249'),
+('20140624191444'),
+('20140624200532'),
+('20140624225834'),
+('20140625211618'),
+('20140630215255'),
+('20140630221734'),
+('20140702190651'),
+('20140703214450'),
+('20140709184823'),
+('20140709191332'),
+('20140715152028'),
+('20140715163409'),
+('20140716225335'),
+('20140808005250'),
+('20140817233616'),
+('20140905160910'),
+('20140922185334'),
+('20141001162149'),
+('20141029185347'),
+('20141104200850'),
+('20141104205822'),
+('20141107211607'),
+('20141210221854'),
+('20150130203205'),
+('20150203220334'),
+('20150302002255'),
+('20150304233131'),
+('20150312152321'),
+('20150318183807'),
+('20150924200320'),
+('20150924200950'),
+('20150924201801'),
+('20150924211443'),
+('20150928235737'),
+('20160309222636'),
+('20160309232212'),
+('20160311013534'),
+('20160311063544'),
+('20160311071451'),
+('20160320175326'),
+('20160320175502'),
+('20160321003117'),
+('20160330230458'),
+('20160401184813'),
+('20160502224802'),
+('20160509170416'),
+('20160509170442'),
+('20160509170458'),
+('20160509182049');
 
-INSERT INTO schema_migrations (version) VALUES ('20121201201157');
 
-INSERT INTO schema_migrations (version) VALUES ('20121201201337');
-
-INSERT INTO schema_migrations (version) VALUES ('20121201202707');
-
-INSERT INTO schema_migrations (version) VALUES ('20121201222626');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202010126');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202021152');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202023134');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202030142');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202042255');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202043719');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202072256');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202075141');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202140917');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202151106');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202174224');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202183347');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202220023');
-
-INSERT INTO schema_migrations (version) VALUES ('20121202221258');
-
-INSERT INTO schema_migrations (version) VALUES ('20121207182925');
-
-INSERT INTO schema_migrations (version) VALUES ('20130321193850');
-
-INSERT INTO schema_migrations (version) VALUES ('20130331232228');
-
-INSERT INTO schema_migrations (version) VALUES ('20130406204325');
-
-INSERT INTO schema_migrations (version) VALUES ('20130514151742');
-
-INSERT INTO schema_migrations (version) VALUES ('20130514154455');
-
-INSERT INTO schema_migrations (version) VALUES ('20130514164851');
-
-INSERT INTO schema_migrations (version) VALUES ('20130514165716');
-
-INSERT INTO schema_migrations (version) VALUES ('20130514193950');
-
-INSERT INTO schema_migrations (version) VALUES ('20130521004604');
-
-INSERT INTO schema_migrations (version) VALUES ('20130523180445');
-
-INSERT INTO schema_migrations (version) VALUES ('20130531210015');
-
-INSERT INTO schema_migrations (version) VALUES ('20130603031100');
-
-INSERT INTO schema_migrations (version) VALUES ('20130603042440');
-
-INSERT INTO schema_migrations (version) VALUES ('20130605183156');
-
-INSERT INTO schema_migrations (version) VALUES ('20130624234153');
-
-INSERT INTO schema_migrations (version) VALUES ('20130724213846');
-
-INSERT INTO schema_migrations (version) VALUES ('20130725211603');
-
-INSERT INTO schema_migrations (version) VALUES ('20131022220944');
-
-INSERT INTO schema_migrations (version) VALUES ('20140122213528');
-
-INSERT INTO schema_migrations (version) VALUES ('20140122223502');
-
-INSERT INTO schema_migrations (version) VALUES ('20140128173653');
-
-INSERT INTO schema_migrations (version) VALUES ('20140220153945');
-
-INSERT INTO schema_migrations (version) VALUES ('20140422211314');
-
-INSERT INTO schema_migrations (version) VALUES ('20140423161219');
-
-INSERT INTO schema_migrations (version) VALUES ('20140424171432');
-
-INSERT INTO schema_migrations (version) VALUES ('20140429165327');
-
-INSERT INTO schema_migrations (version) VALUES ('20140430195726');
-
-INSERT INTO schema_migrations (version) VALUES ('20140512214641');
-
-INSERT INTO schema_migrations (version) VALUES ('20140513203424');
-
-INSERT INTO schema_migrations (version) VALUES ('20140516170945');
-
-INSERT INTO schema_migrations (version) VALUES ('20140617153428');
-
-INSERT INTO schema_migrations (version) VALUES ('20140618180038');
-
-INSERT INTO schema_migrations (version) VALUES ('20140619214705');
-
-INSERT INTO schema_migrations (version) VALUES ('20140623193529');
-
-INSERT INTO schema_migrations (version) VALUES ('20140623231210');
-
-INSERT INTO schema_migrations (version) VALUES ('20140624175249');
-
-INSERT INTO schema_migrations (version) VALUES ('20140624191444');
-
-INSERT INTO schema_migrations (version) VALUES ('20140624200532');
-
-INSERT INTO schema_migrations (version) VALUES ('20140624225834');
-
-INSERT INTO schema_migrations (version) VALUES ('20140625211618');
-
-INSERT INTO schema_migrations (version) VALUES ('20140630215255');
-
-INSERT INTO schema_migrations (version) VALUES ('20140630221734');
-
-INSERT INTO schema_migrations (version) VALUES ('20140702190651');
-
-INSERT INTO schema_migrations (version) VALUES ('20140703214450');
-
-INSERT INTO schema_migrations (version) VALUES ('20140709184823');
-
-INSERT INTO schema_migrations (version) VALUES ('20140709191332');
-
-INSERT INTO schema_migrations (version) VALUES ('20140715152028');
-
-INSERT INTO schema_migrations (version) VALUES ('20140715163409');
-
-INSERT INTO schema_migrations (version) VALUES ('20140716225335');
-
-INSERT INTO schema_migrations (version) VALUES ('20140808005250');
-
-INSERT INTO schema_migrations (version) VALUES ('20140817233616');
-
-INSERT INTO schema_migrations (version) VALUES ('20140905160910');
-
-INSERT INTO schema_migrations (version) VALUES ('20140922185334');
-
-INSERT INTO schema_migrations (version) VALUES ('20141001162149');
-
-INSERT INTO schema_migrations (version) VALUES ('20141029185347');
-
-INSERT INTO schema_migrations (version) VALUES ('20141104200850');
-
-INSERT INTO schema_migrations (version) VALUES ('20141104205822');
-
-INSERT INTO schema_migrations (version) VALUES ('20141107211607');
-
-INSERT INTO schema_migrations (version) VALUES ('20141210221854');
-
-INSERT INTO schema_migrations (version) VALUES ('20150130203205');
-
-INSERT INTO schema_migrations (version) VALUES ('20150203220334');
-
-INSERT INTO schema_migrations (version) VALUES ('20150302002255');
-
-INSERT INTO schema_migrations (version) VALUES ('20150304233131');
-
-INSERT INTO schema_migrations (version) VALUES ('20150312152321');
-
-INSERT INTO schema_migrations (version) VALUES ('20150318183807');
-
-INSERT INTO schema_migrations (version) VALUES ('20150924200320');
-
-INSERT INTO schema_migrations (version) VALUES ('20150924200950');
-
-INSERT INTO schema_migrations (version) VALUES ('20150924201801');
-
-INSERT INTO schema_migrations (version) VALUES ('20150924211443');
-
-INSERT INTO schema_migrations (version) VALUES ('20150928235737');
-
-INSERT INTO schema_migrations (version) VALUES ('20160309222636');
-
-INSERT INTO schema_migrations (version) VALUES ('20160309232212');
-
-INSERT INTO schema_migrations (version) VALUES ('20160311013534');
-
-INSERT INTO schema_migrations (version) VALUES ('20160311063544');
-
-INSERT INTO schema_migrations (version) VALUES ('20160311071451');
-
-INSERT INTO schema_migrations (version) VALUES ('20160320175326');
-
-INSERT INTO schema_migrations (version) VALUES ('20160320175502');
-
-INSERT INTO schema_migrations (version) VALUES ('20160321003117');
-
-INSERT INTO schema_migrations (version) VALUES ('20160330230458');
-
-INSERT INTO schema_migrations (version) VALUES ('20160401184813');

@@ -1,4 +1,4 @@
-class RenameAcceptingSuscribersToAcceptingSubscribersOrganization < ActiveRecord::Migration
+class RenameAcceptingSuscribersToAcceptingSubscribersOrganization < ActiveRecord::Migration[5.2]
   def up
     rename_column :organizations, :accepting_suscribers, :accepting_subscribers
   end

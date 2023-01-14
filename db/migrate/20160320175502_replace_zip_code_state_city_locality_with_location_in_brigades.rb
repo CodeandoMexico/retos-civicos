@@ -1,4 +1,4 @@
-class ReplaceZipCodeStateCityLocalityWithLocationInBrigades < ActiveRecord::Migration
+class ReplaceZipCodeStateCityLocalityWithLocationInBrigades < ActiveRecord::Migration[5.2]
   def up
     remove_column :brigades, :zip_code
     remove_column :brigades, :city

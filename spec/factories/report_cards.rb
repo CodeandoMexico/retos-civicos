@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :report_card do
     association :evaluation
     association :entry
-    grades [4, 4, 4]
+    grades { [4, 4, 4] }
   end
 end

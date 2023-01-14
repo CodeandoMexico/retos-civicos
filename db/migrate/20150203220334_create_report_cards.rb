@@ -1,4 +1,4 @@
-class CreateReportCards < ActiveRecord::Migration
+class CreateReportCards < ActiveRecord::Migration[5.2]
   def change
     create_table :report_cards do |t|
       t.integer :evaluation_id

@@ -1,4 +1,4 @@
-class MigrateToLocationFuzzySearch < ActiveRecord::Migration
+class MigrateToLocationFuzzySearch < ActiveRecord::Migration[5.2]
   def up
     execute 'create extension pg_trgm'
     execute 'create extension intarray'

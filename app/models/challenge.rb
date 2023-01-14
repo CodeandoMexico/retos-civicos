@@ -15,11 +15,11 @@ class Challenge < ActiveRecord::Base
 
   # Relations
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: 'Member', source: :member, include: :user
+  has_many :collaborators, through: :collaborations, class_name: 'Member', source: :member
   has_many :activities
-  has_many :entries, order: 'id ASC'
+  has_many :entries
   has_many :datasets
-  has_many :evaluations, order: 'id ASC'
+  has_many :evaluations
   has_many :judges, through: :evaluations
 
   belongs_to :organization

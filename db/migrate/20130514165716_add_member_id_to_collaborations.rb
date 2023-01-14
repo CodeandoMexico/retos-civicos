@@ -1,4 +1,4 @@
-class AddMemberIdToCollaborations < ActiveRecord::Migration
+class AddMemberIdToCollaborations < ActiveRecord::Migration[5.2]
   def change
     add_column :collaborations, :member_id, :integer
     add_index :collaborations, :member_id

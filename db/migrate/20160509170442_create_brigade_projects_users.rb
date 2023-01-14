@@ -1,4 +1,4 @@
-class CreateBrigadeProjectsUsers < ActiveRecord::Migration
+class CreateBrigadeProjectsUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :brigade_projects_users do |t|
       t.references :brigade_project
@@ -6,7 +6,5 @@ class CreateBrigadeProjectsUsers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :brigade_projects_users, :brigade_project_id
-    add_index :brigade_projects_users, :user_id
   end
 end

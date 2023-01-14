@@ -1,4 +1,4 @@
-class AddNinshoToAuthentications < ActiveRecord::Migration
+class AddNinshoToAuthentications < ActiveRecord::Migration[5.2]
   def self.up
     change_table(:authentications) do |t|
       ## Ninsho model fields

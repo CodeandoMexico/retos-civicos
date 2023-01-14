@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.7'
 
-gem 'rails', '5.2.8.1'
+gem 'rails', '5.0.7.2'
 
 gem 'activerecord-session_store'
 
@@ -26,7 +26,6 @@ gem 'github_api'
 gem 'xmlrpc' # required by gravatar-ultimate
 gem 'gravatar-ultimate'
 
-gem 'rails-translate-routes'
 gem 'ckan', git: 'https://github.com/CodeandoMexico/CKAN-rb'
 gem 'crummy', '~> 1.8.0'
 gem 'font-awesome-rails'
@@ -54,7 +53,7 @@ end
 
 group :development, :test do
   gem 'rubocop', require: false
-  gem 'rspec-rails', '5.1.2'
+  gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
   gem 'factory_bot_rails'
   gem 'rack-mini-profiler'

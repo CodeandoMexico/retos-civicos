@@ -1,4 +1,4 @@
-class AddPhasesDatesToChallenges < ActiveRecord::Migration
+class AddPhasesDatesToChallenges < ActiveRecord::Migration[5.2]
   def change
     add_column :challenges, :ideas_phase_due_on, :date
     add_column :challenges, :ideas_selection_phase_due_on, :date

@@ -1,4 +1,4 @@
-class CreateBrigades < ActiveRecord::Migration
+class CreateBrigades < ActiveRecord::Migration[5.2]
   def change
     create_table :brigades do |t|
       t.string :zip_code, limit: 15, null: false, unique: true

@@ -1,4 +1,4 @@
-class AddLegalFieldsToMembers < ActiveRecord::Migration
+class AddLegalFieldsToMembers < ActiveRecord::Migration[5.2]
   def change
     add_column :members, :company_name, :string
     add_column :members, :company_rfc, :string

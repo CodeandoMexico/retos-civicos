@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :tag do
-    name "HTML"
+    name { "HTML" }
   end
 end

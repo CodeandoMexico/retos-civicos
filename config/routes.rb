@@ -23,7 +23,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match 'signup' => 'pages#sign_up'
+  match 'signup' => 'pages#sign_up', via: [:get, :post]
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: [:index, :new, :edit, :create, :update], controller: 'dashboard/challenges' do
@@ -128,9 +128,8 @@ Aquila::Application.routes.draw do
   root to: 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
-  match '/projects/:id' => 'challenges#show'
-  match '/projects/:id/timeline' => 'challenges#timeline'
+  match '/projects/:id' => 'challenges#show', via: [:get, :post]
+  match '/projects/:id/timeline' => 'challenges#timeline', via: [:get, :post]
 
   get ':organization_slug', to: 'organizations#show', as: 'organization_profile'
 end
-ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', no_prefixes: true)

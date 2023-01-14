@@ -1,4 +1,4 @@
-class CreateBrigadeUsers < ActiveRecord::Migration
+class CreateBrigadeUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :brigade_users do |t|
       t.references :user

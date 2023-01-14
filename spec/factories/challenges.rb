@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :challenge do
     sequence(:title) { |i| "El titulo #{i}" }
-    description 'descripcion'
-    about 'este es mi test'
-    pitch 'piitch del challenge'
+    description { 'descripcion' }
+    about { 'este es mi test' }
+    pitch { 'piitch del challenge' }
+    evaluation_instructions { 'Instructions defined here.' }
     association :organization
-    evaluation_instructions 'Instructions defined here.'
 
     starts_on { 1.day.ago.to_date }
     ideas_phase_due_on { 1.month.from_now.to_date }
@@ -14,19 +14,19 @@ FactoryBot.define do
     finish_on { 4.months.from_now.to_date }
 
     trait :inactive do
-      status 'finished'
+      status { 'finished' }
     end
 
     trait :open do
-      status 'open'
+      status { 'open' }
     end
 
     trait :finished do
-      status 'finished'
+      status { 'finished' }
     end
 
     trait :working_on do
-      status 'working_on'
+      status { 'working_on' }
     end
 
     trait :with_criteria do

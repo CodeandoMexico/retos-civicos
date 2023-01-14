@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :brigade_projects_tag do
-    project nil
-    tag nil
+    project { nil }
+    tag { nil }
   end
 end
