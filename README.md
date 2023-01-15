@@ -9,7 +9,7 @@
 ## Instalación / Configuración
 
 1. `bundle install`
-1. Copia `config/database.sample.yml` en `config/database.yml` y edita
+1. `cp config/database.sample.yml config/database.yml` y edita
 1. `rake db:setup`
 1. `rake db:migrate`
 1. `rails server`
@@ -32,15 +32,16 @@ Puedes visualizar un demo en la aplicación de
 ## ¿Preguntas o problemas?
 
 Mantenemos la conversación del proyecto en nuestra página de problemas
-[issues](https://github.com/civica-digital/retos-publicos/issues).
+[issues](https://github.com/codeandomexico/retos-civicos/issues).
 
 ## Contribuye
 
 Queremos que este proyecto sea el resultado de un esfuerzo de la comunidad.
 Usted puede colaborar con
-[código](https://github.com/civica-digital/retos-publicos/pulls),
-[ideas](https://github.com/civica-digital/retos-publicos/issues) y
-[bugs](https://github.com/civica-digital/retos-publicos/issues).
+
+[código](https://github.com/codeandomexico/retos-civicos/pulls),
+[ideas](https://github.com/codeandomexico/retos-civicos/issues) y
+[bugs](https://github.com/codeandomexico/retos-civicos/issues).
 
 ## Core Team
 
