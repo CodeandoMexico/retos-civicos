@@ -4,7 +4,7 @@ module Panel
     layout 'panel'
 
     def index
-      @entries = current_user.userable.entries.map! { |e| EntryDecorator.new(e) }
+      @entries = current_user.userable.entries.map { |e| EntryDecorator.new(e) }
     end
   end
 end
