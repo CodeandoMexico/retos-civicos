@@ -67,11 +67,9 @@ GEM
     arel (7.1.4)
     arrayfields (4.9.2)
     ast (2.4.2)
-    auto_html (2.1.1)
-      gemoji (~> 4.0.0.rc2)
-      redcarpet (~> 3.5)
-      rexml (~> 3.2.5)
-      rinku (~> 2.0)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     autotest (5.0.0)
@@ -257,7 +255,6 @@ GEM
       rack
     foreman (0.87.2)
     formatador (0.3.0)
-    gemoji (4.0.1)
     github_api (0.19.0)
       addressable (~> 2.4)
       descendants_tracker (~> 0.0.4)
@@ -504,7 +501,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rexml (3.2.5)
-    rinku (2.0.6)
+    rinku (1.5.1)
     roodi (5.0.0)
       ruby_parser (~> 3.2, >= 3.2.2)
     rspec-activemodel-mocks (1.1.0)
@@ -650,7 +647,7 @@ DEPENDENCIES
   activerecord-session_store
   acts_as_commentable_with_threading
   angularjs-rails
-  auto_html
+  auto_html (~> 1.6.4)
   autoprefixer-rails
   autotest
   better_errors
