@@ -45,10 +45,6 @@ class Challenge < ActiveRecord::Base
     where("status = 'finished' OR status = 'cancelled'")
   }
 
-  scope :private, lambda {
-    where("status = 'private'")
-  }
-
   scope :recent, lambda {
     where(['starts_on <= ?', Date.current]).order('created_at DESC')
   }
