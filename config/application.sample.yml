@@ -49,6 +49,8 @@ NEW_RELIC_KEY:
 
 # Secret key for signed cookies
 SECRET_TOKEN:
+# Set to a 128 characters hexadecimal string
+DEVISE_KEY:
 
 GOOGLE_ANALYTICS:
 
