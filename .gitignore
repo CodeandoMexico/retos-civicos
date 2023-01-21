@@ -12,10 +12,6 @@
 .rubocop.yml
 /webdriver*
 
-
-# Ignore bundler config
-/.bundle
-
 .rspec
 /vendor
 
