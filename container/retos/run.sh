@@ -17,5 +17,6 @@ fi
 podman run --rm \
     --env-file $__dir/../environment \
     --network slirp4netns:allow_host_loopback=true \
+    --publish 3000:3000 \
     $name \
     $cmd
