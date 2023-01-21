@@ -4,10 +4,11 @@ set -e
 
 echo "Initializing"
 
-echo "Migrate db --------------------------------------------------------------"
+echo "\nMigrate db ----------------------------------------------------------\n"
 bundle exec rake db:migrate
-echo "Precompile assets -------------------------------------------------------"
+
+echo "\nPrecompile assets ---------------------------------------------------\n"
 bundle exec rake assets:precompile
 
-echo "Run server --------------------------------------------------------------"
+echo "\nRun server ----------------------------------------------------------\n"
 exec bundle exec unicorn -p 3000 -c ./config/unicorn.rb
