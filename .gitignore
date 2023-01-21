@@ -42,3 +42,5 @@ bin
 .idea/
 
 .ruby-gemset
+
+container/environment
