@@ -6,10 +6,8 @@
     - @omniauth_providers.each do |provider|
       %p
       = link_to "/users/auth/#{provider}", class: 'btn btn-default btn-lg btn-block' do
-        = icon provider.to_s
         = t("signup.with_#{provider}")
 
     %p
     = link_to new_user_session_path, class: 'btn btn-default btn-lg btn-block' do
-      = icon 'envelope'
       = t("signup.with_email")
