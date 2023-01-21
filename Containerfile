@@ -28,6 +28,7 @@ COPY lib ./lib
 COPY --chown=retos public ./public
 COPY Rakefile ./
 COPY script ./script
+COPY vendor/assets vendor/assets
 COPY --chown=retos --chmod=755 container/initialize-and-start.sh ./
 COPY config ./config
 COPY container/retos/database.yml ./config/database.yml
