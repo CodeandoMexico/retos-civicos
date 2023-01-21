@@ -14,6 +14,7 @@
    hay que establecer `CKAN_API_BASE`).
 1. `rake db:setup`
 1. `rake db:migrate`
+1. `rake db:seed`
 1. `rails server`
 
 Para crear una organización:
@@ -26,15 +27,9 @@ user.userable = organization
 user.save
 ```
 
-## Demo
+## Versión en vivo
 
-Puedes visualizar un demo en la aplicación de
-[retos](http://retos.datos.gob.mx/)
-
-## ¿Preguntas o problemas?
-
-Mantenemos la conversación del proyecto en nuestra página de problemas
-[issues](https://github.com/codeandomexico/retos-civicos/issues).
+La aplicación corre en https://retos.codeandomexico.org
 
 ## Contribuye
 
