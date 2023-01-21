@@ -24,17 +24,17 @@ app.controller('NewChallengeCtrl', [ '$interval', function($interval){
     self.image = undefined;
 
     self.newChallengeSteps = [
-      { id: 0, image: '/assets/pasos/Paso-1-T.png', description: 'Lorem ipsum 0' },
-      { id: 1, image: '/assets/pasos/Paso-2-T.png', description: 'Lorem ipsum 1' },
-      { id: 2, image: '/assets/pasos/Paso-3-T.png', description: 'Lorem ipsum 2' },
-      { id: 3, image: '/assets/pasos/Paso-3A-T.png', description: 'Lorem ipsum 3' },
-      { id: 4, image: '/assets/pasos/Paso-3B-T.png', description: 'Lorem ipsum 4' },
-      { id: 5, image: '/assets/pasos/Paso-4-T.png', description: 'Lorem ipsum 5' },
-      { id: 6, image: '/assets/pasos/Paso-5-T.png', description: 'Lorem ipsum 6' },
-      { id: 7, image: '/assets/pasos/Paso-6-T.png', description: 'Lorem ipsum 7' },
-      { id: 8, image: '/assets/pasos/Paso-7-T.png', description: 'Lorem ipsum 8' },
-      { id: 9, image: '/assets/pasos/Paso-8-T.png', description: 'Lorem ipsum 9' },
-      { id: 10, image: '/assets/pasos/Paso-9-T.png', description: 'Lorem ipsum 10' },
+      { id: 0, image: '<%= asset_path 'pasos/Paso-1-T.png' %>', description: 'Lorem ipsum 0' },
+      { id: 1, image: '<%= asset_path 'pasos/Paso-2-T.png' %>', description: 'Lorem ipsum 1' },
+      { id: 2, image: '<%= asset_path 'pasos/Paso-3-T.png' %>', description: 'Lorem ipsum 2' },
+      { id: 3, image: '<%= asset_path 'pasos/Paso-3A-T.png' %>', description: 'Lorem ipsum 3' },
+      { id: 4, image: '<%= asset_path 'pasos/Paso-3B-T.png' %>', description: 'Lorem ipsum 4' },
+      { id: 5, image: '<%= asset_path 'pasos/Paso-4-T.png' %>', description: 'Lorem ipsum 5' },
+      { id: 6, image: '<%= asset_path 'pasos/Paso-5-T.png' %>', description: 'Lorem ipsum 6' },
+      { id: 7, image: '<%= asset_path 'pasos/Paso-6-T.png' %>', description: 'Lorem ipsum 7' },
+      { id: 8, image: '<%= asset_path 'pasos/Paso-7-T.png' %>', description: 'Lorem ipsum 8' },
+      { id: 9, image: '<%= asset_path 'pasos/Paso-8-T.png' %>', description: 'Lorem ipsum 9' },
+      { id: 10, image: '<%= asset_path 'pasos/Paso-9-T.png' %>', description: 'Lorem ipsum 10' },
     ];
 
     self.currentStep = self.newChallengeSteps[0];
