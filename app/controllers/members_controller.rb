@@ -11,6 +11,7 @@ class MembersController < ApplicationController
   end
 
   def update
+    params.permit!
     if @member.update_attributes(params[:member])
       @member.confirm! if @member.unconfirmed_email.present?
       redirect_back_or member_path(@member), t('flash.members.updated')
