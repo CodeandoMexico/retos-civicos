@@ -1,4 +1,4 @@
-class CreateBrigadeProjectsTags < ActiveRecord::Migration[5.2]
+class CreateBrigadeProjectsTags < ActiveRecord::Migration[5.0]
   def change
     create_table :brigade_projects_tags do |t|
       t.references :brigade_project

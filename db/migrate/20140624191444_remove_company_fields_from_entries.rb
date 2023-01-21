@@ -1,4 +1,4 @@
-class RemoveCompanyFieldsFromEntries < ActiveRecord::Migration[5.2]
+class RemoveCompanyFieldsFromEntries < ActiveRecord::Migration[5.0]
   def up
     remove_column :entries, :company_name
     remove_column :entries, :company_rfc

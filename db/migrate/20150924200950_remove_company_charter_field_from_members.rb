@@ -1,4 +1,4 @@
-class RemoveCompanyCharterFieldFromMembers < ActiveRecord::Migration[5.2]
+class RemoveCompanyCharterFieldFromMembers < ActiveRecord::Migration[5.0]
   def up
     remove_column :members, :company_charter
   end

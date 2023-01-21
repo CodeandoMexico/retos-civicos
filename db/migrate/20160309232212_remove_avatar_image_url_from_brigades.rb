@@ -1,4 +1,4 @@
-class RemoveAvatarImageUrlFromBrigades < ActiveRecord::Migration[5.2]
+class RemoveAvatarImageUrlFromBrigades < ActiveRecord::Migration[5.0]
   def up
     remove_column :brigades, :avatar_image_url
   end

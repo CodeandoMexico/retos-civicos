@@ -1,4 +1,4 @@
-class AddVotesCounterToComment < ActiveRecord::Migration[5.2]
+class AddVotesCounterToComment < ActiveRecord::Migration[5.0]
   def change
     add_column :comments, :votes_counter, :integer, default: 0
   end

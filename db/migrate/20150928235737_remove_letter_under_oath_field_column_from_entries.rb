@@ -1,4 +1,4 @@
-class RemoveLetterUnderOathFieldColumnFromEntries < ActiveRecord::Migration[5.2]
+class RemoveLetterUnderOathFieldColumnFromEntries < ActiveRecord::Migration[5.0]
   def up
     remove_column :entries, :letter_under_oath
   end

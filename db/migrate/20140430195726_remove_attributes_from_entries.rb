@@ -1,4 +1,4 @@
-class RemoveAttributesFromEntries < ActiveRecord::Migration[5.2]
+class RemoveAttributesFromEntries < ActiveRecord::Migration[5.0]
   def up
     remove_column :entries, :github_url
     remove_column :entries, :team_members

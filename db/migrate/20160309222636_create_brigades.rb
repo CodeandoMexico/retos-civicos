@@ -1,4 +1,4 @@
-class CreateBrigades < ActiveRecord::Migration[5.2]
+class CreateBrigades < ActiveRecord::Migration[5.0]
   def change
     create_table :brigades do |t|
       t.string :zip_code, limit: 15, null: false, unique: true
@@ -17,6 +17,5 @@ class CreateBrigades < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :brigades, :user_id
   end
 end

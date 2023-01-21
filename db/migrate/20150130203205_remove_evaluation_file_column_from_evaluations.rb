@@ -1,4 +1,4 @@
-class RemoveEvaluationFileColumnFromEvaluations < ActiveRecord::Migration[5.2]
+class RemoveEvaluationFileColumnFromEvaluations < ActiveRecord::Migration[5.0]
   def up
     remove_column :evaluations, :evaluation_file
   end

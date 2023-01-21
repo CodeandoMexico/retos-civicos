@@ -1,4 +1,4 @@
-class RemoveCompanyRfcFromMembers < ActiveRecord::Migration[5.2]
+class RemoveCompanyRfcFromMembers < ActiveRecord::Migration[5.0]
   def up
     remove_column :members, :company_rfc
   end

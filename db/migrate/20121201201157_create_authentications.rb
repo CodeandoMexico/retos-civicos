@@ -1,4 +1,4 @@
-class CreateAuthentications < ActiveRecord::Migration[5.2]
+class CreateAuthentications < ActiveRecord::Migration[5.0]
   def change
     create_table :authentications do |t|
       t.integer :user_id

@@ -1,4 +1,4 @@
-class RenameProposalToLetterUnderOathForEntries < ActiveRecord::Migration[5.2]
+class RenameProposalToLetterUnderOathForEntries < ActiveRecord::Migration[5.0]
   def up
     rename_column :entries, :proposal_file, :letter_under_oath
   end

@@ -1,4 +1,4 @@
-class AddPublicToEntries < ActiveRecord::Migration[5.2]
+class AddPublicToEntries < ActiveRecord::Migration[5.0]
   def up
     add_column :entries, :public, :boolean, default: false, null: false
 

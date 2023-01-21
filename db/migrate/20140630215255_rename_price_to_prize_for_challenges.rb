@@ -1,4 +1,4 @@
-class RenamePriceToPrizeForChallenges < ActiveRecord::Migration[5.2]
+class RenamePriceToPrizeForChallenges < ActiveRecord::Migration[5.0]
   def up
     rename_column :challenges, :price, :prize
   end

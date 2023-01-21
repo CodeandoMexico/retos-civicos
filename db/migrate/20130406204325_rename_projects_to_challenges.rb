@@ -1,4 +1,4 @@
-class RenameProjectsToChallenges < ActiveRecord::Migration[5.2]
+class RenameProjectsToChallenges < ActiveRecord::Migration[5.0]
   def change
     rename_table :projects, :challenges
     rename_column :activities, :project_id, :challenge_id

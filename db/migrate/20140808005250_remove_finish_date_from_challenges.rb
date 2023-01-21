@@ -1,4 +1,4 @@
-class RemoveFinishDateFromChallenges < ActiveRecord::Migration[5.2]
+class RemoveFinishDateFromChallenges < ActiveRecord::Migration[5.0]
   def up
     remove_column :challenges, :finish_date
   end

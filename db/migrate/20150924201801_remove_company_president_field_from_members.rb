@@ -1,4 +1,4 @@
-class RemoveCompanyPresidentFieldFromMembers < ActiveRecord::Migration[5.2]
+class RemoveCompanyPresidentFieldFromMembers < ActiveRecord::Migration[5.0]
   def up
     remove_column :members, :company_president
   end

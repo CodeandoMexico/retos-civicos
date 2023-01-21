@@ -1,4 +1,4 @@
-class RemoveOwnerIdFromProject < ActiveRecord::Migration[5.2]
+class RemoveOwnerIdFromProject < ActiveRecord::Migration[5.0]
   def up
     remove_column :projects, :owner_id
   end

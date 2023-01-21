@@ -1,4 +1,4 @@
-class CreateOrgSuscribers < ActiveRecord::Migration[5.2]
+class CreateOrgSuscribers < ActiveRecord::Migration[5.0]
   def change
     create_table :org_suscribers do |t|
       t.string :email

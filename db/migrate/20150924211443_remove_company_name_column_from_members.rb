@@ -1,4 +1,4 @@
-class RemoveCompanyNameColumnFromMembers < ActiveRecord::Migration[5.2]
+class RemoveCompanyNameColumnFromMembers < ActiveRecord::Migration[5.0]
   def up
     remove_column :members, :company_name
   end
