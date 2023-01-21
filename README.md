@@ -11,7 +11,7 @@
 1. `bundle install`
 1. `cp config/database.sample.yml config/database.yml` y edita
 1. `cp config/application.sample.yml config/application.yml` y edita (al menos
-   hay que establecer `CKAN_API_BASE`).
+   hay que establecer `CKAN_API_BASE` y `DEVISE_KEY`).
 1. `rake db:setup`
 1. `rake db:migrate`
 1. `rake db:seed`
