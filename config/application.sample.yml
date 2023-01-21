@@ -2,6 +2,10 @@
 ########### DEFAULT KEYS ###########
 ####################################
 
+POSTGRES_USER: retos
+POSTGRES_HOST: localhost
+POSTGRES_DB: retos_cmx
+
 APP_NAME:
 APP_URL:
 LOGO: logocmx@2x.png
