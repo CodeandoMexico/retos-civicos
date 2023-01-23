@@ -352,7 +352,7 @@ en:
         additional_links-description: Share some web site links which might complement your problem description or solution. Separate links with commas.
         additional_links-placeholder: Split by commas
         dataset_id: Datasets
-        dataset_id-description: Add a Dataset from http://catalogo.datos.gob.mx/
+        dataset_id-description: Add a Dataset from https://datamx.io/
         activities: News and recent activity
         activities-description: Relevant milestones in the challenge
         activities-title: Title
