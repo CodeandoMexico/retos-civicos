@@ -21,12 +21,12 @@
             .row--10
               -# Entries and prototype links
               - if current_member.able_to_edit_entry?(entry.challenge)
-                = link_to icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
+                = link_to fa_icon('edit'), edit_challenge_entry_path(entry.challenge, entry), title: 'Editar propuesta'
               - elsif current_member.able_to_submit_a_prototype?(entry.challenge)
-                = link_to icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
+                = link_to fa_icon('edit'), edit_challenge_prototype_path(entry.challenge, entry), title: 'Editar prototipo'
 
               - if entry.comments.any? && entry.feedback.any?
-                = link_to icon('comment-o'), panel_entry_comments_path(entry), title: 'Comentarios por evaluadores'
+                = link_to fa_icon('comment-o'), panel_entry_comments_path(entry), title: 'Comentarios por evaluadores'
 
   - else
     = render 'shared/empty_resource', message: t('dashboard.entries.index.no-proposals')

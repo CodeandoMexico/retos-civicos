@@ -21,7 +21,7 @@
             <div class="row--30"><%= challenge.title %></div>
             <div class="row--40 row--challenge"><%= link_to("#{challenge.collaborators.size} participantes", dashboard_collaborators_path(challenge_id: challenge.id)) %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{challenge.entries.size} propuestas", dashboard_entries_path(challenge_id: challenge.id) %> </div>
             <div class="row--20">Fase: <%= challenge.current_phase_title %></div>
-            <div class="row--10"><%= link_to icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
+            <div class="row--10"><%= link_to fa_icon('edit'), edit_dashboard_challenge_path(challenge), title: 'Editar este reto' %> | <%= link_to fa_icon('eye'), challenge_path(challenge), title: 'Ver vista pública' %></div>
           </li>
         <% end %>
       </ul>

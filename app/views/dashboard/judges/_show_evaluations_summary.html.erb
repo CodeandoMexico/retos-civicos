@@ -16,12 +16,12 @@
             <div class="row--20"><%= evaluation.judge.name %></div>
             <div class="row--30"><%= evaluation_status(evaluation.status, evaluation.number_of_entries_graded, evaluation.total_number_of_entries) %></div>
             <div class="row--20">
-              <%= link_to icon('eye'),
+              <%= link_to fa_icon('eye'),
                   dashboard_judge_path(evaluation.judge,
                   challenge_id: @current_challenge.id),
                   id: "judge_#{evaluation.judge.id}",
                   title: 'Ver calificaciones' %> |
-              <%= link_to icon('trash-o'),
+              <%= link_to fa_icon('trash-o'),
                   dashboard_judge_evaluation_path(evaluation.judge, evaluation),
                   method: :delete,
                   title: 'Eliminar evaluación',
