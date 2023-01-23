@@ -6,8 +6,8 @@ FactoryBot.define do
     description { "Project that makes people feel closer" }
     brigade_id { 1 }
 
-    ignore do
-      given_tags ['html', 'scheme', 'java']
+    transient do
+      given_tags { ['html', 'scheme', 'java'] }
     end
 
     factory :brigade_project_with_tags do

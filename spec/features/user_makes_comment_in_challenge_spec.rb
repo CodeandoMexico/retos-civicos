@@ -15,7 +15,7 @@ feature 'User makes comment in challenge' do
     visit challenge_path(challenge)
     click_link 'Crear comentario'
 
-    current_path.should eq '/registrate'
+    current_path.should eq '/signup'
     sign_up_user
 
     current_path.should eq edit_member_path(member_that_just_signed_up)
@@ -35,7 +35,7 @@ feature 'User makes comment in challenge' do
     visit challenge_path(challenge)
     click_link 'Crear comentario'
 
-    current_path.should eq '/registrate'
+    current_path.should eq '/signup'
     sign_in_user(user)
 
     current_path.should eq challenge_path(challenge)

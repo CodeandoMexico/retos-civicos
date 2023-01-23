@@ -50,7 +50,7 @@ describe Challenge do
       it 'should cancel the challenge' do
         expect(active_ch.status).to eq 'open'
         active_ch.cancel!
-        expect(active_ch.status).to eq :cancelled
+        expect(active_ch.status).to eq 'cancelled'
       end
     end
 

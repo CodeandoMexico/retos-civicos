@@ -49,6 +49,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'pry'
   gem 'phantomjs'
+  gem 'rails-controller-testing'
 end
 
 group :development, :test do

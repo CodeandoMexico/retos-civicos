@@ -8,7 +8,7 @@ class Tag < ActiveRecord::Base
     tags_array = tag_string.split(',')
     tags = []
     tags_array.each do |tag|
-      new_tag = Tag.find_or_create_by_name(tag)
+      new_tag = Tag.find_or_create_by(name: tag)
       tags.push(new_tag)
     end
     tags

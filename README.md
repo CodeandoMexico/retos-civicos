@@ -11,20 +11,24 @@
 1. `bundle install`
 1. `cp config/application.sample.yml config/application.yml` y edita (al menos
    hay que establecer `CKAN_API_BASE` y `DEVISE_KEY`).
-1. `rake db:setup`
-1. `rake db:migrate`
-1. `rake db:seed`
-1. `rails server`
+1. `bundle exec rake db:setup`
+1. `bundle exec rake db:migrate`
+1. `bundle exec rake db:seed`
+1. `bundle exec rails server`
 
 Para crear una organización:
 
 ```ruby
 rails console
-user = User.new(email: "username@domain", password: "some_password")
+user = User.new(email: "username@domain", password: "some_password", role: 'member')
 organization = Organization.new(slug: "url_shortcut") #  ej. my-organization
 user.userable = organization
 user.save
 ```
+
+## Tests
+
+    bundle exec rspec
 
 ## Versión en vivo
 

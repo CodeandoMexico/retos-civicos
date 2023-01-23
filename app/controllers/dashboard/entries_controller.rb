@@ -9,7 +9,7 @@ module Dashboard
       @challenges = organization_challenges
       @current_challenge = current_challenge
       @entries = current_challenge_entries
-      @entries.map! { |e| EntryDecorator.new(e) }
+      @entries.map { |e| EntryDecorator.new(e) }
       @current_phase = Phases.current_phase_title(current_challenge).title
 
       respond_to do |format|

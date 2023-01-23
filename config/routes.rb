@@ -23,7 +23,7 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match 'signup' => 'pages#sign_up', via: [:get, :post]
+  match 'signup', to: 'pages#sign_up', via: [:get, :post]
   resource :dashboard, only: :show, controller: :dashboard do
     resources :collaborators, only: :index, controller: 'dashboard/collaborators'
     resources :challenges, only: [:index, :new, :edit, :create, :update], controller: 'dashboard/challenges' do
@@ -113,9 +113,9 @@ Aquila::Application.routes.draw do
     end
   end
 
-  match '/set_language' => 'pages#set_language', via: :post, as: 'set_language'
+  match '/set_language', to: 'pages#set_language', via: :post, as: 'set_language'
   # match "/terms_of_service" => 'pages#terms_of_service', via: :get, as: 'terms_of_service'
-  match '/privacy' => 'pages#privacy', via: :get, as: 'privacy'
+  match '/privacy', to: 'pages#privacy', via: :get, as: 'privacy'
   # get "/about", to: "pages#about", as: "about"
   get '/start_a_challenge', to: 'pages#start_a_challenge', as: 'start_a_challenge'
   get '/location_search/:location_query', to: 'location#location_search'
@@ -128,8 +128,8 @@ Aquila::Application.routes.draw do
   root to: 'challenges#index'
 
   # Catch for Challenges when call as project/:id/ due to model rename
-  match '/projects/:id' => 'challenges#show', via: [:get, :post]
-  match '/projects/:id/timeline' => 'challenges#timeline', via: [:get, :post]
+  match '/projects/:id', to: 'challenges#show', via: [:get, :post]
+  match '/projects/:id/timeline', to: 'challenges#timeline', via: [:get, :post]
 
   get ':organization_slug', to: 'organizations#show', as: 'organization_profile'
 end

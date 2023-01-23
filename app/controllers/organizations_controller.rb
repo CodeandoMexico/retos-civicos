@@ -17,6 +17,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(params[:id])
 
+    params.permit!
     if @organization.update_attributes(params[:organization])
       redirect_to dashboard_url, notice: t('flash.organizations.updated')
     else
