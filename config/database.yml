@@ -2,6 +2,7 @@ postgresql: &postgresql
   adapter: postgresql
   host: <%= ENV['POSTGRES_HOST'] %>
   user: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   min_messages: ERROR
   pool: 5
   timeout: 5000
