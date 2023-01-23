@@ -33,4 +33,7 @@ COPY --chown=retos --chmod=755 container/initialize-and-start.sh ./
 COPY config ./config
 COPY app ./app
 
+# Ugly patches that make things work
+COPY container/retos/patch/forbidden_attributes_protection.rb vendor/bundle/ruby/2.7.0/gems/activemodel-5.0.7.2/lib/active_model/forbidden_attributes_protection.rb
+
 CMD ["./initialize-and-start.sh"]
