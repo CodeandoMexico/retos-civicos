@@ -4,7 +4,7 @@ CarrierWave.configure do |config|
     aws_access_key_id: ENV['AMAZON_ACCESS_KEY'],
     aws_secret_access_key: ENV['AMAZON_SECRET_KEY']
   }
-  config.fog_directory  = ENV['S3_BUCKET']
+  config.fog_directory  = ENV['AMAZON_S3_BUCKET']
   config.fog_public     = true
 
   config.permissions = 0600
